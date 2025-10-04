@@ -27,6 +27,7 @@ class PackageCleanupPolicyArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
                  skip_trashcan: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a PackageCleanupPolicy resource.
@@ -34,6 +35,7 @@ class PackageCleanupPolicyArgs:
         :param pulumi.Input[_builtins.str] cron_expression: The cron expression that determines when the policy is run, However if left empty the policy will not run automatically and can only be triggered manually.
         :param pulumi.Input[_builtins.int] duration_in_minutes: The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
         :param pulumi.Input[_builtins.bool] enabled: A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
+        :param pulumi.Input[_builtins.str] project_key: This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
         :param pulumi.Input[_builtins.bool] skip_trashcan: A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
         """
         pulumi.set(__self__, "key", key)
@@ -46,6 +48,8 @@ class PackageCleanupPolicyArgs:
             pulumi.set(__self__, "duration_in_minutes", duration_in_minutes)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if project_key is not None:
+            pulumi.set(__self__, "project_key", project_key)
         if skip_trashcan is not None:
             pulumi.set(__self__, "skip_trashcan", skip_trashcan)
 
@@ -116,6 +120,18 @@ class PackageCleanupPolicyArgs:
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
+        """
+        return pulumi.get(self, "project_key")
+
+    @project_key.setter
+    def project_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "project_key", value)
+
+    @_builtins.property
     @pulumi.getter(name="skipTrashcan")
     def skip_trashcan(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -136,6 +152,7 @@ class _PackageCleanupPolicyState:
                  duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  key: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
                  search_criteria: Optional[pulumi.Input['PackageCleanupPolicySearchCriteriaArgs']] = None,
                  skip_trashcan: Optional[pulumi.Input[_builtins.bool]] = None):
         """
@@ -144,6 +161,7 @@ class _PackageCleanupPolicyState:
         :param pulumi.Input[_builtins.int] duration_in_minutes: The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
         :param pulumi.Input[_builtins.bool] enabled: A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
         :param pulumi.Input[_builtins.str] key: An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+        :param pulumi.Input[_builtins.str] project_key: This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
         :param pulumi.Input[_builtins.bool] skip_trashcan: A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
         """
         if cron_expression is not None:
@@ -156,6 +174,8 @@ class _PackageCleanupPolicyState:
             pulumi.set(__self__, "enabled", enabled)
         if key is not None:
             pulumi.set(__self__, "key", key)
+        if project_key is not None:
+            pulumi.set(__self__, "project_key", project_key)
         if search_criteria is not None:
             pulumi.set(__self__, "search_criteria", search_criteria)
         if skip_trashcan is not None:
@@ -219,6 +239,18 @@ class _PackageCleanupPolicyState:
         pulumi.set(self, "key", value)
 
     @_builtins.property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
+        """
+        return pulumi.get(self, "project_key")
+
+    @project_key.setter
+    def project_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "project_key", value)
+
+    @_builtins.property
     @pulumi.getter(name="searchCriteria")
     def search_criteria(self) -> Optional[pulumi.Input['PackageCleanupPolicySearchCriteriaArgs']]:
         return pulumi.get(self, "search_criteria")
@@ -251,6 +283,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
                  duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  key: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
                  search_criteria: Optional[pulumi.Input[Union['PackageCleanupPolicySearchCriteriaArgs', 'PackageCleanupPolicySearchCriteriaArgsDict']]] = None,
                  skip_trashcan: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
@@ -271,6 +304,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] duration_in_minutes: The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
         :param pulumi.Input[_builtins.bool] enabled: A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
         :param pulumi.Input[_builtins.str] key: An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+        :param pulumi.Input[_builtins.str] project_key: This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
         :param pulumi.Input[_builtins.bool] skip_trashcan: A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
         """
         ...
@@ -310,6 +344,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
                  duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  key: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
                  search_criteria: Optional[pulumi.Input[Union['PackageCleanupPolicySearchCriteriaArgs', 'PackageCleanupPolicySearchCriteriaArgsDict']]] = None,
                  skip_trashcan: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
@@ -328,6 +363,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
             __props__.__dict__["key"] = key
+            __props__.__dict__["project_key"] = project_key
             if search_criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'search_criteria'")
             __props__.__dict__["search_criteria"] = search_criteria
@@ -347,6 +383,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
             duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
             enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             key: Optional[pulumi.Input[_builtins.str]] = None,
+            project_key: Optional[pulumi.Input[_builtins.str]] = None,
             search_criteria: Optional[pulumi.Input[Union['PackageCleanupPolicySearchCriteriaArgs', 'PackageCleanupPolicySearchCriteriaArgsDict']]] = None,
             skip_trashcan: Optional[pulumi.Input[_builtins.bool]] = None) -> 'PackageCleanupPolicy':
         """
@@ -360,6 +397,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] duration_in_minutes: The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
         :param pulumi.Input[_builtins.bool] enabled: A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
         :param pulumi.Input[_builtins.str] key: An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+        :param pulumi.Input[_builtins.str] project_key: This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
         :param pulumi.Input[_builtins.bool] skip_trashcan: A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -371,6 +409,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
         __props__.__dict__["duration_in_minutes"] = duration_in_minutes
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["key"] = key
+        __props__.__dict__["project_key"] = project_key
         __props__.__dict__["search_criteria"] = search_criteria
         __props__.__dict__["skip_trashcan"] = skip_trashcan
         return PackageCleanupPolicy(resource_name, opts=opts, __props__=__props__)
@@ -390,7 +429,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="durationInMinutes")
-    def duration_in_minutes(self) -> pulumi.Output[Optional[_builtins.int]]:
+    def duration_in_minutes(self) -> pulumi.Output[_builtins.int]:
         """
         The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
         """
@@ -411,6 +450,14 @@ class PackageCleanupPolicy(pulumi.CustomResource):
         An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
         """
         return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
+        """
+        return pulumi.get(self, "project_key")
 
     @_builtins.property
     @pulumi.getter(name="searchCriteria")

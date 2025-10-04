@@ -12,35 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewRemoteTerraformRepository(ctx, "terraform-remote", &artifactory.RemoteTerraformRepositoryArgs{
-//				Key:                   pulumi.String("terraform-remote"),
-//				Url:                   pulumi.String("https://github.com/"),
-//				TerraformRegistryUrl:  pulumi.String("https://registry.terraform.io"),
-//				TerraformProvidersUrl: pulumi.String("https://releases.hashicorp.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Remote repositories can be imported using their name, e.g.
@@ -62,8 +33,7 @@ type RemoteTerraformRepository struct {
 	BlackedOut pulumi.BoolOutput `pulumi:"blackedOut"`
 	// If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
 	BlockMismatchingMimeTypes pulumi.BoolOutput `pulumi:"blockMismatchingMimeTypes"`
-	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests pulumi.BoolOutput `pulumi:"bypassHeadRequests"`
+	BypassHeadRequests        pulumi.BoolOutput `pulumi:"bypassHeadRequests"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
@@ -193,8 +163,7 @@ type remoteTerraformRepositoryState struct {
 	BlackedOut *bool `pulumi:"blackedOut"`
 	// If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
 	BlockMismatchingMimeTypes *bool `pulumi:"blockMismatchingMimeTypes"`
-	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests *bool `pulumi:"bypassHeadRequests"`
+	BypassHeadRequests        *bool `pulumi:"bypassHeadRequests"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
@@ -282,8 +251,7 @@ type RemoteTerraformRepositoryState struct {
 	BlackedOut pulumi.BoolPtrInput
 	// If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
 	BlockMismatchingMimeTypes pulumi.BoolPtrInput
-	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests pulumi.BoolPtrInput
+	BypassHeadRequests        pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
 	// Client TLS certificate name.
@@ -375,8 +343,7 @@ type remoteTerraformRepositoryArgs struct {
 	BlackedOut *bool `pulumi:"blackedOut"`
 	// If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
 	BlockMismatchingMimeTypes *bool `pulumi:"blockMismatchingMimeTypes"`
-	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests *bool `pulumi:"bypassHeadRequests"`
+	BypassHeadRequests        *bool `pulumi:"bypassHeadRequests"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
@@ -465,8 +432,7 @@ type RemoteTerraformRepositoryArgs struct {
 	BlackedOut pulumi.BoolPtrInput
 	// If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
 	BlockMismatchingMimeTypes pulumi.BoolPtrInput
-	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests pulumi.BoolPtrInput
+	BypassHeadRequests        pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
 	// Client TLS certificate name.
@@ -655,7 +621,6 @@ func (o RemoteTerraformRepositoryOutput) BlockMismatchingMimeTypes() pulumi.Bool
 	return o.ApplyT(func(v *RemoteTerraformRepository) pulumi.BoolOutput { return v.BlockMismatchingMimeTypes }).(pulumi.BoolOutput)
 }
 
-// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 func (o RemoteTerraformRepositoryOutput) BypassHeadRequests() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RemoteTerraformRepository) pulumi.BoolOutput { return v.BypassHeadRequests }).(pulumi.BoolOutput)
 }

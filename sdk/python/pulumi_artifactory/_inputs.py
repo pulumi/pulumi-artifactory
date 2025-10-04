@@ -479,10 +479,21 @@ if not MYPY:
         """
         Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = ["**"]`
         """
+        included_projects: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
+        ~>This setting is relevant only on the global level, for Platform Admins.
+        """
         package_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
         repos: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
         """
         Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = ["**"]`
+        """
+        created_before_in_days: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
+        > **Requires Artifactory 7.111.2 or later.**
+        ~>JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not archived.
         """
         created_before_in_months: NotRequired[pulumi.Input[_builtins.int]]
         """
@@ -492,6 +503,10 @@ if not MYPY:
         """
         Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
         """
+        excluded_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
+        """
+        A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from archival.
+        """
         excluded_repos: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
         Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
@@ -499,12 +514,12 @@ if not MYPY:
         include_all_projects: NotRequired[pulumi.Input[_builtins.bool]]
         """
         Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
-        """
-        included_projects: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
 
-        ~>This setting is relevant only on the global level, for Platform Admins.
+        ~>This attribute is relevant only on the global level, for Platform Admins.
+        """
+        included_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
+        """
+        A key-value pair applied to the lead artifact of a package. Packages with this property will be archived.
         """
         keep_last_n_versions: NotRequired[pulumi.Input[_builtins.int]]
         """
@@ -514,11 +529,15 @@ if not MYPY:
 
         ~>Not all package types support this condition. If you include a package type in your policy that is not compatible with this condition, a validation error (400) is returned. For information on which package types support this condition, see here.
         """
+        last_downloaded_before_in_days: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
+        > **Requires Artifactory 7.111.2 or later.**
+        ~>JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not archived.
+        """
         last_downloaded_before_in_months: NotRequired[pulumi.Input[_builtins.int]]
         """
         The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
-
-        ~>JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not archived.
         """
 elif False:
     ArchivePolicySearchCriteriaArgsDict: TypeAlias = Mapping[str, Any]
@@ -527,49 +546,73 @@ elif False:
 class ArchivePolicySearchCriteriaArgs:
     def __init__(__self__, *,
                  included_packages: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 included_projects: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  package_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  repos: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 created_before_in_days: Optional[pulumi.Input[_builtins.int]] = None,
                  created_before_in_months: Optional[pulumi.Input[_builtins.int]] = None,
                  excluded_packages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 excluded_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
                  excluded_repos: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  include_all_projects: Optional[pulumi.Input[_builtins.bool]] = None,
-                 included_projects: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 included_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
                  keep_last_n_versions: Optional[pulumi.Input[_builtins.int]] = None,
+                 last_downloaded_before_in_days: Optional[pulumi.Input[_builtins.int]] = None,
                  last_downloaded_before_in_months: Optional[pulumi.Input[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] included_packages: Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = ["**"]`
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] included_projects: List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
+               ~>This setting is relevant only on the global level, for Platform Admins.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] repos: Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = ["**"]`
+        :param pulumi.Input[_builtins.int] created_before_in_days: The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
+               > **Requires Artifactory 7.111.2 or later.**
+               ~>JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not archived.
         :param pulumi.Input[_builtins.int] created_before_in_months: The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_packages: Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]] excluded_properties: A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from archival.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_repos: Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
         :param pulumi.Input[_builtins.bool] include_all_projects: Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] included_projects: List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
                
-               ~>This setting is relevant only on the global level, for Platform Admins.
+               ~>This attribute is relevant only on the global level, for Platform Admins.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]] included_properties: A key-value pair applied to the lead artifact of a package. Packages with this property will be archived.
         :param pulumi.Input[_builtins.int] keep_last_n_versions: Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
                
                ~>Versions are determined by creation date.
                
                ~>Not all package types support this condition. If you include a package type in your policy that is not compatible with this condition, a validation error (400) is returned. For information on which package types support this condition, see here.
+        :param pulumi.Input[_builtins.int] last_downloaded_before_in_days: The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
+               > **Requires Artifactory 7.111.2 or later.**
+               ~>JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not archived.
         :param pulumi.Input[_builtins.int] last_downloaded_before_in_months: The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
-               
-               ~>JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not archived.
         """
         pulumi.set(__self__, "included_packages", included_packages)
+        pulumi.set(__self__, "included_projects", included_projects)
         pulumi.set(__self__, "package_types", package_types)
         pulumi.set(__self__, "repos", repos)
+        if created_before_in_days is not None:
+            pulumi.set(__self__, "created_before_in_days", created_before_in_days)
+        if created_before_in_months is not None:
+            warnings.warn("""Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2.""", DeprecationWarning)
+            pulumi.log.warn("""created_before_in_months is deprecated: Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2.""")
         if created_before_in_months is not None:
             pulumi.set(__self__, "created_before_in_months", created_before_in_months)
         if excluded_packages is not None:
             pulumi.set(__self__, "excluded_packages", excluded_packages)
+        if excluded_properties is not None:
+            pulumi.set(__self__, "excluded_properties", excluded_properties)
         if excluded_repos is not None:
             pulumi.set(__self__, "excluded_repos", excluded_repos)
         if include_all_projects is not None:
             pulumi.set(__self__, "include_all_projects", include_all_projects)
-        if included_projects is not None:
-            pulumi.set(__self__, "included_projects", included_projects)
+        if included_properties is not None:
+            pulumi.set(__self__, "included_properties", included_properties)
         if keep_last_n_versions is not None:
             pulumi.set(__self__, "keep_last_n_versions", keep_last_n_versions)
+        if last_downloaded_before_in_days is not None:
+            pulumi.set(__self__, "last_downloaded_before_in_days", last_downloaded_before_in_days)
+        if last_downloaded_before_in_months is not None:
+            warnings.warn("""Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2.""", DeprecationWarning)
+            pulumi.log.warn("""last_downloaded_before_in_months is deprecated: Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2.""")
         if last_downloaded_before_in_months is not None:
             pulumi.set(__self__, "last_downloaded_before_in_months", last_downloaded_before_in_months)
 
@@ -584,6 +627,19 @@ class ArchivePolicySearchCriteriaArgs:
     @included_packages.setter
     def included_packages(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "included_packages", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includedProjects")
+    def included_projects(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
+        ~>This setting is relevant only on the global level, for Platform Admins.
+        """
+        return pulumi.get(self, "included_projects")
+
+    @included_projects.setter
+    def included_projects(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "included_projects", value)
 
     @_builtins.property
     @pulumi.getter(name="packageTypes")
@@ -607,7 +663,22 @@ class ArchivePolicySearchCriteriaArgs:
         pulumi.set(self, "repos", value)
 
     @_builtins.property
+    @pulumi.getter(name="createdBeforeInDays")
+    def created_before_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
+        > **Requires Artifactory 7.111.2 or later.**
+        ~>JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not archived.
+        """
+        return pulumi.get(self, "created_before_in_days")
+
+    @created_before_in_days.setter
+    def created_before_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "created_before_in_days", value)
+
+    @_builtins.property
     @pulumi.getter(name="createdBeforeInMonths")
+    @_utilities.deprecated("""Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2.""")
     def created_before_in_months(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
@@ -631,6 +702,18 @@ class ArchivePolicySearchCriteriaArgs:
         pulumi.set(self, "excluded_packages", value)
 
     @_builtins.property
+    @pulumi.getter(name="excludedProperties")
+    def excluded_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
+        """
+        A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from archival.
+        """
+        return pulumi.get(self, "excluded_properties")
+
+    @excluded_properties.setter
+    def excluded_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
+        pulumi.set(self, "excluded_properties", value)
+
+    @_builtins.property
     @pulumi.getter(name="excludedRepos")
     def excluded_repos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -647,6 +730,8 @@ class ArchivePolicySearchCriteriaArgs:
     def include_all_projects(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+
+        ~>This attribute is relevant only on the global level, for Platform Admins.
         """
         return pulumi.get(self, "include_all_projects")
 
@@ -655,18 +740,16 @@ class ArchivePolicySearchCriteriaArgs:
         pulumi.set(self, "include_all_projects", value)
 
     @_builtins.property
-    @pulumi.getter(name="includedProjects")
-    def included_projects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="includedProperties")
+    def included_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
         """
-        List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
-
-        ~>This setting is relevant only on the global level, for Platform Admins.
+        A key-value pair applied to the lead artifact of a package. Packages with this property will be archived.
         """
-        return pulumi.get(self, "included_projects")
+        return pulumi.get(self, "included_properties")
 
-    @included_projects.setter
-    def included_projects(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "included_projects", value)
+    @included_properties.setter
+    def included_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
+        pulumi.set(self, "included_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="keepLastNVersions")
@@ -685,12 +768,25 @@ class ArchivePolicySearchCriteriaArgs:
         pulumi.set(self, "keep_last_n_versions", value)
 
     @_builtins.property
+    @pulumi.getter(name="lastDownloadedBeforeInDays")
+    def last_downloaded_before_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
+        > **Requires Artifactory 7.111.2 or later.**
+        ~>JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not archived.
+        """
+        return pulumi.get(self, "last_downloaded_before_in_days")
+
+    @last_downloaded_before_in_days.setter
+    def last_downloaded_before_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "last_downloaded_before_in_days", value)
+
+    @_builtins.property
     @pulumi.getter(name="lastDownloadedBeforeInMonths")
+    @_utilities.deprecated("""Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2.""")
     def last_downloaded_before_in_months(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
-
-        ~>JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not archived.
         """
         return pulumi.get(self, "last_downloaded_before_in_months")
 

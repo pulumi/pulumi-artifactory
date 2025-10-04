@@ -10,6 +10,7 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,16 +21,43 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
     public static final ArchivePolicySearchCriteriaArgs Empty = new ArchivePolicySearchCriteriaArgs();
 
     /**
-     * The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+     * The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
+     * &gt; **Requires Artifactory 7.111.2 or later.**
+     * ~&gt;JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not archived.
      * 
      */
+    @Import(name="createdBeforeInDays")
+    private @Nullable Output<Integer> createdBeforeInDays;
+
+    /**
+     * @return The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
+     * &gt; **Requires Artifactory 7.111.2 or later.**
+     * ~&gt;JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not archived.
+     * 
+     */
+    public Optional<Output<Integer>> createdBeforeInDays() {
+        return Optional.ofNullable(this.createdBeforeInDays);
+    }
+
+    /**
+     * The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+     * 
+     * @deprecated
+     * Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2.
+     * 
+     */
+    @Deprecated /* Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2. */
     @Import(name="createdBeforeInMonths")
     private @Nullable Output<Integer> createdBeforeInMonths;
 
     /**
      * @return The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
      * 
+     * @deprecated
+     * Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2.
+     * 
      */
+    @Deprecated /* Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2. */
     public Optional<Output<Integer>> createdBeforeInMonths() {
         return Optional.ofNullable(this.createdBeforeInMonths);
     }
@@ -50,6 +78,21 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
     }
 
     /**
+     * A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from archival.
+     * 
+     */
+    @Import(name="excludedProperties")
+    private @Nullable Output<Map<String,List<String>>> excludedProperties;
+
+    /**
+     * @return A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from archival.
+     * 
+     */
+    public Optional<Output<Map<String,List<String>>>> excludedProperties() {
+        return Optional.ofNullable(this.excludedProperties);
+    }
+
+    /**
      * Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
      * 
      */
@@ -67,12 +110,16 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
     /**
      * Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
      * 
+     * ~&gt;This attribute is relevant only on the global level, for Platform Admins.
+     * 
      */
     @Import(name="includeAllProjects")
     private @Nullable Output<Boolean> includeAllProjects;
 
     /**
      * @return Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+     * 
+     * ~&gt;This attribute is relevant only on the global level, for Platform Admins.
      * 
      */
     public Optional<Output<Boolean>> includeAllProjects() {
@@ -95,22 +142,35 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
     }
 
     /**
-     * List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
-     * 
+     * List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
      * ~&gt;This setting is relevant only on the global level, for Platform Admins.
      * 
      */
-    @Import(name="includedProjects")
-    private @Nullable Output<List<String>> includedProjects;
+    @Import(name="includedProjects", required=true)
+    private Output<List<String>> includedProjects;
 
     /**
-     * @return List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
-     * 
+     * @return List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
      * ~&gt;This setting is relevant only on the global level, for Platform Admins.
      * 
      */
-    public Optional<Output<List<String>>> includedProjects() {
-        return Optional.ofNullable(this.includedProjects);
+    public Output<List<String>> includedProjects() {
+        return this.includedProjects;
+    }
+
+    /**
+     * A key-value pair applied to the lead artifact of a package. Packages with this property will be archived.
+     * 
+     */
+    @Import(name="includedProperties")
+    private @Nullable Output<Map<String,List<String>>> includedProperties;
+
+    /**
+     * @return A key-value pair applied to the lead artifact of a package. Packages with this property will be archived.
+     * 
+     */
+    public Optional<Output<Map<String,List<String>>>> includedProperties() {
+        return Optional.ofNullable(this.includedProperties);
     }
 
     /**
@@ -137,20 +197,43 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
     }
 
     /**
-     * The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
-     * 
-     * ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not archived.
+     * The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
+     * &gt; **Requires Artifactory 7.111.2 or later.**
+     * ~&gt;JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not archived.
      * 
      */
+    @Import(name="lastDownloadedBeforeInDays")
+    private @Nullable Output<Integer> lastDownloadedBeforeInDays;
+
+    /**
+     * @return The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
+     * &gt; **Requires Artifactory 7.111.2 or later.**
+     * ~&gt;JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not archived.
+     * 
+     */
+    public Optional<Output<Integer>> lastDownloadedBeforeInDays() {
+        return Optional.ofNullable(this.lastDownloadedBeforeInDays);
+    }
+
+    /**
+     * The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
+     * 
+     * @deprecated
+     * Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2.
+     * 
+     */
+    @Deprecated /* Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2. */
     @Import(name="lastDownloadedBeforeInMonths")
     private @Nullable Output<Integer> lastDownloadedBeforeInMonths;
 
     /**
      * @return The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
      * 
-     * ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not archived.
+     * @deprecated
+     * Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2.
      * 
      */
+    @Deprecated /* Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2. */
     public Optional<Output<Integer>> lastDownloadedBeforeInMonths() {
         return Optional.ofNullable(this.lastDownloadedBeforeInMonths);
     }
@@ -180,13 +263,17 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
     private ArchivePolicySearchCriteriaArgs() {}
 
     private ArchivePolicySearchCriteriaArgs(ArchivePolicySearchCriteriaArgs $) {
+        this.createdBeforeInDays = $.createdBeforeInDays;
         this.createdBeforeInMonths = $.createdBeforeInMonths;
         this.excludedPackages = $.excludedPackages;
+        this.excludedProperties = $.excludedProperties;
         this.excludedRepos = $.excludedRepos;
         this.includeAllProjects = $.includeAllProjects;
         this.includedPackages = $.includedPackages;
         this.includedProjects = $.includedProjects;
+        this.includedProperties = $.includedProperties;
         this.keepLastNVersions = $.keepLastNVersions;
+        this.lastDownloadedBeforeInDays = $.lastDownloadedBeforeInDays;
         this.lastDownloadedBeforeInMonths = $.lastDownloadedBeforeInMonths;
         this.packageTypes = $.packageTypes;
         this.repos = $.repos;
@@ -211,11 +298,40 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param createdBeforeInMonths The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+         * @param createdBeforeInDays The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
+         * &gt; **Requires Artifactory 7.111.2 or later.**
+         * ~&gt;JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not archived.
          * 
          * @return builder
          * 
          */
+        public Builder createdBeforeInDays(@Nullable Output<Integer> createdBeforeInDays) {
+            $.createdBeforeInDays = createdBeforeInDays;
+            return this;
+        }
+
+        /**
+         * @param createdBeforeInDays The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
+         * &gt; **Requires Artifactory 7.111.2 or later.**
+         * ~&gt;JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not archived.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createdBeforeInDays(Integer createdBeforeInDays) {
+            return createdBeforeInDays(Output.of(createdBeforeInDays));
+        }
+
+        /**
+         * @param createdBeforeInMonths The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2.
+         * 
+         */
+        @Deprecated /* Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2. */
         public Builder createdBeforeInMonths(@Nullable Output<Integer> createdBeforeInMonths) {
             $.createdBeforeInMonths = createdBeforeInMonths;
             return this;
@@ -226,7 +342,11 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2.
+         * 
          */
+        @Deprecated /* Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2. */
         public Builder createdBeforeInMonths(Integer createdBeforeInMonths) {
             return createdBeforeInMonths(Output.of(createdBeforeInMonths));
         }
@@ -263,6 +383,27 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
         }
 
         /**
+         * @param excludedProperties A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from archival.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludedProperties(@Nullable Output<Map<String,List<String>>> excludedProperties) {
+            $.excludedProperties = excludedProperties;
+            return this;
+        }
+
+        /**
+         * @param excludedProperties A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from archival.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludedProperties(Map<String,List<String>> excludedProperties) {
+            return excludedProperties(Output.of(excludedProperties));
+        }
+
+        /**
          * @param excludedRepos Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
          * 
          * @return builder
@@ -296,6 +437,8 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
         /**
          * @param includeAllProjects Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
          * 
+         * ~&gt;This attribute is relevant only on the global level, for Platform Admins.
+         * 
          * @return builder
          * 
          */
@@ -306,6 +449,8 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
 
         /**
          * @param includeAllProjects Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+         * 
+         * ~&gt;This attribute is relevant only on the global level, for Platform Admins.
          * 
          * @return builder
          * 
@@ -346,21 +491,19 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param includedProjects List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
-         * 
+         * @param includedProjects List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
          * ~&gt;This setting is relevant only on the global level, for Platform Admins.
          * 
          * @return builder
          * 
          */
-        public Builder includedProjects(@Nullable Output<List<String>> includedProjects) {
+        public Builder includedProjects(Output<List<String>> includedProjects) {
             $.includedProjects = includedProjects;
             return this;
         }
 
         /**
-         * @param includedProjects List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
-         * 
+         * @param includedProjects List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
          * ~&gt;This setting is relevant only on the global level, for Platform Admins.
          * 
          * @return builder
@@ -371,8 +514,7 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param includedProjects List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
-         * 
+         * @param includedProjects List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
          * ~&gt;This setting is relevant only on the global level, for Platform Admins.
          * 
          * @return builder
@@ -380,6 +522,27 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
          */
         public Builder includedProjects(String... includedProjects) {
             return includedProjects(List.of(includedProjects));
+        }
+
+        /**
+         * @param includedProperties A key-value pair applied to the lead artifact of a package. Packages with this property will be archived.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includedProperties(@Nullable Output<Map<String,List<String>>> includedProperties) {
+            $.includedProperties = includedProperties;
+            return this;
+        }
+
+        /**
+         * @param includedProperties A key-value pair applied to the lead artifact of a package. Packages with this property will be archived.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includedProperties(Map<String,List<String>> includedProperties) {
+            return includedProperties(Output.of(includedProperties));
         }
 
         /**
@@ -412,13 +575,40 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param lastDownloadedBeforeInMonths The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
-         * 
-         * ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not archived.
+         * @param lastDownloadedBeforeInDays The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
+         * &gt; **Requires Artifactory 7.111.2 or later.**
+         * ~&gt;JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not archived.
          * 
          * @return builder
          * 
          */
+        public Builder lastDownloadedBeforeInDays(@Nullable Output<Integer> lastDownloadedBeforeInDays) {
+            $.lastDownloadedBeforeInDays = lastDownloadedBeforeInDays;
+            return this;
+        }
+
+        /**
+         * @param lastDownloadedBeforeInDays The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
+         * &gt; **Requires Artifactory 7.111.2 or later.**
+         * ~&gt;JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not archived.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lastDownloadedBeforeInDays(Integer lastDownloadedBeforeInDays) {
+            return lastDownloadedBeforeInDays(Output.of(lastDownloadedBeforeInDays));
+        }
+
+        /**
+         * @param lastDownloadedBeforeInMonths The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2.
+         * 
+         */
+        @Deprecated /* Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2. */
         public Builder lastDownloadedBeforeInMonths(@Nullable Output<Integer> lastDownloadedBeforeInMonths) {
             $.lastDownloadedBeforeInMonths = lastDownloadedBeforeInMonths;
             return this;
@@ -427,11 +617,13 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
         /**
          * @param lastDownloadedBeforeInMonths The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
          * 
-         * ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not archived.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2.
+         * 
          */
+        @Deprecated /* Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2. */
         public Builder lastDownloadedBeforeInMonths(Integer lastDownloadedBeforeInMonths) {
             return lastDownloadedBeforeInMonths(Output.of(lastDownloadedBeforeInMonths));
         }
@@ -483,6 +675,9 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
         public ArchivePolicySearchCriteriaArgs build() {
             if ($.includedPackages == null) {
                 throw new MissingRequiredPropertyException("ArchivePolicySearchCriteriaArgs", "includedPackages");
+            }
+            if ($.includedProjects == null) {
+                throw new MissingRequiredPropertyException("ArchivePolicySearchCriteriaArgs", "includedProjects");
             }
             if ($.packageTypes == null) {
                 throw new MissingRequiredPropertyException("ArchivePolicySearchCriteriaArgs", "packageTypes");

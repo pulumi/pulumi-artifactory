@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_ansible = new artifactory.RemoteAlpineRepository("my-remote-ansible", {
+ * const my_remote_ansible = new artifactory.RemoteAnsibleRepository("my-remote-ansible", {
  *     key: "my-remote-ansible",
  *     url: "https://galaxy.ansible.com",
  * });

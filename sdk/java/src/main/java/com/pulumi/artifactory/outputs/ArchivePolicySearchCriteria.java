@@ -9,6 +9,7 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,9 +17,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ArchivePolicySearchCriteria {
     /**
-     * @return The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+     * @return The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
+     * &gt; **Requires Artifactory 7.111.2 or later.**
+     * ~&gt;JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not archived.
      * 
      */
+    private @Nullable Integer createdBeforeInDays;
+    /**
+     * @return The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+     * 
+     * @deprecated
+     * Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2.
+     * 
+     */
+    @Deprecated /* Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2. */
     private @Nullable Integer createdBeforeInMonths;
     /**
      * @return Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
@@ -26,12 +38,19 @@ public final class ArchivePolicySearchCriteria {
      */
     private @Nullable List<String> excludedPackages;
     /**
+     * @return A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from archival.
+     * 
+     */
+    private @Nullable Map<String,List<String>> excludedProperties;
+    /**
      * @return Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
      * 
      */
     private @Nullable List<String> excludedRepos;
     /**
      * @return Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+     * 
+     * ~&gt;This attribute is relevant only on the global level, for Platform Admins.
      * 
      */
     private @Nullable Boolean includeAllProjects;
@@ -41,12 +60,16 @@ public final class ArchivePolicySearchCriteria {
      */
     private List<String> includedPackages;
     /**
-     * @return List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
-     * 
+     * @return List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
      * ~&gt;This setting is relevant only on the global level, for Platform Admins.
      * 
      */
-    private @Nullable List<String> includedProjects;
+    private List<String> includedProjects;
+    /**
+     * @return A key-value pair applied to the lead artifact of a package. Packages with this property will be archived.
+     * 
+     */
+    private @Nullable Map<String,List<String>> includedProperties;
     /**
      * @return Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
      * 
@@ -57,11 +80,20 @@ public final class ArchivePolicySearchCriteria {
      */
     private @Nullable Integer keepLastNVersions;
     /**
-     * @return The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
-     * 
-     * ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not archived.
+     * @return The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
+     * &gt; **Requires Artifactory 7.111.2 or later.**
+     * ~&gt;JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not archived.
      * 
      */
+    private @Nullable Integer lastDownloadedBeforeInDays;
+    /**
+     * @return The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
+     * 
+     * @deprecated
+     * Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2.
+     * 
+     */
+    @Deprecated /* Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2. */
     private @Nullable Integer lastDownloadedBeforeInMonths;
     private List<String> packageTypes;
     /**
@@ -72,9 +104,22 @@ public final class ArchivePolicySearchCriteria {
 
     private ArchivePolicySearchCriteria() {}
     /**
-     * @return The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+     * @return The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
+     * &gt; **Requires Artifactory 7.111.2 or later.**
+     * ~&gt;JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not archived.
      * 
      */
+    public Optional<Integer> createdBeforeInDays() {
+        return Optional.ofNullable(this.createdBeforeInDays);
+    }
+    /**
+     * @return The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+     * 
+     * @deprecated
+     * Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2.
+     * 
+     */
+    @Deprecated /* Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2. */
     public Optional<Integer> createdBeforeInMonths() {
         return Optional.ofNullable(this.createdBeforeInMonths);
     }
@@ -86,6 +131,13 @@ public final class ArchivePolicySearchCriteria {
         return this.excludedPackages == null ? List.of() : this.excludedPackages;
     }
     /**
+     * @return A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from archival.
+     * 
+     */
+    public Map<String,List<String>> excludedProperties() {
+        return this.excludedProperties == null ? Map.of() : this.excludedProperties;
+    }
+    /**
      * @return Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
      * 
      */
@@ -94,6 +146,8 @@ public final class ArchivePolicySearchCriteria {
     }
     /**
      * @return Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+     * 
+     * ~&gt;This attribute is relevant only on the global level, for Platform Admins.
      * 
      */
     public Optional<Boolean> includeAllProjects() {
@@ -107,13 +161,19 @@ public final class ArchivePolicySearchCriteria {
         return this.includedPackages;
     }
     /**
-     * @return List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
-     * 
+     * @return List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
      * ~&gt;This setting is relevant only on the global level, for Platform Admins.
      * 
      */
     public List<String> includedProjects() {
-        return this.includedProjects == null ? List.of() : this.includedProjects;
+        return this.includedProjects;
+    }
+    /**
+     * @return A key-value pair applied to the lead artifact of a package. Packages with this property will be archived.
+     * 
+     */
+    public Map<String,List<String>> includedProperties() {
+        return this.includedProperties == null ? Map.of() : this.includedProperties;
     }
     /**
      * @return Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
@@ -127,11 +187,22 @@ public final class ArchivePolicySearchCriteria {
         return Optional.ofNullable(this.keepLastNVersions);
     }
     /**
-     * @return The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
-     * 
-     * ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not archived.
+     * @return The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
+     * &gt; **Requires Artifactory 7.111.2 or later.**
+     * ~&gt;JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not archived.
      * 
      */
+    public Optional<Integer> lastDownloadedBeforeInDays() {
+        return Optional.ofNullable(this.lastDownloadedBeforeInDays);
+    }
+    /**
+     * @return The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
+     * 
+     * @deprecated
+     * Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2.
+     * 
+     */
+    @Deprecated /* Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2. */
     public Optional<Integer> lastDownloadedBeforeInMonths() {
         return Optional.ofNullable(this.lastDownloadedBeforeInMonths);
     }
@@ -155,31 +226,45 @@ public final class ArchivePolicySearchCriteria {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Integer createdBeforeInDays;
         private @Nullable Integer createdBeforeInMonths;
         private @Nullable List<String> excludedPackages;
+        private @Nullable Map<String,List<String>> excludedProperties;
         private @Nullable List<String> excludedRepos;
         private @Nullable Boolean includeAllProjects;
         private List<String> includedPackages;
-        private @Nullable List<String> includedProjects;
+        private List<String> includedProjects;
+        private @Nullable Map<String,List<String>> includedProperties;
         private @Nullable Integer keepLastNVersions;
+        private @Nullable Integer lastDownloadedBeforeInDays;
         private @Nullable Integer lastDownloadedBeforeInMonths;
         private List<String> packageTypes;
         private List<String> repos;
         public Builder() {}
         public Builder(ArchivePolicySearchCriteria defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.createdBeforeInDays = defaults.createdBeforeInDays;
     	      this.createdBeforeInMonths = defaults.createdBeforeInMonths;
     	      this.excludedPackages = defaults.excludedPackages;
+    	      this.excludedProperties = defaults.excludedProperties;
     	      this.excludedRepos = defaults.excludedRepos;
     	      this.includeAllProjects = defaults.includeAllProjects;
     	      this.includedPackages = defaults.includedPackages;
     	      this.includedProjects = defaults.includedProjects;
+    	      this.includedProperties = defaults.includedProperties;
     	      this.keepLastNVersions = defaults.keepLastNVersions;
+    	      this.lastDownloadedBeforeInDays = defaults.lastDownloadedBeforeInDays;
     	      this.lastDownloadedBeforeInMonths = defaults.lastDownloadedBeforeInMonths;
     	      this.packageTypes = defaults.packageTypes;
     	      this.repos = defaults.repos;
         }
 
+        @CustomType.Setter
+        public Builder createdBeforeInDays(@Nullable Integer createdBeforeInDays) {
+
+            this.createdBeforeInDays = createdBeforeInDays;
+            return this;
+        }
         @CustomType.Setter
         public Builder createdBeforeInMonths(@Nullable Integer createdBeforeInMonths) {
 
@@ -194,6 +279,12 @@ public final class ArchivePolicySearchCriteria {
         }
         public Builder excludedPackages(String... excludedPackages) {
             return excludedPackages(List.of(excludedPackages));
+        }
+        @CustomType.Setter
+        public Builder excludedProperties(@Nullable Map<String,List<String>> excludedProperties) {
+
+            this.excludedProperties = excludedProperties;
+            return this;
         }
         @CustomType.Setter
         public Builder excludedRepos(@Nullable List<String> excludedRepos) {
@@ -222,8 +313,10 @@ public final class ArchivePolicySearchCriteria {
             return includedPackages(List.of(includedPackages));
         }
         @CustomType.Setter
-        public Builder includedProjects(@Nullable List<String> includedProjects) {
-
+        public Builder includedProjects(List<String> includedProjects) {
+            if (includedProjects == null) {
+              throw new MissingRequiredPropertyException("ArchivePolicySearchCriteria", "includedProjects");
+            }
             this.includedProjects = includedProjects;
             return this;
         }
@@ -231,9 +324,21 @@ public final class ArchivePolicySearchCriteria {
             return includedProjects(List.of(includedProjects));
         }
         @CustomType.Setter
+        public Builder includedProperties(@Nullable Map<String,List<String>> includedProperties) {
+
+            this.includedProperties = includedProperties;
+            return this;
+        }
+        @CustomType.Setter
         public Builder keepLastNVersions(@Nullable Integer keepLastNVersions) {
 
             this.keepLastNVersions = keepLastNVersions;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder lastDownloadedBeforeInDays(@Nullable Integer lastDownloadedBeforeInDays) {
+
+            this.lastDownloadedBeforeInDays = lastDownloadedBeforeInDays;
             return this;
         }
         @CustomType.Setter
@@ -266,13 +371,17 @@ public final class ArchivePolicySearchCriteria {
         }
         public ArchivePolicySearchCriteria build() {
             final var _resultValue = new ArchivePolicySearchCriteria();
+            _resultValue.createdBeforeInDays = createdBeforeInDays;
             _resultValue.createdBeforeInMonths = createdBeforeInMonths;
             _resultValue.excludedPackages = excludedPackages;
+            _resultValue.excludedProperties = excludedProperties;
             _resultValue.excludedRepos = excludedRepos;
             _resultValue.includeAllProjects = includeAllProjects;
             _resultValue.includedPackages = includedPackages;
             _resultValue.includedProjects = includedProjects;
+            _resultValue.includedProperties = includedProperties;
             _resultValue.keepLastNVersions = keepLastNVersions;
+            _resultValue.lastDownloadedBeforeInDays = lastDownloadedBeforeInDays;
             _resultValue.lastDownloadedBeforeInMonths = lastDownloadedBeforeInMonths;
             _resultValue.packageTypes = packageTypes;
             _resultValue.repos = repos;

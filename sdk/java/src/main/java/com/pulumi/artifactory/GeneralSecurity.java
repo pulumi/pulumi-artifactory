@@ -47,7 +47,74 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Configure Artifactory general security settings
  *         var security = new GeneralSecurity("security", GeneralSecurityArgs.builder()
+ *             .enableAnonymousAccess(false)
+ *             .encryptionPolicy("REQUIRED")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.GeneralSecurity;
+ * import com.pulumi.artifactory.GeneralSecurityArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Enable anonymous access with supported encryption
+ *         var security = new GeneralSecurity("security", GeneralSecurityArgs.builder()
  *             .enableAnonymousAccess(true)
+ *             .encryptionPolicy("SUPPORTED")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.GeneralSecurity;
+ * import com.pulumi.artifactory.GeneralSecurityArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Disable encryption policy (clear-text only)
+ *         var security = new GeneralSecurity("security", GeneralSecurityArgs.builder()
+ *             .enableAnonymousAccess(false)
+ *             .encryptionPolicy("UNSUPPORTED")
  *             .build());
  * 
  *     }
@@ -62,35 +129,44 @@ import javax.annotation.Nullable;
  * ```sh
  * $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
  * ```
- * ~&gt;The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS
- * environments, or may change without notice.
+ * ~&gt;The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
  * 
  */
 @ResourceType(type="artifactory:index/generalSecurity:GeneralSecurity")
 public class GeneralSecurity extends com.pulumi.resources.CustomResource {
     /**
-     * Enable anonymous access.  Default value is `false`.
+     * Enable anonymous access. Default value is `false`.
      * 
      */
     @Export(name="enableAnonymousAccess", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableAnonymousAccess;
 
     /**
-     * @return Enable anonymous access.  Default value is `false`.
+     * @return Enable anonymous access. Default value is `false`.
      * 
      */
     public Output<Boolean> enableAnonymousAccess() {
         return this.enableAnonymousAccess;
     }
     /**
-     * Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords. (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3) `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+     * Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are:
+     * - `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
+     * - `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails.
+     * - `UNSUPPORTED`: Only clear-text passwords can be used for authentication.
+     * 
+     * Default value is `SUPPORTED`.
      * 
      */
     @Export(name="encryptionPolicy", refs={String.class}, tree="[0]")
     private Output<String> encryptionPolicy;
 
     /**
-     * @return Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords. (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3) `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+     * @return Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are:
+     * - `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
+     * - `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails.
+     * - `UNSUPPORTED`: Only clear-text passwords can be used for authentication.
+     * 
+     * Default value is `SUPPORTED`.
      * 
      */
     public Output<String> encryptionPolicy() {

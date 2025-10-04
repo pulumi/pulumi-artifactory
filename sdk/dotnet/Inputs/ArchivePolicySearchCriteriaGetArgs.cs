@@ -13,6 +13,14 @@ namespace Pulumi.Artifactory.Inputs
     public sealed class ArchivePolicySearchCriteriaGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
+        /// &gt; **Requires Artifactory 7.111.2 or later.**
+        /// ~&gt;JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not archived.
+        /// </summary>
+        [Input("createdBeforeInDays")]
+        public Input<int>? CreatedBeforeInDays { get; set; }
+
+        /// <summary>
         /// The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
         /// </summary>
         [Input("createdBeforeInMonths")]
@@ -30,6 +38,18 @@ namespace Pulumi.Artifactory.Inputs
             set => _excludedPackages = value;
         }
 
+        [Input("excludedProperties")]
+        private InputMap<ImmutableArray<string>>? _excludedProperties;
+
+        /// <summary>
+        /// A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from archival.
+        /// </summary>
+        public InputMap<ImmutableArray<string>> ExcludedProperties
+        {
+            get => _excludedProperties ?? (_excludedProperties = new InputMap<ImmutableArray<string>>());
+            set => _excludedProperties = value;
+        }
+
         [Input("excludedRepos")]
         private InputList<string>? _excludedRepos;
 
@@ -44,6 +64,8 @@ namespace Pulumi.Artifactory.Inputs
 
         /// <summary>
         /// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+        /// 
+        /// ~&gt;This attribute is relevant only on the global level, for Platform Admins.
         /// </summary>
         [Input("includeAllProjects")]
         public Input<bool>? IncludeAllProjects { get; set; }
@@ -60,18 +82,29 @@ namespace Pulumi.Artifactory.Inputs
             set => _includedPackages = value;
         }
 
-        [Input("includedProjects")]
+        [Input("includedProjects", required: true)]
         private InputList<string>? _includedProjects;
 
         /// <summary>
-        /// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
-        /// 
+        /// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
         /// ~&gt;This setting is relevant only on the global level, for Platform Admins.
         /// </summary>
         public InputList<string> IncludedProjects
         {
             get => _includedProjects ?? (_includedProjects = new InputList<string>());
             set => _includedProjects = value;
+        }
+
+        [Input("includedProperties")]
+        private InputMap<ImmutableArray<string>>? _includedProperties;
+
+        /// <summary>
+        /// A key-value pair applied to the lead artifact of a package. Packages with this property will be archived.
+        /// </summary>
+        public InputMap<ImmutableArray<string>> IncludedProperties
+        {
+            get => _includedProperties ?? (_includedProperties = new InputMap<ImmutableArray<string>>());
+            set => _includedProperties = value;
         }
 
         /// <summary>
@@ -85,9 +118,15 @@ namespace Pulumi.Artifactory.Inputs
         public Input<int>? KeepLastNVersions { get; set; }
 
         /// <summary>
+        /// The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
+        /// &gt; **Requires Artifactory 7.111.2 or later.**
+        /// ~&gt;JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not archived.
+        /// </summary>
+        [Input("lastDownloadedBeforeInDays")]
+        public Input<int>? LastDownloadedBeforeInDays { get; set; }
+
+        /// <summary>
         /// The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
-        /// 
-        /// ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not archived.
         /// </summary>
         [Input("lastDownloadedBeforeInMonths")]
         public Input<int>? LastDownloadedBeforeInMonths { get; set; }

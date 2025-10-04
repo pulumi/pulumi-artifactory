@@ -10,27 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var terraform_remote = new Artifactory.RemoteTerraformRepository("terraform-remote", new()
-    ///     {
-    ///         Key = "terraform-remote",
-    ///         Url = "https://github.com/",
-    ///         TerraformRegistryUrl = "https://registry.terraform.io",
-    ///         TerraformProvidersUrl = "https://releases.hashicorp.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Remote repositories can be imported using their name, e.g.
@@ -73,9 +52,6 @@ namespace Pulumi.Artifactory
         [Output("blockMismatchingMimeTypes")]
         public Output<bool> BlockMismatchingMimeTypes { get; private set; } = null!;
 
-        /// <summary>
-        /// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        /// </summary>
         [Output("bypassHeadRequests")]
         public Output<bool> BypassHeadRequests { get; private set; } = null!;
 
@@ -374,9 +350,6 @@ namespace Pulumi.Artifactory
         [Input("blockMismatchingMimeTypes")]
         public Input<bool>? BlockMismatchingMimeTypes { get; set; }
 
-        /// <summary>
-        /// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        /// </summary>
         [Input("bypassHeadRequests")]
         public Input<bool>? BypassHeadRequests { get; set; }
 
@@ -653,9 +626,6 @@ namespace Pulumi.Artifactory
         [Input("blockMismatchingMimeTypes")]
         public Input<bool>? BlockMismatchingMimeTypes { get; set; }
 
-        /// <summary>
-        /// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        /// </summary>
         [Input("bypassHeadRequests")]
         public Input<bool>? BypassHeadRequests { get; set; }
 

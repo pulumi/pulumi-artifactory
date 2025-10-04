@@ -7,7 +7,15 @@ import * as outputs from "../types/output";
 
 export interface ArchivePolicySearchCriteria {
     /**
+     * The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
+     * > **Requires Artifactory 7.111.2 or later.**
+     * ~>JFrog recommends using the `createdBeforeInDays` condition to ensure that packages currently in use are not archived.
+     */
+    createdBeforeInDays?: pulumi.Input<number>;
+    /**
      * The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+     *
+     * @deprecated Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
      */
     createdBeforeInMonths?: pulumi.Input<number>;
     /**
@@ -15,11 +23,17 @@ export interface ArchivePolicySearchCriteria {
      */
     excludedPackages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from archival.
+     */
+    excludedProperties?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+    /**
      * Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
      */
     excludedRepos?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+     *
+     * ~>This attribute is relevant only on the global level, for Platform Admins.
      */
     includeAllProjects?: pulumi.Input<boolean>;
     /**
@@ -27,11 +41,14 @@ export interface ArchivePolicySearchCriteria {
      */
     includedPackages: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
-     *
+     * List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `includeAllProjects` is set to `true`.
      * ~>This setting is relevant only on the global level, for Platform Admins.
      */
-    includedProjects?: pulumi.Input<pulumi.Input<string>[]>;
+    includedProjects: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A key-value pair applied to the lead artifact of a package. Packages with this property will be archived.
+     */
+    includedProperties?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
     /**
      * Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
      *
@@ -41,9 +58,15 @@ export interface ArchivePolicySearchCriteria {
      */
     keepLastNVersions?: pulumi.Input<number>;
     /**
+     * The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
+     * > **Requires Artifactory 7.111.2 or later.**
+     * ~>JFrog recommends using the `lastDownloadedBeforeInDays` condition to ensure that packages currently in use are not archived.
+     */
+    lastDownloadedBeforeInDays?: pulumi.Input<number>;
+    /**
      * The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
      *
-     * ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not archived.
+     * @deprecated Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
      */
     lastDownloadedBeforeInMonths?: pulumi.Input<number>;
     packageTypes: pulumi.Input<pulumi.Input<string>[]>;

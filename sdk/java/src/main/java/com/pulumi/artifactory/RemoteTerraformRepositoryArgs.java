@@ -97,17 +97,9 @@ public final class RemoteTerraformRepositoryArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.blockMismatchingMimeTypes);
     }
 
-    /**
-     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-     * 
-     */
     @Import(name="bypassHeadRequests")
     private @Nullable Output<Boolean> bypassHeadRequests;
 
-    /**
-     * @return Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-     * 
-     */
     public Optional<Output<Boolean>> bypassHeadRequests() {
         return Optional.ofNullable(this.bypassHeadRequests);
     }
@@ -830,23 +822,11 @@ public final class RemoteTerraformRepositoryArgs extends com.pulumi.resources.Re
             return blockMismatchingMimeTypes(Output.of(blockMismatchingMimeTypes));
         }
 
-        /**
-         * @param bypassHeadRequests Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bypassHeadRequests(@Nullable Output<Boolean> bypassHeadRequests) {
             $.bypassHeadRequests = bypassHeadRequests;
             return this;
         }
 
-        /**
-         * @param bypassHeadRequests Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bypassHeadRequests(Boolean bypassHeadRequests) {
             return bypassHeadRequests(Output.of(bypassHeadRequests));
         }
