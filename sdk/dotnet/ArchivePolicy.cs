@@ -39,7 +39,7 @@ namespace Pulumi.Artifactory
         public Output<int> DurationInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
+        /// Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `True`
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.Artifactory
         public Output<Outputs.ArchivePolicySearchCriteria> SearchCriteria { get; private set; } = null!;
 
         /// <summary>
-        /// A `true` value means that when this policy is executed, packages will be permanently deleted. `false` means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
+        /// A `True` value means that when this policy is executed, packages will be permanently deleted. `False` means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `False`.
         /// </summary>
         [Output("skipTrashcan")]
         public Output<bool> SkipTrashcan { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Artifactory
         public Input<int>? DurationInMinutes { get; set; }
 
         /// <summary>
-        /// Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
+        /// Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `True`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -148,7 +148,7 @@ namespace Pulumi.Artifactory
         public Input<Inputs.ArchivePolicySearchCriteriaArgs> SearchCriteria { get; set; } = null!;
 
         /// <summary>
-        /// A `true` value means that when this policy is executed, packages will be permanently deleted. `false` means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
+        /// A `True` value means that when this policy is executed, packages will be permanently deleted. `False` means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `False`.
         /// </summary>
         [Input("skipTrashcan")]
         public Input<bool>? SkipTrashcan { get; set; }
@@ -177,7 +177,7 @@ namespace Pulumi.Artifactory
         public Input<int>? DurationInMinutes { get; set; }
 
         /// <summary>
-        /// Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
+        /// Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `True`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -198,7 +198,7 @@ namespace Pulumi.Artifactory
         public Input<Inputs.ArchivePolicySearchCriteriaGetArgs>? SearchCriteria { get; set; }
 
         /// <summary>
-        /// A `true` value means that when this policy is executed, packages will be permanently deleted. `false` means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
+        /// A `True` value means that when this policy is executed, packages will be permanently deleted. `False` means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `False`.
         /// </summary>
         [Input("skipTrashcan")]
         public Input<bool>? SkipTrashcan { get; set; }

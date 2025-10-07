@@ -136,7 +136,7 @@ namespace Pulumi.Artifactory
         public string? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is `False`.
         /// </summary>
         [Input("forceConanAuthentication")]
         public bool? ForceConanAuthentication { get; set; }
@@ -300,7 +300,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is `False`.
         /// </summary>
         [Input("forceConanAuthentication")]
         public Input<bool>? ForceConanAuthentication { get; set; }
@@ -438,7 +438,7 @@ namespace Pulumi.Artifactory
         public readonly bool? EnableCookieManagement;
         public readonly string? ExcludesPattern;
         /// <summary>
-        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is `False`.
         /// </summary>
         public readonly bool? ForceConanAuthentication;
         public readonly bool? HardFail;

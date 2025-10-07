@@ -362,14 +362,14 @@ public final class RemoteConanRepositoryArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The set of mime types that should override the block_mismatching_mime_types setting. Eg: &#39;application/json,application/xml&#39;. Default value is empty.
+     * The set of mime types that should override the blockMismatchingMimeTypes setting. Eg: &#39;application/json,application/xml&#39;. Default value is empty.
      * 
      */
     @Import(name="mismatchingMimeTypesOverrideList")
     private @Nullable Output<String> mismatchingMimeTypesOverrideList;
 
     /**
-     * @return The set of mime types that should override the block_mismatching_mime_types setting. Eg: &#39;application/json,application/xml&#39;. Default value is empty.
+     * @return The set of mime types that should override the blockMismatchingMimeTypes setting. Eg: &#39;application/json,application/xml&#39;. Default value is empty.
      * 
      */
     public Optional<Output<String>> mismatchingMimeTypesOverrideList() {
@@ -481,14 +481,14 @@ public final class RemoteConanRepositoryArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Proxy key from Artifactory Proxies settings. Can&#39;t be set if `disable_proxy = true`.
+     * Proxy key from Artifactory Proxies settings. Can&#39;t be set if `disableProxy = true`.
      * 
      */
     @Import(name="proxy")
     private @Nullable Output<String> proxy;
 
     /**
-     * @return Proxy key from Artifactory Proxies settings. Can&#39;t be set if `disable_proxy = true`.
+     * @return Proxy key from Artifactory Proxies settings. Can&#39;t be set if `disableProxy = true`.
      * 
      */
     public Optional<Output<String>> proxy() {
@@ -1215,7 +1215,7 @@ public final class RemoteConanRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param mismatchingMimeTypesOverrideList The set of mime types that should override the block_mismatching_mime_types setting. Eg: &#39;application/json,application/xml&#39;. Default value is empty.
+         * @param mismatchingMimeTypesOverrideList The set of mime types that should override the blockMismatchingMimeTypes setting. Eg: &#39;application/json,application/xml&#39;. Default value is empty.
          * 
          * @return builder
          * 
@@ -1226,7 +1226,7 @@ public final class RemoteConanRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param mismatchingMimeTypesOverrideList The set of mime types that should override the block_mismatching_mime_types setting. Eg: &#39;application/json,application/xml&#39;. Default value is empty.
+         * @param mismatchingMimeTypesOverrideList The set of mime types that should override the blockMismatchingMimeTypes setting. Eg: &#39;application/json,application/xml&#39;. Default value is empty.
          * 
          * @return builder
          * 
@@ -1394,7 +1394,7 @@ public final class RemoteConanRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param proxy Proxy key from Artifactory Proxies settings. Can&#39;t be set if `disable_proxy = true`.
+         * @param proxy Proxy key from Artifactory Proxies settings. Can&#39;t be set if `disableProxy = true`.
          * 
          * @return builder
          * 
@@ -1405,7 +1405,7 @@ public final class RemoteConanRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param proxy Proxy key from Artifactory Proxies settings. Can&#39;t be set if `disable_proxy = true`.
+         * @param proxy Proxy key from Artifactory Proxies settings. Can&#39;t be set if `disableProxy = true`.
          * 
          * @return builder
          * 

@@ -62,7 +62,7 @@ public final class GetGroupResult {
      */
     private @Nullable Boolean reportsManager;
     /**
-     * @return List of users assigned to the group. Set include_users to `true` to retrieve this list.
+     * @return List of users assigned to the group. Set includeUsers to `true` to retrieve this list.
      * 
      */
     private @Nullable List<String> usersNames;
@@ -143,7 +143,7 @@ public final class GetGroupResult {
         return Optional.ofNullable(this.reportsManager);
     }
     /**
-     * @return List of users assigned to the group. Set include_users to `true` to retrieve this list.
+     * @return List of users assigned to the group. Set includeUsers to `true` to retrieve this list.
      * 
      */
     public List<String> usersNames() {

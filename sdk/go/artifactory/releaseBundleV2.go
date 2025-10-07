@@ -13,6 +13,94 @@ import (
 )
 
 // This resource enables you to creates a new Release Bundle v2, uniquely identified by a combination of repository key, name, and version. For more information, see [Understanding Release Bundles v2](https://jfrog.com/help/r/jfrog-artifactory-documentation/understanding-release-bundles-v2) and [REST API](https://jfrog.com/help/r/jfrog-rest-apis/create-release-bundle-v2-version).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewReleaseBundleV2(ctx, "my-release-bundle-v2-aql", &artifactory.ReleaseBundleV2Args{
+//				Name:                         pulumi.String("my-release-bundle-v2-aql"),
+//				Version:                      pulumi.String("1.0.0"),
+//				KeypairName:                  pulumi.String("my-keypair-name"),
+//				ProjectKey:                   pulumi.String("myproj-key"),
+//				SkipDockerManifestResolution: pulumi.Bool(true),
+//				SourceType:                   pulumi.String("aql"),
+//				Source: &artifactory.ReleaseBundleV2SourceArgs{
+//					Aql: pulumi.String("items.find({\"repo\": {\"$match\": \"my-generic-*\"}})"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewReleaseBundleV2(ctx, "my-release-bundle-v2-artifacts", &artifactory.ReleaseBundleV2Args{
+//				Name:                         pulumi.String("my-release-bundle-v2-artifacts"),
+//				Version:                      pulumi.String("1.0.0"),
+//				KeypairName:                  pulumi.String("my-keypair-name"),
+//				SkipDockerManifestResolution: pulumi.Bool(true),
+//				SourceType:                   pulumi.String("artifacts"),
+//				Source: &artifactory.ReleaseBundleV2SourceArgs{
+//					Artifacts: artifactory.ReleaseBundleV2SourceArtifactArray{
+//						&artifactory.ReleaseBundleV2SourceArtifactArgs{
+//							Path:   pulumi.String("commons-qa-maven-local/org/apache/tomcat/commons/1.0.0/commons-1.0.0.jar"),
+//							Sha256: pulumi.String("0d2053f76605e0734f5251a78c5dade5ee81b0f3730b3f603aedb90bc58033fb"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewReleaseBundleV2(ctx, "my-release-bundle-v2-builds", &artifactory.ReleaseBundleV2Args{
+//				Name:                         pulumi.String("my-release-bundle-v2-builds"),
+//				Version:                      pulumi.String("1.0.0"),
+//				KeypairName:                  pulumi.String("my-keypair-name"),
+//				SkipDockerManifestResolution: pulumi.Bool(true),
+//				SourceType:                   pulumi.String("builds"),
+//				Source: &artifactory.ReleaseBundleV2SourceArgs{
+//					Builds: artifactory.ReleaseBundleV2SourceBuildArray{
+//						&artifactory.ReleaseBundleV2SourceBuildArgs{
+//							Name:   pulumi.String("my-build-info-name"),
+//							Number: pulumi.String("1.0"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewReleaseBundleV2(ctx, "my-release-bundle-v2-rb", &artifactory.ReleaseBundleV2Args{
+//				Name:                         pulumi.String("my-release-bundle-v2-rb"),
+//				Version:                      pulumi.String("2.0.0"),
+//				KeypairName:                  pulumi.String("my-keypair-name"),
+//				SkipDockerManifestResolution: pulumi.Bool(true),
+//				SourceType:                   pulumi.String("release_bundles"),
+//				Source: &artifactory.ReleaseBundleV2SourceArgs{
+//					Release_bundles: []map[string]interface{}{
+//						map[string]interface{}{
+//							"name":    "my-rb-name",
+//							"version": "1.0.0",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type ReleaseBundleV2 struct {
 	pulumi.CustomResourceState
 

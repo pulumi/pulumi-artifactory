@@ -94,13 +94,13 @@ namespace Pulumi.Artifactory
         public Output<string> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
+        /// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `True`.
         /// </summary>
         [Output("handleReleases")]
         public Output<bool> HandleReleases { get; private set; } = null!;
 
         /// <summary>
-        /// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
+        /// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `True`.
         /// </summary>
         [Output("handleSnapshots")]
         public Output<bool> HandleSnapshots { get; private set; } = null!;
@@ -272,13 +272,13 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
+        /// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `True`.
         /// </summary>
         [Input("handleReleases")]
         public Input<bool>? HandleReleases { get; set; }
 
         /// <summary>
-        /// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
+        /// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `True`.
         /// </summary>
         [Input("handleSnapshots")]
         public Input<bool>? HandleSnapshots { get; set; }
@@ -423,13 +423,13 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
+        /// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `True`.
         /// </summary>
         [Input("handleReleases")]
         public Input<bool>? HandleReleases { get; set; }
 
         /// <summary>
-        /// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
+        /// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `True`.
         /// </summary>
         [Input("handleSnapshots")]
         public Input<bool>? HandleSnapshots { get; set; }

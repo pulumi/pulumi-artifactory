@@ -106,7 +106,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<Outputs.PropertySetProperty>> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
+        /// Defines if the list visible and assignable to the repository or artifact. Default value is `True`.
         /// </summary>
         [Output("visible")]
         public Output<bool> Visible { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
+        /// Defines if the list visible and assignable to the repository or artifact. Default value is `True`.
         /// </summary>
         [Input("visible")]
         public Input<bool>? Visible { get; set; }
@@ -208,7 +208,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
+        /// Defines if the list visible and assignable to the repository or artifact. Default value is `True`.
         /// </summary>
         [Input("visible")]
         public Input<bool>? Visible { get; set; }

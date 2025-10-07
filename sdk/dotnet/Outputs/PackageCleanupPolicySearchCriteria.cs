@@ -16,13 +16,13 @@ namespace Pulumi.Artifactory.Outputs
         /// <summary>
         /// The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 5 then packages created more than 5 days ago will be deleted as part of the policy.
         /// 
-        /// ~&gt;JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not deleted.
+        /// ~&gt;JFrog recommends using the `CreatedBeforeInDays` condition to ensure that packages currently in use are not deleted.
         /// </summary>
         public readonly int? CreatedBeforeInDays;
         /// <summary>
         /// The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be deleted as part of the policy.
         /// 
-        /// ~&gt;JFrog recommends using the `created_before_in_months` condition to ensure that packages currently in use are not deleted.
+        /// ~&gt;JFrog recommends using the `CreatedBeforeInMonths` condition to ensure that packages currently in use are not deleted.
         /// </summary>
         public readonly int? CreatedBeforeInMonths;
         /// <summary>
@@ -38,17 +38,17 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ExcludedRepos;
         /// <summary>
-        /// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+        /// Set this value to `True` if you want the policy to run on all Artifactory projects. The default value is `False`.
         /// 
         ///  ~&gt;This parameter is relevant only on the global level, for Platform Admins.
         /// </summary>
         public readonly bool? IncludeAllProjects;
         /// <summary>
-        /// Specify a pattern for a package name or an explicit package name on which you want the cleanup policy to run. Only one pattern or explicit name can be entered. To include all packages, use `**`. Example: `included_packages = ["**"]`
+        /// Specify a pattern for a package name or an explicit package name on which you want the cleanup policy to run. Only one pattern or explicit name can be entered. To include all packages, use `**`. Example: `IncludedPackages = ["**"]`
         /// </summary>
         public readonly ImmutableArray<string> IncludedPackages;
         /// <summary>
-        /// Enter the project keys for the projects on which you want the policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
+        /// Enter the project keys for the projects on which you want the policy to run. To include repositories that are not assigned to any project, enter the project key `Default`. Can be empty when `IncludeAllProjects` is set to `True`.
         /// </summary>
         public readonly ImmutableArray<string> IncludedProjects;
         /// <summary>
@@ -64,13 +64,13 @@ namespace Pulumi.Artifactory.Outputs
         /// <summary>
         /// The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be deleted as part of the policy.
         /// 
-        /// ~&gt;JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not deleted.
+        /// ~&gt;JFrog recommends using the `LastDownloadedBeforeInDays` condition to ensure that packages currently in use are not deleted.
         /// </summary>
         public readonly int? LastDownloadedBeforeInDays;
         /// <summary>
         /// The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be deleted as part of the policy.
         /// 
-        /// ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not deleted.
+        /// ~&gt;JFrog recommends using the `LastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not deleted.
         /// </summary>
         public readonly int? LastDownloadedBeforeInMonths;
         public readonly ImmutableArray<string> PackageTypes;

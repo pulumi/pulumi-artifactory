@@ -153,14 +153,14 @@ public final class LdapGroupSettingV2Args extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `sub_tree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
+     * When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `subTree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
      * 
      */
     @Import(name="subTree")
     private @Nullable Output<Boolean> subTree;
 
     /**
-     * @return When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `sub_tree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
+     * @return When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `subTree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
      * 
      */
     public Optional<Output<Boolean>> subTree() {
@@ -390,7 +390,7 @@ public final class LdapGroupSettingV2Args extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subTree When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `sub_tree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
+         * @param subTree When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `subTree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class LdapGroupSettingV2Args extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subTree When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `sub_tree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
+         * @param subTree When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `subTree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
          * 
          * @return builder
          * 

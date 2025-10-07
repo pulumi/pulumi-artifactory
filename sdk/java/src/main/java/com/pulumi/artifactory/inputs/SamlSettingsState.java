@@ -167,14 +167,14 @@ public final class SamlSettingsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
+     * Associate user with Artifactory groups based on the `groupAttribute` provided in the SAML response from the identity provider.  Default value is `false`.
      * 
      */
     @Import(name="syncGroups")
     private @Nullable Output<Boolean> syncGroups;
 
     /**
-     * @return Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
+     * @return Associate user with Artifactory groups based on the `groupAttribute` provided in the SAML response from the identity provider.  Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> syncGroups() {
@@ -458,7 +458,7 @@ public final class SamlSettingsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param syncGroups Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
+         * @param syncGroups Associate user with Artifactory groups based on the `groupAttribute` provided in the SAML response from the identity provider.  Default value is `false`.
          * 
          * @return builder
          * 
@@ -469,7 +469,7 @@ public final class SamlSettingsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param syncGroups Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
+         * @param syncGroups Associate user with Artifactory groups based on the `groupAttribute` provided in the SAML response from the identity provider.  Default value is `false`.
          * 
          * @return builder
          * 

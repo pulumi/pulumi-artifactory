@@ -111,7 +111,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> RedirectToHosts { get; private set; } = null!;
 
         /// <summary>
-        /// An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
+        /// An optional list of services names to which this proxy be the default of. The options are `Jfrt`, `Jfmc`, `Jfxr`, `Jfds`.
         /// </summary>
         [Output("services")]
         public Output<ImmutableArray<string>> Services { get; private set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _services;
 
         /// <summary>
-        /// An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
+        /// An optional list of services names to which this proxy be the default of. The options are `Jfrt`, `Jfmc`, `Jfxr`, `Jfds`.
         /// </summary>
         public InputList<string> Services
         {
@@ -330,7 +330,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _services;
 
         /// <summary>
-        /// An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
+        /// An optional list of services names to which this proxy be the default of. The options are `Jfrt`, `Jfmc`, `Jfxr`, `Jfds`.
         /// </summary>
         public InputList<string> Services
         {

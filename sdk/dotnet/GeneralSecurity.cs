@@ -85,7 +85,7 @@ namespace Pulumi.Artifactory
     public partial class GeneralSecurity : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Enable anonymous access. Default value is `false`.
+        /// Enable anonymous access. Default value is `False`.
         /// </summary>
         [Output("enableAnonymousAccess")]
         public Output<bool> EnableAnonymousAccess { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Artifactory
     public sealed class GeneralSecurityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable anonymous access. Default value is `false`.
+        /// Enable anonymous access. Default value is `False`.
         /// </summary>
         [Input("enableAnonymousAccess")]
         public Input<bool>? EnableAnonymousAccess { get; set; }
@@ -173,7 +173,7 @@ namespace Pulumi.Artifactory
     public sealed class GeneralSecurityState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable anonymous access. Default value is `false`.
+        /// Enable anonymous access. Default value is `False`.
         /// </summary>
         [Input("enableAnonymousAccess")]
         public Input<bool>? EnableAnonymousAccess { get; set; }

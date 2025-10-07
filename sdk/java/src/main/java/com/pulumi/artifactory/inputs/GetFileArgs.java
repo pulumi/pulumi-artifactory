@@ -18,14 +18,14 @@ public final class GetFileArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetFileArgs Empty = new GetFileArgs();
 
     /**
-     * If set to true, an existing file in the output_path will be overwritten. Default: `false`
+     * If set to true, an existing file in the outputPath will be overwritten. Default: `false`
      * 
      */
     @Import(name="forceOverwrite")
     private @Nullable Output<Boolean> forceOverwrite;
 
     /**
-     * @return If set to true, an existing file in the output_path will be overwritten. Default: `false`
+     * @return If set to true, an existing file in the outputPath will be overwritten. Default: `false`
      * 
      */
     public Optional<Output<Boolean>> forceOverwrite() {
@@ -121,7 +121,7 @@ public final class GetFileArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param forceOverwrite If set to true, an existing file in the output_path will be overwritten. Default: `false`
+         * @param forceOverwrite If set to true, an existing file in the outputPath will be overwritten. Default: `false`
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class GetFileArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param forceOverwrite If set to true, an existing file in the output_path will be overwritten. Default: `false`
+         * @param forceOverwrite If set to true, an existing file in the outputPath will be overwritten. Default: `false`
          * 
          * @return builder
          * 

@@ -70,7 +70,7 @@ public final class GetRemoteVcsRepositoryResult {
     private @Nullable String url;
     private @Nullable String username;
     /**
-     * @return (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * @return (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
      * 
      */
     private @Nullable String vcsGitDownloadUrl;
@@ -226,7 +226,7 @@ public final class GetRemoteVcsRepositoryResult {
         return Optional.ofNullable(this.username);
     }
     /**
-     * @return (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * @return (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
      * 
      */
     public Optional<String> vcsGitDownloadUrl() {

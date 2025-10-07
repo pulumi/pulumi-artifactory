@@ -124,7 +124,7 @@ namespace Pulumi.Artifactory
         public string? ExternalId { get; set; }
 
         /// <summary>
-        /// Determines if the group's associated user list will return as an attribute. Default is `false`.
+        /// Determines if the group's associated user list will return as an attribute. Default is `False`.
         /// </summary>
         [Input("includeUsers")]
         public string? IncludeUsers { get; set; }
@@ -136,7 +136,7 @@ namespace Pulumi.Artifactory
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
+        /// When this override is set, User in the group can set Xray security and compliance policies. Default value is `False`.
         /// </summary>
         [Input("policyManager")]
         public bool? PolicyManager { get; set; }
@@ -154,7 +154,7 @@ namespace Pulumi.Artifactory
         public string? RealmAttributes { get; set; }
 
         /// <summary>
-        /// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+        /// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `False`.
         /// </summary>
         [Input("reportsManager")]
         public bool? ReportsManager { get; set; }
@@ -163,7 +163,7 @@ namespace Pulumi.Artifactory
         private List<string>? _usersNames;
 
         /// <summary>
-        /// List of users assigned to the group. Set include_users to `true` to retrieve this list.
+        /// List of users assigned to the group. Set IncludeUsers to `True` to retrieve this list.
         /// </summary>
         public List<string> UsersNames
         {
@@ -172,7 +172,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
+        /// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `False`.
         /// </summary>
         [Input("watchManager")]
         public bool? WatchManager { get; set; }
@@ -210,7 +210,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExternalId { get; set; }
 
         /// <summary>
-        /// Determines if the group's associated user list will return as an attribute. Default is `false`.
+        /// Determines if the group's associated user list will return as an attribute. Default is `False`.
         /// </summary>
         [Input("includeUsers")]
         public Input<string>? IncludeUsers { get; set; }
@@ -222,7 +222,7 @@ namespace Pulumi.Artifactory
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
+        /// When this override is set, User in the group can set Xray security and compliance policies. Default value is `False`.
         /// </summary>
         [Input("policyManager")]
         public Input<bool>? PolicyManager { get; set; }
@@ -240,7 +240,7 @@ namespace Pulumi.Artifactory
         public Input<string>? RealmAttributes { get; set; }
 
         /// <summary>
-        /// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+        /// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `False`.
         /// </summary>
         [Input("reportsManager")]
         public Input<bool>? ReportsManager { get; set; }
@@ -249,7 +249,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _usersNames;
 
         /// <summary>
-        /// List of users assigned to the group. Set include_users to `true` to retrieve this list.
+        /// List of users assigned to the group. Set IncludeUsers to `True` to retrieve this list.
         /// </summary>
         public InputList<string> UsersNames
         {
@@ -258,7 +258,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
+        /// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `False`.
         /// </summary>
         [Input("watchManager")]
         public Input<bool>? WatchManager { get; set; }
@@ -296,7 +296,7 @@ namespace Pulumi.Artifactory
         public readonly string? IncludeUsers;
         public readonly string Name;
         /// <summary>
-        /// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
+        /// When this override is set, User in the group can set Xray security and compliance policies. Default value is `False`.
         /// </summary>
         public readonly bool? PolicyManager;
         /// <summary>
@@ -308,15 +308,15 @@ namespace Pulumi.Artifactory
         /// </summary>
         public readonly string? RealmAttributes;
         /// <summary>
-        /// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+        /// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `False`.
         /// </summary>
         public readonly bool? ReportsManager;
         /// <summary>
-        /// List of users assigned to the group. Set include_users to `true` to retrieve this list.
+        /// List of users assigned to the group. Set IncludeUsers to `True` to retrieve this list.
         /// </summary>
         public readonly ImmutableArray<string> UsersNames;
         /// <summary>
-        /// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
+        /// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `False`.
         /// </summary>
         public readonly bool? WatchManager;
 

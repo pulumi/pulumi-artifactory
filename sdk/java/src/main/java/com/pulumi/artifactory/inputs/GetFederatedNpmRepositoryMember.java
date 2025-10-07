@@ -17,14 +17,14 @@ public final class GetFederatedNpmRepositoryMember extends com.pulumi.resources.
     public static final GetFederatedNpmRepositoryMember Empty = new GetFederatedNpmRepositoryMember();
 
     /**
-     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      * 
      */
     @Import(name="accessToken")
     private @Nullable String accessToken;
 
     /**
-     * @return Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+     * @return Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      * 
      */
     public Optional<String> accessToken() {
@@ -90,7 +90,7 @@ public final class GetFederatedNpmRepositoryMember extends com.pulumi.resources.
         }
 
         /**
-         * @param accessToken Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+         * @param accessToken Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
          * 
          * @return builder
          * 

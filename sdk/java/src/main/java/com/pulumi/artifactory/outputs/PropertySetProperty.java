@@ -16,12 +16,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PropertySetProperty {
     /**
-     * @return Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
+     * @return Disables `multipleChoice` if set to `false` at the same time with multipleChoice set to `true`. Default value is `false`
      * 
      */
     private @Nullable Boolean closedPredefinedValues;
     /**
-     * @return Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
+     * @return Defines if user can select multiple values. `closedPredefinedValues` should be set to `true`. Default value is `false`.
      * 
      */
     private @Nullable Boolean multipleChoice;
@@ -31,21 +31,21 @@ public final class PropertySetProperty {
      */
     private String name;
     /**
-     * @return Properties in the property set. Predefined values is mandatory when closed_predefined_values or multiple_choice is set to &#39;true&#39;
+     * @return Properties in the property set. Predefined values is mandatory when closedPredefinedValues or multipleChoice is set to &#39;true&#39;
      * 
      */
     private @Nullable List<PropertySetPropertyPredefinedValue> predefinedValues;
 
     private PropertySetProperty() {}
     /**
-     * @return Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
+     * @return Disables `multipleChoice` if set to `false` at the same time with multipleChoice set to `true`. Default value is `false`
      * 
      */
     public Optional<Boolean> closedPredefinedValues() {
         return Optional.ofNullable(this.closedPredefinedValues);
     }
     /**
-     * @return Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
+     * @return Defines if user can select multiple values. `closedPredefinedValues` should be set to `true`. Default value is `false`.
      * 
      */
     public Optional<Boolean> multipleChoice() {
@@ -59,7 +59,7 @@ public final class PropertySetProperty {
         return this.name;
     }
     /**
-     * @return Properties in the property set. Predefined values is mandatory when closed_predefined_values or multiple_choice is set to &#39;true&#39;
+     * @return Properties in the property set. Predefined values is mandatory when closedPredefinedValues or multipleChoice is set to &#39;true&#39;
      * 
      */
     public List<PropertySetPropertyPredefinedValue> predefinedValues() {

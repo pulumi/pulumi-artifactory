@@ -147,7 +147,7 @@ public class Keypair extends com.pulumi.resources.CustomResource {
     /**
      * Public key. PEM format will be validated. Must not include extranous spaces or tabs.
      * 
-     * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
+     * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `privateKey` and `passphrase`, but consumes these keys in the POST call.
      * 
      */
     @Export(name="publicKey", refs={String.class}, tree="[0]")
@@ -156,7 +156,7 @@ public class Keypair extends com.pulumi.resources.CustomResource {
     /**
      * @return Public key. PEM format will be validated. Must not include extranous spaces or tabs.
      * 
-     * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
+     * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `privateKey` and `passphrase`, but consumes these keys in the POST call.
      * 
      */
     public Output<String> publicKey() {
