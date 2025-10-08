@@ -47,7 +47,7 @@ namespace Pulumi.Artifactory.Inputs
         }
 
         /// <summary>
-        /// Enable the Artifactory OAuth provider.  Default value is `true`.
+        /// Enable the Artifactory OAuth provider.  Default value is `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -65,7 +65,7 @@ namespace Pulumi.Artifactory.Inputs
         public Input<string> TokenUrl { get; set; } = null!;
 
         /// <summary>
-        /// Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
+        /// Type of OAuth provider. (e.g., `Github`, `Google`, `Cloudfoundry`, or `openId`)
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

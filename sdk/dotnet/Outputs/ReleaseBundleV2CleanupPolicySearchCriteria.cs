@@ -18,15 +18,15 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly int? CreatedBeforeInMonths;
         /// <summary>
-        /// A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `exclude_promoted_environments = ["**"]`
+        /// A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `ExcludePromotedEnvironments = ["**"]`
         /// </summary>
         public readonly ImmutableArray<string> ExcludePromotedEnvironments;
         /// <summary>
-        /// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+        /// Set this value to `True` if you want the policy to run on all Artifactory projects. The default value is `False`.
         /// </summary>
         public readonly bool? IncludeAllProjects;
         /// <summary>
-        /// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+        /// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `Default`.
         /// 
         /// ~&gt;This setting is relevant only on the global level, for Platform Admins.
         /// </summary>

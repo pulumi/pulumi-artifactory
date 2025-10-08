@@ -65,7 +65,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> ExcludedRepositoryKeys { get; private set; } = null!;
 
         /// <summary>
-        /// Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+        /// Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `ExcludedRepositoryKeys`).
         /// </summary>
         [Output("includedRepositoryKeys")]
         public Output<ImmutableArray<string>> IncludedRepositoryKeys { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _includedRepositoryKeys;
 
         /// <summary>
-        /// Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+        /// Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `ExcludedRepositoryKeys`).
         /// </summary>
         public InputList<string> IncludedRepositoryKeys
         {
@@ -236,7 +236,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _includedRepositoryKeys;
 
         /// <summary>
-        /// Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+        /// Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `ExcludedRepositoryKeys`).
         /// </summary>
         public InputList<string> IncludedRepositoryKeys
         {

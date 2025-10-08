@@ -202,14 +202,14 @@ public class LdapGroupSettingV2 extends com.pulumi.resources.CustomResource {
         return this.strategy;
     }
     /**
-     * When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `sub_tree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
+     * When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `subTree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
      * 
      */
     @Export(name="subTree", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> subTree;
 
     /**
-     * @return When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `sub_tree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
+     * @return When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `subTree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
      * 
      */
     public Output<Boolean> subTree() {

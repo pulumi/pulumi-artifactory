@@ -60,13 +60,13 @@ namespace Pulumi.Artifactory
         public Output<string> Alias { get; private set; } = null!;
 
         /// <summary>
-        /// PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
+        /// PEM-encoded client certificate and private key. Cannot be set with `File` attribute simultaneously.
         /// </summary>
         [Output("content")]
         public Output<string?> Content { get; private set; } = null!;
 
         /// <summary>
-        /// Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+        /// Path to the PEM file. Cannot be set with `Content` attribute simultaneously.
         /// </summary>
         [Output("file")]
         public Output<string?> File { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Artifactory
         private Input<string>? _content;
 
         /// <summary>
-        /// PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
+        /// PEM-encoded client certificate and private key. Cannot be set with `File` attribute simultaneously.
         /// </summary>
         public Input<string>? Content
         {
@@ -178,7 +178,7 @@ namespace Pulumi.Artifactory
         private Input<string>? _file;
 
         /// <summary>
-        /// Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+        /// Path to the PEM file. Cannot be set with `Content` attribute simultaneously.
         /// </summary>
         public Input<string>? File
         {
@@ -208,7 +208,7 @@ namespace Pulumi.Artifactory
         private Input<string>? _content;
 
         /// <summary>
-        /// PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
+        /// PEM-encoded client certificate and private key. Cannot be set with `File` attribute simultaneously.
         /// </summary>
         public Input<string>? Content
         {
@@ -224,7 +224,7 @@ namespace Pulumi.Artifactory
         private Input<string>? _file;
 
         /// <summary>
-        /// Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+        /// Path to the PEM file. Cannot be set with `Content` attribute simultaneously.
         /// </summary>
         public Input<string>? File
         {

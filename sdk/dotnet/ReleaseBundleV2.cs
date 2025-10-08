@@ -11,6 +11,93 @@ namespace Pulumi.Artifactory
 {
     /// <summary>
     /// This resource enables you to creates a new Release Bundle v2, uniquely identified by a combination of repository key, name, and version. For more information, see [Understanding Release Bundles v2](https://jfrog.com/help/r/jfrog-artifactory-documentation/understanding-release-bundles-v2) and [REST API](https://jfrog.com/help/r/jfrog-rest-apis/create-release-bundle-v2-version).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var my_release_bundle_v2_aql = new Artifactory.ReleaseBundleV2("my-release-bundle-v2-aql", new()
+    ///     {
+    ///         Name = "my-release-bundle-v2-aql",
+    ///         Version = "1.0.0",
+    ///         KeypairName = "my-keypair-name",
+    ///         ProjectKey = "myproj-key",
+    ///         SkipDockerManifestResolution = true,
+    ///         SourceType = "aql",
+    ///         Source = new Artifactory.Inputs.ReleaseBundleV2SourceArgs
+    ///         {
+    ///             Aql = "items.find({\"repo\": {\"$match\": \"my-generic-*\"}})",
+    ///         },
+    ///     });
+    /// 
+    ///     var my_release_bundle_v2_artifacts = new Artifactory.ReleaseBundleV2("my-release-bundle-v2-artifacts", new()
+    ///     {
+    ///         Name = "my-release-bundle-v2-artifacts",
+    ///         Version = "1.0.0",
+    ///         KeypairName = "my-keypair-name",
+    ///         SkipDockerManifestResolution = true,
+    ///         SourceType = "artifacts",
+    ///         Source = new Artifactory.Inputs.ReleaseBundleV2SourceArgs
+    ///         {
+    ///             Artifacts = new[]
+    ///             {
+    ///                 new Artifactory.Inputs.ReleaseBundleV2SourceArtifactArgs
+    ///                 {
+    ///                     Path = "commons-qa-maven-local/org/apache/tomcat/commons/1.0.0/commons-1.0.0.jar",
+    ///                     Sha256 = "0d2053f76605e0734f5251a78c5dade5ee81b0f3730b3f603aedb90bc58033fb",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var my_release_bundle_v2_builds = new Artifactory.ReleaseBundleV2("my-release-bundle-v2-builds", new()
+    ///     {
+    ///         Name = "my-release-bundle-v2-builds",
+    ///         Version = "1.0.0",
+    ///         KeypairName = "my-keypair-name",
+    ///         SkipDockerManifestResolution = true,
+    ///         SourceType = "builds",
+    ///         Source = new Artifactory.Inputs.ReleaseBundleV2SourceArgs
+    ///         {
+    ///             Builds = new[]
+    ///             {
+    ///                 new Artifactory.Inputs.ReleaseBundleV2SourceBuildArgs
+    ///                 {
+    ///                     Name = "my-build-info-name",
+    ///                     Number = "1.0",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var my_release_bundle_v2_rb = new Artifactory.ReleaseBundleV2("my-release-bundle-v2-rb", new()
+    ///     {
+    ///         Name = "my-release-bundle-v2-rb",
+    ///         Version = "2.0.0",
+    ///         KeypairName = "my-keypair-name",
+    ///         SkipDockerManifestResolution = true,
+    ///         SourceType = "release_bundles",
+    ///         Source = new Artifactory.Inputs.ReleaseBundleV2SourceArgs
+    ///         {
+    ///             Release_bundles = new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "name", "my-rb-name" },
+    ///                     { "version", "1.0.0" },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/releaseBundleV2:ReleaseBundleV2")]
     public partial class ReleaseBundleV2 : global::Pulumi.CustomResource
@@ -52,19 +139,19 @@ namespace Pulumi.Artifactory
         public Output<string> ServiceId { get; private set; } = null!;
 
         /// <summary>
-        /// Determines whether to skip the resolution of the Docker manifest, which adds the image layers to the Release Bundle. The default value is `false` (the manifest is resolved and image layers are included).
+        /// Determines whether to skip the resolution of the Docker manifest, which adds the image layers to the Release Bundle. The default value is `False` (the manifest is resolved and image layers are included).
         /// </summary>
         [Output("skipDockerManifestResolution")]
         public Output<bool> SkipDockerManifestResolution { get; private set; } = null!;
 
         /// <summary>
-        /// Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+        /// Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `ExcludedRepositoryKeys`).
         /// </summary>
         [Output("source")]
         public Output<Outputs.ReleaseBundleV2Source> Source { get; private set; } = null!;
 
         /// <summary>
-        /// Source type. Valid values: `aql`, `artifacts`, `builds`, `release_bundles`
+        /// Source type. Valid values: `Aql`, `Artifacts`, `Builds`, `ReleaseBundles`
         /// </summary>
         [Output("sourceType")]
         public Output<string> SourceType { get; private set; } = null!;
@@ -140,19 +227,19 @@ namespace Pulumi.Artifactory
         public Input<string>? ProjectKey { get; set; }
 
         /// <summary>
-        /// Determines whether to skip the resolution of the Docker manifest, which adds the image layers to the Release Bundle. The default value is `false` (the manifest is resolved and image layers are included).
+        /// Determines whether to skip the resolution of the Docker manifest, which adds the image layers to the Release Bundle. The default value is `False` (the manifest is resolved and image layers are included).
         /// </summary>
         [Input("skipDockerManifestResolution")]
         public Input<bool>? SkipDockerManifestResolution { get; set; }
 
         /// <summary>
-        /// Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+        /// Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `ExcludedRepositoryKeys`).
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.ReleaseBundleV2SourceArgs> Source { get; set; } = null!;
 
         /// <summary>
-        /// Source type. Valid values: `aql`, `artifacts`, `builds`, `release_bundles`
+        /// Source type. Valid values: `Aql`, `Artifacts`, `Builds`, `ReleaseBundles`
         /// </summary>
         [Input("sourceType", required: true)]
         public Input<string> SourceType { get; set; } = null!;
@@ -208,19 +295,19 @@ namespace Pulumi.Artifactory
         public Input<string>? ServiceId { get; set; }
 
         /// <summary>
-        /// Determines whether to skip the resolution of the Docker manifest, which adds the image layers to the Release Bundle. The default value is `false` (the manifest is resolved and image layers are included).
+        /// Determines whether to skip the resolution of the Docker manifest, which adds the image layers to the Release Bundle. The default value is `False` (the manifest is resolved and image layers are included).
         /// </summary>
         [Input("skipDockerManifestResolution")]
         public Input<bool>? SkipDockerManifestResolution { get; set; }
 
         /// <summary>
-        /// Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+        /// Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `ExcludedRepositoryKeys`).
         /// </summary>
         [Input("source")]
         public Input<Inputs.ReleaseBundleV2SourceGetArgs>? Source { get; set; }
 
         /// <summary>
-        /// Source type. Valid values: `aql`, `artifacts`, `builds`, `release_bundles`
+        /// Source type. Valid values: `Aql`, `Artifacts`, `Builds`, `ReleaseBundles`
         /// </summary>
         [Input("sourceType")]
         public Input<string>? SourceType { get; set; }

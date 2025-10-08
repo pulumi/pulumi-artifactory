@@ -16,6 +16,67 @@ import (
 //
 // ~>Release Bundles V2 Cleanup Policies APIs are supported on Artifactory version 7.104.2 and later.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewReleaseBundleV2(ctx, "my-release-bundle-v2-rb", &artifactory.ReleaseBundleV2Args{
+//				Name:                         pulumi.String("my-release-bundle-v2-rb"),
+//				Version:                      pulumi.String("2.0.0"),
+//				KeypairName:                  pulumi.String("my-keypair-name"),
+//				SkipDockerManifestResolution: pulumi.Bool(true),
+//				SourceType:                   pulumi.String("release_bundles"),
+//				Source: &artifactory.ReleaseBundleV2SourceArgs{
+//					Release_bundles: []map[string]interface{}{
+//						map[string]interface{}{
+//							"name":    "my-rb-name",
+//							"version": "1.0.0",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewReleaseBundleV2CleanupPolicy(ctx, "my-resource-bundle-v2-cleanup-policy", &artifactory.ReleaseBundleV2CleanupPolicyArgs{
+//				Key:               pulumi.String("my-release-bundle-v2-policy-key"),
+//				Description:       pulumi.String("Cleanup policy description"),
+//				CronExpression:    pulumi.String("0 0 2 * * ?"),
+//				DurationInMinutes: pulumi.Int(60),
+//				Enabled:           pulumi.Bool(true),
+//				SearchCriteria: &artifactory.ReleaseBundleV2CleanupPolicySearchCriteriaArgs{
+//					Include_all_projects: true,
+//					Included_projects:    []interface{}{},
+//					Release_bundles: []map[string]interface{}{
+//						map[string]interface{}{
+//							"name":       "my-release-bundle-v2-rb",
+//							"projectKey": "",
+//						},
+//					},
+//					Exclude_promoted_environments: []string{
+//						"**",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

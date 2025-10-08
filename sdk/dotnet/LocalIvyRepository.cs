@@ -148,7 +148,7 @@ namespace Pulumi.Artifactory
         public Output<string> RepoLayoutRef { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the naming convention for Maven SNAPSHOT versions. The options are - `unique`: Version number is based on a time-stamp (default), `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type, `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+        /// Specifies the naming convention for Maven SNAPSHOT versions. The options are - `Unique`: Version number is based on a time-stamp (default), `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type, `Deployer`: Respects the settings in the Maven client that is deploying the artifact.
         /// </summary>
         [Output("snapshotVersionBehavior")]
         public Output<string> SnapshotVersionBehavior { get; private set; } = null!;
@@ -329,7 +329,7 @@ namespace Pulumi.Artifactory
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// Specifies the naming convention for Maven SNAPSHOT versions. The options are - `unique`: Version number is based on a time-stamp (default), `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type, `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+        /// Specifies the naming convention for Maven SNAPSHOT versions. The options are - `Unique`: Version number is based on a time-stamp (default), `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type, `Deployer`: Respects the settings in the Maven client that is deploying the artifact.
         /// </summary>
         [Input("snapshotVersionBehavior")]
         public Input<string>? SnapshotVersionBehavior { get; set; }
@@ -472,7 +472,7 @@ namespace Pulumi.Artifactory
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// Specifies the naming convention for Maven SNAPSHOT versions. The options are - `unique`: Version number is based on a time-stamp (default), `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type, `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+        /// Specifies the naming convention for Maven SNAPSHOT versions. The options are - `Unique`: Version number is based on a time-stamp (default), `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type, `Deployer`: Respects the settings in the Maven client that is deploying the artifact.
         /// </summary>
         [Input("snapshotVersionBehavior")]
         public Input<string>? SnapshotVersionBehavior { get; set; }

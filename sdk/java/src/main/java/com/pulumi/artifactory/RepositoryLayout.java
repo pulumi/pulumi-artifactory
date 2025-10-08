@@ -97,14 +97,14 @@ public class RepositoryLayout extends com.pulumi.resources.CustomResource {
         return this.descriptorPathPattern;
     }
     /**
-     * When set, `descriptor_path_pattern` will be used. Default to `false`.
+     * When set, `descriptorPathPattern` will be used. Default to `false`.
      * 
      */
     @Export(name="distinctiveDescriptorPathPattern", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> distinctiveDescriptorPathPattern;
 
     /**
-     * @return When set, `descriptor_path_pattern` will be used. Default to `false`.
+     * @return When set, `descriptorPathPattern` will be used. Default to `false`.
      * 
      */
     public Output<Boolean> distinctiveDescriptorPathPattern() {

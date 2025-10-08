@@ -22,6 +22,70 @@ import javax.annotation.Nullable;
  * 
  * ~&gt;Release Bundles V2 Cleanup Policies APIs are supported on Artifactory version 7.104.2 and later.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.ReleaseBundleV2;
+ * import com.pulumi.artifactory.ReleaseBundleV2Args;
+ * import com.pulumi.artifactory.inputs.ReleaseBundleV2SourceArgs;
+ * import com.pulumi.artifactory.ReleaseBundleV2CleanupPolicy;
+ * import com.pulumi.artifactory.ReleaseBundleV2CleanupPolicyArgs;
+ * import com.pulumi.artifactory.inputs.ReleaseBundleV2CleanupPolicySearchCriteriaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var my_release_bundle_v2_rb = new ReleaseBundleV2("my-release-bundle-v2-rb", ReleaseBundleV2Args.builder()
+ *             .name("my-release-bundle-v2-rb")
+ *             .version("2.0.0")
+ *             .keypairName("my-keypair-name")
+ *             .skipDockerManifestResolution(true)
+ *             .sourceType("release_bundles")
+ *             .source(ReleaseBundleV2SourceArgs.builder()
+ *                 .release_bundles(List.of(Map.ofEntries(
+ *                     Map.entry("name", "my-rb-name"),
+ *                     Map.entry("version", "1.0.0")
+ *                 )))
+ *                 .build())
+ *             .build());
+ * 
+ *         var my_resource_bundle_v2_cleanup_policy = new ReleaseBundleV2CleanupPolicy("my-resource-bundle-v2-cleanup-policy", ReleaseBundleV2CleanupPolicyArgs.builder()
+ *             .key("my-release-bundle-v2-policy-key")
+ *             .description("Cleanup policy description")
+ *             .cronExpression("0 0 2 * * ?")
+ *             .durationInMinutes(60)
+ *             .enabled(true)
+ *             .searchCriteria(ReleaseBundleV2CleanupPolicySearchCriteriaArgs.builder()
+ *                 .include_all_projects(true)
+ *                 .included_projects(List.of())
+ *                 .release_bundles(List.of(Map.ofEntries(
+ *                     Map.entry("name", "my-release-bundle-v2-rb"),
+ *                     Map.entry("projectKey", "")
+ *                 )))
+ *                 .exclude_promoted_environments(List.of("**"))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ```sh

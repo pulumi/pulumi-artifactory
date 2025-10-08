@@ -60,7 +60,7 @@ namespace Pulumi.Artifactory
     public partial class Backup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`
+        /// If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `False`
         /// </summary>
         [Output("createArchive")]
         public Output<bool> CreateArchive { get; private set; } = null!;
@@ -72,13 +72,13 @@ namespace Pulumi.Artifactory
         public Output<string> CronExp { get; private set; } = null!;
 
         /// <summary>
-        /// Flag to enable or disable the backup config. Default value is `true`.
+        /// Flag to enable or disable the backup config. Default value is `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// When set to true, new repositories will not be automatically added to the backup. Default value is `false`.
+        /// When set to true, new repositories will not be automatically added to the backup. Default value is `False`.
         /// </summary>
         [Output("excludeNewRepositories")]
         public Output<bool> ExcludeNewRepositories { get; private set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> ExcludedRepositories { get; private set; } = null!;
 
         /// <summary>
-        /// When set to true, mission control will not be automatically added to the backup. Default value is `false`.
+        /// When set to true, mission control will not be automatically added to the backup. Default value is `False`.
         /// </summary>
         [Output("exportMissionControl")]
         public Output<bool> ExportMissionControl { get; private set; } = null!;
@@ -105,13 +105,13 @@ namespace Pulumi.Artifactory
         public Output<int> RetentionPeriodHours { get; private set; } = null!;
 
         /// <summary>
-        /// If set to true, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
+        /// If set to true, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `True`.
         /// </summary>
         [Output("sendMailOnError")]
         public Output<bool> SendMailOnError { get; private set; } = null!;
 
         /// <summary>
-        /// If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups. Default value is `false`.
+        /// If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups. Default value is `False`.
         /// </summary>
         [Output("verifyDiskSpace")]
         public Output<bool> VerifyDiskSpace { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Artifactory
     public sealed class BackupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`
+        /// If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `False`
         /// </summary>
         [Input("createArchive")]
         public Input<bool>? CreateArchive { get; set; }
@@ -175,13 +175,13 @@ namespace Pulumi.Artifactory
         public Input<string> CronExp { get; set; } = null!;
 
         /// <summary>
-        /// Flag to enable or disable the backup config. Default value is `true`.
+        /// Flag to enable or disable the backup config. Default value is `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// When set to true, new repositories will not be automatically added to the backup. Default value is `false`.
+        /// When set to true, new repositories will not be automatically added to the backup. Default value is `False`.
         /// </summary>
         [Input("excludeNewRepositories")]
         public Input<bool>? ExcludeNewRepositories { get; set; }
@@ -199,7 +199,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// When set to true, mission control will not be automatically added to the backup. Default value is `false`.
+        /// When set to true, mission control will not be automatically added to the backup. Default value is `False`.
         /// </summary>
         [Input("exportMissionControl")]
         public Input<bool>? ExportMissionControl { get; set; }
@@ -214,13 +214,13 @@ namespace Pulumi.Artifactory
         public Input<int>? RetentionPeriodHours { get; set; }
 
         /// <summary>
-        /// If set to true, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
+        /// If set to true, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `True`.
         /// </summary>
         [Input("sendMailOnError")]
         public Input<bool>? SendMailOnError { get; set; }
 
         /// <summary>
-        /// If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups. Default value is `false`.
+        /// If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups. Default value is `False`.
         /// </summary>
         [Input("verifyDiskSpace")]
         public Input<bool>? VerifyDiskSpace { get; set; }
@@ -234,7 +234,7 @@ namespace Pulumi.Artifactory
     public sealed class BackupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`
+        /// If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `False`
         /// </summary>
         [Input("createArchive")]
         public Input<bool>? CreateArchive { get; set; }
@@ -246,13 +246,13 @@ namespace Pulumi.Artifactory
         public Input<string>? CronExp { get; set; }
 
         /// <summary>
-        /// Flag to enable or disable the backup config. Default value is `true`.
+        /// Flag to enable or disable the backup config. Default value is `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// When set to true, new repositories will not be automatically added to the backup. Default value is `false`.
+        /// When set to true, new repositories will not be automatically added to the backup. Default value is `False`.
         /// </summary>
         [Input("excludeNewRepositories")]
         public Input<bool>? ExcludeNewRepositories { get; set; }
@@ -270,7 +270,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// When set to true, mission control will not be automatically added to the backup. Default value is `false`.
+        /// When set to true, mission control will not be automatically added to the backup. Default value is `False`.
         /// </summary>
         [Input("exportMissionControl")]
         public Input<bool>? ExportMissionControl { get; set; }
@@ -285,13 +285,13 @@ namespace Pulumi.Artifactory
         public Input<int>? RetentionPeriodHours { get; set; }
 
         /// <summary>
-        /// If set to true, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
+        /// If set to true, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `True`.
         /// </summary>
         [Input("sendMailOnError")]
         public Input<bool>? SendMailOnError { get; set; }
 
         /// <summary>
-        /// If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups. Default value is `false`.
+        /// If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups. Default value is `False`.
         /// </summary>
         [Input("verifyDiskSpace")]
         public Input<bool>? VerifyDiskSpace { get; set; }

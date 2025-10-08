@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetFederatedDockerRepositoryMember {
     /**
-     * @return Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+     * @return Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      * 
      */
     private @Nullable String accessToken;
@@ -31,7 +31,7 @@ public final class GetFederatedDockerRepositoryMember {
 
     private GetFederatedDockerRepositoryMember() {}
     /**
-     * @return Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+     * @return Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      * 
      */
     public Optional<String> accessToken() {

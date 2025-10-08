@@ -15,7 +15,7 @@ namespace Pulumi.Artifactory.Inputs
         /// <summary>
         /// The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
         /// &gt; **Requires Artifactory 7.111.2 or later.**
-        /// ~&gt;JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not archived.
+        /// ~&gt;JFrog recommends using the `CreatedBeforeInDays` condition to ensure that packages currently in use are not archived.
         /// </summary>
         [Input("createdBeforeInDays")]
         public Input<int>? CreatedBeforeInDays { get; set; }
@@ -63,7 +63,7 @@ namespace Pulumi.Artifactory.Inputs
         }
 
         /// <summary>
-        /// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+        /// Set this value to `True` if you want the policy to run on all Artifactory projects. The default value is `False`.
         /// 
         /// ~&gt;This attribute is relevant only on the global level, for Platform Admins.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _includedPackages;
 
         /// <summary>
-        /// Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = ["**"]`
+        /// Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `IncludedPackages = ["**"]`
         /// </summary>
         public InputList<string> IncludedPackages
         {
@@ -86,7 +86,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _includedProjects;
 
         /// <summary>
-        /// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
+        /// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `Default`. Can be empty when `IncludeAllProjects` is set to `True`.
         /// ~&gt;This setting is relevant only on the global level, for Platform Admins.
         /// </summary>
         public InputList<string> IncludedProjects
@@ -120,7 +120,7 @@ namespace Pulumi.Artifactory.Inputs
         /// <summary>
         /// The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
         /// &gt; **Requires Artifactory 7.111.2 or later.**
-        /// ~&gt;JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not archived.
+        /// ~&gt;JFrog recommends using the `LastDownloadedBeforeInDays` condition to ensure that packages currently in use are not archived.
         /// </summary>
         [Input("lastDownloadedBeforeInDays")]
         public Input<int>? LastDownloadedBeforeInDays { get; set; }

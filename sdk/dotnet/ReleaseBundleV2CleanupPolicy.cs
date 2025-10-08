@@ -14,6 +14,65 @@ namespace Pulumi.Artifactory
     /// 
     /// ~&gt;Release Bundles V2 Cleanup Policies APIs are supported on Artifactory version 7.104.2 and later.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var my_release_bundle_v2_rb = new Artifactory.ReleaseBundleV2("my-release-bundle-v2-rb", new()
+    ///     {
+    ///         Name = "my-release-bundle-v2-rb",
+    ///         Version = "2.0.0",
+    ///         KeypairName = "my-keypair-name",
+    ///         SkipDockerManifestResolution = true,
+    ///         SourceType = "release_bundles",
+    ///         Source = new Artifactory.Inputs.ReleaseBundleV2SourceArgs
+    ///         {
+    ///             Release_bundles = new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "name", "my-rb-name" },
+    ///                     { "version", "1.0.0" },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var my_resource_bundle_v2_cleanup_policy = new Artifactory.ReleaseBundleV2CleanupPolicy("my-resource-bundle-v2-cleanup-policy", new()
+    ///     {
+    ///         Key = "my-release-bundle-v2-policy-key",
+    ///         Description = "Cleanup policy description",
+    ///         CronExpression = "0 0 2 * * ?",
+    ///         DurationInMinutes = 60,
+    ///         Enabled = true,
+    ///         SearchCriteria = new Artifactory.Inputs.ReleaseBundleV2CleanupPolicySearchCriteriaArgs
+    ///         {
+    ///             Include_all_projects = true,
+    ///             Included_projects = new() { },
+    ///             Release_bundles = new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "name", "my-release-bundle-v2-rb" },
+    ///                     { "projectKey", "" },
+    ///                 },
+    ///             },
+    ///             Exclude_promoted_environments = new[]
+    ///             {
+    ///                 "**",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -39,7 +98,7 @@ namespace Pulumi.Artifactory
         public Output<int?> DurationInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// Enables or disabled the release bundles v2 cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
+        /// Enables or disabled the release bundles v2 cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `True`
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -121,7 +180,7 @@ namespace Pulumi.Artifactory
         public Input<int>? DurationInMinutes { get; set; }
 
         /// <summary>
-        /// Enables or disabled the release bundles v2 cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
+        /// Enables or disabled the release bundles v2 cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `True`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -165,7 +224,7 @@ namespace Pulumi.Artifactory
         public Input<int>? DurationInMinutes { get; set; }
 
         /// <summary>
-        /// Enables or disabled the release bundles v2 cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
+        /// Enables or disabled the release bundles v2 cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `True`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

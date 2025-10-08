@@ -82,7 +82,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Force basic authentication credentials in order to use this repository.
-        /// Default is `false`.
+        /// Default is `False`.
         /// </summary>
         [Output("forceNugetAuthentication")]
         public Output<bool> ForceNugetAuthentication { get; private set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Force basic authentication credentials in order to use this repository.
-        /// Default is `false`.
+        /// Default is `False`.
         /// </summary>
         [Input("forceNugetAuthentication")]
         public Input<bool>? ForceNugetAuthentication { get; set; }
@@ -353,7 +353,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Force basic authentication credentials in order to use this repository.
-        /// Default is `false`.
+        /// Default is `False`.
         /// </summary>
         [Input("forceNugetAuthentication")]
         public Input<bool>? ForceNugetAuthentication { get; set; }

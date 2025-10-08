@@ -48,14 +48,14 @@ public final class ReleaseBundleV2PromotionArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+     * Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excludedRepositoryKeys`).
      * 
      */
     @Import(name="includedRepositoryKeys")
     private @Nullable Output<List<String>> includedRepositoryKeys;
 
     /**
-     * @return Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+     * @return Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excludedRepositoryKeys`).
      * 
      */
     public Optional<Output<List<String>>> includedRepositoryKeys() {
@@ -205,7 +205,7 @@ public final class ReleaseBundleV2PromotionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param includedRepositoryKeys Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+         * @param includedRepositoryKeys Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excludedRepositoryKeys`).
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class ReleaseBundleV2PromotionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param includedRepositoryKeys Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+         * @param includedRepositoryKeys Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excludedRepositoryKeys`).
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class ReleaseBundleV2PromotionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param includedRepositoryKeys Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+         * @param includedRepositoryKeys Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excludedRepositoryKeys`).
          * 
          * @return builder
          * 
