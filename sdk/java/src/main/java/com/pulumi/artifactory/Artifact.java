@@ -105,14 +105,14 @@ public class Artifact extends com.pulumi.resources.CustomResource {
         return this.checksumSha256;
     }
     /**
-     * Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+     * Base64 content of the source file. Conflicts with `filePath`. Either one of these attribute must be set.
      * 
      */
     @Export(name="contentBase64", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> contentBase64;
 
     /**
-     * @return Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+     * @return Base64 content of the source file. Conflicts with `filePath`. Either one of these attribute must be set.
      * 
      */
     public Output<Optional<String>> contentBase64() {
@@ -161,14 +161,14 @@ public class Artifact extends com.pulumi.resources.CustomResource {
         return this.downloadUri;
     }
     /**
-     * Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
+     * Path to the source file. Conflicts with `contentBase64`. Either one of these attribute must be set.
      * 
      */
     @Export(name="filePath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> filePath;
 
     /**
-     * @return Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
+     * @return Path to the source file. Conflicts with `contentBase64`. Either one of these attribute must be set.
      * 
      */
     public Output<Optional<String>> filePath() {

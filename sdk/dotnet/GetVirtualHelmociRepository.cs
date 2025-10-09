@@ -134,7 +134,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// (Optional) When enabled, in cases where the same OCI tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+        /// (Optional) When enabled, in cases where the same OCI tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `False`.
         /// </summary>
         [Input("resolveOciTagsByTimestamp")]
         public bool? ResolveOciTagsByTimestamp { get; set; }
@@ -194,7 +194,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// (Optional) When enabled, in cases where the same OCI tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+        /// (Optional) When enabled, in cases where the same OCI tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `False`.
         /// </summary>
         [Input("resolveOciTagsByTimestamp")]
         public Input<bool>? ResolveOciTagsByTimestamp { get; set; }
@@ -226,7 +226,7 @@ namespace Pulumi.Artifactory
         public readonly string? RepoLayoutRef;
         public readonly ImmutableArray<string> Repositories;
         /// <summary>
-        /// (Optional) When enabled, in cases where the same OCI tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+        /// (Optional) When enabled, in cases where the same OCI tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `False`.
         /// </summary>
         public readonly bool? ResolveOciTagsByTimestamp;
 

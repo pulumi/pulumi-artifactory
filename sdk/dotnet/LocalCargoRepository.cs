@@ -45,7 +45,7 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Cargo client does not send credentials when performing download and search for crates. 
-        /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+        /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `False`.
         /// </summary>
         [Output("anonymousAccess")]
         public Output<bool> AnonymousAccess { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.Artifactory
         public Output<bool> DownloadDirect { get; private set; } = null!;
 
         /// <summary>
-        /// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+        /// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `False`.
         /// </summary>
         [Output("enableSparseIndex")]
         public Output<bool> EnableSparseIndex { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Cargo client does not send credentials when performing download and search for crates. 
-        /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+        /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `False`.
         /// </summary>
         [Input("anonymousAccess")]
         public Input<bool>? AnonymousAccess { get; set; }
@@ -229,7 +229,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? DownloadDirect { get; set; }
 
         /// <summary>
-        /// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+        /// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `False`.
         /// </summary>
         [Input("enableSparseIndex")]
         public Input<bool>? EnableSparseIndex { get; set; }
@@ -312,7 +312,7 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Cargo client does not send credentials when performing download and search for crates. 
-        /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+        /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `False`.
         /// </summary>
         [Input("anonymousAccess")]
         public Input<bool>? AnonymousAccess { get; set; }
@@ -349,7 +349,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? DownloadDirect { get; set; }
 
         /// <summary>
-        /// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+        /// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `False`.
         /// </summary>
         [Input("enableSparseIndex")]
         public Input<bool>? EnableSparseIndex { get; set; }

@@ -18,14 +18,14 @@ public final class GetFederatedTerraformProviderRepositoryMemberArgs extends com
     public static final GetFederatedTerraformProviderRepositoryMemberArgs Empty = new GetFederatedTerraformProviderRepositoryMemberArgs();
 
     /**
-     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      * 
      */
     @Import(name="accessToken")
     private @Nullable Output<String> accessToken;
 
     /**
-     * @return Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+     * @return Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      * 
      */
     public Optional<Output<String>> accessToken() {
@@ -91,7 +91,7 @@ public final class GetFederatedTerraformProviderRepositoryMemberArgs extends com
         }
 
         /**
-         * @param accessToken Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+         * @param accessToken Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class GetFederatedTerraformProviderRepositoryMemberArgs extends com
         }
 
         /**
-         * @param accessToken Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+         * @param accessToken Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
          * 
          * @return builder
          * 

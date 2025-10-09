@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
 /**
  * This resource enables you to creates a new Release Bundle v2, uniquely identified by a combination of repository key, name, and version. For more information, see [Understanding Release Bundles v2](https://jfrog.com/help/r/jfrog-artifactory-documentation/understanding-release-bundles-v2) and [REST API](https://jfrog.com/help/r/jfrog-rest-apis/create-release-bundle-v2-version).
  * 
+ * ## Example Usage
+ * 
  */
 @ResourceType(type="artifactory:index/releaseBundleV2:ReleaseBundleV2")
 public class ReleaseBundleV2 extends com.pulumi.resources.CustomResource {
@@ -121,28 +123,28 @@ public class ReleaseBundleV2 extends com.pulumi.resources.CustomResource {
         return this.skipDockerManifestResolution;
     }
     /**
-     * Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+     * Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excludedRepositoryKeys`).
      * 
      */
     @Export(name="source", refs={ReleaseBundleV2Source.class}, tree="[0]")
     private Output<ReleaseBundleV2Source> source;
 
     /**
-     * @return Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+     * @return Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excludedRepositoryKeys`).
      * 
      */
     public Output<ReleaseBundleV2Source> source() {
         return this.source;
     }
     /**
-     * Source type. Valid values: `aql`, `artifacts`, `builds`, `release_bundles`
+     * Source type. Valid values: `aql`, `artifacts`, `builds`, `releaseBundles`
      * 
      */
     @Export(name="sourceType", refs={String.class}, tree="[0]")
     private Output<String> sourceType;
 
     /**
-     * @return Source type. Valid values: `aql`, `artifacts`, `builds`, `release_bundles`
+     * @return Source type. Valid values: `aql`, `artifacts`, `builds`, `releaseBundles`
      * 
      */
     public Output<String> sourceType() {

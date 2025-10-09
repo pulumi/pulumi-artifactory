@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * 
  * ~&gt;Release Bundles V2 Cleanup Policies APIs are supported on Artifactory version 7.104.2 and later.
  * 
+ * ## Example Usage
+ * 
  * ## Import
  * 
  * ```sh

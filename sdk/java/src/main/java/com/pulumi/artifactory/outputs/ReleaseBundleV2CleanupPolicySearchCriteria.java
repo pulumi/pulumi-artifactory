@@ -22,7 +22,7 @@ public final class ReleaseBundleV2CleanupPolicySearchCriteria {
      */
     private @Nullable Integer createdBeforeInMonths;
     /**
-     * @return A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `exclude_promoted_environments = [&#34;**&#34;]`
+     * @return A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `excludePromotedEnvironments = [&#34;**&#34;]`
      * 
      */
     private List<String> excludePromotedEnvironments;
@@ -53,7 +53,7 @@ public final class ReleaseBundleV2CleanupPolicySearchCriteria {
         return Optional.ofNullable(this.createdBeforeInMonths);
     }
     /**
-     * @return A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `exclude_promoted_environments = [&#34;**&#34;]`
+     * @return A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `excludePromotedEnvironments = [&#34;**&#34;]`
      * 
      */
     public List<String> excludePromotedEnvironments() {

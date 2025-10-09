@@ -12,7 +12,7 @@ namespace Pulumi.Artifactory
     /// <summary>
     /// Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
     /// 
-    /// !&gt;This resource has been deprecated in favor of platform_permission resource.
+    /// !&gt;This resource has been deprecated in favor of PlatformPermission resource.
     /// 
     /// ## Example Usage
     /// 
@@ -153,25 +153,25 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Permissions
     /// 
-    /// The provider supports the following `permission` enums:
+    /// The provider supports the following `Permission` enums:
     /// 
-    /// * `read`
-    /// * `write`
-    /// * `annotate`
-    /// * `delete`
-    /// * `manage`
+    /// * `Read`
+    /// * `Write`
+    /// * `Annotate`
+    /// * `Delete`
+    /// * `Manage`
     /// * `managedXrayMeta`
-    /// * `distribute`
+    /// * `Distribute`
     /// 
     /// The values can be mapped to the permissions from the official [documentation](https://www.jfrog.com/confluence/display/JFROG/Permissions):
     /// 
-    /// * `read` - matches `Read` permissions.
-    /// * `write` - matches `  Deploy / Cache / Create ` permissions.
-    /// * `annotate` - matches `Annotate` permissions.
-    /// * `delete` - matches `Delete / Overwrite` permissions.
-    /// * `manage` - matches `Manage` permissions.
+    /// * `Read` - matches `Read` permissions.
+    /// * `Write` - matches `  Deploy / Cache / Create ` permissions.
+    /// * `Annotate` - matches `Annotate` permissions.
+    /// * `Delete` - matches `Delete / Overwrite` permissions.
+    /// * `Manage` - matches `Manage` permissions.
     /// * `managedXrayMeta` - matches `Manage Xray Metadata` permissions.
-    /// * `distribute` - matches `Distribute` permissions.
+    /// * `Distribute` - matches `Distribute` permissions.
     /// 
     /// ## Import
     /// 

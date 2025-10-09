@@ -337,14 +337,14 @@ public final class GetRemoteComposerRepositoryPlainArgs extends com.pulumi.resou
     }
 
     /**
-     * (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
      * 
      */
     @Import(name="vcsGitDownloadUrl")
     private @Nullable String vcsGitDownloadUrl;
 
     /**
-     * @return (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * @return (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
      * 
      */
     public Optional<String> vcsGitDownloadUrl() {
@@ -678,7 +678,7 @@ public final class GetRemoteComposerRepositoryPlainArgs extends com.pulumi.resou
         }
 
         /**
-         * @param vcsGitDownloadUrl (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+         * @param vcsGitDownloadUrl (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
          * 
          * @return builder
          * 

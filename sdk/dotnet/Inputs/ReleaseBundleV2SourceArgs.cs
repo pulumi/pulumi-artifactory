@@ -46,7 +46,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<Inputs.ReleaseBundleV2SourceReleaseBundleArgs>? _releaseBundles;
 
         /// <summary>
-        /// Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `source_type` attribute value.
+        /// Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `SourceType` attribute value.
         /// </summary>
         public InputList<Inputs.ReleaseBundleV2SourceReleaseBundleArgs> ReleaseBundles
         {

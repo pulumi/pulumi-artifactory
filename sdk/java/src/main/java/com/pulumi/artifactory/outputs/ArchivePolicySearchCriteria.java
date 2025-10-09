@@ -19,7 +19,7 @@ public final class ArchivePolicySearchCriteria {
     /**
      * @return The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
      * &gt; **Requires Artifactory 7.111.2 or later.**
-     * ~&gt;JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not archived.
+     * ~&gt;JFrog recommends using the `createdBeforeInDays` condition to ensure that packages currently in use are not archived.
      * 
      */
     private @Nullable Integer createdBeforeInDays;
@@ -27,10 +27,10 @@ public final class ArchivePolicySearchCriteria {
      * @return The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
      * 
      * @deprecated
-     * Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2.
+     * Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
      * 
      */
-    @Deprecated /* Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2. */
+    @Deprecated /* Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2. */
     private @Nullable Integer createdBeforeInMonths;
     /**
      * @return Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
@@ -55,12 +55,12 @@ public final class ArchivePolicySearchCriteria {
      */
     private @Nullable Boolean includeAllProjects;
     /**
-     * @return Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = [&#34;**&#34;]`
+     * @return Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = [&#34;**&#34;]`
      * 
      */
     private List<String> includedPackages;
     /**
-     * @return List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
+     * @return List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `includeAllProjects` is set to `true`.
      * ~&gt;This setting is relevant only on the global level, for Platform Admins.
      * 
      */
@@ -82,7 +82,7 @@ public final class ArchivePolicySearchCriteria {
     /**
      * @return The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
      * &gt; **Requires Artifactory 7.111.2 or later.**
-     * ~&gt;JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not archived.
+     * ~&gt;JFrog recommends using the `lastDownloadedBeforeInDays` condition to ensure that packages currently in use are not archived.
      * 
      */
     private @Nullable Integer lastDownloadedBeforeInDays;
@@ -90,10 +90,10 @@ public final class ArchivePolicySearchCriteria {
      * @return The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
      * 
      * @deprecated
-     * Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2.
+     * Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
      * 
      */
-    @Deprecated /* Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2. */
+    @Deprecated /* Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2. */
     private @Nullable Integer lastDownloadedBeforeInMonths;
     private List<String> packageTypes;
     /**
@@ -106,7 +106,7 @@ public final class ArchivePolicySearchCriteria {
     /**
      * @return The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
      * &gt; **Requires Artifactory 7.111.2 or later.**
-     * ~&gt;JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not archived.
+     * ~&gt;JFrog recommends using the `createdBeforeInDays` condition to ensure that packages currently in use are not archived.
      * 
      */
     public Optional<Integer> createdBeforeInDays() {
@@ -116,10 +116,10 @@ public final class ArchivePolicySearchCriteria {
      * @return The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
      * 
      * @deprecated
-     * Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2.
+     * Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
      * 
      */
-    @Deprecated /* Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2. */
+    @Deprecated /* Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2. */
     public Optional<Integer> createdBeforeInMonths() {
         return Optional.ofNullable(this.createdBeforeInMonths);
     }
@@ -154,14 +154,14 @@ public final class ArchivePolicySearchCriteria {
         return Optional.ofNullable(this.includeAllProjects);
     }
     /**
-     * @return Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = [&#34;**&#34;]`
+     * @return Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = [&#34;**&#34;]`
      * 
      */
     public List<String> includedPackages() {
         return this.includedPackages;
     }
     /**
-     * @return List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
+     * @return List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `includeAllProjects` is set to `true`.
      * ~&gt;This setting is relevant only on the global level, for Platform Admins.
      * 
      */
@@ -189,7 +189,7 @@ public final class ArchivePolicySearchCriteria {
     /**
      * @return The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
      * &gt; **Requires Artifactory 7.111.2 or later.**
-     * ~&gt;JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not archived.
+     * ~&gt;JFrog recommends using the `lastDownloadedBeforeInDays` condition to ensure that packages currently in use are not archived.
      * 
      */
     public Optional<Integer> lastDownloadedBeforeInDays() {
@@ -199,10 +199,10 @@ public final class ArchivePolicySearchCriteria {
      * @return The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
      * 
      * @deprecated
-     * Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2.
+     * Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
      * 
      */
-    @Deprecated /* Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2. */
+    @Deprecated /* Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2. */
     public Optional<Integer> lastDownloadedBeforeInMonths() {
         return Optional.ofNullable(this.lastDownloadedBeforeInMonths);
     }

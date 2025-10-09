@@ -17,14 +17,14 @@ public final class ArtifactArgs extends com.pulumi.resources.ResourceArgs {
     public static final ArtifactArgs Empty = new ArtifactArgs();
 
     /**
-     * Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+     * Base64 content of the source file. Conflicts with `filePath`. Either one of these attribute must be set.
      * 
      */
     @Import(name="contentBase64")
     private @Nullable Output<String> contentBase64;
 
     /**
-     * @return Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+     * @return Base64 content of the source file. Conflicts with `filePath`. Either one of these attribute must be set.
      * 
      */
     public Optional<Output<String>> contentBase64() {
@@ -32,14 +32,14 @@ public final class ArtifactArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
+     * Path to the source file. Conflicts with `contentBase64`. Either one of these attribute must be set.
      * 
      */
     @Import(name="filePath")
     private @Nullable Output<String> filePath;
 
     /**
-     * @return Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
+     * @return Path to the source file. Conflicts with `contentBase64`. Either one of these attribute must be set.
      * 
      */
     public Optional<Output<String>> filePath() {
@@ -104,7 +104,7 @@ public final class ArtifactArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentBase64 Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+         * @param contentBase64 Base64 content of the source file. Conflicts with `filePath`. Either one of these attribute must be set.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ArtifactArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentBase64 Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+         * @param contentBase64 Base64 content of the source file. Conflicts with `filePath`. Either one of these attribute must be set.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class ArtifactArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filePath Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
+         * @param filePath Path to the source file. Conflicts with `contentBase64`. Either one of these attribute must be set.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class ArtifactArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filePath Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
+         * @param filePath Path to the source file. Conflicts with `contentBase64`. Either one of these attribute must be set.
          * 
          * @return builder
          * 
