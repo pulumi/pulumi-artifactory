@@ -297,14 +297,14 @@ public class FederatedTerraformModuleRepository extends com.pulumi.resources.Cus
         return Codegen.optional(this.propertySets);
     }
     /**
-     * Proxy key from Artifactory Proxies settings. Default is empty field. Can&#39;t be set if `disable_proxy = true`.
+     * Proxy key from Artifactory Proxies settings. Default is empty field. Can&#39;t be set if `disableProxy = true`.
      * 
      */
     @Export(name="proxy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> proxy;
 
     /**
-     * @return Proxy key from Artifactory Proxies settings. Default is empty field. Can&#39;t be set if `disable_proxy = true`.
+     * @return Proxy key from Artifactory Proxies settings. Default is empty field. Can&#39;t be set if `disableProxy = true`.
      * 
      */
     public Output<Optional<String>> proxy() {

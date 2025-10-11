@@ -224,14 +224,14 @@ public class MavenRepository extends com.pulumi.resources.CustomResource {
         return this.packageType;
     }
     /**
-     * One of: `&#34;discard_active_reference&#34;, &#34;discard_any_reference&#34;, &#34;nothing&#34;`
+     * One of: `&#34;discardActiveReference&#34;, &#34;discardAnyReference&#34;, &#34;nothing&#34;`
      * 
      */
     @Export(name="pomRepositoryReferencesCleanupPolicy", refs={String.class}, tree="[0]")
     private Output<String> pomRepositoryReferencesCleanupPolicy;
 
     /**
-     * @return One of: `&#34;discard_active_reference&#34;, &#34;discard_any_reference&#34;, &#34;nothing&#34;`
+     * @return One of: `&#34;discardActiveReference&#34;, &#34;discardAnyReference&#34;, &#34;nothing&#34;`
      * 
      */
     public Output<String> pomRepositoryReferencesCleanupPolicy() {

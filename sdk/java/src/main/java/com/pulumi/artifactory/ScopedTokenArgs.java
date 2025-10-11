@@ -64,14 +64,14 @@ public final class ScopedTokenArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
+     * The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is also the default value if this parameter is not specified.
      * 
      */
     @Import(name="grantType")
     private @Nullable Output<String> grantType;
 
     /**
-     * @return The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
+     * @return The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is also the default value if this parameter is not specified.
      * 
      */
     public Optional<Output<String>> grantType() {
@@ -319,7 +319,7 @@ public final class ScopedTokenArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grantType The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
+         * @param grantType The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is also the default value if this parameter is not specified.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class ScopedTokenArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grantType The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
+         * @param grantType The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is also the default value if this parameter is not specified.
          * 
          * @return builder
          * 

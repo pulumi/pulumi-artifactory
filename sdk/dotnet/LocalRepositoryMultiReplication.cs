@@ -98,7 +98,7 @@ namespace Pulumi.Artifactory
         public Output<string> CronExp { get; private set; } = null!;
 
         /// <summary>
-        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
+        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `False`.
         /// </summary>
         [Output("enableEventReplication")]
         public Output<bool> EnableEventReplication { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Artifactory
         public Input<string> CronExp { get; set; } = null!;
 
         /// <summary>
-        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
+        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `False`.
         /// </summary>
         [Input("enableEventReplication")]
         public Input<bool>? EnableEventReplication { get; set; }
@@ -206,7 +206,7 @@ namespace Pulumi.Artifactory
         public Input<string>? CronExp { get; set; }
 
         /// <summary>
-        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
+        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `False`.
         /// </summary>
         [Input("enableEventReplication")]
         public Input<bool>? EnableEventReplication { get; set; }

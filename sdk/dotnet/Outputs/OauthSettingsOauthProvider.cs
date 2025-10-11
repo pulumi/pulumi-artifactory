@@ -30,7 +30,7 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly string ClientSecret;
         /// <summary>
-        /// Enable the Artifactory OAuth provider.  Default value is `true`.
+        /// Enable the Artifactory OAuth provider.  Default value is `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly string TokenUrl;
         /// <summary>
-        /// Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
+        /// Type of OAuth provider. (e.g., `Github`, `Google`, `Cloudfoundry`, or `openId`)
         /// </summary>
         public readonly string Type;
 

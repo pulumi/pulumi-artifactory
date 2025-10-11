@@ -14,7 +14,7 @@ namespace Pulumi.Artifactory.Outputs
     public sealed class FederatedCranRepositoryMember
     {
         /// <summary>
-        /// Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        /// Admin access token for this member Artifactory instance. Used in conjunction with `CleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
         /// </summary>
         public readonly string? AccessToken;
         /// <summary>

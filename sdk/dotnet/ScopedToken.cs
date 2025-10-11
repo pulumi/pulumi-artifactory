@@ -15,7 +15,7 @@ namespace Pulumi.Artifactory
     /// !&gt;Scoped Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
     /// state.
     /// 
-    /// ~&gt;Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
+    /// ~&gt;Token would not be saved by Artifactory if `ExpiresIn` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
     /// 
     /// ## Example Usage
     /// 
@@ -145,19 +145,19 @@ namespace Pulumi.Artifactory
         public Output<int> Expiry { get; private set; } = null!;
 
         /// <summary>
-        /// The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
+        /// The grant type used to authenticate the request. In this case, the only value supported is `ClientCredentials` which is also the default value if this parameter is not specified.
         /// </summary>
         [Output("grantType")]
         public Output<string> GrantType { get; private set; } = null!;
 
         /// <summary>
-        /// Toggle to ignore warning message when token was missing or not created and stored by Artifactory. Default is `false`.
+        /// Toggle to ignore warning message when token was missing or not created and stored by Artifactory. Default is `False`.
         /// </summary>
         [Output("ignoreMissingTokenWarning")]
         public Output<bool> IgnoreMissingTokenWarning { get; private set; } = null!;
 
         /// <summary>
-        /// Also create a reference token which can be used like an API key. Default is `false`.
+        /// Also create a reference token which can be used like an API key. Default is `False`.
         /// </summary>
         [Output("includeReferenceToken")]
         public Output<bool> IncludeReferenceToken { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Artifactory
         public Output<string> RefreshToken { get; private set; } = null!;
 
         /// <summary>
-        /// Is this token refreshable? Default is `false`.
+        /// Is this token refreshable? Default is `False`.
         /// </summary>
         [Output("refreshable")]
         public Output<bool> Refreshable { get; private set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Artifactory
         ///       - `&lt;resource-type&gt;` - one of the permission resource types, from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
         ///       - `&lt;target&gt;` - the target resource, can be exact name or a pattern
         ///       - `&lt;sub-resource&gt;` - optional, the target sub-resource, can be exact name or a pattern
-        ///       - `&lt;actions&gt;` - comma-separated list of action acronyms. The actions allowed are `r`, `w`, `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all actions - use `*`
+        ///       - `&lt;actions&gt;` - comma-separated list of action acronyms. The actions allowed are `R`, `W`, `D`, `A`, `M`, `X`, `S`, or any combination of these actions. To allow all actions - use `*`
         ///     - Examples:
         ///       - `["applied-permissions/user", "artifact:generic-local:r"]`
         ///       - `["applied-permissions/group", "artifact:generic-local/path:*"]`
@@ -217,7 +217,7 @@ namespace Pulumi.Artifactory
         /// 
         ///   - System Permissions: Used to grant access to system resources. A permission can be represented as a scope token string in the following format: `system:(metrics|livelogs|identities|permissions):&lt;actions&gt;`
         ///     - Where:
-        ///       - `metrics|livelogs|identities|permissions` - one of these options can be chosen      - `&lt;actions&gt;` - comma-separated list of action acronyms. The actions allowed are `r`, `w`, `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all actions - use `*`
+        ///       - `metrics|livelogs|identities|permissions` - one of these options can be chosen      - `&lt;actions&gt;` - comma-separated list of action acronyms. The actions allowed are `R`, `W`, `D`, `A`, `M`, `X`, `S`, or any combination of these actions. To allow all actions - use `*`
         ///     - Examples:
         ///       - `["system:livelogs:r", "system:metrics:r,w,d"]`
         /// -&gt;The scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in total.
@@ -321,19 +321,19 @@ namespace Pulumi.Artifactory
         public Input<int>? ExpiresIn { get; set; }
 
         /// <summary>
-        /// The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
+        /// The grant type used to authenticate the request. In this case, the only value supported is `ClientCredentials` which is also the default value if this parameter is not specified.
         /// </summary>
         [Input("grantType")]
         public Input<string>? GrantType { get; set; }
 
         /// <summary>
-        /// Toggle to ignore warning message when token was missing or not created and stored by Artifactory. Default is `false`.
+        /// Toggle to ignore warning message when token was missing or not created and stored by Artifactory. Default is `False`.
         /// </summary>
         [Input("ignoreMissingTokenWarning")]
         public Input<bool>? IgnoreMissingTokenWarning { get; set; }
 
         /// <summary>
-        /// Also create a reference token which can be used like an API key. Default is `false`.
+        /// Also create a reference token which can be used like an API key. Default is `False`.
         /// </summary>
         [Input("includeReferenceToken")]
         public Input<bool>? IncludeReferenceToken { get; set; }
@@ -345,7 +345,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ProjectKey { get; set; }
 
         /// <summary>
-        /// Is this token refreshable? Default is `false`.
+        /// Is this token refreshable? Default is `False`.
         /// </summary>
         [Input("refreshable")]
         public Input<bool>? Refreshable { get; set; }
@@ -363,7 +363,7 @@ namespace Pulumi.Artifactory
         ///       - `&lt;resource-type&gt;` - one of the permission resource types, from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
         ///       - `&lt;target&gt;` - the target resource, can be exact name or a pattern
         ///       - `&lt;sub-resource&gt;` - optional, the target sub-resource, can be exact name or a pattern
-        ///       - `&lt;actions&gt;` - comma-separated list of action acronyms. The actions allowed are `r`, `w`, `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all actions - use `*`
+        ///       - `&lt;actions&gt;` - comma-separated list of action acronyms. The actions allowed are `R`, `W`, `D`, `A`, `M`, `X`, `S`, or any combination of these actions. To allow all actions - use `*`
         ///     - Examples:
         ///       - `["applied-permissions/user", "artifact:generic-local:r"]`
         ///       - `["applied-permissions/group", "artifact:generic-local/path:*"]`
@@ -372,7 +372,7 @@ namespace Pulumi.Artifactory
         /// 
         ///   - System Permissions: Used to grant access to system resources. A permission can be represented as a scope token string in the following format: `system:(metrics|livelogs|identities|permissions):&lt;actions&gt;`
         ///     - Where:
-        ///       - `metrics|livelogs|identities|permissions` - one of these options can be chosen      - `&lt;actions&gt;` - comma-separated list of action acronyms. The actions allowed are `r`, `w`, `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all actions - use `*`
+        ///       - `metrics|livelogs|identities|permissions` - one of these options can be chosen      - `&lt;actions&gt;` - comma-separated list of action acronyms. The actions allowed are `R`, `W`, `D`, `A`, `M`, `X`, `S`, or any combination of these actions. To allow all actions - use `*`
         ///     - Examples:
         ///       - `["system:livelogs:r", "system:metrics:r,w,d"]`
         /// -&gt;The scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in total.
@@ -445,19 +445,19 @@ namespace Pulumi.Artifactory
         public Input<int>? Expiry { get; set; }
 
         /// <summary>
-        /// The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
+        /// The grant type used to authenticate the request. In this case, the only value supported is `ClientCredentials` which is also the default value if this parameter is not specified.
         /// </summary>
         [Input("grantType")]
         public Input<string>? GrantType { get; set; }
 
         /// <summary>
-        /// Toggle to ignore warning message when token was missing or not created and stored by Artifactory. Default is `false`.
+        /// Toggle to ignore warning message when token was missing or not created and stored by Artifactory. Default is `False`.
         /// </summary>
         [Input("ignoreMissingTokenWarning")]
         public Input<bool>? IgnoreMissingTokenWarning { get; set; }
 
         /// <summary>
-        /// Also create a reference token which can be used like an API key. Default is `false`.
+        /// Also create a reference token which can be used like an API key. Default is `False`.
         /// </summary>
         [Input("includeReferenceToken")]
         public Input<bool>? IncludeReferenceToken { get; set; }
@@ -513,7 +513,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Is this token refreshable? Default is `false`.
+        /// Is this token refreshable? Default is `False`.
         /// </summary>
         [Input("refreshable")]
         public Input<bool>? Refreshable { get; set; }
@@ -531,7 +531,7 @@ namespace Pulumi.Artifactory
         ///       - `&lt;resource-type&gt;` - one of the permission resource types, from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
         ///       - `&lt;target&gt;` - the target resource, can be exact name or a pattern
         ///       - `&lt;sub-resource&gt;` - optional, the target sub-resource, can be exact name or a pattern
-        ///       - `&lt;actions&gt;` - comma-separated list of action acronyms. The actions allowed are `r`, `w`, `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all actions - use `*`
+        ///       - `&lt;actions&gt;` - comma-separated list of action acronyms. The actions allowed are `R`, `W`, `D`, `A`, `M`, `X`, `S`, or any combination of these actions. To allow all actions - use `*`
         ///     - Examples:
         ///       - `["applied-permissions/user", "artifact:generic-local:r"]`
         ///       - `["applied-permissions/group", "artifact:generic-local/path:*"]`
@@ -540,7 +540,7 @@ namespace Pulumi.Artifactory
         /// 
         ///   - System Permissions: Used to grant access to system resources. A permission can be represented as a scope token string in the following format: `system:(metrics|livelogs|identities|permissions):&lt;actions&gt;`
         ///     - Where:
-        ///       - `metrics|livelogs|identities|permissions` - one of these options can be chosen      - `&lt;actions&gt;` - comma-separated list of action acronyms. The actions allowed are `r`, `w`, `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all actions - use `*`
+        ///       - `metrics|livelogs|identities|permissions` - one of these options can be chosen      - `&lt;actions&gt;` - comma-separated list of action acronyms. The actions allowed are `R`, `W`, `D`, `A`, `M`, `X`, `S`, or any combination of these actions. To allow all actions - use `*`
         ///     - Examples:
         ///       - `["system:livelogs:r", "system:metrics:r,w,d"]`
         /// -&gt;The scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in total.

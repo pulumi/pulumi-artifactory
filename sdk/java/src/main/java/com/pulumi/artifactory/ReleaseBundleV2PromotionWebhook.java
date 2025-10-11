@@ -121,14 +121,14 @@ public class ReleaseBundleV2PromotionWebhook extends com.pulumi.resources.Custom
         return this.enabled;
     }
     /**
-     * List of event triggers for the Webhook. Allow values: `release_bundle_v2_promotion_started`, `release_bundle_v2_promotion_completed`, `release_bundle_v2_promotion_failed`
+     * List of event triggers for the Webhook. Allow values: `releaseBundleV2PromotionStarted`, `releaseBundleV2PromotionCompleted`, `releaseBundleV2PromotionFailed`
      * 
      */
     @Export(name="eventTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> eventTypes;
 
     /**
-     * @return List of event triggers for the Webhook. Allow values: `release_bundle_v2_promotion_started`, `release_bundle_v2_promotion_completed`, `release_bundle_v2_promotion_failed`
+     * @return List of event triggers for the Webhook. Allow values: `releaseBundleV2PromotionStarted`, `releaseBundleV2PromotionCompleted`, `releaseBundleV2PromotionFailed`
      * 
      */
     public Output<List<String>> eventTypes() {

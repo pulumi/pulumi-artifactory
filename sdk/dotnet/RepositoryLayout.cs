@@ -61,7 +61,7 @@ namespace Pulumi.Artifactory
         public Output<string> DescriptorPathPattern { get; private set; } = null!;
 
         /// <summary>
-        /// When set, `descriptor_path_pattern` will be used. Default to `false`.
+        /// When set, `DescriptorPathPattern` will be used. Default to `False`.
         /// </summary>
         [Output("distinctiveDescriptorPathPattern")]
         public Output<bool> DistinctiveDescriptorPathPattern { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Artifactory
         public Input<string>? DescriptorPathPattern { get; set; }
 
         /// <summary>
-        /// When set, `descriptor_path_pattern` will be used. Default to `false`.
+        /// When set, `DescriptorPathPattern` will be used. Default to `False`.
         /// </summary>
         [Input("distinctiveDescriptorPathPattern")]
         public Input<bool>? DistinctiveDescriptorPathPattern { get; set; }
@@ -187,7 +187,7 @@ namespace Pulumi.Artifactory
         public Input<string>? DescriptorPathPattern { get; set; }
 
         /// <summary>
-        /// When set, `descriptor_path_pattern` will be used. Default to `false`.
+        /// When set, `DescriptorPathPattern` will be used. Default to `False`.
         /// </summary>
         [Input("distinctiveDescriptorPathPattern")]
         public Input<bool>? DistinctiveDescriptorPathPattern { get; set; }

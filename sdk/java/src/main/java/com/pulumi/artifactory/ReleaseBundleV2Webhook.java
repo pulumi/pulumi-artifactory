@@ -122,14 +122,14 @@ public class ReleaseBundleV2Webhook extends com.pulumi.resources.CustomResource 
         return this.enabled;
     }
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `release_bundle_v2_started`, `release_bundle_v2_failed`, `release_bundle_v2_completed`.
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `releaseBundleV2Started`, `releaseBundleV2Failed`, `releaseBundleV2Completed`.
      * 
      */
     @Export(name="eventTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> eventTypes;
 
     /**
-     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `release_bundle_v2_started`, `release_bundle_v2_failed`, `release_bundle_v2_completed`.
+     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `releaseBundleV2Started`, `releaseBundleV2Failed`, `releaseBundleV2Completed`.
      * 
      */
     public Output<List<String>> eventTypes() {

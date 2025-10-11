@@ -133,25 +133,25 @@ namespace Pulumi.Artifactory
         public string? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+        /// (Optional, Default: `False`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
         /// </summary>
         [Input("fetchJarsEagerly")]
         public bool? FetchJarsEagerly { get; set; }
 
         /// <summary>
-        /// (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+        /// (Optional, Default: `False`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
         /// </summary>
         [Input("fetchSourcesEagerly")]
         public bool? FetchSourcesEagerly { get; set; }
 
         /// <summary>
-        /// (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
+        /// (Optional, Default: `True`) If set, Artifactory allows you to deploy release artifacts into this repository.
         /// </summary>
         [Input("handleReleases")]
         public bool? HandleReleases { get; set; }
 
         /// <summary>
-        /// (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+        /// (Optional, Default: `True`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         /// </summary>
         [Input("handleSnapshots")]
         public bool? HandleSnapshots { get; set; }
@@ -229,13 +229,13 @@ namespace Pulumi.Artifactory
         public string? QueryParams { get; set; }
 
         /// <summary>
-        /// (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
+        /// (Optional, Default: `False`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
         /// </summary>
         [Input("rejectInvalidJars")]
         public bool? RejectInvalidJars { get; set; }
 
         /// <summary>
-        /// (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+        /// (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `Fail`, `ignore-and-generate`, and `pass-thru`.
         /// </summary>
         [Input("remoteRepoChecksumPolicyType")]
         public string? RemoteRepoChecksumPolicyType { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Artifactory
         public bool? StoreArtifactsLocally { get; set; }
 
         /// <summary>
-        /// (Optional, Default: `true`) - By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`'
+        /// (Optional, Default: `True`) - By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `True`'
         /// </summary>
         [Input("suppressPomConsistencyChecks")]
         public bool? SuppressPomConsistencyChecks { get; set; }
@@ -333,25 +333,25 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+        /// (Optional, Default: `False`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
         /// </summary>
         [Input("fetchJarsEagerly")]
         public Input<bool>? FetchJarsEagerly { get; set; }
 
         /// <summary>
-        /// (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+        /// (Optional, Default: `False`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
         /// </summary>
         [Input("fetchSourcesEagerly")]
         public Input<bool>? FetchSourcesEagerly { get; set; }
 
         /// <summary>
-        /// (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
+        /// (Optional, Default: `True`) If set, Artifactory allows you to deploy release artifacts into this repository.
         /// </summary>
         [Input("handleReleases")]
         public Input<bool>? HandleReleases { get; set; }
 
         /// <summary>
-        /// (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+        /// (Optional, Default: `True`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         /// </summary>
         [Input("handleSnapshots")]
         public Input<bool>? HandleSnapshots { get; set; }
@@ -433,13 +433,13 @@ namespace Pulumi.Artifactory
         public Input<string>? QueryParams { get; set; }
 
         /// <summary>
-        /// (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
+        /// (Optional, Default: `False`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
         /// </summary>
         [Input("rejectInvalidJars")]
         public Input<bool>? RejectInvalidJars { get; set; }
 
         /// <summary>
-        /// (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+        /// (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `Fail`, `ignore-and-generate`, and `pass-thru`.
         /// </summary>
         [Input("remoteRepoChecksumPolicyType")]
         public Input<string>? RemoteRepoChecksumPolicyType { get; set; }
@@ -463,7 +463,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? StoreArtifactsLocally { get; set; }
 
         /// <summary>
-        /// (Optional, Default: `true`) - By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`'
+        /// (Optional, Default: `True`) - By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `True`'
         /// </summary>
         [Input("suppressPomConsistencyChecks")]
         public Input<bool>? SuppressPomConsistencyChecks { get; set; }
@@ -509,19 +509,19 @@ namespace Pulumi.Artifactory
         public readonly bool? EnableCookieManagement;
         public readonly string? ExcludesPattern;
         /// <summary>
-        /// (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+        /// (Optional, Default: `False`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
         /// </summary>
         public readonly bool? FetchJarsEagerly;
         /// <summary>
-        /// (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+        /// (Optional, Default: `False`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
         /// </summary>
         public readonly bool? FetchSourcesEagerly;
         /// <summary>
-        /// (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
+        /// (Optional, Default: `True`) If set, Artifactory allows you to deploy release artifacts into this repository.
         /// </summary>
         public readonly bool? HandleReleases;
         /// <summary>
-        /// (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+        /// (Optional, Default: `True`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         /// </summary>
         public readonly bool? HandleSnapshots;
         public readonly bool? HardFail;
@@ -548,11 +548,11 @@ namespace Pulumi.Artifactory
         public readonly string? Proxy;
         public readonly string? QueryParams;
         /// <summary>
-        /// (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
+        /// (Optional, Default: `False`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
         /// </summary>
         public readonly bool? RejectInvalidJars;
         /// <summary>
-        /// (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+        /// (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `Fail`, `ignore-and-generate`, and `pass-thru`.
         /// </summary>
         public readonly string? RemoteRepoChecksumPolicyType;
         public readonly string? RemoteRepoLayoutRef;
@@ -562,7 +562,7 @@ namespace Pulumi.Artifactory
         public readonly int? SocketTimeoutMillis;
         public readonly bool? StoreArtifactsLocally;
         /// <summary>
-        /// (Optional, Default: `true`) - By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`'
+        /// (Optional, Default: `True`) - By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `True`'
         /// </summary>
         public readonly bool? SuppressPomConsistencyChecks;
         public readonly bool? SynchronizeProperties;

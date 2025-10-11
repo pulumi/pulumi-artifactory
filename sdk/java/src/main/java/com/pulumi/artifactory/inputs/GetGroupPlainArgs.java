@@ -168,14 +168,14 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * List of users assigned to the group. Set include_users to `true` to retrieve this list.
+     * List of users assigned to the group. Set includeUsers to `true` to retrieve this list.
      * 
      */
     @Import(name="usersNames")
     private @Nullable List<String> usersNames;
 
     /**
-     * @return List of users assigned to the group. Set include_users to `true` to retrieve this list.
+     * @return List of users assigned to the group. Set includeUsers to `true` to retrieve this list.
      * 
      */
     public Optional<List<String>> usersNames() {
@@ -343,7 +343,7 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param usersNames List of users assigned to the group. Set include_users to `true` to retrieve this list.
+         * @param usersNames List of users assigned to the group. Set includeUsers to `true` to retrieve this list.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param usersNames List of users assigned to the group. Set include_users to `true` to retrieve this list.
+         * @param usersNames List of users assigned to the group. Set includeUsers to `true` to retrieve this list.
          * 
          * @return builder
          * 

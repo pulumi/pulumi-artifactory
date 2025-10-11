@@ -9,6 +9,10 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * ## Managing groups relationship
+ *
+ * See our recommendation on how to manage user-group relationship.
+ *
  * ## Import
  *
  * ```sh
