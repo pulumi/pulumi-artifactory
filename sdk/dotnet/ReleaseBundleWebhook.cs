@@ -85,13 +85,13 @@ namespace Pulumi.Artifactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Status of webhook. Default to `true`.
+        /// Status of webhook. Default to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `created`, `signed`, `deleted`.
+        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `Created`, `Signed`, `Deleted`.
         /// </summary>
         [Output("eventTypes")]
         public Output<ImmutableArray<string>> EventTypes { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Status of webhook. Default to `true`.
+        /// Status of webhook. Default to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -176,7 +176,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _eventTypes;
 
         /// <summary>
-        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `created`, `signed`, `deleted`.
+        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `Created`, `Signed`, `Deleted`.
         /// </summary>
         public InputList<string> EventTypes
         {
@@ -223,7 +223,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Status of webhook. Default to `true`.
+        /// Status of webhook. Default to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -232,7 +232,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _eventTypes;
 
         /// <summary>
-        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `created`, `signed`, `deleted`.
+        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `Created`, `Signed`, `Deleted`.
         /// </summary>
         public InputList<string> EventTypes
         {

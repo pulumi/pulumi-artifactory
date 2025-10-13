@@ -112,13 +112,13 @@ namespace Pulumi.Artifactory
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        /// When set to `True`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         /// </summary>
         [Output("disableProxy")]
         public Output<bool> DisableProxy { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to disable URL normalization. Default is `false`.
+        /// Whether to disable URL normalization. Default is `False`.
         /// </summary>
         [Output("disableUrlNormalization")]
         public Output<bool> DisableUrlNormalization { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Artifactory
         public Output<string> FeedContextPath { get; private set; } = null!;
 
         /// <summary>
-        /// Force basic authentication credentials in order to use this repository. Default value is `false`.
+        /// Force basic authentication credentials in order to use this repository. Default value is `False`.
         /// </summary>
         [Output("forceNugetAuthentication")]
         public Output<bool> ForceNugetAuthentication { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Artifactory
         public Output<int> MetadataRetrievalTimeoutSecs { get; private set; } = null!;
 
         /// <summary>
-        /// The set of mime types that should override the block_mismatching_mime_types setting. Eg: 'application/json,application/xml'. Default value is empty.
+        /// The set of mime types that should override the BlockMismatchingMimeTypes setting. Eg: 'application/json,application/xml'. Default value is empty.
         /// </summary>
         [Output("mismatchingMimeTypesOverrideList")]
         public Output<string> MismatchingMimeTypesOverrideList { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> PropertySets { get; private set; } = null!;
 
         /// <summary>
-        /// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+        /// Proxy key from Artifactory Proxies settings. Can't be set if `DisableProxy = true`.
         /// </summary>
         [Output("proxy")]
         public Output<string> Proxy { get; private set; } = null!;
@@ -445,13 +445,13 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        /// When set to `True`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         /// </summary>
         [Input("disableProxy")]
         public Input<bool>? DisableProxy { get; set; }
 
         /// <summary>
-        /// Whether to disable URL normalization. Default is `false`.
+        /// Whether to disable URL normalization. Default is `False`.
         /// </summary>
         [Input("disableUrlNormalization")]
         public Input<bool>? DisableUrlNormalization { get; set; }
@@ -489,7 +489,7 @@ namespace Pulumi.Artifactory
         public Input<string>? FeedContextPath { get; set; }
 
         /// <summary>
-        /// Force basic authentication credentials in order to use this repository. Default value is `false`.
+        /// Force basic authentication credentials in order to use this repository. Default value is `False`.
         /// </summary>
         [Input("forceNugetAuthentication")]
         public Input<bool>? ForceNugetAuthentication { get; set; }
@@ -532,7 +532,7 @@ namespace Pulumi.Artifactory
         public Input<int>? MetadataRetrievalTimeoutSecs { get; set; }
 
         /// <summary>
-        /// The set of mime types that should override the block_mismatching_mime_types setting. Eg: 'application/json,application/xml'. Default value is empty.
+        /// The set of mime types that should override the BlockMismatchingMimeTypes setting. Eg: 'application/json,application/xml'. Default value is empty.
         /// </summary>
         [Input("mismatchingMimeTypesOverrideList")]
         public Input<string>? MismatchingMimeTypesOverrideList { get; set; }
@@ -600,7 +600,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+        /// Proxy key from Artifactory Proxies settings. Can't be set if `DisableProxy = true`.
         /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
@@ -756,13 +756,13 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        /// When set to `True`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         /// </summary>
         [Input("disableProxy")]
         public Input<bool>? DisableProxy { get; set; }
 
         /// <summary>
-        /// Whether to disable URL normalization. Default is `false`.
+        /// Whether to disable URL normalization. Default is `False`.
         /// </summary>
         [Input("disableUrlNormalization")]
         public Input<bool>? DisableUrlNormalization { get; set; }
@@ -800,7 +800,7 @@ namespace Pulumi.Artifactory
         public Input<string>? FeedContextPath { get; set; }
 
         /// <summary>
-        /// Force basic authentication credentials in order to use this repository. Default value is `false`.
+        /// Force basic authentication credentials in order to use this repository. Default value is `False`.
         /// </summary>
         [Input("forceNugetAuthentication")]
         public Input<bool>? ForceNugetAuthentication { get; set; }
@@ -843,7 +843,7 @@ namespace Pulumi.Artifactory
         public Input<int>? MetadataRetrievalTimeoutSecs { get; set; }
 
         /// <summary>
-        /// The set of mime types that should override the block_mismatching_mime_types setting. Eg: 'application/json,application/xml'. Default value is empty.
+        /// The set of mime types that should override the BlockMismatchingMimeTypes setting. Eg: 'application/json,application/xml'. Default value is empty.
         /// </summary>
         [Input("mismatchingMimeTypesOverrideList")]
         public Input<string>? MismatchingMimeTypesOverrideList { get; set; }
@@ -911,7 +911,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+        /// Proxy key from Artifactory Proxies settings. Can't be set if `DisableProxy = true`.
         /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }

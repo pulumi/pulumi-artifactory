@@ -97,13 +97,13 @@ namespace Pulumi.Artifactory
     public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+        /// When enabled, this user is an administrator with all the ensuing privileges. Default value is `False`.
         /// </summary>
         [Input("admin")]
         public bool? Admin { get; set; }
 
         /// <summary>
-        /// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+        /// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `True`.
         /// </summary>
         [Input("disableUiAccess")]
         public bool? DisableUiAccess { get; set; }
@@ -139,7 +139,7 @@ namespace Pulumi.Artifactory
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+        /// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `True`.
         /// </summary>
         [Input("profileUpdatable")]
         public bool? ProfileUpdatable { get; set; }
@@ -153,13 +153,13 @@ namespace Pulumi.Artifactory
     public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+        /// When enabled, this user is an administrator with all the ensuing privileges. Default value is `False`.
         /// </summary>
         [Input("admin")]
         public Input<bool>? Admin { get; set; }
 
         /// <summary>
-        /// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+        /// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `True`.
         /// </summary>
         [Input("disableUiAccess")]
         public Input<bool>? DisableUiAccess { get; set; }
@@ -195,7 +195,7 @@ namespace Pulumi.Artifactory
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+        /// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `True`.
         /// </summary>
         [Input("profileUpdatable")]
         public Input<bool>? ProfileUpdatable { get; set; }
@@ -211,11 +211,11 @@ namespace Pulumi.Artifactory
     public sealed class GetUserResult
     {
         /// <summary>
-        /// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+        /// When enabled, this user is an administrator with all the ensuing privileges. Default value is `False`.
         /// </summary>
         public readonly bool? Admin;
         /// <summary>
-        /// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+        /// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `True`.
         /// </summary>
         public readonly bool? DisableUiAccess;
         /// <summary>
@@ -236,7 +236,7 @@ namespace Pulumi.Artifactory
         public readonly bool? InternalPasswordDisabled;
         public readonly string Name;
         /// <summary>
-        /// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+        /// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `True`.
         /// </summary>
         public readonly bool? ProfileUpdatable;
 

@@ -259,6 +259,8 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
 
         ~>Release Bundles V2 Cleanup Policies APIs are supported on Artifactory version 7.104.2 and later.
 
+        ## Example Usage
+
         ## Import
 
         ```sh
@@ -283,6 +285,8 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
         Provides an Artifactory Archive Policy resource. This resource enable system administrators to configure and maintain JFrog cleanup policies for Release Bundles V2. See [Cleanup Policies](https://jfrog.com/help/r/jfrog-rest-apis/cleanup-policies-release-bundles-v2-apis) for more details.
 
         ~>Release Bundles V2 Cleanup Policies APIs are supported on Artifactory version 7.104.2 and later.
+
+        ## Example Usage
 
         ## Import
 

@@ -208,7 +208,7 @@ namespace Pulumi.Artifactory
         public string? PypiRegistryUrl { get; set; }
 
         /// <summary>
-        /// (Optional) Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+        /// (Optional) Usually should be left as a default for `Simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `Simple`.
         /// </summary>
         [Input("pypiRepositorySuffix")]
         public string? PypiRepositorySuffix { get; set; }
@@ -382,7 +382,7 @@ namespace Pulumi.Artifactory
         public Input<string>? PypiRegistryUrl { get; set; }
 
         /// <summary>
-        /// (Optional) Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+        /// (Optional) Usually should be left as a default for `Simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `Simple`.
         /// </summary>
         [Input("pypiRepositorySuffix")]
         public Input<string>? PypiRepositorySuffix { get; set; }
@@ -475,7 +475,7 @@ namespace Pulumi.Artifactory
         /// </summary>
         public readonly string? PypiRegistryUrl;
         /// <summary>
-        /// (Optional) Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+        /// (Optional) Usually should be left as a default for `Simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `Simple`.
         /// </summary>
         public readonly string? PypiRepositorySuffix;
         public readonly string? QueryParams;

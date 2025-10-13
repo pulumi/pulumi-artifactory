@@ -100,7 +100,7 @@ namespace Pulumi.Artifactory
         public string? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+        /// (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `False`.
         /// </summary>
         [Input("forceNugetAuthentication")]
         public bool? ForceNugetAuthentication { get; set; }
@@ -160,7 +160,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+        /// (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `False`.
         /// </summary>
         [Input("forceNugetAuthentication")]
         public Input<bool>? ForceNugetAuthentication { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.Artifactory
         public readonly string? Description;
         public readonly string? ExcludesPattern;
         /// <summary>
-        /// (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+        /// (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `False`.
         /// </summary>
         public readonly bool? ForceNugetAuthentication;
         /// <summary>

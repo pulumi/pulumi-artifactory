@@ -18,7 +18,7 @@ public final class Config {
         return Codegen.stringProp("accessToken").config(config).get();
     }
 /**
- * API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
+ * API key. If `accessToken` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
  * 
  */
     public Optional<String> apiKey() {

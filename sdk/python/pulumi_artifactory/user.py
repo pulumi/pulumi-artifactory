@@ -340,6 +340,10 @@ class User(pulumi.CustomResource):
         """
         ## Example Usage
 
+        ## Managing groups relationship
+
+        See our recommendation on how to manage user-group relationship.
+
         ## Import
 
         ```sh
@@ -366,6 +370,10 @@ class User(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
+        ## Managing groups relationship
+
+        See our recommendation on how to manage user-group relationship.
 
         ## Import
 

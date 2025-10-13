@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * !&gt;Scoped Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
  * state.
  * 
- * ~&gt;Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
+ * ~&gt;Token would not be saved by Artifactory if `expiresIn` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
  * 
  * ## Example Usage
  * 
@@ -188,14 +188,14 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
         return this.expiry;
     }
     /**
-     * The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
+     * The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is also the default value if this parameter is not specified.
      * 
      */
     @Export(name="grantType", refs={String.class}, tree="[0]")
     private Output<String> grantType;
 
     /**
-     * @return The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
+     * @return The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is also the default value if this parameter is not specified.
      * 
      */
     public Output<String> grantType() {

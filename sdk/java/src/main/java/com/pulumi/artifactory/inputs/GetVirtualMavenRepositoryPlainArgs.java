@@ -97,14 +97,14 @@ public final class GetVirtualMavenRepositoryPlainArgs extends com.pulumi.resourc
     }
 
     /**
-     * (Optional) One of: `&#34;discard_active_reference&#34;, &#34;discard_any_reference&#34;, &#34;nothing&#34;`
+     * (Optional) One of: `&#34;discardActiveReference&#34;, &#34;discardAnyReference&#34;, &#34;nothing&#34;`
      * 
      */
     @Import(name="pomRepositoryReferencesCleanupPolicy")
     private @Nullable String pomRepositoryReferencesCleanupPolicy;
 
     /**
-     * @return (Optional) One of: `&#34;discard_active_reference&#34;, &#34;discard_any_reference&#34;, &#34;nothing&#34;`
+     * @return (Optional) One of: `&#34;discardActiveReference&#34;, &#34;discardAnyReference&#34;, &#34;nothing&#34;`
      * 
      */
     public Optional<String> pomRepositoryReferencesCleanupPolicy() {
@@ -234,7 +234,7 @@ public final class GetVirtualMavenRepositoryPlainArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param pomRepositoryReferencesCleanupPolicy (Optional) One of: `&#34;discard_active_reference&#34;, &#34;discard_any_reference&#34;, &#34;nothing&#34;`
+         * @param pomRepositoryReferencesCleanupPolicy (Optional) One of: `&#34;discardActiveReference&#34;, &#34;discardAnyReference&#34;, &#34;nothing&#34;`
          * 
          * @return builder
          * 

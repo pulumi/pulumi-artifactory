@@ -94,7 +94,7 @@ namespace Pulumi.Artifactory
         public bool? BlackedOut { get; set; }
 
         /// <summary>
-        /// Default: `false`.
+        /// Default: `False`.
         /// </summary>
         [Input("calculateYumMetadata")]
         public bool? CalculateYumMetadata { get; set; }
@@ -109,7 +109,7 @@ namespace Pulumi.Artifactory
         public bool? DownloadDirect { get; set; }
 
         /// <summary>
-        /// Default: `false`.
+        /// Default: `False`.
         /// </summary>
         [Input("enableFileListsIndexing")]
         public bool? EnableFileListsIndexing { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
-        /// Default: `false`.
+        /// Default: `False`.
         /// </summary>
         [Input("calculateYumMetadata")]
         public Input<bool>? CalculateYumMetadata { get; set; }
@@ -217,7 +217,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? DownloadDirect { get; set; }
 
         /// <summary>
-        /// Default: `false`.
+        /// Default: `False`.
         /// </summary>
         [Input("enableFileListsIndexing")]
         public Input<bool>? EnableFileListsIndexing { get; set; }
@@ -308,14 +308,14 @@ namespace Pulumi.Artifactory
         public readonly bool? ArchiveBrowsingEnabled;
         public readonly bool? BlackedOut;
         /// <summary>
-        /// Default: `false`.
+        /// Default: `False`.
         /// </summary>
         public readonly bool? CalculateYumMetadata;
         public readonly bool? CdnRedirect;
         public readonly string? Description;
         public readonly bool? DownloadDirect;
         /// <summary>
-        /// Default: `false`.
+        /// Default: `False`.
         /// </summary>
         public readonly bool? EnableFileListsIndexing;
         public readonly string? ExcludesPattern;

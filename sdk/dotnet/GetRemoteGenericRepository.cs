@@ -188,7 +188,7 @@ namespace Pulumi.Artifactory
         public string? ProjectKey { get; set; }
 
         /// <summary>
-        /// (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+        /// (Optional, Default: `False`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         /// </summary>
         [Input("propagateQueryParams")]
         public bool? PropagateQueryParams { get; set; }
@@ -353,7 +353,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ProjectKey { get; set; }
 
         /// <summary>
-        /// (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+        /// (Optional, Default: `False`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         /// </summary>
         [Input("propagateQueryParams")]
         public Input<bool>? PropagateQueryParams { get; set; }
@@ -450,7 +450,7 @@ namespace Pulumi.Artifactory
         public readonly ImmutableArray<string> ProjectEnvironments;
         public readonly string? ProjectKey;
         /// <summary>
-        /// (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+        /// (Optional, Default: `False`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         /// </summary>
         public readonly bool? PropagateQueryParams;
         public readonly ImmutableArray<string> PropertySets;

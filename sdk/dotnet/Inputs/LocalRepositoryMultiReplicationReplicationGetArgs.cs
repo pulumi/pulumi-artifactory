@@ -13,19 +13,19 @@ namespace Pulumi.Artifactory.Inputs
     public sealed class LocalRepositoryMultiReplicationReplicationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        /// Enabling the `CheckBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
         /// </summary>
         [Input("checkBinaryExistenceInFilestore")]
         public Input<bool>? CheckBinaryExistenceInFilestore { get; set; }
 
         /// <summary>
-        /// When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+        /// When set to `True`, the `Proxy` attribute will be ignored (from version 7.41.7). The default value is `False`.
         /// </summary>
         [Input("disableProxy")]
         public Input<bool>? DisableProxy { get; set; }
 
         /// <summary>
-        /// When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
+        /// When set, enables replication of this repository to the target specified in `Url` attribute. Default value is `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -77,19 +77,19 @@ namespace Pulumi.Artifactory.Inputs
         public Input<int>? SocketTimeoutMillis { get; set; }
 
         /// <summary>
-        /// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+        /// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `False`.
         /// </summary>
         [Input("syncDeletes")]
         public Input<bool>? SyncDeletes { get; set; }
 
         /// <summary>
-        /// When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+        /// When set, the task also synchronizes the properties of replicated artifacts. Default value is `True`.
         /// </summary>
         [Input("syncProperties")]
         public Input<bool>? SyncProperties { get; set; }
 
         /// <summary>
-        /// When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
+        /// When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `False`
         /// </summary>
         [Input("syncStatistics")]
         public Input<bool>? SyncStatistics { get; set; }

@@ -19,20 +19,20 @@ public final class PackageCleanupPolicySearchCriteria {
     /**
      * @return The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 5 then packages created more than 5 days ago will be deleted as part of the policy.
      * 
-     * ~&gt;JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not deleted.
+     * ~&gt;JFrog recommends using the `createdBeforeInDays` condition to ensure that packages currently in use are not deleted.
      * 
      */
     private @Nullable Integer createdBeforeInDays;
     /**
      * @return The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be deleted as part of the policy.
      * 
-     * ~&gt;JFrog recommends using the `created_before_in_months` condition to ensure that packages currently in use are not deleted.
+     * ~&gt;JFrog recommends using the `createdBeforeInMonths` condition to ensure that packages currently in use are not deleted.
      * 
      * @deprecated
-     * Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2.
+     * Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
      * 
      */
-    @Deprecated /* Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2. */
+    @Deprecated /* Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2. */
     private @Nullable Integer createdBeforeInMonths;
     /**
      * @return Specify explicit package names that you want excluded from the policy. Only explicit names (and not patterns) are accepted.
@@ -57,12 +57,12 @@ public final class PackageCleanupPolicySearchCriteria {
      */
     private @Nullable Boolean includeAllProjects;
     /**
-     * @return Specify a pattern for a package name or an explicit package name on which you want the cleanup policy to run. Only one pattern or explicit name can be entered. To include all packages, use `**`. Example: `included_packages = [&#34;**&#34;]`
+     * @return Specify a pattern for a package name or an explicit package name on which you want the cleanup policy to run. Only one pattern or explicit name can be entered. To include all packages, use `**`. Example: `includedPackages = [&#34;**&#34;]`
      * 
      */
     private List<String> includedPackages;
     /**
-     * @return Enter the project keys for the projects on which you want the policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
+     * @return Enter the project keys for the projects on which you want the policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `includeAllProjects` is set to `true`.
      * 
      */
     private List<String> includedProjects;
@@ -81,20 +81,20 @@ public final class PackageCleanupPolicySearchCriteria {
     /**
      * @return The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be deleted as part of the policy.
      * 
-     * ~&gt;JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not deleted.
+     * ~&gt;JFrog recommends using the `lastDownloadedBeforeInDays` condition to ensure that packages currently in use are not deleted.
      * 
      */
     private @Nullable Integer lastDownloadedBeforeInDays;
     /**
      * @return The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be deleted as part of the policy.
      * 
-     * ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not deleted.
+     * ~&gt;JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not deleted.
      * 
      * @deprecated
-     * Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2.
+     * Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
      * 
      */
-    @Deprecated /* Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2. */
+    @Deprecated /* Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2. */
     private @Nullable Integer lastDownloadedBeforeInMonths;
     private List<String> packageTypes;
     /**
@@ -107,7 +107,7 @@ public final class PackageCleanupPolicySearchCriteria {
     /**
      * @return The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 5 then packages created more than 5 days ago will be deleted as part of the policy.
      * 
-     * ~&gt;JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not deleted.
+     * ~&gt;JFrog recommends using the `createdBeforeInDays` condition to ensure that packages currently in use are not deleted.
      * 
      */
     public Optional<Integer> createdBeforeInDays() {
@@ -116,13 +116,13 @@ public final class PackageCleanupPolicySearchCriteria {
     /**
      * @return The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be deleted as part of the policy.
      * 
-     * ~&gt;JFrog recommends using the `created_before_in_months` condition to ensure that packages currently in use are not deleted.
+     * ~&gt;JFrog recommends using the `createdBeforeInMonths` condition to ensure that packages currently in use are not deleted.
      * 
      * @deprecated
-     * Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2.
+     * Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
      * 
      */
-    @Deprecated /* Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2. */
+    @Deprecated /* Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2. */
     public Optional<Integer> createdBeforeInMonths() {
         return Optional.ofNullable(this.createdBeforeInMonths);
     }
@@ -157,14 +157,14 @@ public final class PackageCleanupPolicySearchCriteria {
         return Optional.ofNullable(this.includeAllProjects);
     }
     /**
-     * @return Specify a pattern for a package name or an explicit package name on which you want the cleanup policy to run. Only one pattern or explicit name can be entered. To include all packages, use `**`. Example: `included_packages = [&#34;**&#34;]`
+     * @return Specify a pattern for a package name or an explicit package name on which you want the cleanup policy to run. Only one pattern or explicit name can be entered. To include all packages, use `**`. Example: `includedPackages = [&#34;**&#34;]`
      * 
      */
     public List<String> includedPackages() {
         return this.includedPackages;
     }
     /**
-     * @return Enter the project keys for the projects on which you want the policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
+     * @return Enter the project keys for the projects on which you want the policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `includeAllProjects` is set to `true`.
      * 
      */
     public List<String> includedProjects() {
@@ -189,7 +189,7 @@ public final class PackageCleanupPolicySearchCriteria {
     /**
      * @return The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be deleted as part of the policy.
      * 
-     * ~&gt;JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not deleted.
+     * ~&gt;JFrog recommends using the `lastDownloadedBeforeInDays` condition to ensure that packages currently in use are not deleted.
      * 
      */
     public Optional<Integer> lastDownloadedBeforeInDays() {
@@ -198,13 +198,13 @@ public final class PackageCleanupPolicySearchCriteria {
     /**
      * @return The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be deleted as part of the policy.
      * 
-     * ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not deleted.
+     * ~&gt;JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not deleted.
      * 
      * @deprecated
-     * Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2.
+     * Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
      * 
      */
-    @Deprecated /* Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2. */
+    @Deprecated /* Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2. */
     public Optional<Integer> lastDownloadedBeforeInMonths() {
         return Optional.ofNullable(this.lastDownloadedBeforeInMonths);
     }

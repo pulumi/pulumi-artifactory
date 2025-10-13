@@ -65,14 +65,14 @@ public final class ReleaseBundleV2SourceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `source_type` attribute value.
+     * Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `sourceType` attribute value.
      * 
      */
     @Import(name="releaseBundles")
     private @Nullable Output<List<ReleaseBundleV2SourceReleaseBundleArgs>> releaseBundles;
 
     /**
-     * @return Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `source_type` attribute value.
+     * @return Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `sourceType` attribute value.
      * 
      */
     public Optional<Output<List<ReleaseBundleV2SourceReleaseBundleArgs>>> releaseBundles() {
@@ -190,7 +190,7 @@ public final class ReleaseBundleV2SourceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param releaseBundles Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `source_type` attribute value.
+         * @param releaseBundles Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `sourceType` attribute value.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class ReleaseBundleV2SourceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param releaseBundles Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `source_type` attribute value.
+         * @param releaseBundles Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `sourceType` attribute value.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class ReleaseBundleV2SourceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param releaseBundles Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `source_type` attribute value.
+         * @param releaseBundles Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `sourceType` attribute value.
          * 
          * @return builder
          * 

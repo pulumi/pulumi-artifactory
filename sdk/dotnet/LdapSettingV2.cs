@@ -60,25 +60,25 @@ namespace Pulumi.Artifactory
     public partial class LdapSettingV2 : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Auto created users will have access to their profile page and will be able to perform actions such as generating an API key. Default value is `false`.
+        /// Auto created users will have access to their profile page and will be able to perform actions such as generating an API key. Default value is `False`.
         /// </summary>
         [Output("allowUserToAccessProfile")]
         public Output<bool> AllowUserToAccessProfile { get; private set; } = null!;
 
         /// <summary>
-        /// When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with auto-join groups defined in Artifactory. Default value is `true`.
+        /// When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with auto-join groups defined in Artifactory. Default value is `True`.
         /// </summary>
         [Output("autoCreateUser")]
         public Output<bool> AutoCreateUser { get; private set; } = null!;
 
         /// <summary>
-        /// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is`mail`.
+        /// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is`Mail`.
         /// </summary>
         [Output("emailAttribute")]
         public Output<string> EmailAttribute { get; private set; } = null!;
 
         /// <summary>
-        /// Flag to enable or disable the ldap setting. Default value is `true`.
+        /// Flag to enable or disable the ldap setting. Default value is `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.Artifactory
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to `true`, an empty or missing usernames array will detach all users from the group.
+        /// When this is set to `True`, an empty or missing usernames array will detach all users from the group.
         /// </summary>
         [Output("ldapPoisoningProtection")]
         public Output<bool> LdapPoisoningProtection { get; private set; } = null!;
@@ -102,19 +102,19 @@ namespace Pulumi.Artifactory
         public Output<string> LdapUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The full DN of the user that binds to the LDAP server to perform user searches. Only used with `search` authentication.
+        /// The full DN of the user that binds to the LDAP server to perform user searches. Only used with `Search` authentication.
         /// </summary>
         [Output("managerDn")]
         public Output<string> ManagerDn { get; private set; } = null!;
 
         /// <summary>
-        /// The password of the user that binds to the LDAP server to perform the search. Only used with `search` authentication.
+        /// The password of the user that binds to the LDAP server to perform the search. Only used with `Search` authentication.
         /// </summary>
         [Output("managerPassword")]
         public Output<string> ManagerPassword { get; private set; } = null!;
 
         /// <summary>
-        /// When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a PagedResultsControl configuration. Default value is `true`.
+        /// When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a PagedResultsControl configuration. Default value is `True`.
         /// </summary>
         [Output("pagingSupportEnabled")]
         public Output<bool> PagingSupportEnabled { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Artifactory
         public Output<string> SearchFilter { get; private set; } = null!;
 
         /// <summary>
-        /// When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is `true`.
+        /// When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is `True`.
         /// </summary>
         [Output("searchSubTree")]
         public Output<bool> SearchSubTree { get; private set; } = null!;
@@ -194,25 +194,25 @@ namespace Pulumi.Artifactory
     public sealed class LdapSettingV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Auto created users will have access to their profile page and will be able to perform actions such as generating an API key. Default value is `false`.
+        /// Auto created users will have access to their profile page and will be able to perform actions such as generating an API key. Default value is `False`.
         /// </summary>
         [Input("allowUserToAccessProfile")]
         public Input<bool>? AllowUserToAccessProfile { get; set; }
 
         /// <summary>
-        /// When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with auto-join groups defined in Artifactory. Default value is `true`.
+        /// When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with auto-join groups defined in Artifactory. Default value is `True`.
         /// </summary>
         [Input("autoCreateUser")]
         public Input<bool>? AutoCreateUser { get; set; }
 
         /// <summary>
-        /// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is`mail`.
+        /// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is`Mail`.
         /// </summary>
         [Input("emailAttribute")]
         public Input<string>? EmailAttribute { get; set; }
 
         /// <summary>
-        /// Flag to enable or disable the ldap setting. Default value is `true`.
+        /// Flag to enable or disable the ldap setting. Default value is `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -224,7 +224,7 @@ namespace Pulumi.Artifactory
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// When this is set to `true`, an empty or missing usernames array will detach all users from the group.
+        /// When this is set to `True`, an empty or missing usernames array will detach all users from the group.
         /// </summary>
         [Input("ldapPoisoningProtection")]
         public Input<bool>? LdapPoisoningProtection { get; set; }
@@ -236,7 +236,7 @@ namespace Pulumi.Artifactory
         public Input<string> LdapUrl { get; set; } = null!;
 
         /// <summary>
-        /// The full DN of the user that binds to the LDAP server to perform user searches. Only used with `search` authentication.
+        /// The full DN of the user that binds to the LDAP server to perform user searches. Only used with `Search` authentication.
         /// </summary>
         [Input("managerDn")]
         public Input<string>? ManagerDn { get; set; }
@@ -245,7 +245,7 @@ namespace Pulumi.Artifactory
         private Input<string>? _managerPassword;
 
         /// <summary>
-        /// The password of the user that binds to the LDAP server to perform the search. Only used with `search` authentication.
+        /// The password of the user that binds to the LDAP server to perform the search. Only used with `Search` authentication.
         /// </summary>
         public Input<string>? ManagerPassword
         {
@@ -258,7 +258,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a PagedResultsControl configuration. Default value is `true`.
+        /// When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a PagedResultsControl configuration. Default value is `True`.
         /// </summary>
         [Input("pagingSupportEnabled")]
         public Input<bool>? PagingSupportEnabled { get; set; }
@@ -276,7 +276,7 @@ namespace Pulumi.Artifactory
         public Input<string>? SearchFilter { get; set; }
 
         /// <summary>
-        /// When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is `true`.
+        /// When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is `True`.
         /// </summary>
         [Input("searchSubTree")]
         public Input<bool>? SearchSubTree { get; set; }
@@ -296,25 +296,25 @@ namespace Pulumi.Artifactory
     public sealed class LdapSettingV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Auto created users will have access to their profile page and will be able to perform actions such as generating an API key. Default value is `false`.
+        /// Auto created users will have access to their profile page and will be able to perform actions such as generating an API key. Default value is `False`.
         /// </summary>
         [Input("allowUserToAccessProfile")]
         public Input<bool>? AllowUserToAccessProfile { get; set; }
 
         /// <summary>
-        /// When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with auto-join groups defined in Artifactory. Default value is `true`.
+        /// When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with auto-join groups defined in Artifactory. Default value is `True`.
         /// </summary>
         [Input("autoCreateUser")]
         public Input<bool>? AutoCreateUser { get; set; }
 
         /// <summary>
-        /// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is`mail`.
+        /// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is`Mail`.
         /// </summary>
         [Input("emailAttribute")]
         public Input<string>? EmailAttribute { get; set; }
 
         /// <summary>
-        /// Flag to enable or disable the ldap setting. Default value is `true`.
+        /// Flag to enable or disable the ldap setting. Default value is `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -326,7 +326,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// When this is set to `true`, an empty or missing usernames array will detach all users from the group.
+        /// When this is set to `True`, an empty or missing usernames array will detach all users from the group.
         /// </summary>
         [Input("ldapPoisoningProtection")]
         public Input<bool>? LdapPoisoningProtection { get; set; }
@@ -338,7 +338,7 @@ namespace Pulumi.Artifactory
         public Input<string>? LdapUrl { get; set; }
 
         /// <summary>
-        /// The full DN of the user that binds to the LDAP server to perform user searches. Only used with `search` authentication.
+        /// The full DN of the user that binds to the LDAP server to perform user searches. Only used with `Search` authentication.
         /// </summary>
         [Input("managerDn")]
         public Input<string>? ManagerDn { get; set; }
@@ -347,7 +347,7 @@ namespace Pulumi.Artifactory
         private Input<string>? _managerPassword;
 
         /// <summary>
-        /// The password of the user that binds to the LDAP server to perform the search. Only used with `search` authentication.
+        /// The password of the user that binds to the LDAP server to perform the search. Only used with `Search` authentication.
         /// </summary>
         public Input<string>? ManagerPassword
         {
@@ -360,7 +360,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a PagedResultsControl configuration. Default value is `true`.
+        /// When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a PagedResultsControl configuration. Default value is `True`.
         /// </summary>
         [Input("pagingSupportEnabled")]
         public Input<bool>? PagingSupportEnabled { get; set; }
@@ -378,7 +378,7 @@ namespace Pulumi.Artifactory
         public Input<string>? SearchFilter { get; set; }
 
         /// <summary>
-        /// When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is `true`.
+        /// When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is `True`.
         /// </summary>
         [Input("searchSubTree")]
         public Input<bool>? SearchSubTree { get; set; }

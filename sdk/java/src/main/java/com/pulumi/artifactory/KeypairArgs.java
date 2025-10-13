@@ -94,7 +94,7 @@ public final class KeypairArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Public key. PEM format will be validated. Must not include extranous spaces or tabs.
      * 
-     * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
+     * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `privateKey` and `passphrase`, but consumes these keys in the POST call.
      * 
      */
     @Import(name="publicKey", required=true)
@@ -103,7 +103,7 @@ public final class KeypairArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Public key. PEM format will be validated. Must not include extranous spaces or tabs.
      * 
-     * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
+     * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `privateKey` and `passphrase`, but consumes these keys in the POST call.
      * 
      */
     public Output<String> publicKey() {
@@ -247,7 +247,7 @@ public final class KeypairArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param publicKey Public key. PEM format will be validated. Must not include extranous spaces or tabs.
          * 
-         * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
+         * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `privateKey` and `passphrase`, but consumes these keys in the POST call.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class KeypairArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param publicKey Public key. PEM format will be validated. Must not include extranous spaces or tabs.
          * 
-         * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
+         * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `privateKey` and `passphrase`, but consumes these keys in the POST call.
          * 
          * @return builder
          * 

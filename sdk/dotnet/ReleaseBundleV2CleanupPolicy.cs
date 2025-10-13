@@ -14,6 +14,8 @@ namespace Pulumi.Artifactory
     /// 
     /// ~&gt;Release Bundles V2 Cleanup Policies APIs are supported on Artifactory version 7.104.2 and later.
     /// 
+    /// ## Example Usage
+    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -39,7 +41,7 @@ namespace Pulumi.Artifactory
         public Output<int?> DurationInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// Enables or disabled the release bundles v2 cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
+        /// Enables or disabled the release bundles v2 cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `True`
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -121,7 +123,7 @@ namespace Pulumi.Artifactory
         public Input<int>? DurationInMinutes { get; set; }
 
         /// <summary>
-        /// Enables or disabled the release bundles v2 cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
+        /// Enables or disabled the release bundles v2 cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `True`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -165,7 +167,7 @@ namespace Pulumi.Artifactory
         public Input<int>? DurationInMinutes { get; set; }
 
         /// <summary>
-        /// Enables or disabled the release bundles v2 cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
+        /// Enables or disabled the release bundles v2 cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `True`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

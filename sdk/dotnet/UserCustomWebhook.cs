@@ -64,13 +64,13 @@ namespace Pulumi.Artifactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Status of webhook. Default to `true`
+        /// Status of webhook. Default to `True`
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// List of event triggers for the Webhook. Allow values: `locked`
+        /// List of event triggers for the Webhook. Allow values: `Locked`
         /// </summary>
         [Output("eventTypes")]
         public Output<ImmutableArray<string>> EventTypes { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Status of webhook. Default to `true`
+        /// Status of webhook. Default to `True`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -149,7 +149,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _eventTypes;
 
         /// <summary>
-        /// List of event triggers for the Webhook. Allow values: `locked`
+        /// List of event triggers for the Webhook. Allow values: `Locked`
         /// </summary>
         public InputList<string> EventTypes
         {
@@ -190,7 +190,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Status of webhook. Default to `true`
+        /// Status of webhook. Default to `True`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -199,7 +199,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _eventTypes;
 
         /// <summary>
-        /// List of event triggers for the Webhook. Allow values: `locked`
+        /// List of event triggers for the Webhook. Allow values: `Locked`
         /// </summary>
         public InputList<string> EventTypes
         {

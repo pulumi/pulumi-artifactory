@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _excludePromotedEnvironments;
 
         /// <summary>
-        /// A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `exclude_promoted_environments = ["**"]`
+        /// A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `ExcludePromotedEnvironments = ["**"]`
         /// </summary>
         public InputList<string> ExcludePromotedEnvironments
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Artifactory.Inputs
         }
 
         /// <summary>
-        /// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+        /// Set this value to `True` if you want the policy to run on all Artifactory projects. The default value is `False`.
         /// </summary>
         [Input("includeAllProjects")]
         public Input<bool>? IncludeAllProjects { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _includedProjects;
 
         /// <summary>
-        /// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+        /// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `Default`.
         /// 
         /// ~&gt;This setting is relevant only on the global level, for Platform Admins.
         /// </summary>
