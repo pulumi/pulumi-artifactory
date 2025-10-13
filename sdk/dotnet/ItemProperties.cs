@@ -76,7 +76,7 @@ namespace Pulumi.Artifactory
     public partial class ItemProperties : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Add this property to the selected folder and to all of artifacts and folders under this folder. Default to `false`
+        /// Add this property to the selected folder and to all of artifacts and folders under this folder. Default to `False`
         /// </summary>
         [Output("isRecursive")]
         public Output<bool> IsRecursive { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Artifactory
     public sealed class ItemPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Add this property to the selected folder and to all of artifacts and folders under this folder. Default to `false`
+        /// Add this property to the selected folder and to all of artifacts and folders under this folder. Default to `False`
         /// </summary>
         [Input("isRecursive")]
         public Input<bool>? IsRecursive { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Artifactory
     public sealed class ItemPropertiesState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Add this property to the selected folder and to all of artifacts and folders under this folder. Default to `false`
+        /// Add this property to the selected folder and to all of artifacts and folders under this folder. Default to `False`
         /// </summary>
         [Input("isRecursive")]
         public Input<bool>? IsRecursive { get; set; }

@@ -116,14 +116,14 @@ public class ReleaseBundleV2Promotion extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.excludedRepositoryKeys);
     }
     /**
-     * Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+     * Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excludedRepositoryKeys`).
      * 
      */
     @Export(name="includedRepositoryKeys", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> includedRepositoryKeys;
 
     /**
-     * @return Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+     * @return Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excludedRepositoryKeys`).
      * 
      */
     public Output<Optional<List<String>>> includedRepositoryKeys() {

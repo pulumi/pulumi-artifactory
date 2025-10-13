@@ -36,14 +36,14 @@ public final class ReleaseBundleV2CleanupPolicySearchCriteriaArgs extends com.pu
     }
 
     /**
-     * A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `exclude_promoted_environments = [&#34;**&#34;]`
+     * A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `excludePromotedEnvironments = [&#34;**&#34;]`
      * 
      */
     @Import(name="excludePromotedEnvironments", required=true)
     private Output<List<String>> excludePromotedEnvironments;
 
     /**
-     * @return A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `exclude_promoted_environments = [&#34;**&#34;]`
+     * @return A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `excludePromotedEnvironments = [&#34;**&#34;]`
      * 
      */
     public Output<List<String>> excludePromotedEnvironments() {
@@ -149,7 +149,7 @@ public final class ReleaseBundleV2CleanupPolicySearchCriteriaArgs extends com.pu
         }
 
         /**
-         * @param excludePromotedEnvironments A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `exclude_promoted_environments = [&#34;**&#34;]`
+         * @param excludePromotedEnvironments A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `excludePromotedEnvironments = [&#34;**&#34;]`
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class ReleaseBundleV2CleanupPolicySearchCriteriaArgs extends com.pu
         }
 
         /**
-         * @param excludePromotedEnvironments A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `exclude_promoted_environments = [&#34;**&#34;]`
+         * @param excludePromotedEnvironments A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `excludePromotedEnvironments = [&#34;**&#34;]`
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class ReleaseBundleV2CleanupPolicySearchCriteriaArgs extends com.pu
         }
 
         /**
-         * @param excludePromotedEnvironments A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `exclude_promoted_environments = [&#34;**&#34;]`
+         * @param excludePromotedEnvironments A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `excludePromotedEnvironments = [&#34;**&#34;]`
          * 
          * @return builder
          * 

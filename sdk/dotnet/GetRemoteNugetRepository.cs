@@ -148,7 +148,7 @@ namespace Pulumi.Artifactory
         public string? FeedContextPath { get; set; }
 
         /// <summary>
-        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is `False`.
         /// </summary>
         [Input("forceNugetAuthentication")]
         public bool? ForceNugetAuthentication { get; set; }
@@ -336,7 +336,7 @@ namespace Pulumi.Artifactory
         public Input<string>? FeedContextPath { get; set; }
 
         /// <summary>
-        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is `False`.
         /// </summary>
         [Input("forceNugetAuthentication")]
         public Input<bool>? ForceNugetAuthentication { get; set; }
@@ -494,7 +494,7 @@ namespace Pulumi.Artifactory
         /// </summary>
         public readonly string? FeedContextPath;
         /// <summary>
-        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is `False`.
         /// </summary>
         public readonly bool? ForceNugetAuthentication;
         public readonly bool? HardFail;

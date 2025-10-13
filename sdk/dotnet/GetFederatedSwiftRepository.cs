@@ -103,7 +103,7 @@ namespace Pulumi.Artifactory
         public string? Description { get; set; }
 
         /// <summary>
-        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+        /// When set to `True`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         /// </summary>
         [Input("disableProxy")]
         public bool? DisableProxy { get; set; }
@@ -128,7 +128,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// The list of Federated members and must contain this repository URL (configured base URL
-        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        /// `/artifactory/` + repo `Key`). Note that each of the federated members will need to have a base URL set.
         /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         /// to set up Federated repositories correctly.
         /// </summary>
@@ -199,7 +199,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+        /// When set to `True`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         /// </summary>
         [Input("disableProxy")]
         public Input<bool>? DisableProxy { get; set; }
@@ -224,7 +224,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// The list of Federated members and must contain this repository URL (configured base URL
-        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        /// `/artifactory/` + repo `Key`). Note that each of the federated members will need to have a base URL set.
         /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         /// to set up Federated repositories correctly.
         /// </summary>
@@ -287,7 +287,7 @@ namespace Pulumi.Artifactory
         public readonly bool? CleanupOnDelete;
         public readonly string? Description;
         /// <summary>
-        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+        /// When set to `True`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         /// </summary>
         public readonly bool? DisableProxy;
         public readonly bool? DownloadDirect;
@@ -300,7 +300,7 @@ namespace Pulumi.Artifactory
         public readonly string Key;
         /// <summary>
         /// The list of Federated members and must contain this repository URL (configured base URL
-        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        /// `/artifactory/` + repo `Key`). Note that each of the federated members will need to have a base URL set.
         /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         /// to set up Federated repositories correctly.
         /// </summary>

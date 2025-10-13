@@ -65,14 +65,14 @@ public final class ReleaseBundleV2PromotionCustomWebhookState extends com.pulumi
     }
 
     /**
-     * List of event triggers for the Webhook. Allow values: `release_bundle_v2_promotion_started`, `release_bundle_v2_promotion_completed`, `release_bundle_v2_promotion_failed`
+     * List of event triggers for the Webhook. Allow values: `releaseBundleV2PromotionStarted`, `releaseBundleV2PromotionCompleted`, `releaseBundleV2PromotionFailed`
      * 
      */
     @Import(name="eventTypes")
     private @Nullable Output<List<String>> eventTypes;
 
     /**
-     * @return List of event triggers for the Webhook. Allow values: `release_bundle_v2_promotion_started`, `release_bundle_v2_promotion_completed`, `release_bundle_v2_promotion_failed`
+     * @return List of event triggers for the Webhook. Allow values: `releaseBundleV2PromotionStarted`, `releaseBundleV2PromotionCompleted`, `releaseBundleV2PromotionFailed`
      * 
      */
     public Optional<Output<List<String>>> eventTypes() {
@@ -202,7 +202,7 @@ public final class ReleaseBundleV2PromotionCustomWebhookState extends com.pulumi
         }
 
         /**
-         * @param eventTypes List of event triggers for the Webhook. Allow values: `release_bundle_v2_promotion_started`, `release_bundle_v2_promotion_completed`, `release_bundle_v2_promotion_failed`
+         * @param eventTypes List of event triggers for the Webhook. Allow values: `releaseBundleV2PromotionStarted`, `releaseBundleV2PromotionCompleted`, `releaseBundleV2PromotionFailed`
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class ReleaseBundleV2PromotionCustomWebhookState extends com.pulumi
         }
 
         /**
-         * @param eventTypes List of event triggers for the Webhook. Allow values: `release_bundle_v2_promotion_started`, `release_bundle_v2_promotion_completed`, `release_bundle_v2_promotion_failed`
+         * @param eventTypes List of event triggers for the Webhook. Allow values: `releaseBundleV2PromotionStarted`, `releaseBundleV2PromotionCompleted`, `releaseBundleV2PromotionFailed`
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class ReleaseBundleV2PromotionCustomWebhookState extends com.pulumi
         }
 
         /**
-         * @param eventTypes List of event triggers for the Webhook. Allow values: `release_bundle_v2_promotion_started`, `release_bundle_v2_promotion_completed`, `release_bundle_v2_promotion_failed`
+         * @param eventTypes List of event triggers for the Webhook. Allow values: `releaseBundleV2PromotionStarted`, `releaseBundleV2PromotionCompleted`, `releaseBundleV2PromotionFailed`
          * 
          * @return builder
          * 

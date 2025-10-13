@@ -116,7 +116,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> Repositories { get; private set; } = null!;
 
         /// <summary>
-        /// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+        /// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `False`.
         /// </summary>
         [Output("resolveDockerTagsByTimestamp")]
         public Output<bool?> ResolveDockerTagsByTimestamp { get; private set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+        /// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `False`.
         /// </summary>
         [Input("resolveDockerTagsByTimestamp")]
         public Input<bool>? ResolveDockerTagsByTimestamp { get; set; }
@@ -335,7 +335,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+        /// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `False`.
         /// </summary>
         [Input("resolveDockerTagsByTimestamp")]
         public Input<bool>? ResolveDockerTagsByTimestamp { get; set; }

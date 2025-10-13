@@ -308,14 +308,14 @@ public final class FederatedDockerRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * Proxy key from Artifactory Proxies settings. Default is empty field. Can&#39;t be set if `disable_proxy = true`.
+     * Proxy key from Artifactory Proxies settings. Default is empty field. Can&#39;t be set if `disableProxy = true`.
      * 
      */
     @Import(name="proxy")
     private @Nullable Output<String> proxy;
 
     /**
-     * @return Proxy key from Artifactory Proxies settings. Default is empty field. Can&#39;t be set if `disable_proxy = true`.
+     * @return Proxy key from Artifactory Proxies settings. Default is empty field. Can&#39;t be set if `disableProxy = true`.
      * 
      */
     public Optional<Output<String>> proxy() {
@@ -838,7 +838,7 @@ public final class FederatedDockerRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param proxy Proxy key from Artifactory Proxies settings. Default is empty field. Can&#39;t be set if `disable_proxy = true`.
+         * @param proxy Proxy key from Artifactory Proxies settings. Default is empty field. Can&#39;t be set if `disableProxy = true`.
          * 
          * @return builder
          * 
@@ -849,7 +849,7 @@ public final class FederatedDockerRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param proxy Proxy key from Artifactory Proxies settings. Default is empty field. Can&#39;t be set if `disable_proxy = true`.
+         * @param proxy Proxy key from Artifactory Proxies settings. Default is empty field. Can&#39;t be set if `disableProxy = true`.
          * 
          * @return builder
          * 

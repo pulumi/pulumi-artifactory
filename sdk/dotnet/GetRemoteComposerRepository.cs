@@ -238,7 +238,7 @@ namespace Pulumi.Artifactory
         public string? Username { get; set; }
 
         /// <summary>
-        /// (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+        /// (Optional) This attribute is used when VcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
         /// </summary>
         [Input("vcsGitDownloadUrl")]
         public string? VcsGitDownloadUrl { get; set; }
@@ -415,7 +415,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Username { get; set; }
 
         /// <summary>
-        /// (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+        /// (Optional) This attribute is used when VcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
         /// </summary>
         [Input("vcsGitDownloadUrl")]
         public Input<string>? VcsGitDownloadUrl { get; set; }
@@ -491,7 +491,7 @@ namespace Pulumi.Artifactory
         public readonly string? Url;
         public readonly string? Username;
         /// <summary>
-        /// (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+        /// (Optional) This attribute is used when VcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
         /// </summary>
         public readonly string? VcsGitDownloadUrl;
         /// <summary>

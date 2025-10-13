@@ -126,7 +126,7 @@ namespace Pulumi.Artifactory
         public Output<string> PackageType { get; private set; } = null!;
 
         /// <summary>
-        /// One of: `"discard_active_reference", "discard_any_reference", "nothing"`
+        /// One of: `"DiscardActiveReference", "DiscardAnyReference", "nothing"`
         /// </summary>
         [Output("pomRepositoryReferencesCleanupPolicy")]
         public Output<string> PomRepositoryReferencesCleanupPolicy { get; private set; } = null!;
@@ -254,7 +254,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// One of: `"discard_active_reference", "discard_any_reference", "nothing"`
+        /// One of: `"DiscardActiveReference", "DiscardAnyReference", "nothing"`
         /// </summary>
         [Input("pomRepositoryReferencesCleanupPolicy")]
         public Input<string>? PomRepositoryReferencesCleanupPolicy { get; set; }
@@ -358,7 +358,7 @@ namespace Pulumi.Artifactory
         public Input<string>? PackageType { get; set; }
 
         /// <summary>
-        /// One of: `"discard_active_reference", "discard_any_reference", "nothing"`
+        /// One of: `"DiscardActiveReference", "DiscardAnyReference", "nothing"`
         /// </summary>
         [Input("pomRepositoryReferencesCleanupPolicy")]
         public Input<string>? PomRepositoryReferencesCleanupPolicy { get; set; }

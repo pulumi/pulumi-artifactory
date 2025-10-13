@@ -103,7 +103,7 @@ namespace Pulumi.Artifactory
         public Output<string?> Notes { get; private set; } = null!;
 
         /// <summary>
-        /// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+        /// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `Bz2`,`Lzma` and `Xz`. Default value is `Bz2`.
         /// </summary>
         [Output("optionalIndexCompressionFormats")]
         public Output<ImmutableArray<string>> OptionalIndexCompressionFormats { get; private set; } = null!;
@@ -249,7 +249,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _optionalIndexCompressionFormats;
 
         /// <summary>
-        /// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+        /// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `Bz2`,`Lzma` and `Xz`. Default value is `Bz2`.
         /// </summary>
         public InputList<string> OptionalIndexCompressionFormats
         {
@@ -368,7 +368,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _optionalIndexCompressionFormats;
 
         /// <summary>
-        /// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+        /// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `Bz2`,`Lzma` and `Xz`. Default value is `Bz2`.
         /// </summary>
         public InputList<string> OptionalIndexCompressionFormats
         {

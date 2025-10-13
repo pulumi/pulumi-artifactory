@@ -11,6 +11,8 @@ namespace Pulumi.Artifactory
 {
     /// <summary>
     /// This resource enables you to creates a new Release Bundle v2, uniquely identified by a combination of repository key, name, and version. For more information, see [Understanding Release Bundles v2](https://jfrog.com/help/r/jfrog-artifactory-documentation/understanding-release-bundles-v2) and [REST API](https://jfrog.com/help/r/jfrog-rest-apis/create-release-bundle-v2-version).
+    /// 
+    /// ## Example Usage
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/releaseBundleV2:ReleaseBundleV2")]
     public partial class ReleaseBundleV2 : global::Pulumi.CustomResource
@@ -52,19 +54,19 @@ namespace Pulumi.Artifactory
         public Output<string> ServiceId { get; private set; } = null!;
 
         /// <summary>
-        /// Determines whether to skip the resolution of the Docker manifest, which adds the image layers to the Release Bundle. The default value is `false` (the manifest is resolved and image layers are included).
+        /// Determines whether to skip the resolution of the Docker manifest, which adds the image layers to the Release Bundle. The default value is `False` (the manifest is resolved and image layers are included).
         /// </summary>
         [Output("skipDockerManifestResolution")]
         public Output<bool> SkipDockerManifestResolution { get; private set; } = null!;
 
         /// <summary>
-        /// Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+        /// Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `ExcludedRepositoryKeys`).
         /// </summary>
         [Output("source")]
         public Output<Outputs.ReleaseBundleV2Source> Source { get; private set; } = null!;
 
         /// <summary>
-        /// Source type. Valid values: `aql`, `artifacts`, `builds`, `release_bundles`
+        /// Source type. Valid values: `Aql`, `Artifacts`, `Builds`, `ReleaseBundles`
         /// </summary>
         [Output("sourceType")]
         public Output<string> SourceType { get; private set; } = null!;
@@ -140,19 +142,19 @@ namespace Pulumi.Artifactory
         public Input<string>? ProjectKey { get; set; }
 
         /// <summary>
-        /// Determines whether to skip the resolution of the Docker manifest, which adds the image layers to the Release Bundle. The default value is `false` (the manifest is resolved and image layers are included).
+        /// Determines whether to skip the resolution of the Docker manifest, which adds the image layers to the Release Bundle. The default value is `False` (the manifest is resolved and image layers are included).
         /// </summary>
         [Input("skipDockerManifestResolution")]
         public Input<bool>? SkipDockerManifestResolution { get; set; }
 
         /// <summary>
-        /// Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+        /// Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `ExcludedRepositoryKeys`).
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.ReleaseBundleV2SourceArgs> Source { get; set; } = null!;
 
         /// <summary>
-        /// Source type. Valid values: `aql`, `artifacts`, `builds`, `release_bundles`
+        /// Source type. Valid values: `Aql`, `Artifacts`, `Builds`, `ReleaseBundles`
         /// </summary>
         [Input("sourceType", required: true)]
         public Input<string> SourceType { get; set; } = null!;
@@ -208,19 +210,19 @@ namespace Pulumi.Artifactory
         public Input<string>? ServiceId { get; set; }
 
         /// <summary>
-        /// Determines whether to skip the resolution of the Docker manifest, which adds the image layers to the Release Bundle. The default value is `false` (the manifest is resolved and image layers are included).
+        /// Determines whether to skip the resolution of the Docker manifest, which adds the image layers to the Release Bundle. The default value is `False` (the manifest is resolved and image layers are included).
         /// </summary>
         [Input("skipDockerManifestResolution")]
         public Input<bool>? SkipDockerManifestResolution { get; set; }
 
         /// <summary>
-        /// Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+        /// Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `ExcludedRepositoryKeys`).
         /// </summary>
         [Input("source")]
         public Input<Inputs.ReleaseBundleV2SourceGetArgs>? Source { get; set; }
 
         /// <summary>
-        /// Source type. Valid values: `aql`, `artifacts`, `builds`, `release_bundles`
+        /// Source type. Valid values: `Aql`, `Artifacts`, `Builds`, `ReleaseBundles`
         /// </summary>
         [Input("sourceType")]
         public Input<string>? SourceType { get; set; }

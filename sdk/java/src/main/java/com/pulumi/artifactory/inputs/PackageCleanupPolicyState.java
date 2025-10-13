@@ -86,14 +86,14 @@ public final class PackageCleanupPolicyState extends com.pulumi.resources.Resour
     }
 
     /**
-     * This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `&#34;myproj&#34;`, the `key` should be `&#34;myproj-policy-name&#34;`).
+     * This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `projectKey` is `&#34;myproj&#34;`, the `key` should be `&#34;myproj-policy-name&#34;`).
      * 
      */
     @Import(name="projectKey")
     private @Nullable Output<String> projectKey;
 
     /**
-     * @return This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `&#34;myproj&#34;`, the `key` should be `&#34;myproj-policy-name&#34;`).
+     * @return This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `projectKey` is `&#34;myproj&#34;`, the `key` should be `&#34;myproj-policy-name&#34;`).
      * 
      */
     public Optional<Output<String>> projectKey() {
@@ -247,7 +247,7 @@ public final class PackageCleanupPolicyState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param projectKey This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `&#34;myproj&#34;`, the `key` should be `&#34;myproj-policy-name&#34;`).
+         * @param projectKey This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `projectKey` is `&#34;myproj&#34;`, the `key` should be `&#34;myproj-policy-name&#34;`).
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class PackageCleanupPolicyState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param projectKey This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `&#34;myproj&#34;`, the `key` should be `&#34;myproj-policy-name&#34;`).
+         * @param projectKey This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `projectKey` is `&#34;myproj&#34;`, the `key` should be `&#34;myproj-policy-name&#34;`).
          * 
          * @return builder
          * 

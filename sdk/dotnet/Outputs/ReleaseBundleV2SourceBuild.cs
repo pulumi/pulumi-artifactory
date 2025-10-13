@@ -14,7 +14,7 @@ namespace Pulumi.Artifactory.Outputs
     public sealed class ReleaseBundleV2SourceBuild
     {
         /// <summary>
-        /// Determines whether to include build dependencies in the Release Bundle. The default value is `false`.
+        /// Determines whether to include build dependencies in the Release Bundle. The default value is `False`.
         /// </summary>
         public readonly bool? IncludeDependencies;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly string? Repository;
         /// <summary>
-        /// Timestamp when the build was created. If omitted, the system uses the latest build run, as identified by the `name` and `number` combination. The timestamp is provided according to the ISO 8601 standard.
+        /// Timestamp when the build was created. If omitted, the system uses the latest build run, as identified by the `Name` and `Number` combination. The timestamp is provided according to the ISO 8601 standard.
         /// </summary>
         public readonly string? Started;
 

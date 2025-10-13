@@ -91,7 +91,7 @@ namespace Pulumi.Artifactory
         public bool? AllowAnyHostAuth { get; set; }
 
         /// <summary>
-        /// (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+        /// (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `False`.
         /// </summary>
         [Input("anonymousAccess")]
         public bool? AnonymousAccess { get; set; }
@@ -136,7 +136,7 @@ namespace Pulumi.Artifactory
         public bool? EnableCookieManagement { get; set; }
 
         /// <summary>
-        /// (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+        /// (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `False`.
         /// </summary>
         [Input("enableSparseIndex")]
         public bool? EnableSparseIndex { get; set; }
@@ -264,7 +264,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? AllowAnyHostAuth { get; set; }
 
         /// <summary>
-        /// (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+        /// (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `False`.
         /// </summary>
         [Input("anonymousAccess")]
         public Input<bool>? AnonymousAccess { get; set; }
@@ -309,7 +309,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? EnableCookieManagement { get; set; }
 
         /// <summary>
-        /// (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+        /// (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `False`.
         /// </summary>
         [Input("enableSparseIndex")]
         public Input<bool>? EnableSparseIndex { get; set; }
@@ -441,7 +441,7 @@ namespace Pulumi.Artifactory
     {
         public readonly bool? AllowAnyHostAuth;
         /// <summary>
-        /// (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+        /// (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `False`.
         /// </summary>
         public readonly bool? AnonymousAccess;
         public readonly bool? ArchiveBrowsingEnabled;
@@ -458,7 +458,7 @@ namespace Pulumi.Artifactory
         public readonly bool? DownloadDirect;
         public readonly bool? EnableCookieManagement;
         /// <summary>
-        /// (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+        /// (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `False`.
         /// </summary>
         public readonly bool? EnableSparseIndex;
         public readonly string? ExcludesPattern;

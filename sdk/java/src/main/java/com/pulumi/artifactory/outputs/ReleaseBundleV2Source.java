@@ -31,7 +31,7 @@ public final class ReleaseBundleV2Source {
      */
     private @Nullable List<ReleaseBundleV2SourceBuild> builds;
     /**
-     * @return Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `source_type` attribute value.
+     * @return Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `sourceType` attribute value.
      * 
      */
     private @Nullable List<ReleaseBundleV2SourceReleaseBundle> releaseBundles;
@@ -59,7 +59,7 @@ public final class ReleaseBundleV2Source {
         return this.builds == null ? List.of() : this.builds;
     }
     /**
-     * @return Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `source_type` attribute value.
+     * @return Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `sourceType` attribute value.
      * 
      */
     public List<ReleaseBundleV2SourceReleaseBundle> releaseBundles() {

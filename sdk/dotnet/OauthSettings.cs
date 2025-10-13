@@ -66,13 +66,13 @@ namespace Pulumi.Artifactory
     public partial class OauthSettings : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Allow persisted users to access their profile.  Default value is `false`.
+        /// Allow persisted users to access their profile.  Default value is `False`.
         /// </summary>
         [Output("allowUserToAccessProfile")]
         public Output<bool?> AllowUserToAccessProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Enable OAuth SSO.  Default value is `true`.
+        /// Enable OAuth SSO.  Default value is `True`.
         /// </summary>
         [Output("enable")]
         public Output<bool?> Enable { get; private set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<Outputs.OauthSettingsOauthProvider>> OauthProviders { get; private set; } = null!;
 
         /// <summary>
-        /// Enable the creation of local Artifactory users.  Default value is `false`.
+        /// Enable the creation of local Artifactory users.  Default value is `False`.
         /// </summary>
         [Output("persistUsers")]
         public Output<bool?> PersistUsers { get; private set; } = null!;
@@ -136,13 +136,13 @@ namespace Pulumi.Artifactory
     public sealed class OauthSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow persisted users to access their profile.  Default value is `false`.
+        /// Allow persisted users to access their profile.  Default value is `False`.
         /// </summary>
         [Input("allowUserToAccessProfile")]
         public Input<bool>? AllowUserToAccessProfile { get; set; }
 
         /// <summary>
-        /// Enable OAuth SSO.  Default value is `true`.
+        /// Enable OAuth SSO.  Default value is `True`.
         /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
@@ -160,7 +160,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Enable the creation of local Artifactory users.  Default value is `false`.
+        /// Enable the creation of local Artifactory users.  Default value is `False`.
         /// </summary>
         [Input("persistUsers")]
         public Input<bool>? PersistUsers { get; set; }
@@ -174,13 +174,13 @@ namespace Pulumi.Artifactory
     public sealed class OauthSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow persisted users to access their profile.  Default value is `false`.
+        /// Allow persisted users to access their profile.  Default value is `False`.
         /// </summary>
         [Input("allowUserToAccessProfile")]
         public Input<bool>? AllowUserToAccessProfile { get; set; }
 
         /// <summary>
-        /// Enable OAuth SSO.  Default value is `true`.
+        /// Enable OAuth SSO.  Default value is `True`.
         /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
@@ -198,7 +198,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Enable the creation of local Artifactory users.  Default value is `false`.
+        /// Enable the creation of local Artifactory users.  Default value is `False`.
         /// </summary>
         [Input("persistUsers")]
         public Input<bool>? PersistUsers { get; set; }

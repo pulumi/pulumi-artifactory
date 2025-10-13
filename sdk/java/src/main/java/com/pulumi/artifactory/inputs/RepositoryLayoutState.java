@@ -47,14 +47,14 @@ public final class RepositoryLayoutState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * When set, `descriptor_path_pattern` will be used. Default to `false`.
+     * When set, `descriptorPathPattern` will be used. Default to `false`.
      * 
      */
     @Import(name="distinctiveDescriptorPathPattern")
     private @Nullable Output<Boolean> distinctiveDescriptorPathPattern;
 
     /**
-     * @return When set, `descriptor_path_pattern` will be used. Default to `false`.
+     * @return When set, `descriptorPathPattern` will be used. Default to `false`.
      * 
      */
     public Optional<Output<Boolean>> distinctiveDescriptorPathPattern() {
@@ -178,7 +178,7 @@ public final class RepositoryLayoutState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param distinctiveDescriptorPathPattern When set, `descriptor_path_pattern` will be used. Default to `false`.
+         * @param distinctiveDescriptorPathPattern When set, `descriptorPathPattern` will be used. Default to `false`.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class RepositoryLayoutState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param distinctiveDescriptorPathPattern When set, `descriptor_path_pattern` will be used. Default to `false`.
+         * @param distinctiveDescriptorPathPattern When set, `descriptorPathPattern` will be used. Default to `false`.
          * 
          * @return builder
          * 

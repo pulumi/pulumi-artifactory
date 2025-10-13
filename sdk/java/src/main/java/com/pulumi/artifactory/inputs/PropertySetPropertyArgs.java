@@ -20,14 +20,14 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
     public static final PropertySetPropertyArgs Empty = new PropertySetPropertyArgs();
 
     /**
-     * Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
+     * Disables `multipleChoice` if set to `false` at the same time with multipleChoice set to `true`. Default value is `false`
      * 
      */
     @Import(name="closedPredefinedValues")
     private @Nullable Output<Boolean> closedPredefinedValues;
 
     /**
-     * @return Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
+     * @return Disables `multipleChoice` if set to `false` at the same time with multipleChoice set to `true`. Default value is `false`
      * 
      */
     public Optional<Output<Boolean>> closedPredefinedValues() {
@@ -35,14 +35,14 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
+     * Defines if user can select multiple values. `closedPredefinedValues` should be set to `true`. Default value is `false`.
      * 
      */
     @Import(name="multipleChoice")
     private @Nullable Output<Boolean> multipleChoice;
 
     /**
-     * @return Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
+     * @return Defines if user can select multiple values. `closedPredefinedValues` should be set to `true`. Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> multipleChoice() {
@@ -65,14 +65,14 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Properties in the property set. Predefined values is mandatory when closed_predefined_values or multiple_choice is set to &#39;true&#39;
+     * Properties in the property set. Predefined values is mandatory when closedPredefinedValues or multipleChoice is set to &#39;true&#39;
      * 
      */
     @Import(name="predefinedValues")
     private @Nullable Output<List<PropertySetPropertyPredefinedValueArgs>> predefinedValues;
 
     /**
-     * @return Properties in the property set. Predefined values is mandatory when closed_predefined_values or multiple_choice is set to &#39;true&#39;
+     * @return Properties in the property set. Predefined values is mandatory when closedPredefinedValues or multipleChoice is set to &#39;true&#39;
      * 
      */
     public Optional<Output<List<PropertySetPropertyPredefinedValueArgs>>> predefinedValues() {
@@ -107,7 +107,7 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param closedPredefinedValues Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
+         * @param closedPredefinedValues Disables `multipleChoice` if set to `false` at the same time with multipleChoice set to `true`. Default value is `false`
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param closedPredefinedValues Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
+         * @param closedPredefinedValues Disables `multipleChoice` if set to `false` at the same time with multipleChoice set to `true`. Default value is `false`
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param multipleChoice Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
+         * @param multipleChoice Defines if user can select multiple values. `closedPredefinedValues` should be set to `true`. Default value is `false`.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param multipleChoice Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
+         * @param multipleChoice Defines if user can select multiple values. `closedPredefinedValues` should be set to `true`. Default value is `false`.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param predefinedValues Properties in the property set. Predefined values is mandatory when closed_predefined_values or multiple_choice is set to &#39;true&#39;
+         * @param predefinedValues Properties in the property set. Predefined values is mandatory when closedPredefinedValues or multipleChoice is set to &#39;true&#39;
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param predefinedValues Properties in the property set. Predefined values is mandatory when closed_predefined_values or multiple_choice is set to &#39;true&#39;
+         * @param predefinedValues Properties in the property set. Predefined values is mandatory when closedPredefinedValues or multipleChoice is set to &#39;true&#39;
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param predefinedValues Properties in the property set. Predefined values is mandatory when closed_predefined_values or multiple_choice is set to &#39;true&#39;
+         * @param predefinedValues Properties in the property set. Predefined values is mandatory when closedPredefinedValues or multipleChoice is set to &#39;true&#39;
          * 
          * @return builder
          * 

@@ -162,14 +162,14 @@ public final class MavenRepositoryState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * One of: `&#34;discard_active_reference&#34;, &#34;discard_any_reference&#34;, &#34;nothing&#34;`
+     * One of: `&#34;discardActiveReference&#34;, &#34;discardAnyReference&#34;, &#34;nothing&#34;`
      * 
      */
     @Import(name="pomRepositoryReferencesCleanupPolicy")
     private @Nullable Output<String> pomRepositoryReferencesCleanupPolicy;
 
     /**
-     * @return One of: `&#34;discard_active_reference&#34;, &#34;discard_any_reference&#34;, &#34;nothing&#34;`
+     * @return One of: `&#34;discardActiveReference&#34;, &#34;discardAnyReference&#34;, &#34;nothing&#34;`
      * 
      */
     public Optional<Output<String>> pomRepositoryReferencesCleanupPolicy() {
@@ -467,7 +467,7 @@ public final class MavenRepositoryState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param pomRepositoryReferencesCleanupPolicy One of: `&#34;discard_active_reference&#34;, &#34;discard_any_reference&#34;, &#34;nothing&#34;`
+         * @param pomRepositoryReferencesCleanupPolicy One of: `&#34;discardActiveReference&#34;, &#34;discardAnyReference&#34;, &#34;nothing&#34;`
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class MavenRepositoryState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param pomRepositoryReferencesCleanupPolicy One of: `&#34;discard_active_reference&#34;, &#34;discard_any_reference&#34;, &#34;nothing&#34;`
+         * @param pomRepositoryReferencesCleanupPolicy One of: `&#34;discardActiveReference&#34;, &#34;discardAnyReference&#34;, &#34;nothing&#34;`
          * 
          * @return builder
          * 

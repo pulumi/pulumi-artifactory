@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// Provides a resource for deploying artifact to Artifactory repository. Support deploying a single artifact only. Changes to `repository` or `path` attributes will trigger a recreation of the resource (i.e. delete then create). See [JFrog documentation](https://jfrog.com/help/r/jfrog-artifactory-documentation/deploy-a-single-artifact) for more details.
+    /// Provides a resource for deploying artifact to Artifactory repository. Support deploying a single artifact only. Changes to `Repository` or `Path` attributes will trigger a recreation of the resource (i.e. delete then create). See [JFrog documentation](https://jfrog.com/help/r/jfrog-artifactory-documentation/deploy-a-single-artifact) for more details.
     /// 
     /// ## Example Usage
     /// 
@@ -61,7 +61,7 @@ namespace Pulumi.Artifactory
         public Output<string> ChecksumSha256 { get; private set; } = null!;
 
         /// <summary>
-        /// Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+        /// Base64 content of the source file. Conflicts with `FilePath`. Either one of these attribute must be set.
         /// </summary>
         [Output("contentBase64")]
         public Output<string?> ContentBase64 { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.Artifactory
         public Output<string> DownloadUri { get; private set; } = null!;
 
         /// <summary>
-        /// Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
+        /// Path to the source file. Conflicts with `ContentBase64`. Either one of these attribute must be set.
         /// </summary>
         [Output("filePath")]
         public Output<string?> FilePath { get; private set; } = null!;
@@ -167,13 +167,13 @@ namespace Pulumi.Artifactory
     public sealed class ArtifactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+        /// Base64 content of the source file. Conflicts with `FilePath`. Either one of these attribute must be set.
         /// </summary>
         [Input("contentBase64")]
         public Input<string>? ContentBase64 { get; set; }
 
         /// <summary>
-        /// Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
+        /// Path to the source file. Conflicts with `ContentBase64`. Either one of these attribute must be set.
         /// </summary>
         [Input("filePath")]
         public Input<string>? FilePath { get; set; }
@@ -217,7 +217,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ChecksumSha256 { get; set; }
 
         /// <summary>
-        /// Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+        /// Base64 content of the source file. Conflicts with `FilePath`. Either one of these attribute must be set.
         /// </summary>
         [Input("contentBase64")]
         public Input<string>? ContentBase64 { get; set; }
@@ -241,7 +241,7 @@ namespace Pulumi.Artifactory
         public Input<string>? DownloadUri { get; set; }
 
         /// <summary>
-        /// Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
+        /// Path to the source file. Conflicts with `ContentBase64`. Either one of these attribute must be set.
         /// </summary>
         [Input("filePath")]
         public Input<string>? FilePath { get; set; }

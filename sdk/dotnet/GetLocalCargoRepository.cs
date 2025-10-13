@@ -90,7 +90,7 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Cargo client does not send credentials when performing download and search for crates.
         /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
-        /// access option. Default value is `false`.
+        /// access option. Default value is `False`.
         /// </summary>
         [Input("anonymousAccess")]
         public bool? AnonymousAccess { get; set; }
@@ -112,7 +112,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Enable internal index support based on Cargo sparse index specifications, instead
-        /// of the default git index. Default value is `false`.
+        /// of the default git index. Default value is `False`.
         /// </summary>
         [Input("enableSparseIndex")]
         public bool? EnableSparseIndex { get; set; }
@@ -179,7 +179,7 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Cargo client does not send credentials when performing download and search for crates.
         /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
-        /// access option. Default value is `false`.
+        /// access option. Default value is `False`.
         /// </summary>
         [Input("anonymousAccess")]
         public Input<bool>? AnonymousAccess { get; set; }
@@ -201,7 +201,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Enable internal index support based on Cargo sparse index specifications, instead
-        /// of the default git index. Default value is `false`.
+        /// of the default git index. Default value is `False`.
         /// </summary>
         [Input("enableSparseIndex")]
         public Input<bool>? EnableSparseIndex { get; set; }
@@ -270,7 +270,7 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Cargo client does not send credentials when performing download and search for crates.
         /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
-        /// access option. Default value is `false`.
+        /// access option. Default value is `False`.
         /// </summary>
         public readonly bool? AnonymousAccess;
         public readonly bool? ArchiveBrowsingEnabled;
@@ -280,7 +280,7 @@ namespace Pulumi.Artifactory
         public readonly bool? DownloadDirect;
         /// <summary>
         /// Enable internal index support based on Cargo sparse index specifications, instead
-        /// of the default git index. Default value is `false`.
+        /// of the default git index. Default value is `False`.
         /// </summary>
         public readonly bool? EnableSparseIndex;
         public readonly string? ExcludesPattern;

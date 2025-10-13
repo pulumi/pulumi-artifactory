@@ -123,14 +123,14 @@ public final class ReleaseBundleV2State extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+     * Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excludedRepositoryKeys`).
      * 
      */
     @Import(name="source")
     private @Nullable Output<ReleaseBundleV2SourceArgs> source;
 
     /**
-     * @return Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+     * @return Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excludedRepositoryKeys`).
      * 
      */
     public Optional<Output<ReleaseBundleV2SourceArgs>> source() {
@@ -138,14 +138,14 @@ public final class ReleaseBundleV2State extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Source type. Valid values: `aql`, `artifacts`, `builds`, `release_bundles`
+     * Source type. Valid values: `aql`, `artifacts`, `builds`, `releaseBundles`
      * 
      */
     @Import(name="sourceType")
     private @Nullable Output<String> sourceType;
 
     /**
-     * @return Source type. Valid values: `aql`, `artifacts`, `builds`, `release_bundles`
+     * @return Source type. Valid values: `aql`, `artifacts`, `builds`, `releaseBundles`
      * 
      */
     public Optional<Output<String>> sourceType() {
@@ -348,7 +348,7 @@ public final class ReleaseBundleV2State extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param source Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+         * @param source Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excludedRepositoryKeys`).
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class ReleaseBundleV2State extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param source Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+         * @param source Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excludedRepositoryKeys`).
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class ReleaseBundleV2State extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param sourceType Source type. Valid values: `aql`, `artifacts`, `builds`, `release_bundles`
+         * @param sourceType Source type. Valid values: `aql`, `artifacts`, `builds`, `releaseBundles`
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class ReleaseBundleV2State extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param sourceType Source type. Valid values: `aql`, `artifacts`, `builds`, `release_bundles`
+         * @param sourceType Source type. Valid values: `aql`, `artifacts`, `builds`, `releaseBundles`
          * 
          * @return builder
          * 

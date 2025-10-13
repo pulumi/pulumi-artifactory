@@ -87,7 +87,7 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Public key. PEM format will be validated. Must not include extranous spaces or tabs.
         /// 
-        /// Artifactory REST API call 'Get Key Pair' doesn't return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
+        /// Artifactory REST API call 'Get Key Pair' doesn't return attributes `PrivateKey` and `Passphrase`, but consumes these keys in the POST call.
         /// </summary>
         [Output("publicKey")]
         public Output<string> PublicKey { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Public key. PEM format will be validated. Must not include extranous spaces or tabs.
         /// 
-        /// Artifactory REST API call 'Get Key Pair' doesn't return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
+        /// Artifactory REST API call 'Get Key Pair' doesn't return attributes `PrivateKey` and `Passphrase`, but consumes these keys in the POST call.
         /// </summary>
         [Input("publicKey", required: true)]
         public Input<string> PublicKey { get; set; } = null!;
@@ -262,7 +262,7 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Public key. PEM format will be validated. Must not include extranous spaces or tabs.
         /// 
-        /// Artifactory REST API call 'Get Key Pair' doesn't return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
+        /// Artifactory REST API call 'Get Key Pair' doesn't return attributes `PrivateKey` and `Passphrase`, but consumes these keys in the POST call.
         /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }

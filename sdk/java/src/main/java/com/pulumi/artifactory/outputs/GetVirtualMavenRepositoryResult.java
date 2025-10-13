@@ -34,7 +34,7 @@ public final class GetVirtualMavenRepositoryResult {
     private @Nullable String notes;
     private String packageType;
     /**
-     * @return (Optional) One of: `&#34;discard_active_reference&#34;, &#34;discard_any_reference&#34;, &#34;nothing&#34;`
+     * @return (Optional) One of: `&#34;discardActiveReference&#34;, &#34;discardAnyReference&#34;, &#34;nothing&#34;`
      * 
      */
     private String pomRepositoryReferencesCleanupPolicy;
@@ -86,7 +86,7 @@ public final class GetVirtualMavenRepositoryResult {
         return this.packageType;
     }
     /**
-     * @return (Optional) One of: `&#34;discard_active_reference&#34;, &#34;discard_any_reference&#34;, &#34;nothing&#34;`
+     * @return (Optional) One of: `&#34;discardActiveReference&#34;, &#34;discardAnyReference&#34;, &#34;nothing&#34;`
      * 
      */
     public String pomRepositoryReferencesCleanupPolicy() {

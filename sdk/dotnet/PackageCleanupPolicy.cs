@@ -39,7 +39,7 @@ namespace Pulumi.Artifactory
         public Output<int> DurationInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
+        /// A cleanup policy must be created inactive. But if used it must be set to `False`. If set to `True` when calling this API, the API call will fail and an error message is received. Defaults to `True`
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -51,7 +51,7 @@ namespace Pulumi.Artifactory
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
+        /// This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `Key` must start with this project key value as a prefix (e.g., if `ProjectKey` is `"myproj"`, the `Key` should be `"myproj-policy-name"`).
         /// </summary>
         [Output("projectKey")]
         public Output<string?> ProjectKey { get; private set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.Artifactory
         public Output<Outputs.PackageCleanupPolicySearchCriteria> SearchCriteria { get; private set; } = null!;
 
         /// <summary>
-        /// A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
+        /// A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `False`.
         /// </summary>
         [Output("skipTrashcan")]
         public Output<bool> SkipTrashcan { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Artifactory
         public Input<int>? DurationInMinutes { get; set; }
 
         /// <summary>
-        /// A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
+        /// A cleanup policy must be created inactive. But if used it must be set to `False`. If set to `True` when calling this API, the API call will fail and an error message is received. Defaults to `True`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -139,7 +139,7 @@ namespace Pulumi.Artifactory
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
+        /// This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `Key` must start with this project key value as a prefix (e.g., if `ProjectKey` is `"myproj"`, the `Key` should be `"myproj-policy-name"`).
         /// </summary>
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
@@ -148,7 +148,7 @@ namespace Pulumi.Artifactory
         public Input<Inputs.PackageCleanupPolicySearchCriteriaArgs> SearchCriteria { get; set; } = null!;
 
         /// <summary>
-        /// A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
+        /// A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `False`.
         /// </summary>
         [Input("skipTrashcan")]
         public Input<bool>? SkipTrashcan { get; set; }
@@ -177,7 +177,7 @@ namespace Pulumi.Artifactory
         public Input<int>? DurationInMinutes { get; set; }
 
         /// <summary>
-        /// A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
+        /// A cleanup policy must be created inactive. But if used it must be set to `False`. If set to `True` when calling this API, the API call will fail and an error message is received. Defaults to `True`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -189,7 +189,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
+        /// This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `Key` must start with this project key value as a prefix (e.g., if `ProjectKey` is `"myproj"`, the `Key` should be `"myproj-policy-name"`).
         /// </summary>
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
@@ -198,7 +198,7 @@ namespace Pulumi.Artifactory
         public Input<Inputs.PackageCleanupPolicySearchCriteriaGetArgs>? SearchCriteria { get; set; }
 
         /// <summary>
-        /// A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
+        /// A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `False`.
         /// </summary>
         [Input("skipTrashcan")]
         public Input<bool>? SkipTrashcan { get; set; }

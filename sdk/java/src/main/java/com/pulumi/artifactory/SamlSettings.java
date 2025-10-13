@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * 
  * ~&gt;The `artifactory.SamlSettings` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
  * 
- * !&gt;This resource is deprecated in favor of platform_saml_settings resource in the Platform provider.
+ * !&gt;This resource is deprecated in favor of platformSamlSettings resource in the Platform provider.
  * 
  * ## Example Usage
  * 
@@ -222,14 +222,14 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
         return this.serviceProviderName;
     }
     /**
-     * Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
+     * Associate user with Artifactory groups based on the `groupAttribute` provided in the SAML response from the identity provider.  Default value is `false`.
      * 
      */
     @Export(name="syncGroups", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> syncGroups;
 
     /**
-     * @return Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
+     * @return Associate user with Artifactory groups based on the `groupAttribute` provided in the SAML response from the identity provider.  Default value is `false`.
      * 
      */
     public Output<Optional<Boolean>> syncGroups() {
