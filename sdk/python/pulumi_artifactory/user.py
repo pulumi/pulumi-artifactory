@@ -340,6 +340,31 @@ class User(pulumi.CustomResource):
         """
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        test_user = artifactory.User("test-user",
+            name="terraform",
+            password="my super secret password",
+            password_policy={
+                "uppercase": 1,
+                "lowercase": 1,
+                "special_char": 1,
+                "digit": 1,
+                "length": 10,
+            },
+            email="test-user@artifactory-terraform.com",
+            admin=False,
+            profile_updatable=True,
+            disable_ui_access=False,
+            internal_password_disabled=False,
+            groups=[
+                "readers",
+                "logged-in-users",
+            ])
+        ```
+
         ## Managing groups relationship
 
         See our recommendation on how to manage user-group relationship.
@@ -370,6 +395,31 @@ class User(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        test_user = artifactory.User("test-user",
+            name="terraform",
+            password="my super secret password",
+            password_policy={
+                "uppercase": 1,
+                "lowercase": 1,
+                "special_char": 1,
+                "digit": 1,
+                "length": 10,
+            },
+            email="test-user@artifactory-terraform.com",
+            admin=False,
+            profile_updatable=True,
+            disable_ui_access=False,
+            internal_password_disabled=False,
+            groups=[
+                "readers",
+                "logged-in-users",
+            ])
+        ```
 
         ## Managing groups relationship
 
