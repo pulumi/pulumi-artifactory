@@ -13,6 +13,91 @@ namespace Pulumi.Artifactory
     /// This resource enables you to creates a new Release Bundle v2, uniquely identified by a combination of repository key, name, and version. For more information, see [Understanding Release Bundles v2](https://jfrog.com/help/r/jfrog-artifactory-documentation/understanding-release-bundles-v2) and [REST API](https://jfrog.com/help/r/jfrog-rest-apis/create-release-bundle-v2-version).
     /// 
     /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var my_release_bundle_v2_aql = new Artifactory.ReleaseBundleV2("my-release-bundle-v2-aql", new()
+    ///     {
+    ///         Name = "my-release-bundle-v2-aql",
+    ///         Version = "1.0.0",
+    ///         KeypairName = "my-keypair-name",
+    ///         ProjectKey = "myproj-key",
+    ///         SkipDockerManifestResolution = true,
+    ///         SourceType = "aql",
+    ///         Source = new Artifactory.Inputs.ReleaseBundleV2SourceArgs
+    ///         {
+    ///             Aql = "items.find({\"repo\": {\"$match\": \"my-generic-*\"}})",
+    ///         },
+    ///     });
+    /// 
+    ///     var my_release_bundle_v2_artifacts = new Artifactory.ReleaseBundleV2("my-release-bundle-v2-artifacts", new()
+    ///     {
+    ///         Name = "my-release-bundle-v2-artifacts",
+    ///         Version = "1.0.0",
+    ///         KeypairName = "my-keypair-name",
+    ///         SkipDockerManifestResolution = true,
+    ///         SourceType = "artifacts",
+    ///         Source = new Artifactory.Inputs.ReleaseBundleV2SourceArgs
+    ///         {
+    ///             Artifacts = new[]
+    ///             {
+    ///                 new Artifactory.Inputs.ReleaseBundleV2SourceArtifactArgs
+    ///                 {
+    ///                     Path = "commons-qa-maven-local/org/apache/tomcat/commons/1.0.0/commons-1.0.0.jar",
+    ///                     Sha256 = "0d2053f76605e0734f5251a78c5dade5ee81b0f3730b3f603aedb90bc58033fb",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var my_release_bundle_v2_builds = new Artifactory.ReleaseBundleV2("my-release-bundle-v2-builds", new()
+    ///     {
+    ///         Name = "my-release-bundle-v2-builds",
+    ///         Version = "1.0.0",
+    ///         KeypairName = "my-keypair-name",
+    ///         SkipDockerManifestResolution = true,
+    ///         SourceType = "builds",
+    ///         Source = new Artifactory.Inputs.ReleaseBundleV2SourceArgs
+    ///         {
+    ///             Builds = new[]
+    ///             {
+    ///                 new Artifactory.Inputs.ReleaseBundleV2SourceBuildArgs
+    ///                 {
+    ///                     Name = "my-build-info-name",
+    ///                     Number = "1.0",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var my_release_bundle_v2_rb = new Artifactory.ReleaseBundleV2("my-release-bundle-v2-rb", new()
+    ///     {
+    ///         Name = "my-release-bundle-v2-rb",
+    ///         Version = "2.0.0",
+    ///         KeypairName = "my-keypair-name",
+    ///         SkipDockerManifestResolution = true,
+    ///         SourceType = "release_bundles",
+    ///         Source = new Artifactory.Inputs.ReleaseBundleV2SourceArgs
+    ///         {
+    ///             ReleaseBundles = new[]
+    ///             {
+    ///                 new Artifactory.Inputs.ReleaseBundleV2SourceReleaseBundleArgs
+    ///                 {
+    ///                     Name = "my-rb-name",
+    ///                     Version = "1.0.0",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/releaseBundleV2:ReleaseBundleV2")]
     public partial class ReleaseBundleV2 : global::Pulumi.CustomResource

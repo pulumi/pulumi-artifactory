@@ -21,6 +21,88 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.ReleaseBundleV2;
+ * import com.pulumi.artifactory.ReleaseBundleV2Args;
+ * import com.pulumi.artifactory.inputs.ReleaseBundleV2SourceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var my_release_bundle_v2_aql = new ReleaseBundleV2("my-release-bundle-v2-aql", ReleaseBundleV2Args.builder()
+ *             .name("my-release-bundle-v2-aql")
+ *             .version("1.0.0")
+ *             .keypairName("my-keypair-name")
+ *             .projectKey("myproj-key")
+ *             .skipDockerManifestResolution(true)
+ *             .sourceType("aql")
+ *             .source(ReleaseBundleV2SourceArgs.builder()
+ *                 .aql("items.find({\"repo\": {\"$match\": \"my-generic-*\"}})")
+ *                 .build())
+ *             .build());
+ * 
+ *         var my_release_bundle_v2_artifacts = new ReleaseBundleV2("my-release-bundle-v2-artifacts", ReleaseBundleV2Args.builder()
+ *             .name("my-release-bundle-v2-artifacts")
+ *             .version("1.0.0")
+ *             .keypairName("my-keypair-name")
+ *             .skipDockerManifestResolution(true)
+ *             .sourceType("artifacts")
+ *             .source(ReleaseBundleV2SourceArgs.builder()
+ *                 .artifacts(ReleaseBundleV2SourceArtifactArgs.builder()
+ *                     .path("commons-qa-maven-local/org/apache/tomcat/commons/1.0.0/commons-1.0.0.jar")
+ *                     .sha256("0d2053f76605e0734f5251a78c5dade5ee81b0f3730b3f603aedb90bc58033fb")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var my_release_bundle_v2_builds = new ReleaseBundleV2("my-release-bundle-v2-builds", ReleaseBundleV2Args.builder()
+ *             .name("my-release-bundle-v2-builds")
+ *             .version("1.0.0")
+ *             .keypairName("my-keypair-name")
+ *             .skipDockerManifestResolution(true)
+ *             .sourceType("builds")
+ *             .source(ReleaseBundleV2SourceArgs.builder()
+ *                 .builds(ReleaseBundleV2SourceBuildArgs.builder()
+ *                     .name("my-build-info-name")
+ *                     .number("1.0")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var my_release_bundle_v2_rb = new ReleaseBundleV2("my-release-bundle-v2-rb", ReleaseBundleV2Args.builder()
+ *             .name("my-release-bundle-v2-rb")
+ *             .version("2.0.0")
+ *             .keypairName("my-keypair-name")
+ *             .skipDockerManifestResolution(true)
+ *             .sourceType("release_bundles")
+ *             .source(ReleaseBundleV2SourceArgs.builder()
+ *                 .releaseBundles(ReleaseBundleV2SourceReleaseBundleArgs.builder()
+ *                     .name("my-rb-name")
+ *                     .version("1.0.0")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  */
 @ResourceType(type="artifactory:index/releaseBundleV2:ReleaseBundleV2")
 public class ReleaseBundleV2 extends com.pulumi.resources.CustomResource {

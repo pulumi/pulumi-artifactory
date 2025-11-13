@@ -14,6 +14,47 @@ import (
 
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewUser(ctx, "test-user", &artifactory.UserArgs{
+//				Name:     pulumi.String("terraform"),
+//				Password: pulumi.String("my super secret password"),
+//				PasswordPolicy: &artifactory.UserPasswordPolicyArgs{
+//					Uppercase:   pulumi.Int(1),
+//					Lowercase:   pulumi.Int(1),
+//					SpecialChar: pulumi.Int(1),
+//					Digit:       pulumi.Int(1),
+//					Length:      pulumi.Int(10),
+//				},
+//				Email:                    pulumi.String("test-user@artifactory-terraform.com"),
+//				Admin:                    pulumi.Bool(false),
+//				ProfileUpdatable:         pulumi.Bool(true),
+//				DisableUiAccess:          pulumi.Bool(false),
+//				InternalPasswordDisabled: pulumi.Bool(false),
+//				Groups: pulumi.StringArray{
+//					pulumi.String("readers"),
+//					pulumi.String("logged-in-users"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Managing groups relationship
 //
 // See our recommendation on how to manage user-group relationship.

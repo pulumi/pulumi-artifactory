@@ -10,6 +10,62 @@ import * as utilities from "./utilities";
  * This resource enables you to creates a new Release Bundle v2, uniquely identified by a combination of repository key, name, and version. For more information, see [Understanding Release Bundles v2](https://jfrog.com/help/r/jfrog-artifactory-documentation/understanding-release-bundles-v2) and [REST API](https://jfrog.com/help/r/jfrog-rest-apis/create-release-bundle-v2-version).
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const my_release_bundle_v2_aql = new artifactory.ReleaseBundleV2("my-release-bundle-v2-aql", {
+ *     name: "my-release-bundle-v2-aql",
+ *     version: "1.0.0",
+ *     keypairName: "my-keypair-name",
+ *     projectKey: "myproj-key",
+ *     skipDockerManifestResolution: true,
+ *     sourceType: "aql",
+ *     source: {
+ *         aql: "items.find({\"repo\": {\"$match\": \"my-generic-*\"}})",
+ *     },
+ * });
+ * const my_release_bundle_v2_artifacts = new artifactory.ReleaseBundleV2("my-release-bundle-v2-artifacts", {
+ *     name: "my-release-bundle-v2-artifacts",
+ *     version: "1.0.0",
+ *     keypairName: "my-keypair-name",
+ *     skipDockerManifestResolution: true,
+ *     sourceType: "artifacts",
+ *     source: {
+ *         artifacts: [{
+ *             path: "commons-qa-maven-local/org/apache/tomcat/commons/1.0.0/commons-1.0.0.jar",
+ *             sha256: "0d2053f76605e0734f5251a78c5dade5ee81b0f3730b3f603aedb90bc58033fb",
+ *         }],
+ *     },
+ * });
+ * const my_release_bundle_v2_builds = new artifactory.ReleaseBundleV2("my-release-bundle-v2-builds", {
+ *     name: "my-release-bundle-v2-builds",
+ *     version: "1.0.0",
+ *     keypairName: "my-keypair-name",
+ *     skipDockerManifestResolution: true,
+ *     sourceType: "builds",
+ *     source: {
+ *         builds: [{
+ *             name: "my-build-info-name",
+ *             number: "1.0",
+ *         }],
+ *     },
+ * });
+ * const my_release_bundle_v2_rb = new artifactory.ReleaseBundleV2("my-release-bundle-v2-rb", {
+ *     name: "my-release-bundle-v2-rb",
+ *     version: "2.0.0",
+ *     keypairName: "my-keypair-name",
+ *     skipDockerManifestResolution: true,
+ *     sourceType: "release_bundles",
+ *     source: {
+ *         releaseBundles: [{
+ *             name: "my-rb-name",
+ *             version: "1.0.0",
+ *         }],
+ *     },
+ * });
+ * ```
  */
 export class ReleaseBundleV2 extends pulumi.CustomResource {
     /**

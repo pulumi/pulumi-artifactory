@@ -321,6 +321,58 @@ class ReleaseBundleV2(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_release_bundle_v2_aql = artifactory.ReleaseBundleV2("my-release-bundle-v2-aql",
+            name="my-release-bundle-v2-aql",
+            version="1.0.0",
+            keypair_name="my-keypair-name",
+            project_key="myproj-key",
+            skip_docker_manifest_resolution=True,
+            source_type="aql",
+            source={
+                "aql": "items.find({\\"repo\\": {\\"$match\\": \\"my-generic-*\\"}})",
+            })
+        my_release_bundle_v2_artifacts = artifactory.ReleaseBundleV2("my-release-bundle-v2-artifacts",
+            name="my-release-bundle-v2-artifacts",
+            version="1.0.0",
+            keypair_name="my-keypair-name",
+            skip_docker_manifest_resolution=True,
+            source_type="artifacts",
+            source={
+                "artifacts": [{
+                    "path": "commons-qa-maven-local/org/apache/tomcat/commons/1.0.0/commons-1.0.0.jar",
+                    "sha256": "0d2053f76605e0734f5251a78c5dade5ee81b0f3730b3f603aedb90bc58033fb",
+                }],
+            })
+        my_release_bundle_v2_builds = artifactory.ReleaseBundleV2("my-release-bundle-v2-builds",
+            name="my-release-bundle-v2-builds",
+            version="1.0.0",
+            keypair_name="my-keypair-name",
+            skip_docker_manifest_resolution=True,
+            source_type="builds",
+            source={
+                "builds": [{
+                    "name": "my-build-info-name",
+                    "number": "1.0",
+                }],
+            })
+        my_release_bundle_v2_rb = artifactory.ReleaseBundleV2("my-release-bundle-v2-rb",
+            name="my-release-bundle-v2-rb",
+            version="2.0.0",
+            keypair_name="my-keypair-name",
+            skip_docker_manifest_resolution=True,
+            source_type="release_bundles",
+            source={
+                "release_bundles": [{
+                    "name": "my-rb-name",
+                    "version": "1.0.0",
+                }],
+            })
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] keypair_name: Key-pair name to use for signature creation
@@ -341,6 +393,58 @@ class ReleaseBundleV2(pulumi.CustomResource):
         This resource enables you to creates a new Release Bundle v2, uniquely identified by a combination of repository key, name, and version. For more information, see [Understanding Release Bundles v2](https://jfrog.com/help/r/jfrog-artifactory-documentation/understanding-release-bundles-v2) and [REST API](https://jfrog.com/help/r/jfrog-rest-apis/create-release-bundle-v2-version).
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_release_bundle_v2_aql = artifactory.ReleaseBundleV2("my-release-bundle-v2-aql",
+            name="my-release-bundle-v2-aql",
+            version="1.0.0",
+            keypair_name="my-keypair-name",
+            project_key="myproj-key",
+            skip_docker_manifest_resolution=True,
+            source_type="aql",
+            source={
+                "aql": "items.find({\\"repo\\": {\\"$match\\": \\"my-generic-*\\"}})",
+            })
+        my_release_bundle_v2_artifacts = artifactory.ReleaseBundleV2("my-release-bundle-v2-artifacts",
+            name="my-release-bundle-v2-artifacts",
+            version="1.0.0",
+            keypair_name="my-keypair-name",
+            skip_docker_manifest_resolution=True,
+            source_type="artifacts",
+            source={
+                "artifacts": [{
+                    "path": "commons-qa-maven-local/org/apache/tomcat/commons/1.0.0/commons-1.0.0.jar",
+                    "sha256": "0d2053f76605e0734f5251a78c5dade5ee81b0f3730b3f603aedb90bc58033fb",
+                }],
+            })
+        my_release_bundle_v2_builds = artifactory.ReleaseBundleV2("my-release-bundle-v2-builds",
+            name="my-release-bundle-v2-builds",
+            version="1.0.0",
+            keypair_name="my-keypair-name",
+            skip_docker_manifest_resolution=True,
+            source_type="builds",
+            source={
+                "builds": [{
+                    "name": "my-build-info-name",
+                    "number": "1.0",
+                }],
+            })
+        my_release_bundle_v2_rb = artifactory.ReleaseBundleV2("my-release-bundle-v2-rb",
+            name="my-release-bundle-v2-rb",
+            version="2.0.0",
+            keypair_name="my-keypair-name",
+            skip_docker_manifest_resolution=True,
+            source_type="release_bundles",
+            source={
+                "release_bundles": [{
+                    "name": "my-rb-name",
+                    "version": "1.0.0",
+                }],
+            })
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReleaseBundleV2Args args: The arguments to use to populate this resource's properties.
