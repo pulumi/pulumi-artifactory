@@ -18,6 +18,65 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewReleaseBundleV2(ctx, "my-release-bundle-v2-rb", &artifactory.ReleaseBundleV2Args{
+//				Name:                         pulumi.String("my-release-bundle-v2-rb"),
+//				Version:                      pulumi.String("2.0.0"),
+//				KeypairName:                  pulumi.String("my-keypair-name"),
+//				SkipDockerManifestResolution: pulumi.Bool(true),
+//				SourceType:                   pulumi.String("release_bundles"),
+//				Source: &artifactory.ReleaseBundleV2SourceArgs{
+//					ReleaseBundles: artifactory.ReleaseBundleV2SourceReleaseBundleArray{
+//						&artifactory.ReleaseBundleV2SourceReleaseBundleArgs{
+//							Name:    pulumi.String("my-rb-name"),
+//							Version: pulumi.String("1.0.0"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewReleaseBundleV2CleanupPolicy(ctx, "my-resource-bundle-v2-cleanup-policy", &artifactory.ReleaseBundleV2CleanupPolicyArgs{
+//				Key:               pulumi.String("my-release-bundle-v2-policy-key"),
+//				Description:       pulumi.String("Cleanup policy description"),
+//				CronExpression:    pulumi.String("0 0 2 * * ?"),
+//				DurationInMinutes: pulumi.Int(60),
+//				Enabled:           pulumi.Bool(true),
+//				SearchCriteria: &artifactory.ReleaseBundleV2CleanupPolicySearchCriteriaArgs{
+//					IncludeAllProjects: pulumi.Bool(true),
+//					IncludedProjects:   pulumi.StringArray{},
+//					ReleaseBundles: artifactory.ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArray{
+//						&artifactory.ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArgs{
+//							Name:       pulumi.String("my-release-bundle-v2-rb"),
+//							ProjectKey: pulumi.String(""),
+//						},
+//					},
+//					ExcludePromotedEnvironments: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

@@ -12,6 +12,41 @@ namespace Pulumi.Artifactory
     /// <summary>
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test_user = new Artifactory.User("test-user", new()
+    ///     {
+    ///         Name = "terraform",
+    ///         Password = "my super secret password",
+    ///         PasswordPolicy = new Artifactory.Inputs.UserPasswordPolicyArgs
+    ///         {
+    ///             Uppercase = 1,
+    ///             Lowercase = 1,
+    ///             SpecialChar = 1,
+    ///             Digit = 1,
+    ///             Length = 10,
+    ///         },
+    ///         Email = "test-user@artifactory-terraform.com",
+    ///         Admin = false,
+    ///         ProfileUpdatable = true,
+    ///         DisableUiAccess = false,
+    ///         InternalPasswordDisabled = false,
+    ///         Groups = new[]
+    ///         {
+    ///             "readers",
+    ///             "logged-in-users",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Managing groups relationship
     /// 
     /// See our recommendation on how to manage user-group relationship.
