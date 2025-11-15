@@ -9131,6 +9131,124 @@ func (o FederatedPypiRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Feder
 	}).(FederatedPypiRepositoryMemberOutput)
 }
 
+type FederatedReleasebundlesRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// FederatedReleasebundlesRepositoryMemberInput is an input type that accepts FederatedReleasebundlesRepositoryMemberArgs and FederatedReleasebundlesRepositoryMemberOutput values.
+// You can construct a concrete instance of `FederatedReleasebundlesRepositoryMemberInput` via:
+//
+//	FederatedReleasebundlesRepositoryMemberArgs{...}
+type FederatedReleasebundlesRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToFederatedReleasebundlesRepositoryMemberOutput() FederatedReleasebundlesRepositoryMemberOutput
+	ToFederatedReleasebundlesRepositoryMemberOutputWithContext(context.Context) FederatedReleasebundlesRepositoryMemberOutput
+}
+
+type FederatedReleasebundlesRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (FederatedReleasebundlesRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedReleasebundlesRepositoryMember)(nil)).Elem()
+}
+
+func (i FederatedReleasebundlesRepositoryMemberArgs) ToFederatedReleasebundlesRepositoryMemberOutput() FederatedReleasebundlesRepositoryMemberOutput {
+	return i.ToFederatedReleasebundlesRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i FederatedReleasebundlesRepositoryMemberArgs) ToFederatedReleasebundlesRepositoryMemberOutputWithContext(ctx context.Context) FederatedReleasebundlesRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedReleasebundlesRepositoryMemberOutput)
+}
+
+// FederatedReleasebundlesRepositoryMemberArrayInput is an input type that accepts FederatedReleasebundlesRepositoryMemberArray and FederatedReleasebundlesRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `FederatedReleasebundlesRepositoryMemberArrayInput` via:
+//
+//	FederatedReleasebundlesRepositoryMemberArray{ FederatedReleasebundlesRepositoryMemberArgs{...} }
+type FederatedReleasebundlesRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToFederatedReleasebundlesRepositoryMemberArrayOutput() FederatedReleasebundlesRepositoryMemberArrayOutput
+	ToFederatedReleasebundlesRepositoryMemberArrayOutputWithContext(context.Context) FederatedReleasebundlesRepositoryMemberArrayOutput
+}
+
+type FederatedReleasebundlesRepositoryMemberArray []FederatedReleasebundlesRepositoryMemberInput
+
+func (FederatedReleasebundlesRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedReleasebundlesRepositoryMember)(nil)).Elem()
+}
+
+func (i FederatedReleasebundlesRepositoryMemberArray) ToFederatedReleasebundlesRepositoryMemberArrayOutput() FederatedReleasebundlesRepositoryMemberArrayOutput {
+	return i.ToFederatedReleasebundlesRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i FederatedReleasebundlesRepositoryMemberArray) ToFederatedReleasebundlesRepositoryMemberArrayOutputWithContext(ctx context.Context) FederatedReleasebundlesRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedReleasebundlesRepositoryMemberArrayOutput)
+}
+
+type FederatedReleasebundlesRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (FederatedReleasebundlesRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedReleasebundlesRepositoryMember)(nil)).Elem()
+}
+
+func (o FederatedReleasebundlesRepositoryMemberOutput) ToFederatedReleasebundlesRepositoryMemberOutput() FederatedReleasebundlesRepositoryMemberOutput {
+	return o
+}
+
+func (o FederatedReleasebundlesRepositoryMemberOutput) ToFederatedReleasebundlesRepositoryMemberOutputWithContext(ctx context.Context) FederatedReleasebundlesRepositoryMemberOutput {
+	return o
+}
+
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedReleasebundlesRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedReleasebundlesRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o FederatedReleasebundlesRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v FederatedReleasebundlesRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o FederatedReleasebundlesRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedReleasebundlesRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type FederatedReleasebundlesRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (FederatedReleasebundlesRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedReleasebundlesRepositoryMember)(nil)).Elem()
+}
+
+func (o FederatedReleasebundlesRepositoryMemberArrayOutput) ToFederatedReleasebundlesRepositoryMemberArrayOutput() FederatedReleasebundlesRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o FederatedReleasebundlesRepositoryMemberArrayOutput) ToFederatedReleasebundlesRepositoryMemberArrayOutputWithContext(ctx context.Context) FederatedReleasebundlesRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o FederatedReleasebundlesRepositoryMemberArrayOutput) Index(i pulumi.IntInput) FederatedReleasebundlesRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedReleasebundlesRepositoryMember {
+		return vs[0].([]FederatedReleasebundlesRepositoryMember)[vs[1].(int)]
+	}).(FederatedReleasebundlesRepositoryMemberOutput)
+}
+
 type FederatedRpmRepositoryMember struct {
 	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
 	AccessToken *string `pulumi:"accessToken"`
@@ -27283,6 +27401,121 @@ func (o GetFederatedPypiRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Ge
 	}).(GetFederatedPypiRepositoryMemberOutput)
 }
 
+type GetFederatedReleasebundlesRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
+	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repositoryName
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedReleasebundlesRepositoryMemberInput is an input type that accepts GetFederatedReleasebundlesRepositoryMemberArgs and GetFederatedReleasebundlesRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedReleasebundlesRepositoryMemberInput` via:
+//
+//	GetFederatedReleasebundlesRepositoryMemberArgs{...}
+type GetFederatedReleasebundlesRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedReleasebundlesRepositoryMemberOutput() GetFederatedReleasebundlesRepositoryMemberOutput
+	ToGetFederatedReleasebundlesRepositoryMemberOutputWithContext(context.Context) GetFederatedReleasebundlesRepositoryMemberOutput
+}
+
+type GetFederatedReleasebundlesRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
+	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repositoryName
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedReleasebundlesRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedReleasebundlesRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedReleasebundlesRepositoryMemberArgs) ToGetFederatedReleasebundlesRepositoryMemberOutput() GetFederatedReleasebundlesRepositoryMemberOutput {
+	return i.ToGetFederatedReleasebundlesRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedReleasebundlesRepositoryMemberArgs) ToGetFederatedReleasebundlesRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedReleasebundlesRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedReleasebundlesRepositoryMemberOutput)
+}
+
+// GetFederatedReleasebundlesRepositoryMemberArrayInput is an input type that accepts GetFederatedReleasebundlesRepositoryMemberArray and GetFederatedReleasebundlesRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedReleasebundlesRepositoryMemberArrayInput` via:
+//
+//	GetFederatedReleasebundlesRepositoryMemberArray{ GetFederatedReleasebundlesRepositoryMemberArgs{...} }
+type GetFederatedReleasebundlesRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedReleasebundlesRepositoryMemberArrayOutput() GetFederatedReleasebundlesRepositoryMemberArrayOutput
+	ToGetFederatedReleasebundlesRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedReleasebundlesRepositoryMemberArrayOutput
+}
+
+type GetFederatedReleasebundlesRepositoryMemberArray []GetFederatedReleasebundlesRepositoryMemberInput
+
+func (GetFederatedReleasebundlesRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedReleasebundlesRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedReleasebundlesRepositoryMemberArray) ToGetFederatedReleasebundlesRepositoryMemberArrayOutput() GetFederatedReleasebundlesRepositoryMemberArrayOutput {
+	return i.ToGetFederatedReleasebundlesRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedReleasebundlesRepositoryMemberArray) ToGetFederatedReleasebundlesRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedReleasebundlesRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedReleasebundlesRepositoryMemberArrayOutput)
+}
+
+type GetFederatedReleasebundlesRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedReleasebundlesRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedReleasebundlesRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedReleasebundlesRepositoryMemberOutput) ToGetFederatedReleasebundlesRepositoryMemberOutput() GetFederatedReleasebundlesRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedReleasebundlesRepositoryMemberOutput) ToGetFederatedReleasebundlesRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedReleasebundlesRepositoryMemberOutput {
+	return o
+}
+
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedReleasebundlesRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedReleasebundlesRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedReleasebundlesRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedReleasebundlesRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repositoryName
+func (o GetFederatedReleasebundlesRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedReleasebundlesRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedReleasebundlesRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedReleasebundlesRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedReleasebundlesRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedReleasebundlesRepositoryMemberArrayOutput) ToGetFederatedReleasebundlesRepositoryMemberArrayOutput() GetFederatedReleasebundlesRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedReleasebundlesRepositoryMemberArrayOutput) ToGetFederatedReleasebundlesRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedReleasebundlesRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedReleasebundlesRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedReleasebundlesRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedReleasebundlesRepositoryMember {
+		return vs[0].([]GetFederatedReleasebundlesRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedReleasebundlesRepositoryMemberOutput)
+}
+
 type GetFederatedRpmRepositoryMember struct {
 	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
 	AccessToken *string `pulumi:"accessToken"`
@@ -36525,6 +36758,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedPuppetRepositoryMemberArrayInput)(nil)).Elem(), FederatedPuppetRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedPypiRepositoryMemberInput)(nil)).Elem(), FederatedPypiRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedPypiRepositoryMemberArrayInput)(nil)).Elem(), FederatedPypiRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedReleasebundlesRepositoryMemberInput)(nil)).Elem(), FederatedReleasebundlesRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedReleasebundlesRepositoryMemberArrayInput)(nil)).Elem(), FederatedReleasebundlesRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedRpmRepositoryMemberInput)(nil)).Elem(), FederatedRpmRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedRpmRepositoryMemberArrayInput)(nil)).Elem(), FederatedRpmRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedSbtRepositoryMemberInput)(nil)).Elem(), FederatedSbtRepositoryMemberArgs{})
@@ -36755,6 +36990,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedPuppetRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedPuppetRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedPypiRepositoryMemberInput)(nil)).Elem(), GetFederatedPypiRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedPypiRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedPypiRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedReleasebundlesRepositoryMemberInput)(nil)).Elem(), GetFederatedReleasebundlesRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedReleasebundlesRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedReleasebundlesRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedRpmRepositoryMemberInput)(nil)).Elem(), GetFederatedRpmRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedRpmRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedRpmRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedSbtRepositoryMemberInput)(nil)).Elem(), GetFederatedSbtRepositoryMemberArgs{})
@@ -36984,6 +37221,8 @@ func init() {
 	pulumi.RegisterOutputType(FederatedPuppetRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedPypiRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(FederatedPypiRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(FederatedReleasebundlesRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(FederatedReleasebundlesRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedRpmRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(FederatedRpmRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedSbtRepositoryMemberOutput{})
@@ -37214,6 +37453,8 @@ func init() {
 	pulumi.RegisterOutputType(GetFederatedPuppetRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetFederatedPypiRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(GetFederatedPypiRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedReleasebundlesRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedReleasebundlesRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetFederatedRpmRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(GetFederatedRpmRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetFederatedSbtRepositoryMemberOutput{})

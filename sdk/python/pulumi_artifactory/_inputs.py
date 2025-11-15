@@ -137,6 +137,8 @@ __all__ = [
     'FederatedPuppetRepositoryMemberArgsDict',
     'FederatedPypiRepositoryMemberArgs',
     'FederatedPypiRepositoryMemberArgsDict',
+    'FederatedReleasebundlesRepositoryMemberArgs',
+    'FederatedReleasebundlesRepositoryMemberArgsDict',
     'FederatedRpmRepositoryMemberArgs',
     'FederatedRpmRepositoryMemberArgsDict',
     'FederatedSbtRepositoryMemberArgs',
@@ -367,6 +369,8 @@ __all__ = [
     'GetFederatedPuppetRepositoryMemberArgsDict',
     'GetFederatedPypiRepositoryMemberArgs',
     'GetFederatedPypiRepositoryMemberArgsDict',
+    'GetFederatedReleasebundlesRepositoryMemberArgs',
+    'GetFederatedReleasebundlesRepositoryMemberArgsDict',
     'GetFederatedRpmRepositoryMemberArgs',
     'GetFederatedRpmRepositoryMemberArgsDict',
     'GetFederatedSbtRepositoryMemberArgs',
@@ -6350,6 +6354,79 @@ elif False:
 
 @pulumi.input_type
 class FederatedPypiRepositoryMemberArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 url: pulumi.Input[_builtins.str],
+                 access_token: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param pulumi.Input[_builtins.str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[_builtins.str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[_builtins.str]:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "access_token", value)
+
+
+if not MYPY:
+    class FederatedReleasebundlesRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[_builtins.bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[_builtins.str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedReleasebundlesRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FederatedReleasebundlesRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
                  url: pulumi.Input[_builtins.str],
@@ -16544,6 +16621,76 @@ class GetFederatedPypiRepositoryMemberArgs:
     def url(self) -> _builtins.str:
         """
         Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: _builtins.str):
+        pulumi.set(self, "url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[_builtins.str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "access_token", value)
+
+
+if not MYPY:
+    class GetFederatedReleasebundlesRepositoryMemberArgsDict(TypedDict):
+        enabled: _builtins.bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: _builtins.str
+        """
+        Full URL to ending with the repositoryName
+        """
+        access_token: NotRequired[_builtins.str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedReleasebundlesRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetFederatedReleasebundlesRepositoryMemberArgs:
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 url: _builtins.str,
+                 access_token: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param _builtins.str url: Full URL to ending with the repositoryName
+        :param _builtins.str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: _builtins.bool):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> _builtins.str:
+        """
+        Full URL to ending with the repositoryName
         """
         return pulumi.get(self, "url")
 

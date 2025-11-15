@@ -1268,6 +1268,22 @@ export interface FederatedPypiRepositoryMember {
     url: pulumi.Input<string>;
 }
 
+export interface FederatedReleasebundlesRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: pulumi.Input<string>;
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: pulumi.Input<boolean>;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: pulumi.Input<string>;
+}
+
 export interface FederatedRpmRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
@@ -2316,6 +2332,36 @@ export interface GetFederatedPypiRepositoryMemberArgs {
     enabled: pulumi.Input<boolean>;
     /**
      * Full URL to ending with the repository name.
+     */
+    url: pulumi.Input<string>;
+}
+
+export interface GetFederatedReleasebundlesRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repositoryName
+     */
+    url: string;
+}
+
+export interface GetFederatedReleasebundlesRepositoryMemberArgs {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: pulumi.Input<string>;
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: pulumi.Input<boolean>;
+    /**
+     * Full URL to ending with the repositoryName
      */
     url: pulumi.Input<string>;
 }

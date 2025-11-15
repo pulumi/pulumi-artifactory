@@ -943,6 +943,21 @@
                     }
                 }
             },
+            "artifactory_federated_releasebundles_repository": {
+                "current": "artifactory:index/federatedReleasebundlesRepository:FederatedReleasebundlesRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "member": {
+                        "maxItemsOne": false
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_federated_rpm_repository": {
                 "current": "artifactory:index/federatedRpmRepository:FederatedRpmRepository",
                 "majorVersion": 8,
@@ -3476,6 +3491,21 @@
                     }
                 }
             },
+            "artifactory_federated_releasebundles_repository": {
+                "current": "artifactory:index/getFederatedReleasebundlesRepository:getFederatedReleasebundlesRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "member": {
+                        "maxItemsOne": false
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_federated_rpm_repository": {
                 "current": "artifactory:index/getFederatedRpmRepository:getFederatedRpmRepository",
                 "majorVersion": 8,
@@ -5323,6 +5353,9 @@
             "artifactory_federated_pypi_repository": [
                 "key"
             ],
+            "artifactory_federated_releasebundles_repository": [
+                "key"
+            ],
             "artifactory_federated_rpm_repository": [
                 "key"
             ],
@@ -5744,6 +5777,7 @@
             "artifactory:index/federatedOpkgRepository:FederatedOpkgRepository": 0,
             "artifactory:index/federatedPuppetRepository:FederatedPuppetRepository": 0,
             "artifactory:index/federatedPypiRepository:FederatedPypiRepository": 0,
+            "artifactory:index/federatedReleasebundlesRepository:FederatedReleasebundlesRepository": 0,
             "artifactory:index/federatedRpmRepository:FederatedRpmRepository": 0,
             "artifactory:index/federatedSbtRepository:FederatedSbtRepository": 0,
             "artifactory:index/federatedSwiftRepository:FederatedSwiftRepository": 0,
@@ -5922,6 +5956,7 @@
             "artifactory:index/getFederatedOpkgRepository:getFederatedOpkgRepository": 0,
             "artifactory:index/getFederatedPuppetRepository:getFederatedPuppetRepository": 0,
             "artifactory:index/getFederatedPypiRepository:getFederatedPypiRepository": 0,
+            "artifactory:index/getFederatedReleasebundlesRepository:getFederatedReleasebundlesRepository": 0,
             "artifactory:index/getFederatedRpmRepository:getFederatedRpmRepository": 0,
             "artifactory:index/getFederatedSbtRepository:getFederatedSbtRepository": 0,
             "artifactory:index/getFederatedSwiftRepository:getFederatedSwiftRepository": 0,

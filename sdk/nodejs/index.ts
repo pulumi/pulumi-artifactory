@@ -290,6 +290,11 @@ export type FederatedPypiRepository = import("./federatedPypiRepository").Federa
 export const FederatedPypiRepository: typeof import("./federatedPypiRepository").FederatedPypiRepository = null as any;
 utilities.lazyLoad(exports, ["FederatedPypiRepository"], () => require("./federatedPypiRepository"));
 
+export { FederatedReleasebundlesRepositoryArgs, FederatedReleasebundlesRepositoryState } from "./federatedReleasebundlesRepository";
+export type FederatedReleasebundlesRepository = import("./federatedReleasebundlesRepository").FederatedReleasebundlesRepository;
+export const FederatedReleasebundlesRepository: typeof import("./federatedReleasebundlesRepository").FederatedReleasebundlesRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedReleasebundlesRepository"], () => require("./federatedReleasebundlesRepository"));
+
 export { FederatedRpmRepositoryArgs, FederatedRpmRepositoryState } from "./federatedRpmRepository";
 export type FederatedRpmRepository = import("./federatedRpmRepository").FederatedRpmRepository;
 export const FederatedRpmRepository: typeof import("./federatedRpmRepository").FederatedRpmRepository = null as any;
@@ -474,6 +479,11 @@ export { GetFederatedPypiRepositoryArgs, GetFederatedPypiRepositoryResult, GetFe
 export const getFederatedPypiRepository: typeof import("./getFederatedPypiRepository").getFederatedPypiRepository = null as any;
 export const getFederatedPypiRepositoryOutput: typeof import("./getFederatedPypiRepository").getFederatedPypiRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getFederatedPypiRepository","getFederatedPypiRepositoryOutput"], () => require("./getFederatedPypiRepository"));
+
+export { GetFederatedReleasebundlesRepositoryArgs, GetFederatedReleasebundlesRepositoryResult, GetFederatedReleasebundlesRepositoryOutputArgs } from "./getFederatedReleasebundlesRepository";
+export const getFederatedReleasebundlesRepository: typeof import("./getFederatedReleasebundlesRepository").getFederatedReleasebundlesRepository = null as any;
+export const getFederatedReleasebundlesRepositoryOutput: typeof import("./getFederatedReleasebundlesRepository").getFederatedReleasebundlesRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedReleasebundlesRepository","getFederatedReleasebundlesRepositoryOutput"], () => require("./getFederatedReleasebundlesRepository"));
 
 export { GetFederatedRpmRepositoryArgs, GetFederatedRpmRepositoryResult, GetFederatedRpmRepositoryOutputArgs } from "./getFederatedRpmRepository";
 export const getFederatedRpmRepository: typeof import("./getFederatedRpmRepository").getFederatedRpmRepository = null as any;
@@ -1866,6 +1876,8 @@ const _module = {
                 return new FederatedPuppetRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedPypiRepository:FederatedPypiRepository":
                 return new FederatedPypiRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedReleasebundlesRepository:FederatedReleasebundlesRepository":
+                return new FederatedReleasebundlesRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedRpmRepository:FederatedRpmRepository":
                 return new FederatedRpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedSbtRepository:FederatedSbtRepository":
@@ -2220,6 +2232,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/federatedOciReposito
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedOpkgRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedPuppetRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedPypiRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedReleasebundlesRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedSbtRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedSwiftRepository", _module)

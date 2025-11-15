@@ -63,6 +63,7 @@ from .federated_oci_repository import *
 from .federated_opkg_repository import *
 from .federated_puppet_repository import *
 from .federated_pypi_repository import *
+from .federated_releasebundles_repository import *
 from .federated_rpm_repository import *
 from .federated_sbt_repository import *
 from .federated_swift_repository import *
@@ -100,6 +101,7 @@ from .get_federated_oci_repository import *
 from .get_federated_opkg_repository import *
 from .get_federated_puppet_repository import *
 from .get_federated_pypi_repository import *
+from .get_federated_releasebundles_repository import *
 from .get_federated_rpm_repository import *
 from .get_federated_sbt_repository import *
 from .get_federated_swift_repository import *
@@ -820,6 +822,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/federatedPypiRepository:FederatedPypiRepository": "FederatedPypiRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedReleasebundlesRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedReleasebundlesRepository:FederatedReleasebundlesRepository": "FederatedReleasebundlesRepository"
   }
  },
  {

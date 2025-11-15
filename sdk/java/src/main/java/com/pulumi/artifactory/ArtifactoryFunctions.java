@@ -64,6 +64,8 @@ import com.pulumi.artifactory.inputs.GetFederatedPuppetRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetFederatedPuppetRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetFederatedPypiRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetFederatedPypiRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetFederatedReleasebundlesRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetFederatedReleasebundlesRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetFederatedRpmRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetFederatedRpmRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetFederatedSbtRepositoryArgs;
@@ -320,6 +322,7 @@ import com.pulumi.artifactory.outputs.GetFederatedOciRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedOpkgRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedPuppetRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedPypiRepositoryResult;
+import com.pulumi.artifactory.outputs.GetFederatedReleasebundlesRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedRpmRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedSbtRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedSwiftRepositoryResult;
@@ -6070,6 +6073,21 @@ public final class ArtifactoryFunctions {
      */
     public static CompletableFuture<GetFederatedPypiRepositoryResult> getFederatedPypiRepositoryPlain(GetFederatedPypiRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getFederatedPypiRepository:getFederatedPypiRepository", TypeShape.of(GetFederatedPypiRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetFederatedReleasebundlesRepositoryResult> getFederatedReleasebundlesRepository(GetFederatedReleasebundlesRepositoryArgs args) {
+        return getFederatedReleasebundlesRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetFederatedReleasebundlesRepositoryResult> getFederatedReleasebundlesRepositoryPlain(GetFederatedReleasebundlesRepositoryPlainArgs args) {
+        return getFederatedReleasebundlesRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetFederatedReleasebundlesRepositoryResult> getFederatedReleasebundlesRepository(GetFederatedReleasebundlesRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getFederatedReleasebundlesRepository:getFederatedReleasebundlesRepository", TypeShape.of(GetFederatedReleasebundlesRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetFederatedReleasebundlesRepositoryResult> getFederatedReleasebundlesRepository(GetFederatedReleasebundlesRepositoryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getFederatedReleasebundlesRepository:getFederatedReleasebundlesRepository", TypeShape.of(GetFederatedReleasebundlesRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetFederatedReleasebundlesRepositoryResult> getFederatedReleasebundlesRepositoryPlain(GetFederatedReleasebundlesRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getFederatedReleasebundlesRepository:getFederatedReleasebundlesRepository", TypeShape.of(GetFederatedReleasebundlesRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves a federated Rpm repository.
