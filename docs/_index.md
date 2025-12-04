@@ -47,6 +47,7 @@ config:
         value: 'TODO: "${var.artifactory_url}/artifactory"'
 
 ```
+
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 import * as artifactory from "@pulumi/artifactory";
@@ -58,6 +59,7 @@ const pypi_libs = new artifactory.LocalPypiRepository("pypi-libs", {
     description: "A pypi repository for python packages",
 });
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 ```yaml
@@ -71,6 +73,7 @@ config:
         value: 'TODO: "${var.artifactory_url}/artifactory"'
 
 ```
+
 ```python
 import pulumi
 import pulumi_artifactory as artifactory
@@ -81,6 +84,7 @@ pypi_libs = artifactory.LocalPypiRepository("pypi-libs",
     repo_layout_ref="simple-default",
     description="A pypi repository for python packages")
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 ```yaml
@@ -94,6 +98,7 @@ config:
         value: 'TODO: "${var.artifactory_url}/artifactory"'
 
 ```
+
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -113,6 +118,7 @@ return await Deployment.RunAsync(() =>
 });
 
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 ```yaml
@@ -126,6 +132,7 @@ config:
         value: 'TODO: "${var.artifactory_url}/artifactory"'
 
 ```
+
 ```go
 package main
 
@@ -149,6 +156,7 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
@@ -162,6 +170,7 @@ config:
         value: 'TODO: "${var.artifactory_url}/artifactory"'
 
 ```
+
 ```yaml
 resources:
   # Create a new repository
@@ -172,6 +181,7 @@ resources:
       repoLayoutRef: simple-default
       description: A pypi repository for python packages
 ```
+
 {{% /choosable %}}
 {{% choosable language java %}}
 ```yaml
@@ -185,6 +195,7 @@ config:
         value: 'TODO: "${var.artifactory_url}/artifactory"'
 
 ```
+
 ```java
 package generated_program;
 
@@ -216,6 +227,7 @@ public class App {
     }
 }
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 ## Authentication
