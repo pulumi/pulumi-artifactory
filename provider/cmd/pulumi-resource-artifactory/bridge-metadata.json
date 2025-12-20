@@ -1339,6 +1339,18 @@
                     }
                 }
             },
+            "artifactory_local_hex_repository": {
+                "current": "artifactory:index/localHexRepository:LocalHexRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_local_huggingfaceml_repository": {
                 "current": "artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository",
                 "majorVersion": 8,
@@ -2320,6 +2332,21 @@
                     }
                 }
             },
+            "artifactory_remote_hex_repository": {
+                "current": "artifactory:index/remoteHexRepository:RemoteHexRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "content_synchronisation": {
+                        "maxItemsOne": true
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_remote_huggingfaceml_repository": {
                 "current": "artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository",
                 "majorVersion": 8,
@@ -2861,6 +2888,18 @@
             },
             "artifactory_virtual_helmoci_repository": {
                 "current": "artifactory:index/virtualHelmociRepository:VirtualHelmociRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "repositories": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_virtual_hex_repository": {
+                "current": "artifactory:index/virtualHexRepository:VirtualHexRepository",
                 "majorVersion": 8,
                 "fields": {
                     "project_environments": {
@@ -3859,6 +3898,18 @@
                     }
                 }
             },
+            "artifactory_local_hex_repository": {
+                "current": "artifactory:index/getLocalHexRepository:getLocalHexRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_local_huggingfaceml_repository": {
                 "current": "artifactory:index/getLocalHuggingfacemlRepository:getLocalHuggingfacemlRepository",
                 "majorVersion": 8,
@@ -4477,6 +4528,15 @@
                     }
                 }
             },
+            "artifactory_remote_hex_repository": {
+                "current": "artifactory:index/getRemoteHexRepository:getRemoteHexRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_remote_ivy_repository": {
                 "current": "artifactory:index/getRemoteIvyRepository:getRemoteIvyRepository",
                 "majorVersion": 8,
@@ -4944,6 +5004,15 @@
                         "maxItemsOne": false
                     },
                     "repositories": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_virtual_hex_repository": {
+                "current": "artifactory:index/getVirtualHexRepository:getVirtualHexRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "project_environments": {
                         "maxItemsOne": false
                     }
                 }
@@ -5437,6 +5506,9 @@
             "artifactory_local_helmoci_repository": [
                 "key"
             ],
+            "artifactory_local_hex_repository": [
+                "key"
+            ],
             "artifactory_local_huggingfaceml_repository": [
                 "key"
             ],
@@ -5569,6 +5641,9 @@
             "artifactory_remote_helmoci_repository": [
                 "key"
             ],
+            "artifactory_remote_hex_repository": [
+                "key"
+            ],
             "artifactory_remote_huggingfaceml_repository": [
                 "key"
             ],
@@ -5675,6 +5750,9 @@
                 "key"
             ],
             "artifactory_virtual_helmoci_repository": [
+                "key"
+            ],
+            "artifactory_virtual_hex_repository": [
                 "key"
             ],
             "artifactory_virtual_ivy_repository": [
@@ -5810,6 +5888,7 @@
             "artifactory:index/localGradleRepository:LocalGradleRepository": 1,
             "artifactory:index/localHelmRepository:LocalHelmRepository": 1,
             "artifactory:index/localHelmociRepository:LocalHelmociRepository": 1,
+            "artifactory:index/localHexRepository:LocalHexRepository": 1,
             "artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository": 1,
             "artifactory:index/localIvyRepository:LocalIvyRepository": 1,
             "artifactory:index/localMachinelearningRepository:LocalMachinelearningRepository": 1,
@@ -5869,6 +5948,7 @@
             "artifactory:index/remoteGradleRepository:RemoteGradleRepository": 1,
             "artifactory:index/remoteHelmRepository:RemoteHelmRepository": 1,
             "artifactory:index/remoteHelmociRepository:RemoteHelmociRepository": 1,
+            "artifactory:index/remoteHexRepository:RemoteHexRepository": 1,
             "artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository": 1,
             "artifactory:index/remoteIvyRepository:RemoteIvyRepository": 1,
             "artifactory:index/remoteMavenRepository:RemoteMavenRepository": 1,
@@ -5912,6 +5992,7 @@
             "artifactory:index/virtualGradleRepository:VirtualGradleRepository": 0,
             "artifactory:index/virtualHelmRepository:VirtualHelmRepository": 0,
             "artifactory:index/virtualHelmociRepository:VirtualHelmociRepository": 0,
+            "artifactory:index/virtualHexRepository:VirtualHexRepository": 1,
             "artifactory:index/virtualIvyRepository:VirtualIvyRepository": 0,
             "artifactory:index/virtualNpmRepository:VirtualNpmRepository": 0,
             "artifactory:index/virtualNugetRepository:VirtualNugetRepository": 0,
@@ -5986,6 +6067,7 @@
             "artifactory:index/getLocalGoRepository:getLocalGoRepository": 0,
             "artifactory:index/getLocalGradleRepository:getLocalGradleRepository": 0,
             "artifactory:index/getLocalHelmociRepository:getLocalHelmociRepository": 0,
+            "artifactory:index/getLocalHexRepository:getLocalHexRepository": 1,
             "artifactory:index/getLocalHuggingfacemlRepository:getLocalHuggingfacemlRepository": 0,
             "artifactory:index/getLocalIvyRepository:getLocalIvyRepository": 0,
             "artifactory:index/getLocalMavenRepository:getLocalMavenRepository": 0,
@@ -6022,6 +6104,7 @@
             "artifactory:index/getRemoteGradleRepository:getRemoteGradleRepository": 0,
             "artifactory:index/getRemoteHelmRepository:getRemoteHelmRepository": 0,
             "artifactory:index/getRemoteHelmociRepository:getRemoteHelmociRepository": 0,
+            "artifactory:index/getRemoteHexRepository:getRemoteHexRepository": 1,
             "artifactory:index/getRemoteIvyRepository:getRemoteIvyRepository": 0,
             "artifactory:index/getRemoteMavenRepository:getRemoteMavenRepository": 0,
             "artifactory:index/getRemoteNpmRepository:getRemoteNpmRepository": 0,
@@ -6057,6 +6140,7 @@
             "artifactory:index/getVirtualGradleRepository:getVirtualGradleRepository": 0,
             "artifactory:index/getVirtualHelmRepository:getVirtualHelmRepository": 0,
             "artifactory:index/getVirtualHelmociRepository:getVirtualHelmociRepository": 0,
+            "artifactory:index/getVirtualHexRepository:getVirtualHexRepository": 1,
             "artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository": 0,
             "artifactory:index/getVirtualMavenRepository:getVirtualMavenRepository": 0,
             "artifactory:index/getVirtualNpmRepository:getVirtualNpmRepository": 0,
