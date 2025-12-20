@@ -19,20 +19,20 @@ public final class ArtifactoryReleaseBundleWebhookCriteria {
      */
     private Boolean anyReleaseBundle;
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
      * 
      */
     private @Nullable List<String> excludePatterns;
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
      * 
      */
     private @Nullable List<String> includePatterns;
     /**
-     * @return Trigger on this list of release bundle names
+     * @return Trigger on this list of release bundle names. Either this or `includePatterns` must be set when `anyReleaseBundle` is `false`.
      * 
      */
-    private List<String> registeredReleaseBundleNames;
+    private @Nullable List<String> registeredReleaseBundleNames;
 
     private ArtifactoryReleaseBundleWebhookCriteria() {}
     /**
@@ -43,25 +43,25 @@ public final class ArtifactoryReleaseBundleWebhookCriteria {
         return this.anyReleaseBundle;
     }
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
      * 
      */
     public List<String> excludePatterns() {
         return this.excludePatterns == null ? List.of() : this.excludePatterns;
     }
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
      * 
      */
     public List<String> includePatterns() {
         return this.includePatterns == null ? List.of() : this.includePatterns;
     }
     /**
-     * @return Trigger on this list of release bundle names
+     * @return Trigger on this list of release bundle names. Either this or `includePatterns` must be set when `anyReleaseBundle` is `false`.
      * 
      */
     public List<String> registeredReleaseBundleNames() {
-        return this.registeredReleaseBundleNames;
+        return this.registeredReleaseBundleNames == null ? List.of() : this.registeredReleaseBundleNames;
     }
 
     public static Builder builder() {
@@ -76,7 +76,7 @@ public final class ArtifactoryReleaseBundleWebhookCriteria {
         private Boolean anyReleaseBundle;
         private @Nullable List<String> excludePatterns;
         private @Nullable List<String> includePatterns;
-        private List<String> registeredReleaseBundleNames;
+        private @Nullable List<String> registeredReleaseBundleNames;
         public Builder() {}
         public Builder(ArtifactoryReleaseBundleWebhookCriteria defaults) {
     	      Objects.requireNonNull(defaults);
@@ -113,10 +113,8 @@ public final class ArtifactoryReleaseBundleWebhookCriteria {
             return includePatterns(List.of(includePatterns));
         }
         @CustomType.Setter
-        public Builder registeredReleaseBundleNames(List<String> registeredReleaseBundleNames) {
-            if (registeredReleaseBundleNames == null) {
-              throw new MissingRequiredPropertyException("ArtifactoryReleaseBundleWebhookCriteria", "registeredReleaseBundleNames");
-            }
+        public Builder registeredReleaseBundleNames(@Nullable List<String> registeredReleaseBundleNames) {
+
             this.registeredReleaseBundleNames = registeredReleaseBundleNames;
             return this;
         }

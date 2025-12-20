@@ -32,7 +32,7 @@ public final class DistributionCustomWebhookCriteria {
      * @return Trigger on this list of release bundle names.
      * 
      */
-    private List<String> registeredReleaseBundleNames;
+    private @Nullable List<String> registeredReleaseBundleNames;
 
     private DistributionCustomWebhookCriteria() {}
     /**
@@ -61,7 +61,7 @@ public final class DistributionCustomWebhookCriteria {
      * 
      */
     public List<String> registeredReleaseBundleNames() {
-        return this.registeredReleaseBundleNames;
+        return this.registeredReleaseBundleNames == null ? List.of() : this.registeredReleaseBundleNames;
     }
 
     public static Builder builder() {
@@ -76,7 +76,7 @@ public final class DistributionCustomWebhookCriteria {
         private Boolean anyReleaseBundle;
         private @Nullable List<String> excludePatterns;
         private @Nullable List<String> includePatterns;
-        private List<String> registeredReleaseBundleNames;
+        private @Nullable List<String> registeredReleaseBundleNames;
         public Builder() {}
         public Builder(DistributionCustomWebhookCriteria defaults) {
     	      Objects.requireNonNull(defaults);
@@ -113,10 +113,8 @@ public final class DistributionCustomWebhookCriteria {
             return includePatterns(List.of(includePatterns));
         }
         @CustomType.Setter
-        public Builder registeredReleaseBundleNames(List<String> registeredReleaseBundleNames) {
-            if (registeredReleaseBundleNames == null) {
-              throw new MissingRequiredPropertyException("DistributionCustomWebhookCriteria", "registeredReleaseBundleNames");
-            }
+        public Builder registeredReleaseBundleNames(@Nullable List<String> registeredReleaseBundleNames) {
+
             this.registeredReleaseBundleNames = registeredReleaseBundleNames;
             return this;
         }

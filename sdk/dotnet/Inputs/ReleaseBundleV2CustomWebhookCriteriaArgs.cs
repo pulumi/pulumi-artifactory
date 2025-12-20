@@ -22,7 +22,9 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _excludePatterns;
 
         /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+        /// Simple wildcard patterns for Release Bundle names.
+        /// Ant-style path expressions are supported (*, **, ?).
+        /// For example: `product_*`
         /// </summary>
         public InputList<string> ExcludePatterns
         {
@@ -34,7 +36,9 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _includePatterns;
 
         /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+        /// Simple wildcard patterns for Release Bundle names.
+        /// Ant-style path expressions are supported (*, **, ?).
+        /// For example: `product_*`
         /// </summary>
         public InputList<string> IncludePatterns
         {
@@ -42,7 +46,7 @@ namespace Pulumi.Artifactory.Inputs
             set => _includePatterns = value;
         }
 
-        [Input("selectedReleaseBundles", required: true)]
+        [Input("selectedReleaseBundles")]
         private InputList<string>? _selectedReleaseBundles;
 
         /// <summary>

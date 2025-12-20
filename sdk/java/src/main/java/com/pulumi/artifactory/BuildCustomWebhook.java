@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *                 "deleted",
  *                 "promoted")
  *             .criteria(BuildCustomWebhookCriteriaArgs.builder()
- *                 .anyBuild(true)
+ *                 .anyBuild(false)
  *                 .selectedBuilds("build-id")
  *                 .includePatterns("foo/**")
  *                 .excludePatterns("bar/**")

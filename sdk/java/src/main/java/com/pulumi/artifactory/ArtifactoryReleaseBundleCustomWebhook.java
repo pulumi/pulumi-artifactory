@@ -25,7 +25,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * .
  * <pre>
  * {@code
  * package generated_program;

@@ -34,14 +34,14 @@ public final class BuildWebhookCriteriaArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
      * 
      */
     @Import(name="excludePatterns")
     private @Nullable Output<List<String>> excludePatterns;
 
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
      * 
      */
     public Optional<Output<List<String>>> excludePatterns() {
@@ -49,14 +49,14 @@ public final class BuildWebhookCriteriaArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
      * 
      */
     @Import(name="includePatterns")
     private @Nullable Output<List<String>> includePatterns;
 
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
      * 
      */
     public Optional<Output<List<String>>> includePatterns() {
@@ -67,15 +67,15 @@ public final class BuildWebhookCriteriaArgs extends com.pulumi.resources.Resourc
      * Trigger on this list of build names.
      * 
      */
-    @Import(name="selectedBuilds", required=true)
-    private Output<List<String>> selectedBuilds;
+    @Import(name="selectedBuilds")
+    private @Nullable Output<List<String>> selectedBuilds;
 
     /**
      * @return Trigger on this list of build names.
      * 
      */
-    public Output<List<String>> selectedBuilds() {
-        return this.selectedBuilds;
+    public Optional<Output<List<String>>> selectedBuilds() {
+        return Optional.ofNullable(this.selectedBuilds);
     }
 
     private BuildWebhookCriteriaArgs() {}
@@ -127,7 +127,7 @@ public final class BuildWebhookCriteriaArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class BuildWebhookCriteriaArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class BuildWebhookCriteriaArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class BuildWebhookCriteriaArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class BuildWebhookCriteriaArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class BuildWebhookCriteriaArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class BuildWebhookCriteriaArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder selectedBuilds(Output<List<String>> selectedBuilds) {
+        public Builder selectedBuilds(@Nullable Output<List<String>> selectedBuilds) {
             $.selectedBuilds = selectedBuilds;
             return this;
         }
@@ -222,9 +222,6 @@ public final class BuildWebhookCriteriaArgs extends com.pulumi.resources.Resourc
         public BuildWebhookCriteriaArgs build() {
             if ($.anyBuild == null) {
                 throw new MissingRequiredPropertyException("BuildWebhookCriteriaArgs", "anyBuild");
-            }
-            if ($.selectedBuilds == null) {
-                throw new MissingRequiredPropertyException("BuildWebhookCriteriaArgs", "selectedBuilds");
             }
             return $;
         }

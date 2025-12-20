@@ -23,7 +23,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * .
  * <pre>
  * {@code
  * package generated_program;
@@ -55,7 +54,7 @@ import javax.annotation.Nullable;
  *                 "deleted",
  *                 "promoted")
  *             .criteria(BuildWebhookCriteriaArgs.builder()
- *                 .anyBuild(true)
+ *                 .anyBuild(false)
  *                 .selectedBuilds("build-id")
  *                 .includePatterns("foo/**")
  *                 .excludePatterns("bar/**")

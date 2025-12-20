@@ -2209,9 +2209,9 @@ func (o ArtifactWebhookHandlerArrayOutput) Index(i pulumi.IntInput) ArtifactWebh
 type ArtifactoryReleaseBundleCustomWebhookCriteria struct {
 	// Trigger on any release bundle
 	AnyReleaseBundle bool `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
 	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
 	IncludePatterns []string `pulumi:"includePatterns"`
 	// Trigger on this list of release bundle names
 	RegisteredReleaseBundleNames []string `pulumi:"registeredReleaseBundleNames"`
@@ -2231,9 +2231,9 @@ type ArtifactoryReleaseBundleCustomWebhookCriteriaInput interface {
 type ArtifactoryReleaseBundleCustomWebhookCriteriaArgs struct {
 	// Trigger on any release bundle
 	AnyReleaseBundle pulumi.BoolInput `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
 	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
 	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
 	// Trigger on this list of release bundle names
 	RegisteredReleaseBundleNames pulumi.StringArrayInput `pulumi:"registeredReleaseBundleNames"`
@@ -2321,12 +2321,12 @@ func (o ArtifactoryReleaseBundleCustomWebhookCriteriaOutput) AnyReleaseBundle() 
 	return o.ApplyT(func(v ArtifactoryReleaseBundleCustomWebhookCriteria) bool { return v.AnyReleaseBundle }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
 func (o ArtifactoryReleaseBundleCustomWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArtifactoryReleaseBundleCustomWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
 func (o ArtifactoryReleaseBundleCustomWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArtifactoryReleaseBundleCustomWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
@@ -2370,7 +2370,7 @@ func (o ArtifactoryReleaseBundleCustomWebhookCriteriaPtrOutput) AnyReleaseBundle
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
 func (o ArtifactoryReleaseBundleCustomWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactoryReleaseBundleCustomWebhookCriteria) []string {
 		if v == nil {
@@ -2380,7 +2380,7 @@ func (o ArtifactoryReleaseBundleCustomWebhookCriteriaPtrOutput) ExcludePatterns(
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
 func (o ArtifactoryReleaseBundleCustomWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactoryReleaseBundleCustomWebhookCriteria) []string {
 		if v == nil {
@@ -2545,11 +2545,11 @@ func (o ArtifactoryReleaseBundleCustomWebhookHandlerArrayOutput) Index(i pulumi.
 type ArtifactoryReleaseBundleWebhookCriteria struct {
 	// Trigger on any release bundle
 	AnyReleaseBundle bool `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
 	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
 	IncludePatterns []string `pulumi:"includePatterns"`
-	// Trigger on this list of release bundle names
+	// Trigger on this list of release bundle names. Either this or `includePatterns` must be set when `anyReleaseBundle` is `false`.
 	RegisteredReleaseBundleNames []string `pulumi:"registeredReleaseBundleNames"`
 }
 
@@ -2567,11 +2567,11 @@ type ArtifactoryReleaseBundleWebhookCriteriaInput interface {
 type ArtifactoryReleaseBundleWebhookCriteriaArgs struct {
 	// Trigger on any release bundle
 	AnyReleaseBundle pulumi.BoolInput `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
 	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
 	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
-	// Trigger on this list of release bundle names
+	// Trigger on this list of release bundle names. Either this or `includePatterns` must be set when `anyReleaseBundle` is `false`.
 	RegisteredReleaseBundleNames pulumi.StringArrayInput `pulumi:"registeredReleaseBundleNames"`
 }
 
@@ -2657,17 +2657,17 @@ func (o ArtifactoryReleaseBundleWebhookCriteriaOutput) AnyReleaseBundle() pulumi
 	return o.ApplyT(func(v ArtifactoryReleaseBundleWebhookCriteria) bool { return v.AnyReleaseBundle }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
 func (o ArtifactoryReleaseBundleWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArtifactoryReleaseBundleWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
 func (o ArtifactoryReleaseBundleWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArtifactoryReleaseBundleWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Trigger on this list of release bundle names
+// Trigger on this list of release bundle names. Either this or `includePatterns` must be set when `anyReleaseBundle` is `false`.
 func (o ArtifactoryReleaseBundleWebhookCriteriaOutput) RegisteredReleaseBundleNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArtifactoryReleaseBundleWebhookCriteria) []string { return v.RegisteredReleaseBundleNames }).(pulumi.StringArrayOutput)
 }
@@ -2706,7 +2706,7 @@ func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) AnyReleaseBundle() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
 func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactoryReleaseBundleWebhookCriteria) []string {
 		if v == nil {
@@ -2716,7 +2716,7 @@ func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) ExcludePatterns() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
 func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactoryReleaseBundleWebhookCriteria) []string {
 		if v == nil {
@@ -2726,7 +2726,7 @@ func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) IncludePatterns() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Trigger on this list of release bundle names
+// Trigger on this list of release bundle names. Either this or `includePatterns` must be set when `anyReleaseBundle` is `false`.
 func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) RegisteredReleaseBundleNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactoryReleaseBundleWebhookCriteria) []string {
 		if v == nil {
@@ -2872,9 +2872,9 @@ func (o ArtifactoryReleaseBundleWebhookHandlerArrayOutput) Index(i pulumi.IntInp
 type BuildCustomWebhookCriteria struct {
 	// Trigger on any build.
 	AnyBuild bool `pulumi:"anyBuild"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
 	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
 	IncludePatterns []string `pulumi:"includePatterns"`
 	// Trigger on this list of build names.
 	SelectedBuilds []string `pulumi:"selectedBuilds"`
@@ -2894,9 +2894,9 @@ type BuildCustomWebhookCriteriaInput interface {
 type BuildCustomWebhookCriteriaArgs struct {
 	// Trigger on any build.
 	AnyBuild pulumi.BoolInput `pulumi:"anyBuild"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
 	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
 	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
 	// Trigger on this list of build names.
 	SelectedBuilds pulumi.StringArrayInput `pulumi:"selectedBuilds"`
@@ -2984,12 +2984,12 @@ func (o BuildCustomWebhookCriteriaOutput) AnyBuild() pulumi.BoolOutput {
 	return o.ApplyT(func(v BuildCustomWebhookCriteria) bool { return v.AnyBuild }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
 func (o BuildCustomWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildCustomWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
 func (o BuildCustomWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildCustomWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
@@ -3033,7 +3033,7 @@ func (o BuildCustomWebhookCriteriaPtrOutput) AnyBuild() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
 func (o BuildCustomWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BuildCustomWebhookCriteria) []string {
 		if v == nil {
@@ -3043,7 +3043,7 @@ func (o BuildCustomWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
 func (o BuildCustomWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BuildCustomWebhookCriteria) []string {
 		if v == nil {
@@ -3208,9 +3208,9 @@ func (o BuildCustomWebhookHandlerArrayOutput) Index(i pulumi.IntInput) BuildCust
 type BuildWebhookCriteria struct {
 	// Trigger on any build.
 	AnyBuild bool `pulumi:"anyBuild"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
 	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
 	IncludePatterns []string `pulumi:"includePatterns"`
 	// Trigger on this list of build names.
 	SelectedBuilds []string `pulumi:"selectedBuilds"`
@@ -3230,9 +3230,9 @@ type BuildWebhookCriteriaInput interface {
 type BuildWebhookCriteriaArgs struct {
 	// Trigger on any build.
 	AnyBuild pulumi.BoolInput `pulumi:"anyBuild"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
 	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
 	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
 	// Trigger on this list of build names.
 	SelectedBuilds pulumi.StringArrayInput `pulumi:"selectedBuilds"`
@@ -3320,12 +3320,12 @@ func (o BuildWebhookCriteriaOutput) AnyBuild() pulumi.BoolOutput {
 	return o.ApplyT(func(v BuildWebhookCriteria) bool { return v.AnyBuild }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
 func (o BuildWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
 func (o BuildWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
@@ -3369,7 +3369,7 @@ func (o BuildWebhookCriteriaPtrOutput) AnyBuild() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
 func (o BuildWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BuildWebhookCriteria) []string {
 		if v == nil {
@@ -3379,7 +3379,7 @@ func (o BuildWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
 func (o BuildWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BuildWebhookCriteria) []string {
 		if v == nil {
@@ -13074,11 +13074,11 @@ func (o PushReplicationReplicationArrayOutput) Index(i pulumi.IntInput) PushRepl
 type ReleaseBundleCustomWebhookCriteria struct {
 	// Trigger on any release bundle.
 	AnyReleaseBundle bool `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**". **Cannot be set if `anyReleaseBundle` is set to `true`.**
 	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**". **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
 	IncludePatterns []string `pulumi:"includePatterns"`
-	// Trigger on this list of release bundle names.
+	// Trigger on this list of release bundle names. Either this or `includePatterns` must be set when `anyReleaseBundle` is `false`.
 	RegisteredReleaseBundleNames []string `pulumi:"registeredReleaseBundleNames"`
 }
 
@@ -13096,11 +13096,11 @@ type ReleaseBundleCustomWebhookCriteriaInput interface {
 type ReleaseBundleCustomWebhookCriteriaArgs struct {
 	// Trigger on any release bundle.
 	AnyReleaseBundle pulumi.BoolInput `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**". **Cannot be set if `anyReleaseBundle` is set to `true`.**
 	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**". **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
 	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
-	// Trigger on this list of release bundle names.
+	// Trigger on this list of release bundle names. Either this or `includePatterns` must be set when `anyReleaseBundle` is `false`.
 	RegisteredReleaseBundleNames pulumi.StringArrayInput `pulumi:"registeredReleaseBundleNames"`
 }
 
@@ -13186,17 +13186,17 @@ func (o ReleaseBundleCustomWebhookCriteriaOutput) AnyReleaseBundle() pulumi.Bool
 	return o.ApplyT(func(v ReleaseBundleCustomWebhookCriteria) bool { return v.AnyReleaseBundle }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**". **Cannot be set if `anyReleaseBundle` is set to `true`.**
 func (o ReleaseBundleCustomWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReleaseBundleCustomWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**". **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
 func (o ReleaseBundleCustomWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReleaseBundleCustomWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Trigger on this list of release bundle names.
+// Trigger on this list of release bundle names. Either this or `includePatterns` must be set when `anyReleaseBundle` is `false`.
 func (o ReleaseBundleCustomWebhookCriteriaOutput) RegisteredReleaseBundleNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReleaseBundleCustomWebhookCriteria) []string { return v.RegisteredReleaseBundleNames }).(pulumi.StringArrayOutput)
 }
@@ -13235,7 +13235,7 @@ func (o ReleaseBundleCustomWebhookCriteriaPtrOutput) AnyReleaseBundle() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**". **Cannot be set if `anyReleaseBundle` is set to `true`.**
 func (o ReleaseBundleCustomWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReleaseBundleCustomWebhookCriteria) []string {
 		if v == nil {
@@ -13245,7 +13245,7 @@ func (o ReleaseBundleCustomWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**". **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
 func (o ReleaseBundleCustomWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReleaseBundleCustomWebhookCriteria) []string {
 		if v == nil {
@@ -13255,7 +13255,7 @@ func (o ReleaseBundleCustomWebhookCriteriaPtrOutput) IncludePatterns() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// Trigger on this list of release bundle names.
+// Trigger on this list of release bundle names. Either this or `includePatterns` must be set when `anyReleaseBundle` is `false`.
 func (o ReleaseBundleCustomWebhookCriteriaPtrOutput) RegisteredReleaseBundleNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReleaseBundleCustomWebhookCriteria) []string {
 		if v == nil {
@@ -13408,7 +13408,7 @@ func (o ReleaseBundleCustomWebhookHandlerArrayOutput) Index(i pulumi.IntInput) R
 }
 
 type ReleaseBundleV2CleanupPolicySearchCriteria struct {
-	// The cleanup policy will cleanup release bundles based on how long ago they were created. For example, if this parameter is 2 then release bundles created more than 2 months ago will be cleaned up as part of the policy.
+	// Specifies the time frame for filtering based on item creation date (for example, 24 months). Defaults to `24`.
 	CreatedBeforeInMonths *int `pulumi:"createdBeforeInMonths"`
 	// A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `excludePromotedEnvironments = ["**"]`
 	ExcludePromotedEnvironments []string `pulumi:"excludePromotedEnvironments"`
@@ -13434,7 +13434,7 @@ type ReleaseBundleV2CleanupPolicySearchCriteriaInput interface {
 }
 
 type ReleaseBundleV2CleanupPolicySearchCriteriaArgs struct {
-	// The cleanup policy will cleanup release bundles based on how long ago they were created. For example, if this parameter is 2 then release bundles created more than 2 months ago will be cleaned up as part of the policy.
+	// Specifies the time frame for filtering based on item creation date (for example, 24 months). Defaults to `24`.
 	CreatedBeforeInMonths pulumi.IntPtrInput `pulumi:"createdBeforeInMonths"`
 	// A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `excludePromotedEnvironments = ["**"]`
 	ExcludePromotedEnvironments pulumi.StringArrayInput `pulumi:"excludePromotedEnvironments"`
@@ -13525,7 +13525,7 @@ func (o ReleaseBundleV2CleanupPolicySearchCriteriaOutput) ToReleaseBundleV2Clean
 	}).(ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput)
 }
 
-// The cleanup policy will cleanup release bundles based on how long ago they were created. For example, if this parameter is 2 then release bundles created more than 2 months ago will be cleaned up as part of the policy.
+// Specifies the time frame for filtering based on item creation date (for example, 24 months). Defaults to `24`.
 func (o ReleaseBundleV2CleanupPolicySearchCriteriaOutput) CreatedBeforeInMonths() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ReleaseBundleV2CleanupPolicySearchCriteria) *int { return v.CreatedBeforeInMonths }).(pulumi.IntPtrOutput)
 }
@@ -13578,7 +13578,7 @@ func (o ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput) Elem() ReleaseBundl
 	}).(ReleaseBundleV2CleanupPolicySearchCriteriaOutput)
 }
 
-// The cleanup policy will cleanup release bundles based on how long ago they were created. For example, if this parameter is 2 then release bundles created more than 2 months ago will be cleaned up as part of the policy.
+// Specifies the time frame for filtering based on item creation date (for example, 24 months). Defaults to `24`.
 func (o ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput) CreatedBeforeInMonths() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReleaseBundleV2CleanupPolicySearchCriteria) *int {
 		if v == nil {
@@ -13739,9 +13739,13 @@ func (o ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput) Inde
 type ReleaseBundleV2CustomWebhookCriteria struct {
 	// Trigger on any release bundle.
 	AnyReleaseBundle bool `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+	// Simple wildcard patterns for Release Bundle names.
+	// Ant-style path expressions are supported (*, **, ?).
+	// For example: `product_*`
 	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+	// Simple wildcard patterns for Release Bundle names.
+	// Ant-style path expressions are supported (*, **, ?).
+	// For example: `product_*`
 	IncludePatterns []string `pulumi:"includePatterns"`
 	// Trigger on this list of release bundle names.
 	SelectedReleaseBundles []string `pulumi:"selectedReleaseBundles"`
@@ -13761,9 +13765,13 @@ type ReleaseBundleV2CustomWebhookCriteriaInput interface {
 type ReleaseBundleV2CustomWebhookCriteriaArgs struct {
 	// Trigger on any release bundle.
 	AnyReleaseBundle pulumi.BoolInput `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+	// Simple wildcard patterns for Release Bundle names.
+	// Ant-style path expressions are supported (*, **, ?).
+	// For example: `product_*`
 	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+	// Simple wildcard patterns for Release Bundle names.
+	// Ant-style path expressions are supported (*, **, ?).
+	// For example: `product_*`
 	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
 	// Trigger on this list of release bundle names.
 	SelectedReleaseBundles pulumi.StringArrayInput `pulumi:"selectedReleaseBundles"`
@@ -13851,12 +13859,16 @@ func (o ReleaseBundleV2CustomWebhookCriteriaOutput) AnyReleaseBundle() pulumi.Bo
 	return o.ApplyT(func(v ReleaseBundleV2CustomWebhookCriteria) bool { return v.AnyReleaseBundle }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+// Simple wildcard patterns for Release Bundle names.
+// Ant-style path expressions are supported (*, **, ?).
+// For example: `product_*`
 func (o ReleaseBundleV2CustomWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReleaseBundleV2CustomWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+// Simple wildcard patterns for Release Bundle names.
+// Ant-style path expressions are supported (*, **, ?).
+// For example: `product_*`
 func (o ReleaseBundleV2CustomWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReleaseBundleV2CustomWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
@@ -13900,7 +13912,9 @@ func (o ReleaseBundleV2CustomWebhookCriteriaPtrOutput) AnyReleaseBundle() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+// Simple wildcard patterns for Release Bundle names.
+// Ant-style path expressions are supported (*, **, ?).
+// For example: `product_*`
 func (o ReleaseBundleV2CustomWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReleaseBundleV2CustomWebhookCriteria) []string {
 		if v == nil {
@@ -13910,7 +13924,9 @@ func (o ReleaseBundleV2CustomWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+// Simple wildcard patterns for Release Bundle names.
+// Ant-style path expressions are supported (*, **, ?).
+// For example: `product_*`
 func (o ReleaseBundleV2CustomWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReleaseBundleV2CustomWebhookCriteria) []string {
 		if v == nil {
@@ -15241,9 +15257,13 @@ func (o ReleaseBundleV2SourceReleaseBundleArrayOutput) Index(i pulumi.IntInput) 
 type ReleaseBundleV2WebhookCriteria struct {
 	// Trigger on any release bundle.
 	AnyReleaseBundle bool `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+	// Simple wildcard patterns for Release Bundle names.
+	// Ant-style path expressions are supported (*, **, ?).
+	// For example: `product_*`
 	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+	// Simple wildcard patterns for Release Bundle names.
+	// Ant-style path expressions are supported (*, **, ?).
+	// For example: `product_*`
 	IncludePatterns []string `pulumi:"includePatterns"`
 	// Trigger on this list of release bundle names.
 	SelectedReleaseBundles []string `pulumi:"selectedReleaseBundles"`
@@ -15263,9 +15283,13 @@ type ReleaseBundleV2WebhookCriteriaInput interface {
 type ReleaseBundleV2WebhookCriteriaArgs struct {
 	// Trigger on any release bundle.
 	AnyReleaseBundle pulumi.BoolInput `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+	// Simple wildcard patterns for Release Bundle names.
+	// Ant-style path expressions are supported (*, **, ?).
+	// For example: `product_*`
 	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+	// Simple wildcard patterns for Release Bundle names.
+	// Ant-style path expressions are supported (*, **, ?).
+	// For example: `product_*`
 	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
 	// Trigger on this list of release bundle names.
 	SelectedReleaseBundles pulumi.StringArrayInput `pulumi:"selectedReleaseBundles"`
@@ -15353,12 +15377,16 @@ func (o ReleaseBundleV2WebhookCriteriaOutput) AnyReleaseBundle() pulumi.BoolOutp
 	return o.ApplyT(func(v ReleaseBundleV2WebhookCriteria) bool { return v.AnyReleaseBundle }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+// Simple wildcard patterns for Release Bundle names.
+// Ant-style path expressions are supported (*, **, ?).
+// For example: `product_*`
 func (o ReleaseBundleV2WebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReleaseBundleV2WebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+// Simple wildcard patterns for Release Bundle names.
+// Ant-style path expressions are supported (*, **, ?).
+// For example: `product_*`
 func (o ReleaseBundleV2WebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReleaseBundleV2WebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
@@ -15402,7 +15430,9 @@ func (o ReleaseBundleV2WebhookCriteriaPtrOutput) AnyReleaseBundle() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+// Simple wildcard patterns for Release Bundle names.
+// Ant-style path expressions are supported (*, **, ?).
+// For example: `product_*`
 func (o ReleaseBundleV2WebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReleaseBundleV2WebhookCriteria) []string {
 		if v == nil {
@@ -15412,7 +15442,9 @@ func (o ReleaseBundleV2WebhookCriteriaPtrOutput) ExcludePatterns() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+// Simple wildcard patterns for Release Bundle names.
+// Ant-style path expressions are supported (*, **, ?).
+// For example: `product_*`
 func (o ReleaseBundleV2WebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReleaseBundleV2WebhookCriteria) []string {
 		if v == nil {
@@ -19571,6 +19603,200 @@ func (o RemoteHelmociRepositoryContentSynchronisationPtrOutput) SourceOriginAbse
 // If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteHelmociRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmociRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type RemoteHexRepositoryContentSynchronisation struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+}
+
+// RemoteHexRepositoryContentSynchronisationInput is an input type that accepts RemoteHexRepositoryContentSynchronisationArgs and RemoteHexRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `RemoteHexRepositoryContentSynchronisationInput` via:
+//
+//	RemoteHexRepositoryContentSynchronisationArgs{...}
+type RemoteHexRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToRemoteHexRepositoryContentSynchronisationOutput() RemoteHexRepositoryContentSynchronisationOutput
+	ToRemoteHexRepositoryContentSynchronisationOutputWithContext(context.Context) RemoteHexRepositoryContentSynchronisationOutput
+}
+
+type RemoteHexRepositoryContentSynchronisationArgs struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (RemoteHexRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteHexRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i RemoteHexRepositoryContentSynchronisationArgs) ToRemoteHexRepositoryContentSynchronisationOutput() RemoteHexRepositoryContentSynchronisationOutput {
+	return i.ToRemoteHexRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i RemoteHexRepositoryContentSynchronisationArgs) ToRemoteHexRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteHexRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteHexRepositoryContentSynchronisationOutput)
+}
+
+func (i RemoteHexRepositoryContentSynchronisationArgs) ToRemoteHexRepositoryContentSynchronisationPtrOutput() RemoteHexRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteHexRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i RemoteHexRepositoryContentSynchronisationArgs) ToRemoteHexRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteHexRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteHexRepositoryContentSynchronisationOutput).ToRemoteHexRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// RemoteHexRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteHexRepositoryContentSynchronisationArgs, RemoteHexRepositoryContentSynchronisationPtr and RemoteHexRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `RemoteHexRepositoryContentSynchronisationPtrInput` via:
+//
+//	        RemoteHexRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RemoteHexRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToRemoteHexRepositoryContentSynchronisationPtrOutput() RemoteHexRepositoryContentSynchronisationPtrOutput
+	ToRemoteHexRepositoryContentSynchronisationPtrOutputWithContext(context.Context) RemoteHexRepositoryContentSynchronisationPtrOutput
+}
+
+type remoteHexRepositoryContentSynchronisationPtrType RemoteHexRepositoryContentSynchronisationArgs
+
+func RemoteHexRepositoryContentSynchronisationPtr(v *RemoteHexRepositoryContentSynchronisationArgs) RemoteHexRepositoryContentSynchronisationPtrInput {
+	return (*remoteHexRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*remoteHexRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteHexRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *remoteHexRepositoryContentSynchronisationPtrType) ToRemoteHexRepositoryContentSynchronisationPtrOutput() RemoteHexRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteHexRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *remoteHexRepositoryContentSynchronisationPtrType) ToRemoteHexRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteHexRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteHexRepositoryContentSynchronisationPtrOutput)
+}
+
+type RemoteHexRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (RemoteHexRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteHexRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteHexRepositoryContentSynchronisationOutput) ToRemoteHexRepositoryContentSynchronisationOutput() RemoteHexRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteHexRepositoryContentSynchronisationOutput) ToRemoteHexRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteHexRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteHexRepositoryContentSynchronisationOutput) ToRemoteHexRepositoryContentSynchronisationPtrOutput() RemoteHexRepositoryContentSynchronisationPtrOutput {
+	return o.ToRemoteHexRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o RemoteHexRepositoryContentSynchronisationOutput) ToRemoteHexRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteHexRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemoteHexRepositoryContentSynchronisation) *RemoteHexRepositoryContentSynchronisation {
+		return &v
+	}).(RemoteHexRepositoryContentSynchronisationPtrOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o RemoteHexRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteHexRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o RemoteHexRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteHexRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o RemoteHexRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteHexRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o RemoteHexRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteHexRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type RemoteHexRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (RemoteHexRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteHexRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteHexRepositoryContentSynchronisationPtrOutput) ToRemoteHexRepositoryContentSynchronisationPtrOutput() RemoteHexRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteHexRepositoryContentSynchronisationPtrOutput) ToRemoteHexRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteHexRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteHexRepositoryContentSynchronisationPtrOutput) Elem() RemoteHexRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *RemoteHexRepositoryContentSynchronisation) RemoteHexRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret RemoteHexRepositoryContentSynchronisation
+		return ret
+	}).(RemoteHexRepositoryContentSynchronisationOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o RemoteHexRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteHexRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o RemoteHexRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteHexRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o RemoteHexRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteHexRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o RemoteHexRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteHexRepositoryContentSynchronisation) *bool {
 		if v == nil {
 			return nil
 		}
@@ -36884,6 +37110,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHelmRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteHelmRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHelmociRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteHelmociRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHelmociRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteHelmociRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHexRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteHexRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHexRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteHexRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHuggingfacemlRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteHuggingfacemlRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHuggingfacemlRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteHuggingfacemlRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteIvyRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteIvyRepositoryContentSynchronisationArgs{})
@@ -37347,6 +37575,8 @@ func init() {
 	pulumi.RegisterOutputType(RemoteHelmRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteHelmociRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteHelmociRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(RemoteHexRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(RemoteHexRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteHuggingfacemlRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteIvyRepositoryContentSynchronisationOutput{})

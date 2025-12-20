@@ -340,17 +340,17 @@ export interface ArtifactoryReleaseBundleCustomWebhookCriteria {
      */
     anyReleaseBundle: boolean;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
      */
     excludePatterns?: string[];
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
      */
     includePatterns?: string[];
     /**
      * Trigger on this list of release bundle names
      */
-    registeredReleaseBundleNames: string[];
+    registeredReleaseBundleNames?: string[];
 }
 
 export interface ArtifactoryReleaseBundleCustomWebhookHandler {
@@ -386,17 +386,17 @@ export interface ArtifactoryReleaseBundleWebhookCriteria {
      */
     anyReleaseBundle: boolean;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
      */
     excludePatterns?: string[];
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
      */
     includePatterns?: string[];
     /**
-     * Trigger on this list of release bundle names
+     * Trigger on this list of release bundle names. Either this or `includePatterns` must be set when `anyReleaseBundle` is `false`.
      */
-    registeredReleaseBundleNames: string[];
+    registeredReleaseBundleNames?: string[];
 }
 
 export interface ArtifactoryReleaseBundleWebhookHandler {
@@ -428,17 +428,17 @@ export interface BuildCustomWebhookCriteria {
      */
     anyBuild: boolean;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
      */
     excludePatterns?: string[];
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
      */
     includePatterns?: string[];
     /**
      * Trigger on this list of build names.
      */
-    selectedBuilds: string[];
+    selectedBuilds?: string[];
 }
 
 export interface BuildCustomWebhookHandler {
@@ -474,17 +474,17 @@ export interface BuildWebhookCriteria {
      */
     anyBuild: boolean;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
      */
     excludePatterns?: string[];
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
      */
     includePatterns?: string[];
     /**
      * Trigger on this list of build names.
      */
-    selectedBuilds: string[];
+    selectedBuilds?: string[];
 }
 
 export interface BuildWebhookHandler {
@@ -526,7 +526,7 @@ export interface DestinationCustomWebhookCriteria {
     /**
      * Trigger on this list of release bundle names
      */
-    registeredReleaseBundleNames: string[];
+    registeredReleaseBundleNames?: string[];
 }
 
 export interface DestinationCustomWebhookHandler {
@@ -572,7 +572,7 @@ export interface DestinationWebhookCriteria {
     /**
      * Trigger on this list of release bundle names
      */
-    registeredReleaseBundleNames: string[];
+    registeredReleaseBundleNames?: string[];
 }
 
 export interface DestinationWebhookHandler {
@@ -614,7 +614,7 @@ export interface DistributionCustomWebhookCriteria {
     /**
      * Trigger on this list of release bundle names.
      */
-    registeredReleaseBundleNames: string[];
+    registeredReleaseBundleNames?: string[];
 }
 
 export interface DistributionCustomWebhookHandler {
@@ -660,7 +660,7 @@ export interface DistributionWebhookCriteria {
     /**
      * Trigger on this list of release bundle names.
      */
-    registeredReleaseBundleNames: string[];
+    registeredReleaseBundleNames?: string[];
 }
 
 export interface DistributionWebhookHandler {
@@ -3180,17 +3180,17 @@ export interface ReleaseBundleCustomWebhookCriteria {
      */
     anyReleaseBundle: boolean;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**". **Cannot be set if `anyReleaseBundle` is set to `true`.**
      */
     excludePatterns?: string[];
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**". **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
      */
     includePatterns?: string[];
     /**
-     * Trigger on this list of release bundle names.
+     * Trigger on this list of release bundle names. Either this or `includePatterns` must be set when `anyReleaseBundle` is `false`.
      */
-    registeredReleaseBundleNames: string[];
+    registeredReleaseBundleNames?: string[];
 }
 
 export interface ReleaseBundleCustomWebhookHandler {
@@ -3222,7 +3222,7 @@ export interface ReleaseBundleCustomWebhookHandler {
 
 export interface ReleaseBundleV2CleanupPolicySearchCriteria {
     /**
-     * The cleanup policy will cleanup release bundles based on how long ago they were created. For example, if this parameter is 2 then release bundles created more than 2 months ago will be cleaned up as part of the policy.
+     * Specifies the time frame for filtering based on item creation date (for example, 24 months). Defaults to `24`.
      */
     createdBeforeInMonths: number;
     /**
@@ -3262,17 +3262,21 @@ export interface ReleaseBundleV2CustomWebhookCriteria {
      */
     anyReleaseBundle: boolean;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+     * Simple wildcard patterns for Release Bundle names.
+     * Ant-style path expressions are supported (*, **, ?).
+     * For example: `product_*`
      */
     excludePatterns?: string[];
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+     * Simple wildcard patterns for Release Bundle names.
+     * Ant-style path expressions are supported (*, **, ?).
+     * For example: `product_*`
      */
     includePatterns?: string[];
     /**
      * Trigger on this list of release bundle names.
      */
-    selectedReleaseBundles: string[];
+    selectedReleaseBundles?: string[];
 }
 
 export interface ReleaseBundleV2CustomWebhookHandler {
@@ -3448,17 +3452,21 @@ export interface ReleaseBundleV2WebhookCriteria {
      */
     anyReleaseBundle: boolean;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+     * Simple wildcard patterns for Release Bundle names.
+     * Ant-style path expressions are supported (*, **, ?).
+     * For example: `product_*`
      */
     excludePatterns?: string[];
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+     * Simple wildcard patterns for Release Bundle names.
+     * Ant-style path expressions are supported (*, **, ?).
+     * For example: `product_*`
      */
     includePatterns?: string[];
     /**
      * Trigger on this list of release bundle names.
      */
-    selectedReleaseBundles: string[];
+    selectedReleaseBundles?: string[];
 }
 
 export interface ReleaseBundleV2WebhookHandler {
@@ -3500,7 +3508,7 @@ export interface ReleaseBundleWebhookCriteria {
     /**
      * Trigger on this list of release bundle names.
      */
-    registeredReleaseBundleNames: string[];
+    registeredReleaseBundleNames?: string[];
 }
 
 export interface ReleaseBundleWebhookHandler {
@@ -3869,6 +3877,25 @@ export interface RemoteHelmRepositoryContentSynchronisation {
 }
 
 export interface RemoteHelmociRepositoryContentSynchronisation {
+    /**
+     * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+     */
+    enabled: boolean;
+    /**
+     * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+     */
+    propertiesEnabled: boolean;
+    /**
+     * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+     */
+    sourceOriginAbsenceDetection: boolean;
+    /**
+     * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+     */
+    statisticsEnabled: boolean;
+}
+
+export interface RemoteHexRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */

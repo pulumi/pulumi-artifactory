@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReleaseBundleV2CleanupPolicySearchCriteria {
     /**
-     * @return The cleanup policy will cleanup release bundles based on how long ago they were created. For example, if this parameter is 2 then release bundles created more than 2 months ago will be cleaned up as part of the policy.
+     * @return Specifies the time frame for filtering based on item creation date (for example, 24 months). Defaults to `24`.
      * 
      */
     private @Nullable Integer createdBeforeInMonths;
@@ -46,7 +46,7 @@ public final class ReleaseBundleV2CleanupPolicySearchCriteria {
 
     private ReleaseBundleV2CleanupPolicySearchCriteria() {}
     /**
-     * @return The cleanup policy will cleanup release bundles based on how long ago they were created. For example, if this parameter is 2 then release bundles created more than 2 months ago will be cleaned up as part of the policy.
+     * @return Specifies the time frame for filtering based on item creation date (for example, 24 months). Defaults to `24`.
      * 
      */
     public Optional<Integer> createdBeforeInMonths() {

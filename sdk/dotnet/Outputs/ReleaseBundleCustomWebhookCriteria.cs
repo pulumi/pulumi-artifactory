@@ -18,15 +18,15 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly bool AnyReleaseBundle;
         /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**". **Cannot be set if `AnyReleaseBundle` is set to `True`.**
         /// </summary>
         public readonly ImmutableArray<string> ExcludePatterns;
         /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**". **Cannot be set if `AnyReleaseBundle` is set to `True`.** Either this or `RegisteredReleaseBundleNames` must be set when `AnyReleaseBundle` is `False`.
         /// </summary>
         public readonly ImmutableArray<string> IncludePatterns;
         /// <summary>
-        /// Trigger on this list of release bundle names.
+        /// Trigger on this list of release bundle names. Either this or `IncludePatterns` must be set when `AnyReleaseBundle` is `False`.
         /// </summary>
         public readonly ImmutableArray<string> RegisteredReleaseBundleNames;
 

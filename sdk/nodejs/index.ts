@@ -630,6 +630,11 @@ export const getLocalHelmociRepository: typeof import("./getLocalHelmociReposito
 export const getLocalHelmociRepositoryOutput: typeof import("./getLocalHelmociRepository").getLocalHelmociRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getLocalHelmociRepository","getLocalHelmociRepositoryOutput"], () => require("./getLocalHelmociRepository"));
 
+export { GetLocalHexRepositoryArgs, GetLocalHexRepositoryResult, GetLocalHexRepositoryOutputArgs } from "./getLocalHexRepository";
+export const getLocalHexRepository: typeof import("./getLocalHexRepository").getLocalHexRepository = null as any;
+export const getLocalHexRepositoryOutput: typeof import("./getLocalHexRepository").getLocalHexRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalHexRepository","getLocalHexRepositoryOutput"], () => require("./getLocalHexRepository"));
+
 export { GetLocalHuggingfacemlRepositoryArgs, GetLocalHuggingfacemlRepositoryResult, GetLocalHuggingfacemlRepositoryOutputArgs } from "./getLocalHuggingfacemlRepository";
 export const getLocalHuggingfacemlRepository: typeof import("./getLocalHuggingfacemlRepository").getLocalHuggingfacemlRepository = null as any;
 export const getLocalHuggingfacemlRepositoryOutput: typeof import("./getLocalHuggingfacemlRepository").getLocalHuggingfacemlRepositoryOutput = null as any;
@@ -810,6 +815,11 @@ export const getRemoteHelmociRepository: typeof import("./getRemoteHelmociReposi
 export const getRemoteHelmociRepositoryOutput: typeof import("./getRemoteHelmociRepository").getRemoteHelmociRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getRemoteHelmociRepository","getRemoteHelmociRepositoryOutput"], () => require("./getRemoteHelmociRepository"));
 
+export { GetRemoteHexRepositoryArgs, GetRemoteHexRepositoryResult, GetRemoteHexRepositoryOutputArgs } from "./getRemoteHexRepository";
+export const getRemoteHexRepository: typeof import("./getRemoteHexRepository").getRemoteHexRepository = null as any;
+export const getRemoteHexRepositoryOutput: typeof import("./getRemoteHexRepository").getRemoteHexRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteHexRepository","getRemoteHexRepositoryOutput"], () => require("./getRemoteHexRepository"));
+
 export { GetRemoteIvyRepositoryArgs, GetRemoteIvyRepositoryResult, GetRemoteIvyRepositoryOutputArgs } from "./getRemoteIvyRepository";
 export const getRemoteIvyRepository: typeof import("./getRemoteIvyRepository").getRemoteIvyRepository = null as any;
 export const getRemoteIvyRepositoryOutput: typeof import("./getRemoteIvyRepository").getRemoteIvyRepositoryOutput = null as any;
@@ -984,6 +994,11 @@ export { GetVirtualHelmociRepositoryArgs, GetVirtualHelmociRepositoryResult, Get
 export const getVirtualHelmociRepository: typeof import("./getVirtualHelmociRepository").getVirtualHelmociRepository = null as any;
 export const getVirtualHelmociRepositoryOutput: typeof import("./getVirtualHelmociRepository").getVirtualHelmociRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualHelmociRepository","getVirtualHelmociRepositoryOutput"], () => require("./getVirtualHelmociRepository"));
+
+export { GetVirtualHexRepositoryArgs, GetVirtualHexRepositoryResult, GetVirtualHexRepositoryOutputArgs } from "./getVirtualHexRepository";
+export const getVirtualHexRepository: typeof import("./getVirtualHexRepository").getVirtualHexRepository = null as any;
+export const getVirtualHexRepositoryOutput: typeof import("./getVirtualHexRepository").getVirtualHexRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualHexRepository","getVirtualHexRepositoryOutput"], () => require("./getVirtualHexRepository"));
 
 export { GetVirtualIvyRepositoryArgs, GetVirtualIvyRepositoryResult, GetVirtualIvyRepositoryOutputArgs } from "./getVirtualIvyRepository";
 export const getVirtualIvyRepository: typeof import("./getVirtualIvyRepository").getVirtualIvyRepository = null as any;
@@ -1174,6 +1189,11 @@ export { LocalHelmociRepositoryArgs, LocalHelmociRepositoryState } from "./local
 export type LocalHelmociRepository = import("./localHelmociRepository").LocalHelmociRepository;
 export const LocalHelmociRepository: typeof import("./localHelmociRepository").LocalHelmociRepository = null as any;
 utilities.lazyLoad(exports, ["LocalHelmociRepository"], () => require("./localHelmociRepository"));
+
+export { LocalHexRepositoryArgs, LocalHexRepositoryState } from "./localHexRepository";
+export type LocalHexRepository = import("./localHexRepository").LocalHexRepository;
+export const LocalHexRepository: typeof import("./localHexRepository").LocalHexRepository = null as any;
+utilities.lazyLoad(exports, ["LocalHexRepository"], () => require("./localHexRepository"));
 
 export { LocalHuggingfacemlRepositoryArgs, LocalHuggingfacemlRepositoryState } from "./localHuggingfacemlRepository";
 export type LocalHuggingfacemlRepository = import("./localHuggingfacemlRepository").LocalHuggingfacemlRepository;
@@ -1473,6 +1493,11 @@ export type RemoteHelmociRepository = import("./remoteHelmociRepository").Remote
 export const RemoteHelmociRepository: typeof import("./remoteHelmociRepository").RemoteHelmociRepository = null as any;
 utilities.lazyLoad(exports, ["RemoteHelmociRepository"], () => require("./remoteHelmociRepository"));
 
+export { RemoteHexRepositoryArgs, RemoteHexRepositoryState } from "./remoteHexRepository";
+export type RemoteHexRepository = import("./remoteHexRepository").RemoteHexRepository;
+export const RemoteHexRepository: typeof import("./remoteHexRepository").RemoteHexRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteHexRepository"], () => require("./remoteHexRepository"));
+
 export { RemoteHuggingfacemlRepositoryArgs, RemoteHuggingfacemlRepositoryState } from "./remoteHuggingfacemlRepository";
 export type RemoteHuggingfacemlRepository = import("./remoteHuggingfacemlRepository").RemoteHuggingfacemlRepository;
 export const RemoteHuggingfacemlRepository: typeof import("./remoteHuggingfacemlRepository").RemoteHuggingfacemlRepository = null as any;
@@ -1687,6 +1712,11 @@ export { VirtualHelmociRepositoryArgs, VirtualHelmociRepositoryState } from "./v
 export type VirtualHelmociRepository = import("./virtualHelmociRepository").VirtualHelmociRepository;
 export const VirtualHelmociRepository: typeof import("./virtualHelmociRepository").VirtualHelmociRepository = null as any;
 utilities.lazyLoad(exports, ["VirtualHelmociRepository"], () => require("./virtualHelmociRepository"));
+
+export { VirtualHexRepositoryArgs, VirtualHexRepositoryState } from "./virtualHexRepository";
+export type VirtualHexRepository = import("./virtualHexRepository").VirtualHexRepository;
+export const VirtualHexRepository: typeof import("./virtualHexRepository").VirtualHexRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualHexRepository"], () => require("./virtualHexRepository"));
 
 export { VirtualIvyRepositoryArgs, VirtualIvyRepositoryState } from "./virtualIvyRepository";
 export type VirtualIvyRepository = import("./virtualIvyRepository").VirtualIvyRepository;
@@ -1942,6 +1972,8 @@ const _module = {
                 return new LocalHelmRepository(name, <any>undefined, { urn })
             case "artifactory:index/localHelmociRepository:LocalHelmociRepository":
                 return new LocalHelmociRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localHexRepository:LocalHexRepository":
+                return new LocalHexRepository(name, <any>undefined, { urn })
             case "artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository":
                 return new LocalHuggingfacemlRepository(name, <any>undefined, { urn })
             case "artifactory:index/localIvyRepository:LocalIvyRepository":
@@ -2060,6 +2092,8 @@ const _module = {
                 return new RemoteHelmRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteHelmociRepository:RemoteHelmociRepository":
                 return new RemoteHelmociRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteHexRepository:RemoteHexRepository":
+                return new RemoteHexRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository":
                 return new RemoteHuggingfacemlRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteIvyRepository:RemoteIvyRepository":
@@ -2146,6 +2180,8 @@ const _module = {
                 return new VirtualHelmRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualHelmociRepository:VirtualHelmociRepository":
                 return new VirtualHelmociRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualHexRepository:VirtualHexRepository":
+                return new VirtualHexRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualIvyRepository:VirtualIvyRepository":
                 return new VirtualIvyRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualNpmRepository:VirtualNpmRepository":
@@ -2265,6 +2301,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/localGoRepository", 
 pulumi.runtime.registerResourceModule("artifactory", "index/localGradleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localHelmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localHelmociRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localHexRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localHuggingfacemlRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localIvyRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localMachinelearningRepository", _module)
@@ -2324,6 +2361,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/remoteGoRepository",
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteGradleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteHelmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteHelmociRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteHexRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteHuggingfacemlRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteIvyRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteMavenRepository", _module)
@@ -2367,6 +2405,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/virtualGitlfsReposit
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualGradleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualHelmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualHelmociRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualHexRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualIvyRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualNpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualNugetRepository", _module)

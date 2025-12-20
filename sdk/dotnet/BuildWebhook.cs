@@ -14,7 +14,6 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
-    /// .
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,7 +33,7 @@ namespace Pulumi.Artifactory
     ///         },
     ///         Criteria = new Artifactory.Inputs.BuildWebhookCriteriaArgs
     ///         {
-    ///             AnyBuild = true,
+    ///             AnyBuild = false,
     ///             SelectedBuilds = new[]
     ///             {
     ///                 "build-id",

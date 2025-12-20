@@ -244,7 +244,6 @@ class ArtifactoryReleaseBundleCustomWebhook(pulumi.CustomResource):
 
         ## Example Usage
 
-        .
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -300,7 +299,6 @@ class ArtifactoryReleaseBundleCustomWebhook(pulumi.CustomResource):
 
         ## Example Usage
 
-        .
         ```python
         import pulumi
         import pulumi_artifactory as artifactory

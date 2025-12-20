@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _excludePatterns;
 
         /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `AnyReleaseBundle` is set to `True`.**
         /// </summary>
         public InputList<string> ExcludePatterns
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _includePatterns;
 
         /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `AnyReleaseBundle` is set to `True`.** Either this or `RegisteredReleaseBundleNames` must be set when `AnyReleaseBundle` is `False`.
         /// </summary>
         public InputList<string> IncludePatterns
         {
@@ -42,7 +42,7 @@ namespace Pulumi.Artifactory.Inputs
             set => _includePatterns = value;
         }
 
-        [Input("registeredReleaseBundleNames", required: true)]
+        [Input("registeredReleaseBundleNames")]
         private InputList<string>? _registeredReleaseBundleNames;
 
         /// <summary>

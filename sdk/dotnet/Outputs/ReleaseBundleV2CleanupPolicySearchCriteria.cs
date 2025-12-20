@@ -14,7 +14,7 @@ namespace Pulumi.Artifactory.Outputs
     public sealed class ReleaseBundleV2CleanupPolicySearchCriteria
     {
         /// <summary>
-        /// The cleanup policy will cleanup release bundles based on how long ago they were created. For example, if this parameter is 2 then release bundles created more than 2 months ago will be cleaned up as part of the policy.
+        /// Specifies the time frame for filtering based on item creation date (for example, 24 months). Defaults to `24`.
         /// </summary>
         public readonly int? CreatedBeforeInMonths;
         /// <summary>

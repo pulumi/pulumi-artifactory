@@ -33,7 +33,7 @@ namespace Pulumi.Artifactory
     ///         },
     ///         Criteria = new Artifactory.Inputs.BuildCustomWebhookCriteriaArgs
     ///         {
-    ///             AnyBuild = true,
+    ///             AnyBuild = false,
     ///             SelectedBuilds = new[]
     ///             {
     ///                 "build-id",

@@ -26,8 +26,6 @@ import * as utilities from "./utilities";
  *     criteria: {
  *         anyReleaseBundle: false,
  *         selectedReleaseBundles: ["bundle-name"],
- *         includePatterns: ["foo/**"],
- *         excludePatterns: ["bar/**"],
  *     },
  *     handlers: [{
  *         url: "http://tempurl.org/webhook",

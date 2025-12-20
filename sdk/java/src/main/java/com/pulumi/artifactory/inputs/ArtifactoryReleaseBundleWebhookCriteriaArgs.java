@@ -34,14 +34,14 @@ public final class ArtifactoryReleaseBundleWebhookCriteriaArgs extends com.pulum
     }
 
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
      * 
      */
     @Import(name="excludePatterns")
     private @Nullable Output<List<String>> excludePatterns;
 
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
      * 
      */
     public Optional<Output<List<String>>> excludePatterns() {
@@ -49,14 +49,14 @@ public final class ArtifactoryReleaseBundleWebhookCriteriaArgs extends com.pulum
     }
 
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
      * 
      */
     @Import(name="includePatterns")
     private @Nullable Output<List<String>> includePatterns;
 
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
      * 
      */
     public Optional<Output<List<String>>> includePatterns() {
@@ -64,18 +64,18 @@ public final class ArtifactoryReleaseBundleWebhookCriteriaArgs extends com.pulum
     }
 
     /**
-     * Trigger on this list of release bundle names
+     * Trigger on this list of release bundle names. Either this or `includePatterns` must be set when `anyReleaseBundle` is `false`.
      * 
      */
-    @Import(name="registeredReleaseBundleNames", required=true)
-    private Output<List<String>> registeredReleaseBundleNames;
+    @Import(name="registeredReleaseBundleNames")
+    private @Nullable Output<List<String>> registeredReleaseBundleNames;
 
     /**
-     * @return Trigger on this list of release bundle names
+     * @return Trigger on this list of release bundle names. Either this or `includePatterns` must be set when `anyReleaseBundle` is `false`.
      * 
      */
-    public Output<List<String>> registeredReleaseBundleNames() {
-        return this.registeredReleaseBundleNames;
+    public Optional<Output<List<String>>> registeredReleaseBundleNames() {
+        return Optional.ofNullable(this.registeredReleaseBundleNames);
     }
 
     private ArtifactoryReleaseBundleWebhookCriteriaArgs() {}
@@ -127,7 +127,7 @@ public final class ArtifactoryReleaseBundleWebhookCriteriaArgs extends com.pulum
         }
 
         /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class ArtifactoryReleaseBundleWebhookCriteriaArgs extends com.pulum
         }
 
         /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class ArtifactoryReleaseBundleWebhookCriteriaArgs extends com.pulum
         }
 
         /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ArtifactoryReleaseBundleWebhookCriteriaArgs extends com.pulum
         }
 
         /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class ArtifactoryReleaseBundleWebhookCriteriaArgs extends com.pulum
         }
 
         /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ArtifactoryReleaseBundleWebhookCriteriaArgs extends com.pulum
         }
 
         /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
          * 
          * @return builder
          * 
@@ -189,18 +189,18 @@ public final class ArtifactoryReleaseBundleWebhookCriteriaArgs extends com.pulum
         }
 
         /**
-         * @param registeredReleaseBundleNames Trigger on this list of release bundle names
+         * @param registeredReleaseBundleNames Trigger on this list of release bundle names. Either this or `includePatterns` must be set when `anyReleaseBundle` is `false`.
          * 
          * @return builder
          * 
          */
-        public Builder registeredReleaseBundleNames(Output<List<String>> registeredReleaseBundleNames) {
+        public Builder registeredReleaseBundleNames(@Nullable Output<List<String>> registeredReleaseBundleNames) {
             $.registeredReleaseBundleNames = registeredReleaseBundleNames;
             return this;
         }
 
         /**
-         * @param registeredReleaseBundleNames Trigger on this list of release bundle names
+         * @param registeredReleaseBundleNames Trigger on this list of release bundle names. Either this or `includePatterns` must be set when `anyReleaseBundle` is `false`.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class ArtifactoryReleaseBundleWebhookCriteriaArgs extends com.pulum
         }
 
         /**
-         * @param registeredReleaseBundleNames Trigger on this list of release bundle names
+         * @param registeredReleaseBundleNames Trigger on this list of release bundle names. Either this or `includePatterns` must be set when `anyReleaseBundle` is `false`.
          * 
          * @return builder
          * 
@@ -222,9 +222,6 @@ public final class ArtifactoryReleaseBundleWebhookCriteriaArgs extends com.pulum
         public ArtifactoryReleaseBundleWebhookCriteriaArgs build() {
             if ($.anyReleaseBundle == null) {
                 throw new MissingRequiredPropertyException("ArtifactoryReleaseBundleWebhookCriteriaArgs", "anyReleaseBundle");
-            }
-            if ($.registeredReleaseBundleNames == null) {
-                throw new MissingRequiredPropertyException("ArtifactoryReleaseBundleWebhookCriteriaArgs", "registeredReleaseBundleNames");
             }
             return $;
         }

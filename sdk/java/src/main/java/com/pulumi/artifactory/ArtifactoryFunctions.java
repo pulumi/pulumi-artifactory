@@ -124,6 +124,8 @@ import com.pulumi.artifactory.inputs.GetLocalGradleRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetLocalGradleRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetLocalHelmociRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetLocalHelmociRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalHexRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalHexRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetLocalHuggingfacemlRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetLocalHuggingfacemlRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetLocalIvyRepositoryArgs;
@@ -196,6 +198,8 @@ import com.pulumi.artifactory.inputs.GetRemoteHelmRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteHelmRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteHelmociRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteHelmociRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetRemoteHexRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetRemoteHexRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteIvyRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteIvyRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteMavenRepositoryArgs;
@@ -266,6 +270,8 @@ import com.pulumi.artifactory.inputs.GetVirtualHelmRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualHelmRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualHelmociRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualHelmociRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetVirtualHexRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetVirtualHexRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualIvyRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualIvyRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualMavenRepositoryArgs;
@@ -352,6 +358,7 @@ import com.pulumi.artifactory.outputs.GetLocalGitlfsRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalGoRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalGradleRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalHelmociRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalHexRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalHuggingfacemlRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalIvyRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalMavenRepositoryResult;
@@ -388,6 +395,7 @@ import com.pulumi.artifactory.outputs.GetRemoteGoRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteGradleRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteHelmRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteHelmociRepositoryResult;
+import com.pulumi.artifactory.outputs.GetRemoteHexRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteIvyRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteMavenRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteNpmRepositoryResult;
@@ -423,6 +431,7 @@ import com.pulumi.artifactory.outputs.GetVirtualGoRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualGradleRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualHelmRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualHelmociRepositoryResult;
+import com.pulumi.artifactory.outputs.GetVirtualHexRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualIvyRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualMavenRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualNpmRepositoryResult;
@@ -12025,6 +12034,206 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalHelmociRepository:getLocalHelmociRepository", TypeShape.of(GetLocalHelmociRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a local Hex repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalHexRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-hex-repo = ArtifactoryFunctions.getLocalHexRepository(GetLocalHexRepositoryArgs.builder()
+     *             .key("local-test-hex-repo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetLocalHexRepositoryResult> getLocalHexRepository(GetLocalHexRepositoryArgs args) {
+        return getLocalHexRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a local Hex repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalHexRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-hex-repo = ArtifactoryFunctions.getLocalHexRepository(GetLocalHexRepositoryArgs.builder()
+     *             .key("local-test-hex-repo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetLocalHexRepositoryResult> getLocalHexRepositoryPlain(GetLocalHexRepositoryPlainArgs args) {
+        return getLocalHexRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a local Hex repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalHexRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-hex-repo = ArtifactoryFunctions.getLocalHexRepository(GetLocalHexRepositoryArgs.builder()
+     *             .key("local-test-hex-repo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetLocalHexRepositoryResult> getLocalHexRepository(GetLocalHexRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalHexRepository:getLocalHexRepository", TypeShape.of(GetLocalHexRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a local Hex repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalHexRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-hex-repo = ArtifactoryFunctions.getLocalHexRepository(GetLocalHexRepositoryArgs.builder()
+     *             .key("local-test-hex-repo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetLocalHexRepositoryResult> getLocalHexRepository(GetLocalHexRepositoryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalHexRepository:getLocalHexRepository", TypeShape.of(GetLocalHexRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a local Hex repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalHexRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-hex-repo = ArtifactoryFunctions.getLocalHexRepository(GetLocalHexRepositoryArgs.builder()
+     *             .key("local-test-hex-repo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetLocalHexRepositoryResult> getLocalHexRepositoryPlain(GetLocalHexRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalHexRepository:getLocalHexRepository", TypeShape.of(GetLocalHexRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Provides a data source for a local huggingfaceml repository
      * 
      */
@@ -19315,6 +19524,206 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getRemoteHelmociRepository:getRemoteHelmociRepository", TypeShape.of(GetRemoteHelmociRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a remote Hex repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteHexRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var remote-hex = ArtifactoryFunctions.getRemoteHexRepository(GetRemoteHexRepositoryArgs.builder()
+     *             .key("remote-hex")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRemoteHexRepositoryResult> getRemoteHexRepository(GetRemoteHexRepositoryArgs args) {
+        return getRemoteHexRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a remote Hex repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteHexRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var remote-hex = ArtifactoryFunctions.getRemoteHexRepository(GetRemoteHexRepositoryArgs.builder()
+     *             .key("remote-hex")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRemoteHexRepositoryResult> getRemoteHexRepositoryPlain(GetRemoteHexRepositoryPlainArgs args) {
+        return getRemoteHexRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a remote Hex repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteHexRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var remote-hex = ArtifactoryFunctions.getRemoteHexRepository(GetRemoteHexRepositoryArgs.builder()
+     *             .key("remote-hex")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRemoteHexRepositoryResult> getRemoteHexRepository(GetRemoteHexRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getRemoteHexRepository:getRemoteHexRepository", TypeShape.of(GetRemoteHexRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a remote Hex repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteHexRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var remote-hex = ArtifactoryFunctions.getRemoteHexRepository(GetRemoteHexRepositoryArgs.builder()
+     *             .key("remote-hex")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRemoteHexRepositoryResult> getRemoteHexRepository(GetRemoteHexRepositoryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getRemoteHexRepository:getRemoteHexRepository", TypeShape.of(GetRemoteHexRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a remote Hex repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteHexRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var remote-hex = ArtifactoryFunctions.getRemoteHexRepository(GetRemoteHexRepositoryArgs.builder()
+     *             .key("remote-hex")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRemoteHexRepositoryResult> getRemoteHexRepositoryPlain(GetRemoteHexRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getRemoteHexRepository:getRemoteHexRepository", TypeShape.of(GetRemoteHexRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Retrieves a remote Ivy repository.
      * 
      * ## Example Usage
@@ -26055,6 +26464,206 @@ public final class ArtifactoryFunctions {
      */
     public static CompletableFuture<GetVirtualHelmociRepositoryResult> getVirtualHelmociRepositoryPlain(GetVirtualHelmociRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getVirtualHelmociRepository:getVirtualHelmociRepository", TypeShape.of(GetVirtualHelmociRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a virtual Hex repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualHexRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var virtual-hex = ArtifactoryFunctions.getVirtualHexRepository(GetVirtualHexRepositoryArgs.builder()
+     *             .key("virtual-hex")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetVirtualHexRepositoryResult> getVirtualHexRepository(GetVirtualHexRepositoryArgs args) {
+        return getVirtualHexRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a virtual Hex repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualHexRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var virtual-hex = ArtifactoryFunctions.getVirtualHexRepository(GetVirtualHexRepositoryArgs.builder()
+     *             .key("virtual-hex")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetVirtualHexRepositoryResult> getVirtualHexRepositoryPlain(GetVirtualHexRepositoryPlainArgs args) {
+        return getVirtualHexRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a virtual Hex repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualHexRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var virtual-hex = ArtifactoryFunctions.getVirtualHexRepository(GetVirtualHexRepositoryArgs.builder()
+     *             .key("virtual-hex")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetVirtualHexRepositoryResult> getVirtualHexRepository(GetVirtualHexRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getVirtualHexRepository:getVirtualHexRepository", TypeShape.of(GetVirtualHexRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a virtual Hex repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualHexRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var virtual-hex = ArtifactoryFunctions.getVirtualHexRepository(GetVirtualHexRepositoryArgs.builder()
+     *             .key("virtual-hex")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetVirtualHexRepositoryResult> getVirtualHexRepository(GetVirtualHexRepositoryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getVirtualHexRepository:getVirtualHexRepository", TypeShape.of(GetVirtualHexRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a virtual Hex repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualHexRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var virtual-hex = ArtifactoryFunctions.getVirtualHexRepository(GetVirtualHexRepositoryArgs.builder()
+     *             .key("virtual-hex")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetVirtualHexRepositoryResult> getVirtualHexRepositoryPlain(GetVirtualHexRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getVirtualHexRepository:getVirtualHexRepository", TypeShape.of(GetVirtualHexRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves a virtual Ivy repository.
