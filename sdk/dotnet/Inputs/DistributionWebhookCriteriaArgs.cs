@@ -42,7 +42,7 @@ namespace Pulumi.Artifactory.Inputs
             set => _includePatterns = value;
         }
 
-        [Input("registeredReleaseBundleNames", required: true)]
+        [Input("registeredReleaseBundleNames")]
         private InputList<string>? _registeredReleaseBundleNames;
 
         /// <summary>

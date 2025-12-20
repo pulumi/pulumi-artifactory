@@ -67,15 +67,15 @@ public final class DistributionCustomWebhookCriteriaArgs extends com.pulumi.reso
      * Trigger on this list of release bundle names.
      * 
      */
-    @Import(name="registeredReleaseBundleNames", required=true)
-    private Output<List<String>> registeredReleaseBundleNames;
+    @Import(name="registeredReleaseBundleNames")
+    private @Nullable Output<List<String>> registeredReleaseBundleNames;
 
     /**
      * @return Trigger on this list of release bundle names.
      * 
      */
-    public Output<List<String>> registeredReleaseBundleNames() {
-        return this.registeredReleaseBundleNames;
+    public Optional<Output<List<String>>> registeredReleaseBundleNames() {
+        return Optional.ofNullable(this.registeredReleaseBundleNames);
     }
 
     private DistributionCustomWebhookCriteriaArgs() {}
@@ -194,7 +194,7 @@ public final class DistributionCustomWebhookCriteriaArgs extends com.pulumi.reso
          * @return builder
          * 
          */
-        public Builder registeredReleaseBundleNames(Output<List<String>> registeredReleaseBundleNames) {
+        public Builder registeredReleaseBundleNames(@Nullable Output<List<String>> registeredReleaseBundleNames) {
             $.registeredReleaseBundleNames = registeredReleaseBundleNames;
             return this;
         }
@@ -222,9 +222,6 @@ public final class DistributionCustomWebhookCriteriaArgs extends com.pulumi.reso
         public DistributionCustomWebhookCriteriaArgs build() {
             if ($.anyReleaseBundle == null) {
                 throw new MissingRequiredPropertyException("DistributionCustomWebhookCriteriaArgs", "anyReleaseBundle");
-            }
-            if ($.registeredReleaseBundleNames == null) {
-                throw new MissingRequiredPropertyException("DistributionCustomWebhookCriteriaArgs", "registeredReleaseBundleNames");
             }
             return $;
         }

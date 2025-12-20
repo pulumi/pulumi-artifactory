@@ -40,12 +40,6 @@ import (
 //					SelectedReleaseBundles: pulumi.StringArray{
 //						pulumi.String("bundle-name"),
 //					},
-//					IncludePatterns: pulumi.StringArray{
-//						pulumi.String("foo/**"),
-//					},
-//					ExcludePatterns: pulumi.StringArray{
-//						pulumi.String("bar/**"),
-//					},
 //				},
 //				Handlers: artifactory.ReleaseBundleV2CustomWebhookHandlerArray{
 //					&artifactory.ReleaseBundleV2CustomWebhookHandlerArgs{

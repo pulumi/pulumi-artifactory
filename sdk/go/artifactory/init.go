@@ -201,6 +201,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LocalHelmRepository{}
 	case "artifactory:index/localHelmociRepository:LocalHelmociRepository":
 		r = &LocalHelmociRepository{}
+	case "artifactory:index/localHexRepository:LocalHexRepository":
+		r = &LocalHexRepository{}
 	case "artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository":
 		r = &LocalHuggingfacemlRepository{}
 	case "artifactory:index/localIvyRepository:LocalIvyRepository":
@@ -319,6 +321,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RemoteHelmRepository{}
 	case "artifactory:index/remoteHelmociRepository:RemoteHelmociRepository":
 		r = &RemoteHelmociRepository{}
+	case "artifactory:index/remoteHexRepository:RemoteHexRepository":
+		r = &RemoteHexRepository{}
 	case "artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository":
 		r = &RemoteHuggingfacemlRepository{}
 	case "artifactory:index/remoteIvyRepository:RemoteIvyRepository":
@@ -405,6 +409,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VirtualHelmRepository{}
 	case "artifactory:index/virtualHelmociRepository:VirtualHelmociRepository":
 		r = &VirtualHelmociRepository{}
+	case "artifactory:index/virtualHexRepository:VirtualHexRepository":
+		r = &VirtualHexRepository{}
 	case "artifactory:index/virtualIvyRepository:VirtualIvyRepository":
 		r = &VirtualIvyRepository{}
 	case "artifactory:index/virtualNpmRepository:VirtualNpmRepository":
@@ -912,6 +918,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/localHexRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/localHuggingfacemlRepository",
 		&module{version},
 	)
@@ -1207,6 +1218,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/remoteHexRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/remoteHuggingfacemlRepository",
 		&module{version},
 	)
@@ -1418,6 +1434,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/virtualHelmociRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/virtualHexRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

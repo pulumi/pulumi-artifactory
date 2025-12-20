@@ -21,14 +21,14 @@ public final class ReleaseBundleV2CleanupPolicySearchCriteriaArgs extends com.pu
     public static final ReleaseBundleV2CleanupPolicySearchCriteriaArgs Empty = new ReleaseBundleV2CleanupPolicySearchCriteriaArgs();
 
     /**
-     * The cleanup policy will cleanup release bundles based on how long ago they were created. For example, if this parameter is 2 then release bundles created more than 2 months ago will be cleaned up as part of the policy.
+     * Specifies the time frame for filtering based on item creation date (for example, 24 months). Defaults to `24`.
      * 
      */
     @Import(name="createdBeforeInMonths")
     private @Nullable Output<Integer> createdBeforeInMonths;
 
     /**
-     * @return The cleanup policy will cleanup release bundles based on how long ago they were created. For example, if this parameter is 2 then release bundles created more than 2 months ago will be cleaned up as part of the policy.
+     * @return Specifies the time frame for filtering based on item creation date (for example, 24 months). Defaults to `24`.
      * 
      */
     public Optional<Output<Integer>> createdBeforeInMonths() {
@@ -128,7 +128,7 @@ public final class ReleaseBundleV2CleanupPolicySearchCriteriaArgs extends com.pu
         }
 
         /**
-         * @param createdBeforeInMonths The cleanup policy will cleanup release bundles based on how long ago they were created. For example, if this parameter is 2 then release bundles created more than 2 months ago will be cleaned up as part of the policy.
+         * @param createdBeforeInMonths Specifies the time frame for filtering based on item creation date (for example, 24 months). Defaults to `24`.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class ReleaseBundleV2CleanupPolicySearchCriteriaArgs extends com.pu
         }
 
         /**
-         * @param createdBeforeInMonths The cleanup policy will cleanup release bundles based on how long ago they were created. For example, if this parameter is 2 then release bundles created more than 2 months ago will be cleaned up as part of the policy.
+         * @param createdBeforeInMonths Specifies the time frame for filtering based on item creation date (for example, 24 months). Defaults to `24`.
          * 
          * @return builder
          * 

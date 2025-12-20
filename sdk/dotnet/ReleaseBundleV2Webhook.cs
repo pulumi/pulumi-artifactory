@@ -39,14 +39,6 @@ namespace Pulumi.Artifactory
     ///             {
     ///                 "bundle-name",
     ///             },
-    ///             IncludePatterns = new[]
-    ///             {
-    ///                 "foo/**",
-    ///             },
-    ///             ExcludePatterns = new[]
-    ///             {
-    ///                 "bar/**",
-    ///             },
     ///         },
     ///         Handlers = new[]
     ///         {

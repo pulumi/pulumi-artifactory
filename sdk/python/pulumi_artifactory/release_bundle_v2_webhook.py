@@ -257,8 +257,6 @@ class ReleaseBundleV2Webhook(pulumi.CustomResource):
             criteria={
                 "any_release_bundle": False,
                 "selected_release_bundles": ["bundle-name"],
-                "include_patterns": ["foo/**"],
-                "exclude_patterns": ["bar/**"],
             },
             handlers=[{
                 "url": "http://tempurl.org/webhook",
@@ -306,8 +304,6 @@ class ReleaseBundleV2Webhook(pulumi.CustomResource):
             criteria={
                 "any_release_bundle": False,
                 "selected_release_bundles": ["bundle-name"],
-                "include_patterns": ["foo/**"],
-                "exclude_patterns": ["bar/**"],
             },
             handlers=[{
                 "url": "http://tempurl.org/webhook",

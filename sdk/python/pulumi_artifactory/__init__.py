@@ -131,6 +131,7 @@ from .get_local_gitlfs_repository import *
 from .get_local_go_repository import *
 from .get_local_gradle_repository import *
 from .get_local_helmoci_repository import *
+from .get_local_hex_repository import *
 from .get_local_huggingfaceml_repository import *
 from .get_local_ivy_repository import *
 from .get_local_maven_repository import *
@@ -167,6 +168,7 @@ from .get_remote_go_repository import *
 from .get_remote_gradle_repository import *
 from .get_remote_helm_repository import *
 from .get_remote_helmoci_repository import *
+from .get_remote_hex_repository import *
 from .get_remote_ivy_repository import *
 from .get_remote_maven_repository import *
 from .get_remote_npm_repository import *
@@ -202,6 +204,7 @@ from .get_virtual_go_repository import *
 from .get_virtual_gradle_repository import *
 from .get_virtual_helm_repository import *
 from .get_virtual_helmoci_repository import *
+from .get_virtual_hex_repository import *
 from .get_virtual_ivy_repository import *
 from .get_virtual_maven_repository import *
 from .get_virtual_npm_repository import *
@@ -240,6 +243,7 @@ from .local_go_repository import *
 from .local_gradle_repository import *
 from .local_helm_repository import *
 from .local_helmoci_repository import *
+from .local_hex_repository import *
 from .local_huggingfaceml_repository import *
 from .local_ivy_repository import *
 from .local_machinelearning_repository import *
@@ -300,6 +304,7 @@ from .remote_go_repository import *
 from .remote_gradle_repository import *
 from .remote_helm_repository import *
 from .remote_helmoci_repository import *
+from .remote_hex_repository import *
 from .remote_huggingfaceml_repository import *
 from .remote_ivy_repository import *
 from .remote_maven_repository import *
@@ -343,6 +348,7 @@ from .virtual_gitlfs_repository import *
 from .virtual_gradle_repository import *
 from .virtual_helm_repository import *
 from .virtual_helmoci_repository import *
+from .virtual_hex_repository import *
 from .virtual_ivy_repository import *
 from .virtual_npm_repository import *
 from .virtual_nuget_repository import *
@@ -1090,6 +1096,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/localHexRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localHexRepository:LocalHexRepository": "LocalHexRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/localHuggingfacemlRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -1562,6 +1576,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/remoteHexRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteHexRepository:RemoteHexRepository": "RemoteHexRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/remoteHuggingfacemlRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -1902,6 +1924,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/virtualHelmociRepository:VirtualHelmociRepository": "VirtualHelmociRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualHexRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualHexRepository:VirtualHexRepository": "VirtualHexRepository"
   }
  },
  {

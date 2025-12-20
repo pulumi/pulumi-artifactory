@@ -255,45 +255,6 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
                  search_criteria: Optional[pulumi.Input[Union['ReleaseBundleV2CleanupPolicySearchCriteriaArgs', 'ReleaseBundleV2CleanupPolicySearchCriteriaArgsDict']]] = None,
                  __props__=None):
         """
-        Provides an Artifactory Archive Policy resource. This resource enable system administrators to configure and maintain JFrog cleanup policies for Release Bundles V2. See [Cleanup Policies](https://jfrog.com/help/r/jfrog-rest-apis/cleanup-policies-release-bundles-v2-apis) for more details.
-
-        ~>Release Bundles V2 Cleanup Policies APIs are supported on Artifactory version 7.104.2 and later.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        my_release_bundle_v2_rb = artifactory.ReleaseBundleV2("my-release-bundle-v2-rb",
-            name="my-release-bundle-v2-rb",
-            version="2.0.0",
-            keypair_name="my-keypair-name",
-            skip_docker_manifest_resolution=True,
-            source_type="release_bundles",
-            source={
-                "release_bundles": [{
-                    "name": "my-rb-name",
-                    "version": "1.0.0",
-                }],
-            })
-        my_resource_bundle_v2_cleanup_policy = artifactory.ReleaseBundleV2CleanupPolicy("my-resource-bundle-v2-cleanup-policy",
-            key="my-release-bundle-v2-policy-key",
-            description="Cleanup policy description",
-            cron_expression="0 0 2 * * ?",
-            duration_in_minutes=60,
-            enabled=True,
-            search_criteria={
-                "include_all_projects": True,
-                "included_projects": [],
-                "release_bundles": [{
-                    "name": "my-release-bundle-v2-rb",
-                    "project_key": "",
-                }],
-                "exclude_promoted_environments": ["**"],
-            })
-        ```
-
         ## Import
 
         ```sh
@@ -315,45 +276,6 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
                  args: ReleaseBundleV2CleanupPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Artifactory Archive Policy resource. This resource enable system administrators to configure and maintain JFrog cleanup policies for Release Bundles V2. See [Cleanup Policies](https://jfrog.com/help/r/jfrog-rest-apis/cleanup-policies-release-bundles-v2-apis) for more details.
-
-        ~>Release Bundles V2 Cleanup Policies APIs are supported on Artifactory version 7.104.2 and later.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        my_release_bundle_v2_rb = artifactory.ReleaseBundleV2("my-release-bundle-v2-rb",
-            name="my-release-bundle-v2-rb",
-            version="2.0.0",
-            keypair_name="my-keypair-name",
-            skip_docker_manifest_resolution=True,
-            source_type="release_bundles",
-            source={
-                "release_bundles": [{
-                    "name": "my-rb-name",
-                    "version": "1.0.0",
-                }],
-            })
-        my_resource_bundle_v2_cleanup_policy = artifactory.ReleaseBundleV2CleanupPolicy("my-resource-bundle-v2-cleanup-policy",
-            key="my-release-bundle-v2-policy-key",
-            description="Cleanup policy description",
-            cron_expression="0 0 2 * * ?",
-            duration_in_minutes=60,
-            enabled=True,
-            search_criteria={
-                "include_all_projects": True,
-                "included_projects": [],
-                "release_bundles": [{
-                    "name": "my-release-bundle-v2-rb",
-                    "project_key": "",
-                }],
-                "exclude_promoted_environments": ["**"],
-            })
-        ```
-
         ## Import
 
         ```sh

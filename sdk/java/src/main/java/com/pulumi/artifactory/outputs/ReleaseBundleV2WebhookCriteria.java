@@ -19,12 +19,16 @@ public final class ReleaseBundleV2WebhookCriteria {
      */
     private Boolean anyReleaseBundle;
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
+     * @return Simple wildcard patterns for Release Bundle names.
+     * Ant-style path expressions are supported (*, **, ?).
+     * For example: `product_*`
      * 
      */
     private @Nullable List<String> excludePatterns;
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
+     * @return Simple wildcard patterns for Release Bundle names.
+     * Ant-style path expressions are supported (*, **, ?).
+     * For example: `product_*`
      * 
      */
     private @Nullable List<String> includePatterns;
@@ -32,7 +36,7 @@ public final class ReleaseBundleV2WebhookCriteria {
      * @return Trigger on this list of release bundle names.
      * 
      */
-    private List<String> selectedReleaseBundles;
+    private @Nullable List<String> selectedReleaseBundles;
 
     private ReleaseBundleV2WebhookCriteria() {}
     /**
@@ -43,14 +47,18 @@ public final class ReleaseBundleV2WebhookCriteria {
         return this.anyReleaseBundle;
     }
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
+     * @return Simple wildcard patterns for Release Bundle names.
+     * Ant-style path expressions are supported (*, **, ?).
+     * For example: `product_*`
      * 
      */
     public List<String> excludePatterns() {
         return this.excludePatterns == null ? List.of() : this.excludePatterns;
     }
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
+     * @return Simple wildcard patterns for Release Bundle names.
+     * Ant-style path expressions are supported (*, **, ?).
+     * For example: `product_*`
      * 
      */
     public List<String> includePatterns() {
@@ -61,7 +69,7 @@ public final class ReleaseBundleV2WebhookCriteria {
      * 
      */
     public List<String> selectedReleaseBundles() {
-        return this.selectedReleaseBundles;
+        return this.selectedReleaseBundles == null ? List.of() : this.selectedReleaseBundles;
     }
 
     public static Builder builder() {
@@ -76,7 +84,7 @@ public final class ReleaseBundleV2WebhookCriteria {
         private Boolean anyReleaseBundle;
         private @Nullable List<String> excludePatterns;
         private @Nullable List<String> includePatterns;
-        private List<String> selectedReleaseBundles;
+        private @Nullable List<String> selectedReleaseBundles;
         public Builder() {}
         public Builder(ReleaseBundleV2WebhookCriteria defaults) {
     	      Objects.requireNonNull(defaults);
@@ -113,10 +121,8 @@ public final class ReleaseBundleV2WebhookCriteria {
             return includePatterns(List.of(includePatterns));
         }
         @CustomType.Setter
-        public Builder selectedReleaseBundles(List<String> selectedReleaseBundles) {
-            if (selectedReleaseBundles == null) {
-              throw new MissingRequiredPropertyException("ReleaseBundleV2WebhookCriteria", "selectedReleaseBundles");
-            }
+        public Builder selectedReleaseBundles(@Nullable List<String> selectedReleaseBundles) {
+
             this.selectedReleaseBundles = selectedReleaseBundles;
             return this;
         }

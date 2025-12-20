@@ -254,7 +254,7 @@ class BuildCustomWebhook(pulumi.CustomResource):
                 "promoted",
             ],
             criteria={
-                "any_build": True,
+                "any_build": False,
                 "selected_builds": ["build-id"],
                 "include_patterns": ["foo/**"],
                 "exclude_patterns": ["bar/**"],
@@ -306,7 +306,7 @@ class BuildCustomWebhook(pulumi.CustomResource):
                 "promoted",
             ],
             criteria={
-                "any_build": True,
+                "any_build": False,
                 "selected_builds": ["build-id"],
                 "include_patterns": ["foo/**"],
                 "exclude_patterns": ["bar/**"],

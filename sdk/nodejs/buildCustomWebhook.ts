@@ -23,7 +23,7 @@ import * as utilities from "./utilities";
  *         "promoted",
  *     ],
  *     criteria: {
- *         anyBuild: true,
+ *         anyBuild: false,
  *         selectedBuilds: ["build-id"],
  *         includePatterns: ["foo/**"],
  *         excludePatterns: ["bar/**"],

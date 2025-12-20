@@ -18,11 +18,15 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly bool AnyReleaseBundle;
         /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+        /// Simple wildcard patterns for Release Bundle names.
+        /// Ant-style path expressions are supported (*, **, ?).
+        /// For example: `product_*`
         /// </summary>
         public readonly ImmutableArray<string> ExcludePatterns;
         /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+        /// Simple wildcard patterns for Release Bundle names.
+        /// Ant-style path expressions are supported (*, **, ?).
+        /// For example: `product_*`
         /// </summary>
         public readonly ImmutableArray<string> IncludePatterns;
         /// <summary>

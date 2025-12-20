@@ -10,69 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// Provides an Artifactory Archive Policy resource. This resource enable system administrators to configure and maintain JFrog cleanup policies for Release Bundles V2. See [Cleanup Policies](https://jfrog.com/help/r/jfrog-rest-apis/cleanup-policies-release-bundles-v2-apis) for more details.
-    /// 
-    /// ~&gt;Release Bundles V2 Cleanup Policies APIs are supported on Artifactory version 7.104.2 and later.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var my_release_bundle_v2_rb = new Artifactory.ReleaseBundleV2("my-release-bundle-v2-rb", new()
-    ///     {
-    ///         Name = "my-release-bundle-v2-rb",
-    ///         Version = "2.0.0",
-    ///         KeypairName = "my-keypair-name",
-    ///         SkipDockerManifestResolution = true,
-    ///         SourceType = "release_bundles",
-    ///         Source = new Artifactory.Inputs.ReleaseBundleV2SourceArgs
-    ///         {
-    ///             ReleaseBundles = new[]
-    ///             {
-    ///                 new Artifactory.Inputs.ReleaseBundleV2SourceReleaseBundleArgs
-    ///                 {
-    ///                     Name = "my-rb-name",
-    ///                     Version = "1.0.0",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var my_resource_bundle_v2_cleanup_policy = new Artifactory.ReleaseBundleV2CleanupPolicy("my-resource-bundle-v2-cleanup-policy", new()
-    ///     {
-    ///         Key = "my-release-bundle-v2-policy-key",
-    ///         Description = "Cleanup policy description",
-    ///         CronExpression = "0 0 2 * * ?",
-    ///         DurationInMinutes = 60,
-    ///         Enabled = true,
-    ///         SearchCriteria = new Artifactory.Inputs.ReleaseBundleV2CleanupPolicySearchCriteriaArgs
-    ///         {
-    ///             IncludeAllProjects = true,
-    ///             IncludedProjects = new() { },
-    ///             ReleaseBundles = new[]
-    ///             {
-    ///                 new Artifactory.Inputs.ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArgs
-    ///                 {
-    ///                     Name = "my-release-bundle-v2-rb",
-    ///                     ProjectKey = "",
-    ///                 },
-    ///             },
-    ///             ExcludePromotedEnvironments = new[]
-    ///             {
-    ///                 "**",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh

@@ -242,7 +242,6 @@ class BuildWebhook(pulumi.CustomResource):
 
         ## Example Usage
 
-        .
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -255,7 +254,7 @@ class BuildWebhook(pulumi.CustomResource):
                 "promoted",
             ],
             criteria={
-                "any_build": True,
+                "any_build": False,
                 "selected_builds": ["build-id"],
                 "include_patterns": ["foo/**"],
                 "exclude_patterns": ["bar/**"],
@@ -291,7 +290,6 @@ class BuildWebhook(pulumi.CustomResource):
 
         ## Example Usage
 
-        .
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -304,7 +302,7 @@ class BuildWebhook(pulumi.CustomResource):
                 "promoted",
             ],
             criteria={
-                "any_build": True,
+                "any_build": False,
                 "selected_builds": ["build-id"],
                 "include_patterns": ["foo/**"],
                 "exclude_patterns": ["bar/**"],

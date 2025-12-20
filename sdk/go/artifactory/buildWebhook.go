@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// .
 // ```go
 // package main
 //
@@ -37,7 +36,7 @@ import (
 //					pulumi.String("promoted"),
 //				},
 //				Criteria: &artifactory.BuildWebhookCriteriaArgs{
-//					AnyBuild: pulumi.Bool(true),
+//					AnyBuild: pulumi.Bool(false),
 //					SelectedBuilds: pulumi.StringArray{
 //						pulumi.String("build-id"),
 //					},

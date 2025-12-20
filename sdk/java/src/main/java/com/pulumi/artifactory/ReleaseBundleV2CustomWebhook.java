@@ -56,8 +56,6 @@ import javax.annotation.Nullable;
  *             .criteria(ReleaseBundleV2CustomWebhookCriteriaArgs.builder()
  *                 .anyReleaseBundle(false)
  *                 .selectedReleaseBundles("bundle-name")
- *                 .includePatterns("foo/**")
- *                 .excludePatterns("bar/**")
  *                 .build())
  *             .handlers(ReleaseBundleV2CustomWebhookHandlerArgs.builder()
  *                 .url("https://tempurl.org")

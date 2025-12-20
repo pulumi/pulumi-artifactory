@@ -34,14 +34,18 @@ public final class ReleaseBundleV2CustomWebhookCriteriaArgs extends com.pulumi.r
     }
 
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
+     * Simple wildcard patterns for Release Bundle names.
+     * Ant-style path expressions are supported (*, **, ?).
+     * For example: `product_*`
      * 
      */
     @Import(name="excludePatterns")
     private @Nullable Output<List<String>> excludePatterns;
 
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
+     * @return Simple wildcard patterns for Release Bundle names.
+     * Ant-style path expressions are supported (*, **, ?).
+     * For example: `product_*`
      * 
      */
     public Optional<Output<List<String>>> excludePatterns() {
@@ -49,14 +53,18 @@ public final class ReleaseBundleV2CustomWebhookCriteriaArgs extends com.pulumi.r
     }
 
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
+     * Simple wildcard patterns for Release Bundle names.
+     * Ant-style path expressions are supported (*, **, ?).
+     * For example: `product_*`
      * 
      */
     @Import(name="includePatterns")
     private @Nullable Output<List<String>> includePatterns;
 
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
+     * @return Simple wildcard patterns for Release Bundle names.
+     * Ant-style path expressions are supported (*, **, ?).
+     * For example: `product_*`
      * 
      */
     public Optional<Output<List<String>>> includePatterns() {
@@ -67,15 +75,15 @@ public final class ReleaseBundleV2CustomWebhookCriteriaArgs extends com.pulumi.r
      * Trigger on this list of release bundle names.
      * 
      */
-    @Import(name="selectedReleaseBundles", required=true)
-    private Output<List<String>> selectedReleaseBundles;
+    @Import(name="selectedReleaseBundles")
+    private @Nullable Output<List<String>> selectedReleaseBundles;
 
     /**
      * @return Trigger on this list of release bundle names.
      * 
      */
-    public Output<List<String>> selectedReleaseBundles() {
-        return this.selectedReleaseBundles;
+    public Optional<Output<List<String>>> selectedReleaseBundles() {
+        return Optional.ofNullable(this.selectedReleaseBundles);
     }
 
     private ReleaseBundleV2CustomWebhookCriteriaArgs() {}
@@ -127,7 +135,9 @@ public final class ReleaseBundleV2CustomWebhookCriteriaArgs extends com.pulumi.r
         }
 
         /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
+         * @param excludePatterns Simple wildcard patterns for Release Bundle names.
+         * Ant-style path expressions are supported (*, **, ?).
+         * For example: `product_*`
          * 
          * @return builder
          * 
@@ -138,7 +148,9 @@ public final class ReleaseBundleV2CustomWebhookCriteriaArgs extends com.pulumi.r
         }
 
         /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
+         * @param excludePatterns Simple wildcard patterns for Release Bundle names.
+         * Ant-style path expressions are supported (*, **, ?).
+         * For example: `product_*`
          * 
          * @return builder
          * 
@@ -148,7 +160,9 @@ public final class ReleaseBundleV2CustomWebhookCriteriaArgs extends com.pulumi.r
         }
 
         /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
+         * @param excludePatterns Simple wildcard patterns for Release Bundle names.
+         * Ant-style path expressions are supported (*, **, ?).
+         * For example: `product_*`
          * 
          * @return builder
          * 
@@ -158,7 +172,9 @@ public final class ReleaseBundleV2CustomWebhookCriteriaArgs extends com.pulumi.r
         }
 
         /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
+         * @param includePatterns Simple wildcard patterns for Release Bundle names.
+         * Ant-style path expressions are supported (*, **, ?).
+         * For example: `product_*`
          * 
          * @return builder
          * 
@@ -169,7 +185,9 @@ public final class ReleaseBundleV2CustomWebhookCriteriaArgs extends com.pulumi.r
         }
 
         /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
+         * @param includePatterns Simple wildcard patterns for Release Bundle names.
+         * Ant-style path expressions are supported (*, **, ?).
+         * For example: `product_*`
          * 
          * @return builder
          * 
@@ -179,7 +197,9 @@ public final class ReleaseBundleV2CustomWebhookCriteriaArgs extends com.pulumi.r
         }
 
         /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
+         * @param includePatterns Simple wildcard patterns for Release Bundle names.
+         * Ant-style path expressions are supported (*, **, ?).
+         * For example: `product_*`
          * 
          * @return builder
          * 
@@ -194,7 +214,7 @@ public final class ReleaseBundleV2CustomWebhookCriteriaArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder selectedReleaseBundles(Output<List<String>> selectedReleaseBundles) {
+        public Builder selectedReleaseBundles(@Nullable Output<List<String>> selectedReleaseBundles) {
             $.selectedReleaseBundles = selectedReleaseBundles;
             return this;
         }
@@ -222,9 +242,6 @@ public final class ReleaseBundleV2CustomWebhookCriteriaArgs extends com.pulumi.r
         public ReleaseBundleV2CustomWebhookCriteriaArgs build() {
             if ($.anyReleaseBundle == null) {
                 throw new MissingRequiredPropertyException("ReleaseBundleV2CustomWebhookCriteriaArgs", "anyReleaseBundle");
-            }
-            if ($.selectedReleaseBundles == null) {
-                throw new MissingRequiredPropertyException("ReleaseBundleV2CustomWebhookCriteriaArgs", "selectedReleaseBundles");
             }
             return $;
         }

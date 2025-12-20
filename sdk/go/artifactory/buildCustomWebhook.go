@@ -36,7 +36,7 @@ import (
 //					pulumi.String("promoted"),
 //				},
 //				Criteria: &artifactory.BuildCustomWebhookCriteriaArgs{
-//					AnyBuild: pulumi.Bool(true),
+//					AnyBuild: pulumi.Bool(false),
 //					SelectedBuilds: pulumi.StringArray{
 //						pulumi.String("build-id"),
 //					},

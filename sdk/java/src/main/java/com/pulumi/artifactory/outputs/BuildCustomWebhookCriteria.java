@@ -19,12 +19,12 @@ public final class BuildCustomWebhookCriteria {
      */
     private Boolean anyBuild;
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
      * 
      */
     private @Nullable List<String> excludePatterns;
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
      * 
      */
     private @Nullable List<String> includePatterns;
@@ -32,7 +32,7 @@ public final class BuildCustomWebhookCriteria {
      * @return Trigger on this list of build names.
      * 
      */
-    private List<String> selectedBuilds;
+    private @Nullable List<String> selectedBuilds;
 
     private BuildCustomWebhookCriteria() {}
     /**
@@ -43,14 +43,14 @@ public final class BuildCustomWebhookCriteria {
         return this.anyBuild;
     }
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
      * 
      */
     public List<String> excludePatterns() {
         return this.excludePatterns == null ? List.of() : this.excludePatterns;
     }
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
      * 
      */
     public List<String> includePatterns() {
@@ -61,7 +61,7 @@ public final class BuildCustomWebhookCriteria {
      * 
      */
     public List<String> selectedBuilds() {
-        return this.selectedBuilds;
+        return this.selectedBuilds == null ? List.of() : this.selectedBuilds;
     }
 
     public static Builder builder() {
@@ -76,7 +76,7 @@ public final class BuildCustomWebhookCriteria {
         private Boolean anyBuild;
         private @Nullable List<String> excludePatterns;
         private @Nullable List<String> includePatterns;
-        private List<String> selectedBuilds;
+        private @Nullable List<String> selectedBuilds;
         public Builder() {}
         public Builder(BuildCustomWebhookCriteria defaults) {
     	      Objects.requireNonNull(defaults);
@@ -113,10 +113,8 @@ public final class BuildCustomWebhookCriteria {
             return includePatterns(List.of(includePatterns));
         }
         @CustomType.Setter
-        public Builder selectedBuilds(List<String> selectedBuilds) {
-            if (selectedBuilds == null) {
-              throw new MissingRequiredPropertyException("BuildCustomWebhookCriteria", "selectedBuilds");
-            }
+        public Builder selectedBuilds(@Nullable List<String> selectedBuilds) {
+
             this.selectedBuilds = selectedBuilds;
             return this;
         }
