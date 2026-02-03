@@ -22,26 +22,25 @@ __all__ = ['UserWebhookArgs', 'UserWebhook']
 class UserWebhookArgs:
     def __init__(__self__, *,
                  event_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 handlers: pulumi.Input[Sequence[pulumi.Input['UserWebhookHandlerArgs']]],
                  key: pulumi.Input[_builtins.str],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input['UserWebhookHandlerArgs']]]] = None):
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a UserWebhook resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of event triggers for the Webhook. Allow values: `locked`
+        :param pulumi.Input[Sequence[pulumi.Input['UserWebhookHandlerArgs']]] handlers: At least one is required.
         :param pulumi.Input[_builtins.str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[_builtins.bool] enabled: Status of webhook. Default to `true`
-        :param pulumi.Input[Sequence[pulumi.Input['UserWebhookHandlerArgs']]] handlers: At least one is required.
         """
         pulumi.set(__self__, "event_types", event_types)
+        pulumi.set(__self__, "handlers", handlers)
         pulumi.set(__self__, "key", key)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if handlers is not None:
-            pulumi.set(__self__, "handlers", handlers)
 
     @_builtins.property
     @pulumi.getter(name="eventTypes")
@@ -54,6 +53,18 @@ class UserWebhookArgs:
     @event_types.setter
     def event_types(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "event_types", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def handlers(self) -> pulumi.Input[Sequence[pulumi.Input['UserWebhookHandlerArgs']]]:
+        """
+        At least one is required.
+        """
+        return pulumi.get(self, "handlers")
+
+    @handlers.setter
+    def handlers(self, value: pulumi.Input[Sequence[pulumi.Input['UserWebhookHandlerArgs']]]):
+        pulumi.set(self, "handlers", value)
 
     @_builtins.property
     @pulumi.getter
@@ -90,18 +101,6 @@ class UserWebhookArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def handlers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserWebhookHandlerArgs']]]]:
-        """
-        At least one is required.
-        """
-        return pulumi.get(self, "handlers")
-
-    @handlers.setter
-    def handlers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserWebhookHandlerArgs']]]]):
-        pulumi.set(self, "handlers", value)
 
 
 @pulumi.input_type
@@ -300,6 +299,8 @@ class UserWebhook(pulumi.CustomResource):
             if event_types is None and not opts.urn:
                 raise TypeError("Missing required property 'event_types'")
             __props__.__dict__["event_types"] = event_types
+            if handlers is None and not opts.urn:
+                raise TypeError("Missing required property 'handlers'")
             __props__.__dict__["handlers"] = handlers
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
@@ -369,7 +370,7 @@ class UserWebhook(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def handlers(self) -> pulumi.Output[Optional[Sequence['outputs.UserWebhookHandler']]]:
+    def handlers(self) -> pulumi.Output[Sequence['outputs.UserWebhookHandler']]:
         """
         At least one is required.
         """

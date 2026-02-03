@@ -74,7 +74,7 @@ type ArtifactoryReleaseBundleWebhook struct {
 	pulumi.CustomResourceState
 
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria ArtifactoryReleaseBundleWebhookCriteriaPtrOutput `pulumi:"criteria"`
+	Criteria ArtifactoryReleaseBundleWebhookCriteriaOutput `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Status of webhook. Default to `true`
@@ -94,8 +94,14 @@ func NewArtifactoryReleaseBundleWebhook(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Criteria == nil {
+		return nil, errors.New("invalid value for required argument 'Criteria'")
+	}
 	if args.EventTypes == nil {
 		return nil, errors.New("invalid value for required argument 'EventTypes'")
+	}
+	if args.Handlers == nil {
+		return nil, errors.New("invalid value for required argument 'Handlers'")
 	}
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
@@ -158,7 +164,7 @@ func (ArtifactoryReleaseBundleWebhookState) ElementType() reflect.Type {
 
 type artifactoryReleaseBundleWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria *ArtifactoryReleaseBundleWebhookCriteria `pulumi:"criteria"`
+	Criteria ArtifactoryReleaseBundleWebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
 	// Status of webhook. Default to `true`
@@ -174,7 +180,7 @@ type artifactoryReleaseBundleWebhookArgs struct {
 // The set of arguments for constructing a ArtifactoryReleaseBundleWebhook resource.
 type ArtifactoryReleaseBundleWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria ArtifactoryReleaseBundleWebhookCriteriaPtrInput
+	Criteria ArtifactoryReleaseBundleWebhookCriteriaInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
 	// Status of webhook. Default to `true`
@@ -275,10 +281,10 @@ func (o ArtifactoryReleaseBundleWebhookOutput) ToArtifactoryReleaseBundleWebhook
 }
 
 // Specifies where the webhook will be applied on which repositories.
-func (o ArtifactoryReleaseBundleWebhookOutput) Criteria() ArtifactoryReleaseBundleWebhookCriteriaPtrOutput {
-	return o.ApplyT(func(v *ArtifactoryReleaseBundleWebhook) ArtifactoryReleaseBundleWebhookCriteriaPtrOutput {
+func (o ArtifactoryReleaseBundleWebhookOutput) Criteria() ArtifactoryReleaseBundleWebhookCriteriaOutput {
+	return o.ApplyT(func(v *ArtifactoryReleaseBundleWebhook) ArtifactoryReleaseBundleWebhookCriteriaOutput {
 		return v.Criteria
-	}).(ArtifactoryReleaseBundleWebhookCriteriaPtrOutput)
+	}).(ArtifactoryReleaseBundleWebhookCriteriaOutput)
 }
 
 // Webhook description. Max length 1000 characters.

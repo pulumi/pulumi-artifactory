@@ -105,7 +105,7 @@ export class PropertySet extends pulumi.CustomResource {
     /**
      * A list of properties that will be part of the property set.
      */
-    declare public readonly properties: pulumi.Output<outputs.PropertySetProperty[] | undefined>;
+    declare public readonly properties: pulumi.Output<outputs.PropertySetProperty[]>;
     /**
      * Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
      */
@@ -118,7 +118,7 @@ export class PropertySet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: PropertySetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: PropertySetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PropertySetArgs | PropertySetState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -129,6 +129,9 @@ export class PropertySet extends pulumi.CustomResource {
             resourceInputs["visible"] = state?.visible;
         } else {
             const args = argsOrState as PropertySetArgs | undefined;
+            if (args?.properties === undefined && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             resourceInputs["name"] = args?.name;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["visible"] = args?.visible;
@@ -167,7 +170,7 @@ export interface PropertySetArgs {
     /**
      * A list of properties that will be part of the property set.
      */
-    properties?: pulumi.Input<pulumi.Input<inputs.PropertySetProperty>[]>;
+    properties: pulumi.Input<pulumi.Input<inputs.PropertySetProperty>[]>;
     /**
      * Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
      */

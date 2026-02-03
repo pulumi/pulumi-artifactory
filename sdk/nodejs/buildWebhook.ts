@@ -71,7 +71,7 @@ export class BuildWebhook extends pulumi.CustomResource {
     /**
      * Specifies where the webhook will be applied on which repositories.
      */
-    declare public readonly criteria: pulumi.Output<outputs.BuildWebhookCriteria | undefined>;
+    declare public readonly criteria: pulumi.Output<outputs.BuildWebhookCriteria>;
     /**
      * Webhook description. Max length 1000 characters.
      */
@@ -87,7 +87,7 @@ export class BuildWebhook extends pulumi.CustomResource {
     /**
      * At least one is required.
      */
-    declare public readonly handlers: pulumi.Output<outputs.BuildWebhookHandler[] | undefined>;
+    declare public readonly handlers: pulumi.Output<outputs.BuildWebhookHandler[]>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
@@ -114,8 +114,14 @@ export class BuildWebhook extends pulumi.CustomResource {
             resourceInputs["key"] = state?.key;
         } else {
             const args = argsOrState as BuildWebhookArgs | undefined;
+            if (args?.criteria === undefined && !opts.urn) {
+                throw new Error("Missing required property 'criteria'");
+            }
             if (args?.eventTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventTypes'");
+            }
+            if (args?.handlers === undefined && !opts.urn) {
+                throw new Error("Missing required property 'handlers'");
             }
             if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
@@ -169,7 +175,7 @@ export interface BuildWebhookArgs {
     /**
      * Specifies where the webhook will be applied on which repositories.
      */
-    criteria?: pulumi.Input<inputs.BuildWebhookCriteria>;
+    criteria: pulumi.Input<inputs.BuildWebhookCriteria>;
     /**
      * Webhook description. Max length 1000 characters.
      */
@@ -185,7 +191,7 @@ export interface BuildWebhookArgs {
     /**
      * At least one is required.
      */
-    handlers?: pulumi.Input<pulumi.Input<inputs.BuildWebhookHandler>[]>;
+    handlers: pulumi.Input<pulumi.Input<inputs.BuildWebhookHandler>[]>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */

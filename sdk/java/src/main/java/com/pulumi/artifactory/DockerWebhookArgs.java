@@ -24,15 +24,15 @@ public final class DockerWebhookArgs extends com.pulumi.resources.ResourceArgs {
      * Specifies where the webhook will be applied on which repositories.
      * 
      */
-    @Import(name="criteria")
-    private @Nullable Output<DockerWebhookCriteriaArgs> criteria;
+    @Import(name="criteria", required=true)
+    private Output<DockerWebhookCriteriaArgs> criteria;
 
     /**
      * @return Specifies where the webhook will be applied on which repositories.
      * 
      */
-    public Optional<Output<DockerWebhookCriteriaArgs>> criteria() {
-        return Optional.ofNullable(this.criteria);
+    public Output<DockerWebhookCriteriaArgs> criteria() {
+        return this.criteria;
     }
 
     /**
@@ -84,15 +84,15 @@ public final class DockerWebhookArgs extends com.pulumi.resources.ResourceArgs {
      * At least one is required.
      * 
      */
-    @Import(name="handlers")
-    private @Nullable Output<List<DockerWebhookHandlerArgs>> handlers;
+    @Import(name="handlers", required=true)
+    private Output<List<DockerWebhookHandlerArgs>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Optional<Output<List<DockerWebhookHandlerArgs>>> handlers() {
-        return Optional.ofNullable(this.handlers);
+    public Output<List<DockerWebhookHandlerArgs>> handlers() {
+        return this.handlers;
     }
 
     /**
@@ -145,7 +145,7 @@ public final class DockerWebhookArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder criteria(@Nullable Output<DockerWebhookCriteriaArgs> criteria) {
+        public Builder criteria(Output<DockerWebhookCriteriaArgs> criteria) {
             $.criteria = criteria;
             return this;
         }
@@ -239,7 +239,7 @@ public final class DockerWebhookArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder handlers(@Nullable Output<List<DockerWebhookHandlerArgs>> handlers) {
+        public Builder handlers(Output<List<DockerWebhookHandlerArgs>> handlers) {
             $.handlers = handlers;
             return this;
         }
@@ -286,8 +286,14 @@ public final class DockerWebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DockerWebhookArgs build() {
+            if ($.criteria == null) {
+                throw new MissingRequiredPropertyException("DockerWebhookArgs", "criteria");
+            }
             if ($.eventTypes == null) {
                 throw new MissingRequiredPropertyException("DockerWebhookArgs", "eventTypes");
+            }
+            if ($.handlers == null) {
+                throw new MissingRequiredPropertyException("DockerWebhookArgs", "handlers");
             }
             if ($.key == null) {
                 throw new MissingRequiredPropertyException("DockerWebhookArgs", "key");

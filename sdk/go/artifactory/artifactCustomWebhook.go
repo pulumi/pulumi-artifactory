@@ -85,7 +85,7 @@ type ArtifactCustomWebhook struct {
 	pulumi.CustomResourceState
 
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria ArtifactCustomWebhookCriteriaPtrOutput `pulumi:"criteria"`
+	Criteria ArtifactCustomWebhookCriteriaOutput `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Status of webhook. Default to `true`.
@@ -105,8 +105,14 @@ func NewArtifactCustomWebhook(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Criteria == nil {
+		return nil, errors.New("invalid value for required argument 'Criteria'")
+	}
 	if args.EventTypes == nil {
 		return nil, errors.New("invalid value for required argument 'EventTypes'")
+	}
+	if args.Handlers == nil {
+		return nil, errors.New("invalid value for required argument 'Handlers'")
 	}
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
@@ -169,7 +175,7 @@ func (ArtifactCustomWebhookState) ElementType() reflect.Type {
 
 type artifactCustomWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria *ArtifactCustomWebhookCriteria `pulumi:"criteria"`
+	Criteria ArtifactCustomWebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
 	// Status of webhook. Default to `true`.
@@ -185,7 +191,7 @@ type artifactCustomWebhookArgs struct {
 // The set of arguments for constructing a ArtifactCustomWebhook resource.
 type ArtifactCustomWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria ArtifactCustomWebhookCriteriaPtrInput
+	Criteria ArtifactCustomWebhookCriteriaInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
 	// Status of webhook. Default to `true`.
@@ -286,8 +292,8 @@ func (o ArtifactCustomWebhookOutput) ToArtifactCustomWebhookOutputWithContext(ct
 }
 
 // Specifies where the webhook will be applied on which repositories.
-func (o ArtifactCustomWebhookOutput) Criteria() ArtifactCustomWebhookCriteriaPtrOutput {
-	return o.ApplyT(func(v *ArtifactCustomWebhook) ArtifactCustomWebhookCriteriaPtrOutput { return v.Criteria }).(ArtifactCustomWebhookCriteriaPtrOutput)
+func (o ArtifactCustomWebhookOutput) Criteria() ArtifactCustomWebhookCriteriaOutput {
+	return o.ApplyT(func(v *ArtifactCustomWebhook) ArtifactCustomWebhookCriteriaOutput { return v.Criteria }).(ArtifactCustomWebhookCriteriaOutput)
 }
 
 // Webhook description. Max length 1000 characters.

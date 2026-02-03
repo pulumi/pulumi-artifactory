@@ -14,7 +14,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -123,14 +122,14 @@ public class PropertySet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="properties", refs={List.class,PropertySetProperty.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<PropertySetProperty>> properties;
+    private Output<List<PropertySetProperty>> properties;
 
     /**
      * @return A list of properties that will be part of the property set.
      * 
      */
-    public Output<Optional<List<PropertySetProperty>>> properties() {
-        return Codegen.optional(this.properties);
+    public Output<List<PropertySetProperty>> properties() {
+        return this.properties;
     }
     /**
      * Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
@@ -159,7 +158,7 @@ public class PropertySet extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PropertySet(java.lang.String name, @Nullable PropertySetArgs args) {
+    public PropertySet(java.lang.String name, PropertySetArgs args) {
         this(name, args, null);
     }
     /**
@@ -168,7 +167,7 @@ public class PropertySet extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PropertySet(java.lang.String name, @Nullable PropertySetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public PropertySet(java.lang.String name, PropertySetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/propertySet:PropertySet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -176,7 +175,7 @@ public class PropertySet extends com.pulumi.resources.CustomResource {
         super("artifactory:index/propertySet:PropertySet", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static PropertySetArgs makeArgs(@Nullable PropertySetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static PropertySetArgs makeArgs(PropertySetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

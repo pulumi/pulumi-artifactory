@@ -88,14 +88,14 @@ public class DistributionWebhook extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="criteria", refs={DistributionWebhookCriteria.class}, tree="[0]")
-    private Output</* @Nullable */ DistributionWebhookCriteria> criteria;
+    private Output<DistributionWebhookCriteria> criteria;
 
     /**
      * @return Specifies where the webhook will be applied on which repositories.
      * 
      */
-    public Output<Optional<DistributionWebhookCriteria>> criteria() {
-        return Codegen.optional(this.criteria);
+    public Output<DistributionWebhookCriteria> criteria() {
+        return this.criteria;
     }
     /**
      * Webhook description. Max length 1000 characters.
@@ -144,14 +144,14 @@ public class DistributionWebhook extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="handlers", refs={List.class,DistributionWebhookHandler.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<DistributionWebhookHandler>> handlers;
+    private Output<List<DistributionWebhookHandler>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Output<Optional<List<DistributionWebhookHandler>>> handlers() {
-        return Codegen.optional(this.handlers);
+    public Output<List<DistributionWebhookHandler>> handlers() {
+        return this.handlers;
     }
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.

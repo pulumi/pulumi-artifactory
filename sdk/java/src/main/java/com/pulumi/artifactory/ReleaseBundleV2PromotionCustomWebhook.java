@@ -86,14 +86,14 @@ public class ReleaseBundleV2PromotionCustomWebhook extends com.pulumi.resources.
      * 
      */
     @Export(name="criteria", refs={ReleaseBundleV2PromotionCustomWebhookCriteria.class}, tree="[0]")
-    private Output</* @Nullable */ ReleaseBundleV2PromotionCustomWebhookCriteria> criteria;
+    private Output<ReleaseBundleV2PromotionCustomWebhookCriteria> criteria;
 
     /**
      * @return Specifies where the webhook will be applied on which enviroments.
      * 
      */
-    public Output<Optional<ReleaseBundleV2PromotionCustomWebhookCriteria>> criteria() {
-        return Codegen.optional(this.criteria);
+    public Output<ReleaseBundleV2PromotionCustomWebhookCriteria> criteria() {
+        return this.criteria;
     }
     /**
      * Webhook description. Max length 1000 characters.
@@ -142,14 +142,14 @@ public class ReleaseBundleV2PromotionCustomWebhook extends com.pulumi.resources.
      * 
      */
     @Export(name="handlers", refs={List.class,ReleaseBundleV2PromotionCustomWebhookHandler.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<ReleaseBundleV2PromotionCustomWebhookHandler>> handlers;
+    private Output<List<ReleaseBundleV2PromotionCustomWebhookHandler>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Output<Optional<List<ReleaseBundleV2PromotionCustomWebhookHandler>>> handlers() {
-        return Codegen.optional(this.handlers);
+    public Output<List<ReleaseBundleV2PromotionCustomWebhookHandler>> handlers() {
+        return this.handlers;
     }
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.

@@ -68,15 +68,15 @@ public final class UserCustomWebhookArgs extends com.pulumi.resources.ResourceAr
      * At least one is required.
      * 
      */
-    @Import(name="handlers")
-    private @Nullable Output<List<UserCustomWebhookHandlerArgs>> handlers;
+    @Import(name="handlers", required=true)
+    private Output<List<UserCustomWebhookHandlerArgs>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Optional<Output<List<UserCustomWebhookHandlerArgs>>> handlers() {
-        return Optional.ofNullable(this.handlers);
+    public Output<List<UserCustomWebhookHandlerArgs>> handlers() {
+        return this.handlers;
     }
 
     /**
@@ -201,7 +201,7 @@ public final class UserCustomWebhookArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder handlers(@Nullable Output<List<UserCustomWebhookHandlerArgs>> handlers) {
+        public Builder handlers(Output<List<UserCustomWebhookHandlerArgs>> handlers) {
             $.handlers = handlers;
             return this;
         }
@@ -250,6 +250,9 @@ public final class UserCustomWebhookArgs extends com.pulumi.resources.ResourceAr
         public UserCustomWebhookArgs build() {
             if ($.eventTypes == null) {
                 throw new MissingRequiredPropertyException("UserCustomWebhookArgs", "eventTypes");
+            }
+            if ($.handlers == null) {
+                throw new MissingRequiredPropertyException("UserCustomWebhookArgs", "handlers");
             }
             if ($.key == null) {
                 throw new MissingRequiredPropertyException("UserCustomWebhookArgs", "key");

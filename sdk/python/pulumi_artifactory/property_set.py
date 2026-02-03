@@ -21,21 +21,32 @@ __all__ = ['PropertySetArgs', 'PropertySet']
 @pulumi.input_type
 class PropertySetArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]],
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]]] = None,
                  visible: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a PropertySet resource.
-        :param pulumi.Input[_builtins.str] name: Property set name.
         :param pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]] properties: A list of properties that will be part of the property set.
+        :param pulumi.Input[_builtins.str] name: Property set name.
         :param pulumi.Input[_builtins.bool] visible: Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
         """
+        pulumi.set(__self__, "properties", properties)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
         if visible is not None:
             pulumi.set(__self__, "visible", visible)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]]:
+        """
+        A list of properties that will be part of the property set.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]]):
+        pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
@@ -48,18 +59,6 @@ class PropertySetArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]]]:
-        """
-        A list of properties that will be part of the property set.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]]]):
-        pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
@@ -213,7 +212,7 @@ class PropertySet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[PropertySetArgs] = None,
+                 args: PropertySetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Artifactory Property Set resource.
@@ -306,6 +305,8 @@ class PropertySet(pulumi.CustomResource):
             __props__ = PropertySetArgs.__new__(PropertySetArgs)
 
             __props__.__dict__["name"] = name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
             __props__.__dict__["visible"] = visible
         super(PropertySet, __self__).__init__(
@@ -351,7 +352,7 @@ class PropertySet(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Output[Optional[Sequence['outputs.PropertySetProperty']]]:
+    def properties(self) -> pulumi.Output[Sequence['outputs.PropertySetProperty']]:
         """
         A list of properties that will be part of the property set.
         """

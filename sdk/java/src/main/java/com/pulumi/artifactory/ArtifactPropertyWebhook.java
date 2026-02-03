@@ -94,14 +94,14 @@ public class ArtifactPropertyWebhook extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="criteria", refs={ArtifactPropertyWebhookCriteria.class}, tree="[0]")
-    private Output</* @Nullable */ ArtifactPropertyWebhookCriteria> criteria;
+    private Output<ArtifactPropertyWebhookCriteria> criteria;
 
     /**
      * @return Specifies where the webhook will be applied on which repositories.
      * 
      */
-    public Output<Optional<ArtifactPropertyWebhookCriteria>> criteria() {
-        return Codegen.optional(this.criteria);
+    public Output<ArtifactPropertyWebhookCriteria> criteria() {
+        return this.criteria;
     }
     /**
      * Webhook description. Max length 1000 characters.
@@ -150,14 +150,14 @@ public class ArtifactPropertyWebhook extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="handlers", refs={List.class,ArtifactPropertyWebhookHandler.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<ArtifactPropertyWebhookHandler>> handlers;
+    private Output<List<ArtifactPropertyWebhookHandler>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Output<Optional<List<ArtifactPropertyWebhookHandler>>> handlers() {
-        return Codegen.optional(this.handlers);
+    public Output<List<ArtifactPropertyWebhookHandler>> handlers() {
+        return this.handlers;
     }
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.

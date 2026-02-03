@@ -24,15 +24,15 @@ public final class ReleaseBundleV2PromotionWebhookArgs extends com.pulumi.resour
      * Specifies where the webhook will be applied on which enviroments.
      * 
      */
-    @Import(name="criteria")
-    private @Nullable Output<ReleaseBundleV2PromotionWebhookCriteriaArgs> criteria;
+    @Import(name="criteria", required=true)
+    private Output<ReleaseBundleV2PromotionWebhookCriteriaArgs> criteria;
 
     /**
      * @return Specifies where the webhook will be applied on which enviroments.
      * 
      */
-    public Optional<Output<ReleaseBundleV2PromotionWebhookCriteriaArgs>> criteria() {
-        return Optional.ofNullable(this.criteria);
+    public Output<ReleaseBundleV2PromotionWebhookCriteriaArgs> criteria() {
+        return this.criteria;
     }
 
     /**
@@ -84,15 +84,15 @@ public final class ReleaseBundleV2PromotionWebhookArgs extends com.pulumi.resour
      * At least one is required.
      * 
      */
-    @Import(name="handlers")
-    private @Nullable Output<List<ReleaseBundleV2PromotionWebhookHandlerArgs>> handlers;
+    @Import(name="handlers", required=true)
+    private Output<List<ReleaseBundleV2PromotionWebhookHandlerArgs>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Optional<Output<List<ReleaseBundleV2PromotionWebhookHandlerArgs>>> handlers() {
-        return Optional.ofNullable(this.handlers);
+    public Output<List<ReleaseBundleV2PromotionWebhookHandlerArgs>> handlers() {
+        return this.handlers;
     }
 
     /**
@@ -145,7 +145,7 @@ public final class ReleaseBundleV2PromotionWebhookArgs extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder criteria(@Nullable Output<ReleaseBundleV2PromotionWebhookCriteriaArgs> criteria) {
+        public Builder criteria(Output<ReleaseBundleV2PromotionWebhookCriteriaArgs> criteria) {
             $.criteria = criteria;
             return this;
         }
@@ -239,7 +239,7 @@ public final class ReleaseBundleV2PromotionWebhookArgs extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder handlers(@Nullable Output<List<ReleaseBundleV2PromotionWebhookHandlerArgs>> handlers) {
+        public Builder handlers(Output<List<ReleaseBundleV2PromotionWebhookHandlerArgs>> handlers) {
             $.handlers = handlers;
             return this;
         }
@@ -286,8 +286,14 @@ public final class ReleaseBundleV2PromotionWebhookArgs extends com.pulumi.resour
         }
 
         public ReleaseBundleV2PromotionWebhookArgs build() {
+            if ($.criteria == null) {
+                throw new MissingRequiredPropertyException("ReleaseBundleV2PromotionWebhookArgs", "criteria");
+            }
             if ($.eventTypes == null) {
                 throw new MissingRequiredPropertyException("ReleaseBundleV2PromotionWebhookArgs", "eventTypes");
+            }
+            if ($.handlers == null) {
+                throw new MissingRequiredPropertyException("ReleaseBundleV2PromotionWebhookArgs", "handlers");
             }
             if ($.key == null) {
                 throw new MissingRequiredPropertyException("ReleaseBundleV2PromotionWebhookArgs", "key");

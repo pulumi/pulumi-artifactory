@@ -24,15 +24,15 @@ public final class BuildWebhookArgs extends com.pulumi.resources.ResourceArgs {
      * Specifies where the webhook will be applied on which repositories.
      * 
      */
-    @Import(name="criteria")
-    private @Nullable Output<BuildWebhookCriteriaArgs> criteria;
+    @Import(name="criteria", required=true)
+    private Output<BuildWebhookCriteriaArgs> criteria;
 
     /**
      * @return Specifies where the webhook will be applied on which repositories.
      * 
      */
-    public Optional<Output<BuildWebhookCriteriaArgs>> criteria() {
-        return Optional.ofNullable(this.criteria);
+    public Output<BuildWebhookCriteriaArgs> criteria() {
+        return this.criteria;
     }
 
     /**
@@ -84,15 +84,15 @@ public final class BuildWebhookArgs extends com.pulumi.resources.ResourceArgs {
      * At least one is required.
      * 
      */
-    @Import(name="handlers")
-    private @Nullable Output<List<BuildWebhookHandlerArgs>> handlers;
+    @Import(name="handlers", required=true)
+    private Output<List<BuildWebhookHandlerArgs>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Optional<Output<List<BuildWebhookHandlerArgs>>> handlers() {
-        return Optional.ofNullable(this.handlers);
+    public Output<List<BuildWebhookHandlerArgs>> handlers() {
+        return this.handlers;
     }
 
     /**
@@ -145,7 +145,7 @@ public final class BuildWebhookArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder criteria(@Nullable Output<BuildWebhookCriteriaArgs> criteria) {
+        public Builder criteria(Output<BuildWebhookCriteriaArgs> criteria) {
             $.criteria = criteria;
             return this;
         }
@@ -239,7 +239,7 @@ public final class BuildWebhookArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder handlers(@Nullable Output<List<BuildWebhookHandlerArgs>> handlers) {
+        public Builder handlers(Output<List<BuildWebhookHandlerArgs>> handlers) {
             $.handlers = handlers;
             return this;
         }
@@ -286,8 +286,14 @@ public final class BuildWebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BuildWebhookArgs build() {
+            if ($.criteria == null) {
+                throw new MissingRequiredPropertyException("BuildWebhookArgs", "criteria");
+            }
             if ($.eventTypes == null) {
                 throw new MissingRequiredPropertyException("BuildWebhookArgs", "eventTypes");
+            }
+            if ($.handlers == null) {
+                throw new MissingRequiredPropertyException("BuildWebhookArgs", "handlers");
             }
             if ($.key == null) {
                 throw new MissingRequiredPropertyException("BuildWebhookArgs", "key");

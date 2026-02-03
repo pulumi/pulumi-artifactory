@@ -24,15 +24,15 @@ public final class ArtifactPropertyCustomWebhookArgs extends com.pulumi.resource
      * Specifies where the webhook will be applied on which repositories.
      * 
      */
-    @Import(name="criteria")
-    private @Nullable Output<ArtifactPropertyCustomWebhookCriteriaArgs> criteria;
+    @Import(name="criteria", required=true)
+    private Output<ArtifactPropertyCustomWebhookCriteriaArgs> criteria;
 
     /**
      * @return Specifies where the webhook will be applied on which repositories.
      * 
      */
-    public Optional<Output<ArtifactPropertyCustomWebhookCriteriaArgs>> criteria() {
-        return Optional.ofNullable(this.criteria);
+    public Output<ArtifactPropertyCustomWebhookCriteriaArgs> criteria() {
+        return this.criteria;
     }
 
     /**
@@ -84,15 +84,15 @@ public final class ArtifactPropertyCustomWebhookArgs extends com.pulumi.resource
      * At least one is required.
      * 
      */
-    @Import(name="handlers")
-    private @Nullable Output<List<ArtifactPropertyCustomWebhookHandlerArgs>> handlers;
+    @Import(name="handlers", required=true)
+    private Output<List<ArtifactPropertyCustomWebhookHandlerArgs>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Optional<Output<List<ArtifactPropertyCustomWebhookHandlerArgs>>> handlers() {
-        return Optional.ofNullable(this.handlers);
+    public Output<List<ArtifactPropertyCustomWebhookHandlerArgs>> handlers() {
+        return this.handlers;
     }
 
     /**
@@ -145,7 +145,7 @@ public final class ArtifactPropertyCustomWebhookArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder criteria(@Nullable Output<ArtifactPropertyCustomWebhookCriteriaArgs> criteria) {
+        public Builder criteria(Output<ArtifactPropertyCustomWebhookCriteriaArgs> criteria) {
             $.criteria = criteria;
             return this;
         }
@@ -239,7 +239,7 @@ public final class ArtifactPropertyCustomWebhookArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder handlers(@Nullable Output<List<ArtifactPropertyCustomWebhookHandlerArgs>> handlers) {
+        public Builder handlers(Output<List<ArtifactPropertyCustomWebhookHandlerArgs>> handlers) {
             $.handlers = handlers;
             return this;
         }
@@ -286,8 +286,14 @@ public final class ArtifactPropertyCustomWebhookArgs extends com.pulumi.resource
         }
 
         public ArtifactPropertyCustomWebhookArgs build() {
+            if ($.criteria == null) {
+                throw new MissingRequiredPropertyException("ArtifactPropertyCustomWebhookArgs", "criteria");
+            }
             if ($.eventTypes == null) {
                 throw new MissingRequiredPropertyException("ArtifactPropertyCustomWebhookArgs", "eventTypes");
+            }
+            if ($.handlers == null) {
+                throw new MissingRequiredPropertyException("ArtifactPropertyCustomWebhookArgs", "handlers");
             }
             if ($.key == null) {
                 throw new MissingRequiredPropertyException("ArtifactPropertyCustomWebhookArgs", "key");

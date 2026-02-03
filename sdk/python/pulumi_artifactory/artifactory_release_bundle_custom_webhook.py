@@ -21,31 +21,41 @@ __all__ = ['ArtifactoryReleaseBundleCustomWebhookArgs', 'ArtifactoryReleaseBundl
 @pulumi.input_type
 class ArtifactoryReleaseBundleCustomWebhookArgs:
     def __init__(__self__, *,
+                 criteria: pulumi.Input['ArtifactoryReleaseBundleCustomWebhookCriteriaArgs'],
                  event_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 handlers: pulumi.Input[Sequence[pulumi.Input['ArtifactoryReleaseBundleCustomWebhookHandlerArgs']]],
                  key: pulumi.Input[_builtins.str],
-                 criteria: Optional[pulumi.Input['ArtifactoryReleaseBundleCustomWebhookCriteriaArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactoryReleaseBundleCustomWebhookHandlerArgs']]]] = None):
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ArtifactoryReleaseBundleCustomWebhook resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
-        :param pulumi.Input[_builtins.str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         :param pulumi.Input['ArtifactoryReleaseBundleCustomWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
+        :param pulumi.Input[Sequence[pulumi.Input['ArtifactoryReleaseBundleCustomWebhookHandlerArgs']]] handlers: At least one is required.
+        :param pulumi.Input[_builtins.str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[_builtins.bool] enabled: Status of webhook. Default to `true`
-        :param pulumi.Input[Sequence[pulumi.Input['ArtifactoryReleaseBundleCustomWebhookHandlerArgs']]] handlers: At least one is required.
         """
+        pulumi.set(__self__, "criteria", criteria)
         pulumi.set(__self__, "event_types", event_types)
+        pulumi.set(__self__, "handlers", handlers)
         pulumi.set(__self__, "key", key)
-        if criteria is not None:
-            pulumi.set(__self__, "criteria", criteria)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if handlers is not None:
-            pulumi.set(__self__, "handlers", handlers)
+
+    @_builtins.property
+    @pulumi.getter
+    def criteria(self) -> pulumi.Input['ArtifactoryReleaseBundleCustomWebhookCriteriaArgs']:
+        """
+        Specifies where the webhook will be applied on which repositories.
+        """
+        return pulumi.get(self, "criteria")
+
+    @criteria.setter
+    def criteria(self, value: pulumi.Input['ArtifactoryReleaseBundleCustomWebhookCriteriaArgs']):
+        pulumi.set(self, "criteria", value)
 
     @_builtins.property
     @pulumi.getter(name="eventTypes")
@@ -61,6 +71,18 @@ class ArtifactoryReleaseBundleCustomWebhookArgs:
 
     @_builtins.property
     @pulumi.getter
+    def handlers(self) -> pulumi.Input[Sequence[pulumi.Input['ArtifactoryReleaseBundleCustomWebhookHandlerArgs']]]:
+        """
+        At least one is required.
+        """
+        return pulumi.get(self, "handlers")
+
+    @handlers.setter
+    def handlers(self, value: pulumi.Input[Sequence[pulumi.Input['ArtifactoryReleaseBundleCustomWebhookHandlerArgs']]]):
+        pulumi.set(self, "handlers", value)
+
+    @_builtins.property
+    @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
         """
         The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
@@ -70,18 +92,6 @@ class ArtifactoryReleaseBundleCustomWebhookArgs:
     @key.setter
     def key(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "key", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def criteria(self) -> Optional[pulumi.Input['ArtifactoryReleaseBundleCustomWebhookCriteriaArgs']]:
-        """
-        Specifies where the webhook will be applied on which repositories.
-        """
-        return pulumi.get(self, "criteria")
-
-    @criteria.setter
-    def criteria(self, value: Optional[pulumi.Input['ArtifactoryReleaseBundleCustomWebhookCriteriaArgs']]):
-        pulumi.set(self, "criteria", value)
 
     @_builtins.property
     @pulumi.getter
@@ -106,18 +116,6 @@ class ArtifactoryReleaseBundleCustomWebhookArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def handlers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactoryReleaseBundleCustomWebhookHandlerArgs']]]]:
-        """
-        At least one is required.
-        """
-        return pulumi.get(self, "handlers")
-
-    @handlers.setter
-    def handlers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactoryReleaseBundleCustomWebhookHandlerArgs']]]]):
-        pulumi.set(self, "handlers", value)
 
 
 @pulumi.input_type
@@ -362,12 +360,16 @@ class ArtifactoryReleaseBundleCustomWebhook(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ArtifactoryReleaseBundleCustomWebhookArgs.__new__(ArtifactoryReleaseBundleCustomWebhookArgs)
 
+            if criteria is None and not opts.urn:
+                raise TypeError("Missing required property 'criteria'")
             __props__.__dict__["criteria"] = criteria
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
             if event_types is None and not opts.urn:
                 raise TypeError("Missing required property 'event_types'")
             __props__.__dict__["event_types"] = event_types
+            if handlers is None and not opts.urn:
+                raise TypeError("Missing required property 'handlers'")
             __props__.__dict__["handlers"] = handlers
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
@@ -416,7 +418,7 @@ class ArtifactoryReleaseBundleCustomWebhook(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def criteria(self) -> pulumi.Output[Optional['outputs.ArtifactoryReleaseBundleCustomWebhookCriteria']]:
+    def criteria(self) -> pulumi.Output['outputs.ArtifactoryReleaseBundleCustomWebhookCriteria']:
         """
         Specifies where the webhook will be applied on which repositories.
         """
@@ -448,7 +450,7 @@ class ArtifactoryReleaseBundleCustomWebhook(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def handlers(self) -> pulumi.Output[Optional[Sequence['outputs.ArtifactoryReleaseBundleCustomWebhookHandler']]]:
+    def handlers(self) -> pulumi.Output[Sequence['outputs.ArtifactoryReleaseBundleCustomWebhookHandler']]:
         """
         At least one is required.
         """

@@ -97,14 +97,14 @@ public class DockerCustomWebhook extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="criteria", refs={DockerCustomWebhookCriteria.class}, tree="[0]")
-    private Output</* @Nullable */ DockerCustomWebhookCriteria> criteria;
+    private Output<DockerCustomWebhookCriteria> criteria;
 
     /**
      * @return Specifies where the webhook will be applied on which repositories.
      * 
      */
-    public Output<Optional<DockerCustomWebhookCriteria>> criteria() {
-        return Codegen.optional(this.criteria);
+    public Output<DockerCustomWebhookCriteria> criteria() {
+        return this.criteria;
     }
     /**
      * Webhook description. Max length 1000 characters.
@@ -153,14 +153,14 @@ public class DockerCustomWebhook extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="handlers", refs={List.class,DockerCustomWebhookHandler.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<DockerCustomWebhookHandler>> handlers;
+    private Output<List<DockerCustomWebhookHandler>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Output<Optional<List<DockerCustomWebhookHandler>>> handlers() {
-        return Codegen.optional(this.handlers);
+    public Output<List<DockerCustomWebhookHandler>> handlers() {
+        return this.handlers;
     }
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
