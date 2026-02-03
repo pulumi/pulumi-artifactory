@@ -117,14 +117,14 @@ public class ArtifactLifecycleWebhook extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="handlers", refs={List.class,ArtifactLifecycleWebhookHandler.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<ArtifactLifecycleWebhookHandler>> handlers;
+    private Output<List<ArtifactLifecycleWebhookHandler>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Output<Optional<List<ArtifactLifecycleWebhookHandler>>> handlers() {
-        return Codegen.optional(this.handlers);
+    public Output<List<ArtifactLifecycleWebhookHandler>> handlers() {
+        return this.handlers;
     }
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.

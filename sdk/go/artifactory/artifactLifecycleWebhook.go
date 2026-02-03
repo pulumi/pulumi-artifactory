@@ -80,6 +80,9 @@ func NewArtifactLifecycleWebhook(ctx *pulumi.Context,
 	if args.EventTypes == nil {
 		return nil, errors.New("invalid value for required argument 'EventTypes'")
 	}
+	if args.Handlers == nil {
+		return nil, errors.New("invalid value for required argument 'Handlers'")
+	}
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
 	}

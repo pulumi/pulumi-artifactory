@@ -119,7 +119,7 @@ namespace Pulumi.Artifactory
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public PropertySet(string name, PropertySetArgs? args = null, CustomResourceOptions? options = null)
+        public PropertySet(string name, PropertySetArgs args, CustomResourceOptions? options = null)
             : base("artifactory:index/propertySet:PropertySet", name, args ?? new PropertySetArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -163,7 +163,7 @@ namespace Pulumi.Artifactory
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("properties")]
+        [Input("properties", required: true)]
         private InputList<Inputs.PropertySetPropertyArgs>? _properties;
 
         /// <summary>

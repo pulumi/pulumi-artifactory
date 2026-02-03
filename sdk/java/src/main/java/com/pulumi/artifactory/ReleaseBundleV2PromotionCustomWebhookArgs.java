@@ -24,15 +24,15 @@ public final class ReleaseBundleV2PromotionCustomWebhookArgs extends com.pulumi.
      * Specifies where the webhook will be applied on which enviroments.
      * 
      */
-    @Import(name="criteria")
-    private @Nullable Output<ReleaseBundleV2PromotionCustomWebhookCriteriaArgs> criteria;
+    @Import(name="criteria", required=true)
+    private Output<ReleaseBundleV2PromotionCustomWebhookCriteriaArgs> criteria;
 
     /**
      * @return Specifies where the webhook will be applied on which enviroments.
      * 
      */
-    public Optional<Output<ReleaseBundleV2PromotionCustomWebhookCriteriaArgs>> criteria() {
-        return Optional.ofNullable(this.criteria);
+    public Output<ReleaseBundleV2PromotionCustomWebhookCriteriaArgs> criteria() {
+        return this.criteria;
     }
 
     /**
@@ -84,15 +84,15 @@ public final class ReleaseBundleV2PromotionCustomWebhookArgs extends com.pulumi.
      * At least one is required.
      * 
      */
-    @Import(name="handlers")
-    private @Nullable Output<List<ReleaseBundleV2PromotionCustomWebhookHandlerArgs>> handlers;
+    @Import(name="handlers", required=true)
+    private Output<List<ReleaseBundleV2PromotionCustomWebhookHandlerArgs>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Optional<Output<List<ReleaseBundleV2PromotionCustomWebhookHandlerArgs>>> handlers() {
-        return Optional.ofNullable(this.handlers);
+    public Output<List<ReleaseBundleV2PromotionCustomWebhookHandlerArgs>> handlers() {
+        return this.handlers;
     }
 
     /**
@@ -145,7 +145,7 @@ public final class ReleaseBundleV2PromotionCustomWebhookArgs extends com.pulumi.
          * @return builder
          * 
          */
-        public Builder criteria(@Nullable Output<ReleaseBundleV2PromotionCustomWebhookCriteriaArgs> criteria) {
+        public Builder criteria(Output<ReleaseBundleV2PromotionCustomWebhookCriteriaArgs> criteria) {
             $.criteria = criteria;
             return this;
         }
@@ -239,7 +239,7 @@ public final class ReleaseBundleV2PromotionCustomWebhookArgs extends com.pulumi.
          * @return builder
          * 
          */
-        public Builder handlers(@Nullable Output<List<ReleaseBundleV2PromotionCustomWebhookHandlerArgs>> handlers) {
+        public Builder handlers(Output<List<ReleaseBundleV2PromotionCustomWebhookHandlerArgs>> handlers) {
             $.handlers = handlers;
             return this;
         }
@@ -286,8 +286,14 @@ public final class ReleaseBundleV2PromotionCustomWebhookArgs extends com.pulumi.
         }
 
         public ReleaseBundleV2PromotionCustomWebhookArgs build() {
+            if ($.criteria == null) {
+                throw new MissingRequiredPropertyException("ReleaseBundleV2PromotionCustomWebhookArgs", "criteria");
+            }
             if ($.eventTypes == null) {
                 throw new MissingRequiredPropertyException("ReleaseBundleV2PromotionCustomWebhookArgs", "eventTypes");
+            }
+            if ($.handlers == null) {
+                throw new MissingRequiredPropertyException("ReleaseBundleV2PromotionCustomWebhookArgs", "handlers");
             }
             if ($.key == null) {
                 throw new MissingRequiredPropertyException("ReleaseBundleV2PromotionCustomWebhookArgs", "key");

@@ -78,7 +78,7 @@ type ArtifactoryReleaseBundleCustomWebhook struct {
 	pulumi.CustomResourceState
 
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria ArtifactoryReleaseBundleCustomWebhookCriteriaPtrOutput `pulumi:"criteria"`
+	Criteria ArtifactoryReleaseBundleCustomWebhookCriteriaOutput `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Status of webhook. Default to `true`
@@ -98,8 +98,14 @@ func NewArtifactoryReleaseBundleCustomWebhook(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Criteria == nil {
+		return nil, errors.New("invalid value for required argument 'Criteria'")
+	}
 	if args.EventTypes == nil {
 		return nil, errors.New("invalid value for required argument 'EventTypes'")
+	}
+	if args.Handlers == nil {
+		return nil, errors.New("invalid value for required argument 'Handlers'")
 	}
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
@@ -162,7 +168,7 @@ func (ArtifactoryReleaseBundleCustomWebhookState) ElementType() reflect.Type {
 
 type artifactoryReleaseBundleCustomWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria *ArtifactoryReleaseBundleCustomWebhookCriteria `pulumi:"criteria"`
+	Criteria ArtifactoryReleaseBundleCustomWebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
 	// Status of webhook. Default to `true`
@@ -178,7 +184,7 @@ type artifactoryReleaseBundleCustomWebhookArgs struct {
 // The set of arguments for constructing a ArtifactoryReleaseBundleCustomWebhook resource.
 type ArtifactoryReleaseBundleCustomWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria ArtifactoryReleaseBundleCustomWebhookCriteriaPtrInput
+	Criteria ArtifactoryReleaseBundleCustomWebhookCriteriaInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
 	// Status of webhook. Default to `true`
@@ -279,10 +285,10 @@ func (o ArtifactoryReleaseBundleCustomWebhookOutput) ToArtifactoryReleaseBundleC
 }
 
 // Specifies where the webhook will be applied on which repositories.
-func (o ArtifactoryReleaseBundleCustomWebhookOutput) Criteria() ArtifactoryReleaseBundleCustomWebhookCriteriaPtrOutput {
-	return o.ApplyT(func(v *ArtifactoryReleaseBundleCustomWebhook) ArtifactoryReleaseBundleCustomWebhookCriteriaPtrOutput {
+func (o ArtifactoryReleaseBundleCustomWebhookOutput) Criteria() ArtifactoryReleaseBundleCustomWebhookCriteriaOutput {
+	return o.ApplyT(func(v *ArtifactoryReleaseBundleCustomWebhook) ArtifactoryReleaseBundleCustomWebhookCriteriaOutput {
 		return v.Criteria
-	}).(ArtifactoryReleaseBundleCustomWebhookCriteriaPtrOutput)
+	}).(ArtifactoryReleaseBundleCustomWebhookCriteriaOutput)
 }
 
 // Webhook description. Max length 1000 characters.

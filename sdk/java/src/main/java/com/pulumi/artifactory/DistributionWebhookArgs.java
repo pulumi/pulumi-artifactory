@@ -24,15 +24,15 @@ public final class DistributionWebhookArgs extends com.pulumi.resources.Resource
      * Specifies where the webhook will be applied on which repositories.
      * 
      */
-    @Import(name="criteria")
-    private @Nullable Output<DistributionWebhookCriteriaArgs> criteria;
+    @Import(name="criteria", required=true)
+    private Output<DistributionWebhookCriteriaArgs> criteria;
 
     /**
      * @return Specifies where the webhook will be applied on which repositories.
      * 
      */
-    public Optional<Output<DistributionWebhookCriteriaArgs>> criteria() {
-        return Optional.ofNullable(this.criteria);
+    public Output<DistributionWebhookCriteriaArgs> criteria() {
+        return this.criteria;
     }
 
     /**
@@ -84,15 +84,15 @@ public final class DistributionWebhookArgs extends com.pulumi.resources.Resource
      * At least one is required.
      * 
      */
-    @Import(name="handlers")
-    private @Nullable Output<List<DistributionWebhookHandlerArgs>> handlers;
+    @Import(name="handlers", required=true)
+    private Output<List<DistributionWebhookHandlerArgs>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Optional<Output<List<DistributionWebhookHandlerArgs>>> handlers() {
-        return Optional.ofNullable(this.handlers);
+    public Output<List<DistributionWebhookHandlerArgs>> handlers() {
+        return this.handlers;
     }
 
     /**
@@ -145,7 +145,7 @@ public final class DistributionWebhookArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder criteria(@Nullable Output<DistributionWebhookCriteriaArgs> criteria) {
+        public Builder criteria(Output<DistributionWebhookCriteriaArgs> criteria) {
             $.criteria = criteria;
             return this;
         }
@@ -239,7 +239,7 @@ public final class DistributionWebhookArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder handlers(@Nullable Output<List<DistributionWebhookHandlerArgs>> handlers) {
+        public Builder handlers(Output<List<DistributionWebhookHandlerArgs>> handlers) {
             $.handlers = handlers;
             return this;
         }
@@ -286,8 +286,14 @@ public final class DistributionWebhookArgs extends com.pulumi.resources.Resource
         }
 
         public DistributionWebhookArgs build() {
+            if ($.criteria == null) {
+                throw new MissingRequiredPropertyException("DistributionWebhookArgs", "criteria");
+            }
             if ($.eventTypes == null) {
                 throw new MissingRequiredPropertyException("DistributionWebhookArgs", "eventTypes");
+            }
+            if ($.handlers == null) {
+                throw new MissingRequiredPropertyException("DistributionWebhookArgs", "handlers");
             }
             if ($.key == null) {
                 throw new MissingRequiredPropertyException("DistributionWebhookArgs", "key");

@@ -119,14 +119,14 @@ public class UserCustomWebhook extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="handlers", refs={List.class,UserCustomWebhookHandler.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<UserCustomWebhookHandler>> handlers;
+    private Output<List<UserCustomWebhookHandler>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Output<Optional<List<UserCustomWebhookHandler>>> handlers() {
-        return Codegen.optional(this.handlers);
+    public Output<List<UserCustomWebhookHandler>> handlers() {
+        return this.handlers;
     }
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.

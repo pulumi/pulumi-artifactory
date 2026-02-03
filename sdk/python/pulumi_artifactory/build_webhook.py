@@ -21,31 +21,41 @@ __all__ = ['BuildWebhookArgs', 'BuildWebhook']
 @pulumi.input_type
 class BuildWebhookArgs:
     def __init__(__self__, *,
+                 criteria: pulumi.Input['BuildWebhookCriteriaArgs'],
                  event_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 handlers: pulumi.Input[Sequence[pulumi.Input['BuildWebhookHandlerArgs']]],
                  key: pulumi.Input[_builtins.str],
-                 criteria: Optional[pulumi.Input['BuildWebhookCriteriaArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input['BuildWebhookHandlerArgs']]]] = None):
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a BuildWebhook resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `uploaded`, `deleted`, `promoted`.
-        :param pulumi.Input[_builtins.str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         :param pulumi.Input['BuildWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `uploaded`, `deleted`, `promoted`.
+        :param pulumi.Input[Sequence[pulumi.Input['BuildWebhookHandlerArgs']]] handlers: At least one is required.
+        :param pulumi.Input[_builtins.str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[_builtins.bool] enabled: Status of webhook. Default to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['BuildWebhookHandlerArgs']]] handlers: At least one is required.
         """
+        pulumi.set(__self__, "criteria", criteria)
         pulumi.set(__self__, "event_types", event_types)
+        pulumi.set(__self__, "handlers", handlers)
         pulumi.set(__self__, "key", key)
-        if criteria is not None:
-            pulumi.set(__self__, "criteria", criteria)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if handlers is not None:
-            pulumi.set(__self__, "handlers", handlers)
+
+    @_builtins.property
+    @pulumi.getter
+    def criteria(self) -> pulumi.Input['BuildWebhookCriteriaArgs']:
+        """
+        Specifies where the webhook will be applied on which repositories.
+        """
+        return pulumi.get(self, "criteria")
+
+    @criteria.setter
+    def criteria(self, value: pulumi.Input['BuildWebhookCriteriaArgs']):
+        pulumi.set(self, "criteria", value)
 
     @_builtins.property
     @pulumi.getter(name="eventTypes")
@@ -61,6 +71,18 @@ class BuildWebhookArgs:
 
     @_builtins.property
     @pulumi.getter
+    def handlers(self) -> pulumi.Input[Sequence[pulumi.Input['BuildWebhookHandlerArgs']]]:
+        """
+        At least one is required.
+        """
+        return pulumi.get(self, "handlers")
+
+    @handlers.setter
+    def handlers(self, value: pulumi.Input[Sequence[pulumi.Input['BuildWebhookHandlerArgs']]]):
+        pulumi.set(self, "handlers", value)
+
+    @_builtins.property
+    @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
         """
         The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
@@ -70,18 +92,6 @@ class BuildWebhookArgs:
     @key.setter
     def key(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "key", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def criteria(self) -> Optional[pulumi.Input['BuildWebhookCriteriaArgs']]:
-        """
-        Specifies where the webhook will be applied on which repositories.
-        """
-        return pulumi.get(self, "criteria")
-
-    @criteria.setter
-    def criteria(self, value: Optional[pulumi.Input['BuildWebhookCriteriaArgs']]):
-        pulumi.set(self, "criteria", value)
 
     @_builtins.property
     @pulumi.getter
@@ -106,18 +116,6 @@ class BuildWebhookArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def handlers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildWebhookHandlerArgs']]]]:
-        """
-        At least one is required.
-        """
-        return pulumi.get(self, "handlers")
-
-    @handlers.setter
-    def handlers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildWebhookHandlerArgs']]]]):
-        pulumi.set(self, "handlers", value)
 
 
 @pulumi.input_type
@@ -348,12 +346,16 @@ class BuildWebhook(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BuildWebhookArgs.__new__(BuildWebhookArgs)
 
+            if criteria is None and not opts.urn:
+                raise TypeError("Missing required property 'criteria'")
             __props__.__dict__["criteria"] = criteria
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
             if event_types is None and not opts.urn:
                 raise TypeError("Missing required property 'event_types'")
             __props__.__dict__["event_types"] = event_types
+            if handlers is None and not opts.urn:
+                raise TypeError("Missing required property 'handlers'")
             __props__.__dict__["handlers"] = handlers
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
@@ -402,7 +404,7 @@ class BuildWebhook(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def criteria(self) -> pulumi.Output[Optional['outputs.BuildWebhookCriteria']]:
+    def criteria(self) -> pulumi.Output['outputs.BuildWebhookCriteria']:
         """
         Specifies where the webhook will be applied on which repositories.
         """
@@ -434,7 +436,7 @@ class BuildWebhook(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def handlers(self) -> pulumi.Output[Optional[Sequence['outputs.BuildWebhookHandler']]]:
+    def handlers(self) -> pulumi.Output[Sequence['outputs.BuildWebhookHandler']]:
         """
         At least one is required.
         """

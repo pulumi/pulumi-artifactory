@@ -87,14 +87,14 @@ public class BuildCustomWebhook extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="criteria", refs={BuildCustomWebhookCriteria.class}, tree="[0]")
-    private Output</* @Nullable */ BuildCustomWebhookCriteria> criteria;
+    private Output<BuildCustomWebhookCriteria> criteria;
 
     /**
      * @return Specifies where the webhook will be applied on which repositories.
      * 
      */
-    public Output<Optional<BuildCustomWebhookCriteria>> criteria() {
-        return Codegen.optional(this.criteria);
+    public Output<BuildCustomWebhookCriteria> criteria() {
+        return this.criteria;
     }
     /**
      * Webhook description. Max length 1000 characters.
@@ -143,14 +143,14 @@ public class BuildCustomWebhook extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="handlers", refs={List.class,BuildCustomWebhookHandler.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<BuildCustomWebhookHandler>> handlers;
+    private Output<List<BuildCustomWebhookHandler>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Output<Optional<List<BuildCustomWebhookHandler>>> handlers() {
-        return Codegen.optional(this.handlers);
+    public Output<List<BuildCustomWebhookHandler>> handlers() {
+        return this.handlers;
     }
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.

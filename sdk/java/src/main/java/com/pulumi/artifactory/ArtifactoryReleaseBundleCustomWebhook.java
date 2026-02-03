@@ -90,14 +90,14 @@ public class ArtifactoryReleaseBundleCustomWebhook extends com.pulumi.resources.
      * 
      */
     @Export(name="criteria", refs={ArtifactoryReleaseBundleCustomWebhookCriteria.class}, tree="[0]")
-    private Output</* @Nullable */ ArtifactoryReleaseBundleCustomWebhookCriteria> criteria;
+    private Output<ArtifactoryReleaseBundleCustomWebhookCriteria> criteria;
 
     /**
      * @return Specifies where the webhook will be applied on which repositories.
      * 
      */
-    public Output<Optional<ArtifactoryReleaseBundleCustomWebhookCriteria>> criteria() {
-        return Codegen.optional(this.criteria);
+    public Output<ArtifactoryReleaseBundleCustomWebhookCriteria> criteria() {
+        return this.criteria;
     }
     /**
      * Webhook description. Max length 1000 characters.
@@ -146,14 +146,14 @@ public class ArtifactoryReleaseBundleCustomWebhook extends com.pulumi.resources.
      * 
      */
     @Export(name="handlers", refs={List.class,ArtifactoryReleaseBundleCustomWebhookHandler.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<ArtifactoryReleaseBundleCustomWebhookHandler>> handlers;
+    private Output<List<ArtifactoryReleaseBundleCustomWebhookHandler>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Output<Optional<List<ArtifactoryReleaseBundleCustomWebhookHandler>>> handlers() {
-        return Codegen.optional(this.handlers);
+    public Output<List<ArtifactoryReleaseBundleCustomWebhookHandler>> handlers() {
+        return this.handlers;
     }
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.

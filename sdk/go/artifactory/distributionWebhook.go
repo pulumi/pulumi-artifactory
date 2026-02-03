@@ -76,7 +76,7 @@ type DistributionWebhook struct {
 	pulumi.CustomResourceState
 
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria DistributionWebhookCriteriaPtrOutput `pulumi:"criteria"`
+	Criteria DistributionWebhookCriteriaOutput `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Status of webhook. Default to `true`.
@@ -96,8 +96,14 @@ func NewDistributionWebhook(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Criteria == nil {
+		return nil, errors.New("invalid value for required argument 'Criteria'")
+	}
 	if args.EventTypes == nil {
 		return nil, errors.New("invalid value for required argument 'EventTypes'")
+	}
+	if args.Handlers == nil {
+		return nil, errors.New("invalid value for required argument 'Handlers'")
 	}
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
@@ -160,7 +166,7 @@ func (DistributionWebhookState) ElementType() reflect.Type {
 
 type distributionWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria *DistributionWebhookCriteria `pulumi:"criteria"`
+	Criteria DistributionWebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
 	// Status of webhook. Default to `true`.
@@ -176,7 +182,7 @@ type distributionWebhookArgs struct {
 // The set of arguments for constructing a DistributionWebhook resource.
 type DistributionWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria DistributionWebhookCriteriaPtrInput
+	Criteria DistributionWebhookCriteriaInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
 	// Status of webhook. Default to `true`.
@@ -277,8 +283,8 @@ func (o DistributionWebhookOutput) ToDistributionWebhookOutputWithContext(ctx co
 }
 
 // Specifies where the webhook will be applied on which repositories.
-func (o DistributionWebhookOutput) Criteria() DistributionWebhookCriteriaPtrOutput {
-	return o.ApplyT(func(v *DistributionWebhook) DistributionWebhookCriteriaPtrOutput { return v.Criteria }).(DistributionWebhookCriteriaPtrOutput)
+func (o DistributionWebhookOutput) Criteria() DistributionWebhookCriteriaOutput {
+	return o.ApplyT(func(v *DistributionWebhook) DistributionWebhookCriteriaOutput { return v.Criteria }).(DistributionWebhookCriteriaOutput)
 }
 
 // Webhook description. Max length 1000 characters.

@@ -68,15 +68,15 @@ public final class ArtifactLifecycleWebhookArgs extends com.pulumi.resources.Res
      * At least one is required.
      * 
      */
-    @Import(name="handlers")
-    private @Nullable Output<List<ArtifactLifecycleWebhookHandlerArgs>> handlers;
+    @Import(name="handlers", required=true)
+    private Output<List<ArtifactLifecycleWebhookHandlerArgs>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Optional<Output<List<ArtifactLifecycleWebhookHandlerArgs>>> handlers() {
-        return Optional.ofNullable(this.handlers);
+    public Output<List<ArtifactLifecycleWebhookHandlerArgs>> handlers() {
+        return this.handlers;
     }
 
     /**
@@ -201,7 +201,7 @@ public final class ArtifactLifecycleWebhookArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder handlers(@Nullable Output<List<ArtifactLifecycleWebhookHandlerArgs>> handlers) {
+        public Builder handlers(Output<List<ArtifactLifecycleWebhookHandlerArgs>> handlers) {
             $.handlers = handlers;
             return this;
         }
@@ -250,6 +250,9 @@ public final class ArtifactLifecycleWebhookArgs extends com.pulumi.resources.Res
         public ArtifactLifecycleWebhookArgs build() {
             if ($.eventTypes == null) {
                 throw new MissingRequiredPropertyException("ArtifactLifecycleWebhookArgs", "eventTypes");
+            }
+            if ($.handlers == null) {
+                throw new MissingRequiredPropertyException("ArtifactLifecycleWebhookArgs", "handlers");
             }
             if ($.key == null) {
                 throw new MissingRequiredPropertyException("ArtifactLifecycleWebhookArgs", "key");

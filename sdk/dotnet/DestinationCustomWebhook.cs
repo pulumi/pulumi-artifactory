@@ -80,7 +80,7 @@ namespace Pulumi.Artifactory
         /// Specifies where the webhook will be applied on which repositories.
         /// </summary>
         [Output("criteria")]
-        public Output<Outputs.DestinationCustomWebhookCriteria?> Criteria { get; private set; } = null!;
+        public Output<Outputs.DestinationCustomWebhookCriteria> Criteria { get; private set; } = null!;
 
         /// <summary>
         /// Webhook description. Max length 1000 characters.
@@ -161,8 +161,8 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Specifies where the webhook will be applied on which repositories.
         /// </summary>
-        [Input("criteria")]
-        public Input<Inputs.DestinationCustomWebhookCriteriaArgs>? Criteria { get; set; }
+        [Input("criteria", required: true)]
+        public Input<Inputs.DestinationCustomWebhookCriteriaArgs> Criteria { get; set; } = null!;
 
         /// <summary>
         /// Webhook description. Max length 1000 characters.
@@ -188,7 +188,7 @@ namespace Pulumi.Artifactory
             set => _eventTypes = value;
         }
 
-        [Input("handlers")]
+        [Input("handlers", required: true)]
         private InputList<Inputs.DestinationCustomWebhookHandlerArgs>? _handlers;
 
         /// <summary>
