@@ -83,7 +83,7 @@ type ArtifactWebhook struct {
 	pulumi.CustomResourceState
 
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria ArtifactWebhookCriteriaPtrOutput `pulumi:"criteria"`
+	Criteria ArtifactWebhookCriteriaOutput `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Status of webhook. Default to `true`.
@@ -103,8 +103,14 @@ func NewArtifactWebhook(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Criteria == nil {
+		return nil, errors.New("invalid value for required argument 'Criteria'")
+	}
 	if args.EventTypes == nil {
 		return nil, errors.New("invalid value for required argument 'EventTypes'")
+	}
+	if args.Handlers == nil {
+		return nil, errors.New("invalid value for required argument 'Handlers'")
 	}
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
@@ -167,7 +173,7 @@ func (ArtifactWebhookState) ElementType() reflect.Type {
 
 type artifactWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria *ArtifactWebhookCriteria `pulumi:"criteria"`
+	Criteria ArtifactWebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
 	// Status of webhook. Default to `true`.
@@ -183,7 +189,7 @@ type artifactWebhookArgs struct {
 // The set of arguments for constructing a ArtifactWebhook resource.
 type ArtifactWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria ArtifactWebhookCriteriaPtrInput
+	Criteria ArtifactWebhookCriteriaInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
 	// Status of webhook. Default to `true`.
@@ -284,8 +290,8 @@ func (o ArtifactWebhookOutput) ToArtifactWebhookOutputWithContext(ctx context.Co
 }
 
 // Specifies where the webhook will be applied on which repositories.
-func (o ArtifactWebhookOutput) Criteria() ArtifactWebhookCriteriaPtrOutput {
-	return o.ApplyT(func(v *ArtifactWebhook) ArtifactWebhookCriteriaPtrOutput { return v.Criteria }).(ArtifactWebhookCriteriaPtrOutput)
+func (o ArtifactWebhookOutput) Criteria() ArtifactWebhookCriteriaOutput {
+	return o.ApplyT(func(v *ArtifactWebhook) ArtifactWebhookCriteriaOutput { return v.Criteria }).(ArtifactWebhookCriteriaOutput)
 }
 
 // Webhook description. Max length 1000 characters.

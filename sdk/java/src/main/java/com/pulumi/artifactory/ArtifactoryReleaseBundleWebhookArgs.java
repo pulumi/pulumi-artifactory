@@ -24,15 +24,15 @@ public final class ArtifactoryReleaseBundleWebhookArgs extends com.pulumi.resour
      * Specifies where the webhook will be applied on which repositories.
      * 
      */
-    @Import(name="criteria")
-    private @Nullable Output<ArtifactoryReleaseBundleWebhookCriteriaArgs> criteria;
+    @Import(name="criteria", required=true)
+    private Output<ArtifactoryReleaseBundleWebhookCriteriaArgs> criteria;
 
     /**
      * @return Specifies where the webhook will be applied on which repositories.
      * 
      */
-    public Optional<Output<ArtifactoryReleaseBundleWebhookCriteriaArgs>> criteria() {
-        return Optional.ofNullable(this.criteria);
+    public Output<ArtifactoryReleaseBundleWebhookCriteriaArgs> criteria() {
+        return this.criteria;
     }
 
     /**
@@ -84,15 +84,15 @@ public final class ArtifactoryReleaseBundleWebhookArgs extends com.pulumi.resour
      * At least one is required.
      * 
      */
-    @Import(name="handlers")
-    private @Nullable Output<List<ArtifactoryReleaseBundleWebhookHandlerArgs>> handlers;
+    @Import(name="handlers", required=true)
+    private Output<List<ArtifactoryReleaseBundleWebhookHandlerArgs>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Optional<Output<List<ArtifactoryReleaseBundleWebhookHandlerArgs>>> handlers() {
-        return Optional.ofNullable(this.handlers);
+    public Output<List<ArtifactoryReleaseBundleWebhookHandlerArgs>> handlers() {
+        return this.handlers;
     }
 
     /**
@@ -145,7 +145,7 @@ public final class ArtifactoryReleaseBundleWebhookArgs extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder criteria(@Nullable Output<ArtifactoryReleaseBundleWebhookCriteriaArgs> criteria) {
+        public Builder criteria(Output<ArtifactoryReleaseBundleWebhookCriteriaArgs> criteria) {
             $.criteria = criteria;
             return this;
         }
@@ -239,7 +239,7 @@ public final class ArtifactoryReleaseBundleWebhookArgs extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder handlers(@Nullable Output<List<ArtifactoryReleaseBundleWebhookHandlerArgs>> handlers) {
+        public Builder handlers(Output<List<ArtifactoryReleaseBundleWebhookHandlerArgs>> handlers) {
             $.handlers = handlers;
             return this;
         }
@@ -286,8 +286,14 @@ public final class ArtifactoryReleaseBundleWebhookArgs extends com.pulumi.resour
         }
 
         public ArtifactoryReleaseBundleWebhookArgs build() {
+            if ($.criteria == null) {
+                throw new MissingRequiredPropertyException("ArtifactoryReleaseBundleWebhookArgs", "criteria");
+            }
             if ($.eventTypes == null) {
                 throw new MissingRequiredPropertyException("ArtifactoryReleaseBundleWebhookArgs", "eventTypes");
+            }
+            if ($.handlers == null) {
+                throw new MissingRequiredPropertyException("ArtifactoryReleaseBundleWebhookArgs", "handlers");
             }
             if ($.key == null) {
                 throw new MissingRequiredPropertyException("ArtifactoryReleaseBundleWebhookArgs", "key");

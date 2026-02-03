@@ -78,7 +78,7 @@ export class ArtifactoryReleaseBundleCustomWebhook extends pulumi.CustomResource
     /**
      * Specifies where the webhook will be applied on which repositories.
      */
-    declare public readonly criteria: pulumi.Output<outputs.ArtifactoryReleaseBundleCustomWebhookCriteria | undefined>;
+    declare public readonly criteria: pulumi.Output<outputs.ArtifactoryReleaseBundleCustomWebhookCriteria>;
     /**
      * Webhook description. Max length 1000 characters.
      */
@@ -94,7 +94,7 @@ export class ArtifactoryReleaseBundleCustomWebhook extends pulumi.CustomResource
     /**
      * At least one is required.
      */
-    declare public readonly handlers: pulumi.Output<outputs.ArtifactoryReleaseBundleCustomWebhookHandler[] | undefined>;
+    declare public readonly handlers: pulumi.Output<outputs.ArtifactoryReleaseBundleCustomWebhookHandler[]>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
@@ -121,8 +121,14 @@ export class ArtifactoryReleaseBundleCustomWebhook extends pulumi.CustomResource
             resourceInputs["key"] = state?.key;
         } else {
             const args = argsOrState as ArtifactoryReleaseBundleCustomWebhookArgs | undefined;
+            if (args?.criteria === undefined && !opts.urn) {
+                throw new Error("Missing required property 'criteria'");
+            }
             if (args?.eventTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventTypes'");
+            }
+            if (args?.handlers === undefined && !opts.urn) {
+                throw new Error("Missing required property 'handlers'");
             }
             if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
@@ -176,7 +182,7 @@ export interface ArtifactoryReleaseBundleCustomWebhookArgs {
     /**
      * Specifies where the webhook will be applied on which repositories.
      */
-    criteria?: pulumi.Input<inputs.ArtifactoryReleaseBundleCustomWebhookCriteria>;
+    criteria: pulumi.Input<inputs.ArtifactoryReleaseBundleCustomWebhookCriteria>;
     /**
      * Webhook description. Max length 1000 characters.
      */
@@ -192,7 +198,7 @@ export interface ArtifactoryReleaseBundleCustomWebhookArgs {
     /**
      * At least one is required.
      */
-    handlers?: pulumi.Input<pulumi.Input<inputs.ArtifactoryReleaseBundleCustomWebhookHandler>[]>;
+    handlers: pulumi.Input<pulumi.Input<inputs.ArtifactoryReleaseBundleCustomWebhookHandler>[]>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */

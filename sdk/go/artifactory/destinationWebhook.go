@@ -73,7 +73,7 @@ type DestinationWebhook struct {
 	pulumi.CustomResourceState
 
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria DestinationWebhookCriteriaPtrOutput `pulumi:"criteria"`
+	Criteria DestinationWebhookCriteriaOutput `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Status of webhook. Default to `true`
@@ -93,8 +93,14 @@ func NewDestinationWebhook(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Criteria == nil {
+		return nil, errors.New("invalid value for required argument 'Criteria'")
+	}
 	if args.EventTypes == nil {
 		return nil, errors.New("invalid value for required argument 'EventTypes'")
+	}
+	if args.Handlers == nil {
+		return nil, errors.New("invalid value for required argument 'Handlers'")
 	}
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
@@ -157,7 +163,7 @@ func (DestinationWebhookState) ElementType() reflect.Type {
 
 type destinationWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria *DestinationWebhookCriteria `pulumi:"criteria"`
+	Criteria DestinationWebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
 	// Status of webhook. Default to `true`
@@ -173,7 +179,7 @@ type destinationWebhookArgs struct {
 // The set of arguments for constructing a DestinationWebhook resource.
 type DestinationWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria DestinationWebhookCriteriaPtrInput
+	Criteria DestinationWebhookCriteriaInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
 	// Status of webhook. Default to `true`
@@ -274,8 +280,8 @@ func (o DestinationWebhookOutput) ToDestinationWebhookOutputWithContext(ctx cont
 }
 
 // Specifies where the webhook will be applied on which repositories.
-func (o DestinationWebhookOutput) Criteria() DestinationWebhookCriteriaPtrOutput {
-	return o.ApplyT(func(v *DestinationWebhook) DestinationWebhookCriteriaPtrOutput { return v.Criteria }).(DestinationWebhookCriteriaPtrOutput)
+func (o DestinationWebhookOutput) Criteria() DestinationWebhookCriteriaOutput {
+	return o.ApplyT(func(v *DestinationWebhook) DestinationWebhookCriteriaOutput { return v.Criteria }).(DestinationWebhookCriteriaOutput)
 }
 
 // Webhook description. Max length 1000 characters.

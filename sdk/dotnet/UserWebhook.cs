@@ -152,7 +152,7 @@ namespace Pulumi.Artifactory
             set => _eventTypes = value;
         }
 
-        [Input("handlers")]
+        [Input("handlers", required: true)]
         private InputList<Inputs.UserWebhookHandlerArgs>? _handlers;
 
         /// <summary>

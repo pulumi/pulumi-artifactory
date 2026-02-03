@@ -81,7 +81,7 @@ export class ArtifactLifecycleCustomWebhook extends pulumi.CustomResource {
     /**
      * At least one is required.
      */
-    declare public readonly handlers: pulumi.Output<outputs.ArtifactLifecycleCustomWebhookHandler[] | undefined>;
+    declare public readonly handlers: pulumi.Output<outputs.ArtifactLifecycleCustomWebhookHandler[]>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
@@ -109,6 +109,9 @@ export class ArtifactLifecycleCustomWebhook extends pulumi.CustomResource {
             const args = argsOrState as ArtifactLifecycleCustomWebhookArgs | undefined;
             if (args?.eventTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventTypes'");
+            }
+            if (args?.handlers === undefined && !opts.urn) {
+                throw new Error("Missing required property 'handlers'");
             }
             if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
@@ -169,7 +172,7 @@ export interface ArtifactLifecycleCustomWebhookArgs {
     /**
      * At least one is required.
      */
-    handlers?: pulumi.Input<pulumi.Input<inputs.ArtifactLifecycleCustomWebhookHandler>[]>;
+    handlers: pulumi.Input<pulumi.Input<inputs.ArtifactLifecycleCustomWebhookHandler>[]>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */

@@ -66,7 +66,7 @@ type ReleaseBundleV2Webhook struct {
 	pulumi.CustomResourceState
 
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria ReleaseBundleV2WebhookCriteriaPtrOutput `pulumi:"criteria"`
+	Criteria ReleaseBundleV2WebhookCriteriaOutput `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Status of webhook. Default to `true`.
@@ -86,8 +86,14 @@ func NewReleaseBundleV2Webhook(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Criteria == nil {
+		return nil, errors.New("invalid value for required argument 'Criteria'")
+	}
 	if args.EventTypes == nil {
 		return nil, errors.New("invalid value for required argument 'EventTypes'")
+	}
+	if args.Handlers == nil {
+		return nil, errors.New("invalid value for required argument 'Handlers'")
 	}
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
@@ -150,7 +156,7 @@ func (ReleaseBundleV2WebhookState) ElementType() reflect.Type {
 
 type releaseBundleV2WebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria *ReleaseBundleV2WebhookCriteria `pulumi:"criteria"`
+	Criteria ReleaseBundleV2WebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
 	// Status of webhook. Default to `true`.
@@ -166,7 +172,7 @@ type releaseBundleV2WebhookArgs struct {
 // The set of arguments for constructing a ReleaseBundleV2Webhook resource.
 type ReleaseBundleV2WebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria ReleaseBundleV2WebhookCriteriaPtrInput
+	Criteria ReleaseBundleV2WebhookCriteriaInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
 	// Status of webhook. Default to `true`.
@@ -267,8 +273,8 @@ func (o ReleaseBundleV2WebhookOutput) ToReleaseBundleV2WebhookOutputWithContext(
 }
 
 // Specifies where the webhook will be applied on which repositories.
-func (o ReleaseBundleV2WebhookOutput) Criteria() ReleaseBundleV2WebhookCriteriaPtrOutput {
-	return o.ApplyT(func(v *ReleaseBundleV2Webhook) ReleaseBundleV2WebhookCriteriaPtrOutput { return v.Criteria }).(ReleaseBundleV2WebhookCriteriaPtrOutput)
+func (o ReleaseBundleV2WebhookOutput) Criteria() ReleaseBundleV2WebhookCriteriaOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2Webhook) ReleaseBundleV2WebhookCriteriaOutput { return v.Criteria }).(ReleaseBundleV2WebhookCriteriaOutput)
 }
 
 // Webhook description. Max length 1000 characters.

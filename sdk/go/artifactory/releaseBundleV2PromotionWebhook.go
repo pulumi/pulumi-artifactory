@@ -66,7 +66,7 @@ type ReleaseBundleV2PromotionWebhook struct {
 	pulumi.CustomResourceState
 
 	// Specifies where the webhook will be applied on which enviroments.
-	Criteria ReleaseBundleV2PromotionWebhookCriteriaPtrOutput `pulumi:"criteria"`
+	Criteria ReleaseBundleV2PromotionWebhookCriteriaOutput `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Status of webhook. Default to `true`
@@ -86,8 +86,14 @@ func NewReleaseBundleV2PromotionWebhook(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Criteria == nil {
+		return nil, errors.New("invalid value for required argument 'Criteria'")
+	}
 	if args.EventTypes == nil {
 		return nil, errors.New("invalid value for required argument 'EventTypes'")
+	}
+	if args.Handlers == nil {
+		return nil, errors.New("invalid value for required argument 'Handlers'")
 	}
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
@@ -150,7 +156,7 @@ func (ReleaseBundleV2PromotionWebhookState) ElementType() reflect.Type {
 
 type releaseBundleV2PromotionWebhookArgs struct {
 	// Specifies where the webhook will be applied on which enviroments.
-	Criteria *ReleaseBundleV2PromotionWebhookCriteria `pulumi:"criteria"`
+	Criteria ReleaseBundleV2PromotionWebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
 	// Status of webhook. Default to `true`
@@ -166,7 +172,7 @@ type releaseBundleV2PromotionWebhookArgs struct {
 // The set of arguments for constructing a ReleaseBundleV2PromotionWebhook resource.
 type ReleaseBundleV2PromotionWebhookArgs struct {
 	// Specifies where the webhook will be applied on which enviroments.
-	Criteria ReleaseBundleV2PromotionWebhookCriteriaPtrInput
+	Criteria ReleaseBundleV2PromotionWebhookCriteriaInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
 	// Status of webhook. Default to `true`
@@ -267,10 +273,10 @@ func (o ReleaseBundleV2PromotionWebhookOutput) ToReleaseBundleV2PromotionWebhook
 }
 
 // Specifies where the webhook will be applied on which enviroments.
-func (o ReleaseBundleV2PromotionWebhookOutput) Criteria() ReleaseBundleV2PromotionWebhookCriteriaPtrOutput {
-	return o.ApplyT(func(v *ReleaseBundleV2PromotionWebhook) ReleaseBundleV2PromotionWebhookCriteriaPtrOutput {
+func (o ReleaseBundleV2PromotionWebhookOutput) Criteria() ReleaseBundleV2PromotionWebhookCriteriaOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2PromotionWebhook) ReleaseBundleV2PromotionWebhookCriteriaOutput {
 		return v.Criteria
-	}).(ReleaseBundleV2PromotionWebhookCriteriaPtrOutput)
+	}).(ReleaseBundleV2PromotionWebhookCriteriaOutput)
 }
 
 // Webhook description. Max length 1000 characters.

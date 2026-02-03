@@ -89,14 +89,14 @@ public class ReleaseBundleCustomWebhook extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="criteria", refs={ReleaseBundleCustomWebhookCriteria.class}, tree="[0]")
-    private Output</* @Nullable */ ReleaseBundleCustomWebhookCriteria> criteria;
+    private Output<ReleaseBundleCustomWebhookCriteria> criteria;
 
     /**
      * @return Specifies where the webhook will be applied on which repositories.
      * 
      */
-    public Output<Optional<ReleaseBundleCustomWebhookCriteria>> criteria() {
-        return Codegen.optional(this.criteria);
+    public Output<ReleaseBundleCustomWebhookCriteria> criteria() {
+        return this.criteria;
     }
     /**
      * Webhook description. Max length 1000 characters.
@@ -145,14 +145,14 @@ public class ReleaseBundleCustomWebhook extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="handlers", refs={List.class,ReleaseBundleCustomWebhookHandler.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<ReleaseBundleCustomWebhookHandler>> handlers;
+    private Output<List<ReleaseBundleCustomWebhookHandler>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Output<Optional<List<ReleaseBundleCustomWebhookHandler>>> handlers() {
-        return Codegen.optional(this.handlers);
+    public Output<List<ReleaseBundleCustomWebhookHandler>> handlers() {
+        return this.handlers;
     }
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.

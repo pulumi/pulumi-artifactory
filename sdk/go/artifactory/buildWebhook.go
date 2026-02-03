@@ -71,7 +71,7 @@ type BuildWebhook struct {
 	pulumi.CustomResourceState
 
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria BuildWebhookCriteriaPtrOutput `pulumi:"criteria"`
+	Criteria BuildWebhookCriteriaOutput `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Status of webhook. Default to `true`.
@@ -91,8 +91,14 @@ func NewBuildWebhook(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Criteria == nil {
+		return nil, errors.New("invalid value for required argument 'Criteria'")
+	}
 	if args.EventTypes == nil {
 		return nil, errors.New("invalid value for required argument 'EventTypes'")
+	}
+	if args.Handlers == nil {
+		return nil, errors.New("invalid value for required argument 'Handlers'")
 	}
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
@@ -155,7 +161,7 @@ func (BuildWebhookState) ElementType() reflect.Type {
 
 type buildWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria *BuildWebhookCriteria `pulumi:"criteria"`
+	Criteria BuildWebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
 	// Status of webhook. Default to `true`.
@@ -171,7 +177,7 @@ type buildWebhookArgs struct {
 // The set of arguments for constructing a BuildWebhook resource.
 type BuildWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria BuildWebhookCriteriaPtrInput
+	Criteria BuildWebhookCriteriaInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
 	// Status of webhook. Default to `true`.
@@ -272,8 +278,8 @@ func (o BuildWebhookOutput) ToBuildWebhookOutputWithContext(ctx context.Context)
 }
 
 // Specifies where the webhook will be applied on which repositories.
-func (o BuildWebhookOutput) Criteria() BuildWebhookCriteriaPtrOutput {
-	return o.ApplyT(func(v *BuildWebhook) BuildWebhookCriteriaPtrOutput { return v.Criteria }).(BuildWebhookCriteriaPtrOutput)
+func (o BuildWebhookOutput) Criteria() BuildWebhookCriteriaOutput {
+	return o.ApplyT(func(v *BuildWebhook) BuildWebhookCriteriaOutput { return v.Criteria }).(BuildWebhookCriteriaOutput)
 }
 
 // Webhook description. Max length 1000 characters.

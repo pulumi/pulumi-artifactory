@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -103,9 +104,12 @@ type PropertySet struct {
 func NewPropertySet(ctx *pulumi.Context,
 	name string, args *PropertySetArgs, opts ...pulumi.ResourceOption) (*PropertySet, error) {
 	if args == nil {
-		args = &PropertySetArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PropertySet
 	err := ctx.RegisterResource("artifactory:index/propertySet:PropertySet", name, args, &resource, opts...)

@@ -76,7 +76,7 @@ export class DistributionWebhook extends pulumi.CustomResource {
     /**
      * Specifies where the webhook will be applied on which repositories.
      */
-    declare public readonly criteria: pulumi.Output<outputs.DistributionWebhookCriteria | undefined>;
+    declare public readonly criteria: pulumi.Output<outputs.DistributionWebhookCriteria>;
     /**
      * Webhook description. Max length 1000 characters.
      */
@@ -92,7 +92,7 @@ export class DistributionWebhook extends pulumi.CustomResource {
     /**
      * At least one is required.
      */
-    declare public readonly handlers: pulumi.Output<outputs.DistributionWebhookHandler[] | undefined>;
+    declare public readonly handlers: pulumi.Output<outputs.DistributionWebhookHandler[]>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
@@ -119,8 +119,14 @@ export class DistributionWebhook extends pulumi.CustomResource {
             resourceInputs["key"] = state?.key;
         } else {
             const args = argsOrState as DistributionWebhookArgs | undefined;
+            if (args?.criteria === undefined && !opts.urn) {
+                throw new Error("Missing required property 'criteria'");
+            }
             if (args?.eventTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventTypes'");
+            }
+            if (args?.handlers === undefined && !opts.urn) {
+                throw new Error("Missing required property 'handlers'");
             }
             if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
@@ -174,7 +180,7 @@ export interface DistributionWebhookArgs {
     /**
      * Specifies where the webhook will be applied on which repositories.
      */
-    criteria?: pulumi.Input<inputs.DistributionWebhookCriteria>;
+    criteria: pulumi.Input<inputs.DistributionWebhookCriteria>;
     /**
      * Webhook description. Max length 1000 characters.
      */
@@ -190,7 +196,7 @@ export interface DistributionWebhookArgs {
     /**
      * At least one is required.
      */
-    handlers?: pulumi.Input<pulumi.Input<inputs.DistributionWebhookHandler>[]>;
+    handlers: pulumi.Input<pulumi.Input<inputs.DistributionWebhookHandler>[]>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */

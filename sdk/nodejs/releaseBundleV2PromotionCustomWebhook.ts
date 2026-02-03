@@ -75,7 +75,7 @@ export class ReleaseBundleV2PromotionCustomWebhook extends pulumi.CustomResource
     /**
      * Specifies where the webhook will be applied on which enviroments.
      */
-    declare public readonly criteria: pulumi.Output<outputs.ReleaseBundleV2PromotionCustomWebhookCriteria | undefined>;
+    declare public readonly criteria: pulumi.Output<outputs.ReleaseBundleV2PromotionCustomWebhookCriteria>;
     /**
      * Webhook description. Max length 1000 characters.
      */
@@ -91,7 +91,7 @@ export class ReleaseBundleV2PromotionCustomWebhook extends pulumi.CustomResource
     /**
      * At least one is required.
      */
-    declare public readonly handlers: pulumi.Output<outputs.ReleaseBundleV2PromotionCustomWebhookHandler[] | undefined>;
+    declare public readonly handlers: pulumi.Output<outputs.ReleaseBundleV2PromotionCustomWebhookHandler[]>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
@@ -118,8 +118,14 @@ export class ReleaseBundleV2PromotionCustomWebhook extends pulumi.CustomResource
             resourceInputs["key"] = state?.key;
         } else {
             const args = argsOrState as ReleaseBundleV2PromotionCustomWebhookArgs | undefined;
+            if (args?.criteria === undefined && !opts.urn) {
+                throw new Error("Missing required property 'criteria'");
+            }
             if (args?.eventTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventTypes'");
+            }
+            if (args?.handlers === undefined && !opts.urn) {
+                throw new Error("Missing required property 'handlers'");
             }
             if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
@@ -173,7 +179,7 @@ export interface ReleaseBundleV2PromotionCustomWebhookArgs {
     /**
      * Specifies where the webhook will be applied on which enviroments.
      */
-    criteria?: pulumi.Input<inputs.ReleaseBundleV2PromotionCustomWebhookCriteria>;
+    criteria: pulumi.Input<inputs.ReleaseBundleV2PromotionCustomWebhookCriteria>;
     /**
      * Webhook description. Max length 1000 characters.
      */
@@ -189,7 +195,7 @@ export interface ReleaseBundleV2PromotionCustomWebhookArgs {
     /**
      * At least one is required.
      */
-    handlers?: pulumi.Input<pulumi.Input<inputs.ReleaseBundleV2PromotionCustomWebhookHandler>[]>;
+    handlers: pulumi.Input<pulumi.Input<inputs.ReleaseBundleV2PromotionCustomWebhookHandler>[]>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
