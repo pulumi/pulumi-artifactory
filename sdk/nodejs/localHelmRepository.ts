@@ -82,11 +82,11 @@ export class LocalHelmRepository extends pulumi.CustomResource {
      */
     declare public readonly excludesPattern: pulumi.Output<string>;
     /**
-     * Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.0 onward. Cannot be updated after it is set.
      */
     declare public readonly forceMetadataNameVersion: pulumi.Output<boolean>;
     /**
-     * Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.0 onward. Cannot be updated after it is set.
      */
     declare public readonly forceNonDuplicateChart: pulumi.Output<boolean>;
     /**
@@ -211,11 +211,11 @@ export interface LocalHelmRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.0 onward. Cannot be updated after it is set.
      */
     forceMetadataNameVersion?: pulumi.Input<boolean>;
     /**
-     * Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.0 onward. Cannot be updated after it is set.
      */
     forceNonDuplicateChart?: pulumi.Input<boolean>;
     /**
@@ -283,11 +283,11 @@ export interface LocalHelmRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.0 onward. Cannot be updated after it is set.
      */
     forceMetadataNameVersion?: pulumi.Input<boolean>;
     /**
-     * Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.0 onward. Cannot be updated after it is set.
      */
     forceNonDuplicateChart?: pulumi.Input<boolean>;
     /**

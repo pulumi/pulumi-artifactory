@@ -53,6 +53,7 @@ class RemoteMavenRepositoryArgs:
                  missed_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  notes: Optional[pulumi.Input[_builtins.str]] = None,
                  offline: Optional[pulumi.Input[_builtins.bool]] = None,
+                 pass_through: Optional[pulumi.Input[_builtins.bool]] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
                  priority_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -108,6 +109,7 @@ class RemoteMavenRepositoryArgs:
         :param pulumi.Input[_builtins.int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
+        :param pulumi.Input[_builtins.bool] pass_through: Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
@@ -187,6 +189,8 @@ class RemoteMavenRepositoryArgs:
             pulumi.set(__self__, "notes", notes)
         if offline is not None:
             pulumi.set(__self__, "offline", offline)
+        if pass_through is not None:
+            pulumi.set(__self__, "pass_through", pass_through)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if priority_resolution is not None:
@@ -615,6 +619,18 @@ class RemoteMavenRepositoryArgs:
         pulumi.set(self, "offline", value)
 
     @_builtins.property
+    @pulumi.getter(name="passThrough")
+    def pass_through(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+        """
+        return pulumi.get(self, "pass_through")
+
+    @pass_through.setter
+    def pass_through(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "pass_through", value)
+
+    @_builtins.property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "password")
@@ -878,6 +894,7 @@ class _RemoteMavenRepositoryState:
                  missed_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  notes: Optional[pulumi.Input[_builtins.str]] = None,
                  offline: Optional[pulumi.Input[_builtins.bool]] = None,
+                 pass_through: Optional[pulumi.Input[_builtins.bool]] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
                  priority_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -933,6 +950,7 @@ class _RemoteMavenRepositoryState:
         :param pulumi.Input[_builtins.int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
+        :param pulumi.Input[_builtins.bool] pass_through: Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
@@ -1013,6 +1031,8 @@ class _RemoteMavenRepositoryState:
             pulumi.set(__self__, "notes", notes)
         if offline is not None:
             pulumi.set(__self__, "offline", offline)
+        if pass_through is not None:
+            pulumi.set(__self__, "pass_through", pass_through)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if priority_resolution is not None:
@@ -1431,6 +1451,18 @@ class _RemoteMavenRepositoryState:
         pulumi.set(self, "offline", value)
 
     @_builtins.property
+    @pulumi.getter(name="passThrough")
+    def pass_through(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+        """
+        return pulumi.get(self, "pass_through")
+
+    @pass_through.setter
+    def pass_through(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "pass_through", value)
+
+    @_builtins.property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "password")
@@ -1709,6 +1741,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
                  missed_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  notes: Optional[pulumi.Input[_builtins.str]] = None,
                  offline: Optional[pulumi.Input[_builtins.bool]] = None,
+                 pass_through: Optional[pulumi.Input[_builtins.bool]] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
                  priority_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1794,6 +1827,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
+        :param pulumi.Input[_builtins.bool] pass_through: Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
@@ -1893,6 +1927,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
                  missed_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  notes: Optional[pulumi.Input[_builtins.str]] = None,
                  offline: Optional[pulumi.Input[_builtins.bool]] = None,
+                 pass_through: Optional[pulumi.Input[_builtins.bool]] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
                  priority_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1956,6 +1991,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
             __props__.__dict__["missed_cache_period_seconds"] = missed_cache_period_seconds
             __props__.__dict__["notes"] = notes
             __props__.__dict__["offline"] = offline
+            __props__.__dict__["pass_through"] = pass_through
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["priority_resolution"] = priority_resolution
             __props__.__dict__["project_environments"] = project_environments
@@ -2022,6 +2058,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
             missed_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
             notes: Optional[pulumi.Input[_builtins.str]] = None,
             offline: Optional[pulumi.Input[_builtins.bool]] = None,
+            pass_through: Optional[pulumi.Input[_builtins.bool]] = None,
             password: Optional[pulumi.Input[_builtins.str]] = None,
             priority_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -2082,6 +2119,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
+        :param pulumi.Input[_builtins.bool] pass_through: Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
@@ -2135,6 +2173,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
         __props__.__dict__["missed_cache_period_seconds"] = missed_cache_period_seconds
         __props__.__dict__["notes"] = notes
         __props__.__dict__["offline"] = offline
+        __props__.__dict__["pass_through"] = pass_through
         __props__.__dict__["password"] = password
         __props__.__dict__["priority_resolution"] = priority_resolution
         __props__.__dict__["project_environments"] = project_environments
@@ -2404,6 +2443,14 @@ class RemoteMavenRepository(pulumi.CustomResource):
         If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         """
         return pulumi.get(self, "offline")
+
+    @_builtins.property
+    @pulumi.getter(name="passThrough")
+    def pass_through(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+        """
+        return pulumi.get(self, "pass_through")
 
     @_builtins.property
     @pulumi.getter

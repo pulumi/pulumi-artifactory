@@ -30,6 +30,50 @@ Object.defineProperty(exports, "apiKey", {
 });
 
 /**
+ * Filesystem path to the PEM-encoded private key that matches `clientCertificatePath`.
+ */
+export declare const clientCertificateKeyPath: string | undefined;
+Object.defineProperty(exports, "clientCertificateKeyPath", {
+    get() {
+        return __config.get("clientCertificateKeyPath");
+    },
+    enumerable: true,
+});
+
+/**
+ * Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `clientCertificateKeyPath`.
+ */
+export declare const clientCertificatePath: string | undefined;
+Object.defineProperty(exports, "clientCertificatePath", {
+    get() {
+        return __config.get("clientCertificatePath");
+    },
+    enumerable: true,
+});
+
+/**
+ * Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `clientPrivateKeyPem`.
+ */
+export declare const clientCertificatePem: string | undefined;
+Object.defineProperty(exports, "clientCertificatePem", {
+    get() {
+        return __config.get("clientCertificatePem");
+    },
+    enumerable: true,
+});
+
+/**
+ * Inline PEM-encoded private key that matches `clientCertificatePem`.
+ */
+export declare const clientPrivateKeyPem: string | undefined;
+Object.defineProperty(exports, "clientPrivateKeyPem", {
+    get() {
+        return __config.get("clientPrivateKeyPem");
+    },
+    enumerable: true,
+});
+
+/**
  * OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
  */
 export declare const oidcProviderName: string | undefined;

@@ -111,14 +111,14 @@ public final class LocalHelmRepositoryArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.0 onward. Cannot be updated after it is set.
      * 
      */
     @Import(name="forceMetadataNameVersion")
     private @Nullable Output<Boolean> forceMetadataNameVersion;
 
     /**
-     * @return Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * @return Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.0 onward. Cannot be updated after it is set.
      * 
      */
     public Optional<Output<Boolean>> forceMetadataNameVersion() {
@@ -126,14 +126,14 @@ public final class LocalHelmRepositoryArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.0 onward. Cannot be updated after it is set.
      * 
      */
     @Import(name="forceNonDuplicateChart")
     private @Nullable Output<Boolean> forceNonDuplicateChart;
 
     /**
-     * @return Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * @return Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.0 onward. Cannot be updated after it is set.
      * 
      */
     public Optional<Output<Boolean>> forceNonDuplicateChart() {
@@ -436,7 +436,7 @@ public final class LocalHelmRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param forceMetadataNameVersion Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+         * @param forceMetadataNameVersion Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.0 onward. Cannot be updated after it is set.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class LocalHelmRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param forceMetadataNameVersion Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+         * @param forceMetadataNameVersion Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.0 onward. Cannot be updated after it is set.
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class LocalHelmRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param forceNonDuplicateChart Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+         * @param forceNonDuplicateChart Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.0 onward. Cannot be updated after it is set.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class LocalHelmRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param forceNonDuplicateChart Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+         * @param forceNonDuplicateChart Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.0 onward. Cannot be updated after it is set.
          * 
          * @return builder
          * 

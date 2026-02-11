@@ -50,6 +50,7 @@ export function getRemoteConanRepository(args: GetRemoteConanRepositoryArgs, opt
         "missedCachePeriodSeconds": args.missedCachePeriodSeconds,
         "notes": args.notes,
         "offline": args.offline,
+        "passThrough": args.passThrough,
         "password": args.password,
         "priorityResolution": args.priorityResolution,
         "projectEnvironments": args.projectEnvironments,
@@ -108,6 +109,7 @@ export interface GetRemoteConanRepositoryArgs {
     missedCachePeriodSeconds?: number;
     notes?: string;
     offline?: boolean;
+    passThrough?: boolean;
     password?: string;
     priorityResolution?: boolean;
     projectEnvironments?: string[];
@@ -167,6 +169,7 @@ export interface GetRemoteConanRepositoryResult {
     readonly notes?: string;
     readonly offline?: boolean;
     readonly packageType: string;
+    readonly passThrough?: boolean;
     readonly password?: string;
     readonly priorityResolution?: boolean;
     readonly projectEnvironments: string[];
@@ -230,6 +233,7 @@ export function getRemoteConanRepositoryOutput(args: GetRemoteConanRepositoryOut
         "missedCachePeriodSeconds": args.missedCachePeriodSeconds,
         "notes": args.notes,
         "offline": args.offline,
+        "passThrough": args.passThrough,
         "password": args.password,
         "priorityResolution": args.priorityResolution,
         "projectEnvironments": args.projectEnvironments,
@@ -288,6 +292,7 @@ export interface GetRemoteConanRepositoryOutputArgs {
     missedCachePeriodSeconds?: pulumi.Input<number>;
     notes?: pulumi.Input<string>;
     offline?: pulumi.Input<boolean>;
+    passThrough?: pulumi.Input<boolean>;
     password?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;

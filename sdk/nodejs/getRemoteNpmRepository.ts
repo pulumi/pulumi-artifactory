@@ -49,6 +49,7 @@ export function getRemoteNpmRepository(args: GetRemoteNpmRepositoryArgs, opts?: 
         "missedCachePeriodSeconds": args.missedCachePeriodSeconds,
         "notes": args.notes,
         "offline": args.offline,
+        "passThrough": args.passThrough,
         "password": args.password,
         "priorityResolution": args.priorityResolution,
         "projectEnvironments": args.projectEnvironments,
@@ -103,6 +104,7 @@ export interface GetRemoteNpmRepositoryArgs {
     missedCachePeriodSeconds?: number;
     notes?: string;
     offline?: boolean;
+    passThrough?: boolean;
     password?: string;
     priorityResolution?: boolean;
     projectEnvironments?: string[];
@@ -158,6 +160,7 @@ export interface GetRemoteNpmRepositoryResult {
     readonly notes?: string;
     readonly offline?: boolean;
     readonly packageType: string;
+    readonly passThrough?: boolean;
     readonly password?: string;
     readonly priorityResolution?: boolean;
     readonly projectEnvironments: string[];
@@ -220,6 +223,7 @@ export function getRemoteNpmRepositoryOutput(args: GetRemoteNpmRepositoryOutputA
         "missedCachePeriodSeconds": args.missedCachePeriodSeconds,
         "notes": args.notes,
         "offline": args.offline,
+        "passThrough": args.passThrough,
         "password": args.password,
         "priorityResolution": args.priorityResolution,
         "projectEnvironments": args.projectEnvironments,
@@ -274,6 +278,7 @@ export interface GetRemoteNpmRepositoryOutputArgs {
     missedCachePeriodSeconds?: pulumi.Input<number>;
     notes?: pulumi.Input<string>;
     offline?: pulumi.Input<boolean>;
+    passThrough?: pulumi.Input<boolean>;
     password?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;

@@ -31,6 +31,30 @@ namespace Pulumi.Artifactory
         public Output<string?> ApiKey { get; private set; } = null!;
 
         /// <summary>
+        /// Filesystem path to the PEM-encoded private key that matches `ClientCertificatePath`.
+        /// </summary>
+        [Output("clientCertificateKeyPath")]
+        public Output<string?> ClientCertificateKeyPath { get; private set; } = null!;
+
+        /// <summary>
+        /// Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `ClientCertificateKeyPath`.
+        /// </summary>
+        [Output("clientCertificatePath")]
+        public Output<string?> ClientCertificatePath { get; private set; } = null!;
+
+        /// <summary>
+        /// Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `ClientPrivateKeyPem`.
+        /// </summary>
+        [Output("clientCertificatePem")]
+        public Output<string?> ClientCertificatePem { get; private set; } = null!;
+
+        /// <summary>
+        /// Inline PEM-encoded private key that matches `ClientCertificatePem`.
+        /// </summary>
+        [Output("clientPrivateKeyPem")]
+        public Output<string?> ClientPrivateKeyPem { get; private set; } = null!;
+
+        /// <summary>
         /// OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
         /// </summary>
         [Output("oidcProviderName")]
@@ -67,6 +91,8 @@ namespace Pulumi.Artifactory
                 {
                     "accessToken",
                     "apiKey",
+                    "clientCertificatePem",
+                    "clientPrivateKeyPem",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,6 +142,50 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
             {
                 var emptySecret = Output.CreateSecret(0);
                 _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Filesystem path to the PEM-encoded private key that matches `ClientCertificatePath`.
+        /// </summary>
+        [Input("clientCertificateKeyPath")]
+        public Input<string>? ClientCertificateKeyPath { get; set; }
+
+        /// <summary>
+        /// Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `ClientCertificateKeyPath`.
+        /// </summary>
+        [Input("clientCertificatePath")]
+        public Input<string>? ClientCertificatePath { get; set; }
+
+        [Input("clientCertificatePem")]
+        private Input<string>? _clientCertificatePem;
+
+        /// <summary>
+        /// Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `ClientPrivateKeyPem`.
+        /// </summary>
+        public Input<string>? ClientCertificatePem
+        {
+            get => _clientCertificatePem;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientCertificatePem = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("clientPrivateKeyPem")]
+        private Input<string>? _clientPrivateKeyPem;
+
+        /// <summary>
+        /// Inline PEM-encoded private key that matches `ClientCertificatePem`.
+        /// </summary>
+        public Input<string>? ClientPrivateKeyPem
+        {
+            get => _clientPrivateKeyPem;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientPrivateKeyPem = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 

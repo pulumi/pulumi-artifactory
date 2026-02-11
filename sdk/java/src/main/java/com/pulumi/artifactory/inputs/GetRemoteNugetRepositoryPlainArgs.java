@@ -254,6 +254,13 @@ public final class GetRemoteNugetRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.offline);
     }
 
+    @Import(name="passThrough")
+    private @Nullable Boolean passThrough;
+
+    public Optional<Boolean> passThrough() {
+        return Optional.ofNullable(this.passThrough);
+    }
+
     @Import(name="password")
     private @Nullable String password;
 
@@ -442,6 +449,7 @@ public final class GetRemoteNugetRepositoryPlainArgs extends com.pulumi.resource
         this.missedCachePeriodSeconds = $.missedCachePeriodSeconds;
         this.notes = $.notes;
         this.offline = $.offline;
+        this.passThrough = $.passThrough;
         this.password = $.password;
         this.priorityResolution = $.priorityResolution;
         this.projectEnvironments = $.projectEnvironments;
@@ -648,6 +656,11 @@ public final class GetRemoteNugetRepositoryPlainArgs extends com.pulumi.resource
 
         public Builder offline(@Nullable Boolean offline) {
             $.offline = offline;
+            return this;
+        }
+
+        public Builder passThrough(@Nullable Boolean passThrough) {
+            $.passThrough = passThrough;
             return this;
         }
 

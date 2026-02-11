@@ -427,6 +427,20 @@ public class RemoteHuggingfacemlRepository extends com.pulumi.resources.CustomRe
     public Output<Boolean> offline() {
         return this.offline;
     }
+    /**
+     * Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+     * 
+     */
+    @Export(name="passThrough", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> passThrough;
+
+    /**
+     * @return Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+     * 
+     */
+    public Output<Boolean> passThrough() {
+        return this.passThrough;
+    }
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 

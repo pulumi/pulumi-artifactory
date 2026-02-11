@@ -81,13 +81,13 @@ namespace Pulumi.Artifactory
         public Output<string> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        /// Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.0 onward. Cannot be updated after it is set.
         /// </summary>
         [Output("forceMetadataNameVersion")]
         public Output<bool> ForceMetadataNameVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        /// Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.0 onward. Cannot be updated after it is set.
         /// </summary>
         [Output("forceNonDuplicateChart")]
         public Output<bool> ForceNonDuplicateChart { get; private set; } = null!;
@@ -227,13 +227,13 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        /// Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.0 onward. Cannot be updated after it is set.
         /// </summary>
         [Input("forceMetadataNameVersion")]
         public Input<bool>? ForceMetadataNameVersion { get; set; }
 
         /// <summary>
-        /// Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        /// Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.0 onward. Cannot be updated after it is set.
         /// </summary>
         [Input("forceNonDuplicateChart")]
         public Input<bool>? ForceNonDuplicateChart { get; set; }
@@ -346,13 +346,13 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        /// Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.0 onward. Cannot be updated after it is set.
         /// </summary>
         [Input("forceMetadataNameVersion")]
         public Input<bool>? ForceMetadataNameVersion { get; set; }
 
         /// <summary>
-        /// Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        /// Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.0 onward. Cannot be updated after it is set.
         /// </summary>
         [Input("forceNonDuplicateChart")]
         public Input<bool>? ForceNonDuplicateChart { get; set; }

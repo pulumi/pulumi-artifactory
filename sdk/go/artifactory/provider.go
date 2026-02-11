@@ -26,6 +26,14 @@ type Provider struct {
 	// In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
 	// By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.
 	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
+	// Filesystem path to the PEM-encoded private key that matches `clientCertificatePath`.
+	ClientCertificateKeyPath pulumi.StringPtrOutput `pulumi:"clientCertificateKeyPath"`
+	// Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `clientCertificateKeyPath`.
+	ClientCertificatePath pulumi.StringPtrOutput `pulumi:"clientCertificatePath"`
+	// Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `clientPrivateKeyPem`.
+	ClientCertificatePem pulumi.StringPtrOutput `pulumi:"clientCertificatePem"`
+	// Inline PEM-encoded private key that matches `clientCertificatePem`.
+	ClientPrivateKeyPem pulumi.StringPtrOutput `pulumi:"clientPrivateKeyPem"`
 	// OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
 	OidcProviderName     pulumi.StringPtrOutput `pulumi:"oidcProviderName"`
 	TfcCredentialTagName pulumi.StringPtrOutput `pulumi:"tfcCredentialTagName"`
@@ -46,9 +54,17 @@ func NewProvider(ctx *pulumi.Context,
 	if args.ApiKey != nil {
 		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringPtrInput)
 	}
+	if args.ClientCertificatePem != nil {
+		args.ClientCertificatePem = pulumi.ToSecret(args.ClientCertificatePem).(pulumi.StringPtrInput)
+	}
+	if args.ClientPrivateKeyPem != nil {
+		args.ClientPrivateKeyPem = pulumi.ToSecret(args.ClientPrivateKeyPem).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"accessToken",
 		"apiKey",
+		"clientCertificatePem",
+		"clientPrivateKeyPem",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -69,6 +85,14 @@ type providerArgs struct {
 	// In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
 	// By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.
 	ApiKey *string `pulumi:"apiKey"`
+	// Filesystem path to the PEM-encoded private key that matches `clientCertificatePath`.
+	ClientCertificateKeyPath *string `pulumi:"clientCertificateKeyPath"`
+	// Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `clientCertificateKeyPath`.
+	ClientCertificatePath *string `pulumi:"clientCertificatePath"`
+	// Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `clientPrivateKeyPem`.
+	ClientCertificatePem *string `pulumi:"clientCertificatePem"`
+	// Inline PEM-encoded private key that matches `clientCertificatePem`.
+	ClientPrivateKeyPem *string `pulumi:"clientPrivateKeyPem"`
 	// OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
 	OidcProviderName     *string `pulumi:"oidcProviderName"`
 	TfcCredentialTagName *string `pulumi:"tfcCredentialTagName"`
@@ -86,6 +110,14 @@ type ProviderArgs struct {
 	// In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
 	// By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.
 	ApiKey pulumi.StringPtrInput
+	// Filesystem path to the PEM-encoded private key that matches `clientCertificatePath`.
+	ClientCertificateKeyPath pulumi.StringPtrInput
+	// Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `clientCertificateKeyPath`.
+	ClientCertificatePath pulumi.StringPtrInput
+	// Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `clientPrivateKeyPem`.
+	ClientCertificatePem pulumi.StringPtrInput
+	// Inline PEM-encoded private key that matches `clientCertificatePem`.
+	ClientPrivateKeyPem pulumi.StringPtrInput
 	// OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
 	OidcProviderName     pulumi.StringPtrInput
 	TfcCredentialTagName pulumi.StringPtrInput
@@ -165,6 +197,26 @@ func (o ProviderOutput) AccessToken() pulumi.StringPtrOutput {
 // By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.
 func (o ProviderOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
+}
+
+// Filesystem path to the PEM-encoded private key that matches `clientCertificatePath`.
+func (o ProviderOutput) ClientCertificateKeyPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientCertificateKeyPath }).(pulumi.StringPtrOutput)
+}
+
+// Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `clientCertificateKeyPath`.
+func (o ProviderOutput) ClientCertificatePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientCertificatePath }).(pulumi.StringPtrOutput)
+}
+
+// Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `clientPrivateKeyPem`.
+func (o ProviderOutput) ClientCertificatePem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientCertificatePem }).(pulumi.StringPtrOutput)
+}
+
+// Inline PEM-encoded private key that matches `clientCertificatePem`.
+func (o ProviderOutput) ClientPrivateKeyPem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientPrivateKeyPem }).(pulumi.StringPtrOutput)
 }
 
 // OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.

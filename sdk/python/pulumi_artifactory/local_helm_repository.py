@@ -46,8 +46,8 @@ class LocalHelmRepositoryArgs:
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
-        :param pulumi.Input[_builtins.bool] force_metadata_name_version: Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
-        :param pulumi.Input[_builtins.bool] force_non_duplicate_chart: Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        :param pulumi.Input[_builtins.bool] force_metadata_name_version: Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.0 onward. Cannot be updated after it is set.
+        :param pulumi.Input[_builtins.bool] force_non_duplicate_chart: Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.0 onward. Cannot be updated after it is set.
         :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -179,7 +179,7 @@ class LocalHelmRepositoryArgs:
     @pulumi.getter(name="forceMetadataNameVersion")
     def force_metadata_name_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.0 onward. Cannot be updated after it is set.
         """
         return pulumi.get(self, "force_metadata_name_version")
 
@@ -191,7 +191,7 @@ class LocalHelmRepositoryArgs:
     @pulumi.getter(name="forceNonDuplicateChart")
     def force_non_duplicate_chart(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.0 onward. Cannot be updated after it is set.
         """
         return pulumi.get(self, "force_non_duplicate_chart")
 
@@ -322,8 +322,8 @@ class _LocalHelmRepositoryState:
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
-        :param pulumi.Input[_builtins.bool] force_metadata_name_version: Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
-        :param pulumi.Input[_builtins.bool] force_non_duplicate_chart: Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        :param pulumi.Input[_builtins.bool] force_metadata_name_version: Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.0 onward. Cannot be updated after it is set.
+        :param pulumi.Input[_builtins.bool] force_non_duplicate_chart: Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.0 onward. Cannot be updated after it is set.
         :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[_builtins.str] notes: Internal description.
@@ -445,7 +445,7 @@ class _LocalHelmRepositoryState:
     @pulumi.getter(name="forceMetadataNameVersion")
     def force_metadata_name_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.0 onward. Cannot be updated after it is set.
         """
         return pulumi.get(self, "force_metadata_name_version")
 
@@ -457,7 +457,7 @@ class _LocalHelmRepositoryState:
     @pulumi.getter(name="forceNonDuplicateChart")
     def force_non_duplicate_chart(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.0 onward. Cannot be updated after it is set.
         """
         return pulumi.get(self, "force_non_duplicate_chart")
 
@@ -627,8 +627,8 @@ class LocalHelmRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
-        :param pulumi.Input[_builtins.bool] force_metadata_name_version: Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
-        :param pulumi.Input[_builtins.bool] force_non_duplicate_chart: Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        :param pulumi.Input[_builtins.bool] force_metadata_name_version: Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.0 onward. Cannot be updated after it is set.
+        :param pulumi.Input[_builtins.bool] force_non_duplicate_chart: Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.0 onward. Cannot be updated after it is set.
         :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[_builtins.str] notes: Internal description.
@@ -768,8 +768,8 @@ class LocalHelmRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
-        :param pulumi.Input[_builtins.bool] force_metadata_name_version: Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
-        :param pulumi.Input[_builtins.bool] force_non_duplicate_chart: Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        :param pulumi.Input[_builtins.bool] force_metadata_name_version: Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.0 onward. Cannot be updated after it is set.
+        :param pulumi.Input[_builtins.bool] force_non_duplicate_chart: Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.0 onward. Cannot be updated after it is set.
         :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[_builtins.str] notes: Internal description.
@@ -855,7 +855,7 @@ class LocalHelmRepository(pulumi.CustomResource):
     @pulumi.getter(name="forceMetadataNameVersion")
     def force_metadata_name_version(self) -> pulumi.Output[_builtins.bool]:
         """
-        Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.0 onward. Cannot be updated after it is set.
         """
         return pulumi.get(self, "force_metadata_name_version")
 
@@ -863,7 +863,7 @@ class LocalHelmRepository(pulumi.CustomResource):
     @pulumi.getter(name="forceNonDuplicateChart")
     def force_non_duplicate_chart(self) -> pulumi.Output[_builtins.bool]:
         """
-        Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.0 onward. Cannot be updated after it is set.
         """
         return pulumi.get(self, "force_non_duplicate_chart")
 

@@ -28,7 +28,7 @@ class GetRemoteGoRepositoryResult:
     """
     A collection of values returned by getRemoteGoRepository.
     """
-    def __init__(__self__, allow_any_host_auth=None, archive_browsing_enabled=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, curated=None, description=None, disable_proxy=None, disable_url_normalization=None, download_direct=None, enable_cookie_management=None, excludes_pattern=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, vcs_git_provider=None, xray_index=None):
+    def __init__(__self__, allow_any_host_auth=None, archive_browsing_enabled=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, curated=None, description=None, disable_proxy=None, disable_url_normalization=None, download_direct=None, enable_cookie_management=None, excludes_pattern=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, pass_through=None, password=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, vcs_git_provider=None, xray_index=None):
         if allow_any_host_auth and not isinstance(allow_any_host_auth, bool):
             raise TypeError("Expected argument 'allow_any_host_auth' to be a bool")
         pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
@@ -113,6 +113,9 @@ class GetRemoteGoRepositoryResult:
         if package_type and not isinstance(package_type, str):
             raise TypeError("Expected argument 'package_type' to be a str")
         pulumi.set(__self__, "package_type", package_type)
+        if pass_through and not isinstance(pass_through, bool):
+            raise TypeError("Expected argument 'pass_through' to be a bool")
+        pulumi.set(__self__, "pass_through", pass_through)
         if password and not isinstance(password, str):
             raise TypeError("Expected argument 'password' to be a str")
         pulumi.set(__self__, "password", password)
@@ -315,6 +318,11 @@ class GetRemoteGoRepositoryResult:
         return pulumi.get(self, "package_type")
 
     @_builtins.property
+    @pulumi.getter(name="passThrough")
+    def pass_through(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "pass_through")
+
+    @_builtins.property
     @pulumi.getter
     def password(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "password")
@@ -447,6 +455,7 @@ class AwaitableGetRemoteGoRepositoryResult(GetRemoteGoRepositoryResult):
             notes=self.notes,
             offline=self.offline,
             package_type=self.package_type,
+            pass_through=self.pass_through,
             password=self.password,
             priority_resolution=self.priority_resolution,
             project_environments=self.project_environments,
@@ -494,6 +503,7 @@ def get_remote_go_repository(allow_any_host_auth: Optional[_builtins.bool] = Non
                              missed_cache_period_seconds: Optional[_builtins.int] = None,
                              notes: Optional[_builtins.str] = None,
                              offline: Optional[_builtins.bool] = None,
+                             pass_through: Optional[_builtins.bool] = None,
                              password: Optional[_builtins.str] = None,
                              priority_resolution: Optional[_builtins.bool] = None,
                              project_environments: Optional[Sequence[_builtins.str]] = None,
@@ -557,6 +567,7 @@ def get_remote_go_repository(allow_any_host_auth: Optional[_builtins.bool] = Non
     __args__['missedCachePeriodSeconds'] = missed_cache_period_seconds
     __args__['notes'] = notes
     __args__['offline'] = offline
+    __args__['passThrough'] = pass_through
     __args__['password'] = password
     __args__['priorityResolution'] = priority_resolution
     __args__['projectEnvironments'] = project_environments
@@ -608,6 +619,7 @@ def get_remote_go_repository(allow_any_host_auth: Optional[_builtins.bool] = Non
         notes=pulumi.get(__ret__, 'notes'),
         offline=pulumi.get(__ret__, 'offline'),
         package_type=pulumi.get(__ret__, 'package_type'),
+        pass_through=pulumi.get(__ret__, 'pass_through'),
         password=pulumi.get(__ret__, 'password'),
         priority_resolution=pulumi.get(__ret__, 'priority_resolution'),
         project_environments=pulumi.get(__ret__, 'project_environments'),
@@ -653,6 +665,7 @@ def get_remote_go_repository_output(allow_any_host_auth: Optional[pulumi.Input[O
                                     missed_cache_period_seconds: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
                                     notes: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                     offline: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+                                    pass_through: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                                     password: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                     priority_resolution: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                                     project_environments: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
@@ -716,6 +729,7 @@ def get_remote_go_repository_output(allow_any_host_auth: Optional[pulumi.Input[O
     __args__['missedCachePeriodSeconds'] = missed_cache_period_seconds
     __args__['notes'] = notes
     __args__['offline'] = offline
+    __args__['passThrough'] = pass_through
     __args__['password'] = password
     __args__['priorityResolution'] = priority_resolution
     __args__['projectEnvironments'] = project_environments
@@ -766,6 +780,7 @@ def get_remote_go_repository_output(allow_any_host_auth: Optional[pulumi.Input[O
         notes=pulumi.get(__response__, 'notes'),
         offline=pulumi.get(__response__, 'offline'),
         package_type=pulumi.get(__response__, 'package_type'),
+        pass_through=pulumi.get(__response__, 'pass_through'),
         password=pulumi.get(__response__, 'password'),
         priority_resolution=pulumi.get(__response__, 'priority_resolution'),
         project_environments=pulumi.get(__response__, 'project_environments'),

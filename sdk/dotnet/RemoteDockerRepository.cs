@@ -232,6 +232,12 @@ namespace Pulumi.Artifactory
         [Output("offline")]
         public Output<bool> Offline { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+        /// </summary>
+        [Output("passThrough")]
+        public Output<bool> PassThrough { get; private set; } = null!;
+
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
@@ -571,6 +577,12 @@ namespace Pulumi.Artifactory
         [Input("offline")]
         public Input<bool>? Offline { get; set; }
 
+        /// <summary>
+        /// Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+        /// </summary>
+        [Input("passThrough")]
+        public Input<bool>? PassThrough { get; set; }
+
         [Input("password")]
         private Input<string>? _password;
         public Input<string>? Password
@@ -887,6 +899,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("offline")]
         public Input<bool>? Offline { get; set; }
+
+        /// <summary>
+        /// Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+        /// </summary>
+        [Input("passThrough")]
+        public Input<bool>? PassThrough { get; set; }
 
         [Input("password")]
         private Input<string>? _password;

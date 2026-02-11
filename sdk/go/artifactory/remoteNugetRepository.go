@@ -116,8 +116,10 @@ type RemoteNugetRepository struct {
 	// Internal description.
 	Notes pulumi.StringOutput `pulumi:"notes"`
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline  pulumi.BoolOutput      `pulumi:"offline"`
-	Password pulumi.StringPtrOutput `pulumi:"password"`
+	Offline pulumi.BoolOutput `pulumi:"offline"`
+	// Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+	PassThrough pulumi.BoolOutput      `pulumi:"passThrough"`
+	Password    pulumi.StringPtrOutput `pulumi:"password"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolOutput        `pulumi:"priorityResolution"`
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
@@ -259,8 +261,10 @@ type remoteNugetRepositoryState struct {
 	// Internal description.
 	Notes *string `pulumi:"notes"`
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline  *bool   `pulumi:"offline"`
-	Password *string `pulumi:"password"`
+	Offline *bool `pulumi:"offline"`
+	// Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+	PassThrough *bool   `pulumi:"passThrough"`
+	Password    *string `pulumi:"password"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
@@ -360,8 +364,10 @@ type RemoteNugetRepositoryState struct {
 	// Internal description.
 	Notes pulumi.StringPtrInput
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline  pulumi.BoolPtrInput
-	Password pulumi.StringPtrInput
+	Offline pulumi.BoolPtrInput
+	// Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+	PassThrough pulumi.BoolPtrInput
+	Password    pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
@@ -465,8 +471,10 @@ type remoteNugetRepositoryArgs struct {
 	// Internal description.
 	Notes *string `pulumi:"notes"`
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline  *bool   `pulumi:"offline"`
-	Password *string `pulumi:"password"`
+	Offline *bool `pulumi:"offline"`
+	// Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+	PassThrough *bool   `pulumi:"passThrough"`
+	Password    *string `pulumi:"password"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
@@ -567,8 +575,10 @@ type RemoteNugetRepositoryArgs struct {
 	// Internal description.
 	Notes pulumi.StringPtrInput
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline  pulumi.BoolPtrInput
-	Password pulumi.StringPtrInput
+	Offline pulumi.BoolPtrInput
+	// Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+	PassThrough pulumi.BoolPtrInput
+	Password    pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
@@ -842,6 +852,11 @@ func (o RemoteNugetRepositoryOutput) Notes() pulumi.StringOutput {
 // If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
 func (o RemoteNugetRepositoryOutput) Offline() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.BoolOutput { return v.Offline }).(pulumi.BoolOutput)
+}
+
+// Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+func (o RemoteNugetRepositoryOutput) PassThrough() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.BoolOutput { return v.PassThrough }).(pulumi.BoolOutput)
 }
 
 func (o RemoteNugetRepositoryOutput) Password() pulumi.StringPtrOutput {

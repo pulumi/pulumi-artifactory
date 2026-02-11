@@ -25,6 +25,26 @@ func GetApiKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "artifactory:apiKey")
 }
 
+// Filesystem path to the PEM-encoded private key that matches `clientCertificatePath`.
+func GetClientCertificateKeyPath(ctx *pulumi.Context) string {
+	return config.Get(ctx, "artifactory:clientCertificateKeyPath")
+}
+
+// Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `clientCertificateKeyPath`.
+func GetClientCertificatePath(ctx *pulumi.Context) string {
+	return config.Get(ctx, "artifactory:clientCertificatePath")
+}
+
+// Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `clientPrivateKeyPem`.
+func GetClientCertificatePem(ctx *pulumi.Context) string {
+	return config.Get(ctx, "artifactory:clientCertificatePem")
+}
+
+// Inline PEM-encoded private key that matches `clientCertificatePem`.
+func GetClientPrivateKeyPem(ctx *pulumi.Context) string {
+	return config.Get(ctx, "artifactory:clientPrivateKeyPem")
+}
+
 // OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
 func GetOidcProviderName(ctx *pulumi.Context) string {
 	return config.Get(ctx, "artifactory:oidcProviderName")

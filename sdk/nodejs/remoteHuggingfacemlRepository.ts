@@ -159,6 +159,10 @@ export class RemoteHuggingfacemlRepository extends pulumi.CustomResource {
      * If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
      */
     declare public readonly offline: pulumi.Output<boolean>;
+    /**
+     * Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+     */
+    declare public readonly passThrough: pulumi.Output<boolean>;
     declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -262,6 +266,7 @@ export class RemoteHuggingfacemlRepository extends pulumi.CustomResource {
             resourceInputs["missedCachePeriodSeconds"] = state?.missedCachePeriodSeconds;
             resourceInputs["notes"] = state?.notes;
             resourceInputs["offline"] = state?.offline;
+            resourceInputs["passThrough"] = state?.passThrough;
             resourceInputs["password"] = state?.password;
             resourceInputs["priorityResolution"] = state?.priorityResolution;
             resourceInputs["projectEnvironments"] = state?.projectEnvironments;
@@ -311,6 +316,7 @@ export class RemoteHuggingfacemlRepository extends pulumi.CustomResource {
             resourceInputs["missedCachePeriodSeconds"] = args?.missedCachePeriodSeconds;
             resourceInputs["notes"] = args?.notes;
             resourceInputs["offline"] = args?.offline;
+            resourceInputs["passThrough"] = args?.passThrough;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["priorityResolution"] = args?.priorityResolution;
             resourceInputs["projectEnvironments"] = args?.projectEnvironments;
@@ -444,6 +450,10 @@ export interface RemoteHuggingfacemlRepositoryState {
      * If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
      */
     offline?: pulumi.Input<boolean>;
+    /**
+     * Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+     */
+    passThrough?: pulumi.Input<boolean>;
     password?: pulumi.Input<string>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -616,6 +626,10 @@ export interface RemoteHuggingfacemlRepositoryArgs {
      * If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
      */
     offline?: pulumi.Input<boolean>;
+    /**
+     * Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+     */
+    passThrough?: pulumi.Input<boolean>;
     password?: pulumi.Input<string>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
