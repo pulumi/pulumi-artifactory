@@ -53,6 +53,7 @@ export function getRemoteDockerRepository(args: GetRemoteDockerRepositoryArgs, o
         "missedCachePeriodSeconds": args.missedCachePeriodSeconds,
         "notes": args.notes,
         "offline": args.offline,
+        "passThrough": args.passThrough,
         "password": args.password,
         "priorityResolution": args.priorityResolution,
         "projectEnvironments": args.projectEnvironments,
@@ -127,6 +128,7 @@ export interface GetRemoteDockerRepositoryArgs {
     missedCachePeriodSeconds?: number;
     notes?: string;
     offline?: boolean;
+    passThrough?: boolean;
     password?: string;
     priorityResolution?: boolean;
     projectEnvironments?: string[];
@@ -202,6 +204,7 @@ export interface GetRemoteDockerRepositoryResult {
     readonly notes?: string;
     readonly offline?: boolean;
     readonly packageType: string;
+    readonly passThrough?: boolean;
     readonly password?: string;
     readonly priorityResolution?: boolean;
     readonly projectEnvironments: string[];
@@ -269,6 +272,7 @@ export function getRemoteDockerRepositoryOutput(args: GetRemoteDockerRepositoryO
         "missedCachePeriodSeconds": args.missedCachePeriodSeconds,
         "notes": args.notes,
         "offline": args.offline,
+        "passThrough": args.passThrough,
         "password": args.password,
         "priorityResolution": args.priorityResolution,
         "projectEnvironments": args.projectEnvironments,
@@ -343,6 +347,7 @@ export interface GetRemoteDockerRepositoryOutputArgs {
     missedCachePeriodSeconds?: pulumi.Input<number>;
     notes?: pulumi.Input<string>;
     offline?: pulumi.Input<boolean>;
+    passThrough?: pulumi.Input<boolean>;
     password?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;

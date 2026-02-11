@@ -25,6 +25,34 @@ public final class Config {
         return Codegen.stringProp("apiKey").config(config).get();
     }
 /**
+ * Filesystem path to the PEM-encoded private key that matches `clientCertificatePath`.
+ * 
+ */
+    public Optional<String> clientCertificateKeyPath() {
+        return Codegen.stringProp("clientCertificateKeyPath").config(config).get();
+    }
+/**
+ * Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `clientCertificateKeyPath`.
+ * 
+ */
+    public Optional<String> clientCertificatePath() {
+        return Codegen.stringProp("clientCertificatePath").config(config).get();
+    }
+/**
+ * Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `clientPrivateKeyPem`.
+ * 
+ */
+    public Optional<String> clientCertificatePem() {
+        return Codegen.stringProp("clientCertificatePem").config(config).get();
+    }
+/**
+ * Inline PEM-encoded private key that matches `clientCertificatePem`.
+ * 
+ */
+    public Optional<String> clientPrivateKeyPem() {
+        return Codegen.stringProp("clientPrivateKeyPem").config(config).get();
+    }
+/**
  * OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
  * 
  */

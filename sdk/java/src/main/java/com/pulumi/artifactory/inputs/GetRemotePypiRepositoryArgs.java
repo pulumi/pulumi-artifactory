@@ -210,6 +210,13 @@ public final class GetRemotePypiRepositoryArgs extends com.pulumi.resources.Invo
         return Optional.ofNullable(this.offline);
     }
 
+    @Import(name="passThrough")
+    private @Nullable Output<Boolean> passThrough;
+
+    public Optional<Output<Boolean>> passThrough() {
+        return Optional.ofNullable(this.passThrough);
+    }
+
     @Import(name="password")
     private @Nullable Output<String> password;
 
@@ -395,6 +402,7 @@ public final class GetRemotePypiRepositoryArgs extends com.pulumi.resources.Invo
         this.missedCachePeriodSeconds = $.missedCachePeriodSeconds;
         this.notes = $.notes;
         this.offline = $.offline;
+        this.passThrough = $.passThrough;
         this.password = $.password;
         this.priorityResolution = $.priorityResolution;
         this.projectEnvironments = $.projectEnvironments;
@@ -679,6 +687,15 @@ public final class GetRemotePypiRepositoryArgs extends com.pulumi.resources.Invo
 
         public Builder offline(Boolean offline) {
             return offline(Output.of(offline));
+        }
+
+        public Builder passThrough(@Nullable Output<Boolean> passThrough) {
+            $.passThrough = passThrough;
+            return this;
+        }
+
+        public Builder passThrough(Boolean passThrough) {
+            return passThrough(Output.of(passThrough));
         }
 
         public Builder password(@Nullable Output<String> password) {

@@ -60,6 +60,62 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         return Codegen.optional(this.apiKey);
     }
     /**
+     * Filesystem path to the PEM-encoded private key that matches `clientCertificatePath`.
+     * 
+     */
+    @Export(name="clientCertificateKeyPath", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> clientCertificateKeyPath;
+
+    /**
+     * @return Filesystem path to the PEM-encoded private key that matches `clientCertificatePath`.
+     * 
+     */
+    public Output<Optional<String>> clientCertificateKeyPath() {
+        return Codegen.optional(this.clientCertificateKeyPath);
+    }
+    /**
+     * Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `clientCertificateKeyPath`.
+     * 
+     */
+    @Export(name="clientCertificatePath", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> clientCertificatePath;
+
+    /**
+     * @return Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `clientCertificateKeyPath`.
+     * 
+     */
+    public Output<Optional<String>> clientCertificatePath() {
+        return Codegen.optional(this.clientCertificatePath);
+    }
+    /**
+     * Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `clientPrivateKeyPem`.
+     * 
+     */
+    @Export(name="clientCertificatePem", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> clientCertificatePem;
+
+    /**
+     * @return Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `clientPrivateKeyPem`.
+     * 
+     */
+    public Output<Optional<String>> clientCertificatePem() {
+        return Codegen.optional(this.clientCertificatePem);
+    }
+    /**
+     * Inline PEM-encoded private key that matches `clientCertificatePem`.
+     * 
+     */
+    @Export(name="clientPrivateKeyPem", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> clientPrivateKeyPem;
+
+    /**
+     * @return Inline PEM-encoded private key that matches `clientCertificatePem`.
+     * 
+     */
+    public Output<Optional<String>> clientPrivateKeyPem() {
+        return Codegen.optional(this.clientPrivateKeyPem);
+    }
+    /**
      * OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
      * 
      */
@@ -131,7 +187,9 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "accessToken",
-                "apiKey"
+                "apiKey",
+                "clientCertificatePem",
+                "clientPrivateKeyPem"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

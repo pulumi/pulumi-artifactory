@@ -38,6 +38,22 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
      */
     declare public readonly apiKey: pulumi.Output<string | undefined>;
     /**
+     * Filesystem path to the PEM-encoded private key that matches `clientCertificatePath`.
+     */
+    declare public readonly clientCertificateKeyPath: pulumi.Output<string | undefined>;
+    /**
+     * Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `clientCertificateKeyPath`.
+     */
+    declare public readonly clientCertificatePath: pulumi.Output<string | undefined>;
+    /**
+     * Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `clientPrivateKeyPem`.
+     */
+    declare public readonly clientCertificatePem: pulumi.Output<string | undefined>;
+    /**
+     * Inline PEM-encoded private key that matches `clientCertificatePem`.
+     */
+    declare public readonly clientPrivateKeyPem: pulumi.Output<string | undefined>;
+    /**
      * OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
      */
     declare public readonly oidcProviderName: pulumi.Output<string | undefined>;
@@ -60,12 +76,16 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         {
             resourceInputs["accessToken"] = args?.accessToken ? pulumi.secret(args.accessToken) : undefined;
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
+            resourceInputs["clientCertificateKeyPath"] = args?.clientCertificateKeyPath;
+            resourceInputs["clientCertificatePath"] = args?.clientCertificatePath;
+            resourceInputs["clientCertificatePem"] = args?.clientCertificatePem ? pulumi.secret(args.clientCertificatePem) : undefined;
+            resourceInputs["clientPrivateKeyPem"] = args?.clientPrivateKeyPem ? pulumi.secret(args.clientPrivateKeyPem) : undefined;
             resourceInputs["oidcProviderName"] = args?.oidcProviderName;
             resourceInputs["tfcCredentialTagName"] = args?.tfcCredentialTagName;
             resourceInputs["url"] = args?.url;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["accessToken", "apiKey"] };
+        const secretOpts = { additionalSecretOutputs: ["accessToken", "apiKey", "clientCertificatePem", "clientPrivateKeyPem"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
@@ -96,6 +116,22 @@ In a future version (scheduled for end of Q3, 2023), the option to disable the u
 By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.
      */
     apiKey?: pulumi.Input<string>;
+    /**
+     * Filesystem path to the PEM-encoded private key that matches `clientCertificatePath`.
+     */
+    clientCertificateKeyPath?: pulumi.Input<string>;
+    /**
+     * Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `clientCertificateKeyPath`.
+     */
+    clientCertificatePath?: pulumi.Input<string>;
+    /**
+     * Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `clientPrivateKeyPem`.
+     */
+    clientCertificatePem?: pulumi.Input<string>;
+    /**
+     * Inline PEM-encoded private key that matches `clientCertificatePem`.
+     */
+    clientPrivateKeyPem?: pulumi.Input<string>;
     /**
      * OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
      */

@@ -72,6 +72,7 @@ public final class GetRemoteDockerRepositoryResult {
     private @Nullable String notes;
     private @Nullable Boolean offline;
     private String packageType;
+    private @Nullable Boolean passThrough;
     private @Nullable String password;
     private @Nullable Boolean priorityResolution;
     private List<String> projectEnvironments;
@@ -213,6 +214,9 @@ public final class GetRemoteDockerRepositoryResult {
     public String packageType() {
         return this.packageType;
     }
+    public Optional<Boolean> passThrough() {
+        return Optional.ofNullable(this.passThrough);
+    }
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
     }
@@ -312,6 +316,7 @@ public final class GetRemoteDockerRepositoryResult {
         private @Nullable String notes;
         private @Nullable Boolean offline;
         private String packageType;
+        private @Nullable Boolean passThrough;
         private @Nullable String password;
         private @Nullable Boolean priorityResolution;
         private List<String> projectEnvironments;
@@ -366,6 +371,7 @@ public final class GetRemoteDockerRepositoryResult {
     	      this.notes = defaults.notes;
     	      this.offline = defaults.offline;
     	      this.packageType = defaults.packageType;
+    	      this.passThrough = defaults.passThrough;
     	      this.password = defaults.password;
     	      this.priorityResolution = defaults.priorityResolution;
     	      this.projectEnvironments = defaults.projectEnvironments;
@@ -597,6 +603,12 @@ public final class GetRemoteDockerRepositoryResult {
             return this;
         }
         @CustomType.Setter
+        public Builder passThrough(@Nullable Boolean passThrough) {
+
+            this.passThrough = passThrough;
+            return this;
+        }
+        @CustomType.Setter
         public Builder password(@Nullable String password) {
 
             this.password = password;
@@ -754,6 +766,7 @@ public final class GetRemoteDockerRepositoryResult {
             _resultValue.notes = notes;
             _resultValue.offline = offline;
             _resultValue.packageType = packageType;
+            _resultValue.passThrough = passThrough;
             _resultValue.password = password;
             _resultValue.priorityResolution = priorityResolution;
             _resultValue.projectEnvironments = projectEnvironments;

@@ -77,6 +77,7 @@ type LookupRemoteGoRepositoryArgs struct {
 	MissedCachePeriodSeconds          *int     `pulumi:"missedCachePeriodSeconds"`
 	Notes                             *string  `pulumi:"notes"`
 	Offline                           *bool    `pulumi:"offline"`
+	PassThrough                       *bool    `pulumi:"passThrough"`
 	Password                          *string  `pulumi:"password"`
 	PriorityResolution                *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments               []string `pulumi:"projectEnvironments"`
@@ -130,6 +131,7 @@ type LookupRemoteGoRepositoryResult struct {
 	Notes                             *string  `pulumi:"notes"`
 	Offline                           *bool    `pulumi:"offline"`
 	PackageType                       string   `pulumi:"packageType"`
+	PassThrough                       *bool    `pulumi:"passThrough"`
 	Password                          *string  `pulumi:"password"`
 	PriorityResolution                *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments               []string `pulumi:"projectEnvironments"`
@@ -190,6 +192,7 @@ type LookupRemoteGoRepositoryOutputArgs struct {
 	MissedCachePeriodSeconds          pulumi.IntPtrInput      `pulumi:"missedCachePeriodSeconds"`
 	Notes                             pulumi.StringPtrInput   `pulumi:"notes"`
 	Offline                           pulumi.BoolPtrInput     `pulumi:"offline"`
+	PassThrough                       pulumi.BoolPtrInput     `pulumi:"passThrough"`
 	Password                          pulumi.StringPtrInput   `pulumi:"password"`
 	PriorityResolution                pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
 	ProjectEnvironments               pulumi.StringArrayInput `pulumi:"projectEnvironments"`
@@ -344,6 +347,10 @@ func (o LookupRemoteGoRepositoryResultOutput) Offline() pulumi.BoolPtrOutput {
 
 func (o LookupRemoteGoRepositoryResultOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRemoteGoRepositoryResult) string { return v.PackageType }).(pulumi.StringOutput)
+}
+
+func (o LookupRemoteGoRepositoryResultOutput) PassThrough() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteGoRepositoryResult) *bool { return v.PassThrough }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteGoRepositoryResultOutput) Password() pulumi.StringPtrOutput {

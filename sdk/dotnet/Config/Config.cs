@@ -52,6 +52,46 @@ namespace Pulumi.Artifactory
             set => _apiKey.Set(value);
         }
 
+        private static readonly __Value<string?> _clientCertificateKeyPath = new __Value<string?>(() => __config.Get("clientCertificateKeyPath"));
+        /// <summary>
+        /// Filesystem path to the PEM-encoded private key that matches `ClientCertificatePath`.
+        /// </summary>
+        public static string? ClientCertificateKeyPath
+        {
+            get => _clientCertificateKeyPath.Get();
+            set => _clientCertificateKeyPath.Set(value);
+        }
+
+        private static readonly __Value<string?> _clientCertificatePath = new __Value<string?>(() => __config.Get("clientCertificatePath"));
+        /// <summary>
+        /// Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `ClientCertificateKeyPath`.
+        /// </summary>
+        public static string? ClientCertificatePath
+        {
+            get => _clientCertificatePath.Get();
+            set => _clientCertificatePath.Set(value);
+        }
+
+        private static readonly __Value<string?> _clientCertificatePem = new __Value<string?>(() => __config.Get("clientCertificatePem"));
+        /// <summary>
+        /// Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `ClientPrivateKeyPem`.
+        /// </summary>
+        public static string? ClientCertificatePem
+        {
+            get => _clientCertificatePem.Get();
+            set => _clientCertificatePem.Set(value);
+        }
+
+        private static readonly __Value<string?> _clientPrivateKeyPem = new __Value<string?>(() => __config.Get("clientPrivateKeyPem"));
+        /// <summary>
+        /// Inline PEM-encoded private key that matches `ClientCertificatePem`.
+        /// </summary>
+        public static string? ClientPrivateKeyPem
+        {
+            get => _clientPrivateKeyPem.Get();
+            set => _clientPrivateKeyPem.Set(value);
+        }
+
         private static readonly __Value<string?> _oidcProviderName = new __Value<string?>(() => __config.Get("oidcProviderName"));
         /// <summary>
         /// OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.

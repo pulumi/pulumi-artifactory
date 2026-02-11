@@ -35,6 +35,34 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('apiKey')
 
     @_builtins.property
+    def client_certificate_key_path(self) -> Optional[str]:
+        """
+        Filesystem path to the PEM-encoded private key that matches `client_certificate_path`.
+        """
+        return __config__.get('clientCertificateKeyPath')
+
+    @_builtins.property
+    def client_certificate_path(self) -> Optional[str]:
+        """
+        Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `client_certificate_key_path`.
+        """
+        return __config__.get('clientCertificatePath')
+
+    @_builtins.property
+    def client_certificate_pem(self) -> Optional[str]:
+        """
+        Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `client_private_key_pem`.
+        """
+        return __config__.get('clientCertificatePem')
+
+    @_builtins.property
+    def client_private_key_pem(self) -> Optional[str]:
+        """
+        Inline PEM-encoded private key that matches `client_certificate_pem`.
+        """
+        return __config__.get('clientPrivateKeyPem')
+
+    @_builtins.property
     def oidc_provider_name(self) -> Optional[str]:
         """
         OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.

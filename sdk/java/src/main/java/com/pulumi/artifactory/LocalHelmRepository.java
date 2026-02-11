@@ -152,28 +152,28 @@ public class LocalHelmRepository extends com.pulumi.resources.CustomResource {
         return this.excludesPattern;
     }
     /**
-     * Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.0 onward. Cannot be updated after it is set.
      * 
      */
     @Export(name="forceMetadataNameVersion", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> forceMetadataNameVersion;
 
     /**
-     * @return Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * @return Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.0 onward. Cannot be updated after it is set.
      * 
      */
     public Output<Boolean> forceMetadataNameVersion() {
         return this.forceMetadataNameVersion;
     }
     /**
-     * Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.0 onward. Cannot be updated after it is set.
      * 
      */
     @Export(name="forceNonDuplicateChart", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> forceNonDuplicateChart;
 
     /**
-     * @return Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * @return Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.0 onward. Cannot be updated after it is set.
      * 
      */
     public Output<Boolean> forceNonDuplicateChart() {

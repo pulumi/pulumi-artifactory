@@ -24,6 +24,26 @@ apiKey: Optional[str]
 API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
 """
 
+clientCertificateKeyPath: Optional[str]
+"""
+Filesystem path to the PEM-encoded private key that matches `client_certificate_path`.
+"""
+
+clientCertificatePath: Optional[str]
+"""
+Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `client_certificate_key_path`.
+"""
+
+clientCertificatePem: Optional[str]
+"""
+Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `client_private_key_pem`.
+"""
+
+clientPrivateKeyPem: Optional[str]
+"""
+Inline PEM-encoded private key that matches `client_certificate_pem`.
+"""
+
 oidcProviderName: Optional[str]
 """
 OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.

@@ -62,6 +62,66 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
     }
 
     /**
+     * Filesystem path to the PEM-encoded private key that matches `clientCertificatePath`.
+     * 
+     */
+    @Import(name="clientCertificateKeyPath")
+    private @Nullable Output<String> clientCertificateKeyPath;
+
+    /**
+     * @return Filesystem path to the PEM-encoded private key that matches `clientCertificatePath`.
+     * 
+     */
+    public Optional<Output<String>> clientCertificateKeyPath() {
+        return Optional.ofNullable(this.clientCertificateKeyPath);
+    }
+
+    /**
+     * Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `clientCertificateKeyPath`.
+     * 
+     */
+    @Import(name="clientCertificatePath")
+    private @Nullable Output<String> clientCertificatePath;
+
+    /**
+     * @return Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `clientCertificateKeyPath`.
+     * 
+     */
+    public Optional<Output<String>> clientCertificatePath() {
+        return Optional.ofNullable(this.clientCertificatePath);
+    }
+
+    /**
+     * Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `clientPrivateKeyPem`.
+     * 
+     */
+    @Import(name="clientCertificatePem")
+    private @Nullable Output<String> clientCertificatePem;
+
+    /**
+     * @return Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `clientPrivateKeyPem`.
+     * 
+     */
+    public Optional<Output<String>> clientCertificatePem() {
+        return Optional.ofNullable(this.clientCertificatePem);
+    }
+
+    /**
+     * Inline PEM-encoded private key that matches `clientCertificatePem`.
+     * 
+     */
+    @Import(name="clientPrivateKeyPem")
+    private @Nullable Output<String> clientPrivateKeyPem;
+
+    /**
+     * @return Inline PEM-encoded private key that matches `clientCertificatePem`.
+     * 
+     */
+    public Optional<Output<String>> clientPrivateKeyPem() {
+        return Optional.ofNullable(this.clientPrivateKeyPem);
+    }
+
+    /**
      * OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
      * 
      */
@@ -103,6 +163,10 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
     private ProviderArgs(ProviderArgs $) {
         this.accessToken = $.accessToken;
         this.apiKey = $.apiKey;
+        this.clientCertificateKeyPath = $.clientCertificateKeyPath;
+        this.clientCertificatePath = $.clientCertificatePath;
+        this.clientCertificatePem = $.clientCertificatePem;
+        this.clientPrivateKeyPem = $.clientPrivateKeyPem;
         this.oidcProviderName = $.oidcProviderName;
         this.tfcCredentialTagName = $.tfcCredentialTagName;
         this.url = $.url;
@@ -182,6 +246,90 @@ In a future version (scheduled for end of Q3, 2023), the option to disable the u
 By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details. */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
+        }
+
+        /**
+         * @param clientCertificateKeyPath Filesystem path to the PEM-encoded private key that matches `clientCertificatePath`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientCertificateKeyPath(@Nullable Output<String> clientCertificateKeyPath) {
+            $.clientCertificateKeyPath = clientCertificateKeyPath;
+            return this;
+        }
+
+        /**
+         * @param clientCertificateKeyPath Filesystem path to the PEM-encoded private key that matches `clientCertificatePath`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientCertificateKeyPath(String clientCertificateKeyPath) {
+            return clientCertificateKeyPath(Output.of(clientCertificateKeyPath));
+        }
+
+        /**
+         * @param clientCertificatePath Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `clientCertificateKeyPath`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientCertificatePath(@Nullable Output<String> clientCertificatePath) {
+            $.clientCertificatePath = clientCertificatePath;
+            return this;
+        }
+
+        /**
+         * @param clientCertificatePath Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `clientCertificateKeyPath`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientCertificatePath(String clientCertificatePath) {
+            return clientCertificatePath(Output.of(clientCertificatePath));
+        }
+
+        /**
+         * @param clientCertificatePem Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `clientPrivateKeyPem`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientCertificatePem(@Nullable Output<String> clientCertificatePem) {
+            $.clientCertificatePem = clientCertificatePem;
+            return this;
+        }
+
+        /**
+         * @param clientCertificatePem Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `clientPrivateKeyPem`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientCertificatePem(String clientCertificatePem) {
+            return clientCertificatePem(Output.of(clientCertificatePem));
+        }
+
+        /**
+         * @param clientPrivateKeyPem Inline PEM-encoded private key that matches `clientCertificatePem`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientPrivateKeyPem(@Nullable Output<String> clientPrivateKeyPem) {
+            $.clientPrivateKeyPem = clientPrivateKeyPem;
+            return this;
+        }
+
+        /**
+         * @param clientPrivateKeyPem Inline PEM-encoded private key that matches `clientCertificatePem`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientPrivateKeyPem(String clientPrivateKeyPem) {
+            return clientPrivateKeyPem(Output.of(clientPrivateKeyPem));
         }
 
         /**

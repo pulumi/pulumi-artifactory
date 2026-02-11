@@ -168,6 +168,9 @@ namespace Pulumi.Artifactory
         [Input("offline")]
         public bool? Offline { get; set; }
 
+        [Input("passThrough")]
+        public bool? PassThrough { get; set; }
+
         [Input("password")]
         private string? _password;
         public string? Password
@@ -332,6 +335,9 @@ namespace Pulumi.Artifactory
         [Input("offline")]
         public Input<bool>? Offline { get; set; }
 
+        [Input("passThrough")]
+        public Input<bool>? PassThrough { get; set; }
+
         [Input("password")]
         private Input<string>? _password;
         public Input<string>? Password
@@ -452,6 +458,7 @@ namespace Pulumi.Artifactory
         public readonly string? Notes;
         public readonly bool? Offline;
         public readonly string PackageType;
+        public readonly bool? PassThrough;
         public readonly string? Password;
         public readonly bool? PriorityResolution;
         public readonly ImmutableArray<string> ProjectEnvironments;
@@ -533,6 +540,8 @@ namespace Pulumi.Artifactory
 
             string packageType,
 
+            bool? passThrough,
+
             string? password,
 
             bool? priorityResolution,
@@ -599,6 +608,7 @@ namespace Pulumi.Artifactory
             Notes = notes;
             Offline = offline;
             PackageType = packageType;
+            PassThrough = passThrough;
             Password = password;
             PriorityResolution = priorityResolution;
             ProjectEnvironments = projectEnvironments;

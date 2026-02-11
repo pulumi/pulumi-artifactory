@@ -21,6 +21,10 @@ class ProviderArgs:
     def __init__(__self__, *,
                  access_token: Optional[pulumi.Input[_builtins.str]] = None,
                  api_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_certificate_key_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_certificate_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_private_key_pem: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tfc_credential_tag_name: Optional[pulumi.Input[_builtins.str]] = None,
                  url: Optional[pulumi.Input[_builtins.str]] = None):
@@ -28,6 +32,10 @@ class ProviderArgs:
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[_builtins.str] access_token: This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the 'api_key' attribute value will be used.
         :param pulumi.Input[_builtins.str] api_key: API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
+        :param pulumi.Input[_builtins.str] client_certificate_key_path: Filesystem path to the PEM-encoded private key that matches `client_certificate_path`.
+        :param pulumi.Input[_builtins.str] client_certificate_path: Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `client_certificate_key_path`.
+        :param pulumi.Input[_builtins.str] client_certificate_pem: Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `client_private_key_pem`.
+        :param pulumi.Input[_builtins.str] client_private_key_pem: Inline PEM-encoded private key that matches `client_certificate_pem`.
         :param pulumi.Input[_builtins.str] oidc_provider_name: OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
         :param pulumi.Input[_builtins.str] url: Artifactory URL.
         """
@@ -42,6 +50,14 @@ In a future version (scheduled for end of Q3, 2023), the option to disable the u
 By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.""")
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
+        if client_certificate_key_path is not None:
+            pulumi.set(__self__, "client_certificate_key_path", client_certificate_key_path)
+        if client_certificate_path is not None:
+            pulumi.set(__self__, "client_certificate_path", client_certificate_path)
+        if client_certificate_pem is not None:
+            pulumi.set(__self__, "client_certificate_pem", client_certificate_pem)
+        if client_private_key_pem is not None:
+            pulumi.set(__self__, "client_private_key_pem", client_private_key_pem)
         if oidc_provider_name is not None:
             pulumi.set(__self__, "oidc_provider_name", oidc_provider_name)
         if tfc_credential_tag_name is not None:
@@ -75,6 +91,54 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
     @api_key.setter
     def api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCertificateKeyPath")
+    def client_certificate_key_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Filesystem path to the PEM-encoded private key that matches `client_certificate_path`.
+        """
+        return pulumi.get(self, "client_certificate_key_path")
+
+    @client_certificate_key_path.setter
+    def client_certificate_key_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_certificate_key_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCertificatePath")
+    def client_certificate_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `client_certificate_key_path`.
+        """
+        return pulumi.get(self, "client_certificate_path")
+
+    @client_certificate_path.setter
+    def client_certificate_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_certificate_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCertificatePem")
+    def client_certificate_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `client_private_key_pem`.
+        """
+        return pulumi.get(self, "client_certificate_pem")
+
+    @client_certificate_pem.setter
+    def client_certificate_pem(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_certificate_pem", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientPrivateKeyPem")
+    def client_private_key_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Inline PEM-encoded private key that matches `client_certificate_pem`.
+        """
+        return pulumi.get(self, "client_private_key_pem")
+
+    @client_private_key_pem.setter
+    def client_private_key_pem(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_private_key_pem", value)
 
     @_builtins.property
     @pulumi.getter(name="oidcProviderName")
@@ -118,6 +182,10 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_token: Optional[pulumi.Input[_builtins.str]] = None,
                  api_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_certificate_key_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_certificate_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_private_key_pem: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tfc_credential_tag_name: Optional[pulumi.Input[_builtins.str]] = None,
                  url: Optional[pulumi.Input[_builtins.str]] = None,
@@ -132,6 +200,10 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_token: This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the 'api_key' attribute value will be used.
         :param pulumi.Input[_builtins.str] api_key: API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
+        :param pulumi.Input[_builtins.str] client_certificate_key_path: Filesystem path to the PEM-encoded private key that matches `client_certificate_path`.
+        :param pulumi.Input[_builtins.str] client_certificate_path: Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `client_certificate_key_path`.
+        :param pulumi.Input[_builtins.str] client_certificate_pem: Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `client_private_key_pem`.
+        :param pulumi.Input[_builtins.str] client_private_key_pem: Inline PEM-encoded private key that matches `client_certificate_pem`.
         :param pulumi.Input[_builtins.str] oidc_provider_name: OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
         :param pulumi.Input[_builtins.str] url: Artifactory URL.
         """
@@ -164,6 +236,10 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_token: Optional[pulumi.Input[_builtins.str]] = None,
                  api_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_certificate_key_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_certificate_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_private_key_pem: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tfc_credential_tag_name: Optional[pulumi.Input[_builtins.str]] = None,
                  url: Optional[pulumi.Input[_builtins.str]] = None,
@@ -178,10 +254,14 @@ class Provider(pulumi.ProviderResource):
 
             __props__.__dict__["access_token"] = None if access_token is None else pulumi.Output.secret(access_token)
             __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
+            __props__.__dict__["client_certificate_key_path"] = client_certificate_key_path
+            __props__.__dict__["client_certificate_path"] = client_certificate_path
+            __props__.__dict__["client_certificate_pem"] = None if client_certificate_pem is None else pulumi.Output.secret(client_certificate_pem)
+            __props__.__dict__["client_private_key_pem"] = None if client_private_key_pem is None else pulumi.Output.secret(client_private_key_pem)
             __props__.__dict__["oidc_provider_name"] = oidc_provider_name
             __props__.__dict__["tfc_credential_tag_name"] = tfc_credential_tag_name
             __props__.__dict__["url"] = url
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "apiKey"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "apiKey", "clientCertificatePem", "clientPrivateKeyPem"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'artifactory',
@@ -207,6 +287,38 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
         """
         return pulumi.get(self, "api_key")
+
+    @_builtins.property
+    @pulumi.getter(name="clientCertificateKeyPath")
+    def client_certificate_key_path(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Filesystem path to the PEM-encoded private key that matches `client_certificate_path`.
+        """
+        return pulumi.get(self, "client_certificate_key_path")
+
+    @_builtins.property
+    @pulumi.getter(name="clientCertificatePath")
+    def client_certificate_path(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `client_certificate_key_path`.
+        """
+        return pulumi.get(self, "client_certificate_path")
+
+    @_builtins.property
+    @pulumi.getter(name="clientCertificatePem")
+    def client_certificate_pem(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `client_private_key_pem`.
+        """
+        return pulumi.get(self, "client_certificate_pem")
+
+    @_builtins.property
+    @pulumi.getter(name="clientPrivateKeyPem")
+    def client_private_key_pem(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Inline PEM-encoded private key that matches `client_certificate_pem`.
+        """
+        return pulumi.get(self, "client_private_key_pem")
 
     @_builtins.property
     @pulumi.getter(name="oidcProviderName")
