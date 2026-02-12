@@ -1598,6 +1598,11 @@ export type ScopedToken = import("./scopedToken").ScopedToken;
 export const ScopedToken: typeof import("./scopedToken").ScopedToken = null as any;
 utilities.lazyLoad(exports, ["ScopedToken"], () => require("./scopedToken"));
 
+export { TrashcanConfigArgs, TrashcanConfigState } from "./trashcanConfig";
+export type TrashcanConfig = import("./trashcanConfig").TrashcanConfig;
+export const TrashcanConfig: typeof import("./trashcanConfig").TrashcanConfig = null as any;
+utilities.lazyLoad(exports, ["TrashcanConfig"], () => require("./trashcanConfig"));
+
 export { UnmanagedUserArgs, UnmanagedUserState } from "./unmanagedUser";
 export type UnmanagedUser = import("./unmanagedUser").UnmanagedUser;
 export const UnmanagedUser: typeof import("./unmanagedUser").UnmanagedUser = null as any;
@@ -2134,6 +2139,8 @@ const _module = {
                 return new SamlSettings(name, <any>undefined, { urn })
             case "artifactory:index/scopedToken:ScopedToken":
                 return new ScopedToken(name, <any>undefined, { urn })
+            case "artifactory:index/trashcanConfig:TrashcanConfig":
+                return new TrashcanConfig(name, <any>undefined, { urn })
             case "artifactory:index/unmanagedUser:UnmanagedUser":
                 return new UnmanagedUser(name, <any>undefined, { urn })
             case "artifactory:index/user:User":
@@ -2382,6 +2389,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/remoteVcsRepository"
 pulumi.runtime.registerResourceModule("artifactory", "index/repositoryLayout", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/samlSettings", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/scopedToken", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/trashcanConfig", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/unmanagedUser", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/user", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/userCustomWebhook", _module)
