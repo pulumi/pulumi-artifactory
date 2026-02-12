@@ -363,6 +363,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SamlSettings{}
 	case "artifactory:index/scopedToken:ScopedToken":
 		r = &ScopedToken{}
+	case "artifactory:index/trashcanConfig:TrashcanConfig":
+		r = &TrashcanConfig{}
 	case "artifactory:index/unmanagedUser:UnmanagedUser":
 		r = &UnmanagedUser{}
 	case "artifactory:index/user:User":
@@ -1319,6 +1321,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/scopedToken",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/trashcanConfig",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

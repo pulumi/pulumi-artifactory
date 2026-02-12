@@ -325,6 +325,7 @@ from .remote_vcs_repository import *
 from .repository_layout import *
 from .saml_settings import *
 from .scoped_token import *
+from .trashcan_config import *
 from .unmanaged_user import *
 from .user import *
 from .user_custom_webhook import *
@@ -1740,6 +1741,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/scopedToken:ScopedToken": "ScopedToken"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/trashcanConfig",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/trashcanConfig:TrashcanConfig": "TrashcanConfig"
   }
  },
  {

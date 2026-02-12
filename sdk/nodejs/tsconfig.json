@@ -335,6 +335,7 @@
         "repositoryLayout.ts",
         "samlSettings.ts",
         "scopedToken.ts",
+        "trashcanConfig.ts",
         "types/index.ts",
         "types/input.ts",
         "types/output.ts",

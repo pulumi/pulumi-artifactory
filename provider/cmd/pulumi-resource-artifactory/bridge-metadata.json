@@ -2614,6 +2614,10 @@
                     }
                 }
             },
+            "artifactory_trashcan_config": {
+                "current": "artifactory:index/trashcanConfig:TrashcanConfig",
+                "majorVersion": 8
+            },
             "artifactory_unmanaged_user": {
                 "current": "artifactory:index/unmanagedUser:UnmanagedUser",
                 "majorVersion": 8,
@@ -5969,6 +5973,7 @@
             "artifactory:index/repositoryLayout:RepositoryLayout": 1,
             "artifactory:index/samlSettings:SamlSettings": 0,
             "artifactory:index/scopedToken:ScopedToken": 1,
+            "artifactory:index/trashcanConfig:TrashcanConfig": 1,
             "artifactory:index/unmanagedUser:UnmanagedUser": 1,
             "artifactory:index/user:User": 1,
             "artifactory:index/userCustomWebhook:UserCustomWebhook": 1,
