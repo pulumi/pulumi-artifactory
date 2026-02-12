@@ -100,6 +100,7 @@ class RemoteGemsRepositoryArgs:
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[_builtins.bool] pass_through: Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[_builtins.bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
@@ -570,6 +571,9 @@ class RemoteGemsRepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
@@ -845,6 +849,7 @@ class _RemoteGemsRepositoryState:
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[_builtins.bool] pass_through: Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[_builtins.bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
@@ -1306,6 +1311,9 @@ class _RemoteGemsRepositoryState:
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
@@ -1584,7 +1592,6 @@ class RemoteGemsRepository(pulumi.CustomResource):
         ## Import
 
         Remote repositories can be imported using their name, e.g.
-
         ```sh
         $ pulumi import artifactory:index/remoteGemsRepository:RemoteGemsRepository my-remote-gems my-remote-gems
         ```
@@ -1620,6 +1627,7 @@ class RemoteGemsRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[_builtins.bool] pass_through: Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[_builtins.bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
@@ -1660,7 +1668,6 @@ class RemoteGemsRepository(pulumi.CustomResource):
         ## Import
 
         Remote repositories can be imported using their name, e.g.
-
         ```sh
         $ pulumi import artifactory:index/remoteGemsRepository:RemoteGemsRepository my-remote-gems my-remote-gems
         ```
@@ -1882,6 +1889,7 @@ class RemoteGemsRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[_builtins.bool] pass_through: Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[_builtins.bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
@@ -2182,6 +2190,9 @@ class RemoteGemsRepository(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        """
         return pulumi.get(self, "project_environments")
 
     @_builtins.property

@@ -167,9 +167,17 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.reportsManager);
     }
 
+    /**
+     * List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+     * 
+     */
     @Import(name="usersNames")
     private @Nullable Output<List<String>> usersNames;
 
+    /**
+     * @return List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+     * 
+     */
     public Optional<Output<List<String>>> usersNames() {
         return Optional.ofNullable(this.usersNames);
     }
@@ -434,15 +442,33 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
             return reportsManager(Output.of(reportsManager));
         }
 
+        /**
+         * @param usersNames List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+         * 
+         * @return builder
+         * 
+         */
         public Builder usersNames(@Nullable Output<List<String>> usersNames) {
             $.usersNames = usersNames;
             return this;
         }
 
+        /**
+         * @param usersNames List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+         * 
+         * @return builder
+         * 
+         */
         public Builder usersNames(List<String> usersNames) {
             return usersNames(Output.of(usersNames));
         }
 
+        /**
+         * @param usersNames List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+         * 
+         * @return builder
+         * 
+         */
         public Builder usersNames(String... usersNames) {
             return usersNames(List.of(usersNames));
         }

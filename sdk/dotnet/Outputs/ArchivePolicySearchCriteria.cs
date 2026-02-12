@@ -72,6 +72,9 @@ namespace Pulumi.Artifactory.Outputs
         /// The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
         /// </summary>
         public readonly int? LastDownloadedBeforeInMonths;
+        /// <summary>
+        /// The package types that are archived by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, maven, npm, nuget, oci, opkg, puppet, pypi, sbt, swift, terraform, terraformbackend, vagrant, yum.
+        /// </summary>
         public readonly ImmutableArray<string> PackageTypes;
         /// <summary>
         /// Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = ["**"]`

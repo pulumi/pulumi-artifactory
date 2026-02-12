@@ -61,7 +61,15 @@ public final class GetRemoteTerraformRepositoryResult {
     private @Nullable Integer socketTimeoutMillis;
     private @Nullable Boolean storeArtifactsLocally;
     private @Nullable Boolean synchronizeProperties;
+    /**
+     * @return (Optional) The base URL of the Provider&#39;s storage API. When using Smart remote repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey/providers`.
+     * 
+     */
     private @Nullable String terraformProvidersUrl;
+    /**
+     * @return (Optional) The base URL of the registry API. When using Smart Remote Repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey`.
+     * 
+     */
     private @Nullable String terraformRegistryUrl;
     private @Nullable Integer unusedArtifactsCleanupPeriodHours;
     private @Nullable String url;
@@ -196,9 +204,17 @@ public final class GetRemoteTerraformRepositoryResult {
     public Optional<Boolean> synchronizeProperties() {
         return Optional.ofNullable(this.synchronizeProperties);
     }
+    /**
+     * @return (Optional) The base URL of the Provider&#39;s storage API. When using Smart remote repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey/providers`.
+     * 
+     */
     public Optional<String> terraformProvidersUrl() {
         return Optional.ofNullable(this.terraformProvidersUrl);
     }
+    /**
+     * @return (Optional) The base URL of the registry API. When using Smart Remote Repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey`.
+     * 
+     */
     public Optional<String> terraformRegistryUrl() {
         return Optional.ofNullable(this.terraformRegistryUrl);
     }

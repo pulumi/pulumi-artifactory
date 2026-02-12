@@ -56,6 +56,9 @@ namespace Pulumi.Artifactory.Inputs
             }
         }
 
+        /// <summary>
+        /// The authentication method used. The supported methods are `Certificate`, `AppRole`, and `Agent`. For more information, see [Hashicorp Vault Docs](https://developer.hashicorp.com/vault/docs/auth).
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

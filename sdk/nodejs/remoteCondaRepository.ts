@@ -25,7 +25,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Remote repositories can be imported using their name, e.g.
- *
  * ```sh
  * $ pulumi import artifactory:index/remoteCondaRepository:RemoteCondaRepository my-remote-conda my-remote-conda
  * ```
@@ -162,6 +161,9 @@ export class RemoteCondaRepository extends pulumi.CustomResource {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     declare public readonly priorityResolution: pulumi.Output<boolean>;
+    /**
+     * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     */
     declare public readonly projectEnvironments: pulumi.Output<string[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -444,6 +446,9 @@ export interface RemoteCondaRepositoryState {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     priorityResolution?: pulumi.Input<boolean>;
+    /**
+     * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -612,6 +617,9 @@ export interface RemoteCondaRepositoryArgs {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     priorityResolution?: pulumi.Input<boolean>;
+    /**
+     * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.

@@ -18,13 +18,294 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides an Artifactory Package Cleanup Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. Package cleanup policies are supported on the Cloud (7.98.2) and Self-Hosted (7.98.7) platforms, with an Enterprise+ license. See [Cleanup Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/cleanup-policies) for more details.
+ * 
+ * ## Example Usage
+ * 
+ * ### Time-based Cleanup Policy (Days)
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.PackageCleanupPolicy;
+ * import com.pulumi.artifactory.PackageCleanupPolicyArgs;
+ * import com.pulumi.artifactory.inputs.PackageCleanupPolicySearchCriteriaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var my_cleanup_policy = new PackageCleanupPolicy("my-cleanup-policy", PackageCleanupPolicyArgs.builder()
+ *             .key("my-cleanup-policy")
+ *             .description("My cleanup policy")
+ *             .cronExpression("0 0 2 ? * MON-SAT *")
+ *             .durationInMinutes(60)
+ *             .enabled(true)
+ *             .skipTrashcan(false)
+ *             .searchCriteria(PackageCleanupPolicySearchCriteriaArgs.builder()
+ *                 .packageTypes(                
+ *                     "docker",
+ *                     "gradle",
+ *                     "maven")
+ *                 .repos("**")
+ *                 .includeAllProjects(true)
+ *                 .includedProjects()
+ *                 .includedPackages("**")
+ *                 .excludedPackages("com/jfrog/latest")
+ *                 .createdBeforeInDays(30)
+ *                 .lastDownloadedBeforeInDays(60)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Version-based Cleanup Policy
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.PackageCleanupPolicy;
+ * import com.pulumi.artifactory.PackageCleanupPolicyArgs;
+ * import com.pulumi.artifactory.inputs.PackageCleanupPolicySearchCriteriaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var my_version_policy = new PackageCleanupPolicy("my-version-policy", PackageCleanupPolicyArgs.builder()
+ *             .key("my-version-policy")
+ *             .description("Keep only latest versions")
+ *             .cronExpression("0 0 2 ? * MON-SAT *")
+ *             .durationInMinutes(60)
+ *             .enabled(true)
+ *             .skipTrashcan(false)
+ *             .searchCriteria(PackageCleanupPolicySearchCriteriaArgs.builder()
+ *                 .packageTypes("maven")
+ *                 .repos("**")
+ *                 .includeAllProjects(true)
+ *                 .includedProjects()
+ *                 .includedPackages("**")
+ *                 .excludedPackages("com/jfrog/latest")
+ *                 .keepLastNVersions(5)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Properties-based Cleanup Policy
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.PackageCleanupPolicy;
+ * import com.pulumi.artifactory.PackageCleanupPolicyArgs;
+ * import com.pulumi.artifactory.inputs.PackageCleanupPolicySearchCriteriaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var my_properties_policy = new PackageCleanupPolicy("my-properties-policy", PackageCleanupPolicyArgs.builder()
+ *             .key("my-properties-policy")
+ *             .description("Cleanup based on properties")
+ *             .cronExpression("0 0 2 ? * MON-SAT *")
+ *             .durationInMinutes(60)
+ *             .enabled(true)
+ *             .skipTrashcan(false)
+ *             .searchCriteria(PackageCleanupPolicySearchCriteriaArgs.builder()
+ *                 .packageTypes("docker")
+ *                 .repos("**")
+ *                 .includeAllProjects(true)
+ *                 .includedProjects()
+ *                 .includedPackages("**")
+ *                 .excludedPackages("com/jfrog/latest")
+ *                 .includedProperties(Map.of("build.name", "my-app"))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Using Variables for Condition Fields
+ * 
+ * You can use Terraform variables for condition fields (`createdBeforeInDays`, `lastDownloadedBeforeInDays`, `createdBeforeInMonths`, `lastDownloadedBeforeInMonths`, `keepLastNVersions`, `includedProperties`) and `durationInMinutes`. The validator will skip validation when values are unknown (variables), allowing `terraform validate` to pass without requiring variable values.
+ * 
+ * **Example with variables:**
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.PackageCleanupPolicy;
+ * import com.pulumi.artifactory.PackageCleanupPolicyArgs;
+ * import com.pulumi.artifactory.inputs.PackageCleanupPolicySearchCriteriaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var config = ctx.config();
+ *         final var cleanupPolicyLastDownloadedBeforeInDays = config.get("cleanupPolicyLastDownloadedBeforeInDays").orElse(60);
+ *         final var cleanupPolicyDurationInMinutes = config.get("cleanupPolicyDurationInMinutes").orElse(120);
+ *         var my_cleanup_policy = new PackageCleanupPolicy("my-cleanup-policy", PackageCleanupPolicyArgs.builder()
+ *             .key("my-cleanup-policy")
+ *             .description("My cleanup policy with variables")
+ *             .cronExpression("0 0 2 ? * MON-SAT *")
+ *             .durationInMinutes(cleanupPolicyDurationInMinutes)
+ *             .enabled(true)
+ *             .skipTrashcan(false)
+ *             .searchCriteria(PackageCleanupPolicySearchCriteriaArgs.builder()
+ *                 .packageTypes(                
+ *                     "docker",
+ *                     "generic",
+ *                     "helm",
+ *                     "helmoci",
+ *                     "nuget",
+ *                     "terraform")
+ *                 .repos("**")
+ *                 .includeAllProjects(false)
+ *                 .includedProjects("default")
+ *                 .includedPackages("**")
+ *                 .excludedPackages("com/jfrog/latest")
+ *                 .lastDownloadedBeforeInDays(cleanupPolicyLastDownloadedBeforeInDays)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * **Important Notes:**
+ * - Variables with default values allow `terraform validate` to pass without requiring variable values
+ * - Variables without default values will require values to be provided during `pulumi preview` or `pulumi up`
+ * - The validator automatically skips validation when condition field values are unknown (variables), preventing false validation errors during `terraform validate`
+ * 
+ * ## Validation Rules
+ * 
+ * The cleanup policy resource enforces the following validation rules:
+ * 
+ * 1. **Condition Types**: A policy must use exactly one of the following condition types:
+ *    - Time-based conditions (`days-based`)
+ *    - Version-based condition (`keepLastNVersions`)
+ *    - Properties-based condition (`includedProperties`)
+ * 
+ * 2. **Mutual Exclusivity**: Cannot use multiple condition types together.
+ * 
+ * 3. **Zero Values**: Time-based and version-based conditions must have values greater than 0.
+ * 
+ * 4. **Days vs Months**: Cannot use both days-based conditions (`createdBeforeInDays`, `lastDownloadedBeforeInDays`) and months-based conditions (`createdBeforeInMonths`, `lastDownloadedBeforeInMonths`) together.
+ * 
+ * 5. **Properties Validation**: Properties-based conditions must have exactly one key with exactly one string value.
+ * 
+ * 6. **Project Configuration**: When `includeAllProjects` is set to `true`, the `includedProjects` field can be empty array. When `includeAllProjects` is `false`, `includedProjects` must contain at least one project key.
+ * 
+ * 7. **Project-level Policy Constraints**: When `projectKey` is specified (project-level policy):
+ *    - `includeAllProjects` must be set to `false`
+ *    - `includedProjects` should be empty array `[]`
+ *    - Policy `key` must start with the project key value as a prefix followed by a hyphen
+ *      - ✅ Valid: `projectKey = &#34;myproj&#34;` → `key = &#34;myproj-cleanup-policy&#34;`
+ *      - ❌ Invalid: `projectKey = &#34;myproj&#34;` → `key = &#34;cleanup-policy&#34;` (missing prefix)
+ *      - ❌ Invalid: `projectKey = &#34;myproj&#34;` → `key = &#34;other-cleanup-policy&#34;` (wrong prefix)
+ * 
+ * ## Supported Package Types
+ * 
+ * The following package types are supported for cleanup policies with their respective minimum Artifactory versions:
+ * 
+ * - **alpine** - Alpine Linux packages (supported from 7.108.0)
+ * - **ansible** - Ansible collections and roles (supported from 7.104.2)
+ * - **cargo** - Rust Cargo packages (supported from 7.102.0)
+ * - **chef** - Chef cookbooks (supported from 7.112.0)
+ * - **cocoapods** - CocoaPods packages (supported from 7.99.1)
+ * - **composer** - PHP Composer packages (supported from 7.116.0)
+ * - **conan** - Conan C/C++ packages (supported from 7.98.2)
+ * - **conda** - Conda packages (supported from 7.105.2)
+ * - **debian** - Debian packages (supported from 7.98.2)
+ * - **docker** - Docker images (supported from 7.98.2, version-based condition (keep_last_n_versions) from 7.115.1)
+ * - **gems** - Ruby gems (supported from 7.96.3)
+ * - **generic** - Generic packages (supported from 7.98.2, version-based conditions is not supported)
+ * - **go** - Go modules (supported from 7.98.2)
+ * - **gradle** - Gradle packages (supported from 7.98.2)
+ * - **helm** - Helm charts (supported from 7.98.2)
+ * - **helmoci** - Helm OCI charts (supported from 7.102.0, version-based conditions (keep_last_n_versions) from 7.115.1)
+ * - **huggingfaceml** - Hugging Face ML models (supported from 7.100.0)
+ * - **machinelearning** - Machine learning models (supported from 7.104.2)
+ * - **maven** - Maven packages (supported from 7.98.2)
+ * - **npm** - Node.js packages (supported from 7.98.2)
+ * - **nuget** - .NET NuGet packages (supported from 7.98.2)
+ * - **oci** - OCI images (supported from 7.90.1, version-based conditions (keep_last_n_versions) from 7.115.1)
+ * - **puppet** - Puppet modules (supported from 7.112.0)
+ * - **pypi** - Python packages (supported from 7.98.2)
+ * - **rpm|yum** - RPM packages (supported from 7.98.2)
+ * - **sbt** - Scala SBT packages (supported from 7.108.0)
+ * - **swift** - Swift packages
+ * - **terraform** - Terraform modules (supported from 7.99.1)
+ * - **terraformbackend** - Terraform backend configurations (supported from 7.103.0)
+ * 
+ * ## Version Compatibility
+ * 
+ * - The `createdBeforeInDays` and `lastDownloadedBeforeInDays` attributes are only supported in Artifactory 7.111.2 and later. For earlier versions, use `createdBeforeInMonths` and `lastDownloadedBeforeInMonths`.
+ * 
  * ## Import
  * 
  * ```sh
  * $ pulumi import artifactory:index/packageCleanupPolicy:PackageCleanupPolicy my-cleanup-policy my-policy
- * ```
  * 
- * ```sh
  * $ pulumi import artifactory:index/packageCleanupPolicy:PackageCleanupPolicy my-cleanup-policy my-policy:myproj
  * ```
  * 

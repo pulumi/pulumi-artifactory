@@ -134,6 +134,10 @@ namespace Pulumi.Artifactory.Inputs
 
         [Input("packageTypes", required: true)]
         private InputList<string>? _packageTypes;
+
+        /// <summary>
+        /// The package types that are cleaned up by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, machinelearning, maven, npm, nuget, oci, puppet, pypi, sbt, swift, terraform, terraformbackend, yum.
+        /// </summary>
         public InputList<string> PackageTypes
         {
             get => _packageTypes ?? (_packageTypes = new InputList<string>());

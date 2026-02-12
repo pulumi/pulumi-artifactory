@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Retrieves a virtual Terraform repository.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -75,6 +77,8 @@ export interface GetVirtualTerraformRepositoryResult {
     readonly repositories?: string[];
 }
 /**
+ * Retrieves a virtual Terraform repository.
+ *
  * ## Example Usage
  *
  * ```typescript

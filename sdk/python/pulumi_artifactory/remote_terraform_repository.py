@@ -77,6 +77,7 @@ class RemoteTerraformRepositoryArgs:
         :param pulumi.Input[_builtins.int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
         :param pulumi.Input[_builtins.bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
         :param pulumi.Input[_builtins.bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
+        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. **Note**: For terraform registries (registry.terraform.io, registry.opentofu.org), this must be set to `true` as Artifactory automatically enforces this setting. For tf.app.wiz.io, this is required only for Artifactory 7.122.0 and later. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[_builtins.str] description: Public description.
@@ -95,6 +96,7 @@ class RemoteTerraformRepositoryArgs:
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
@@ -105,6 +107,10 @@ class RemoteTerraformRepositoryArgs:
         :param pulumi.Input[_builtins.int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
         :param pulumi.Input[_builtins.bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
         :param pulumi.Input[_builtins.bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
+        :param pulumi.Input[_builtins.str] terraform_providers_url: The base URL of the Provider's storage API.
+               When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
+        :param pulumi.Input[_builtins.str] terraform_registry_url: The base URL of the registry API. 
+               When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
         :param pulumi.Input[_builtins.int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
@@ -289,6 +295,9 @@ class RemoteTerraformRepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="bypassHeadRequests")
     def bypass_head_requests(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. **Note**: For terraform registries (registry.terraform.io, registry.opentofu.org), this must be set to `true` as Artifactory automatically enforces this setting. For tf.app.wiz.io, this is required only for Artifactory 7.122.0 and later. Defaults to `false`.
+        """
         return pulumi.get(self, "bypass_head_requests")
 
     @bypass_head_requests.setter
@@ -532,6 +541,9 @@ class RemoteTerraformRepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
@@ -671,6 +683,10 @@ class RemoteTerraformRepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="terraformProvidersUrl")
     def terraform_providers_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The base URL of the Provider's storage API.
+        When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
+        """
         return pulumi.get(self, "terraform_providers_url")
 
     @terraform_providers_url.setter
@@ -680,6 +696,10 @@ class RemoteTerraformRepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="terraformRegistryUrl")
     def terraform_registry_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The base URL of the registry API. 
+        When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
+        """
         return pulumi.get(self, "terraform_registry_url")
 
     @terraform_registry_url.setter
@@ -776,6 +796,7 @@ class _RemoteTerraformRepositoryState:
         :param pulumi.Input[_builtins.int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
         :param pulumi.Input[_builtins.bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
         :param pulumi.Input[_builtins.bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
+        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. **Note**: For terraform registries (registry.terraform.io, registry.opentofu.org), this must be set to `true` as Artifactory automatically enforces this setting. For tf.app.wiz.io, this is required only for Artifactory 7.122.0 and later. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[_builtins.str] description: Public description.
@@ -796,6 +817,7 @@ class _RemoteTerraformRepositoryState:
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
@@ -806,6 +828,10 @@ class _RemoteTerraformRepositoryState:
         :param pulumi.Input[_builtins.int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
         :param pulumi.Input[_builtins.bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
         :param pulumi.Input[_builtins.bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
+        :param pulumi.Input[_builtins.str] terraform_providers_url: The base URL of the Provider's storage API.
+               When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
+        :param pulumi.Input[_builtins.str] terraform_registry_url: The base URL of the registry API. 
+               When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
         :param pulumi.Input[_builtins.int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[_builtins.str] url: The base URL of the Module storage API.
         :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
@@ -968,6 +994,9 @@ class _RemoteTerraformRepositoryState:
     @_builtins.property
     @pulumi.getter(name="bypassHeadRequests")
     def bypass_head_requests(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. **Note**: For terraform registries (registry.terraform.io, registry.opentofu.org), this must be set to `true` as Artifactory automatically enforces this setting. For tf.app.wiz.io, this is required only for Artifactory 7.122.0 and later. Defaults to `false`.
+        """
         return pulumi.get(self, "bypass_head_requests")
 
     @bypass_head_requests.setter
@@ -1224,6 +1253,9 @@ class _RemoteTerraformRepositoryState:
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
@@ -1363,6 +1395,10 @@ class _RemoteTerraformRepositoryState:
     @_builtins.property
     @pulumi.getter(name="terraformProvidersUrl")
     def terraform_providers_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The base URL of the Provider's storage API.
+        When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
+        """
         return pulumi.get(self, "terraform_providers_url")
 
     @terraform_providers_url.setter
@@ -1372,6 +1408,10 @@ class _RemoteTerraformRepositoryState:
     @_builtins.property
     @pulumi.getter(name="terraformRegistryUrl")
     def terraform_registry_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The base URL of the registry API. 
+        When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
+        """
         return pulumi.get(self, "terraform_registry_url")
 
     @terraform_registry_url.setter
@@ -1477,10 +1517,56 @@ class RemoteTerraformRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
+        Creates a remote Terraform repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        terraform_remote = artifactory.RemoteTerraformRepository("terraform-remote",
+            key="terraform-remote",
+            url="https://github.com/",
+            terraform_registry_url="https://registry.terraform.io",
+            terraform_providers_url="https://releases.hashicorp.com")
+        ```
+
+        ## Important Notes
+
+        ### Bypass HEAD Requests Requirement
+
+        For Terraform remote repositories using the following registry URLs, the `bypass_head_requests` parameter **must** be set to `true`:
+
+        - `https://registry.terraform.io` (all Artifactory versions)
+        - `https://registry.opentofu.org` (all Artifactory versions)
+        - `https://tf.app.wiz.io` (Artifactory 7.122.0 and later only)
+
+        Artifactory automatically enforces `bypass_head_requests = true` for these registries, even if you attempt to set it to `false`. This is because these registries do not support HEAD requests, and Artifactory must use GET requests directly to cache artifacts.
+
+        **Note**: For `tf.app.wiz.io`, the bypass requirement only applies to Artifactory versions 7.122.0 and later. Earlier versions do not require this setting for the Wiz registry.
+
+        **Example with required setting:**
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        terraform_remote = artifactory.RemoteTerraformRepository("terraform-remote",
+            key="terraform-remote",
+            url="https://github.com/",
+            terraform_registry_url="https://registry.terraform.io",
+            terraform_providers_url="https://releases.hashicorp.com",
+            bypass_head_requests=True)
+        ```
+
+        If you don't set `bypass_head_requests = true` for these registries (when required for your Artifactory version), you will experience state drift as Artifactory will automatically override the setting to `true`.
+
+        **Note**: The `bypass_head_requests` parameter defaults to `false` for most registries. Only the specific registries listed above require it to be set to `true`, and for `tf.app.wiz.io` this requirement only applies to Artifactory 7.122.0 and later.
+
         ## Import
 
         Remote repositories can be imported using their name, e.g.
-
         ```sh
         $ pulumi import artifactory:index/remoteTerraformRepository:RemoteTerraformRepository terraform-remote terraform-remote
         ```
@@ -1493,6 +1579,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
         :param pulumi.Input[_builtins.bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
         :param pulumi.Input[_builtins.bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
+        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. **Note**: For terraform registries (registry.terraform.io, registry.opentofu.org), this must be set to `true` as Artifactory automatically enforces this setting. For tf.app.wiz.io, this is required only for Artifactory 7.122.0 and later. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[_builtins.str] description: Public description.
@@ -1513,6 +1600,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
@@ -1523,6 +1611,10 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
         :param pulumi.Input[_builtins.bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
         :param pulumi.Input[_builtins.bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
+        :param pulumi.Input[_builtins.str] terraform_providers_url: The base URL of the Provider's storage API.
+               When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
+        :param pulumi.Input[_builtins.str] terraform_registry_url: The base URL of the registry API. 
+               When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
         :param pulumi.Input[_builtins.int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[_builtins.str] url: The base URL of the Module storage API.
         :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
@@ -1534,10 +1626,56 @@ class RemoteTerraformRepository(pulumi.CustomResource):
                  args: RemoteTerraformRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Creates a remote Terraform repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        terraform_remote = artifactory.RemoteTerraformRepository("terraform-remote",
+            key="terraform-remote",
+            url="https://github.com/",
+            terraform_registry_url="https://registry.terraform.io",
+            terraform_providers_url="https://releases.hashicorp.com")
+        ```
+
+        ## Important Notes
+
+        ### Bypass HEAD Requests Requirement
+
+        For Terraform remote repositories using the following registry URLs, the `bypass_head_requests` parameter **must** be set to `true`:
+
+        - `https://registry.terraform.io` (all Artifactory versions)
+        - `https://registry.opentofu.org` (all Artifactory versions)
+        - `https://tf.app.wiz.io` (Artifactory 7.122.0 and later only)
+
+        Artifactory automatically enforces `bypass_head_requests = true` for these registries, even if you attempt to set it to `false`. This is because these registries do not support HEAD requests, and Artifactory must use GET requests directly to cache artifacts.
+
+        **Note**: For `tf.app.wiz.io`, the bypass requirement only applies to Artifactory versions 7.122.0 and later. Earlier versions do not require this setting for the Wiz registry.
+
+        **Example with required setting:**
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        terraform_remote = artifactory.RemoteTerraformRepository("terraform-remote",
+            key="terraform-remote",
+            url="https://github.com/",
+            terraform_registry_url="https://registry.terraform.io",
+            terraform_providers_url="https://releases.hashicorp.com",
+            bypass_head_requests=True)
+        ```
+
+        If you don't set `bypass_head_requests = true` for these registries (when required for your Artifactory version), you will experience state drift as Artifactory will automatically override the setting to `true`.
+
+        **Note**: The `bypass_head_requests` parameter defaults to `false` for most registries. Only the specific registries listed above require it to be set to `true`, and for `tf.app.wiz.io` this requirement only applies to Artifactory 7.122.0 and later.
+
         ## Import
 
         Remote repositories can be imported using their name, e.g.
-
         ```sh
         $ pulumi import artifactory:index/remoteTerraformRepository:RemoteTerraformRepository terraform-remote terraform-remote
         ```
@@ -1730,6 +1868,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
         :param pulumi.Input[_builtins.bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
         :param pulumi.Input[_builtins.bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
+        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. **Note**: For terraform registries (registry.terraform.io, registry.opentofu.org), this must be set to `true` as Artifactory automatically enforces this setting. For tf.app.wiz.io, this is required only for Artifactory 7.122.0 and later. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[_builtins.str] description: Public description.
@@ -1750,6 +1889,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
@@ -1760,6 +1900,10 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
         :param pulumi.Input[_builtins.bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
         :param pulumi.Input[_builtins.bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
+        :param pulumi.Input[_builtins.str] terraform_providers_url: The base URL of the Provider's storage API.
+               When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
+        :param pulumi.Input[_builtins.str] terraform_registry_url: The base URL of the registry API. 
+               When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
         :param pulumi.Input[_builtins.int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[_builtins.str] url: The base URL of the Module storage API.
         :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
@@ -1859,6 +2003,9 @@ class RemoteTerraformRepository(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="bypassHeadRequests")
     def bypass_head_requests(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. **Note**: For terraform registries (registry.terraform.io, registry.opentofu.org), this must be set to `true` as Artifactory automatically enforces this setting. For tf.app.wiz.io, this is required only for Artifactory 7.122.0 and later. Defaults to `false`.
+        """
         return pulumi.get(self, "bypass_head_requests")
 
     @_builtins.property
@@ -2027,6 +2174,9 @@ class RemoteTerraformRepository(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        """
         return pulumi.get(self, "project_environments")
 
     @_builtins.property
@@ -2118,11 +2268,19 @@ class RemoteTerraformRepository(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="terraformProvidersUrl")
     def terraform_providers_url(self) -> pulumi.Output[_builtins.str]:
+        """
+        The base URL of the Provider's storage API.
+        When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
+        """
         return pulumi.get(self, "terraform_providers_url")
 
     @_builtins.property
     @pulumi.getter(name="terraformRegistryUrl")
     def terraform_registry_url(self) -> pulumi.Output[_builtins.str]:
+        """
+        The base URL of the registry API. 
+        When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
+        """
         return pulumi.get(self, "terraform_registry_url")
 
     @_builtins.property

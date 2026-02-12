@@ -69,6 +69,9 @@ export interface ArchivePolicySearchCriteria {
      * @deprecated Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
      */
     lastDownloadedBeforeInMonths: number;
+    /**
+     * The package types that are archived by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, maven, npm, nuget, oci, opkg, puppet, pypi, sbt, swift, terraform, terraformbackend, vagrant, yum.
+     */
     packageTypes: string[];
     /**
      * Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = ["**"]`
@@ -2959,6 +2962,9 @@ export interface PackageCleanupPolicySearchCriteria {
      * @deprecated Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
      */
     lastDownloadedBeforeInMonths: number;
+    /**
+     * The package types that are cleaned up by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, machinelearning, maven, npm, nuget, oci, puppet, pypi, sbt, swift, terraform, terraformbackend, yum.
+     */
     packageTypes: string[];
     /**
      * Specify one or more patterns for the repository name(s) on which you want the cleanup policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is mandatory. Only packages in repositories that match the pattern or explicit name will be deleted. For including all repos use `**`. Example: `repos = ["**"]`
@@ -4340,6 +4346,9 @@ export interface VaultConfigurationConfigAuth {
      * Secret ID for `AppRole` type
      */
     secretId?: string;
+    /**
+     * The authentication method used. The supported methods are `Certificate`, `AppRole`, and `Agent`. For more information, see [Hashicorp Vault Docs](https://developer.hashicorp.com/vault/docs/auth).
+     */
     type: string;
 }
 

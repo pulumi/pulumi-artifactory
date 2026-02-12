@@ -47,8 +47,11 @@ class LocalHexRepositoryArgs:
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
-        :param pulumi.Input[_builtins.str] notes: Internal description.
+        :param pulumi.Input[_builtins.str] notes: Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+               
+               The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
@@ -198,7 +201,9 @@ class LocalHexRepositoryArgs:
     @pulumi.getter
     def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Internal description.
+        Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+
+        The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         """
         return pulumi.get(self, "notes")
 
@@ -221,6 +226,9 @@ class LocalHexRepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
@@ -307,8 +315,11 @@ class _LocalHexRepositoryState:
         :param pulumi.Input[_builtins.str] hex_primary_keypair_ref: Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
         :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
-        :param pulumi.Input[_builtins.str] notes: Internal description.
+        :param pulumi.Input[_builtins.str] notes: Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+               
+               The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
@@ -460,7 +471,9 @@ class _LocalHexRepositoryState:
     @pulumi.getter
     def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Internal description.
+        Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+
+        The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         """
         return pulumi.get(self, "notes")
 
@@ -483,6 +496,9 @@ class _LocalHexRepositoryState:
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
@@ -588,7 +604,6 @@ class LocalHexRepository(pulumi.CustomResource):
         ## Import
 
         Local repositories can be imported using their name, e.g.
-
         ```sh
         $ pulumi import artifactory:index/localHexRepository:LocalHexRepository my-hex-repo my-hex-repo
         ```
@@ -605,8 +620,11 @@ class LocalHexRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] hex_primary_keypair_ref: Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
         :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
-        :param pulumi.Input[_builtins.str] notes: Internal description.
+        :param pulumi.Input[_builtins.str] notes: Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+               
+               The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
@@ -645,7 +663,6 @@ class LocalHexRepository(pulumi.CustomResource):
         ## Import
 
         Local repositories can be imported using their name, e.g.
-
         ```sh
         $ pulumi import artifactory:index/localHexRepository:LocalHexRepository my-hex-repo my-hex-repo
         ```
@@ -753,8 +770,11 @@ class LocalHexRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] hex_primary_keypair_ref: Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
         :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
-        :param pulumi.Input[_builtins.str] notes: Internal description.
+        :param pulumi.Input[_builtins.str] notes: Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+               
+               The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
@@ -859,7 +879,9 @@ class LocalHexRepository(pulumi.CustomResource):
     @pulumi.getter
     def notes(self) -> pulumi.Output[_builtins.str]:
         """
-        Internal description.
+        Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+
+        The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         """
         return pulumi.get(self, "notes")
 
@@ -874,6 +896,9 @@ class LocalHexRepository(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        """
         return pulumi.get(self, "project_environments")
 
     @_builtins.property

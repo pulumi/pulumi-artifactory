@@ -136,9 +136,17 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         return Optional.ofNullable(this.oidcProviderName);
     }
 
+    /**
+     * Terraform Cloud Workload Identity Token tag name. Use for generating multiple TFC workload identity tokens. When set, the provider will attempt to use env var with this tag name as suffix. **Note:** this is case sensitive, so if set to `JFROG`, then env var `TFC_WORKLOAD_IDENTITY_TOKEN_JFROG` is used instead of `TFC_WORKLOAD_IDENTITY_TOKEN`. See [Generating Multiple Tokens](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/manual-generation#generating-multiple-tokens) on HCP Terraform for more details.
+     * 
+     */
     @Import(name="tfcCredentialTagName")
     private @Nullable Output<String> tfcCredentialTagName;
 
+    /**
+     * @return Terraform Cloud Workload Identity Token tag name. Use for generating multiple TFC workload identity tokens. When set, the provider will attempt to use env var with this tag name as suffix. **Note:** this is case sensitive, so if set to `JFROG`, then env var `TFC_WORKLOAD_IDENTITY_TOKEN_JFROG` is used instead of `TFC_WORKLOAD_IDENTITY_TOKEN`. See [Generating Multiple Tokens](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/manual-generation#generating-multiple-tokens) on HCP Terraform for more details.
+     * 
+     */
     public Optional<Output<String>> tfcCredentialTagName() {
         return Optional.ofNullable(this.tfcCredentialTagName);
     }
@@ -353,11 +361,23 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
             return oidcProviderName(Output.of(oidcProviderName));
         }
 
+        /**
+         * @param tfcCredentialTagName Terraform Cloud Workload Identity Token tag name. Use for generating multiple TFC workload identity tokens. When set, the provider will attempt to use env var with this tag name as suffix. **Note:** this is case sensitive, so if set to `JFROG`, then env var `TFC_WORKLOAD_IDENTITY_TOKEN_JFROG` is used instead of `TFC_WORKLOAD_IDENTITY_TOKEN`. See [Generating Multiple Tokens](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/manual-generation#generating-multiple-tokens) on HCP Terraform for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tfcCredentialTagName(@Nullable Output<String> tfcCredentialTagName) {
             $.tfcCredentialTagName = tfcCredentialTagName;
             return this;
         }
 
+        /**
+         * @param tfcCredentialTagName Terraform Cloud Workload Identity Token tag name. Use for generating multiple TFC workload identity tokens. When set, the provider will attempt to use env var with this tag name as suffix. **Note:** this is case sensitive, so if set to `JFROG`, then env var `TFC_WORKLOAD_IDENTITY_TOKEN_JFROG` is used instead of `TFC_WORKLOAD_IDENTITY_TOKEN`. See [Generating Multiple Tokens](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/manual-generation#generating-multiple-tokens) on HCP Terraform for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tfcCredentialTagName(String tfcCredentialTagName) {
             return tfcCredentialTagName(Output.of(tfcCredentialTagName));
         }

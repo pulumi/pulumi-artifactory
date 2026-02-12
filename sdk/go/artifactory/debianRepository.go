@@ -21,8 +21,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -101,7 +99,6 @@ import (
 // ## Import
 //
 // Local repositories can be imported using their name, e.g.
-//
 // ```sh
 // $ pulumi import artifactory:index/debianRepository:DebianRepository my-debian-repo my-debian-repo
 // ```
@@ -135,7 +132,8 @@ type DebianRepository struct {
 	// The primary RSA key to be used to sign packages.
 	PrimaryKeypairRef pulumi.StringOutput `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution  pulumi.BoolOutput        `pulumi:"priorityResolution"`
+	PriorityResolution pulumi.BoolOutput `pulumi:"priorityResolution"`
+	// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringOutput `pulumi:"projectKey"`
@@ -146,6 +144,10 @@ type DebianRepository struct {
 	// The secondary RSA key to be used to sign packages.
 	SecondaryKeypairRef pulumi.StringOutput `pulumi:"secondaryKeypairRef"`
 	// When set, the repository will use the deprecated trivial layout.
+	//
+	// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+	//
+	// The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
 	TrivialLayout pulumi.BoolOutput `pulumi:"trivialLayout"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolOutput `pulumi:"xrayIndex"`
@@ -211,7 +213,8 @@ type debianRepositoryState struct {
 	// The primary RSA key to be used to sign packages.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution  *bool    `pulumi:"priorityResolution"`
+	PriorityResolution *bool `pulumi:"priorityResolution"`
+	// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
@@ -222,6 +225,10 @@ type debianRepositoryState struct {
 	// The secondary RSA key to be used to sign packages.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 	// When set, the repository will use the deprecated trivial layout.
+	//
+	// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+	//
+	// The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
 	TrivialLayout *bool `pulumi:"trivialLayout"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
@@ -255,7 +262,8 @@ type DebianRepositoryState struct {
 	// The primary RSA key to be used to sign packages.
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution  pulumi.BoolPtrInput
+	PriorityResolution pulumi.BoolPtrInput
+	// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
@@ -266,6 +274,10 @@ type DebianRepositoryState struct {
 	// The secondary RSA key to be used to sign packages.
 	SecondaryKeypairRef pulumi.StringPtrInput
 	// When set, the repository will use the deprecated trivial layout.
+	//
+	// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+	//
+	// The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
 	TrivialLayout pulumi.BoolPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolPtrInput
@@ -303,7 +315,8 @@ type debianRepositoryArgs struct {
 	// The primary RSA key to be used to sign packages.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution  *bool    `pulumi:"priorityResolution"`
+	PriorityResolution *bool `pulumi:"priorityResolution"`
+	// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
@@ -314,6 +327,10 @@ type debianRepositoryArgs struct {
 	// The secondary RSA key to be used to sign packages.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 	// When set, the repository will use the deprecated trivial layout.
+	//
+	// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+	//
+	// The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
 	TrivialLayout *bool `pulumi:"trivialLayout"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
@@ -348,7 +365,8 @@ type DebianRepositoryArgs struct {
 	// The primary RSA key to be used to sign packages.
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution  pulumi.BoolPtrInput
+	PriorityResolution pulumi.BoolPtrInput
+	// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
@@ -359,6 +377,10 @@ type DebianRepositoryArgs struct {
 	// The secondary RSA key to be used to sign packages.
 	SecondaryKeypairRef pulumi.StringPtrInput
 	// When set, the repository will use the deprecated trivial layout.
+	//
+	// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+	//
+	// The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
 	TrivialLayout pulumi.BoolPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolPtrInput
@@ -518,6 +540,7 @@ func (o DebianRepositoryOutput) PriorityResolution() pulumi.BoolOutput {
 	return o.ApplyT(func(v *DebianRepository) pulumi.BoolOutput { return v.PriorityResolution }).(pulumi.BoolOutput)
 }
 
+// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 func (o DebianRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DebianRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
@@ -543,6 +566,10 @@ func (o DebianRepositoryOutput) SecondaryKeypairRef() pulumi.StringOutput {
 }
 
 // When set, the repository will use the deprecated trivial layout.
+//
+// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+//
+// The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
 func (o DebianRepositoryOutput) TrivialLayout() pulumi.BoolOutput {
 	return o.ApplyT(func(v *DebianRepository) pulumi.BoolOutput { return v.TrivialLayout }).(pulumi.BoolOutput)
 }

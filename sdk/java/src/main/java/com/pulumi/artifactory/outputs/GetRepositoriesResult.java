@@ -19,6 +19,10 @@ public final class GetRepositoriesResult {
      * 
      */
     private String id;
+    /**
+     * @return Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
+     * 
+     */
     private @Nullable String packageType;
     /**
      * @return Filter for repositories assigned to a specific project.
@@ -44,6 +48,10 @@ public final class GetRepositoriesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
+     * 
+     */
     public Optional<String> packageType() {
         return Optional.ofNullable(this.packageType);
     }

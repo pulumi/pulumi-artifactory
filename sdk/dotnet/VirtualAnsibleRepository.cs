@@ -40,7 +40,6 @@ namespace Pulumi.Artifactory
     /// ## Import
     /// 
     /// Virtual repositories can be imported using their name, e.g.
-    /// 
     /// ```sh
     /// $ pulumi import artifactory:index/virtualAnsibleRepository:VirtualAnsibleRepository my-ansible-virtual my-ansible-virtual
     /// ```
@@ -94,6 +93,9 @@ namespace Pulumi.Artifactory
         [Output("packageType")]
         public Output<string> PackageType { get; private set; } = null!;
 
+        /// <summary>
+        /// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        /// </summary>
         [Output("projectEnvironments")]
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
 
@@ -212,6 +214,10 @@ namespace Pulumi.Artifactory
 
         [Input("projectEnvironments")]
         private InputList<string>? _projectEnvironments;
+
+        /// <summary>
+        /// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        /// </summary>
         public InputList<string> ProjectEnvironments
         {
             get => _projectEnvironments ?? (_projectEnvironments = new InputList<string>());
@@ -304,6 +310,10 @@ namespace Pulumi.Artifactory
 
         [Input("projectEnvironments")]
         private InputList<string>? _projectEnvironments;
+
+        /// <summary>
+        /// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        /// </summary>
         public InputList<string> ProjectEnvironments
         {
             get => _projectEnvironments ?? (_projectEnvironments = new InputList<string>());

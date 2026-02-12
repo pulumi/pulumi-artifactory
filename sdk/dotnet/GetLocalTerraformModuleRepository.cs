@@ -12,6 +12,9 @@ namespace Pulumi.Artifactory
     public static class GetLocalTerraformModuleRepository
     {
         /// <summary>
+        /// Creates a local Terraform Module repository. Official documentation can be
+        /// found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -34,6 +37,9 @@ namespace Pulumi.Artifactory
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalTerraformModuleRepositoryResult>("artifactory:index/getLocalTerraformModuleRepository:getLocalTerraformModuleRepository", args ?? new GetLocalTerraformModuleRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Creates a local Terraform Module repository. Official documentation can be
+        /// found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -56,6 +62,9 @@ namespace Pulumi.Artifactory
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalTerraformModuleRepositoryResult>("artifactory:index/getLocalTerraformModuleRepository:getLocalTerraformModuleRepository", args ?? new GetLocalTerraformModuleRepositoryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Creates a local Terraform Module repository. Official documentation can be
+        /// found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

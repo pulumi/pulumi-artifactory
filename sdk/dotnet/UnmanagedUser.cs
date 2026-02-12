@@ -99,6 +99,13 @@ namespace Pulumi.Artifactory
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
 
+        /// <summary>
+        /// Password policy to match JFrog Access to provide validation before API request.
+        /// 
+        /// -&gt;Due to Terraform limitation with interpolated value, we can only validate interpolated value prior to making API requests. This means `terraform validate` or `terraform plan` will not return error if `Password` does not meet `PasswordPolicy` criteria.
+        /// 
+        /// Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+        /// </summary>
         [Output("passwordPolicy")]
         public Output<Outputs.UnmanagedUserPasswordPolicy?> PasswordPolicy { get; private set; } = null!;
 
@@ -216,6 +223,13 @@ namespace Pulumi.Artifactory
             }
         }
 
+        /// <summary>
+        /// Password policy to match JFrog Access to provide validation before API request.
+        /// 
+        /// -&gt;Due to Terraform limitation with interpolated value, we can only validate interpolated value prior to making API requests. This means `terraform validate` or `terraform plan` will not return error if `Password` does not meet `PasswordPolicy` criteria.
+        /// 
+        /// Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+        /// </summary>
         [Input("passwordPolicy")]
         public Input<Inputs.UnmanagedUserPasswordPolicyArgs>? PasswordPolicy { get; set; }
 
@@ -291,6 +305,13 @@ namespace Pulumi.Artifactory
             }
         }
 
+        /// <summary>
+        /// Password policy to match JFrog Access to provide validation before API request.
+        /// 
+        /// -&gt;Due to Terraform limitation with interpolated value, we can only validate interpolated value prior to making API requests. This means `terraform validate` or `terraform plan` will not return error if `Password` does not meet `PasswordPolicy` criteria.
+        /// 
+        /// Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+        /// </summary>
         [Input("passwordPolicy")]
         public Input<Inputs.UnmanagedUserPasswordPolicyGetArgs>? PasswordPolicy { get; set; }
 

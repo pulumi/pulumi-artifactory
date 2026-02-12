@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Retrieves a local Terraform Provider repository. Official documentation can be
+ * found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -99,6 +102,9 @@ export interface GetLocalTerraformProviderRepositoryResult {
     readonly xrayIndex?: boolean;
 }
 /**
+ * Retrieves a local Terraform Provider repository. Official documentation can be
+ * found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+ *
  * ## Example Usage
  *
  * ```typescript

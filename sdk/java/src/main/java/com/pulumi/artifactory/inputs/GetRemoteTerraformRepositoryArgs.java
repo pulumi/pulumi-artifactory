@@ -301,16 +301,32 @@ public final class GetRemoteTerraformRepositoryArgs extends com.pulumi.resources
         return Optional.ofNullable(this.synchronizeProperties);
     }
 
+    /**
+     * (Optional) The base URL of the Provider&#39;s storage API. When using Smart remote repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey/providers`.
+     * 
+     */
     @Import(name="terraformProvidersUrl")
     private @Nullable Output<String> terraformProvidersUrl;
 
+    /**
+     * @return (Optional) The base URL of the Provider&#39;s storage API. When using Smart remote repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey/providers`.
+     * 
+     */
     public Optional<Output<String>> terraformProvidersUrl() {
         return Optional.ofNullable(this.terraformProvidersUrl);
     }
 
+    /**
+     * (Optional) The base URL of the registry API. When using Smart Remote Repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey`.
+     * 
+     */
     @Import(name="terraformRegistryUrl")
     private @Nullable Output<String> terraformRegistryUrl;
 
+    /**
+     * @return (Optional) The base URL of the registry API. When using Smart Remote Repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey`.
+     * 
+     */
     public Optional<Output<String>> terraformRegistryUrl() {
         return Optional.ofNullable(this.terraformRegistryUrl);
     }
@@ -782,20 +798,44 @@ public final class GetRemoteTerraformRepositoryArgs extends com.pulumi.resources
             return synchronizeProperties(Output.of(synchronizeProperties));
         }
 
+        /**
+         * @param terraformProvidersUrl (Optional) The base URL of the Provider&#39;s storage API. When using Smart remote repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey/providers`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder terraformProvidersUrl(@Nullable Output<String> terraformProvidersUrl) {
             $.terraformProvidersUrl = terraformProvidersUrl;
             return this;
         }
 
+        /**
+         * @param terraformProvidersUrl (Optional) The base URL of the Provider&#39;s storage API. When using Smart remote repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey/providers`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder terraformProvidersUrl(String terraformProvidersUrl) {
             return terraformProvidersUrl(Output.of(terraformProvidersUrl));
         }
 
+        /**
+         * @param terraformRegistryUrl (Optional) The base URL of the registry API. When using Smart Remote Repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder terraformRegistryUrl(@Nullable Output<String> terraformRegistryUrl) {
             $.terraformRegistryUrl = terraformRegistryUrl;
             return this;
         }
 
+        /**
+         * @param terraformRegistryUrl (Optional) The base URL of the registry API. When using Smart Remote Repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder terraformRegistryUrl(String terraformRegistryUrl) {
             return terraformRegistryUrl(Output.of(terraformRegistryUrl));
         }

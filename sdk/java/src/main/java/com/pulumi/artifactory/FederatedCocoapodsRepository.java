@@ -66,7 +66,6 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * Federated repositories can be imported using their name, e.g.
- * 
  * ```sh
  * $ pulumi import artifactory:index/federatedCocoapodsRepository:FederatedCocoapodsRepository terraform-federated-test-cocoapods-repo terraform-federated-test-cocoapods-repo
  * ```
@@ -118,9 +117,17 @@ public class FederatedCocoapodsRepository extends com.pulumi.resources.CustomRes
     public Output<Optional<Boolean>> cdnRedirect() {
         return Codegen.optional(this.cdnRedirect);
     }
+    /**
+     * Delete all federated members on `terraform destroy` if set to `true`. Default is `false`. This attribute is added to match Terrform logic, so all the resources, created by the provider, must be removed on cleanup. Artifactory&#39;s behavior for the federated repositories is different, all the federated repositories stay after the user deletes the initial federated repository. **Caution**: if set to `true` all the repositories in the federation will be deleted, including repositories on other Artifactory instances in the &#34;Circle of trust&#34;. This operation can not be reversed.
+     * 
+     */
     @Export(name="cleanupOnDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cleanupOnDelete;
 
+    /**
+     * @return Delete all federated members on `terraform destroy` if set to `true`. Default is `false`. This attribute is added to match Terrform logic, so all the resources, created by the provider, must be removed on cleanup. Artifactory&#39;s behavior for the federated repositories is different, all the federated repositories stay after the user deletes the initial federated repository. **Caution**: if set to `true` all the repositories in the federation will be deleted, including repositories on other Artifactory instances in the &#34;Circle of trust&#34;. This operation can not be reversed.
+     * 
+     */
     public Output<Optional<Boolean>> cleanupOnDelete() {
         return Codegen.optional(this.cleanupOnDelete);
     }
@@ -262,9 +269,17 @@ public class FederatedCocoapodsRepository extends com.pulumi.resources.CustomRes
     public Output<Optional<Boolean>> priorityResolution() {
         return Codegen.optional(this.priorityResolution);
     }
+    /**
+     * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     * 
+     */
     @Export(name="projectEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> projectEnvironments;
 
+    /**
+     * @return Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     * 
+     */
     public Output<List<String>> projectEnvironments() {
         return this.projectEnvironments;
     }

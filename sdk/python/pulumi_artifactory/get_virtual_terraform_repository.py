@@ -170,6 +170,8 @@ def get_virtual_terraform_repository(artifactory_requests_can_retrieve_remote_ar
                                      repositories: Optional[Sequence[_builtins.str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualTerraformRepositoryResult:
     """
+    Retrieves a virtual Terraform repository.
+
     ## Example Usage
 
     ```python
@@ -224,6 +226,8 @@ def get_virtual_terraform_repository_output(artifactory_requests_can_retrieve_re
                                             repositories: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualTerraformRepositoryResult]:
     """
+    Retrieves a virtual Terraform repository.
+
     ## Example Usage
 
     ```python

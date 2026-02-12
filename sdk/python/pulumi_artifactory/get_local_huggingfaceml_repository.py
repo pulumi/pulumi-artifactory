@@ -176,6 +176,9 @@ class GetLocalHuggingfacemlRepositoryResult:
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Sequence[_builtins.str]:
+        """
+        Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed. The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        """
         return pulumi.get(self, "project_environments")
 
     @_builtins.property
@@ -267,6 +270,7 @@ def get_local_huggingfaceml_repository(archive_browsing_enabled: Optional[_built
     :param _builtins.str key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen characters. It cannot begin with a number or contain spaces or special characters.
     :param _builtins.str notes: Internal description.
     :param _builtins.bool priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+    :param Sequence[_builtins.str] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed. The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
     :param _builtins.str project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
     :param Sequence[_builtins.str] property_sets: List of property set name
     :param _builtins.str repo_layout_ref: Repository layout key for the local repository
@@ -340,6 +344,7 @@ def get_local_huggingfaceml_repository_output(archive_browsing_enabled: Optional
     :param _builtins.str key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen characters. It cannot begin with a number or contain spaces or special characters.
     :param _builtins.str notes: Internal description.
     :param _builtins.bool priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+    :param Sequence[_builtins.str] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed. The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
     :param _builtins.str project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
     :param Sequence[_builtins.str] property_sets: List of property set name
     :param _builtins.str repo_layout_ref: Repository layout key for the local repository

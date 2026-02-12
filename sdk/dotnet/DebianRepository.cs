@@ -80,7 +80,6 @@ namespace Pulumi.Artifactory
     /// ## Import
     /// 
     /// Local repositories can be imported using their name, e.g.
-    /// 
     /// ```sh
     /// $ pulumi import artifactory:index/debianRepository:DebianRepository my-debian-repo my-debian-repo
     /// ```
@@ -168,6 +167,9 @@ namespace Pulumi.Artifactory
         [Output("priorityResolution")]
         public Output<bool> PriorityResolution { get; private set; } = null!;
 
+        /// <summary>
+        /// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        /// </summary>
         [Output("projectEnvironments")]
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
 
@@ -197,6 +199,10 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// When set, the repository will use the deprecated trivial layout.
+        /// 
+        /// Artifactory REST API call Get Key Pair doesn't return keys `PrivateKey` and `Passphrase`, but consumes these keys in the POST call.
+        /// 
+        /// The meta-argument `Lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         /// </summary>
         [Output("trivialLayout")]
         public Output<bool> TrivialLayout { get; private set; } = null!;
@@ -341,6 +347,10 @@ namespace Pulumi.Artifactory
 
         [Input("projectEnvironments")]
         private InputList<string>? _projectEnvironments;
+
+        /// <summary>
+        /// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        /// </summary>
         public InputList<string> ProjectEnvironments
         {
             get => _projectEnvironments ?? (_projectEnvironments = new InputList<string>());
@@ -379,6 +389,10 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// When set, the repository will use the deprecated trivial layout.
+        /// 
+        /// Artifactory REST API call Get Key Pair doesn't return keys `PrivateKey` and `Passphrase`, but consumes these keys in the POST call.
+        /// 
+        /// The meta-argument `Lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         /// </summary>
         [Input("trivialLayout")]
         public Input<bool>? TrivialLayout { get; set; }
@@ -485,6 +499,10 @@ namespace Pulumi.Artifactory
 
         [Input("projectEnvironments")]
         private InputList<string>? _projectEnvironments;
+
+        /// <summary>
+        /// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        /// </summary>
         public InputList<string> ProjectEnvironments
         {
             get => _projectEnvironments ?? (_projectEnvironments = new InputList<string>());
@@ -523,6 +541,10 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// When set, the repository will use the deprecated trivial layout.
+        /// 
+        /// Artifactory REST API call Get Key Pair doesn't return keys `PrivateKey` and `Passphrase`, but consumes these keys in the POST call.
+        /// 
+        /// The meta-argument `Lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         /// </summary>
         [Input("trivialLayout")]
         public Input<bool>? TrivialLayout { get; set; }

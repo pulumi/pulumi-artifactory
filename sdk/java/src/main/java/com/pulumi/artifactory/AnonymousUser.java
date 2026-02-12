@@ -14,6 +14,12 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Provides an Artifactory anonymous user resource. This can be used to import Artifactory &#39;anonymous&#39; user for some use cases where this is useful.
+ * 
+ * This resource is not intended for managing the &#39;anonymous&#39; user in Artifactory. Use the `artifactory.User` resource instead.
+ * 
+ * !&gt; Anonymous user cannot be created from scratch, nor updated/deleted once imported into Terraform state.
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -54,9 +60,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="artifactory:index/anonymousUser:AnonymousUser")
 public class AnonymousUser extends com.pulumi.resources.CustomResource {
+    /**
+     * Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be set or updated in the HCL.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be set or updated in the HCL.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }

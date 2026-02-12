@@ -29,7 +29,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Remote OCI repositories can be imported using their name, e.g.
- *
  * ```sh
  * $ pulumi import artifactory:index/remoteOciRepository:RemoteOciRepository my-oci-remote my-oci-remote
  * ```
@@ -177,6 +176,9 @@ export class RemoteOciRepository extends pulumi.CustomResource {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     declare public readonly priorityResolution: pulumi.Output<boolean>;
+    /**
+     * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     */
     declare public readonly projectEnvironments: pulumi.Output<string[]>;
     /**
      * Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
@@ -482,6 +484,9 @@ export interface RemoteOciRepositoryState {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     priorityResolution?: pulumi.Input<boolean>;
+    /**
+     * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
@@ -665,6 +670,9 @@ export interface RemoteOciRepositoryArgs {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     priorityResolution?: pulumi.Input<boolean>;
+    /**
+     * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.

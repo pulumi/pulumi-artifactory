@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
+    /// Creates a local Terraform Backend repository.
+    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -31,7 +34,6 @@ namespace Pulumi.Artifactory
     /// ## Import
     /// 
     /// Local repositories can be imported using their name, e.g.
-    /// 
     /// ```sh
     /// $ pulumi import artifactory:index/localTerraformBackendRepository:LocalTerraformBackendRepository terraform-local-test-terraformbackend-repo terraform-local-test-terraformbackend-repo
     /// ```
@@ -100,6 +102,9 @@ namespace Pulumi.Artifactory
         [Output("priorityResolution")]
         public Output<bool> PriorityResolution { get; private set; } = null!;
 
+        /// <summary>
+        /// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        /// </summary>
         [Output("projectEnvironments")]
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
 
@@ -236,6 +241,10 @@ namespace Pulumi.Artifactory
 
         [Input("projectEnvironments")]
         private InputList<string>? _projectEnvironments;
+
+        /// <summary>
+        /// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        /// </summary>
         public InputList<string> ProjectEnvironments
         {
             get => _projectEnvironments ?? (_projectEnvironments = new InputList<string>());
@@ -343,6 +352,10 @@ namespace Pulumi.Artifactory
 
         [Input("projectEnvironments")]
         private InputList<string>? _projectEnvironments;
+
+        /// <summary>
+        /// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        /// </summary>
         public InputList<string> ProjectEnvironments
         {
             get => _projectEnvironments ?? (_projectEnvironments = new InputList<string>());

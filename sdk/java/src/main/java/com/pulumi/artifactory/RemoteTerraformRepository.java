@@ -19,10 +19,102 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Creates a remote Terraform repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.RemoteTerraformRepository;
+ * import com.pulumi.artifactory.RemoteTerraformRepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var terraform_remote = new RemoteTerraformRepository("terraform-remote", RemoteTerraformRepositoryArgs.builder()
+ *             .key("terraform-remote")
+ *             .url("https://github.com/")
+ *             .terraformRegistryUrl("https://registry.terraform.io")
+ *             .terraformProvidersUrl("https://releases.hashicorp.com")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Important Notes
+ * 
+ * ### Bypass HEAD Requests Requirement
+ * 
+ * For Terraform remote repositories using the following registry URLs, the `bypassHeadRequests` parameter **must** be set to `true`:
+ * 
+ * - `https://registry.terraform.io` (all Artifactory versions)
+ * - `https://registry.opentofu.org` (all Artifactory versions)
+ * - `https://tf.app.wiz.io` (Artifactory 7.122.0 and later only)
+ * 
+ * Artifactory automatically enforces `bypassHeadRequests = true` for these registries, even if you attempt to set it to `false`. This is because these registries do not support HEAD requests, and Artifactory must use GET requests directly to cache artifacts.
+ * 
+ * **Note**: For `tf.app.wiz.io`, the bypass requirement only applies to Artifactory versions 7.122.0 and later. Earlier versions do not require this setting for the Wiz registry.
+ * 
+ * **Example with required setting:**
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.RemoteTerraformRepository;
+ * import com.pulumi.artifactory.RemoteTerraformRepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var terraform_remote = new RemoteTerraformRepository("terraform-remote", RemoteTerraformRepositoryArgs.builder()
+ *             .key("terraform-remote")
+ *             .url("https://github.com/")
+ *             .terraformRegistryUrl("https://registry.terraform.io")
+ *             .terraformProvidersUrl("https://releases.hashicorp.com")
+ *             .bypassHeadRequests(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * If you don&#39;t set `bypassHeadRequests = true` for these registries (when required for your Artifactory version), you will experience state drift as Artifactory will automatically override the setting to `true`.
+ * 
+ * **Note**: The `bypassHeadRequests` parameter defaults to `false` for most registries. Only the specific registries listed above require it to be set to `true`, and for `tf.app.wiz.io` this requirement only applies to Artifactory 7.122.0 and later.
+ * 
  * ## Import
  * 
  * Remote repositories can be imported using their name, e.g.
- * 
  * ```sh
  * $ pulumi import artifactory:index/remoteTerraformRepository:RemoteTerraformRepository terraform-remote terraform-remote
  * ```
@@ -102,9 +194,17 @@ public class RemoteTerraformRepository extends com.pulumi.resources.CustomResour
     public Output<Boolean> blockMismatchingMimeTypes() {
         return this.blockMismatchingMimeTypes;
     }
+    /**
+     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. **Note**: For terraform registries (registry.terraform.io, registry.opentofu.org), this must be set to `true` as Artifactory automatically enforces this setting. For tf.app.wiz.io, this is required only for Artifactory 7.122.0 and later. Defaults to `false`.
+     * 
+     */
     @Export(name="bypassHeadRequests", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> bypassHeadRequests;
 
+    /**
+     * @return Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. **Note**: For terraform registries (registry.terraform.io, registry.opentofu.org), this must be set to `true` as Artifactory automatically enforces this setting. For tf.app.wiz.io, this is required only for Artifactory 7.122.0 and later. Defaults to `false`.
+     * 
+     */
     public Output<Boolean> bypassHeadRequests() {
         return this.bypassHeadRequests;
     }
@@ -388,9 +488,17 @@ public class RemoteTerraformRepository extends com.pulumi.resources.CustomResour
     public Output<Boolean> priorityResolution() {
         return this.priorityResolution;
     }
+    /**
+     * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     * 
+     */
     @Export(name="projectEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> projectEnvironments;
 
+    /**
+     * @return Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     * 
+     */
     public Output<List<String>> projectEnvironments() {
         return this.projectEnvironments;
     }
@@ -546,15 +654,35 @@ public class RemoteTerraformRepository extends com.pulumi.resources.CustomResour
     public Output<Boolean> synchronizeProperties() {
         return this.synchronizeProperties;
     }
+    /**
+     * The base URL of the Provider&#39;s storage API.
+     * When using Smart remote repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey/providers`.
+     * 
+     */
     @Export(name="terraformProvidersUrl", refs={String.class}, tree="[0]")
     private Output<String> terraformProvidersUrl;
 
+    /**
+     * @return The base URL of the Provider&#39;s storage API.
+     * When using Smart remote repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey/providers`.
+     * 
+     */
     public Output<String> terraformProvidersUrl() {
         return this.terraformProvidersUrl;
     }
+    /**
+     * The base URL of the registry API.
+     * When using Smart Remote Repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey`.
+     * 
+     */
     @Export(name="terraformRegistryUrl", refs={String.class}, tree="[0]")
     private Output<String> terraformRegistryUrl;
 
+    /**
+     * @return The base URL of the registry API.
+     * When using Smart Remote Repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey`.
+     * 
+     */
     public Output<String> terraformRegistryUrl() {
         return this.terraformRegistryUrl;
     }

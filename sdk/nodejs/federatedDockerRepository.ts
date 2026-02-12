@@ -35,7 +35,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Federated repositories can be imported using their name, e.g.
- *
  * ```sh
  * $ pulumi import artifactory:index/federatedDockerRepository:FederatedDockerRepository terraform-federated-test-docker-repo terraform-federated-test-docker-repo
  * ```
@@ -89,6 +88,9 @@ export class FederatedDockerRepository extends pulumi.CustomResource {
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     declare public readonly cdnRedirect: pulumi.Output<boolean | undefined>;
+    /**
+     * Delete all federated members on `terraform destroy` if set to `true`. Default is `false`. This attribute is added to match Terrform logic, so all the resources, created by the provider, must be removed on cleanup. Artifactory's behavior for the federated repositories is different, all the federated repositories stay after the user deletes the initial federated repository. **Caution**: if set to `true` all the repositories in the federation will be deleted, including repositories on other Artifactory instances in the "Circle of trust". This operation can not be reversed.
+     */
     declare public readonly cleanupOnDelete: pulumi.Output<boolean | undefined>;
     /**
      * Public description.
@@ -136,6 +138,9 @@ export class FederatedDockerRepository extends pulumi.CustomResource {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     declare public readonly priorityResolution: pulumi.Output<boolean | undefined>;
+    /**
+     * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     */
     declare public readonly projectEnvironments: pulumi.Output<string[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -262,6 +267,9 @@ export interface FederatedDockerRepositoryState {
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     cdnRedirect?: pulumi.Input<boolean>;
+    /**
+     * Delete all federated members on `terraform destroy` if set to `true`. Default is `false`. This attribute is added to match Terrform logic, so all the resources, created by the provider, must be removed on cleanup. Artifactory's behavior for the federated repositories is different, all the federated repositories stay after the user deletes the initial federated repository. **Caution**: if set to `true` all the repositories in the federation will be deleted, including repositories on other Artifactory instances in the "Circle of trust". This operation can not be reversed.
+     */
     cleanupOnDelete?: pulumi.Input<boolean>;
     /**
      * Public description.
@@ -309,6 +317,9 @@ export interface FederatedDockerRepositoryState {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     priorityResolution?: pulumi.Input<boolean>;
+    /**
+     * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -357,6 +368,9 @@ export interface FederatedDockerRepositoryArgs {
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     cdnRedirect?: pulumi.Input<boolean>;
+    /**
+     * Delete all federated members on `terraform destroy` if set to `true`. Default is `false`. This attribute is added to match Terrform logic, so all the resources, created by the provider, must be removed on cleanup. Artifactory's behavior for the federated repositories is different, all the federated repositories stay after the user deletes the initial federated repository. **Caution**: if set to `true` all the repositories in the federation will be deleted, including repositories on other Artifactory instances in the "Circle of trust". This operation can not be reversed.
+     */
     cleanupOnDelete?: pulumi.Input<boolean>;
     /**
      * Public description.
@@ -403,6 +417,9 @@ export interface FederatedDockerRepositoryArgs {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     priorityResolution?: pulumi.Input<boolean>;
+    /**
+     * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.

@@ -51,6 +51,7 @@ func GetRepositories(ctx *pulumi.Context, args *GetRepositoriesArgs, opts ...pul
 
 // A collection of arguments for invoking getRepositories.
 type GetRepositoriesArgs struct {
+	// Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
 	PackageType *string `pulumi:"packageType"`
 	// Filter for repositories assigned to a specific project.
 	ProjectKey *string `pulumi:"projectKey"`
@@ -61,7 +62,8 @@ type GetRepositoriesArgs struct {
 // A collection of values returned by getRepositories.
 type GetRepositoriesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id          string  `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
 	PackageType *string `pulumi:"packageType"`
 	// Filter for repositories assigned to a specific project.
 	ProjectKey *string `pulumi:"projectKey"`
@@ -82,6 +84,7 @@ func GetRepositoriesOutput(ctx *pulumi.Context, args GetRepositoriesOutputArgs, 
 
 // A collection of arguments for invoking getRepositories.
 type GetRepositoriesOutputArgs struct {
+	// Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
 	PackageType pulumi.StringPtrInput `pulumi:"packageType"`
 	// Filter for repositories assigned to a specific project.
 	ProjectKey pulumi.StringPtrInput `pulumi:"projectKey"`
@@ -113,6 +116,7 @@ func (o GetRepositoriesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoriesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
 func (o GetRepositoriesResultOutput) PackageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetRepositoriesResult) *string { return v.PackageType }).(pulumi.StringPtrOutput)
 }

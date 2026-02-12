@@ -90,6 +90,9 @@ namespace Pulumi.Artifactory
 
     public sealed class GetRepositoriesArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
+        /// </summary>
         [Input("packageType")]
         public string? PackageType { get; set; }
 
@@ -113,6 +116,9 @@ namespace Pulumi.Artifactory
 
     public sealed class GetRepositoriesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
+        /// </summary>
         [Input("packageType")]
         public Input<string>? PackageType { get; set; }
 
@@ -142,6 +148,9 @@ namespace Pulumi.Artifactory
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
+        /// </summary>
         public readonly string? PackageType;
         /// <summary>
         /// Filter for repositories assigned to a specific project.

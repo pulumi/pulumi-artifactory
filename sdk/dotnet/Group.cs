@@ -10,13 +10,53 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
+    /// Provides an Artifactory group resource. This can be used to create and manage Artifactory groups.
+    /// 
+    /// !&gt;This resource is deprecated and will be removed in the next major version. Use `PlatformGroup` resource in the JFrog Platform provider instead.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test_group = new Artifactory.Group("test-group", new()
+    ///     {
+    ///         Name = "terraform",
+    ///         Description = "test group",
+    ///         ExternalId = "00628948-b509-4362-aa73-380c4dbd2a44",
+    ///         AdminPrivileges = false,
+    ///         UsersNames = new[]
+    ///         {
+    ///             "foobar",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Managed vs Unmanaged Group Membership
+    /// 
+    /// Terraform does not distinguish between an absent `UsersNames` attribute and setting to an empty array (i.e. length of 0).
+    /// 
+    /// To prevent accidental deletion of existing membership, the default was chosen to mean that Terraform does not manage membership and that to detach all users would require an explicit bool.
+    /// 
+    /// ~&gt;When moving from managed group membership to unmanaged the pulumi preview will show the users previously in the array
+    /// being removed from terraform state, but it will not actually delete any members (unless `DetachAllUsers` is set to `True`).
+    /// 
+    /// Also see our recommendation on how to manage user-group relationship.
+    /// 
     /// ## Import
     /// 
     /// ```sh
     /// $ pulumi import artifactory:index/group:Group terraform-group mygroup
     /// ```
     /// 
-    /// ~&gt; `users_names` can't be imported due to API limitations.
+    /// &gt; `UsersNames` can't be imported due to API limitations.
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/group:Group")]
     public partial class Group : global::Pulumi.CustomResource
@@ -81,6 +121,9 @@ namespace Pulumi.Artifactory
         [Output("reportsManager")]
         public Output<bool> ReportsManager { get; private set; } = null!;
 
+        /// <summary>
+        /// List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+        /// </summary>
         [Output("usersNames")]
         public Output<ImmutableArray<string>> UsersNames { get; private set; } = null!;
 
@@ -198,6 +241,10 @@ namespace Pulumi.Artifactory
 
         [Input("usersNames")]
         private InputList<string>? _usersNames;
+
+        /// <summary>
+        /// List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+        /// </summary>
         public InputList<string> UsersNames
         {
             get => _usersNames ?? (_usersNames = new InputList<string>());
@@ -280,6 +327,10 @@ namespace Pulumi.Artifactory
 
         [Input("usersNames")]
         private InputList<string>? _usersNames;
+
+        /// <summary>
+        /// List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+        /// </summary>
         public InputList<string> UsersNames
         {
             get => _usersNames ?? (_usersNames = new InputList<string>());

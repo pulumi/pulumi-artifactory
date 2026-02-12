@@ -73,6 +73,9 @@ namespace Pulumi.Artifactory.Outputs
         /// ~&gt;JFrog recommends using the `LastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not deleted.
         /// </summary>
         public readonly int? LastDownloadedBeforeInMonths;
+        /// <summary>
+        /// The package types that are cleaned up by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, machinelearning, maven, npm, nuget, oci, puppet, pypi, sbt, swift, terraform, terraformbackend, yum.
+        /// </summary>
         public readonly ImmutableArray<string> PackageTypes;
         /// <summary>
         /// Specify one or more patterns for the repository name(s) on which you want the cleanup policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is mandatory. Only packages in repositories that match the pattern or explicit name will be deleted. For including all repos use `**`. Example: `repos = ["**"]`

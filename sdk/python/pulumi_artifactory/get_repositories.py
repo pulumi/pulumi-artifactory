@@ -55,6 +55,9 @@ class GetRepositoriesResult:
     @_builtins.property
     @pulumi.getter(name="packageType")
     def package_type(self) -> Optional[_builtins.str]:
+        """
+        Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
+        """
         return pulumi.get(self, "package_type")
 
     @_builtins.property
@@ -113,6 +116,7 @@ def get_repositories(package_type: Optional[_builtins.str] = None,
     ```
 
 
+    :param _builtins.str package_type: Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
     :param _builtins.str project_key: Filter for repositories assigned to a specific project.
     :param _builtins.str repository_type: Filter for repositories of a specific type. Allowed values are: local, remote, virtual, federated, distribution
     """
@@ -147,6 +151,7 @@ def get_repositories_output(package_type: Optional[pulumi.Input[Optional[_builti
     ```
 
 
+    :param _builtins.str package_type: Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
     :param _builtins.str project_key: Filter for repositories assigned to a specific project.
     :param _builtins.str repository_type: Filter for repositories of a specific type. Allowed values are: local, remote, virtual, federated, distribution
     """

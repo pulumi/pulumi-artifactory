@@ -7,6 +7,8 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Retrieves a remote Terraform repository.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -115,7 +117,13 @@ export interface GetRemoteTerraformRepositoryArgs {
     socketTimeoutMillis?: number;
     storeArtifactsLocally?: boolean;
     synchronizeProperties?: boolean;
+    /**
+     * (Optional) The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
+     */
     terraformProvidersUrl?: string;
+    /**
+     * (Optional) The base URL of the registry API. When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
+     */
     terraformRegistryUrl?: string;
     unusedArtifactsCleanupPeriodHours?: number;
     url?: string;
@@ -171,7 +179,13 @@ export interface GetRemoteTerraformRepositoryResult {
     readonly socketTimeoutMillis?: number;
     readonly storeArtifactsLocally?: boolean;
     readonly synchronizeProperties?: boolean;
+    /**
+     * (Optional) The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
+     */
     readonly terraformProvidersUrl?: string;
+    /**
+     * (Optional) The base URL of the registry API. When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
+     */
     readonly terraformRegistryUrl?: string;
     readonly unusedArtifactsCleanupPeriodHours?: number;
     readonly url?: string;
@@ -179,6 +193,8 @@ export interface GetRemoteTerraformRepositoryResult {
     readonly xrayIndex?: boolean;
 }
 /**
+ * Retrieves a remote Terraform repository.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -287,7 +303,13 @@ export interface GetRemoteTerraformRepositoryOutputArgs {
     socketTimeoutMillis?: pulumi.Input<number>;
     storeArtifactsLocally?: pulumi.Input<boolean>;
     synchronizeProperties?: pulumi.Input<boolean>;
+    /**
+     * (Optional) The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
+     */
     terraformProvidersUrl?: pulumi.Input<string>;
+    /**
+     * (Optional) The base URL of the registry API. When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
+     */
     terraformRegistryUrl?: pulumi.Input<string>;
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     url?: pulumi.Input<string>;

@@ -12,6 +12,8 @@ namespace Pulumi.Artifactory
     public static class GetRemoteTerraformRepository
     {
         /// <summary>
+        /// Retrieves a remote Terraform repository.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -34,6 +36,8 @@ namespace Pulumi.Artifactory
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteTerraformRepositoryResult>("artifactory:index/getRemoteTerraformRepository:getRemoteTerraformRepository", args ?? new GetRemoteTerraformRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Retrieves a remote Terraform repository.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -56,6 +60,8 @@ namespace Pulumi.Artifactory
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteTerraformRepositoryResult>("artifactory:index/getRemoteTerraformRepository:getRemoteTerraformRepository", args ?? new GetRemoteTerraformRepositoryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Retrieves a remote Terraform repository.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -216,9 +222,15 @@ namespace Pulumi.Artifactory
         [Input("synchronizeProperties")]
         public bool? SynchronizeProperties { get; set; }
 
+        /// <summary>
+        /// (Optional) The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey/providers`.
+        /// </summary>
         [Input("terraformProvidersUrl")]
         public string? TerraformProvidersUrl { get; set; }
 
+        /// <summary>
+        /// (Optional) The base URL of the registry API. When using Smart Remote Repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey`.
+        /// </summary>
         [Input("terraformRegistryUrl")]
         public string? TerraformRegistryUrl { get; set; }
 
@@ -381,9 +393,15 @@ namespace Pulumi.Artifactory
         [Input("synchronizeProperties")]
         public Input<bool>? SynchronizeProperties { get; set; }
 
+        /// <summary>
+        /// (Optional) The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey/providers`.
+        /// </summary>
         [Input("terraformProvidersUrl")]
         public Input<string>? TerraformProvidersUrl { get; set; }
 
+        /// <summary>
+        /// (Optional) The base URL of the registry API. When using Smart Remote Repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey`.
+        /// </summary>
         [Input("terraformRegistryUrl")]
         public Input<string>? TerraformRegistryUrl { get; set; }
 
@@ -453,7 +471,13 @@ namespace Pulumi.Artifactory
         public readonly int? SocketTimeoutMillis;
         public readonly bool? StoreArtifactsLocally;
         public readonly bool? SynchronizeProperties;
+        /// <summary>
+        /// (Optional) The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey/providers`.
+        /// </summary>
         public readonly string? TerraformProvidersUrl;
+        /// <summary>
+        /// (Optional) The base URL of the registry API. When using Smart Remote Repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey`.
+        /// </summary>
         public readonly string? TerraformRegistryUrl;
         public readonly int? UnusedArtifactsCleanupPeriodHours;
         public readonly string? Url;

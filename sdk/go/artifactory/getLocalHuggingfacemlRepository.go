@@ -44,7 +44,8 @@ type LookupLocalHuggingfacemlRepositoryArgs struct {
 	// Internal description.
 	Notes *string `pulumi:"notes"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution  *bool    `pulumi:"priorityResolution"`
+	PriorityResolution *bool `pulumi:"priorityResolution"`
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed. The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
@@ -81,7 +82,8 @@ type LookupLocalHuggingfacemlRepositoryResult struct {
 	Notes       *string `pulumi:"notes"`
 	PackageType string  `pulumi:"packageType"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution  *bool    `pulumi:"priorityResolution"`
+	PriorityResolution *bool `pulumi:"priorityResolution"`
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed. The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
@@ -124,7 +126,8 @@ type LookupLocalHuggingfacemlRepositoryOutputArgs struct {
 	// Internal description.
 	Notes pulumi.StringPtrInput `pulumi:"notes"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution  pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
+	PriorityResolution pulumi.BoolPtrInput `pulumi:"priorityResolution"`
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed. The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput `pulumi:"projectKey"`
@@ -215,6 +218,7 @@ func (o LookupLocalHuggingfacemlRepositoryResultOutput) PriorityResolution() pul
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) *bool { return v.PriorityResolution }).(pulumi.BoolPtrOutput)
 }
 
+// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed. The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 func (o LookupLocalHuggingfacemlRepositoryResultOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) []string { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }

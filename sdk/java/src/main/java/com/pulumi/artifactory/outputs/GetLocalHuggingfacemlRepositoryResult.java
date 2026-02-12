@@ -71,6 +71,10 @@ public final class GetLocalHuggingfacemlRepositoryResult {
      * 
      */
     private @Nullable Boolean priorityResolution;
+    /**
+     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed. The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     * 
+     */
     private List<String> projectEnvironments;
     /**
      * @return Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -175,6 +179,10 @@ public final class GetLocalHuggingfacemlRepositoryResult {
     public Optional<Boolean> priorityResolution() {
         return Optional.ofNullable(this.priorityResolution);
     }
+    /**
+     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed. The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     * 
+     */
     public List<String> projectEnvironments() {
         return this.projectEnvironments;
     }

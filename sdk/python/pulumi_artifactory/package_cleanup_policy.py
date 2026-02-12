@@ -288,13 +288,206 @@ class PackageCleanupPolicy(pulumi.CustomResource):
                  skip_trashcan: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
+        Provides an Artifactory Package Cleanup Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. Package cleanup policies are supported on the Cloud (7.98.2) and Self-Hosted (7.98.7) platforms, with an Enterprise+ license. See [Cleanup Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/cleanup-policies) for more details.
+
+        ## Example Usage
+
+        ### Time-based Cleanup Policy (Days)
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_cleanup_policy = artifactory.PackageCleanupPolicy("my-cleanup-policy",
+            key="my-cleanup-policy",
+            description="My cleanup policy",
+            cron_expression="0 0 2 ? * MON-SAT *",
+            duration_in_minutes=60,
+            enabled=True,
+            skip_trashcan=False,
+            search_criteria={
+                "package_types": [
+                    "docker",
+                    "gradle",
+                    "maven",
+                ],
+                "repos": ["**"],
+                "include_all_projects": True,
+                "included_projects": [],
+                "included_packages": ["**"],
+                "excluded_packages": ["com/jfrog/latest"],
+                "created_before_in_days": 30,
+                "last_downloaded_before_in_days": 60,
+            })
+        ```
+
+        ### Version-based Cleanup Policy
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_version_policy = artifactory.PackageCleanupPolicy("my-version-policy",
+            key="my-version-policy",
+            description="Keep only latest versions",
+            cron_expression="0 0 2 ? * MON-SAT *",
+            duration_in_minutes=60,
+            enabled=True,
+            skip_trashcan=False,
+            search_criteria={
+                "package_types": ["maven"],
+                "repos": ["**"],
+                "include_all_projects": True,
+                "included_projects": [],
+                "included_packages": ["**"],
+                "excluded_packages": ["com/jfrog/latest"],
+                "keep_last_n_versions": 5,
+            })
+        ```
+
+        ### Properties-based Cleanup Policy
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_properties_policy = artifactory.PackageCleanupPolicy("my-properties-policy",
+            key="my-properties-policy",
+            description="Cleanup based on properties",
+            cron_expression="0 0 2 ? * MON-SAT *",
+            duration_in_minutes=60,
+            enabled=True,
+            skip_trashcan=False,
+            search_criteria={
+                "package_types": ["docker"],
+                "repos": ["**"],
+                "include_all_projects": True,
+                "included_projects": [],
+                "included_packages": ["**"],
+                "excluded_packages": ["com/jfrog/latest"],
+                "included_properties": {
+                    "build.name": ["my-app"],
+                },
+            })
+        ```
+
+        ### Using Variables for Condition Fields
+
+        You can use Terraform variables for condition fields (`created_before_in_days`, `last_downloaded_before_in_days`, `created_before_in_months`, `last_downloaded_before_in_months`, `keep_last_n_versions`, `included_properties`) and `duration_in_minutes`. The validator will skip validation when values are unknown (variables), allowing `terraform validate` to pass without requiring variable values.
+
+        **Example with variables:**
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        config = pulumi.Config()
+        cleanup_policy_last_downloaded_before_in_days = config.get_float("cleanupPolicyLastDownloadedBeforeInDays")
+        if cleanup_policy_last_downloaded_before_in_days is None:
+            cleanup_policy_last_downloaded_before_in_days = 60
+        cleanup_policy_duration_in_minutes = config.get_float("cleanupPolicyDurationInMinutes")
+        if cleanup_policy_duration_in_minutes is None:
+            cleanup_policy_duration_in_minutes = 120
+        my_cleanup_policy = artifactory.PackageCleanupPolicy("my-cleanup-policy",
+            key="my-cleanup-policy",
+            description="My cleanup policy with variables",
+            cron_expression="0 0 2 ? * MON-SAT *",
+            duration_in_minutes=cleanup_policy_duration_in_minutes,
+            enabled=True,
+            skip_trashcan=False,
+            search_criteria={
+                "package_types": [
+                    "docker",
+                    "generic",
+                    "helm",
+                    "helmoci",
+                    "nuget",
+                    "terraform",
+                ],
+                "repos": ["**"],
+                "include_all_projects": False,
+                "included_projects": ["default"],
+                "included_packages": ["**"],
+                "excluded_packages": ["com/jfrog/latest"],
+                "last_downloaded_before_in_days": cleanup_policy_last_downloaded_before_in_days,
+            })
+        ```
+
+        **Important Notes:**
+        - Variables with default values allow `terraform validate` to pass without requiring variable values
+        - Variables without default values will require values to be provided during `pulumi preview` or `pulumi up`
+        - The validator automatically skips validation when condition field values are unknown (variables), preventing false validation errors during `terraform validate`
+
+        ## Validation Rules
+
+        The cleanup policy resource enforces the following validation rules:
+
+        1. **Condition Types**: A policy must use exactly one of the following condition types:
+           - Time-based conditions (`days-based`)
+           - Version-based condition (`keep_last_n_versions`)
+           - Properties-based condition (`included_properties`)
+
+        2. **Mutual Exclusivity**: Cannot use multiple condition types together.
+
+        3. **Zero Values**: Time-based and version-based conditions must have values greater than 0.
+
+        4. **Days vs Months**: Cannot use both days-based conditions (`created_before_in_days`, `last_downloaded_before_in_days`) and months-based conditions (`created_before_in_months`, `last_downloaded_before_in_months`) together.
+
+        5. **Properties Validation**: Properties-based conditions must have exactly one key with exactly one string value.
+
+        6. **Project Configuration**: When `include_all_projects` is set to `true`, the `included_projects` field can be empty array. When `include_all_projects` is `false`, `included_projects` must contain at least one project key.
+
+        7. **Project-level Policy Constraints**: When `project_key` is specified (project-level policy):
+           - `include_all_projects` must be set to `false`
+           - `included_projects` should be empty array `[]`
+           - Policy `key` must start with the project key value as a prefix followed by a hyphen
+             - ✅ Valid: `project_key = "myproj"` → `key = "myproj-cleanup-policy"`
+             - ❌ Invalid: `project_key = "myproj"` → `key = "cleanup-policy"` (missing prefix)
+             - ❌ Invalid: `project_key = "myproj"` → `key = "other-cleanup-policy"` (wrong prefix)
+
+        ## Supported Package Types
+
+        The following package types are supported for cleanup policies with their respective minimum Artifactory versions:
+
+        - **alpine** - Alpine Linux packages (supported from 7.108.0)
+        - **ansible** - Ansible collections and roles (supported from 7.104.2)
+        - **cargo** - Rust Cargo packages (supported from 7.102.0)
+        - **chef** - Chef cookbooks (supported from 7.112.0)
+        - **cocoapods** - CocoaPods packages (supported from 7.99.1)
+        - **composer** - PHP Composer packages (supported from 7.116.0)
+        - **conan** - Conan C/C++ packages (supported from 7.98.2)
+        - **conda** - Conda packages (supported from 7.105.2)
+        - **debian** - Debian packages (supported from 7.98.2)
+        - **docker** - Docker images (supported from 7.98.2, version-based condition (keep_last_n_versions) from 7.115.1)
+        - **gems** - Ruby gems (supported from 7.96.3)
+        - **generic** - Generic packages (supported from 7.98.2, version-based conditions is not supported)
+        - **go** - Go modules (supported from 7.98.2)
+        - **gradle** - Gradle packages (supported from 7.98.2)
+        - **helm** - Helm charts (supported from 7.98.2)
+        - **helmoci** - Helm OCI charts (supported from 7.102.0, version-based conditions (keep_last_n_versions) from 7.115.1)
+        - **huggingfaceml** - Hugging Face ML models (supported from 7.100.0)
+        - **machinelearning** - Machine learning models (supported from 7.104.2)
+        - **maven** - Maven packages (supported from 7.98.2)
+        - **npm** - Node.js packages (supported from 7.98.2)
+        - **nuget** - .NET NuGet packages (supported from 7.98.2)
+        - **oci** - OCI images (supported from 7.90.1, version-based conditions (keep_last_n_versions) from 7.115.1)
+        - **puppet** - Puppet modules (supported from 7.112.0)
+        - **pypi** - Python packages (supported from 7.98.2)
+        - **rpm|yum** - RPM packages (supported from 7.98.2)
+        - **sbt** - Scala SBT packages (supported from 7.108.0)
+        - **swift** - Swift packages
+        - **terraform** - Terraform modules (supported from 7.99.1)
+        - **terraformbackend** - Terraform backend configurations (supported from 7.103.0)
+
+        ## Version Compatibility
+
+        - The `created_before_in_days` and `last_downloaded_before_in_days` attributes are only supported in Artifactory 7.111.2 and later. For earlier versions, use `created_before_in_months` and `last_downloaded_before_in_months`.
+
         ## Import
 
         ```sh
         $ pulumi import artifactory:index/packageCleanupPolicy:PackageCleanupPolicy my-cleanup-policy my-policy
-        ```
 
-        ```sh
         $ pulumi import artifactory:index/packageCleanupPolicy:PackageCleanupPolicy my-cleanup-policy my-policy:myproj
         ```
 
@@ -314,13 +507,206 @@ class PackageCleanupPolicy(pulumi.CustomResource):
                  args: PackageCleanupPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an Artifactory Package Cleanup Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. Package cleanup policies are supported on the Cloud (7.98.2) and Self-Hosted (7.98.7) platforms, with an Enterprise+ license. See [Cleanup Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/cleanup-policies) for more details.
+
+        ## Example Usage
+
+        ### Time-based Cleanup Policy (Days)
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_cleanup_policy = artifactory.PackageCleanupPolicy("my-cleanup-policy",
+            key="my-cleanup-policy",
+            description="My cleanup policy",
+            cron_expression="0 0 2 ? * MON-SAT *",
+            duration_in_minutes=60,
+            enabled=True,
+            skip_trashcan=False,
+            search_criteria={
+                "package_types": [
+                    "docker",
+                    "gradle",
+                    "maven",
+                ],
+                "repos": ["**"],
+                "include_all_projects": True,
+                "included_projects": [],
+                "included_packages": ["**"],
+                "excluded_packages": ["com/jfrog/latest"],
+                "created_before_in_days": 30,
+                "last_downloaded_before_in_days": 60,
+            })
+        ```
+
+        ### Version-based Cleanup Policy
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_version_policy = artifactory.PackageCleanupPolicy("my-version-policy",
+            key="my-version-policy",
+            description="Keep only latest versions",
+            cron_expression="0 0 2 ? * MON-SAT *",
+            duration_in_minutes=60,
+            enabled=True,
+            skip_trashcan=False,
+            search_criteria={
+                "package_types": ["maven"],
+                "repos": ["**"],
+                "include_all_projects": True,
+                "included_projects": [],
+                "included_packages": ["**"],
+                "excluded_packages": ["com/jfrog/latest"],
+                "keep_last_n_versions": 5,
+            })
+        ```
+
+        ### Properties-based Cleanup Policy
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_properties_policy = artifactory.PackageCleanupPolicy("my-properties-policy",
+            key="my-properties-policy",
+            description="Cleanup based on properties",
+            cron_expression="0 0 2 ? * MON-SAT *",
+            duration_in_minutes=60,
+            enabled=True,
+            skip_trashcan=False,
+            search_criteria={
+                "package_types": ["docker"],
+                "repos": ["**"],
+                "include_all_projects": True,
+                "included_projects": [],
+                "included_packages": ["**"],
+                "excluded_packages": ["com/jfrog/latest"],
+                "included_properties": {
+                    "build.name": ["my-app"],
+                },
+            })
+        ```
+
+        ### Using Variables for Condition Fields
+
+        You can use Terraform variables for condition fields (`created_before_in_days`, `last_downloaded_before_in_days`, `created_before_in_months`, `last_downloaded_before_in_months`, `keep_last_n_versions`, `included_properties`) and `duration_in_minutes`. The validator will skip validation when values are unknown (variables), allowing `terraform validate` to pass without requiring variable values.
+
+        **Example with variables:**
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        config = pulumi.Config()
+        cleanup_policy_last_downloaded_before_in_days = config.get_float("cleanupPolicyLastDownloadedBeforeInDays")
+        if cleanup_policy_last_downloaded_before_in_days is None:
+            cleanup_policy_last_downloaded_before_in_days = 60
+        cleanup_policy_duration_in_minutes = config.get_float("cleanupPolicyDurationInMinutes")
+        if cleanup_policy_duration_in_minutes is None:
+            cleanup_policy_duration_in_minutes = 120
+        my_cleanup_policy = artifactory.PackageCleanupPolicy("my-cleanup-policy",
+            key="my-cleanup-policy",
+            description="My cleanup policy with variables",
+            cron_expression="0 0 2 ? * MON-SAT *",
+            duration_in_minutes=cleanup_policy_duration_in_minutes,
+            enabled=True,
+            skip_trashcan=False,
+            search_criteria={
+                "package_types": [
+                    "docker",
+                    "generic",
+                    "helm",
+                    "helmoci",
+                    "nuget",
+                    "terraform",
+                ],
+                "repos": ["**"],
+                "include_all_projects": False,
+                "included_projects": ["default"],
+                "included_packages": ["**"],
+                "excluded_packages": ["com/jfrog/latest"],
+                "last_downloaded_before_in_days": cleanup_policy_last_downloaded_before_in_days,
+            })
+        ```
+
+        **Important Notes:**
+        - Variables with default values allow `terraform validate` to pass without requiring variable values
+        - Variables without default values will require values to be provided during `pulumi preview` or `pulumi up`
+        - The validator automatically skips validation when condition field values are unknown (variables), preventing false validation errors during `terraform validate`
+
+        ## Validation Rules
+
+        The cleanup policy resource enforces the following validation rules:
+
+        1. **Condition Types**: A policy must use exactly one of the following condition types:
+           - Time-based conditions (`days-based`)
+           - Version-based condition (`keep_last_n_versions`)
+           - Properties-based condition (`included_properties`)
+
+        2. **Mutual Exclusivity**: Cannot use multiple condition types together.
+
+        3. **Zero Values**: Time-based and version-based conditions must have values greater than 0.
+
+        4. **Days vs Months**: Cannot use both days-based conditions (`created_before_in_days`, `last_downloaded_before_in_days`) and months-based conditions (`created_before_in_months`, `last_downloaded_before_in_months`) together.
+
+        5. **Properties Validation**: Properties-based conditions must have exactly one key with exactly one string value.
+
+        6. **Project Configuration**: When `include_all_projects` is set to `true`, the `included_projects` field can be empty array. When `include_all_projects` is `false`, `included_projects` must contain at least one project key.
+
+        7. **Project-level Policy Constraints**: When `project_key` is specified (project-level policy):
+           - `include_all_projects` must be set to `false`
+           - `included_projects` should be empty array `[]`
+           - Policy `key` must start with the project key value as a prefix followed by a hyphen
+             - ✅ Valid: `project_key = "myproj"` → `key = "myproj-cleanup-policy"`
+             - ❌ Invalid: `project_key = "myproj"` → `key = "cleanup-policy"` (missing prefix)
+             - ❌ Invalid: `project_key = "myproj"` → `key = "other-cleanup-policy"` (wrong prefix)
+
+        ## Supported Package Types
+
+        The following package types are supported for cleanup policies with their respective minimum Artifactory versions:
+
+        - **alpine** - Alpine Linux packages (supported from 7.108.0)
+        - **ansible** - Ansible collections and roles (supported from 7.104.2)
+        - **cargo** - Rust Cargo packages (supported from 7.102.0)
+        - **chef** - Chef cookbooks (supported from 7.112.0)
+        - **cocoapods** - CocoaPods packages (supported from 7.99.1)
+        - **composer** - PHP Composer packages (supported from 7.116.0)
+        - **conan** - Conan C/C++ packages (supported from 7.98.2)
+        - **conda** - Conda packages (supported from 7.105.2)
+        - **debian** - Debian packages (supported from 7.98.2)
+        - **docker** - Docker images (supported from 7.98.2, version-based condition (keep_last_n_versions) from 7.115.1)
+        - **gems** - Ruby gems (supported from 7.96.3)
+        - **generic** - Generic packages (supported from 7.98.2, version-based conditions is not supported)
+        - **go** - Go modules (supported from 7.98.2)
+        - **gradle** - Gradle packages (supported from 7.98.2)
+        - **helm** - Helm charts (supported from 7.98.2)
+        - **helmoci** - Helm OCI charts (supported from 7.102.0, version-based conditions (keep_last_n_versions) from 7.115.1)
+        - **huggingfaceml** - Hugging Face ML models (supported from 7.100.0)
+        - **machinelearning** - Machine learning models (supported from 7.104.2)
+        - **maven** - Maven packages (supported from 7.98.2)
+        - **npm** - Node.js packages (supported from 7.98.2)
+        - **nuget** - .NET NuGet packages (supported from 7.98.2)
+        - **oci** - OCI images (supported from 7.90.1, version-based conditions (keep_last_n_versions) from 7.115.1)
+        - **puppet** - Puppet modules (supported from 7.112.0)
+        - **pypi** - Python packages (supported from 7.98.2)
+        - **rpm|yum** - RPM packages (supported from 7.98.2)
+        - **sbt** - Scala SBT packages (supported from 7.108.0)
+        - **swift** - Swift packages
+        - **terraform** - Terraform modules (supported from 7.99.1)
+        - **terraformbackend** - Terraform backend configurations (supported from 7.103.0)
+
+        ## Version Compatibility
+
+        - The `created_before_in_days` and `last_downloaded_before_in_days` attributes are only supported in Artifactory 7.111.2 and later. For earlier versions, use `created_before_in_months` and `last_downloaded_before_in_months`.
+
         ## Import
 
         ```sh
         $ pulumi import artifactory:index/packageCleanupPolicy:PackageCleanupPolicy my-cleanup-policy my-policy
-        ```
 
-        ```sh
         $ pulumi import artifactory:index/packageCleanupPolicy:PackageCleanupPolicy my-cleanup-policy my-policy:myproj
         ```
 

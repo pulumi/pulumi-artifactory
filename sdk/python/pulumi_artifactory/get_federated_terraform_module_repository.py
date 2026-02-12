@@ -264,6 +264,8 @@ def get_federated_terraform_module_repository(archive_browsing_enabled: Optional
                                               xray_index: Optional[_builtins.bool] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFederatedTerraformModuleRepositoryResult:
     """
+    Retrieves a federated terraform module repository.
+
     ## Example Usage
 
     ```python
@@ -348,6 +350,8 @@ def get_federated_terraform_module_repository_output(archive_browsing_enabled: O
                                                      xray_index: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFederatedTerraformModuleRepositoryResult]:
     """
+    Retrieves a federated terraform module repository.
+
     ## Example Usage
 
     ```python

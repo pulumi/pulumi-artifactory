@@ -35,7 +35,8 @@ type Provider struct {
 	// Inline PEM-encoded private key that matches `clientCertificatePem`.
 	ClientPrivateKeyPem pulumi.StringPtrOutput `pulumi:"clientPrivateKeyPem"`
 	// OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
-	OidcProviderName     pulumi.StringPtrOutput `pulumi:"oidcProviderName"`
+	OidcProviderName pulumi.StringPtrOutput `pulumi:"oidcProviderName"`
+	// Terraform Cloud Workload Identity Token tag name. Use for generating multiple TFC workload identity tokens. When set, the provider will attempt to use env var with this tag name as suffix. **Note:** this is case sensitive, so if set to `JFROG`, then env var `TFC_WORKLOAD_IDENTITY_TOKEN_JFROG` is used instead of `TFC_WORKLOAD_IDENTITY_TOKEN`. See [Generating Multiple Tokens](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/manual-generation#generating-multiple-tokens) on HCP Terraform for more details.
 	TfcCredentialTagName pulumi.StringPtrOutput `pulumi:"tfcCredentialTagName"`
 	// Artifactory URL.
 	Url pulumi.StringPtrOutput `pulumi:"url"`
@@ -94,7 +95,8 @@ type providerArgs struct {
 	// Inline PEM-encoded private key that matches `clientCertificatePem`.
 	ClientPrivateKeyPem *string `pulumi:"clientPrivateKeyPem"`
 	// OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
-	OidcProviderName     *string `pulumi:"oidcProviderName"`
+	OidcProviderName *string `pulumi:"oidcProviderName"`
+	// Terraform Cloud Workload Identity Token tag name. Use for generating multiple TFC workload identity tokens. When set, the provider will attempt to use env var with this tag name as suffix. **Note:** this is case sensitive, so if set to `JFROG`, then env var `TFC_WORKLOAD_IDENTITY_TOKEN_JFROG` is used instead of `TFC_WORKLOAD_IDENTITY_TOKEN`. See [Generating Multiple Tokens](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/manual-generation#generating-multiple-tokens) on HCP Terraform for more details.
 	TfcCredentialTagName *string `pulumi:"tfcCredentialTagName"`
 	// Artifactory URL.
 	Url *string `pulumi:"url"`
@@ -119,7 +121,8 @@ type ProviderArgs struct {
 	// Inline PEM-encoded private key that matches `clientCertificatePem`.
 	ClientPrivateKeyPem pulumi.StringPtrInput
 	// OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
-	OidcProviderName     pulumi.StringPtrInput
+	OidcProviderName pulumi.StringPtrInput
+	// Terraform Cloud Workload Identity Token tag name. Use for generating multiple TFC workload identity tokens. When set, the provider will attempt to use env var with this tag name as suffix. **Note:** this is case sensitive, so if set to `JFROG`, then env var `TFC_WORKLOAD_IDENTITY_TOKEN_JFROG` is used instead of `TFC_WORKLOAD_IDENTITY_TOKEN`. See [Generating Multiple Tokens](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/manual-generation#generating-multiple-tokens) on HCP Terraform for more details.
 	TfcCredentialTagName pulumi.StringPtrInput
 	// Artifactory URL.
 	Url pulumi.StringPtrInput
@@ -224,6 +227,7 @@ func (o ProviderOutput) OidcProviderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OidcProviderName }).(pulumi.StringPtrOutput)
 }
 
+// Terraform Cloud Workload Identity Token tag name. Use for generating multiple TFC workload identity tokens. When set, the provider will attempt to use env var with this tag name as suffix. **Note:** this is case sensitive, so if set to `JFROG`, then env var `TFC_WORKLOAD_IDENTITY_TOKEN_JFROG` is used instead of `TFC_WORKLOAD_IDENTITY_TOKEN`. See [Generating Multiple Tokens](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/manual-generation#generating-multiple-tokens) on HCP Terraform for more details.
 func (o ProviderOutput) TfcCredentialTagName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TfcCredentialTagName }).(pulumi.StringPtrOutput)
 }

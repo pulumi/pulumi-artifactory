@@ -35,6 +35,9 @@ export function getRepositories(args?: GetRepositoriesArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getRepositories.
  */
 export interface GetRepositoriesArgs {
+    /**
+     * Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
+     */
     packageType?: string;
     /**
      * Filter for repositories assigned to a specific project.
@@ -54,6 +57,9 @@ export interface GetRepositoriesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
+     */
     readonly packageType?: string;
     /**
      * Filter for repositories assigned to a specific project.
@@ -97,6 +103,9 @@ export function getRepositoriesOutput(args?: GetRepositoriesOutputArgs, opts?: p
  * A collection of arguments for invoking getRepositories.
  */
 export interface GetRepositoriesOutputArgs {
+    /**
+     * Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
+     */
     packageType?: pulumi.Input<string>;
     /**
      * Filter for repositories assigned to a specific project.

@@ -43,6 +43,7 @@ class GroupArgs:
         :param pulumi.Input[_builtins.str] realm: The realm for the group.
         :param pulumi.Input[_builtins.str] realm_attributes: The realm attributes for the group.
         :param pulumi.Input[_builtins.bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_names: List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
         :param pulumi.Input[_builtins.bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         """
         if admin_privileges is not None:
@@ -193,6 +194,9 @@ class GroupArgs:
     @_builtins.property
     @pulumi.getter(name="usersNames")
     def users_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+        """
         return pulumi.get(self, "users_names")
 
     @users_names.setter
@@ -239,6 +243,7 @@ class _GroupState:
         :param pulumi.Input[_builtins.str] realm: The realm for the group.
         :param pulumi.Input[_builtins.str] realm_attributes: The realm attributes for the group.
         :param pulumi.Input[_builtins.bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_names: List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
         :param pulumi.Input[_builtins.bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         """
         if admin_privileges is not None:
@@ -389,6 +394,9 @@ class _GroupState:
     @_builtins.property
     @pulumi.getter(name="usersNames")
     def users_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+        """
         return pulumi.get(self, "users_names")
 
     @users_names.setter
@@ -428,13 +436,42 @@ class Group(pulumi.CustomResource):
                  watch_manager: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
+        Provides an Artifactory group resource. This can be used to create and manage Artifactory groups.
+
+        !>This resource is deprecated and will be removed in the next major version. Use `platform_group` resource in the JFrog Platform provider instead.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        test_group = artifactory.Group("test-group",
+            name="terraform",
+            description="test group",
+            external_id="00628948-b509-4362-aa73-380c4dbd2a44",
+            admin_privileges=False,
+            users_names=["foobar"])
+        ```
+
+        ## Managed vs Unmanaged Group Membership
+
+        Terraform does not distinguish between an absent `users_names` attribute and setting to an empty array (i.e. length of 0).
+
+        To prevent accidental deletion of existing membership, the default was chosen to mean that Terraform does not manage membership and that to detach all users would require an explicit bool.
+
+        ~>When moving from managed group membership to unmanaged the pulumi preview will show the users previously in the array
+        being removed from terraform state, but it will not actually delete any members (unless `detach_all_users` is set to `true`).
+
+        Also see our recommendation on how to manage user-group relationship.
+
         ## Import
 
         ```sh
         $ pulumi import artifactory:index/group:Group terraform-group mygroup
         ```
 
-        ~> `users_names` can't be imported due to API limitations.
+        > `users_names` can't be imported due to API limitations.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -448,6 +485,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] realm: The realm for the group.
         :param pulumi.Input[_builtins.str] realm_attributes: The realm attributes for the group.
         :param pulumi.Input[_builtins.bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_names: List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
         :param pulumi.Input[_builtins.bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         """
         ...
@@ -457,13 +495,42 @@ class Group(pulumi.CustomResource):
                  args: Optional[GroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an Artifactory group resource. This can be used to create and manage Artifactory groups.
+
+        !>This resource is deprecated and will be removed in the next major version. Use `platform_group` resource in the JFrog Platform provider instead.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        test_group = artifactory.Group("test-group",
+            name="terraform",
+            description="test group",
+            external_id="00628948-b509-4362-aa73-380c4dbd2a44",
+            admin_privileges=False,
+            users_names=["foobar"])
+        ```
+
+        ## Managed vs Unmanaged Group Membership
+
+        Terraform does not distinguish between an absent `users_names` attribute and setting to an empty array (i.e. length of 0).
+
+        To prevent accidental deletion of existing membership, the default was chosen to mean that Terraform does not manage membership and that to detach all users would require an explicit bool.
+
+        ~>When moving from managed group membership to unmanaged the pulumi preview will show the users previously in the array
+        being removed from terraform state, but it will not actually delete any members (unless `detach_all_users` is set to `true`).
+
+        Also see our recommendation on how to manage user-group relationship.
+
         ## Import
 
         ```sh
         $ pulumi import artifactory:index/group:Group terraform-group mygroup
         ```
 
-        ~> `users_names` can't be imported due to API limitations.
+        > `users_names` can't be imported due to API limitations.
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.
@@ -552,6 +619,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] realm: The realm for the group.
         :param pulumi.Input[_builtins.str] realm_attributes: The realm attributes for the group.
         :param pulumi.Input[_builtins.bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_names: List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
         :param pulumi.Input[_builtins.bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -655,6 +723,9 @@ class Group(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="usersNames")
     def users_names(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+        """
         return pulumi.get(self, "users_names")
 
     @_builtins.property

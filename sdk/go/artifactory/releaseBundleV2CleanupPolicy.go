@@ -12,6 +12,133 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Artifactory Archive Policy resource. This resource enable system administrators to configure and maintain JFrog cleanup policies for Release Bundles V2. See [Cleanup Policies](https://jfrog.com/help/r/jfrog-rest-apis/cleanup-policies-release-bundles-v2-apis) for more details.
+//
+// ~>Release Bundles V2 Cleanup Policies APIs are supported on Artifactory version 7.104.2 and later.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewReleaseBundleV2(ctx, "my-release-bundle-v2-rb", &artifactory.ReleaseBundleV2Args{
+//				Name:                         pulumi.String("my-release-bundle-v2-rb"),
+//				Version:                      pulumi.String("2.0.0"),
+//				KeypairName:                  pulumi.String("my-keypair-name"),
+//				SkipDockerManifestResolution: pulumi.Bool(true),
+//				SourceType:                   pulumi.String("release_bundles"),
+//				Source: &artifactory.ReleaseBundleV2SourceArgs{
+//					ReleaseBundles: artifactory.ReleaseBundleV2SourceReleaseBundleArray{
+//						&artifactory.ReleaseBundleV2SourceReleaseBundleArgs{
+//							Name:    pulumi.String("my-rb-name"),
+//							Version: pulumi.String("1.0.0"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewReleaseBundleV2CleanupPolicy(ctx, "my-resource-bundle-v2-cleanup-policy", &artifactory.ReleaseBundleV2CleanupPolicyArgs{
+//				Key:               pulumi.String("my-release-bundle-v2-policy-key"),
+//				Description:       pulumi.String("Cleanup policy description"),
+//				CronExpression:    pulumi.String("0 0 2 * * ?"),
+//				DurationInMinutes: pulumi.Int(60),
+//				Enabled:           pulumi.Bool(true),
+//				SearchCriteria: &artifactory.ReleaseBundleV2CleanupPolicySearchCriteriaArgs{
+//					IncludeAllProjects: pulumi.Bool(true),
+//					IncludedProjects:   pulumi.StringArray{},
+//					ReleaseBundles: artifactory.ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArray{
+//						&artifactory.ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArgs{
+//							Name:       pulumi.String("my-release-bundle-v2-rb"),
+//							ProjectKey: pulumi.String(""),
+//						},
+//					},
+//					ExcludePromotedEnvironments: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Using Variables for Duration and Created Before In Months
+//
+// You can use Terraform variables for `durationInMinutes` and `createdBeforeInMonths`. This allows `terraform validate` to pass without requiring variable values when defaults are provided.
+//
+// **Example with variables:**
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			releaseBundleCleanupDurationInMinutes := float64(120)
+//			if param := cfg.GetFloat64("releaseBundleCleanupDurationInMinutes"); param != 0 {
+//				releaseBundleCleanupDurationInMinutes = param
+//			}
+//			releaseBundleCleanupCreatedBeforeInMonths := float64(36)
+//			if param := cfg.GetFloat64("releaseBundleCleanupCreatedBeforeInMonths"); param != 0 {
+//				releaseBundleCleanupCreatedBeforeInMonths = param
+//			}
+//			_, err := artifactory.NewReleaseBundleV2CleanupPolicy(ctx, "my-resource-bundle-v2-cleanup-policy", &artifactory.ReleaseBundleV2CleanupPolicyArgs{
+//				Key:               pulumi.String("my-release-bundle-v2-policy-key"),
+//				Description:       pulumi.String("Cleanup policy description with variables"),
+//				CronExpression:    pulumi.String("0 0 2 * * ?"),
+//				DurationInMinutes: pulumi.Float64(releaseBundleCleanupDurationInMinutes),
+//				Enabled:           pulumi.Bool(true),
+//				SearchCriteria: &artifactory.ReleaseBundleV2CleanupPolicySearchCriteriaArgs{
+//					IncludeAllProjects: pulumi.Bool(true),
+//					IncludedProjects:   pulumi.StringArray{},
+//					ReleaseBundles: artifactory.ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArray{
+//						&artifactory.ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArgs{
+//							Name:       pulumi.String("my-release-bundle-v2-rb"),
+//							ProjectKey: pulumi.String(""),
+//						},
+//					},
+//					ExcludePromotedEnvironments: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					CreatedBeforeInMonths: pulumi.Float64(releaseBundleCleanupCreatedBeforeInMonths),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// **Important Notes:**
+// - Variables with default values allow `terraform validate` to pass without requiring variable values
+// - Variables without default values will require values to be provided during `pulumi preview` or `pulumi up`
+//
 // ## Import
 //
 // ```sh

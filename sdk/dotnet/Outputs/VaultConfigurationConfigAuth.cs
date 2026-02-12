@@ -29,6 +29,9 @@ namespace Pulumi.Artifactory.Outputs
         /// Secret ID for `AppRole` type
         /// </summary>
         public readonly string? SecretId;
+        /// <summary>
+        /// The authentication method used. The supported methods are `Certificate`, `AppRole`, and `Agent`. For more information, see [Hashicorp Vault Docs](https://developer.hashicorp.com/vault/docs/auth).
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

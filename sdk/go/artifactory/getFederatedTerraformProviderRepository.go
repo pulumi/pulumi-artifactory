@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieves a federated terraform provider repository.
+//
 // ## Example Usage
 //
 // ```go

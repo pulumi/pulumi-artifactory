@@ -12,6 +12,8 @@ namespace Pulumi.Artifactory
     public static class GetVirtualTerraformRepository
     {
         /// <summary>
+        /// Retrieves a virtual Terraform repository.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -34,6 +36,8 @@ namespace Pulumi.Artifactory
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualTerraformRepositoryResult>("artifactory:index/getVirtualTerraformRepository:getVirtualTerraformRepository", args ?? new GetVirtualTerraformRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Retrieves a virtual Terraform repository.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -56,6 +60,8 @@ namespace Pulumi.Artifactory
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualTerraformRepositoryResult>("artifactory:index/getVirtualTerraformRepository:getVirtualTerraformRepository", args ?? new GetVirtualTerraformRepositoryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Retrieves a virtual Terraform repository.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

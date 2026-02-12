@@ -74,12 +74,13 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Import
     /// 
-    /// Current general security settings can be imported using `security` as the `ID`, e.g.
+    /// Current general security settings can be imported using `Security` as the `ID`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
     /// ```
-    /// ~&gt;The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
+    /// 
+    /// ~&gt;The `artifactory.GeneralSecurity` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/generalSecurity:GeneralSecurity")]
     public partial class GeneralSecurity : global::Pulumi.CustomResource
