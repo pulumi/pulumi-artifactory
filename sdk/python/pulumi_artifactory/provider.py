@@ -37,6 +37,7 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.str] client_certificate_pem: Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `client_private_key_pem`.
         :param pulumi.Input[_builtins.str] client_private_key_pem: Inline PEM-encoded private key that matches `client_certificate_pem`.
         :param pulumi.Input[_builtins.str] oidc_provider_name: OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
+        :param pulumi.Input[_builtins.str] tfc_credential_tag_name: Terraform Cloud Workload Identity Token tag name. Use for generating multiple TFC workload identity tokens. When set, the provider will attempt to use env var with this tag name as suffix. **Note:** this is case sensitive, so if set to `JFROG`, then env var `TFC_WORKLOAD_IDENTITY_TOKEN_JFROG` is used instead of `TFC_WORKLOAD_IDENTITY_TOKEN`. See [Generating Multiple Tokens](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/manual-generation#generating-multiple-tokens) on HCP Terraform for more details.
         :param pulumi.Input[_builtins.str] url: Artifactory URL.
         """
         if access_token is not None:
@@ -155,6 +156,9 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
     @_builtins.property
     @pulumi.getter(name="tfcCredentialTagName")
     def tfc_credential_tag_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Terraform Cloud Workload Identity Token tag name. Use for generating multiple TFC workload identity tokens. When set, the provider will attempt to use env var with this tag name as suffix. **Note:** this is case sensitive, so if set to `JFROG`, then env var `TFC_WORKLOAD_IDENTITY_TOKEN_JFROG` is used instead of `TFC_WORKLOAD_IDENTITY_TOKEN`. See [Generating Multiple Tokens](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/manual-generation#generating-multiple-tokens) on HCP Terraform for more details.
+        """
         return pulumi.get(self, "tfc_credential_tag_name")
 
     @tfc_credential_tag_name.setter
@@ -205,6 +209,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.str] client_certificate_pem: Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `client_private_key_pem`.
         :param pulumi.Input[_builtins.str] client_private_key_pem: Inline PEM-encoded private key that matches `client_certificate_pem`.
         :param pulumi.Input[_builtins.str] oidc_provider_name: OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
+        :param pulumi.Input[_builtins.str] tfc_credential_tag_name: Terraform Cloud Workload Identity Token tag name. Use for generating multiple TFC workload identity tokens. When set, the provider will attempt to use env var with this tag name as suffix. **Note:** this is case sensitive, so if set to `JFROG`, then env var `TFC_WORKLOAD_IDENTITY_TOKEN_JFROG` is used instead of `TFC_WORKLOAD_IDENTITY_TOKEN`. See [Generating Multiple Tokens](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/manual-generation#generating-multiple-tokens) on HCP Terraform for more details.
         :param pulumi.Input[_builtins.str] url: Artifactory URL.
         """
         ...
@@ -331,6 +336,9 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
     @_builtins.property
     @pulumi.getter(name="tfcCredentialTagName")
     def tfc_credential_tag_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Terraform Cloud Workload Identity Token tag name. Use for generating multiple TFC workload identity tokens. When set, the provider will attempt to use env var with this tag name as suffix. **Note:** this is case sensitive, so if set to `JFROG`, then env var `TFC_WORKLOAD_IDENTITY_TOKEN_JFROG` is used instead of `TFC_WORKLOAD_IDENTITY_TOKEN`. See [Generating Multiple Tokens](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/manual-generation#generating-multiple-tokens) on HCP Terraform for more details.
+        """
         return pulumi.get(self, "tfc_credential_tag_name")
 
     @_builtins.property

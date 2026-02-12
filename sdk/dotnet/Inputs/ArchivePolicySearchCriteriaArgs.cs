@@ -133,6 +133,10 @@ namespace Pulumi.Artifactory.Inputs
 
         [Input("packageTypes", required: true)]
         private InputList<string>? _packageTypes;
+
+        /// <summary>
+        /// The package types that are archived by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, maven, npm, nuget, oci, opkg, puppet, pypi, sbt, swift, terraform, terraformbackend, vagrant, yum.
+        /// </summary>
         public InputList<string> PackageTypes
         {
             get => _packageTypes ?? (_packageTypes = new InputList<string>());

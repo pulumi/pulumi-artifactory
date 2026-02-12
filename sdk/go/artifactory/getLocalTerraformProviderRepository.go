@@ -11,6 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieves a local Terraform Provider repository. Official documentation can be
+// found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+//
 // ## Example Usage
 //
 // ```go

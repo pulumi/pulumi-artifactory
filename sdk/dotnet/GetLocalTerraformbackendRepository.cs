@@ -12,6 +12,8 @@ namespace Pulumi.Artifactory
     public static class GetLocalTerraformbackendRepository
     {
         /// <summary>
+        /// Retrieves a local terraformbackend repository.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -34,6 +36,8 @@ namespace Pulumi.Artifactory
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalTerraformbackendRepositoryResult>("artifactory:index/getLocalTerraformbackendRepository:getLocalTerraformbackendRepository", args ?? new GetLocalTerraformbackendRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Retrieves a local terraformbackend repository.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -56,6 +60,8 @@ namespace Pulumi.Artifactory
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalTerraformbackendRepositoryResult>("artifactory:index/getLocalTerraformbackendRepository:getLocalTerraformbackendRepository", args ?? new GetLocalTerraformbackendRepositoryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Retrieves a local terraformbackend repository.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

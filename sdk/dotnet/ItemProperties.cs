@@ -66,9 +66,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ```sh
     /// $ pulumi import artifactory:index/itemProperties:ItemProperties my-repo-properties repo_key
-    /// ```
     /// 
-    /// ```sh
     /// $ pulumi import artifactory:index/itemProperties:ItemProperties my-folder-properties repo_key:folder/subfolder
     /// ```
     /// </summary>

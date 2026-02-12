@@ -382,11 +382,17 @@ class GetRemoteTerraformRepositoryResult:
     @_builtins.property
     @pulumi.getter(name="terraformProvidersUrl")
     def terraform_providers_url(self) -> Optional[_builtins.str]:
+        """
+        (Optional) The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
+        """
         return pulumi.get(self, "terraform_providers_url")
 
     @_builtins.property
     @pulumi.getter(name="terraformRegistryUrl")
     def terraform_registry_url(self) -> Optional[_builtins.str]:
+        """
+        (Optional) The base URL of the registry API. When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
+        """
         return pulumi.get(self, "terraform_registry_url")
 
     @_builtins.property
@@ -512,6 +518,8 @@ def get_remote_terraform_repository(allow_any_host_auth: Optional[_builtins.bool
                                     xray_index: Optional[_builtins.bool] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteTerraformRepositoryResult:
     """
+    Retrieves a remote Terraform repository.
+
     ## Example Usage
 
     ```python
@@ -523,6 +531,8 @@ def get_remote_terraform_repository(allow_any_host_auth: Optional[_builtins.bool
 
 
     :param _builtins.str key: the identity key of the repo.
+    :param _builtins.str terraform_providers_url: (Optional) The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
+    :param _builtins.str terraform_registry_url: (Optional) The base URL of the registry API. When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
     """
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth
@@ -668,6 +678,8 @@ def get_remote_terraform_repository_output(allow_any_host_auth: Optional[pulumi.
                                            xray_index: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRemoteTerraformRepositoryResult]:
     """
+    Retrieves a remote Terraform repository.
+
     ## Example Usage
 
     ```python
@@ -679,6 +691,8 @@ def get_remote_terraform_repository_output(allow_any_host_auth: Optional[pulumi.
 
 
     :param _builtins.str key: the identity key of the repo.
+    :param _builtins.str terraform_providers_url: (Optional) The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
+    :param _builtins.str terraform_registry_url: (Optional) The base URL of the registry API. When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
     """
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth

@@ -48,7 +48,6 @@ namespace Pulumi.Artifactory
     /// ## Import
     /// 
     /// Federated repositories can be imported using their name, e.g.
-    /// 
     /// ```sh
     /// $ pulumi import artifactory:index/federatedDockerRepository:FederatedDockerRepository terraform-federated-test-docker-repo terraform-federated-test-docker-repo
     /// ```
@@ -87,6 +86,9 @@ namespace Pulumi.Artifactory
         [Output("cdnRedirect")]
         public Output<bool?> CdnRedirect { get; private set; } = null!;
 
+        /// <summary>
+        /// Delete all federated members on `terraform destroy` if set to `True`. Default is `False`. This attribute is added to match Terrform logic, so all the resources, created by the provider, must be removed on cleanup. Artifactory's behavior for the federated repositories is different, all the federated repositories stay after the user deletes the initial federated repository. **Caution**: if set to `True` all the repositories in the federation will be deleted, including repositories on other Artifactory instances in the "Circle of trust". This operation can not be reversed.
+        /// </summary>
         [Output("cleanupOnDelete")]
         public Output<bool?> CleanupOnDelete { get; private set; } = null!;
 
@@ -158,6 +160,9 @@ namespace Pulumi.Artifactory
         [Output("priorityResolution")]
         public Output<bool?> PriorityResolution { get; private set; } = null!;
 
+        /// <summary>
+        /// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        /// </summary>
         [Output("projectEnvironments")]
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
 
@@ -268,6 +273,9 @@ namespace Pulumi.Artifactory
         [Input("cdnRedirect")]
         public Input<bool>? CdnRedirect { get; set; }
 
+        /// <summary>
+        /// Delete all federated members on `terraform destroy` if set to `True`. Default is `False`. This attribute is added to match Terrform logic, so all the resources, created by the provider, must be removed on cleanup. Artifactory's behavior for the federated repositories is different, all the federated repositories stay after the user deletes the initial federated repository. **Caution**: if set to `True` all the repositories in the federation will be deleted, including repositories on other Artifactory instances in the "Circle of trust". This operation can not be reversed.
+        /// </summary>
         [Input("cleanupOnDelete")]
         public Input<bool>? CleanupOnDelete { get; set; }
 
@@ -344,6 +352,10 @@ namespace Pulumi.Artifactory
 
         [Input("projectEnvironments")]
         private InputList<string>? _projectEnvironments;
+
+        /// <summary>
+        /// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        /// </summary>
         public InputList<string> ProjectEnvironments
         {
             get => _projectEnvironments ?? (_projectEnvironments = new InputList<string>());
@@ -431,6 +443,9 @@ namespace Pulumi.Artifactory
         [Input("cdnRedirect")]
         public Input<bool>? CdnRedirect { get; set; }
 
+        /// <summary>
+        /// Delete all federated members on `terraform destroy` if set to `True`. Default is `False`. This attribute is added to match Terrform logic, so all the resources, created by the provider, must be removed on cleanup. Artifactory's behavior for the federated repositories is different, all the federated repositories stay after the user deletes the initial federated repository. **Caution**: if set to `True` all the repositories in the federation will be deleted, including repositories on other Artifactory instances in the "Circle of trust". This operation can not be reversed.
+        /// </summary>
         [Input("cleanupOnDelete")]
         public Input<bool>? CleanupOnDelete { get; set; }
 
@@ -510,6 +525,10 @@ namespace Pulumi.Artifactory
 
         [Input("projectEnvironments")]
         private InputList<string>? _projectEnvironments;
+
+        /// <summary>
+        /// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        /// </summary>
         public InputList<string> ProjectEnvironments
         {
             get => _projectEnvironments ?? (_projectEnvironments = new InputList<string>());

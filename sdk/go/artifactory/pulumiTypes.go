@@ -52,8 +52,9 @@ type ArchivePolicySearchCriteria struct {
 	// The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
 	//
 	// Deprecated: Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
-	LastDownloadedBeforeInMonths *int     `pulumi:"lastDownloadedBeforeInMonths"`
-	PackageTypes                 []string `pulumi:"packageTypes"`
+	LastDownloadedBeforeInMonths *int `pulumi:"lastDownloadedBeforeInMonths"`
+	// The package types that are archived by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, maven, npm, nuget, oci, opkg, puppet, pypi, sbt, swift, terraform, terraformbackend, vagrant, yum.
+	PackageTypes []string `pulumi:"packageTypes"`
 	// Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = ["**"]`
 	Repos []string `pulumi:"repos"`
 }
@@ -108,8 +109,9 @@ type ArchivePolicySearchCriteriaArgs struct {
 	// The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
 	//
 	// Deprecated: Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
-	LastDownloadedBeforeInMonths pulumi.IntPtrInput      `pulumi:"lastDownloadedBeforeInMonths"`
-	PackageTypes                 pulumi.StringArrayInput `pulumi:"packageTypes"`
+	LastDownloadedBeforeInMonths pulumi.IntPtrInput `pulumi:"lastDownloadedBeforeInMonths"`
+	// The package types that are archived by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, maven, npm, nuget, oci, opkg, puppet, pypi, sbt, swift, terraform, terraformbackend, vagrant, yum.
+	PackageTypes pulumi.StringArrayInput `pulumi:"packageTypes"`
 	// Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = ["**"]`
 	Repos pulumi.StringArrayInput `pulumi:"repos"`
 }
@@ -266,6 +268,7 @@ func (o ArchivePolicySearchCriteriaOutput) LastDownloadedBeforeInMonths() pulumi
 	return o.ApplyT(func(v ArchivePolicySearchCriteria) *int { return v.LastDownloadedBeforeInMonths }).(pulumi.IntPtrOutput)
 }
 
+// The package types that are archived by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, maven, npm, nuget, oci, opkg, puppet, pypi, sbt, swift, terraform, terraformbackend, vagrant, yum.
 func (o ArchivePolicySearchCriteriaOutput) PackageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArchivePolicySearchCriteria) []string { return v.PackageTypes }).(pulumi.StringArrayOutput)
 }
@@ -434,6 +437,7 @@ func (o ArchivePolicySearchCriteriaPtrOutput) LastDownloadedBeforeInMonths() pul
 	}).(pulumi.IntPtrOutput)
 }
 
+// The package types that are archived by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, maven, npm, nuget, oci, opkg, puppet, pypi, sbt, swift, terraform, terraformbackend, vagrant, yum.
 func (o ArchivePolicySearchCriteriaPtrOutput) PackageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArchivePolicySearchCriteria) []string {
 		if v == nil {
@@ -10584,8 +10588,9 @@ type PackageCleanupPolicySearchCriteria struct {
 	// ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not deleted.
 	//
 	// Deprecated: Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
-	LastDownloadedBeforeInMonths *int     `pulumi:"lastDownloadedBeforeInMonths"`
-	PackageTypes                 []string `pulumi:"packageTypes"`
+	LastDownloadedBeforeInMonths *int `pulumi:"lastDownloadedBeforeInMonths"`
+	// The package types that are cleaned up by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, machinelearning, maven, npm, nuget, oci, puppet, pypi, sbt, swift, terraform, terraformbackend, yum.
+	PackageTypes []string `pulumi:"packageTypes"`
 	// Specify one or more patterns for the repository name(s) on which you want the cleanup policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is mandatory. Only packages in repositories that match the pattern or explicit name will be deleted. For including all repos use `**`. Example: `repos = ["**"]`
 	Repos []string `pulumi:"repos"`
 }
@@ -10641,8 +10646,9 @@ type PackageCleanupPolicySearchCriteriaArgs struct {
 	// ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not deleted.
 	//
 	// Deprecated: Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
-	LastDownloadedBeforeInMonths pulumi.IntPtrInput      `pulumi:"lastDownloadedBeforeInMonths"`
-	PackageTypes                 pulumi.StringArrayInput `pulumi:"packageTypes"`
+	LastDownloadedBeforeInMonths pulumi.IntPtrInput `pulumi:"lastDownloadedBeforeInMonths"`
+	// The package types that are cleaned up by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, machinelearning, maven, npm, nuget, oci, puppet, pypi, sbt, swift, terraform, terraformbackend, yum.
+	PackageTypes pulumi.StringArrayInput `pulumi:"packageTypes"`
 	// Specify one or more patterns for the repository name(s) on which you want the cleanup policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is mandatory. Only packages in repositories that match the pattern or explicit name will be deleted. For including all repos use `**`. Example: `repos = ["**"]`
 	Repos pulumi.StringArrayInput `pulumi:"repos"`
 }
@@ -10800,6 +10806,7 @@ func (o PackageCleanupPolicySearchCriteriaOutput) LastDownloadedBeforeInMonths()
 	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) *int { return v.LastDownloadedBeforeInMonths }).(pulumi.IntPtrOutput)
 }
 
+// The package types that are cleaned up by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, machinelearning, maven, npm, nuget, oci, puppet, pypi, sbt, swift, terraform, terraformbackend, yum.
 func (o PackageCleanupPolicySearchCriteriaOutput) PackageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) []string { return v.PackageTypes }).(pulumi.StringArrayOutput)
 }
@@ -10969,6 +10976,7 @@ func (o PackageCleanupPolicySearchCriteriaPtrOutput) LastDownloadedBeforeInMonth
 	}).(pulumi.IntPtrOutput)
 }
 
+// The package types that are cleaned up by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, machinelearning, maven, npm, nuget, oci, puppet, pypi, sbt, swift, terraform, terraformbackend, yum.
 func (o PackageCleanupPolicySearchCriteriaPtrOutput) PackageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) []string {
 		if v == nil {
@@ -23787,7 +23795,8 @@ type VaultConfigurationConfigAuth struct {
 	RoleId *string `pulumi:"roleId"`
 	// Secret ID for `AppRole` type
 	SecretId *string `pulumi:"secretId"`
-	Type     string  `pulumi:"type"`
+	// The authentication method used. The supported methods are `Certificate`, `AppRole`, and `Agent`. For more information, see [Hashicorp Vault Docs](https://developer.hashicorp.com/vault/docs/auth).
+	Type string `pulumi:"type"`
 }
 
 // VaultConfigurationConfigAuthInput is an input type that accepts VaultConfigurationConfigAuthArgs and VaultConfigurationConfigAuthOutput values.
@@ -23810,7 +23819,8 @@ type VaultConfigurationConfigAuthArgs struct {
 	RoleId pulumi.StringPtrInput `pulumi:"roleId"`
 	// Secret ID for `AppRole` type
 	SecretId pulumi.StringPtrInput `pulumi:"secretId"`
-	Type     pulumi.StringInput    `pulumi:"type"`
+	// The authentication method used. The supported methods are `Certificate`, `AppRole`, and `Agent`. For more information, see [Hashicorp Vault Docs](https://developer.hashicorp.com/vault/docs/auth).
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (VaultConfigurationConfigAuthArgs) ElementType() reflect.Type {
@@ -23910,6 +23920,7 @@ func (o VaultConfigurationConfigAuthOutput) SecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VaultConfigurationConfigAuth) *string { return v.SecretId }).(pulumi.StringPtrOutput)
 }
 
+// The authentication method used. The supported methods are `Certificate`, `AppRole`, and `Agent`. For more information, see [Hashicorp Vault Docs](https://developer.hashicorp.com/vault/docs/auth).
 func (o VaultConfigurationConfigAuthOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultConfigurationConfigAuth) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -23978,6 +23989,7 @@ func (o VaultConfigurationConfigAuthPtrOutput) SecretId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The authentication method used. The supported methods are `Certificate`, `AppRole`, and `Agent`. For more information, see [Hashicorp Vault Docs](https://developer.hashicorp.com/vault/docs/auth).
 func (o VaultConfigurationConfigAuthPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VaultConfigurationConfigAuth) *string {
 		if v == nil {

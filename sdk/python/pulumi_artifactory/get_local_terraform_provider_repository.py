@@ -216,6 +216,9 @@ def get_local_terraform_provider_repository(archive_browsing_enabled: Optional[_
                                             xray_index: Optional[_builtins.bool] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalTerraformProviderRepositoryResult:
     """
+    Retrieves a local Terraform Provider repository. Official documentation can be
+    found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+
     ## Example Usage
 
     ```python
@@ -284,6 +287,9 @@ def get_local_terraform_provider_repository_output(archive_browsing_enabled: Opt
                                                    xray_index: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalTerraformProviderRepositoryResult]:
     """
+    Retrieves a local Terraform Provider repository. Official documentation can be
+    found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+
     ## Example Usage
 
     ```python

@@ -10,6 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
+    /// Provides an Artifactory anonymous user resource. This can be used to import Artifactory 'anonymous' user for some use cases where this is useful.
+    /// 
+    /// This resource is not intended for managing the 'anonymous' user in Artifactory. Use the `artifactory.User` resource instead.
+    /// 
+    /// !&gt; Anonymous user cannot be created from scratch, nor updated/deleted once imported into Terraform state.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -35,6 +41,9 @@ namespace Pulumi.Artifactory
     [ArtifactoryResourceType("artifactory:index/anonymousUser:AnonymousUser")]
     public partial class AnonymousUser : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be set or updated in the HCL.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -84,6 +93,9 @@ namespace Pulumi.Artifactory
 
     public sealed class AnonymousUserArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be set or updated in the HCL.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -95,6 +107,9 @@ namespace Pulumi.Artifactory
 
     public sealed class AnonymousUserState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be set or updated in the HCL.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

@@ -94,9 +94,12 @@ class RemoteHexRepositoryArgs:
         :param pulumi.Input[_builtins.int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
         :param pulumi.Input[_builtins.str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg: 'application/json,application/xml'. Default value is empty.
         :param pulumi.Input[_builtins.int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
-        :param pulumi.Input[_builtins.str] notes: Internal description.
+        :param pulumi.Input[_builtins.str] notes: Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+               
+               The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
@@ -514,7 +517,9 @@ class RemoteHexRepositoryArgs:
     @pulumi.getter
     def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Internal description.
+        Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+
+        The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         """
         return pulumi.get(self, "notes")
 
@@ -558,6 +563,9 @@ class RemoteHexRepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
@@ -802,9 +810,12 @@ class _RemoteHexRepositoryState:
         :param pulumi.Input[_builtins.int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
         :param pulumi.Input[_builtins.str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg: 'application/json,application/xml'. Default value is empty.
         :param pulumi.Input[_builtins.int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
-        :param pulumi.Input[_builtins.str] notes: Internal description.
+        :param pulumi.Input[_builtins.str] notes: Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+               
+               The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
@@ -1204,7 +1215,9 @@ class _RemoteHexRepositoryState:
     @pulumi.getter
     def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Internal description.
+        Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+
+        The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         """
         return pulumi.get(self, "notes")
 
@@ -1248,6 +1261,9 @@ class _RemoteHexRepositoryState:
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
@@ -1525,7 +1541,6 @@ class RemoteHexRepository(pulumi.CustomResource):
         ## Import
 
         Remote repositories can be imported using their name, e.g.
-
         ```sh
         $ pulumi import artifactory:index/remoteHexRepository:RemoteHexRepository my-remote-hex my-remote-hex
         ```
@@ -1556,9 +1571,12 @@ class RemoteHexRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
         :param pulumi.Input[_builtins.str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg: 'application/json,application/xml'. Default value is empty.
         :param pulumi.Input[_builtins.int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
-        :param pulumi.Input[_builtins.str] notes: Internal description.
+        :param pulumi.Input[_builtins.str] notes: Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+               
+               The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
@@ -1611,7 +1629,6 @@ class RemoteHexRepository(pulumi.CustomResource):
         ## Import
 
         Remote repositories can be imported using their name, e.g.
-
         ```sh
         $ pulumi import artifactory:index/remoteHexRepository:RemoteHexRepository my-remote-hex my-remote-hex
         ```
@@ -1826,9 +1843,12 @@ class RemoteHexRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
         :param pulumi.Input[_builtins.str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg: 'application/json,application/xml'. Default value is empty.
         :param pulumi.Input[_builtins.int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
-        :param pulumi.Input[_builtins.str] notes: Internal description.
+        :param pulumi.Input[_builtins.str] notes: Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+               
+               The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
@@ -2089,7 +2109,9 @@ class RemoteHexRepository(pulumi.CustomResource):
     @pulumi.getter
     def notes(self) -> pulumi.Output[_builtins.str]:
         """
-        Internal description.
+        Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+
+        The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         """
         return pulumi.get(self, "notes")
 
@@ -2117,6 +2139,9 @@ class RemoteHexRepository(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        """
         return pulumi.get(self, "project_environments")
 
     @_builtins.property

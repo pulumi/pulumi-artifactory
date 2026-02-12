@@ -5,6 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Provides an Artifactory anonymous user resource. This can be used to import Artifactory 'anonymous' user for some use cases where this is useful.
+ *
+ * This resource is not intended for managing the 'anonymous' user in Artifactory. Use the `artifactory.User` resource instead.
+ *
+ * !> Anonymous user cannot be created from scratch, nor updated/deleted once imported into Terraform state.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -49,6 +55,9 @@ export class AnonymousUser extends pulumi.CustomResource {
         return obj['__pulumiType'] === AnonymousUser.__pulumiType;
     }
 
+    /**
+     * Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be set or updated in the HCL.
+     */
     declare public readonly name: pulumi.Output<string>;
 
     /**
@@ -78,6 +87,9 @@ export class AnonymousUser extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AnonymousUser resources.
  */
 export interface AnonymousUserState {
+    /**
+     * Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be set or updated in the HCL.
+     */
     name?: pulumi.Input<string>;
 }
 
@@ -85,5 +97,8 @@ export interface AnonymousUserState {
  * The set of arguments for constructing a AnonymousUser resource.
  */
 export interface AnonymousUserArgs {
+    /**
+     * Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be set or updated in the HCL.
+     */
     name?: pulumi.Input<string>;
 }

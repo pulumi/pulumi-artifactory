@@ -171,7 +171,8 @@ class GeneralSecurity(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
         ```
-        ~>The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
+
+        ~>The `GeneralSecurity` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,7 +236,8 @@ class GeneralSecurity(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
         ```
-        ~>The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
+
+        ~>The `GeneralSecurity` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
 
         :param str resource_name: The name of the resource.
         :param GeneralSecurityArgs args: The arguments to use to populate this resource's properties.

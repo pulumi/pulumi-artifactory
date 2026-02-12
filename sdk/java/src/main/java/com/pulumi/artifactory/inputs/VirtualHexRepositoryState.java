@@ -123,23 +123,35 @@ public final class VirtualHexRepositoryState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Internal description.
+     * Artifactory REST API call Get Key Pair doesn&#39;t return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+     * 
+     * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
      * 
      */
     @Import(name="notes")
     private @Nullable Output<String> notes;
 
     /**
-     * @return Internal description.
+     * @return Artifactory REST API call Get Key Pair doesn&#39;t return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+     * 
+     * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
      * 
      */
     public Optional<Output<String>> notes() {
         return Optional.ofNullable(this.notes);
     }
 
+    /**
+     * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     * 
+     */
     @Import(name="projectEnvironments")
     private @Nullable Output<List<String>> projectEnvironments;
 
+    /**
+     * @return Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     * 
+     */
     public Optional<Output<List<String>>> projectEnvironments() {
         return Optional.ofNullable(this.projectEnvironments);
     }
@@ -372,7 +384,9 @@ public final class VirtualHexRepositoryState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param notes Internal description.
+         * @param notes Artifactory REST API call Get Key Pair doesn&#39;t return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+         * 
+         * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
          * 
          * @return builder
          * 
@@ -383,7 +397,9 @@ public final class VirtualHexRepositoryState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param notes Internal description.
+         * @param notes Artifactory REST API call Get Key Pair doesn&#39;t return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+         * 
+         * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
          * 
          * @return builder
          * 
@@ -392,15 +408,33 @@ public final class VirtualHexRepositoryState extends com.pulumi.resources.Resour
             return notes(Output.of(notes));
         }
 
+        /**
+         * @param projectEnvironments Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+         * 
+         * @return builder
+         * 
+         */
         public Builder projectEnvironments(@Nullable Output<List<String>> projectEnvironments) {
             $.projectEnvironments = projectEnvironments;
             return this;
         }
 
+        /**
+         * @param projectEnvironments Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+         * 
+         * @return builder
+         * 
+         */
         public Builder projectEnvironments(List<String> projectEnvironments) {
             return projectEnvironments(Output.of(projectEnvironments));
         }
 
+        /**
+         * @param projectEnvironments Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+         * 
+         * @return builder
+         * 
+         */
         public Builder projectEnvironments(String... projectEnvironments) {
             return projectEnvironments(List.of(projectEnvironments));
         }

@@ -255,6 +255,84 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
                  search_criteria: Optional[pulumi.Input[Union['ReleaseBundleV2CleanupPolicySearchCriteriaArgs', 'ReleaseBundleV2CleanupPolicySearchCriteriaArgsDict']]] = None,
                  __props__=None):
         """
+        Provides an Artifactory Archive Policy resource. This resource enable system administrators to configure and maintain JFrog cleanup policies for Release Bundles V2. See [Cleanup Policies](https://jfrog.com/help/r/jfrog-rest-apis/cleanup-policies-release-bundles-v2-apis) for more details.
+
+        ~>Release Bundles V2 Cleanup Policies APIs are supported on Artifactory version 7.104.2 and later.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_release_bundle_v2_rb = artifactory.ReleaseBundleV2("my-release-bundle-v2-rb",
+            name="my-release-bundle-v2-rb",
+            version="2.0.0",
+            keypair_name="my-keypair-name",
+            skip_docker_manifest_resolution=True,
+            source_type="release_bundles",
+            source={
+                "release_bundles": [{
+                    "name": "my-rb-name",
+                    "version": "1.0.0",
+                }],
+            })
+        my_resource_bundle_v2_cleanup_policy = artifactory.ReleaseBundleV2CleanupPolicy("my-resource-bundle-v2-cleanup-policy",
+            key="my-release-bundle-v2-policy-key",
+            description="Cleanup policy description",
+            cron_expression="0 0 2 * * ?",
+            duration_in_minutes=60,
+            enabled=True,
+            search_criteria={
+                "include_all_projects": True,
+                "included_projects": [],
+                "release_bundles": [{
+                    "name": "my-release-bundle-v2-rb",
+                    "project_key": "",
+                }],
+                "exclude_promoted_environments": ["**"],
+            })
+        ```
+
+        ### Using Variables for Duration and Created Before In Months
+
+        You can use Terraform variables for `duration_in_minutes` and `created_before_in_months`. This allows `terraform validate` to pass without requiring variable values when defaults are provided.
+
+        **Example with variables:**
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        config = pulumi.Config()
+        release_bundle_cleanup_duration_in_minutes = config.get_float("releaseBundleCleanupDurationInMinutes")
+        if release_bundle_cleanup_duration_in_minutes is None:
+            release_bundle_cleanup_duration_in_minutes = 120
+        release_bundle_cleanup_created_before_in_months = config.get_float("releaseBundleCleanupCreatedBeforeInMonths")
+        if release_bundle_cleanup_created_before_in_months is None:
+            release_bundle_cleanup_created_before_in_months = 36
+        my_resource_bundle_v2_cleanup_policy = artifactory.ReleaseBundleV2CleanupPolicy("my-resource-bundle-v2-cleanup-policy",
+            key="my-release-bundle-v2-policy-key",
+            description="Cleanup policy description with variables",
+            cron_expression="0 0 2 * * ?",
+            duration_in_minutes=release_bundle_cleanup_duration_in_minutes,
+            enabled=True,
+            search_criteria={
+                "include_all_projects": True,
+                "included_projects": [],
+                "release_bundles": [{
+                    "name": "my-release-bundle-v2-rb",
+                    "project_key": "",
+                }],
+                "exclude_promoted_environments": ["**"],
+                "created_before_in_months": release_bundle_cleanup_created_before_in_months,
+            })
+        ```
+
+        **Important Notes:**
+        - Variables with default values allow `terraform validate` to pass without requiring variable values
+        - Variables without default values will require values to be provided during `pulumi preview` or `pulumi up`
+
         ## Import
 
         ```sh
@@ -276,6 +354,84 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
                  args: ReleaseBundleV2CleanupPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an Artifactory Archive Policy resource. This resource enable system administrators to configure and maintain JFrog cleanup policies for Release Bundles V2. See [Cleanup Policies](https://jfrog.com/help/r/jfrog-rest-apis/cleanup-policies-release-bundles-v2-apis) for more details.
+
+        ~>Release Bundles V2 Cleanup Policies APIs are supported on Artifactory version 7.104.2 and later.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_release_bundle_v2_rb = artifactory.ReleaseBundleV2("my-release-bundle-v2-rb",
+            name="my-release-bundle-v2-rb",
+            version="2.0.0",
+            keypair_name="my-keypair-name",
+            skip_docker_manifest_resolution=True,
+            source_type="release_bundles",
+            source={
+                "release_bundles": [{
+                    "name": "my-rb-name",
+                    "version": "1.0.0",
+                }],
+            })
+        my_resource_bundle_v2_cleanup_policy = artifactory.ReleaseBundleV2CleanupPolicy("my-resource-bundle-v2-cleanup-policy",
+            key="my-release-bundle-v2-policy-key",
+            description="Cleanup policy description",
+            cron_expression="0 0 2 * * ?",
+            duration_in_minutes=60,
+            enabled=True,
+            search_criteria={
+                "include_all_projects": True,
+                "included_projects": [],
+                "release_bundles": [{
+                    "name": "my-release-bundle-v2-rb",
+                    "project_key": "",
+                }],
+                "exclude_promoted_environments": ["**"],
+            })
+        ```
+
+        ### Using Variables for Duration and Created Before In Months
+
+        You can use Terraform variables for `duration_in_minutes` and `created_before_in_months`. This allows `terraform validate` to pass without requiring variable values when defaults are provided.
+
+        **Example with variables:**
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        config = pulumi.Config()
+        release_bundle_cleanup_duration_in_minutes = config.get_float("releaseBundleCleanupDurationInMinutes")
+        if release_bundle_cleanup_duration_in_minutes is None:
+            release_bundle_cleanup_duration_in_minutes = 120
+        release_bundle_cleanup_created_before_in_months = config.get_float("releaseBundleCleanupCreatedBeforeInMonths")
+        if release_bundle_cleanup_created_before_in_months is None:
+            release_bundle_cleanup_created_before_in_months = 36
+        my_resource_bundle_v2_cleanup_policy = artifactory.ReleaseBundleV2CleanupPolicy("my-resource-bundle-v2-cleanup-policy",
+            key="my-release-bundle-v2-policy-key",
+            description="Cleanup policy description with variables",
+            cron_expression="0 0 2 * * ?",
+            duration_in_minutes=release_bundle_cleanup_duration_in_minutes,
+            enabled=True,
+            search_criteria={
+                "include_all_projects": True,
+                "included_projects": [],
+                "release_bundles": [{
+                    "name": "my-release-bundle-v2-rb",
+                    "project_key": "",
+                }],
+                "exclude_promoted_environments": ["**"],
+                "created_before_in_months": release_bundle_cleanup_created_before_in_months,
+            })
+        ```
+
+        **Important Notes:**
+        - Variables with default values allow `terraform validate` to pass without requiring variable values
+        - Variables without default values will require values to be provided during `pulumi preview` or `pulumi up`
+
         ## Import
 
         ```sh

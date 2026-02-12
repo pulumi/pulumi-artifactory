@@ -238,9 +238,17 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.lastDownloadedBeforeInMonths);
     }
 
+    /**
+     * The package types that are archived by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, maven, npm, nuget, oci, opkg, puppet, pypi, sbt, swift, terraform, terraformbackend, vagrant, yum.
+     * 
+     */
     @Import(name="packageTypes", required=true)
     private Output<List<String>> packageTypes;
 
+    /**
+     * @return The package types that are archived by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, maven, npm, nuget, oci, opkg, puppet, pypi, sbt, swift, terraform, terraformbackend, vagrant, yum.
+     * 
+     */
     public Output<List<String>> packageTypes() {
         return this.packageTypes;
     }
@@ -628,15 +636,33 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
             return lastDownloadedBeforeInMonths(Output.of(lastDownloadedBeforeInMonths));
         }
 
+        /**
+         * @param packageTypes The package types that are archived by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, maven, npm, nuget, oci, opkg, puppet, pypi, sbt, swift, terraform, terraformbackend, vagrant, yum.
+         * 
+         * @return builder
+         * 
+         */
         public Builder packageTypes(Output<List<String>> packageTypes) {
             $.packageTypes = packageTypes;
             return this;
         }
 
+        /**
+         * @param packageTypes The package types that are archived by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, maven, npm, nuget, oci, opkg, puppet, pypi, sbt, swift, terraform, terraformbackend, vagrant, yum.
+         * 
+         * @return builder
+         * 
+         */
         public Builder packageTypes(List<String> packageTypes) {
             return packageTypes(Output.of(packageTypes));
         }
 
+        /**
+         * @param packageTypes The package types that are archived by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, maven, npm, nuget, oci, opkg, puppet, pypi, sbt, swift, terraform, terraformbackend, vagrant, yum.
+         * 
+         * @return builder
+         * 
+         */
         public Builder packageTypes(String... packageTypes) {
             return packageTypes(List.of(packageTypes));
         }

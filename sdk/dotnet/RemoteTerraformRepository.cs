@@ -10,10 +10,72 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
+    /// Creates a remote Terraform repository.
+    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var terraform_remote = new Artifactory.RemoteTerraformRepository("terraform-remote", new()
+    ///     {
+    ///         Key = "terraform-remote",
+    ///         Url = "https://github.com/",
+    ///         TerraformRegistryUrl = "https://registry.terraform.io",
+    ///         TerraformProvidersUrl = "https://releases.hashicorp.com",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Important Notes
+    /// 
+    /// ### Bypass HEAD Requests Requirement
+    /// 
+    /// For Terraform remote repositories using the following registry URLs, the `BypassHeadRequests` parameter **must** be set to `True`:
+    /// 
+    /// - `https://registry.terraform.io` (all Artifactory versions)
+    /// - `https://registry.opentofu.org` (all Artifactory versions)
+    /// - `https://tf.app.wiz.io` (Artifactory 7.122.0 and later only)
+    /// 
+    /// Artifactory automatically enforces `BypassHeadRequests = true` for these registries, even if you attempt to set it to `False`. This is because these registries do not support HEAD requests, and Artifactory must use GET requests directly to cache artifacts.
+    /// 
+    /// **Note**: For `tf.app.wiz.io`, the bypass requirement only applies to Artifactory versions 7.122.0 and later. Earlier versions do not require this setting for the Wiz registry.
+    /// 
+    /// **Example with required setting:**
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var terraform_remote = new Artifactory.RemoteTerraformRepository("terraform-remote", new()
+    ///     {
+    ///         Key = "terraform-remote",
+    ///         Url = "https://github.com/",
+    ///         TerraformRegistryUrl = "https://registry.terraform.io",
+    ///         TerraformProvidersUrl = "https://releases.hashicorp.com",
+    ///         BypassHeadRequests = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// If you don't set `BypassHeadRequests = true` for these registries (when required for your Artifactory version), you will experience state drift as Artifactory will automatically override the setting to `True`.
+    /// 
+    /// **Note**: The `BypassHeadRequests` parameter defaults to `False` for most registries. Only the specific registries listed above require it to be set to `True`, and for `tf.app.wiz.io` this requirement only applies to Artifactory 7.122.0 and later.
+    /// 
     /// ## Import
     /// 
     /// Remote repositories can be imported using their name, e.g.
-    /// 
     /// ```sh
     /// $ pulumi import artifactory:index/remoteTerraformRepository:RemoteTerraformRepository terraform-remote terraform-remote
     /// ```
@@ -52,6 +114,9 @@ namespace Pulumi.Artifactory
         [Output("blockMismatchingMimeTypes")]
         public Output<bool> BlockMismatchingMimeTypes { get; private set; } = null!;
 
+        /// <summary>
+        /// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. **Note**: For terraform registries (registry.terraform.io, registry.opentofu.org), this must be set to `True` as Artifactory automatically enforces this setting. For tf.app.wiz.io, this is required only for Artifactory 7.122.0 and later. Defaults to `False`.
+        /// </summary>
         [Output("bypassHeadRequests")]
         public Output<bool> BypassHeadRequests { get; private set; } = null!;
 
@@ -176,6 +241,9 @@ namespace Pulumi.Artifactory
         [Output("priorityResolution")]
         public Output<bool> PriorityResolution { get; private set; } = null!;
 
+        /// <summary>
+        /// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        /// </summary>
         [Output("projectEnvironments")]
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
 
@@ -242,9 +310,17 @@ namespace Pulumi.Artifactory
         [Output("synchronizeProperties")]
         public Output<bool> SynchronizeProperties { get; private set; } = null!;
 
+        /// <summary>
+        /// The base URL of the Provider's storage API.
+        /// When using Smart remote repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey/providers`.
+        /// </summary>
         [Output("terraformProvidersUrl")]
         public Output<string> TerraformProvidersUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// The base URL of the registry API. 
+        /// When using Smart Remote Repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey`.
+        /// </summary>
         [Output("terraformRegistryUrl")]
         public Output<string> TerraformRegistryUrl { get; private set; } = null!;
 
@@ -350,6 +426,9 @@ namespace Pulumi.Artifactory
         [Input("blockMismatchingMimeTypes")]
         public Input<bool>? BlockMismatchingMimeTypes { get; set; }
 
+        /// <summary>
+        /// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. **Note**: For terraform registries (registry.terraform.io, registry.opentofu.org), this must be set to `True` as Artifactory automatically enforces this setting. For tf.app.wiz.io, this is required only for Artifactory 7.122.0 and later. Defaults to `False`.
+        /// </summary>
         [Input("bypassHeadRequests")]
         public Input<bool>? BypassHeadRequests { get; set; }
 
@@ -485,6 +564,10 @@ namespace Pulumi.Artifactory
 
         [Input("projectEnvironments")]
         private InputList<string>? _projectEnvironments;
+
+        /// <summary>
+        /// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        /// </summary>
         public InputList<string> ProjectEnvironments
         {
             get => _projectEnvironments ?? (_projectEnvironments = new InputList<string>());
@@ -560,9 +643,17 @@ namespace Pulumi.Artifactory
         [Input("synchronizeProperties")]
         public Input<bool>? SynchronizeProperties { get; set; }
 
+        /// <summary>
+        /// The base URL of the Provider's storage API.
+        /// When using Smart remote repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey/providers`.
+        /// </summary>
         [Input("terraformProvidersUrl")]
         public Input<string>? TerraformProvidersUrl { get; set; }
 
+        /// <summary>
+        /// The base URL of the registry API. 
+        /// When using Smart Remote Repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey`.
+        /// </summary>
         [Input("terraformRegistryUrl")]
         public Input<string>? TerraformRegistryUrl { get; set; }
 
@@ -626,6 +717,9 @@ namespace Pulumi.Artifactory
         [Input("blockMismatchingMimeTypes")]
         public Input<bool>? BlockMismatchingMimeTypes { get; set; }
 
+        /// <summary>
+        /// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. **Note**: For terraform registries (registry.terraform.io, registry.opentofu.org), this must be set to `True` as Artifactory automatically enforces this setting. For tf.app.wiz.io, this is required only for Artifactory 7.122.0 and later. Defaults to `False`.
+        /// </summary>
         [Input("bypassHeadRequests")]
         public Input<bool>? BypassHeadRequests { get; set; }
 
@@ -761,6 +855,10 @@ namespace Pulumi.Artifactory
 
         [Input("projectEnvironments")]
         private InputList<string>? _projectEnvironments;
+
+        /// <summary>
+        /// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        /// </summary>
         public InputList<string> ProjectEnvironments
         {
             get => _projectEnvironments ?? (_projectEnvironments = new InputList<string>());
@@ -836,9 +934,17 @@ namespace Pulumi.Artifactory
         [Input("synchronizeProperties")]
         public Input<bool>? SynchronizeProperties { get; set; }
 
+        /// <summary>
+        /// The base URL of the Provider's storage API.
+        /// When using Smart remote repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey/providers`.
+        /// </summary>
         [Input("terraformProvidersUrl")]
         public Input<string>? TerraformProvidersUrl { get; set; }
 
+        /// <summary>
+        /// The base URL of the registry API. 
+        /// When using Smart Remote Repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey`.
+        /// </summary>
         [Input("terraformRegistryUrl")]
         public Input<string>? TerraformRegistryUrl { get; set; }
 

@@ -60,6 +60,9 @@ namespace Pulumi.Artifactory
         [Output("oidcProviderName")]
         public Output<string?> OidcProviderName { get; private set; } = null!;
 
+        /// <summary>
+        /// Terraform Cloud Workload Identity Token tag name. Use for generating multiple TFC workload identity tokens. When set, the provider will attempt to use env var with this tag name as suffix. **Note:** this is case sensitive, so if set to `JFROG`, then env var `TFC_WORKLOAD_IDENTITY_TOKEN_JFROG` is used instead of `TFC_WORKLOAD_IDENTITY_TOKEN`. See [Generating Multiple Tokens](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/manual-generation#generating-multiple-tokens) on HCP Terraform for more details.
+        /// </summary>
         [Output("tfcCredentialTagName")]
         public Output<string?> TfcCredentialTagName { get; private set; } = null!;
 
@@ -195,6 +198,9 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         [Input("oidcProviderName")]
         public Input<string>? OidcProviderName { get; set; }
 
+        /// <summary>
+        /// Terraform Cloud Workload Identity Token tag name. Use for generating multiple TFC workload identity tokens. When set, the provider will attempt to use env var with this tag name as suffix. **Note:** this is case sensitive, so if set to `JFROG`, then env var `TFC_WORKLOAD_IDENTITY_TOKEN_JFROG` is used instead of `TFC_WORKLOAD_IDENTITY_TOKEN`. See [Generating Multiple Tokens](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/manual-generation#generating-multiple-tokens) on HCP Terraform for more details.
+        /// </summary>
         [Input("tfcCredentialTagName")]
         public Input<string>? TfcCredentialTagName { get; set; }
 

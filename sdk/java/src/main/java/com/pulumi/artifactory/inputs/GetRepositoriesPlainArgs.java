@@ -14,9 +14,17 @@ public final class GetRepositoriesPlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetRepositoriesPlainArgs Empty = new GetRepositoriesPlainArgs();
 
+    /**
+     * Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
+     * 
+     */
     @Import(name="packageType")
     private @Nullable String packageType;
 
+    /**
+     * @return Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
+     * 
+     */
     public Optional<String> packageType() {
         return Optional.ofNullable(this.packageType);
     }
@@ -77,6 +85,12 @@ public final class GetRepositoriesPlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetRepositoriesPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param packageType Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
+         * 
+         * @return builder
+         * 
+         */
         public Builder packageType(@Nullable String packageType) {
             $.packageType = packageType;
             return this;

@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Retrieves a local terraformbackend repository.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -90,6 +92,8 @@ export interface GetLocalTerraformbackendRepositoryResult {
     readonly xrayIndex?: boolean;
 }
 /**
+ * Retrieves a local terraformbackend repository.
+ *
  * ## Example Usage
  *
  * ```typescript

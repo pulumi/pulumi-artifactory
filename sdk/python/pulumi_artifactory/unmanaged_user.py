@@ -39,6 +39,11 @@ class UnmanagedUserArgs:
         :param pulumi.Input[_builtins.bool] internal_password_disabled: (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
         :param pulumi.Input[_builtins.str] name: Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
         :param pulumi.Input[_builtins.str] password: (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
+        :param pulumi.Input['UnmanagedUserPasswordPolicyArgs'] password_policy: Password policy to match JFrog Access to provide validation before API request.
+               
+               ->Due to Terraform limitation with interpolated value, we can only validate interpolated value prior to making API requests. This means `terraform validate` or `terraform plan` will not return error if `password` does not meet `password_policy` criteria.
+               
+               Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
         :param pulumi.Input[_builtins.bool] profile_updatable: (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
         """
         pulumi.set(__self__, "email", email)
@@ -146,6 +151,13 @@ class UnmanagedUserArgs:
     @_builtins.property
     @pulumi.getter(name="passwordPolicy")
     def password_policy(self) -> Optional[pulumi.Input['UnmanagedUserPasswordPolicyArgs']]:
+        """
+        Password policy to match JFrog Access to provide validation before API request.
+
+        ->Due to Terraform limitation with interpolated value, we can only validate interpolated value prior to making API requests. This means `terraform validate` or `terraform plan` will not return error if `password` does not meet `password_policy` criteria.
+
+        Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+        """
         return pulumi.get(self, "password_policy")
 
     @password_policy.setter
@@ -186,6 +198,11 @@ class _UnmanagedUserState:
         :param pulumi.Input[_builtins.bool] internal_password_disabled: (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
         :param pulumi.Input[_builtins.str] name: Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
         :param pulumi.Input[_builtins.str] password: (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
+        :param pulumi.Input['UnmanagedUserPasswordPolicyArgs'] password_policy: Password policy to match JFrog Access to provide validation before API request.
+               
+               ->Due to Terraform limitation with interpolated value, we can only validate interpolated value prior to making API requests. This means `terraform validate` or `terraform plan` will not return error if `password` does not meet `password_policy` criteria.
+               
+               Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
         :param pulumi.Input[_builtins.bool] profile_updatable: (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
         """
         if admin is not None:
@@ -294,6 +311,13 @@ class _UnmanagedUserState:
     @_builtins.property
     @pulumi.getter(name="passwordPolicy")
     def password_policy(self) -> Optional[pulumi.Input['UnmanagedUserPasswordPolicyArgs']]:
+        """
+        Password policy to match JFrog Access to provide validation before API request.
+
+        ->Due to Terraform limitation with interpolated value, we can only validate interpolated value prior to making API requests. This means `terraform validate` or `terraform plan` will not return error if `password` does not meet `password_policy` criteria.
+
+        Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+        """
         return pulumi.get(self, "password_policy")
 
     @password_policy.setter
@@ -372,6 +396,11 @@ class UnmanagedUser(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] internal_password_disabled: (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
         :param pulumi.Input[_builtins.str] name: Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
         :param pulumi.Input[_builtins.str] password: (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
+        :param pulumi.Input[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict']] password_policy: Password policy to match JFrog Access to provide validation before API request.
+               
+               ->Due to Terraform limitation with interpolated value, we can only validate interpolated value prior to making API requests. This means `terraform validate` or `terraform plan` will not return error if `password` does not meet `password_policy` criteria.
+               
+               Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
         :param pulumi.Input[_builtins.bool] profile_updatable: (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
         """
         ...
@@ -493,6 +522,11 @@ class UnmanagedUser(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] internal_password_disabled: (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
         :param pulumi.Input[_builtins.str] name: Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
         :param pulumi.Input[_builtins.str] password: (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
+        :param pulumi.Input[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict']] password_policy: Password policy to match JFrog Access to provide validation before API request.
+               
+               ->Due to Terraform limitation with interpolated value, we can only validate interpolated value prior to making API requests. This means `terraform validate` or `terraform plan` will not return error if `password` does not meet `password_policy` criteria.
+               
+               Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
         :param pulumi.Input[_builtins.bool] profile_updatable: (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -569,6 +603,13 @@ class UnmanagedUser(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="passwordPolicy")
     def password_policy(self) -> pulumi.Output[Optional['outputs.UnmanagedUserPasswordPolicy']]:
+        """
+        Password policy to match JFrog Access to provide validation before API request.
+
+        ->Due to Terraform limitation with interpolated value, we can only validate interpolated value prior to making API requests. This means `terraform validate` or `terraform plan` will not return error if `password` does not meet `password_policy` criteria.
+
+        Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+        """
         return pulumi.get(self, "password_policy")
 
     @_builtins.property

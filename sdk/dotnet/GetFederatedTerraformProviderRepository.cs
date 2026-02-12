@@ -12,6 +12,8 @@ namespace Pulumi.Artifactory
     public static class GetFederatedTerraformProviderRepository
     {
         /// <summary>
+        /// Retrieves a federated terraform provider repository.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -34,6 +36,8 @@ namespace Pulumi.Artifactory
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedTerraformProviderRepositoryResult>("artifactory:index/getFederatedTerraformProviderRepository:getFederatedTerraformProviderRepository", args ?? new GetFederatedTerraformProviderRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Retrieves a federated terraform provider repository.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -56,6 +60,8 @@ namespace Pulumi.Artifactory
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedTerraformProviderRepositoryResult>("artifactory:index/getFederatedTerraformProviderRepository:getFederatedTerraformProviderRepository", args ?? new GetFederatedTerraformProviderRepositoryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Retrieves a federated terraform provider repository.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

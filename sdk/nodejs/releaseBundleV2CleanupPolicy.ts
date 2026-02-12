@@ -7,6 +7,83 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Provides an Artifactory Archive Policy resource. This resource enable system administrators to configure and maintain JFrog cleanup policies for Release Bundles V2. See [Cleanup Policies](https://jfrog.com/help/r/jfrog-rest-apis/cleanup-policies-release-bundles-v2-apis) for more details.
+ *
+ * ~>Release Bundles V2 Cleanup Policies APIs are supported on Artifactory version 7.104.2 and later.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const my_release_bundle_v2_rb = new artifactory.ReleaseBundleV2("my-release-bundle-v2-rb", {
+ *     name: "my-release-bundle-v2-rb",
+ *     version: "2.0.0",
+ *     keypairName: "my-keypair-name",
+ *     skipDockerManifestResolution: true,
+ *     sourceType: "release_bundles",
+ *     source: {
+ *         releaseBundles: [{
+ *             name: "my-rb-name",
+ *             version: "1.0.0",
+ *         }],
+ *     },
+ * });
+ * const my_resource_bundle_v2_cleanup_policy = new artifactory.ReleaseBundleV2CleanupPolicy("my-resource-bundle-v2-cleanup-policy", {
+ *     key: "my-release-bundle-v2-policy-key",
+ *     description: "Cleanup policy description",
+ *     cronExpression: "0 0 2 * * ?",
+ *     durationInMinutes: 60,
+ *     enabled: true,
+ *     searchCriteria: {
+ *         includeAllProjects: true,
+ *         includedProjects: [],
+ *         releaseBundles: [{
+ *             name: "my-release-bundle-v2-rb",
+ *             projectKey: "",
+ *         }],
+ *         excludePromotedEnvironments: ["**"],
+ *     },
+ * });
+ * ```
+ *
+ * ### Using Variables for Duration and Created Before In Months
+ *
+ * You can use Terraform variables for `durationInMinutes` and `createdBeforeInMonths`. This allows `terraform validate` to pass without requiring variable values when defaults are provided.
+ *
+ * **Example with variables:**
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const config = new pulumi.Config();
+ * const releaseBundleCleanupDurationInMinutes = config.getNumber("releaseBundleCleanupDurationInMinutes") || 120;
+ * const releaseBundleCleanupCreatedBeforeInMonths = config.getNumber("releaseBundleCleanupCreatedBeforeInMonths") || 36;
+ * const my_resource_bundle_v2_cleanup_policy = new artifactory.ReleaseBundleV2CleanupPolicy("my-resource-bundle-v2-cleanup-policy", {
+ *     key: "my-release-bundle-v2-policy-key",
+ *     description: "Cleanup policy description with variables",
+ *     cronExpression: "0 0 2 * * ?",
+ *     durationInMinutes: releaseBundleCleanupDurationInMinutes,
+ *     enabled: true,
+ *     searchCriteria: {
+ *         includeAllProjects: true,
+ *         includedProjects: [],
+ *         releaseBundles: [{
+ *             name: "my-release-bundle-v2-rb",
+ *             projectKey: "",
+ *         }],
+ *         excludePromotedEnvironments: ["**"],
+ *         createdBeforeInMonths: releaseBundleCleanupCreatedBeforeInMonths,
+ *     },
+ * });
+ * ```
+ *
+ * **Important Notes:**
+ * - Variables with default values allow `terraform validate` to pass without requiring variable values
+ * - Variables without default values will require values to be provided during `pulumi preview` or `pulumi up`
+ *
  * ## Import
  *
  * ```sh

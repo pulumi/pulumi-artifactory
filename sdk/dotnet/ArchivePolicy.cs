@@ -10,13 +10,249 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
+    /// Provides an Artifactory Archive Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. See [Retention Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/archive) for more details.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Time-based Archive Policy (Days)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var my_archive_policy = new Artifactory.ArchivePolicy("my-archive-policy", new()
+    ///     {
+    ///         Key = "my-archive-policy",
+    ///         Description = "My archive policy",
+    ///         CronExpression = "0 0 2 ? * MON-SAT *",
+    ///         DurationInMinutes = 60,
+    ///         Enabled = true,
+    ///         SkipTrashcan = false,
+    ///         SearchCriteria = new Artifactory.Inputs.ArchivePolicySearchCriteriaArgs
+    ///         {
+    ///             PackageTypes = new[]
+    ///             {
+    ///                 "docker",
+    ///             },
+    ///             Repos = new[]
+    ///             {
+    ///                 "**",
+    ///             },
+    ///             IncludeAllProjects = true,
+    ///             IncludedProjects = new() { },
+    ///             IncludedPackages = new[]
+    ///             {
+    ///                 "**",
+    ///             },
+    ///             ExcludedPackages = new[]
+    ///             {
+    ///                 "com/jfrog/latest",
+    ///             },
+    ///             CreatedBeforeInDays = 30,
+    ///             LastDownloadedBeforeInDays = 60,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Version-based Archive Policy
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var my_version_policy = new Artifactory.ArchivePolicy("my-version-policy", new()
+    ///     {
+    ///         Key = "my-version-policy",
+    ///         Description = "Keep only latest versions",
+    ///         CronExpression = "0 0 2 ? * MON-SAT *",
+    ///         DurationInMinutes = 60,
+    ///         Enabled = true,
+    ///         SkipTrashcan = false,
+    ///         SearchCriteria = new Artifactory.Inputs.ArchivePolicySearchCriteriaArgs
+    ///         {
+    ///             PackageTypes = new[]
+    ///             {
+    ///                 "docker",
+    ///             },
+    ///             Repos = new[]
+    ///             {
+    ///                 "**",
+    ///             },
+    ///             IncludeAllProjects = true,
+    ///             IncludedProjects = new() { },
+    ///             IncludedPackages = new[]
+    ///             {
+    ///                 "**",
+    ///             },
+    ///             ExcludedPackages = new[]
+    ///             {
+    ///                 "com/jfrog/latest",
+    ///             },
+    ///             KeepLastNVersions = 5,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Properties-based Archive Policy
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var my_properties_policy = new Artifactory.ArchivePolicy("my-properties-policy", new()
+    ///     {
+    ///         Key = "my-properties-policy",
+    ///         Description = "Archive based on properties",
+    ///         CronExpression = "0 0 2 ? * MON-SAT *",
+    ///         DurationInMinutes = 60,
+    ///         Enabled = true,
+    ///         SkipTrashcan = false,
+    ///         SearchCriteria = new Artifactory.Inputs.ArchivePolicySearchCriteriaArgs
+    ///         {
+    ///             PackageTypes = new[]
+    ///             {
+    ///                 "docker",
+    ///             },
+    ///             Repos = new[]
+    ///             {
+    ///                 "**",
+    ///             },
+    ///             IncludeAllProjects = true,
+    ///             IncludedProjects = new() { },
+    ///             IncludedPackages = new[]
+    ///             {
+    ///                 "**",
+    ///             },
+    ///             ExcludedPackages = new[]
+    ///             {
+    ///                 "com/jfrog/latest",
+    ///             },
+    ///             IncludedProperties = 
+    ///             {
+    ///                 { "build.name", new[]
+    ///                 {
+    ///                     "my-app",
+    ///                 } },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Using Variables for Condition Fields
+    /// 
+    /// You can use Terraform variables for condition fields (`CreatedBeforeInDays`, `LastDownloadedBeforeInDays`, `CreatedBeforeInMonths`, `LastDownloadedBeforeInMonths`, `KeepLastNVersions`, `IncludedProperties`) and `DurationInMinutes`. The validator will skip validation when values are unknown (variables), allowing `terraform validate` to pass without requiring variable values.
+    /// 
+    /// **Example with variables:**
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var config = new Config();
+    ///     var archivePolicyLastDownloadedBeforeInDays = config.GetDouble("archivePolicyLastDownloadedBeforeInDays") ?? 30;
+    ///     var archivePolicyDurationInMinutes = config.GetDouble("archivePolicyDurationInMinutes") ?? 60;
+    ///     var my_archive_policy = new Artifactory.ArchivePolicy("my-archive-policy", new()
+    ///     {
+    ///         Key = "my-archive-policy",
+    ///         Description = "My archive policy with variables",
+    ///         CronExpression = "0 0 2 ? * MON-SAT *",
+    ///         DurationInMinutes = archivePolicyDurationInMinutes,
+    ///         Enabled = true,
+    ///         SkipTrashcan = false,
+    ///         SearchCriteria = new Artifactory.Inputs.ArchivePolicySearchCriteriaArgs
+    ///         {
+    ///             PackageTypes = new[]
+    ///             {
+    ///                 "docker",
+    ///                 "generic",
+    ///                 "helm",
+    ///                 "helmoci",
+    ///                 "nuget",
+    ///                 "terraform",
+    ///             },
+    ///             Repos = new[]
+    ///             {
+    ///                 "**",
+    ///             },
+    ///             IncludeAllProjects = false,
+    ///             IncludedProjects = new[]
+    ///             {
+    ///                 "default",
+    ///             },
+    ///             IncludedPackages = new[]
+    ///             {
+    ///                 "**",
+    ///             },
+    ///             ExcludedPackages = new[]
+    ///             {
+    ///                 "com/jfrog/latest",
+    ///             },
+    ///             LastDownloadedBeforeInDays = archivePolicyLastDownloadedBeforeInDays,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// **Important Notes:**
+    /// - Variables with default values allow `terraform validate` to pass without requiring variable values
+    /// - Variables without default values will require values to be provided during `pulumi preview` or `pulumi up`
+    /// - The validator automatically skips validation when condition field values are unknown (variables), preventing false validation errors during `terraform validate`
+    /// 
+    /// ## Validation Rules
+    /// 
+    /// The archive policy resource enforces the following validation rules:
+    /// 
+    /// 1. **Condition Types**: A policy must use exactly one of the following condition types:
+    ///    - Time-based conditions (`days-based`)
+    ///    - Version-based condition (`KeepLastNVersions`)
+    ///    - Properties-based condition (`IncludedProperties`)
+    /// 
+    /// 2. **Mutual Exclusivity**: Cannot use multiple condition types together.
+    /// 
+    /// 3. **Zero Values**: Time-based and version-based conditions must have values greater than 0.
+    /// 
+    /// 4. **Days vs Months**: Cannot use both days-based conditions (`CreatedBeforeInDays`, `LastDownloadedBeforeInDays`) and months-based conditions (`CreatedBeforeInMonths`, `LastDownloadedBeforeInMonths`) together.
+    /// 
+    /// 5. **Properties Validation**: Properties-based conditions must have exactly one key with exactly one string value.
+    /// 
+    /// 6. **Project Configuration**: When `IncludeAllProjects` is set to `True`, the `IncludedProjects` field can be empty array. When `IncludeAllProjects` is `False`, `IncludedProjects` must contain at least one project key.
+    /// 
+    /// ## Supported Package Types
+    /// 
+    /// The following package types are supported: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, maven, npm, nuget, oci, opkg, puppet, pypi, sbt, swift, terraform, terraformbackend, vagrant, yum.
+    /// 
+    /// ## Version Compatibility
+    /// 
+    /// - The `CreatedBeforeInDays` and `LastDownloadedBeforeInDays` attributes are only supported in Artifactory 7.111.2 and later. For earlier versions, use `CreatedBeforeInMonths` and `LastDownloadedBeforeInMonths`.
+    /// 
     /// ## Import
     /// 
     /// ```sh
     /// $ pulumi import artifactory:index/archivePolicy:ArchivePolicy my-archive-policy my-policy
-    /// ```
     /// 
-    /// ```sh
     /// $ pulumi import artifactory:index/archivePolicy:ArchivePolicy my-archive-policy my-policy:myproj
     /// ```
     /// </summary>

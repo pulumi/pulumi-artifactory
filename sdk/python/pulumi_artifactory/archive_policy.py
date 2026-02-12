@@ -288,13 +288,164 @@ class ArchivePolicy(pulumi.CustomResource):
                  skip_trashcan: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
+        Provides an Artifactory Archive Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. See [Retention Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/archive) for more details.
+
+        ## Example Usage
+
+        ### Time-based Archive Policy (Days)
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_archive_policy = artifactory.ArchivePolicy("my-archive-policy",
+            key="my-archive-policy",
+            description="My archive policy",
+            cron_expression="0 0 2 ? * MON-SAT *",
+            duration_in_minutes=60,
+            enabled=True,
+            skip_trashcan=False,
+            search_criteria={
+                "package_types": ["docker"],
+                "repos": ["**"],
+                "include_all_projects": True,
+                "included_projects": [],
+                "included_packages": ["**"],
+                "excluded_packages": ["com/jfrog/latest"],
+                "created_before_in_days": 30,
+                "last_downloaded_before_in_days": 60,
+            })
+        ```
+
+        ### Version-based Archive Policy
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_version_policy = artifactory.ArchivePolicy("my-version-policy",
+            key="my-version-policy",
+            description="Keep only latest versions",
+            cron_expression="0 0 2 ? * MON-SAT *",
+            duration_in_minutes=60,
+            enabled=True,
+            skip_trashcan=False,
+            search_criteria={
+                "package_types": ["docker"],
+                "repos": ["**"],
+                "include_all_projects": True,
+                "included_projects": [],
+                "included_packages": ["**"],
+                "excluded_packages": ["com/jfrog/latest"],
+                "keep_last_n_versions": 5,
+            })
+        ```
+
+        ### Properties-based Archive Policy
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_properties_policy = artifactory.ArchivePolicy("my-properties-policy",
+            key="my-properties-policy",
+            description="Archive based on properties",
+            cron_expression="0 0 2 ? * MON-SAT *",
+            duration_in_minutes=60,
+            enabled=True,
+            skip_trashcan=False,
+            search_criteria={
+                "package_types": ["docker"],
+                "repos": ["**"],
+                "include_all_projects": True,
+                "included_projects": [],
+                "included_packages": ["**"],
+                "excluded_packages": ["com/jfrog/latest"],
+                "included_properties": {
+                    "build.name": ["my-app"],
+                },
+            })
+        ```
+
+        ### Using Variables for Condition Fields
+
+        You can use Terraform variables for condition fields (`created_before_in_days`, `last_downloaded_before_in_days`, `created_before_in_months`, `last_downloaded_before_in_months`, `keep_last_n_versions`, `included_properties`) and `duration_in_minutes`. The validator will skip validation when values are unknown (variables), allowing `terraform validate` to pass without requiring variable values.
+
+        **Example with variables:**
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        config = pulumi.Config()
+        archive_policy_last_downloaded_before_in_days = config.get_float("archivePolicyLastDownloadedBeforeInDays")
+        if archive_policy_last_downloaded_before_in_days is None:
+            archive_policy_last_downloaded_before_in_days = 30
+        archive_policy_duration_in_minutes = config.get_float("archivePolicyDurationInMinutes")
+        if archive_policy_duration_in_minutes is None:
+            archive_policy_duration_in_minutes = 60
+        my_archive_policy = artifactory.ArchivePolicy("my-archive-policy",
+            key="my-archive-policy",
+            description="My archive policy with variables",
+            cron_expression="0 0 2 ? * MON-SAT *",
+            duration_in_minutes=archive_policy_duration_in_minutes,
+            enabled=True,
+            skip_trashcan=False,
+            search_criteria={
+                "package_types": [
+                    "docker",
+                    "generic",
+                    "helm",
+                    "helmoci",
+                    "nuget",
+                    "terraform",
+                ],
+                "repos": ["**"],
+                "include_all_projects": False,
+                "included_projects": ["default"],
+                "included_packages": ["**"],
+                "excluded_packages": ["com/jfrog/latest"],
+                "last_downloaded_before_in_days": archive_policy_last_downloaded_before_in_days,
+            })
+        ```
+
+        **Important Notes:**
+        - Variables with default values allow `terraform validate` to pass without requiring variable values
+        - Variables without default values will require values to be provided during `pulumi preview` or `pulumi up`
+        - The validator automatically skips validation when condition field values are unknown (variables), preventing false validation errors during `terraform validate`
+
+        ## Validation Rules
+
+        The archive policy resource enforces the following validation rules:
+
+        1. **Condition Types**: A policy must use exactly one of the following condition types:
+           - Time-based conditions (`days-based`)
+           - Version-based condition (`keep_last_n_versions`)
+           - Properties-based condition (`included_properties`)
+
+        2. **Mutual Exclusivity**: Cannot use multiple condition types together.
+
+        3. **Zero Values**: Time-based and version-based conditions must have values greater than 0.
+
+        4. **Days vs Months**: Cannot use both days-based conditions (`created_before_in_days`, `last_downloaded_before_in_days`) and months-based conditions (`created_before_in_months`, `last_downloaded_before_in_months`) together.
+
+        5. **Properties Validation**: Properties-based conditions must have exactly one key with exactly one string value.
+
+        6. **Project Configuration**: When `include_all_projects` is set to `true`, the `included_projects` field can be empty array. When `include_all_projects` is `false`, `included_projects` must contain at least one project key.
+
+        ## Supported Package Types
+
+        The following package types are supported: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, maven, npm, nuget, oci, opkg, puppet, pypi, sbt, swift, terraform, terraformbackend, vagrant, yum.
+
+        ## Version Compatibility
+
+        - The `created_before_in_days` and `last_downloaded_before_in_days` attributes are only supported in Artifactory 7.111.2 and later. For earlier versions, use `created_before_in_months` and `last_downloaded_before_in_months`.
+
         ## Import
 
         ```sh
         $ pulumi import artifactory:index/archivePolicy:ArchivePolicy my-archive-policy my-policy
-        ```
 
-        ```sh
         $ pulumi import artifactory:index/archivePolicy:ArchivePolicy my-archive-policy my-policy:myproj
         ```
 
@@ -314,13 +465,164 @@ class ArchivePolicy(pulumi.CustomResource):
                  args: ArchivePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an Artifactory Archive Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. See [Retention Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/archive) for more details.
+
+        ## Example Usage
+
+        ### Time-based Archive Policy (Days)
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_archive_policy = artifactory.ArchivePolicy("my-archive-policy",
+            key="my-archive-policy",
+            description="My archive policy",
+            cron_expression="0 0 2 ? * MON-SAT *",
+            duration_in_minutes=60,
+            enabled=True,
+            skip_trashcan=False,
+            search_criteria={
+                "package_types": ["docker"],
+                "repos": ["**"],
+                "include_all_projects": True,
+                "included_projects": [],
+                "included_packages": ["**"],
+                "excluded_packages": ["com/jfrog/latest"],
+                "created_before_in_days": 30,
+                "last_downloaded_before_in_days": 60,
+            })
+        ```
+
+        ### Version-based Archive Policy
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_version_policy = artifactory.ArchivePolicy("my-version-policy",
+            key="my-version-policy",
+            description="Keep only latest versions",
+            cron_expression="0 0 2 ? * MON-SAT *",
+            duration_in_minutes=60,
+            enabled=True,
+            skip_trashcan=False,
+            search_criteria={
+                "package_types": ["docker"],
+                "repos": ["**"],
+                "include_all_projects": True,
+                "included_projects": [],
+                "included_packages": ["**"],
+                "excluded_packages": ["com/jfrog/latest"],
+                "keep_last_n_versions": 5,
+            })
+        ```
+
+        ### Properties-based Archive Policy
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_properties_policy = artifactory.ArchivePolicy("my-properties-policy",
+            key="my-properties-policy",
+            description="Archive based on properties",
+            cron_expression="0 0 2 ? * MON-SAT *",
+            duration_in_minutes=60,
+            enabled=True,
+            skip_trashcan=False,
+            search_criteria={
+                "package_types": ["docker"],
+                "repos": ["**"],
+                "include_all_projects": True,
+                "included_projects": [],
+                "included_packages": ["**"],
+                "excluded_packages": ["com/jfrog/latest"],
+                "included_properties": {
+                    "build.name": ["my-app"],
+                },
+            })
+        ```
+
+        ### Using Variables for Condition Fields
+
+        You can use Terraform variables for condition fields (`created_before_in_days`, `last_downloaded_before_in_days`, `created_before_in_months`, `last_downloaded_before_in_months`, `keep_last_n_versions`, `included_properties`) and `duration_in_minutes`. The validator will skip validation when values are unknown (variables), allowing `terraform validate` to pass without requiring variable values.
+
+        **Example with variables:**
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        config = pulumi.Config()
+        archive_policy_last_downloaded_before_in_days = config.get_float("archivePolicyLastDownloadedBeforeInDays")
+        if archive_policy_last_downloaded_before_in_days is None:
+            archive_policy_last_downloaded_before_in_days = 30
+        archive_policy_duration_in_minutes = config.get_float("archivePolicyDurationInMinutes")
+        if archive_policy_duration_in_minutes is None:
+            archive_policy_duration_in_minutes = 60
+        my_archive_policy = artifactory.ArchivePolicy("my-archive-policy",
+            key="my-archive-policy",
+            description="My archive policy with variables",
+            cron_expression="0 0 2 ? * MON-SAT *",
+            duration_in_minutes=archive_policy_duration_in_minutes,
+            enabled=True,
+            skip_trashcan=False,
+            search_criteria={
+                "package_types": [
+                    "docker",
+                    "generic",
+                    "helm",
+                    "helmoci",
+                    "nuget",
+                    "terraform",
+                ],
+                "repos": ["**"],
+                "include_all_projects": False,
+                "included_projects": ["default"],
+                "included_packages": ["**"],
+                "excluded_packages": ["com/jfrog/latest"],
+                "last_downloaded_before_in_days": archive_policy_last_downloaded_before_in_days,
+            })
+        ```
+
+        **Important Notes:**
+        - Variables with default values allow `terraform validate` to pass without requiring variable values
+        - Variables without default values will require values to be provided during `pulumi preview` or `pulumi up`
+        - The validator automatically skips validation when condition field values are unknown (variables), preventing false validation errors during `terraform validate`
+
+        ## Validation Rules
+
+        The archive policy resource enforces the following validation rules:
+
+        1. **Condition Types**: A policy must use exactly one of the following condition types:
+           - Time-based conditions (`days-based`)
+           - Version-based condition (`keep_last_n_versions`)
+           - Properties-based condition (`included_properties`)
+
+        2. **Mutual Exclusivity**: Cannot use multiple condition types together.
+
+        3. **Zero Values**: Time-based and version-based conditions must have values greater than 0.
+
+        4. **Days vs Months**: Cannot use both days-based conditions (`created_before_in_days`, `last_downloaded_before_in_days`) and months-based conditions (`created_before_in_months`, `last_downloaded_before_in_months`) together.
+
+        5. **Properties Validation**: Properties-based conditions must have exactly one key with exactly one string value.
+
+        6. **Project Configuration**: When `include_all_projects` is set to `true`, the `included_projects` field can be empty array. When `include_all_projects` is `false`, `included_projects` must contain at least one project key.
+
+        ## Supported Package Types
+
+        The following package types are supported: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, maven, npm, nuget, oci, opkg, puppet, pypi, sbt, swift, terraform, terraformbackend, vagrant, yum.
+
+        ## Version Compatibility
+
+        - The `created_before_in_days` and `last_downloaded_before_in_days` attributes are only supported in Artifactory 7.111.2 and later. For earlier versions, use `created_before_in_months` and `last_downloaded_before_in_months`.
+
         ## Import
 
         ```sh
         $ pulumi import artifactory:index/archivePolicy:ArchivePolicy my-archive-policy my-policy
-        ```
 
-        ```sh
         $ pulumi import artifactory:index/archivePolicy:ArchivePolicy my-archive-policy my-policy:myproj
         ```
 

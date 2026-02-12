@@ -12,13 +12,305 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Artifactory Package Cleanup Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. Package cleanup policies are supported on the Cloud (7.98.2) and Self-Hosted (7.98.7) platforms, with an Enterprise+ license. See [Cleanup Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/cleanup-policies) for more details.
+//
+// ## Example Usage
+//
+// ### Time-based Cleanup Policy (Days)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewPackageCleanupPolicy(ctx, "my-cleanup-policy", &artifactory.PackageCleanupPolicyArgs{
+//				Key:               pulumi.String("my-cleanup-policy"),
+//				Description:       pulumi.String("My cleanup policy"),
+//				CronExpression:    pulumi.String("0 0 2 ? * MON-SAT *"),
+//				DurationInMinutes: pulumi.Int(60),
+//				Enabled:           pulumi.Bool(true),
+//				SkipTrashcan:      pulumi.Bool(false),
+//				SearchCriteria: &artifactory.PackageCleanupPolicySearchCriteriaArgs{
+//					PackageTypes: pulumi.StringArray{
+//						pulumi.String("docker"),
+//						pulumi.String("gradle"),
+//						pulumi.String("maven"),
+//					},
+//					Repos: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					IncludeAllProjects: pulumi.Bool(true),
+//					IncludedProjects:   pulumi.StringArray{},
+//					IncludedPackages: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					ExcludedPackages: pulumi.StringArray{
+//						pulumi.String("com/jfrog/latest"),
+//					},
+//					CreatedBeforeInDays:        pulumi.Int(30),
+//					LastDownloadedBeforeInDays: pulumi.Int(60),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Version-based Cleanup Policy
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewPackageCleanupPolicy(ctx, "my-version-policy", &artifactory.PackageCleanupPolicyArgs{
+//				Key:               pulumi.String("my-version-policy"),
+//				Description:       pulumi.String("Keep only latest versions"),
+//				CronExpression:    pulumi.String("0 0 2 ? * MON-SAT *"),
+//				DurationInMinutes: pulumi.Int(60),
+//				Enabled:           pulumi.Bool(true),
+//				SkipTrashcan:      pulumi.Bool(false),
+//				SearchCriteria: &artifactory.PackageCleanupPolicySearchCriteriaArgs{
+//					PackageTypes: pulumi.StringArray{
+//						pulumi.String("maven"),
+//					},
+//					Repos: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					IncludeAllProjects: pulumi.Bool(true),
+//					IncludedProjects:   pulumi.StringArray{},
+//					IncludedPackages: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					ExcludedPackages: pulumi.StringArray{
+//						pulumi.String("com/jfrog/latest"),
+//					},
+//					KeepLastNVersions: pulumi.Int(5),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Properties-based Cleanup Policy
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewPackageCleanupPolicy(ctx, "my-properties-policy", &artifactory.PackageCleanupPolicyArgs{
+//				Key:               pulumi.String("my-properties-policy"),
+//				Description:       pulumi.String("Cleanup based on properties"),
+//				CronExpression:    pulumi.String("0 0 2 ? * MON-SAT *"),
+//				DurationInMinutes: pulumi.Int(60),
+//				Enabled:           pulumi.Bool(true),
+//				SkipTrashcan:      pulumi.Bool(false),
+//				SearchCriteria: &artifactory.PackageCleanupPolicySearchCriteriaArgs{
+//					PackageTypes: pulumi.StringArray{
+//						pulumi.String("docker"),
+//					},
+//					Repos: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					IncludeAllProjects: pulumi.Bool(true),
+//					IncludedProjects:   pulumi.StringArray{},
+//					IncludedPackages: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					ExcludedPackages: pulumi.StringArray{
+//						pulumi.String("com/jfrog/latest"),
+//					},
+//					IncludedProperties: pulumi.StringArrayMap{
+//						"build.name": pulumi.StringArray{
+//							pulumi.String("my-app"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Using Variables for Condition Fields
+//
+// You can use Terraform variables for condition fields (`createdBeforeInDays`, `lastDownloadedBeforeInDays`, `createdBeforeInMonths`, `lastDownloadedBeforeInMonths`, `keepLastNVersions`, `includedProperties`) and `durationInMinutes`. The validator will skip validation when values are unknown (variables), allowing `terraform validate` to pass without requiring variable values.
+//
+// **Example with variables:**
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			cleanupPolicyLastDownloadedBeforeInDays := float64(60)
+//			if param := cfg.GetFloat64("cleanupPolicyLastDownloadedBeforeInDays"); param != 0 {
+//				cleanupPolicyLastDownloadedBeforeInDays = param
+//			}
+//			cleanupPolicyDurationInMinutes := float64(120)
+//			if param := cfg.GetFloat64("cleanupPolicyDurationInMinutes"); param != 0 {
+//				cleanupPolicyDurationInMinutes = param
+//			}
+//			_, err := artifactory.NewPackageCleanupPolicy(ctx, "my-cleanup-policy", &artifactory.PackageCleanupPolicyArgs{
+//				Key:               pulumi.String("my-cleanup-policy"),
+//				Description:       pulumi.String("My cleanup policy with variables"),
+//				CronExpression:    pulumi.String("0 0 2 ? * MON-SAT *"),
+//				DurationInMinutes: pulumi.Float64(cleanupPolicyDurationInMinutes),
+//				Enabled:           pulumi.Bool(true),
+//				SkipTrashcan:      pulumi.Bool(false),
+//				SearchCriteria: &artifactory.PackageCleanupPolicySearchCriteriaArgs{
+//					PackageTypes: pulumi.StringArray{
+//						pulumi.String("docker"),
+//						pulumi.String("generic"),
+//						pulumi.String("helm"),
+//						pulumi.String("helmoci"),
+//						pulumi.String("nuget"),
+//						pulumi.String("terraform"),
+//					},
+//					Repos: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					IncludeAllProjects: pulumi.Bool(false),
+//					IncludedProjects: pulumi.StringArray{
+//						pulumi.String("default"),
+//					},
+//					IncludedPackages: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					ExcludedPackages: pulumi.StringArray{
+//						pulumi.String("com/jfrog/latest"),
+//					},
+//					LastDownloadedBeforeInDays: pulumi.Float64(cleanupPolicyLastDownloadedBeforeInDays),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// **Important Notes:**
+// - Variables with default values allow `terraform validate` to pass without requiring variable values
+// - Variables without default values will require values to be provided during `pulumi preview` or `pulumi up`
+// - The validator automatically skips validation when condition field values are unknown (variables), preventing false validation errors during `terraform validate`
+//
+// ## Validation Rules
+//
+// The cleanup policy resource enforces the following validation rules:
+//
+// 1. **Condition Types**: A policy must use exactly one of the following condition types:
+//   - Time-based conditions (`days-based`)
+//   - Version-based condition (`keepLastNVersions`)
+//   - Properties-based condition (`includedProperties`)
+//
+// 2. **Mutual Exclusivity**: Cannot use multiple condition types together.
+//
+// 3. **Zero Values**: Time-based and version-based conditions must have values greater than 0.
+//
+// 4. **Days vs Months**: Cannot use both days-based conditions (`createdBeforeInDays`, `lastDownloadedBeforeInDays`) and months-based conditions (`createdBeforeInMonths`, `lastDownloadedBeforeInMonths`) together.
+//
+// 5. **Properties Validation**: Properties-based conditions must have exactly one key with exactly one string value.
+//
+// 6. **Project Configuration**: When `includeAllProjects` is set to `true`, the `includedProjects` field can be empty array. When `includeAllProjects` is `false`, `includedProjects` must contain at least one project key.
+//
+// 7. **Project-level Policy Constraints**: When `projectKey` is specified (project-level policy):
+//   - `includeAllProjects` must be set to `false`
+//   - `includedProjects` should be empty array `[]`
+//   - Policy `key` must start with the project key value as a prefix followed by a hyphen
+//   - ✅ Valid: `projectKey = "myproj"` → `key = "myproj-cleanup-policy"`
+//   - ❌ Invalid: `projectKey = "myproj"` → `key = "cleanup-policy"` (missing prefix)
+//   - ❌ Invalid: `projectKey = "myproj"` → `key = "other-cleanup-policy"` (wrong prefix)
+//
+// ## Supported Package Types
+//
+// The following package types are supported for cleanup policies with their respective minimum Artifactory versions:
+//
+// - **alpine** - Alpine Linux packages (supported from 7.108.0)
+// - **ansible** - Ansible collections and roles (supported from 7.104.2)
+// - **cargo** - Rust Cargo packages (supported from 7.102.0)
+// - **chef** - Chef cookbooks (supported from 7.112.0)
+// - **cocoapods** - CocoaPods packages (supported from 7.99.1)
+// - **composer** - PHP Composer packages (supported from 7.116.0)
+// - **conan** - Conan C/C++ packages (supported from 7.98.2)
+// - **conda** - Conda packages (supported from 7.105.2)
+// - **debian** - Debian packages (supported from 7.98.2)
+// - **docker** - Docker images (supported from 7.98.2, version-based condition (keep_last_n_versions) from 7.115.1)
+// - **gems** - Ruby gems (supported from 7.96.3)
+// - **generic** - Generic packages (supported from 7.98.2, version-based conditions is not supported)
+// - **go** - Go modules (supported from 7.98.2)
+// - **gradle** - Gradle packages (supported from 7.98.2)
+// - **helm** - Helm charts (supported from 7.98.2)
+// - **helmoci** - Helm OCI charts (supported from 7.102.0, version-based conditions (keep_last_n_versions) from 7.115.1)
+// - **huggingfaceml** - Hugging Face ML models (supported from 7.100.0)
+// - **machinelearning** - Machine learning models (supported from 7.104.2)
+// - **maven** - Maven packages (supported from 7.98.2)
+// - **npm** - Node.js packages (supported from 7.98.2)
+// - **nuget** - .NET NuGet packages (supported from 7.98.2)
+// - **oci** - OCI images (supported from 7.90.1, version-based conditions (keep_last_n_versions) from 7.115.1)
+// - **puppet** - Puppet modules (supported from 7.112.0)
+// - **pypi** - Python packages (supported from 7.98.2)
+// - **rpm|yum** - RPM packages (supported from 7.98.2)
+// - **sbt** - Scala SBT packages (supported from 7.108.0)
+// - **swift** - Swift packages
+// - **terraform** - Terraform modules (supported from 7.99.1)
+// - **terraformbackend** - Terraform backend configurations (supported from 7.103.0)
+//
+// ## Version Compatibility
+//
+// - The `createdBeforeInDays` and `lastDownloadedBeforeInDays` attributes are only supported in Artifactory 7.111.2 and later. For earlier versions, use `createdBeforeInMonths` and `lastDownloadedBeforeInMonths`.
+//
 // ## Import
 //
 // ```sh
 // $ pulumi import artifactory:index/packageCleanupPolicy:PackageCleanupPolicy my-cleanup-policy my-policy
-// ```
 //
-// ```sh
 // $ pulumi import artifactory:index/packageCleanupPolicy:PackageCleanupPolicy my-cleanup-policy my-policy:myproj
 // ```
 type PackageCleanupPolicy struct {

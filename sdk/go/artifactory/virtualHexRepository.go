@@ -23,8 +23,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -103,7 +101,6 @@ import (
 // ## Import
 //
 // Virtual repositories can be imported using their name, e.g.
-//
 // ```sh
 // $ pulumi import artifactory:index/virtualHexRepository:VirtualHexRepository my-virtual-hex my-virtual-hex
 // ```
@@ -124,8 +121,11 @@ type VirtualHexRepository struct {
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
-	// Internal description.
-	Notes               pulumi.StringOutput      `pulumi:"notes"`
+	// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+	//
+	// The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
+	Notes pulumi.StringOutput `pulumi:"notes"`
+	// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringOutput `pulumi:"projectKey"`
@@ -185,8 +185,11 @@ type virtualHexRepositoryState struct {
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
-	// Internal description.
-	Notes               *string  `pulumi:"notes"`
+	// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+	//
+	// The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
+	Notes *string `pulumi:"notes"`
+	// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
@@ -211,8 +214,11 @@ type VirtualHexRepositoryState struct {
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
-	// Internal description.
-	Notes               pulumi.StringPtrInput
+	// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+	//
+	// The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
+	Notes pulumi.StringPtrInput
+	// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
@@ -241,8 +247,11 @@ type virtualHexRepositoryArgs struct {
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
-	// Internal description.
-	Notes               *string  `pulumi:"notes"`
+	// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+	//
+	// The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
+	Notes *string `pulumi:"notes"`
+	// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
@@ -268,8 +277,11 @@ type VirtualHexRepositoryArgs struct {
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
-	// Internal description.
-	Notes               pulumi.StringPtrInput
+	// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+	//
+	// The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
+	Notes pulumi.StringPtrInput
+	// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
@@ -403,11 +415,14 @@ func (o VirtualHexRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualHexRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// Internal description.
+// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+//
+// The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
 func (o VirtualHexRepositoryOutput) Notes() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualHexRepository) pulumi.StringOutput { return v.Notes }).(pulumi.StringOutput)
 }
 
+// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 func (o VirtualHexRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualHexRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }

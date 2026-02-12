@@ -65,9 +65,17 @@ public final class FederatedDebianRepositoryState extends com.pulumi.resources.R
         return Optional.ofNullable(this.cdnRedirect);
     }
 
+    /**
+     * Delete all federated members on `terraform destroy` if set to `true`. Default is `false`. This attribute is added to match Terrform logic, so all the resources, created by the provider, must be removed on cleanup. Artifactory&#39;s behavior for the federated repositories is different, all the federated repositories stay after the user deletes the initial federated repository. **Caution**: if set to `true` all the repositories in the federation will be deleted, including repositories on other Artifactory instances in the &#34;Circle of trust&#34;. This operation can not be reversed.
+     * 
+     */
     @Import(name="cleanupOnDelete")
     private @Nullable Output<Boolean> cleanupOnDelete;
 
+    /**
+     * @return Delete all federated members on `terraform destroy` if set to `true`. Default is `false`. This attribute is added to match Terrform logic, so all the resources, created by the provider, must be removed on cleanup. Artifactory&#39;s behavior for the federated repositories is different, all the federated repositories stay after the user deletes the initial federated repository. **Caution**: if set to `true` all the repositories in the federation will be deleted, including repositories on other Artifactory instances in the &#34;Circle of trust&#34;. This operation can not be reversed.
+     * 
+     */
     public Optional<Output<Boolean>> cleanupOnDelete() {
         return Optional.ofNullable(this.cleanupOnDelete);
     }
@@ -242,9 +250,17 @@ public final class FederatedDebianRepositoryState extends com.pulumi.resources.R
         return Optional.ofNullable(this.priorityResolution);
     }
 
+    /**
+     * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     * 
+     */
     @Import(name="projectEnvironments")
     private @Nullable Output<List<String>> projectEnvironments;
 
+    /**
+     * @return Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     * 
+     */
     public Optional<Output<List<String>>> projectEnvironments() {
         return Optional.ofNullable(this.projectEnvironments);
     }
@@ -474,11 +490,23 @@ public final class FederatedDebianRepositoryState extends com.pulumi.resources.R
             return cdnRedirect(Output.of(cdnRedirect));
         }
 
+        /**
+         * @param cleanupOnDelete Delete all federated members on `terraform destroy` if set to `true`. Default is `false`. This attribute is added to match Terrform logic, so all the resources, created by the provider, must be removed on cleanup. Artifactory&#39;s behavior for the federated repositories is different, all the federated repositories stay after the user deletes the initial federated repository. **Caution**: if set to `true` all the repositories in the federation will be deleted, including repositories on other Artifactory instances in the &#34;Circle of trust&#34;. This operation can not be reversed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cleanupOnDelete(@Nullable Output<Boolean> cleanupOnDelete) {
             $.cleanupOnDelete = cleanupOnDelete;
             return this;
         }
 
+        /**
+         * @param cleanupOnDelete Delete all federated members on `terraform destroy` if set to `true`. Default is `false`. This attribute is added to match Terrform logic, so all the resources, created by the provider, must be removed on cleanup. Artifactory&#39;s behavior for the federated repositories is different, all the federated repositories stay after the user deletes the initial federated repository. **Caution**: if set to `true` all the repositories in the federation will be deleted, including repositories on other Artifactory instances in the &#34;Circle of trust&#34;. This operation can not be reversed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cleanupOnDelete(Boolean cleanupOnDelete) {
             return cleanupOnDelete(Output.of(cleanupOnDelete));
         }
@@ -734,15 +762,33 @@ public final class FederatedDebianRepositoryState extends com.pulumi.resources.R
             return priorityResolution(Output.of(priorityResolution));
         }
 
+        /**
+         * @param projectEnvironments Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+         * 
+         * @return builder
+         * 
+         */
         public Builder projectEnvironments(@Nullable Output<List<String>> projectEnvironments) {
             $.projectEnvironments = projectEnvironments;
             return this;
         }
 
+        /**
+         * @param projectEnvironments Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+         * 
+         * @return builder
+         * 
+         */
         public Builder projectEnvironments(List<String> projectEnvironments) {
             return projectEnvironments(Output.of(projectEnvironments));
         }
 
+        /**
+         * @param projectEnvironments Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+         * 
+         * @return builder
+         * 
+         */
         public Builder projectEnvironments(String... projectEnvironments) {
             return projectEnvironments(List.of(projectEnvironments));
         }

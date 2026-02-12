@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieves a remote Terraform repository.
+//
 // ## Example Usage
 //
 // ```go
@@ -66,34 +68,36 @@ type LookupRemoteTerraformRepositoryArgs struct {
 	HardFail                  *bool                                               `pulumi:"hardFail"`
 	IncludesPattern           *string                                             `pulumi:"includesPattern"`
 	// the identity key of the repo.
-	Key                               string   `pulumi:"key"`
-	ListRemoteFolderItems             *bool    `pulumi:"listRemoteFolderItems"`
-	LocalAddress                      *string  `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs      *int     `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList  *string  `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds          *int     `pulumi:"missedCachePeriodSeconds"`
-	Notes                             *string  `pulumi:"notes"`
-	Offline                           *bool    `pulumi:"offline"`
-	Password                          *string  `pulumi:"password"`
-	PriorityResolution                *bool    `pulumi:"priorityResolution"`
-	ProjectEnvironments               []string `pulumi:"projectEnvironments"`
-	ProjectKey                        *string  `pulumi:"projectKey"`
-	PropertySets                      []string `pulumi:"propertySets"`
-	Proxy                             *string  `pulumi:"proxy"`
-	QueryParams                       *string  `pulumi:"queryParams"`
-	RemoteRepoLayoutRef               *string  `pulumi:"remoteRepoLayoutRef"`
-	RepoLayoutRef                     *string  `pulumi:"repoLayoutRef"`
-	RetrievalCachePeriodSeconds       *int     `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration                *bool    `pulumi:"shareConfiguration"`
-	SocketTimeoutMillis               *int     `pulumi:"socketTimeoutMillis"`
-	StoreArtifactsLocally             *bool    `pulumi:"storeArtifactsLocally"`
-	SynchronizeProperties             *bool    `pulumi:"synchronizeProperties"`
-	TerraformProvidersUrl             *string  `pulumi:"terraformProvidersUrl"`
-	TerraformRegistryUrl              *string  `pulumi:"terraformRegistryUrl"`
-	UnusedArtifactsCleanupPeriodHours *int     `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               *string  `pulumi:"url"`
-	Username                          *string  `pulumi:"username"`
-	XrayIndex                         *bool    `pulumi:"xrayIndex"`
+	Key                              string   `pulumi:"key"`
+	ListRemoteFolderItems            *bool    `pulumi:"listRemoteFolderItems"`
+	LocalAddress                     *string  `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs     *int     `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList *string  `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds         *int     `pulumi:"missedCachePeriodSeconds"`
+	Notes                            *string  `pulumi:"notes"`
+	Offline                          *bool    `pulumi:"offline"`
+	Password                         *string  `pulumi:"password"`
+	PriorityResolution               *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments              []string `pulumi:"projectEnvironments"`
+	ProjectKey                       *string  `pulumi:"projectKey"`
+	PropertySets                     []string `pulumi:"propertySets"`
+	Proxy                            *string  `pulumi:"proxy"`
+	QueryParams                      *string  `pulumi:"queryParams"`
+	RemoteRepoLayoutRef              *string  `pulumi:"remoteRepoLayoutRef"`
+	RepoLayoutRef                    *string  `pulumi:"repoLayoutRef"`
+	RetrievalCachePeriodSeconds      *int     `pulumi:"retrievalCachePeriodSeconds"`
+	ShareConfiguration               *bool    `pulumi:"shareConfiguration"`
+	SocketTimeoutMillis              *int     `pulumi:"socketTimeoutMillis"`
+	StoreArtifactsLocally            *bool    `pulumi:"storeArtifactsLocally"`
+	SynchronizeProperties            *bool    `pulumi:"synchronizeProperties"`
+	// (Optional) The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
+	TerraformProvidersUrl *string `pulumi:"terraformProvidersUrl"`
+	// (Optional) The base URL of the registry API. When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
+	TerraformRegistryUrl              *string `pulumi:"terraformRegistryUrl"`
+	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               *string `pulumi:"url"`
+	Username                          *string `pulumi:"username"`
+	XrayIndex                         *bool   `pulumi:"xrayIndex"`
 }
 
 // A collection of values returned by getRemoteTerraformRepository.
@@ -115,37 +119,39 @@ type LookupRemoteTerraformRepositoryResult struct {
 	ExcludesPattern           *string                                            `pulumi:"excludesPattern"`
 	HardFail                  *bool                                              `pulumi:"hardFail"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                                string   `pulumi:"id"`
-	IncludesPattern                   *string  `pulumi:"includesPattern"`
-	Key                               string   `pulumi:"key"`
-	ListRemoteFolderItems             *bool    `pulumi:"listRemoteFolderItems"`
-	LocalAddress                      *string  `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs      *int     `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList  *string  `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds          *int     `pulumi:"missedCachePeriodSeconds"`
-	Notes                             *string  `pulumi:"notes"`
-	Offline                           *bool    `pulumi:"offline"`
-	PackageType                       string   `pulumi:"packageType"`
-	Password                          *string  `pulumi:"password"`
-	PriorityResolution                *bool    `pulumi:"priorityResolution"`
-	ProjectEnvironments               []string `pulumi:"projectEnvironments"`
-	ProjectKey                        *string  `pulumi:"projectKey"`
-	PropertySets                      []string `pulumi:"propertySets"`
-	Proxy                             *string  `pulumi:"proxy"`
-	QueryParams                       *string  `pulumi:"queryParams"`
-	RemoteRepoLayoutRef               *string  `pulumi:"remoteRepoLayoutRef"`
-	RepoLayoutRef                     *string  `pulumi:"repoLayoutRef"`
-	RetrievalCachePeriodSeconds       *int     `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration                bool     `pulumi:"shareConfiguration"`
-	SocketTimeoutMillis               *int     `pulumi:"socketTimeoutMillis"`
-	StoreArtifactsLocally             *bool    `pulumi:"storeArtifactsLocally"`
-	SynchronizeProperties             *bool    `pulumi:"synchronizeProperties"`
-	TerraformProvidersUrl             *string  `pulumi:"terraformProvidersUrl"`
-	TerraformRegistryUrl              *string  `pulumi:"terraformRegistryUrl"`
-	UnusedArtifactsCleanupPeriodHours *int     `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               *string  `pulumi:"url"`
-	Username                          *string  `pulumi:"username"`
-	XrayIndex                         *bool    `pulumi:"xrayIndex"`
+	Id                               string   `pulumi:"id"`
+	IncludesPattern                  *string  `pulumi:"includesPattern"`
+	Key                              string   `pulumi:"key"`
+	ListRemoteFolderItems            *bool    `pulumi:"listRemoteFolderItems"`
+	LocalAddress                     *string  `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs     *int     `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList *string  `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds         *int     `pulumi:"missedCachePeriodSeconds"`
+	Notes                            *string  `pulumi:"notes"`
+	Offline                          *bool    `pulumi:"offline"`
+	PackageType                      string   `pulumi:"packageType"`
+	Password                         *string  `pulumi:"password"`
+	PriorityResolution               *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments              []string `pulumi:"projectEnvironments"`
+	ProjectKey                       *string  `pulumi:"projectKey"`
+	PropertySets                     []string `pulumi:"propertySets"`
+	Proxy                            *string  `pulumi:"proxy"`
+	QueryParams                      *string  `pulumi:"queryParams"`
+	RemoteRepoLayoutRef              *string  `pulumi:"remoteRepoLayoutRef"`
+	RepoLayoutRef                    *string  `pulumi:"repoLayoutRef"`
+	RetrievalCachePeriodSeconds      *int     `pulumi:"retrievalCachePeriodSeconds"`
+	ShareConfiguration               bool     `pulumi:"shareConfiguration"`
+	SocketTimeoutMillis              *int     `pulumi:"socketTimeoutMillis"`
+	StoreArtifactsLocally            *bool    `pulumi:"storeArtifactsLocally"`
+	SynchronizeProperties            *bool    `pulumi:"synchronizeProperties"`
+	// (Optional) The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
+	TerraformProvidersUrl *string `pulumi:"terraformProvidersUrl"`
+	// (Optional) The base URL of the registry API. When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
+	TerraformRegistryUrl              *string `pulumi:"terraformRegistryUrl"`
+	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               *string `pulumi:"url"`
+	Username                          *string `pulumi:"username"`
+	XrayIndex                         *bool   `pulumi:"xrayIndex"`
 }
 
 func LookupRemoteTerraformRepositoryOutput(ctx *pulumi.Context, args LookupRemoteTerraformRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteTerraformRepositoryResultOutput {
@@ -177,34 +183,36 @@ type LookupRemoteTerraformRepositoryOutputArgs struct {
 	HardFail                  pulumi.BoolPtrInput                                        `pulumi:"hardFail"`
 	IncludesPattern           pulumi.StringPtrInput                                      `pulumi:"includesPattern"`
 	// the identity key of the repo.
-	Key                               pulumi.StringInput      `pulumi:"key"`
-	ListRemoteFolderItems             pulumi.BoolPtrInput     `pulumi:"listRemoteFolderItems"`
-	LocalAddress                      pulumi.StringPtrInput   `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs      pulumi.IntPtrInput      `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList  pulumi.StringPtrInput   `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds          pulumi.IntPtrInput      `pulumi:"missedCachePeriodSeconds"`
-	Notes                             pulumi.StringPtrInput   `pulumi:"notes"`
-	Offline                           pulumi.BoolPtrInput     `pulumi:"offline"`
-	Password                          pulumi.StringPtrInput   `pulumi:"password"`
-	PriorityResolution                pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
-	ProjectEnvironments               pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey                        pulumi.StringPtrInput   `pulumi:"projectKey"`
-	PropertySets                      pulumi.StringArrayInput `pulumi:"propertySets"`
-	Proxy                             pulumi.StringPtrInput   `pulumi:"proxy"`
-	QueryParams                       pulumi.StringPtrInput   `pulumi:"queryParams"`
-	RemoteRepoLayoutRef               pulumi.StringPtrInput   `pulumi:"remoteRepoLayoutRef"`
-	RepoLayoutRef                     pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	RetrievalCachePeriodSeconds       pulumi.IntPtrInput      `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration                pulumi.BoolPtrInput     `pulumi:"shareConfiguration"`
-	SocketTimeoutMillis               pulumi.IntPtrInput      `pulumi:"socketTimeoutMillis"`
-	StoreArtifactsLocally             pulumi.BoolPtrInput     `pulumi:"storeArtifactsLocally"`
-	SynchronizeProperties             pulumi.BoolPtrInput     `pulumi:"synchronizeProperties"`
-	TerraformProvidersUrl             pulumi.StringPtrInput   `pulumi:"terraformProvidersUrl"`
-	TerraformRegistryUrl              pulumi.StringPtrInput   `pulumi:"terraformRegistryUrl"`
-	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput      `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               pulumi.StringPtrInput   `pulumi:"url"`
-	Username                          pulumi.StringPtrInput   `pulumi:"username"`
-	XrayIndex                         pulumi.BoolPtrInput     `pulumi:"xrayIndex"`
+	Key                              pulumi.StringInput      `pulumi:"key"`
+	ListRemoteFolderItems            pulumi.BoolPtrInput     `pulumi:"listRemoteFolderItems"`
+	LocalAddress                     pulumi.StringPtrInput   `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs     pulumi.IntPtrInput      `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList pulumi.StringPtrInput   `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds         pulumi.IntPtrInput      `pulumi:"missedCachePeriodSeconds"`
+	Notes                            pulumi.StringPtrInput   `pulumi:"notes"`
+	Offline                          pulumi.BoolPtrInput     `pulumi:"offline"`
+	Password                         pulumi.StringPtrInput   `pulumi:"password"`
+	PriorityResolution               pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
+	ProjectEnvironments              pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey                       pulumi.StringPtrInput   `pulumi:"projectKey"`
+	PropertySets                     pulumi.StringArrayInput `pulumi:"propertySets"`
+	Proxy                            pulumi.StringPtrInput   `pulumi:"proxy"`
+	QueryParams                      pulumi.StringPtrInput   `pulumi:"queryParams"`
+	RemoteRepoLayoutRef              pulumi.StringPtrInput   `pulumi:"remoteRepoLayoutRef"`
+	RepoLayoutRef                    pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	RetrievalCachePeriodSeconds      pulumi.IntPtrInput      `pulumi:"retrievalCachePeriodSeconds"`
+	ShareConfiguration               pulumi.BoolPtrInput     `pulumi:"shareConfiguration"`
+	SocketTimeoutMillis              pulumi.IntPtrInput      `pulumi:"socketTimeoutMillis"`
+	StoreArtifactsLocally            pulumi.BoolPtrInput     `pulumi:"storeArtifactsLocally"`
+	SynchronizeProperties            pulumi.BoolPtrInput     `pulumi:"synchronizeProperties"`
+	// (Optional) The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
+	TerraformProvidersUrl pulumi.StringPtrInput `pulumi:"terraformProvidersUrl"`
+	// (Optional) The base URL of the registry API. When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
+	TerraformRegistryUrl              pulumi.StringPtrInput `pulumi:"terraformRegistryUrl"`
+	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput    `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               pulumi.StringPtrInput `pulumi:"url"`
+	Username                          pulumi.StringPtrInput `pulumi:"username"`
+	XrayIndex                         pulumi.BoolPtrInput   `pulumi:"xrayIndex"`
 }
 
 func (LookupRemoteTerraformRepositoryOutputArgs) ElementType() reflect.Type {
@@ -393,10 +401,12 @@ func (o LookupRemoteTerraformRepositoryResultOutput) SynchronizeProperties() pul
 	return o.ApplyT(func(v LookupRemoteTerraformRepositoryResult) *bool { return v.SynchronizeProperties }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
 func (o LookupRemoteTerraformRepositoryResultOutput) TerraformProvidersUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemoteTerraformRepositoryResult) *string { return v.TerraformProvidersUrl }).(pulumi.StringPtrOutput)
 }
 
+// (Optional) The base URL of the registry API. When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
 func (o LookupRemoteTerraformRepositoryResultOutput) TerraformRegistryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemoteTerraformRepositoryResult) *string { return v.TerraformRegistryUrl }).(pulumi.StringPtrOutput)
 }

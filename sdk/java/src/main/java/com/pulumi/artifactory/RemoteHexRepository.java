@@ -85,7 +85,6 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * Remote repositories can be imported using their name, e.g.
- * 
  * ```sh
  * $ pulumi import artifactory:index/remoteHexRepository:RemoteHexRepository my-remote-hex my-remote-hex
  * ```
@@ -424,14 +423,18 @@ public class RemoteHexRepository extends com.pulumi.resources.CustomResource {
         return this.missedCachePeriodSeconds;
     }
     /**
-     * Internal description.
+     * Artifactory REST API call Get Key Pair doesn&#39;t return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+     * 
+     * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
      * 
      */
     @Export(name="notes", refs={String.class}, tree="[0]")
     private Output<String> notes;
 
     /**
-     * @return Internal description.
+     * @return Artifactory REST API call Get Key Pair doesn&#39;t return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+     * 
+     * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
      * 
      */
     public Output<String> notes() {
@@ -471,9 +474,17 @@ public class RemoteHexRepository extends com.pulumi.resources.CustomResource {
     public Output<Boolean> priorityResolution() {
         return this.priorityResolution;
     }
+    /**
+     * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     * 
+     */
     @Export(name="projectEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> projectEnvironments;
 
+    /**
+     * @return Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     * 
+     */
     public Output<List<String>> projectEnvironments() {
         return this.projectEnvironments;
     }

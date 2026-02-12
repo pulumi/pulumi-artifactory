@@ -18,13 +18,253 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides an Artifactory Archive Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. See [Retention Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/archive) for more details.
+ * 
+ * ## Example Usage
+ * 
+ * ### Time-based Archive Policy (Days)
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.ArchivePolicy;
+ * import com.pulumi.artifactory.ArchivePolicyArgs;
+ * import com.pulumi.artifactory.inputs.ArchivePolicySearchCriteriaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var my_archive_policy = new ArchivePolicy("my-archive-policy", ArchivePolicyArgs.builder()
+ *             .key("my-archive-policy")
+ *             .description("My archive policy")
+ *             .cronExpression("0 0 2 ? * MON-SAT *")
+ *             .durationInMinutes(60)
+ *             .enabled(true)
+ *             .skipTrashcan(false)
+ *             .searchCriteria(ArchivePolicySearchCriteriaArgs.builder()
+ *                 .packageTypes("docker")
+ *                 .repos("**")
+ *                 .includeAllProjects(true)
+ *                 .includedProjects()
+ *                 .includedPackages("**")
+ *                 .excludedPackages("com/jfrog/latest")
+ *                 .createdBeforeInDays(30)
+ *                 .lastDownloadedBeforeInDays(60)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Version-based Archive Policy
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.ArchivePolicy;
+ * import com.pulumi.artifactory.ArchivePolicyArgs;
+ * import com.pulumi.artifactory.inputs.ArchivePolicySearchCriteriaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var my_version_policy = new ArchivePolicy("my-version-policy", ArchivePolicyArgs.builder()
+ *             .key("my-version-policy")
+ *             .description("Keep only latest versions")
+ *             .cronExpression("0 0 2 ? * MON-SAT *")
+ *             .durationInMinutes(60)
+ *             .enabled(true)
+ *             .skipTrashcan(false)
+ *             .searchCriteria(ArchivePolicySearchCriteriaArgs.builder()
+ *                 .packageTypes("docker")
+ *                 .repos("**")
+ *                 .includeAllProjects(true)
+ *                 .includedProjects()
+ *                 .includedPackages("**")
+ *                 .excludedPackages("com/jfrog/latest")
+ *                 .keepLastNVersions(5)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Properties-based Archive Policy
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.ArchivePolicy;
+ * import com.pulumi.artifactory.ArchivePolicyArgs;
+ * import com.pulumi.artifactory.inputs.ArchivePolicySearchCriteriaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var my_properties_policy = new ArchivePolicy("my-properties-policy", ArchivePolicyArgs.builder()
+ *             .key("my-properties-policy")
+ *             .description("Archive based on properties")
+ *             .cronExpression("0 0 2 ? * MON-SAT *")
+ *             .durationInMinutes(60)
+ *             .enabled(true)
+ *             .skipTrashcan(false)
+ *             .searchCriteria(ArchivePolicySearchCriteriaArgs.builder()
+ *                 .packageTypes("docker")
+ *                 .repos("**")
+ *                 .includeAllProjects(true)
+ *                 .includedProjects()
+ *                 .includedPackages("**")
+ *                 .excludedPackages("com/jfrog/latest")
+ *                 .includedProperties(Map.of("build.name", "my-app"))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Using Variables for Condition Fields
+ * 
+ * You can use Terraform variables for condition fields (`createdBeforeInDays`, `lastDownloadedBeforeInDays`, `createdBeforeInMonths`, `lastDownloadedBeforeInMonths`, `keepLastNVersions`, `includedProperties`) and `durationInMinutes`. The validator will skip validation when values are unknown (variables), allowing `terraform validate` to pass without requiring variable values.
+ * 
+ * **Example with variables:**
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.ArchivePolicy;
+ * import com.pulumi.artifactory.ArchivePolicyArgs;
+ * import com.pulumi.artifactory.inputs.ArchivePolicySearchCriteriaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var config = ctx.config();
+ *         final var archivePolicyLastDownloadedBeforeInDays = config.get("archivePolicyLastDownloadedBeforeInDays").orElse(30);
+ *         final var archivePolicyDurationInMinutes = config.get("archivePolicyDurationInMinutes").orElse(60);
+ *         var my_archive_policy = new ArchivePolicy("my-archive-policy", ArchivePolicyArgs.builder()
+ *             .key("my-archive-policy")
+ *             .description("My archive policy with variables")
+ *             .cronExpression("0 0 2 ? * MON-SAT *")
+ *             .durationInMinutes(archivePolicyDurationInMinutes)
+ *             .enabled(true)
+ *             .skipTrashcan(false)
+ *             .searchCriteria(ArchivePolicySearchCriteriaArgs.builder()
+ *                 .packageTypes(                
+ *                     "docker",
+ *                     "generic",
+ *                     "helm",
+ *                     "helmoci",
+ *                     "nuget",
+ *                     "terraform")
+ *                 .repos("**")
+ *                 .includeAllProjects(false)
+ *                 .includedProjects("default")
+ *                 .includedPackages("**")
+ *                 .excludedPackages("com/jfrog/latest")
+ *                 .lastDownloadedBeforeInDays(archivePolicyLastDownloadedBeforeInDays)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * **Important Notes:**
+ * - Variables with default values allow `terraform validate` to pass without requiring variable values
+ * - Variables without default values will require values to be provided during `pulumi preview` or `pulumi up`
+ * - The validator automatically skips validation when condition field values are unknown (variables), preventing false validation errors during `terraform validate`
+ * 
+ * ## Validation Rules
+ * 
+ * The archive policy resource enforces the following validation rules:
+ * 
+ * 1. **Condition Types**: A policy must use exactly one of the following condition types:
+ *    - Time-based conditions (`days-based`)
+ *    - Version-based condition (`keepLastNVersions`)
+ *    - Properties-based condition (`includedProperties`)
+ * 
+ * 2. **Mutual Exclusivity**: Cannot use multiple condition types together.
+ * 
+ * 3. **Zero Values**: Time-based and version-based conditions must have values greater than 0.
+ * 
+ * 4. **Days vs Months**: Cannot use both days-based conditions (`createdBeforeInDays`, `lastDownloadedBeforeInDays`) and months-based conditions (`createdBeforeInMonths`, `lastDownloadedBeforeInMonths`) together.
+ * 
+ * 5. **Properties Validation**: Properties-based conditions must have exactly one key with exactly one string value.
+ * 
+ * 6. **Project Configuration**: When `includeAllProjects` is set to `true`, the `includedProjects` field can be empty array. When `includeAllProjects` is `false`, `includedProjects` must contain at least one project key.
+ * 
+ * ## Supported Package Types
+ * 
+ * The following package types are supported: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, maven, npm, nuget, oci, opkg, puppet, pypi, sbt, swift, terraform, terraformbackend, vagrant, yum.
+ * 
+ * ## Version Compatibility
+ * 
+ * - The `createdBeforeInDays` and `lastDownloadedBeforeInDays` attributes are only supported in Artifactory 7.111.2 and later. For earlier versions, use `createdBeforeInMonths` and `lastDownloadedBeforeInMonths`.
+ * 
  * ## Import
  * 
  * ```sh
  * $ pulumi import artifactory:index/archivePolicy:ArchivePolicy my-archive-policy my-policy
- * ```
  * 
- * ```sh
  * $ pulumi import artifactory:index/archivePolicy:ArchivePolicy my-archive-policy my-policy:myproj
  * ```
  * 

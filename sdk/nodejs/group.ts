@@ -5,13 +5,43 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Provides an Artifactory group resource. This can be used to create and manage Artifactory groups.
+ *
+ * !>This resource is deprecated and will be removed in the next major version. Use `platformGroup` resource in the JFrog Platform provider instead.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const test_group = new artifactory.Group("test-group", {
+ *     name: "terraform",
+ *     description: "test group",
+ *     externalId: "00628948-b509-4362-aa73-380c4dbd2a44",
+ *     adminPrivileges: false,
+ *     usersNames: ["foobar"],
+ * });
+ * ```
+ *
+ * ## Managed vs Unmanaged Group Membership
+ *
+ * Terraform does not distinguish between an absent `usersNames` attribute and setting to an empty array (i.e. length of 0).
+ *
+ * To prevent accidental deletion of existing membership, the default was chosen to mean that Terraform does not manage membership and that to detach all users would require an explicit bool.
+ *
+ * ~>When moving from managed group membership to unmanaged the pulumi preview will show the users previously in the array
+ * being removed from terraform state, but it will not actually delete any members (unless `detachAllUsers` is set to `true`).
+ *
+ * Also see our recommendation on how to manage user-group relationship.
+ *
  * ## Import
  *
  * ```sh
  * $ pulumi import artifactory:index/group:Group terraform-group mygroup
  * ```
  *
- * ~> `users_names` can't be imported due to API limitations.
+ * > `usersNames` can't be imported due to API limitations.
  */
 export class Group extends pulumi.CustomResource {
     /**
@@ -81,6 +111,9 @@ export class Group extends pulumi.CustomResource {
      * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      */
     declare public readonly reportsManager: pulumi.Output<boolean>;
+    /**
+     * List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+     */
     declare public readonly usersNames: pulumi.Output<string[]>;
     /**
      * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
@@ -176,6 +209,9 @@ export interface GroupState {
      * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      */
     reportsManager?: pulumi.Input<boolean>;
+    /**
+     * List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+     */
     usersNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
@@ -227,6 +263,9 @@ export interface GroupArgs {
      * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      */
     reportsManager?: pulumi.Input<boolean>;
+    /**
+     * List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+     */
     usersNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.

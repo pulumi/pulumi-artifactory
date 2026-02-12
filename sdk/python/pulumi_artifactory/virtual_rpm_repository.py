@@ -43,10 +43,15 @@ class VirtualRpmRepositoryArgs:
         :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.str] primary_keypair_ref: The primary GPG key to be used to sign packages.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[_builtins.str] repo_layout_ref: Repository layout key for the virtual repository
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[_builtins.str] secondary_keypair_ref: Secondary keypair used to sign artifacts.
+        :param pulumi.Input[_builtins.str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
+               
+               Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+               
+               The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         """
         pulumi.set(__self__, "key", key)
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
@@ -174,6 +179,9 @@ class VirtualRpmRepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
@@ -220,7 +228,11 @@ class VirtualRpmRepositoryArgs:
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Secondary keypair used to sign artifacts.
+        The secondary GPG key to be used to sign packages.
+
+        Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+
+        The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
@@ -257,10 +269,15 @@ class _VirtualRpmRepositoryState:
                contain spaces or special characters.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.str] primary_keypair_ref: The primary GPG key to be used to sign packages.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[_builtins.str] repo_layout_ref: Repository layout key for the virtual repository
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[_builtins.str] secondary_keypair_ref: Secondary keypair used to sign artifacts.
+        :param pulumi.Input[_builtins.str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
+               
+               Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+               
+               The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         """
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
             pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
@@ -400,6 +417,9 @@ class _VirtualRpmRepositoryState:
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
@@ -446,7 +466,11 @@ class _VirtualRpmRepositoryState:
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Secondary keypair used to sign artifacts.
+        The secondary GPG key to be used to sign packages.
+
+        Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+
+        The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
@@ -527,10 +551,15 @@ class VirtualRpmRepository(pulumi.CustomResource):
                contain spaces or special characters.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.str] primary_keypair_ref: The primary GPG key to be used to sign packages.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[_builtins.str] repo_layout_ref: Repository layout key for the virtual repository
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[_builtins.str] secondary_keypair_ref: Secondary keypair used to sign artifacts.
+        :param pulumi.Input[_builtins.str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
+               
+               Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+               
+               The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         """
         ...
     @overload
@@ -672,10 +701,15 @@ class VirtualRpmRepository(pulumi.CustomResource):
                contain spaces or special characters.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.str] primary_keypair_ref: The primary GPG key to be used to sign packages.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[_builtins.str] repo_layout_ref: Repository layout key for the virtual repository
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[_builtins.str] secondary_keypair_ref: Secondary keypair used to sign artifacts.
+        :param pulumi.Input[_builtins.str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
+               
+               Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+               
+               The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -770,6 +804,9 @@ class VirtualRpmRepository(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+        """
         return pulumi.get(self, "project_environments")
 
     @_builtins.property
@@ -800,7 +837,11 @@ class VirtualRpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Secondary keypair used to sign artifacts.
+        The secondary GPG key to be used to sign packages.
+
+        Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+
+        The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 

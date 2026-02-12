@@ -47,7 +47,7 @@ namespace Pulumi.Artifactory
     /// $ pulumi import artifactory:index/mailServer:MailServer my-mail-server mymailserver
     /// ```
     /// 
-    /// ~&gt;The `password` attribute is not retrievable from Artifactory thus there will be state drift after importing this resource.
+    /// ~&gt;The `Password` attribute is not retrievable from Artifactory thus there will be state drift after importing this resource.
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/mailServer:MailServer")]
     public partial class MailServer : global::Pulumi.CustomResource

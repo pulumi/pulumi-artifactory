@@ -57,7 +57,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Local repositories can be imported using their name, e.g.
- *
  * ```sh
  * $ pulumi import artifactory:index/debianRepository:DebianRepository my-debian-repo my-debian-repo
  * ```
@@ -144,6 +143,9 @@ export class DebianRepository extends pulumi.CustomResource {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     declare public readonly priorityResolution: pulumi.Output<boolean>;
+    /**
+     * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     */
     declare public readonly projectEnvironments: pulumi.Output<string[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -163,6 +165,10 @@ export class DebianRepository extends pulumi.CustomResource {
     declare public readonly secondaryKeypairRef: pulumi.Output<string>;
     /**
      * When set, the repository will use the deprecated trivial layout.
+     *
+     * Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+     *
+     * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
      */
     declare public readonly trivialLayout: pulumi.Output<boolean>;
     /**
@@ -292,6 +298,9 @@ export interface DebianRepositoryState {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     priorityResolution?: pulumi.Input<boolean>;
+    /**
+     * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -311,6 +320,10 @@ export interface DebianRepositoryState {
     secondaryKeypairRef?: pulumi.Input<string>;
     /**
      * When set, the repository will use the deprecated trivial layout.
+     *
+     * Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+     *
+     * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
      */
     trivialLayout?: pulumi.Input<boolean>;
     /**
@@ -377,6 +390,9 @@ export interface DebianRepositoryArgs {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     priorityResolution?: pulumi.Input<boolean>;
+    /**
+     * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -396,6 +412,10 @@ export interface DebianRepositoryArgs {
     secondaryKeypairRef?: pulumi.Input<string>;
     /**
      * When set, the repository will use the deprecated trivial layout.
+     *
+     * Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+     *
+     * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
      */
     trivialLayout?: pulumi.Input<boolean>;
     /**

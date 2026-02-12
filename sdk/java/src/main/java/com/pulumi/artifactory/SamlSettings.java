@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Current SAML SSO settings can be imported using `saml_settings` as the `ID`, e.g.
+ * Current SAML SSO settings can be imported using `samlSettings` as the `ID`, e.g.
  * 
  * ```sh
  * $ pulumi import artifactory:index/samlSettings:SamlSettings saml saml_settings

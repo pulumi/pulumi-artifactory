@@ -12,6 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Artifactory managed user resource. This can be used to create and maintain Artifactory users. For example, service account where password is known and managed externally.
+//
+// Unlike `UnmanagedUser` and `User`, the `password` attribute is required and cannot be empty. Consider using a separate provider to generate and manage passwords.
+//
+// ~>The password is stored in the Terraform state file. Make sure you secure it, please refer to the official Terraform documentation.
+//
+// ->Due to Terraform limitation with interpolated value, we can only validate interpolated value prior to making API requests. This means `terraform validate` or `pulumi preview` will not return error if `password` does not meet `passwordPolicy` criteria.
+//
 // ## Example Usage
 //
 // ```go

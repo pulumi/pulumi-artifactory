@@ -155,14 +155,22 @@ public final class LocalAnsibleRepositoryState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Primary keypair used to sign artifacts. Default value is empty.
+     * The RSA key to be used to sign alpine indices.
+     * 
+     * Artifactory REST API call Get Key Pair doesn&#39;t return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+     * 
+     * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
      * 
      */
     @Import(name="primaryKeypairRef")
     private @Nullable Output<String> primaryKeypairRef;
 
     /**
-     * @return Primary keypair used to sign artifacts. Default value is empty.
+     * @return The RSA key to be used to sign alpine indices.
+     * 
+     * Artifactory REST API call Get Key Pair doesn&#39;t return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+     * 
+     * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
      * 
      */
     public Optional<Output<String>> primaryKeypairRef() {
@@ -184,9 +192,17 @@ public final class LocalAnsibleRepositoryState extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.priorityResolution);
     }
 
+    /**
+     * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     * 
+     */
     @Import(name="projectEnvironments")
     private @Nullable Output<List<String>> projectEnvironments;
 
+    /**
+     * @return Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+     * 
+     */
     public Optional<Output<List<String>>> projectEnvironments() {
         return Optional.ofNullable(this.projectEnvironments);
     }
@@ -482,7 +498,11 @@ public final class LocalAnsibleRepositoryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param primaryKeypairRef Primary keypair used to sign artifacts. Default value is empty.
+         * @param primaryKeypairRef The RSA key to be used to sign alpine indices.
+         * 
+         * Artifactory REST API call Get Key Pair doesn&#39;t return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+         * 
+         * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
          * 
          * @return builder
          * 
@@ -493,7 +513,11 @@ public final class LocalAnsibleRepositoryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param primaryKeypairRef Primary keypair used to sign artifacts. Default value is empty.
+         * @param primaryKeypairRef The RSA key to be used to sign alpine indices.
+         * 
+         * Artifactory REST API call Get Key Pair doesn&#39;t return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+         * 
+         * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
          * 
          * @return builder
          * 
@@ -523,15 +547,33 @@ public final class LocalAnsibleRepositoryState extends com.pulumi.resources.Reso
             return priorityResolution(Output.of(priorityResolution));
         }
 
+        /**
+         * @param projectEnvironments Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+         * 
+         * @return builder
+         * 
+         */
         public Builder projectEnvironments(@Nullable Output<List<String>> projectEnvironments) {
             $.projectEnvironments = projectEnvironments;
             return this;
         }
 
+        /**
+         * @param projectEnvironments Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+         * 
+         * @return builder
+         * 
+         */
         public Builder projectEnvironments(List<String> projectEnvironments) {
             return projectEnvironments(Output.of(projectEnvironments));
         }
 
+        /**
+         * @param projectEnvironments Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+         * 
+         * @return builder
+         * 
+         */
         public Builder projectEnvironments(String... projectEnvironments) {
             return projectEnvironments(List.of(projectEnvironments));
         }

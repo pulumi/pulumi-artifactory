@@ -213,6 +213,8 @@ def get_local_terraformbackend_repository(archive_browsing_enabled: Optional[_bu
                                           xray_index: Optional[_builtins.bool] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalTerraformbackendRepositoryResult:
     """
+    Retrieves a local terraformbackend repository.
+
     ## Example Usage
 
     ```python
@@ -279,6 +281,8 @@ def get_local_terraformbackend_repository_output(archive_browsing_enabled: Optio
                                                  xray_index: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalTerraformbackendRepositoryResult]:
     """
+    Retrieves a local terraformbackend repository.
+
     ## Example Usage
 
     ```python

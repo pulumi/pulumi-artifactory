@@ -32,6 +32,10 @@ public final class VaultConfigurationConfigAuth {
      * 
      */
     private @Nullable String secretId;
+    /**
+     * @return The authentication method used. The supported methods are `Certificate`, `AppRole`, and `Agent`. For more information, see [Hashicorp Vault Docs](https://developer.hashicorp.com/vault/docs/auth).
+     * 
+     */
     private String type;
 
     private VaultConfigurationConfigAuth() {}
@@ -63,6 +67,10 @@ public final class VaultConfigurationConfigAuth {
     public Optional<String> secretId() {
         return Optional.ofNullable(this.secretId);
     }
+    /**
+     * @return The authentication method used. The supported methods are `Certificate`, `AppRole`, and `Agent`. For more information, see [Hashicorp Vault Docs](https://developer.hashicorp.com/vault/docs/auth).
+     * 
+     */
     public String type() {
         return this.type;
     }

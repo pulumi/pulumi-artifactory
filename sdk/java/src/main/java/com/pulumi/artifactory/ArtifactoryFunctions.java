@@ -6699,6 +6699,8 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getFederatedSwiftRepository:getFederatedSwiftRepository", TypeShape.of(GetFederatedSwiftRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a federated terraform module repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -6737,6 +6739,8 @@ public final class ArtifactoryFunctions {
         return getFederatedTerraformModuleRepository(args, InvokeOptions.Empty);
     }
     /**
+     * Retrieves a federated terraform module repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -6775,6 +6779,8 @@ public final class ArtifactoryFunctions {
         return getFederatedTerraformModuleRepositoryPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Retrieves a federated terraform module repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -6813,6 +6819,8 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invoke("artifactory:index/getFederatedTerraformModuleRepository:getFederatedTerraformModuleRepository", TypeShape.of(GetFederatedTerraformModuleRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a federated terraform module repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -6851,6 +6859,8 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invoke("artifactory:index/getFederatedTerraformModuleRepository:getFederatedTerraformModuleRepository", TypeShape.of(GetFederatedTerraformModuleRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a federated terraform module repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -6889,6 +6899,8 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getFederatedTerraformModuleRepository:getFederatedTerraformModuleRepository", TypeShape.of(GetFederatedTerraformModuleRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a federated terraform provider repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -6927,6 +6939,8 @@ public final class ArtifactoryFunctions {
         return getFederatedTerraformProviderRepository(args, InvokeOptions.Empty);
     }
     /**
+     * Retrieves a federated terraform provider repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -6965,6 +6979,8 @@ public final class ArtifactoryFunctions {
         return getFederatedTerraformProviderRepositoryPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Retrieves a federated terraform provider repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -7003,6 +7019,8 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invoke("artifactory:index/getFederatedTerraformProviderRepository:getFederatedTerraformProviderRepository", TypeShape.of(GetFederatedTerraformProviderRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a federated terraform provider repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -7041,6 +7059,8 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invoke("artifactory:index/getFederatedTerraformProviderRepository:getFederatedTerraformProviderRepository", TypeShape.of(GetFederatedTerraformProviderRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a federated terraform provider repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -14939,6 +14959,9 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalSwiftRepository:getLocalSwiftRepository", TypeShape.of(GetLocalSwiftRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Creates a local Terraform Module repository. Official documentation can be
+     * found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -14977,6 +15000,9 @@ public final class ArtifactoryFunctions {
         return getLocalTerraformModuleRepository(args, InvokeOptions.Empty);
     }
     /**
+     * Creates a local Terraform Module repository. Official documentation can be
+     * found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -15015,6 +15041,9 @@ public final class ArtifactoryFunctions {
         return getLocalTerraformModuleRepositoryPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Creates a local Terraform Module repository. Official documentation can be
+     * found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -15053,6 +15082,9 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invoke("artifactory:index/getLocalTerraformModuleRepository:getLocalTerraformModuleRepository", TypeShape.of(GetLocalTerraformModuleRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Creates a local Terraform Module repository. Official documentation can be
+     * found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -15091,6 +15123,9 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invoke("artifactory:index/getLocalTerraformModuleRepository:getLocalTerraformModuleRepository", TypeShape.of(GetLocalTerraformModuleRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Creates a local Terraform Module repository. Official documentation can be
+     * found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -15129,6 +15164,9 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalTerraformModuleRepository:getLocalTerraformModuleRepository", TypeShape.of(GetLocalTerraformModuleRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a local Terraform Provider repository. Official documentation can be
+     * found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -15167,6 +15205,9 @@ public final class ArtifactoryFunctions {
         return getLocalTerraformProviderRepository(args, InvokeOptions.Empty);
     }
     /**
+     * Retrieves a local Terraform Provider repository. Official documentation can be
+     * found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -15205,6 +15246,9 @@ public final class ArtifactoryFunctions {
         return getLocalTerraformProviderRepositoryPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Retrieves a local Terraform Provider repository. Official documentation can be
+     * found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -15243,6 +15287,9 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invoke("artifactory:index/getLocalTerraformProviderRepository:getLocalTerraformProviderRepository", TypeShape.of(GetLocalTerraformProviderRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a local Terraform Provider repository. Official documentation can be
+     * found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -15281,6 +15328,9 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invoke("artifactory:index/getLocalTerraformProviderRepository:getLocalTerraformProviderRepository", TypeShape.of(GetLocalTerraformProviderRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a local Terraform Provider repository. Official documentation can be
+     * found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -15319,6 +15369,8 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalTerraformProviderRepository:getLocalTerraformProviderRepository", TypeShape.of(GetLocalTerraformProviderRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a local terraformbackend repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -15357,6 +15409,8 @@ public final class ArtifactoryFunctions {
         return getLocalTerraformbackendRepository(args, InvokeOptions.Empty);
     }
     /**
+     * Retrieves a local terraformbackend repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -15395,6 +15449,8 @@ public final class ArtifactoryFunctions {
         return getLocalTerraformbackendRepositoryPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Retrieves a local terraformbackend repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -15433,6 +15489,8 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invoke("artifactory:index/getLocalTerraformbackendRepository:getLocalTerraformbackendRepository", TypeShape.of(GetLocalTerraformbackendRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a local terraformbackend repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -15471,6 +15529,8 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invoke("artifactory:index/getLocalTerraformbackendRepository:getLocalTerraformbackendRepository", TypeShape.of(GetLocalTerraformbackendRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a local terraformbackend repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -22159,6 +22219,8 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getRemoteSwiftRepository:getRemoteSwiftRepository", TypeShape.of(GetRemoteSwiftRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a remote Terraform repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -22197,6 +22259,8 @@ public final class ArtifactoryFunctions {
         return getRemoteTerraformRepository(args, InvokeOptions.Empty);
     }
     /**
+     * Retrieves a remote Terraform repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -22235,6 +22299,8 @@ public final class ArtifactoryFunctions {
         return getRemoteTerraformRepositoryPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Retrieves a remote Terraform repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -22273,6 +22339,8 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invoke("artifactory:index/getRemoteTerraformRepository:getRemoteTerraformRepository", TypeShape.of(GetRemoteTerraformRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a remote Terraform repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -22311,6 +22379,8 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invoke("artifactory:index/getRemoteTerraformRepository:getRemoteTerraformRepository", TypeShape.of(GetRemoteTerraformRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a remote Terraform repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -29066,6 +29136,8 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getVirtualSwiftRepository:getVirtualSwiftRepository", TypeShape.of(GetVirtualSwiftRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a virtual Terraform repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -29104,6 +29176,8 @@ public final class ArtifactoryFunctions {
         return getVirtualTerraformRepository(args, InvokeOptions.Empty);
     }
     /**
+     * Retrieves a virtual Terraform repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -29142,6 +29216,8 @@ public final class ArtifactoryFunctions {
         return getVirtualTerraformRepositoryPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Retrieves a virtual Terraform repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -29180,6 +29256,8 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invoke("artifactory:index/getVirtualTerraformRepository:getVirtualTerraformRepository", TypeShape.of(GetVirtualTerraformRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a virtual Terraform repository.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -29218,6 +29296,8 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invoke("artifactory:index/getVirtualTerraformRepository:getVirtualTerraformRepository", TypeShape.of(GetVirtualTerraformRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a virtual Terraform repository.
+     * 
      * ## Example Usage
      * 
      * <pre>

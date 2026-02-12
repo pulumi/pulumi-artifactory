@@ -210,6 +210,9 @@ def get_local_terraform_module_repository(archive_browsing_enabled: Optional[_bu
                                           xray_index: Optional[_builtins.bool] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalTerraformModuleRepositoryResult:
     """
+    Creates a local Terraform Module repository. Official documentation can be
+    found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+
     ## Example Usage
 
     ```python
@@ -276,6 +279,9 @@ def get_local_terraform_module_repository_output(archive_browsing_enabled: Optio
                                                  xray_index: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalTerraformModuleRepositoryResult]:
     """
+    Creates a local Terraform Module repository. Official documentation can be
+    found [here](https://www.jfrog.com/confluence/display/JFROG/Terraform+Repositories).
+
     ## Example Usage
 
     ```python

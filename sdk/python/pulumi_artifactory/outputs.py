@@ -313,6 +313,7 @@ class ArchivePolicySearchCriteria(dict):
         :param Sequence[_builtins.str] included_packages: Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = ["**"]`
         :param Sequence[_builtins.str] included_projects: List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
                ~>This setting is relevant only on the global level, for Platform Admins.
+        :param Sequence[_builtins.str] package_types: The package types that are archived by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, maven, npm, nuget, oci, opkg, puppet, pypi, sbt, swift, terraform, terraformbackend, vagrant, yum.
         :param Sequence[_builtins.str] repos: Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = ["**"]`
         :param _builtins.int created_before_in_days: The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
                > **Requires Artifactory 7.111.2 or later.**
@@ -380,6 +381,9 @@ class ArchivePolicySearchCriteria(dict):
     @_builtins.property
     @pulumi.getter(name="packageTypes")
     def package_types(self) -> Sequence[_builtins.str]:
+        """
+        The package types that are archived by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, maven, npm, nuget, oci, opkg, puppet, pypi, sbt, swift, terraform, terraformbackend, vagrant, yum.
+        """
         return pulumi.get(self, "package_types")
 
     @_builtins.property
@@ -5839,6 +5843,7 @@ class PackageCleanupPolicySearchCriteria(dict):
         """
         :param Sequence[_builtins.str] included_packages: Specify a pattern for a package name or an explicit package name on which you want the cleanup policy to run. Only one pattern or explicit name can be entered. To include all packages, use `**`. Example: `included_packages = ["**"]`
         :param Sequence[_builtins.str] included_projects: Enter the project keys for the projects on which you want the policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
+        :param Sequence[_builtins.str] package_types: The package types that are cleaned up by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, machinelearning, maven, npm, nuget, oci, puppet, pypi, sbt, swift, terraform, terraformbackend, yum.
         :param Sequence[_builtins.str] repos: Specify one or more patterns for the repository name(s) on which you want the cleanup policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is mandatory. Only packages in repositories that match the pattern or explicit name will be deleted. For including all repos use `**`. Example: `repos = ["**"]`
         :param _builtins.int created_before_in_days: The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 5 then packages created more than 5 days ago will be deleted as part of the policy.
                
@@ -5907,6 +5912,9 @@ class PackageCleanupPolicySearchCriteria(dict):
     @_builtins.property
     @pulumi.getter(name="packageTypes")
     def package_types(self) -> Sequence[_builtins.str]:
+        """
+        The package types that are cleaned up by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, machinelearning, maven, npm, nuget, oci, puppet, pypi, sbt, swift, terraform, terraformbackend, yum.
+        """
         return pulumi.get(self, "package_types")
 
     @_builtins.property
@@ -11267,6 +11275,7 @@ class VaultConfigurationConfigAuth(dict):
                  role_id: Optional[_builtins.str] = None,
                  secret_id: Optional[_builtins.str] = None):
         """
+        :param _builtins.str type: The authentication method used. The supported methods are `Certificate`, `AppRole`, and `Agent`. For more information, see [Hashicorp Vault Docs](https://developer.hashicorp.com/vault/docs/auth).
         :param _builtins.str certificate: Client certificate (in PEM format) for `Certificate` type.
         :param _builtins.str certificate_key: Private key (in PEM format) for `Certificate` type.
         :param _builtins.str role_id: Role ID for `AppRole` type
@@ -11285,6 +11294,9 @@ class VaultConfigurationConfigAuth(dict):
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
+        """
+        The authentication method used. The supported methods are `Certificate`, `AppRole`, and `Agent`. For more information, see [Hashicorp Vault Docs](https://developer.hashicorp.com/vault/docs/auth).
+        """
         return pulumi.get(self, "type")
 
     @_builtins.property

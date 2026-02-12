@@ -53,7 +53,8 @@ import * as utilities from "./utilities";
  * ```sh
  * $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
  * ```
- * ~>The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
+ *
+ * ~>The `artifactory.GeneralSecurity` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
  */
 export class GeneralSecurity extends pulumi.CustomResource {
     /**

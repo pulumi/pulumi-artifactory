@@ -240,9 +240,17 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         return Optional.ofNullable(this.lastDownloadedBeforeInMonths);
     }
 
+    /**
+     * The package types that are cleaned up by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, machinelearning, maven, npm, nuget, oci, puppet, pypi, sbt, swift, terraform, terraformbackend, yum.
+     * 
+     */
     @Import(name="packageTypes", required=true)
     private Output<List<String>> packageTypes;
 
+    /**
+     * @return The package types that are cleaned up by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, machinelearning, maven, npm, nuget, oci, puppet, pypi, sbt, swift, terraform, terraformbackend, yum.
+     * 
+     */
     public Output<List<String>> packageTypes() {
         return this.packageTypes;
     }
@@ -631,15 +639,33 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
             return lastDownloadedBeforeInMonths(Output.of(lastDownloadedBeforeInMonths));
         }
 
+        /**
+         * @param packageTypes The package types that are cleaned up by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, machinelearning, maven, npm, nuget, oci, puppet, pypi, sbt, swift, terraform, terraformbackend, yum.
+         * 
+         * @return builder
+         * 
+         */
         public Builder packageTypes(Output<List<String>> packageTypes) {
             $.packageTypes = packageTypes;
             return this;
         }
 
+        /**
+         * @param packageTypes The package types that are cleaned up by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, machinelearning, maven, npm, nuget, oci, puppet, pypi, sbt, swift, terraform, terraformbackend, yum.
+         * 
+         * @return builder
+         * 
+         */
         public Builder packageTypes(List<String> packageTypes) {
             return packageTypes(Output.of(packageTypes));
         }
 
+        /**
+         * @param packageTypes The package types that are cleaned up by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, machinelearning, maven, npm, nuget, oci, puppet, pypi, sbt, swift, terraform, terraformbackend, yum.
+         * 
+         * @return builder
+         * 
+         */
         public Builder packageTypes(String... packageTypes) {
             return packageTypes(List.of(packageTypes));
         }

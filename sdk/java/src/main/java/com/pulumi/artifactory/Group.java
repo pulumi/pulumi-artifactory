@@ -17,13 +17,65 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides an Artifactory group resource. This can be used to create and manage Artifactory groups.
+ * 
+ * !&gt;This resource is deprecated and will be removed in the next major version. Use `platformGroup` resource in the JFrog Platform provider instead.
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.Group;
+ * import com.pulumi.artifactory.GroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test_group = new Group("test-group", GroupArgs.builder()
+ *             .name("terraform")
+ *             .description("test group")
+ *             .externalId("00628948-b509-4362-aa73-380c4dbd2a44")
+ *             .adminPrivileges(false)
+ *             .usersNames("foobar")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Managed vs Unmanaged Group Membership
+ * 
+ * Terraform does not distinguish between an absent `usersNames` attribute and setting to an empty array (i.e. length of 0).
+ * 
+ * To prevent accidental deletion of existing membership, the default was chosen to mean that Terraform does not manage membership and that to detach all users would require an explicit bool.
+ * 
+ * ~&gt;When moving from managed group membership to unmanaged the pulumi preview will show the users previously in the array
+ * being removed from terraform state, but it will not actually delete any members (unless `detachAllUsers` is set to `true`).
+ * 
+ * Also see our recommendation on how to manage user-group relationship.
+ * 
  * ## Import
  * 
  * ```sh
  * $ pulumi import artifactory:index/group:Group terraform-group mygroup
  * ```
  * 
- * ~&gt; `users_names` can&#39;t be imported due to API limitations.
+ * &gt; `usersNames` can&#39;t be imported due to API limitations.
  * 
  */
 @ResourceType(type="artifactory:index/group:Group")
@@ -168,9 +220,17 @@ public class Group extends com.pulumi.resources.CustomResource {
     public Output<Boolean> reportsManager() {
         return this.reportsManager;
     }
+    /**
+     * List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+     * 
+     */
     @Export(name="usersNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> usersNames;
 
+    /**
+     * @return List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+     * 
+     */
     public Output<List<String>> usersNames() {
         return this.usersNames;
     }

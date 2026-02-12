@@ -7,6 +7,8 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Retrieves a federated terraform provider repository.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -125,6 +127,8 @@ export interface GetFederatedTerraformProviderRepositoryResult {
     readonly xrayIndex?: boolean;
 }
 /**
+ * Retrieves a federated terraform provider repository.
+ *
  * ## Example Usage
  *
  * ```typescript

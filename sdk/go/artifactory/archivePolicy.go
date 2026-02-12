@@ -12,13 +12,265 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Artifactory Archive Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. See [Retention Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/archive) for more details.
+//
+// ## Example Usage
+//
+// ### Time-based Archive Policy (Days)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewArchivePolicy(ctx, "my-archive-policy", &artifactory.ArchivePolicyArgs{
+//				Key:               pulumi.String("my-archive-policy"),
+//				Description:       pulumi.String("My archive policy"),
+//				CronExpression:    pulumi.String("0 0 2 ? * MON-SAT *"),
+//				DurationInMinutes: pulumi.Int(60),
+//				Enabled:           pulumi.Bool(true),
+//				SkipTrashcan:      pulumi.Bool(false),
+//				SearchCriteria: &artifactory.ArchivePolicySearchCriteriaArgs{
+//					PackageTypes: pulumi.StringArray{
+//						pulumi.String("docker"),
+//					},
+//					Repos: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					IncludeAllProjects: pulumi.Bool(true),
+//					IncludedProjects:   pulumi.StringArray{},
+//					IncludedPackages: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					ExcludedPackages: pulumi.StringArray{
+//						pulumi.String("com/jfrog/latest"),
+//					},
+//					CreatedBeforeInDays:        pulumi.Int(30),
+//					LastDownloadedBeforeInDays: pulumi.Int(60),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Version-based Archive Policy
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewArchivePolicy(ctx, "my-version-policy", &artifactory.ArchivePolicyArgs{
+//				Key:               pulumi.String("my-version-policy"),
+//				Description:       pulumi.String("Keep only latest versions"),
+//				CronExpression:    pulumi.String("0 0 2 ? * MON-SAT *"),
+//				DurationInMinutes: pulumi.Int(60),
+//				Enabled:           pulumi.Bool(true),
+//				SkipTrashcan:      pulumi.Bool(false),
+//				SearchCriteria: &artifactory.ArchivePolicySearchCriteriaArgs{
+//					PackageTypes: pulumi.StringArray{
+//						pulumi.String("docker"),
+//					},
+//					Repos: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					IncludeAllProjects: pulumi.Bool(true),
+//					IncludedProjects:   pulumi.StringArray{},
+//					IncludedPackages: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					ExcludedPackages: pulumi.StringArray{
+//						pulumi.String("com/jfrog/latest"),
+//					},
+//					KeepLastNVersions: pulumi.Int(5),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Properties-based Archive Policy
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewArchivePolicy(ctx, "my-properties-policy", &artifactory.ArchivePolicyArgs{
+//				Key:               pulumi.String("my-properties-policy"),
+//				Description:       pulumi.String("Archive based on properties"),
+//				CronExpression:    pulumi.String("0 0 2 ? * MON-SAT *"),
+//				DurationInMinutes: pulumi.Int(60),
+//				Enabled:           pulumi.Bool(true),
+//				SkipTrashcan:      pulumi.Bool(false),
+//				SearchCriteria: &artifactory.ArchivePolicySearchCriteriaArgs{
+//					PackageTypes: pulumi.StringArray{
+//						pulumi.String("docker"),
+//					},
+//					Repos: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					IncludeAllProjects: pulumi.Bool(true),
+//					IncludedProjects:   pulumi.StringArray{},
+//					IncludedPackages: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					ExcludedPackages: pulumi.StringArray{
+//						pulumi.String("com/jfrog/latest"),
+//					},
+//					IncludedProperties: pulumi.StringArrayMap{
+//						"build.name": pulumi.StringArray{
+//							pulumi.String("my-app"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Using Variables for Condition Fields
+//
+// You can use Terraform variables for condition fields (`createdBeforeInDays`, `lastDownloadedBeforeInDays`, `createdBeforeInMonths`, `lastDownloadedBeforeInMonths`, `keepLastNVersions`, `includedProperties`) and `durationInMinutes`. The validator will skip validation when values are unknown (variables), allowing `terraform validate` to pass without requiring variable values.
+//
+// **Example with variables:**
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			archivePolicyLastDownloadedBeforeInDays := float64(30)
+//			if param := cfg.GetFloat64("archivePolicyLastDownloadedBeforeInDays"); param != 0 {
+//				archivePolicyLastDownloadedBeforeInDays = param
+//			}
+//			archivePolicyDurationInMinutes := float64(60)
+//			if param := cfg.GetFloat64("archivePolicyDurationInMinutes"); param != 0 {
+//				archivePolicyDurationInMinutes = param
+//			}
+//			_, err := artifactory.NewArchivePolicy(ctx, "my-archive-policy", &artifactory.ArchivePolicyArgs{
+//				Key:               pulumi.String("my-archive-policy"),
+//				Description:       pulumi.String("My archive policy with variables"),
+//				CronExpression:    pulumi.String("0 0 2 ? * MON-SAT *"),
+//				DurationInMinutes: pulumi.Float64(archivePolicyDurationInMinutes),
+//				Enabled:           pulumi.Bool(true),
+//				SkipTrashcan:      pulumi.Bool(false),
+//				SearchCriteria: &artifactory.ArchivePolicySearchCriteriaArgs{
+//					PackageTypes: pulumi.StringArray{
+//						pulumi.String("docker"),
+//						pulumi.String("generic"),
+//						pulumi.String("helm"),
+//						pulumi.String("helmoci"),
+//						pulumi.String("nuget"),
+//						pulumi.String("terraform"),
+//					},
+//					Repos: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					IncludeAllProjects: pulumi.Bool(false),
+//					IncludedProjects: pulumi.StringArray{
+//						pulumi.String("default"),
+//					},
+//					IncludedPackages: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					ExcludedPackages: pulumi.StringArray{
+//						pulumi.String("com/jfrog/latest"),
+//					},
+//					LastDownloadedBeforeInDays: pulumi.Float64(archivePolicyLastDownloadedBeforeInDays),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// **Important Notes:**
+// - Variables with default values allow `terraform validate` to pass without requiring variable values
+// - Variables without default values will require values to be provided during `pulumi preview` or `pulumi up`
+// - The validator automatically skips validation when condition field values are unknown (variables), preventing false validation errors during `terraform validate`
+//
+// ## Validation Rules
+//
+// The archive policy resource enforces the following validation rules:
+//
+// 1. **Condition Types**: A policy must use exactly one of the following condition types:
+//   - Time-based conditions (`days-based`)
+//   - Version-based condition (`keepLastNVersions`)
+//   - Properties-based condition (`includedProperties`)
+//
+// 2. **Mutual Exclusivity**: Cannot use multiple condition types together.
+//
+// 3. **Zero Values**: Time-based and version-based conditions must have values greater than 0.
+//
+// 4. **Days vs Months**: Cannot use both days-based conditions (`createdBeforeInDays`, `lastDownloadedBeforeInDays`) and months-based conditions (`createdBeforeInMonths`, `lastDownloadedBeforeInMonths`) together.
+//
+// 5. **Properties Validation**: Properties-based conditions must have exactly one key with exactly one string value.
+//
+// 6. **Project Configuration**: When `includeAllProjects` is set to `true`, the `includedProjects` field can be empty array. When `includeAllProjects` is `false`, `includedProjects` must contain at least one project key.
+//
+// ## Supported Package Types
+//
+// The following package types are supported: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, maven, npm, nuget, oci, opkg, puppet, pypi, sbt, swift, terraform, terraformbackend, vagrant, yum.
+//
+// ## Version Compatibility
+//
+// - The `createdBeforeInDays` and `lastDownloadedBeforeInDays` attributes are only supported in Artifactory 7.111.2 and later. For earlier versions, use `createdBeforeInMonths` and `lastDownloadedBeforeInMonths`.
+//
 // ## Import
 //
 // ```sh
 // $ pulumi import artifactory:index/archivePolicy:ArchivePolicy my-archive-policy my-policy
-// ```
 //
-// ```sh
 // $ pulumi import artifactory:index/archivePolicy:ArchivePolicy my-archive-policy my-policy:myproj
 // ```
 type ArchivePolicy struct {
