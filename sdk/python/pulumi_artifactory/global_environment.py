@@ -22,6 +22,7 @@ class GlobalEnvironmentArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GlobalEnvironment resource.
+
         :param pulumi.Input[_builtins.str] name: Name must start with a letter and contain letters, digits and `-` character. The maximum length is 32 characters
         """
         if name is not None:
@@ -46,6 +47,7 @@ class _GlobalEnvironmentState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GlobalEnvironment resources.
+
         :param pulumi.Input[_builtins.str] name: Name must start with a letter and contain letters, digits and `-` character. The maximum length is 32 characters
         """
         if name is not None:
@@ -90,6 +92,7 @@ class GlobalEnvironment(pulumi.CustomResource):
         $ pulumi import artifactory:index/globalEnvironment:GlobalEnvironment dev-env myenv
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name must start with a letter and contain letters, digits and `-` character. The maximum length is 32 characters
@@ -117,6 +120,7 @@ class GlobalEnvironment(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/globalEnvironment:GlobalEnvironment dev-env myenv
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GlobalEnvironmentArgs args: The arguments to use to populate this resource's properties.

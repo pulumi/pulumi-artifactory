@@ -36,6 +36,7 @@ class LocalGenericRepositoryArgs:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LocalGenericRepository resource.
+
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. 
                It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
@@ -287,6 +288,7 @@ class _LocalGenericRepositoryState:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering LocalGenericRepository resources.
+
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
                This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         :param pulumi.Input[_builtins.bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
@@ -560,6 +562,7 @@ class LocalGenericRepository(pulumi.CustomResource):
         $ pulumi import artifactory:index/localGenericRepository:LocalGenericRepository terraform-local-test-generic-repo terraform-local-test-generic-repo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
@@ -604,6 +607,7 @@ class LocalGenericRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/localGenericRepository:LocalGenericRepository terraform-local-test-generic-repo terraform-local-test-generic-repo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LocalGenericRepositoryArgs args: The arguments to use to populate this resource's properties.

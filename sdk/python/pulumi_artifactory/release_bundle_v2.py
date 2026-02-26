@@ -30,6 +30,7 @@ class ReleaseBundleV2Args:
                  skip_docker_manifest_resolution: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ReleaseBundleV2 resource.
+
         :param pulumi.Input[_builtins.str] keypair_name: Key-pair name to use for signature creation
         :param pulumi.Input['ReleaseBundleV2SourceArgs'] source: Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
         :param pulumi.Input[_builtins.str] source_type: Source type. Valid values: `aql`, `artifacts`, `builds`, `release_bundles`
@@ -149,6 +150,7 @@ class _ReleaseBundleV2State:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReleaseBundleV2 resources.
+
         :param pulumi.Input[_builtins.str] created: Timestamp when the new version was created (ISO 8601 standard).
         :param pulumi.Input[_builtins.str] created_by: The user who created the Release Bundle.
         :param pulumi.Input[_builtins.str] keypair_name: Key-pair name to use for signature creation
@@ -373,6 +375,7 @@ class ReleaseBundleV2(pulumi.CustomResource):
             })
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] keypair_name: Key-pair name to use for signature creation
@@ -445,6 +448,7 @@ class ReleaseBundleV2(pulumi.CustomResource):
                 }],
             })
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReleaseBundleV2Args args: The arguments to use to populate this resource's properties.

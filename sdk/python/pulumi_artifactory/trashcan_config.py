@@ -23,6 +23,7 @@ class TrashcanConfigArgs:
                  retention_period_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a TrashcanConfig resource.
+
         :param pulumi.Input[_builtins.bool] enabled: If set, trash can will be enabled and deleted items will be stored in the trash can for the specified retention period. Defaults to `true`.
         :param pulumi.Input[_builtins.int] retention_period_days: The number of days to keep deleted items in the trash can before deleting permanently. Defaults to `14`.
         """
@@ -63,6 +64,7 @@ class _TrashcanConfigState:
                  retention_period_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering TrashcanConfig resources.
+
         :param pulumi.Input[_builtins.bool] enabled: If set, trash can will be enabled and deleted items will be stored in the trash can for the specified retention period. Defaults to `true`.
         :param pulumi.Input[_builtins.int] retention_period_days: The number of days to keep deleted items in the trash can before deleting permanently. Defaults to `14`.
         """
@@ -132,6 +134,7 @@ class TrashcanConfig(pulumi.CustomResource):
         $ pulumi import artifactory:index/trashcanConfig:TrashcanConfig my-trash-can-config my-trash-can-config
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: If set, trash can will be enabled and deleted items will be stored in the trash can for the specified retention period. Defaults to `true`.
@@ -169,6 +172,7 @@ class TrashcanConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/trashcanConfig:TrashcanConfig my-trash-can-config my-trash-can-config
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrashcanConfigArgs args: The arguments to use to populate this resource's properties.

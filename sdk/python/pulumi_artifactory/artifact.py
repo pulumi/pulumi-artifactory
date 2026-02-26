@@ -25,6 +25,7 @@ class ArtifactArgs:
                  file_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Artifact resource.
+
         :param pulumi.Input[_builtins.str] path: The relative path in the target repository. Must begin with a '/'. You can add key-value matrix parameters to deploy the artifacts with properties. For more details, please refer to [Introducing Matrix Parameters](https://jfrog.com/help/r/jfrog-artifactory-documentation/using-properties-in-deployment-and-resolution).
         :param pulumi.Input[_builtins.str] repository: Name of the respository.
         :param pulumi.Input[_builtins.str] content_base64: Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
@@ -104,6 +105,7 @@ class _ArtifactState:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Artifact resources.
+
         :param pulumi.Input[_builtins.str] checksum_md5: MD5 checksum of the artifact.
         :param pulumi.Input[_builtins.str] checksum_sha1: SHA1 checksum of the artifact.
         :param pulumi.Input[_builtins.str] checksum_sha256: SHA256 checksum of the artifact.
@@ -332,6 +334,7 @@ class Artifact(pulumi.CustomResource):
             content_base64="UEsDBAoAAAAAALl8alQAAAAAAAAAAAAAAAAJAAAATUVUQS1JTkYvUEsDBAoAAAAIALh8alTmUEsubQAAAIMAAAAUAAAATUVUQS1JTkYvTUFOSUZFU1QuTUbzTczLTEstLtENSy0qzszPs1Iw1DPg5XIsSs7ILEstQggH5KRWlBYrwCR4uZyLUhNLUlN0nSqtFBwLEpMzUhV8E8tS8xSM9cz0jHm5nEozc0rAsilAO1JzcjMhYim6XinZQGuA9uiZ83LxcgEAUEsDBAoAAAAAALh8alQAAAAAAAAAAAAAAAAMAAAAYXJ0aWZhY3RvcnkvUEsDBAoAAAAAALh8alQAAAAAAAAAAAAAAAARAAAAYXJ0aWZhY3RvcnkvdGVzdC9QSwMECgAAAAgAuHxqVMgzPcxdAQAALAIAAB0AAABhcnRpZmFjdG9yeS90ZXN0L011bHRpMS5jbGFzc3VRy07CQBQ9w6OlpQqCgPgEV+jCxsTEBcaNiXFRHwkGF66GOuKQPkyZmvBZutDEhR/gRxlvCwkxwVnck3vunXPPnfn++fwCcIRdExpWDdRQL6BhYg1NHes6Nhi0ExlIdcqQ7ez1GXJn4YNgKDkyEFexPxDRLR94xFSc0OVen0cyyWdkTj3JMUPT4ZGSj9xVYTSxlRgr+zL2lDzsUovPZcBQ79w7I/7CbY8HQ7unIhkMu+lAHg1JorqgzGD2wjhyxblMhhWnmgdJnwUdBR2bFrawzWBdCM8LW3dh5D20dexYaKHN0PjHFkN5Pux6MBKu+kP1JmMlfHqSMKZCbepMhvYN2VJkTnCfzFUX0Az6c5J5tHKts2hjtJGnz0hOBixZg6JBmU3ICPP7H2CvadmkqKWkhiJFa9pAuERoYBml2eXjVIy4N2Qq2Xfk5gImIWhKgRrnIgbKWCGkj007q79QSwECFAMKAAAAAAC5fGpUAAAAAAAAAAAAAAAACQAAAAAAAAAAABAA7UEAAAAATUVUQS1JTkYvUEsBAhQDCgAAAAgAuHxqVOZQSy5tAAAAgwAAABQAAAAAAAAAAAAAAKSBJwAAAE1FVEEtSU5GL01BTklGRVNULk1GUEsBAhQDCgAAAAAAuHxqVAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAQAO1BxgAAAGFydGlmYWN0b3J5L1BLAQIUAwoAAAAAALh8alQAAAAAAAAAAAAAAAARAAAAAAAAAAAAEADtQfAAAABhcnRpZmFjdG9yeS90ZXN0L1BLAQIUAwoAAAAIALh8alTIMz3MXQEAACwCAAAdAAAAAAAAAAAAAACkgR8BAABhcnRpZmFjdG9yeS90ZXN0L011bHRpMS5jbGFzc1BLBQYAAAAABQAFAD0BAAC3AgAAAAA=")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content_base64: Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
@@ -363,6 +366,7 @@ class Artifact(pulumi.CustomResource):
             path="/my-path/my-file.zip",
             content_base64="UEsDBAoAAAAAALl8alQAAAAAAAAAAAAAAAAJAAAATUVUQS1JTkYvUEsDBAoAAAAIALh8alTmUEsubQAAAIMAAAAUAAAATUVUQS1JTkYvTUFOSUZFU1QuTUbzTczLTEstLtENSy0qzszPs1Iw1DPg5XIsSs7ILEstQggH5KRWlBYrwCR4uZyLUhNLUlN0nSqtFBwLEpMzUhV8E8tS8xSM9cz0jHm5nEozc0rAsilAO1JzcjMhYim6XinZQGuA9uiZ83LxcgEAUEsDBAoAAAAAALh8alQAAAAAAAAAAAAAAAAMAAAAYXJ0aWZhY3RvcnkvUEsDBAoAAAAAALh8alQAAAAAAAAAAAAAAAARAAAAYXJ0aWZhY3RvcnkvdGVzdC9QSwMECgAAAAgAuHxqVMgzPcxdAQAALAIAAB0AAABhcnRpZmFjdG9yeS90ZXN0L011bHRpMS5jbGFzc3VRy07CQBQ9w6OlpQqCgPgEV+jCxsTEBcaNiXFRHwkGF66GOuKQPkyZmvBZutDEhR/gRxlvCwkxwVnck3vunXPPnfn++fwCcIRdExpWDdRQL6BhYg1NHes6Nhi0ExlIdcqQ7ez1GXJn4YNgKDkyEFexPxDRLR94xFSc0OVen0cyyWdkTj3JMUPT4ZGSj9xVYTSxlRgr+zL2lDzsUovPZcBQ79w7I/7CbY8HQ7unIhkMu+lAHg1JorqgzGD2wjhyxblMhhWnmgdJnwUdBR2bFrawzWBdCM8LW3dh5D20dexYaKHN0PjHFkN5Pux6MBKu+kP1JmMlfHqSMKZCbepMhvYN2VJkTnCfzFUX0Az6c5J5tHKts2hjtJGnz0hOBixZg6JBmU3ICPP7H2CvadmkqKWkhiJFa9pAuERoYBml2eXjVIy4N2Qq2Xfk5gImIWhKgRrnIgbKWCGkj007q79QSwECFAMKAAAAAAC5fGpUAAAAAAAAAAAAAAAACQAAAAAAAAAAABAA7UEAAAAATUVUQS1JTkYvUEsBAhQDCgAAAAgAuHxqVOZQSy5tAAAAgwAAABQAAAAAAAAAAAAAAKSBJwAAAE1FVEEtSU5GL01BTklGRVNULk1GUEsBAhQDCgAAAAAAuHxqVAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAQAO1BxgAAAGFydGlmYWN0b3J5L1BLAQIUAwoAAAAAALh8alQAAAAAAAAAAAAAAAARAAAAAAAAAAAAEADtQfAAAABhcnRpZmFjdG9yeS90ZXN0L1BLAQIUAwoAAAAIALh8alTIMz3MXQEAACwCAAAdAAAAAAAAAAAAAACkgR8BAABhcnRpZmFjdG9yeS90ZXN0L011bHRpMS5jbGFzc1BLBQYAAAAABQAFAD0BAAC3AgAAAAA=")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ArtifactArgs args: The arguments to use to populate this resource's properties.

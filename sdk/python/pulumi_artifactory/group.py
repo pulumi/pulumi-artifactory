@@ -33,6 +33,7 @@ class GroupArgs:
                  watch_manager: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Group resource.
+
         :param pulumi.Input[_builtins.bool] admin_privileges: Any users added to this group will automatically be assigned with admin privileges in the system.
         :param pulumi.Input[_builtins.bool] auto_join: When this parameter is set, any new users defined in the system are automatically assigned to this group.
         :param pulumi.Input[_builtins.str] description: A description for the group.
@@ -233,6 +234,7 @@ class _GroupState:
                  watch_manager: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Group resources.
+
         :param pulumi.Input[_builtins.bool] admin_privileges: Any users added to this group will automatically be assigned with admin privileges in the system.
         :param pulumi.Input[_builtins.bool] auto_join: When this parameter is set, any new users defined in the system are automatically assigned to this group.
         :param pulumi.Input[_builtins.str] description: A description for the group.
@@ -473,6 +475,7 @@ class Group(pulumi.CustomResource):
 
         > `users_names` can't be imported due to API limitations.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] admin_privileges: Any users added to this group will automatically be assigned with admin privileges in the system.
@@ -531,6 +534,7 @@ class Group(pulumi.CustomResource):
         ```
 
         > `users_names` can't be imported due to API limitations.
+
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

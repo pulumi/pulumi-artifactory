@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var artifactoryUrl = config.get("artifactoryUrl");
+ *         final var artifactoryUrl = config.require("artifactoryUrl");
  *         var providerTestSource = new LocalMavenRepository("providerTestSource", LocalMavenRepositoryArgs.builder()
  *             .key("provider_test_source")
  *             .build());

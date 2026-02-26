@@ -37,6 +37,7 @@ class LocalRepositorySingleReplicationArgs:
                  sync_statistics: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LocalRepositorySingleReplication resource.
+
         :param pulumi.Input[_builtins.str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         :param pulumi.Input[_builtins.str] repo_key: Repository name.
         :param pulumi.Input[_builtins.str] url: The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
@@ -298,6 +299,7 @@ class _LocalRepositorySingleReplicationState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocalRepositorySingleReplication resources.
+
         :param pulumi.Input[_builtins.bool] check_binary_existence_in_filestore: Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
         :param pulumi.Input[_builtins.str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
@@ -628,6 +630,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
         $ pulumi import artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication foo-rep provider_test_source
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] check_binary_existence_in_filestore: Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
@@ -701,6 +704,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication foo-rep provider_test_source
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LocalRepositorySingleReplicationArgs args: The arguments to use to populate this resource's properties.

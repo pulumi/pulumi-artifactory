@@ -33,6 +33,7 @@ class VirtualHelmociRepositoryArgs:
                  resolve_oci_tags_by_timestamp: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a VirtualHelmociRepository resource.
+
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
@@ -233,6 +234,7 @@ class _VirtualHelmociRepositoryState:
                  resolve_oci_tags_by_timestamp: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering VirtualHelmociRepository resources.
+
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
@@ -475,6 +477,7 @@ class VirtualHelmociRepository(pulumi.CustomResource):
         $ pulumi import artifactory:index/virtualHelmociRepository:VirtualHelmociRepository my-helmoci-virtual my-helmoci-virtual
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
@@ -524,6 +527,7 @@ class VirtualHelmociRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/virtualHelmociRepository:VirtualHelmociRepository my-helmoci-virtual my-helmoci-virtual
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualHelmociRepositoryArgs args: The arguments to use to populate this resource's properties.

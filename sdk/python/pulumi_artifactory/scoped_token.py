@@ -31,6 +31,7 @@ class ScopedTokenArgs:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScopedToken resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audiences: A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
         :param pulumi.Input[_builtins.str] description: Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
         :param pulumi.Input[_builtins.int] expires_in: The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
@@ -251,6 +252,7 @@ class _ScopedTokenState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ScopedToken resources.
+
         :param pulumi.Input[_builtins.str] access_token: Returns the access token to authenticate to Artifactory.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audiences: A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
         :param pulumi.Input[_builtins.str] description: Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
@@ -640,6 +642,7 @@ class ScopedToken(pulumi.CustomResource):
 
         Artifactory **does not** retain scoped tokens, and they cannot be imported into state.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audiences: A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
@@ -735,6 +738,7 @@ class ScopedToken(pulumi.CustomResource):
         ## Import
 
         Artifactory **does not** retain scoped tokens, and they cannot be imported into state.
+
 
         :param str resource_name: The name of the resource.
         :param ScopedTokenArgs args: The arguments to use to populate this resource's properties.

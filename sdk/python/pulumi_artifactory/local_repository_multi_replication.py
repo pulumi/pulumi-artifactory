@@ -27,6 +27,7 @@ class LocalRepositoryMultiReplicationArgs:
                  replications: Optional[pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]] = None):
         """
         The set of arguments for constructing a LocalRepositoryMultiReplication resource.
+
         :param pulumi.Input[_builtins.str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         :param pulumi.Input[_builtins.str] repo_key: Repository name.
         :param pulumi.Input[_builtins.bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
@@ -97,6 +98,7 @@ class _LocalRepositoryMultiReplicationState:
                  repo_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocalRepositoryMultiReplication resources.
+
         :param pulumi.Input[_builtins.str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         :param pulumi.Input[_builtins.bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]] replications: List of replications minimum 1 element.
@@ -227,6 +229,7 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
         $ pulumi import artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication foo-rep provider_test_source
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
@@ -295,6 +298,7 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication foo-rep provider_test_source
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LocalRepositoryMultiReplicationArgs args: The arguments to use to populate this resource's properties.

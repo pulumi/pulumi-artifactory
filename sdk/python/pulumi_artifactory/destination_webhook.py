@@ -29,6 +29,7 @@ class DestinationWebhookArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a DestinationWebhook resource.
+
         :param pulumi.Input['DestinationWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
         :param pulumi.Input[Sequence[pulumi.Input['DestinationWebhookHandlerArgs']]] handlers: At least one is required.
@@ -129,6 +130,7 @@ class _DestinationWebhookState:
                  key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DestinationWebhook resources.
+
         :param pulumi.Input['DestinationWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[_builtins.bool] enabled: Status of webhook. Default to `true`
@@ -270,6 +272,7 @@ class DestinationWebhook(pulumi.CustomResource):
             }])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DestinationWebhookCriteriaArgs', 'DestinationWebhookCriteriaArgsDict']] criteria: Specifies where the webhook will be applied on which repositories.
@@ -319,6 +322,7 @@ class DestinationWebhook(pulumi.CustomResource):
                 },
             }])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DestinationWebhookArgs args: The arguments to use to populate this resource's properties.

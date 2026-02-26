@@ -29,6 +29,7 @@ class ReleaseBundleV2CustomWebhookArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ReleaseBundleV2CustomWebhook resource.
+
         :param pulumi.Input['ReleaseBundleV2CustomWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `release_bundle_v2_started`, `release_bundle_v2_failed`, `release_bundle_v2_completed`.
         :param pulumi.Input[Sequence[pulumi.Input['ReleaseBundleV2CustomWebhookHandlerArgs']]] handlers: At least one is required.
@@ -129,6 +130,7 @@ class _ReleaseBundleV2CustomWebhookState:
                  key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReleaseBundleV2CustomWebhook resources.
+
         :param pulumi.Input['ReleaseBundleV2CustomWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[_builtins.bool] enabled: Status of webhook. Default to `true`.
@@ -270,6 +272,7 @@ class ReleaseBundleV2CustomWebhook(pulumi.CustomResource):
             }])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ReleaseBundleV2CustomWebhookCriteriaArgs', 'ReleaseBundleV2CustomWebhookCriteriaArgsDict']] criteria: Specifies where the webhook will be applied on which repositories.
@@ -319,6 +322,7 @@ class ReleaseBundleV2CustomWebhook(pulumi.CustomResource):
                 "payload": "{ \\"ref\\": \\"main\\" , \\"inputs\\": { \\"artifact_path\\": \\"test-repo/repo-path\\" } }",
             }])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReleaseBundleV2CustomWebhookArgs args: The arguments to use to populate this resource's properties.

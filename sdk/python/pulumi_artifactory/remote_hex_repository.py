@@ -68,6 +68,7 @@ class RemoteHexRepositoryArgs:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RemoteHexRepository resource.
+
         :param pulumi.Input[_builtins.str] hex_primary_keypair_ref: Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[_builtins.str] public_key: Contains the public key used when downloading packages from the Hex remote registry (public, private, or self-hosted Hex server).
@@ -786,6 +787,7 @@ class _RemoteHexRepositoryState:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering RemoteHexRepository resources.
+
         :param pulumi.Input[_builtins.bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
                This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
@@ -1545,6 +1547,7 @@ class RemoteHexRepository(pulumi.CustomResource):
         $ pulumi import artifactory:index/remoteHexRepository:RemoteHexRepository my-remote-hex my-remote-hex
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
@@ -1632,6 +1635,7 @@ class RemoteHexRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/remoteHexRepository:RemoteHexRepository my-remote-hex my-remote-hex
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RemoteHexRepositoryArgs args: The arguments to use to populate this resource's properties.

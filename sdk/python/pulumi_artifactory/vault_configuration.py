@@ -25,6 +25,7 @@ class VaultConfigurationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VaultConfiguration resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the Vault configuration
         """
         pulumi.set(__self__, "config", config)
@@ -60,6 +61,7 @@ class _VaultConfigurationState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VaultConfiguration resources.
+
         :param pulumi.Input[_builtins.str] name: Name of the Vault configuration
         """
         if config is not None:
@@ -145,6 +147,7 @@ class VaultConfiguration(pulumi.CustomResource):
         $ pulumi import artifactory:index/vaultConfiguration:VaultConfiguration my-vault-config my-vault-config
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the Vault configuration
@@ -201,6 +204,7 @@ class VaultConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/vaultConfiguration:VaultConfiguration my-vault-config my-vault-config
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VaultConfigurationArgs args: The arguments to use to populate this resource's properties.

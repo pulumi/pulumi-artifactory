@@ -31,6 +31,7 @@ class LdapGroupSettingV2Args:
                  sub_tree: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LdapGroupSettingV2 resource.
+
         :param pulumi.Input[_builtins.str] description_attribute: An attribute on the group entry which denoting the group description. Used when importing groups.
         :param pulumi.Input[_builtins.str] filter: The LDAP filter used to search for group entries. Used for importing groups.
         :param pulumi.Input[_builtins.str] group_member_attribute: A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g., uniqueMember, member).
@@ -194,6 +195,7 @@ class _LdapGroupSettingV2State:
                  sub_tree: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering LdapGroupSettingV2 resources.
+
         :param pulumi.Input[_builtins.str] description_attribute: An attribute on the group entry which denoting the group description. Used when importing groups.
         :param pulumi.Input[_builtins.str] enabled_ldap: The LDAP setting key you want to use for group retrieval.
         :param pulumi.Input[_builtins.str] filter: The LDAP filter used to search for group entries. Used for importing groups.
@@ -399,6 +401,7 @@ class LdapGroupSettingV2(pulumi.CustomResource):
         $ pulumi import artifactory:index/ldapGroupSettingV2:LdapGroupSettingV2 ldap ldapGroup1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description_attribute: An attribute on the group entry which denoting the group description. Used when importing groups.
@@ -452,6 +455,7 @@ class LdapGroupSettingV2(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/ldapGroupSettingV2:LdapGroupSettingV2 ldap ldapGroup1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LdapGroupSettingV2Args args: The arguments to use to populate this resource's properties.

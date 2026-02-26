@@ -31,6 +31,7 @@ class PackageCleanupPolicyArgs:
                  skip_trashcan: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a PackageCleanupPolicy resource.
+
         :param pulumi.Input[_builtins.str] key: An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
         :param pulumi.Input[_builtins.str] cron_expression: The cron expression that determines when the policy is run, However if left empty the policy will not run automatically and can only be triggered manually.
         :param pulumi.Input[_builtins.int] duration_in_minutes: The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
@@ -157,6 +158,7 @@ class _PackageCleanupPolicyState:
                  skip_trashcan: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering PackageCleanupPolicy resources.
+
         :param pulumi.Input[_builtins.str] cron_expression: The cron expression that determines when the policy is run, However if left empty the policy will not run automatically and can only be triggered manually.
         :param pulumi.Input[_builtins.int] duration_in_minutes: The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
         :param pulumi.Input[_builtins.bool] enabled: A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
@@ -491,6 +493,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
         $ pulumi import artifactory:index/packageCleanupPolicy:PackageCleanupPolicy my-cleanup-policy my-policy:myproj
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cron_expression: The cron expression that determines when the policy is run, However if left empty the policy will not run automatically and can only be triggered manually.
@@ -709,6 +712,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
 
         $ pulumi import artifactory:index/packageCleanupPolicy:PackageCleanupPolicy my-cleanup-policy my-policy:myproj
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PackageCleanupPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class MailServerArgs:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MailServer resource.
+
         :param pulumi.Input[_builtins.bool] enabled: When set, mail notifications are enabled.
         :param pulumi.Input[_builtins.str] host: The mail server IP address / DNS.
         :param pulumi.Input[_builtins.int] port: The port number of the mail server.
@@ -196,6 +197,7 @@ class _MailServerState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MailServer resources.
+
         :param pulumi.Input[_builtins.str] artifactory_url: The Artifactory URL to to link to in all outgoing messages.
         :param pulumi.Input[_builtins.bool] enabled: When set, mail notifications are enabled.
         :param pulumi.Input[_builtins.str] from_: The 'from' address header to use in all outgoing messages.
@@ -398,6 +400,7 @@ class MailServer(pulumi.CustomResource):
 
         ~>The `password` attribute is not retrievable from Artifactory thus there will be state drift after importing this resource.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] artifactory_url: The Artifactory URL to to link to in all outgoing messages.
@@ -448,6 +451,7 @@ class MailServer(pulumi.CustomResource):
         ```
 
         ~>The `password` attribute is not retrievable from Artifactory thus there will be state drift after importing this resource.
+
 
         :param str resource_name: The name of the resource.
         :param MailServerArgs args: The arguments to use to populate this resource's properties.

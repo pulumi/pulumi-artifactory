@@ -48,6 +48,7 @@ class FederatedGradleRepositoryArgs:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a FederatedGradleRepository resource.
+
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[Sequence[pulumi.Input['FederatedGradleRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
@@ -479,6 +480,7 @@ class _FederatedGradleRepositoryState:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering FederatedGradleRepository resources.
+
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
                This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         :param pulumi.Input[_builtins.bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
@@ -954,6 +956,7 @@ class FederatedGradleRepository(pulumi.CustomResource):
         $ pulumi import artifactory:index/federatedGradleRepository:FederatedGradleRepository terraform-federated-test-gradle-repo terraform-federated-test-gradle-repo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
@@ -1029,6 +1032,7 @@ class FederatedGradleRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/federatedGradleRepository:FederatedGradleRepository terraform-federated-test-gradle-repo terraform-federated-test-gradle-repo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FederatedGradleRepositoryArgs args: The arguments to use to populate this resource's properties.

@@ -22,6 +22,7 @@ class AnonymousUserArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AnonymousUser resource.
+
         :param pulumi.Input[_builtins.str] name: Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be set or updated in the HCL.
         """
         if name is not None:
@@ -46,6 +47,7 @@ class _AnonymousUserState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AnonymousUser resources.
+
         :param pulumi.Input[_builtins.str] name: Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be set or updated in the HCL.
         """
         if name is not None:
@@ -95,6 +97,7 @@ class AnonymousUser(pulumi.CustomResource):
         $ pulumi import artifactory:index/anonymousUser:AnonymousUser anonymous-user anonymous
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be set or updated in the HCL.
@@ -127,6 +130,7 @@ class AnonymousUser(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/anonymousUser:AnonymousUser anonymous-user anonymous
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AnonymousUserArgs args: The arguments to use to populate this resource's properties.

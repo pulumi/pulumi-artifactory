@@ -24,6 +24,7 @@ class UserLockPolicyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserLockPolicy resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Enable User Lock Policy. Lock user after exceeding max failed login attempts.
         :param pulumi.Input[_builtins.int] login_attempts: Max failed login attempts.
         :param pulumi.Input[_builtins.str] name: Name of the resource. Only used for importing.
@@ -78,6 +79,7 @@ class _UserLockPolicyState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserLockPolicy resources.
+
         :param pulumi.Input[_builtins.bool] enabled: Enable User Lock Policy. Lock user after exceeding max failed login attempts.
         :param pulumi.Input[_builtins.int] login_attempts: Max failed login attempts.
         :param pulumi.Input[_builtins.str] name: Name of the resource. Only used for importing.
@@ -157,6 +159,7 @@ class UserLockPolicy(pulumi.CustomResource):
         $ pulumi import artifactory:index/userLockPolicy:UserLockPolicy my-user-lock-policy my-user-lock-policy
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Enable User Lock Policy. Lock user after exceeding max failed login attempts.
@@ -189,6 +192,7 @@ class UserLockPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/userLockPolicy:UserLockPolicy my-user-lock-policy my-user-lock-policy
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserLockPolicyArgs args: The arguments to use to populate this resource's properties.

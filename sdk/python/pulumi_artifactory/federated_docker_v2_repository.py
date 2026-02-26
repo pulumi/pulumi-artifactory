@@ -45,6 +45,7 @@ class FederatedDockerV2RepositoryArgs:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a FederatedDockerV2Repository resource.
+
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[Sequence[pulumi.Input['FederatedDockerV2RepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
@@ -417,6 +418,7 @@ class _FederatedDockerV2RepositoryState:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering FederatedDockerV2Repository resources.
+
         :param pulumi.Input[_builtins.str] api_version: The Docker API version to use. This cannot be set
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
                This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
@@ -847,6 +849,7 @@ class FederatedDockerV2Repository(pulumi.CustomResource):
         $ pulumi import artifactory:index/federatedDockerV2Repository:FederatedDockerV2Repository terraform-federated-test-docker-repo terraform-federated-test-docker-repo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
@@ -913,6 +916,7 @@ class FederatedDockerV2Repository(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/federatedDockerV2Repository:FederatedDockerV2Repository terraform-federated-test-docker-repo terraform-federated-test-docker-repo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FederatedDockerV2RepositoryArgs args: The arguments to use to populate this resource's properties.

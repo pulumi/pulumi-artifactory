@@ -23,6 +23,7 @@ class DistributionPublicKeyArgs:
                  public_key: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a DistributionPublicKey resource.
+
         :param pulumi.Input[_builtins.str] alias: Will be used as an identifier when uploading/retrieving the public key via REST API.
         :param pulumi.Input[_builtins.str] public_key: The Public key to add as a trusted distribution GPG key.
                
@@ -70,6 +71,7 @@ class _DistributionPublicKeyState:
                  valid_until: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DistributionPublicKey resources.
+
         :param pulumi.Input[_builtins.str] alias: Will be used as an identifier when uploading/retrieving the public key via REST API.
         :param pulumi.Input[_builtins.str] fingerprint: Returns the computed key fingerprint
         :param pulumi.Input[_builtins.str] issued_by: Returns the name and eMail address of issuer
@@ -216,6 +218,7 @@ class DistributionPublicKey(pulumi.CustomResource):
         $ pulumi import artifactory:index/distributionPublicKey:DistributionPublicKey my-key keyid
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: Will be used as an identifier when uploading/retrieving the public key via REST API.
@@ -253,6 +256,7 @@ class DistributionPublicKey(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/distributionPublicKey:DistributionPublicKey my-key keyid
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DistributionPublicKeyArgs args: The arguments to use to populate this resource's properties.

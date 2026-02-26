@@ -29,6 +29,7 @@ class DistributionWebhookArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a DistributionWebhook resource.
+
         :param pulumi.Input['DistributionWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distribute_started`, `distribute_completed`, `distribute_aborted`, `distribute_failed, `delete_started`, `delete_completed`, `delete_failed`
         :param pulumi.Input[Sequence[pulumi.Input['DistributionWebhookHandlerArgs']]] handlers: At least one is required.
@@ -129,6 +130,7 @@ class _DistributionWebhookState:
                  key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DistributionWebhook resources.
+
         :param pulumi.Input['DistributionWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[_builtins.bool] enabled: Status of webhook. Default to `true`.
@@ -273,6 +275,7 @@ class DistributionWebhook(pulumi.CustomResource):
             }])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DistributionWebhookCriteriaArgs', 'DistributionWebhookCriteriaArgsDict']] criteria: Specifies where the webhook will be applied on which repositories.
@@ -325,6 +328,7 @@ class DistributionWebhook(pulumi.CustomResource):
                 },
             }])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DistributionWebhookArgs args: The arguments to use to populate this resource's properties.

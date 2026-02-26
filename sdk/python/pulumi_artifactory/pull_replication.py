@@ -35,6 +35,7 @@ class PullReplicationArgs:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PullReplication resource.
+
         :param pulumi.Input[_builtins.str] repo_key: Repository name.
         :param pulumi.Input[_builtins.bool] check_binary_existence_in_filestore: When true, enables distributed checksum storage. For more information, see
                [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
@@ -268,6 +269,7 @@ class _PullReplicationState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PullReplication resources.
+
         :param pulumi.Input[_builtins.bool] check_binary_existence_in_filestore: When true, enables distributed checksum storage. For more information, see
                [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
         :param pulumi.Input[_builtins.str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
@@ -538,6 +540,7 @@ class PullReplication(pulumi.CustomResource):
         $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] check_binary_existence_in_filestore: When true, enables distributed checksum storage. For more information, see
@@ -596,6 +599,7 @@ class PullReplication(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PullReplicationArgs args: The arguments to use to populate this resource's properties.

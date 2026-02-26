@@ -45,6 +45,7 @@ class FederatedCargoRepositoryArgs:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a FederatedCargoRepository resource.
+
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[Sequence[pulumi.Input['FederatedCargoRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
@@ -408,6 +409,7 @@ class _FederatedCargoRepositoryState:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering FederatedCargoRepository resources.
+
         :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
                This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
@@ -815,6 +817,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
         $ pulumi import artifactory:index/federatedCargoRepository:FederatedCargoRepository terraform-federated-test-cargo-repo terraform-federated-test-cargo-repo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
@@ -878,6 +881,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/federatedCargoRepository:FederatedCargoRepository terraform-federated-test-cargo-repo terraform-federated-test-cargo-repo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FederatedCargoRepositoryArgs args: The arguments to use to populate this resource's properties.
