@@ -100,21 +100,21 @@ jobs:
     - name: Run provider tests
       if: matrix.testTarget == 'local'
       working-directory: provider
-      run: go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 .
+      run: gotestsum -- -v -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 .
       env:
         ARTIFACTORY_ACCESS_TOKEN: ${{ steps.esc-secrets.outputs.ARTIFACTORY_ACCESS_TOKEN}}
         ARTIFACTORY_URL: ${{ steps.esc-secrets.outputs.ARTIFACTORY_URL }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Run tests
       if: matrix.testTarget == 'local'
-      run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 4 .
+      run: cd examples && gotestsum -- -v -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 4 .
       env:
         ARTIFACTORY_ACCESS_TOKEN: ${{ steps.esc-secrets.outputs.ARTIFACTORY_ACCESS_TOKEN}}
         ARTIFACTORY_URL: ${{ steps.esc-secrets.outputs.ARTIFACTORY_URL }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Run pulumi/examples tests
       if: matrix.testTarget == 'pulumiExamples'
-      run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -run TestPulumiExamples -parallel 4 .
+      run: cd examples && gotestsum -- -v -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -run TestPulumiExamples -parallel 4 .
       env:
         ARTIFACTORY_ACCESS_TOKEN: ${{ steps.esc-secrets.outputs.ARTIFACTORY_ACCESS_TOKEN}}
         ARTIFACTORY_URL: ${{ steps.esc-secrets.outputs.ARTIFACTORY_URL }}
