@@ -1,0 +1,25 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: ["github>pulumi/renovate-config//default.json5"],
+  packageRules: [
+    {
+      // These dependencies are pulled in when the bridge dependency updates.
+      // They are managed by the upgrade-bridge workflow.
+      matchManagers: ["gomod"],
+      matchPackageNames: ["github.com/pulumi/pulumi/pkg/v3", "github.com/pulumi/pulumi/sdk/v3"],
+      enabled: false,
+    },
+    {
+      // The bridge dependency is managed by the upgrade-bridge workflow.
+      matchManagers: ["gomod"],
+      matchPackageNames: ["github.com/pulumi/pulumi-terraform-bridge/v3"],
+      enabled: false,
+    },
+    {
+      // The upstream provider requires schema regeneration and is managed by the upgrade-provider workflow.
+      matchManagers: ["gomod"],
+      matchPackageNames: ["github.com/jfrog/terraform-provider-artifactory/v12"],
+      enabled: false,
+    },
+  ],
+}
