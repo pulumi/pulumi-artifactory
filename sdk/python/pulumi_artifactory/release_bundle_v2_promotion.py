@@ -28,6 +28,7 @@ class ReleaseBundleV2PromotionArgs:
                  project_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReleaseBundleV2Promotion resource.
+
         :param pulumi.Input[_builtins.str] environment: Target environment
         :param pulumi.Input[_builtins.str] keypair_name: Key-pair name to use for signature creation
         :param pulumi.Input[_builtins.str] version: Version to promote
@@ -147,6 +148,7 @@ class _ReleaseBundleV2PromotionState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReleaseBundleV2Promotion resources.
+
         :param pulumi.Input[_builtins.str] created: Timestamp when the new version was created (ISO 8601 standard).
         :param pulumi.Input[_builtins.int] created_millis: Timestamp when the new version was created (in milliseconds).
         :param pulumi.Input[_builtins.str] environment: Target environment
@@ -316,6 +318,7 @@ class ReleaseBundleV2Promotion(pulumi.CustomResource):
             included_repository_keys=["commons-qa-maven-local"])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] environment: Target environment
@@ -348,6 +351,7 @@ class ReleaseBundleV2Promotion(pulumi.CustomResource):
             environment="DEV",
             included_repository_keys=["commons-qa-maven-local"])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReleaseBundleV2PromotionArgs args: The arguments to use to populate this resource's properties.

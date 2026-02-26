@@ -27,6 +27,7 @@ class OauthSettingsArgs:
                  persist_users: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a OauthSettings resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['OauthSettingsOauthProviderArgs']]] oauth_providers: OAuth provider settings block. Multiple blocks can be defined, at least one is required.
         :param pulumi.Input[_builtins.bool] allow_user_to_access_profile: Allow persisted users to access their profile.  Default value is `false`.
         :param pulumi.Input[_builtins.bool] enable: Enable OAuth SSO.  Default value is `true`.
@@ -98,6 +99,7 @@ class _OauthSettingsState:
                  persist_users: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering OauthSettings resources.
+
         :param pulumi.Input[_builtins.bool] allow_user_to_access_profile: Allow persisted users to access their profile.  Default value is `false`.
         :param pulumi.Input[_builtins.bool] enable: Enable OAuth SSO.  Default value is `true`.
         :param pulumi.Input[Sequence[pulumi.Input['OauthSettingsOauthProviderArgs']]] oauth_providers: OAuth provider settings block. Multiple blocks can be defined, at least one is required.
@@ -213,6 +215,7 @@ class OauthSettings(pulumi.CustomResource):
         $ pulumi import artifactory:index/oauthSettings:OauthSettings oauth oauth_settings
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_user_to_access_profile: Allow persisted users to access their profile.  Default value is `false`.
@@ -266,6 +269,7 @@ class OauthSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/oauthSettings:OauthSettings oauth oauth_settings
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OauthSettingsArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class VirtualRpmRepositoryArgs:
                  secondary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualRpmRepository resource.
+
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
@@ -260,6 +261,7 @@ class _VirtualRpmRepositoryState:
                  secondary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualRpmRepository resources.
+
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
@@ -540,6 +542,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
         $ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo-rpm-virtual foo-rpm-virtual
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
@@ -607,6 +610,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo-rpm-virtual foo-rpm-virtual
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualRpmRepositoryArgs args: The arguments to use to populate this resource's properties.

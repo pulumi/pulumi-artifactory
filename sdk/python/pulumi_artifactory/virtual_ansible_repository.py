@@ -33,6 +33,7 @@ class VirtualAnsibleRepositoryArgs:
                  retrieval_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a VirtualAnsibleRepository resource.
+
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
@@ -235,6 +236,7 @@ class _VirtualAnsibleRepositoryState:
                  retrieval_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering VirtualAnsibleRepository resources.
+
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
@@ -477,6 +479,7 @@ class VirtualAnsibleRepository(pulumi.CustomResource):
         $ pulumi import artifactory:index/virtualAnsibleRepository:VirtualAnsibleRepository my-ansible-virtual my-ansible-virtual
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
@@ -525,6 +528,7 @@ class VirtualAnsibleRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/virtualAnsibleRepository:VirtualAnsibleRepository my-ansible-virtual my-ansible-virtual
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualAnsibleRepositoryArgs args: The arguments to use to populate this resource's properties.

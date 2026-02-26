@@ -35,6 +35,7 @@ class LdapSettingArgs:
                  user_dn_pattern: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LdapSetting resource.
+
         :param pulumi.Input[_builtins.str] key: The unique ID of the LDAP setting.
         :param pulumi.Input[_builtins.str] ldap_url: Location of the LDAP server in the following format: ldap://myserver:myport/dc=sampledomain,dc=com. The URL should include the base DN used to search for and/or authenticate users.
         :param pulumi.Input[_builtins.bool] allow_user_to_access_profile: When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
@@ -271,6 +272,7 @@ class _LdapSettingState:
                  user_dn_pattern: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LdapSetting resources.
+
         :param pulumi.Input[_builtins.bool] allow_user_to_access_profile: When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
         :param pulumi.Input[_builtins.bool] auto_create_user: When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
         :param pulumi.Input[_builtins.str] email_attribute: An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
@@ -553,6 +555,7 @@ class LdapSetting(pulumi.CustomResource):
         $ pulumi import artifactory:index/ldapSetting:LdapSetting ldap_name ldap_name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_user_to_access_profile: When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
@@ -620,6 +623,7 @@ class LdapSetting(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/ldapSetting:LdapSetting ldap_name ldap_name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LdapSettingArgs args: The arguments to use to populate this resource's properties.

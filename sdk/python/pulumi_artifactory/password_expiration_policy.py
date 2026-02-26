@@ -25,6 +25,7 @@ class PasswordExpirationPolicyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PasswordExpirationPolicy resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Enable Password Expiration Policy. This only applies to internal user passwords.
         :param pulumi.Input[_builtins.bool] notify_by_email: Send mail notification before password expiration. Users will receive an email notification X days before password will expire. Mail server must be enabled and configured correctly.
         :param pulumi.Input[_builtins.int] password_max_age: Password expires every N days. The time interval in which users will be obligated to change their password.
@@ -94,6 +95,7 @@ class _PasswordExpirationPolicyState:
                  password_max_age: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering PasswordExpirationPolicy resources.
+
         :param pulumi.Input[_builtins.bool] enabled: Enable Password Expiration Policy. This only applies to internal user passwords.
         :param pulumi.Input[_builtins.str] name: Name of the resource. Only used for importing.
         :param pulumi.Input[_builtins.bool] notify_by_email: Send mail notification before password expiration. Users will receive an email notification X days before password will expire. Mail server must be enabled and configured correctly.
@@ -190,6 +192,7 @@ class PasswordExpirationPolicy(pulumi.CustomResource):
         $ pulumi import artifactory:index/passwordExpirationPolicy:PasswordExpirationPolicy my-password-expiration-policy my-password-expiration-policy
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Enable Password Expiration Policy. This only applies to internal user passwords.
@@ -224,6 +227,7 @@ class PasswordExpirationPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/passwordExpirationPolicy:PasswordExpirationPolicy my-password-expiration-policy my-password-expiration-policy
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PasswordExpirationPolicyArgs args: The arguments to use to populate this resource's properties.

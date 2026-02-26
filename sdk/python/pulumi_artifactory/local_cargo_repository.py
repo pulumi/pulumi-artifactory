@@ -38,6 +38,7 @@ class LocalCargoRepositoryArgs:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LocalCargoRepository resource.
+
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. 
                Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
@@ -321,6 +322,7 @@ class _LocalCargoRepositoryState:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering LocalCargoRepository resources.
+
         :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. 
                Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
@@ -629,6 +631,7 @@ class LocalCargoRepository(pulumi.CustomResource):
         $ pulumi import artifactory:index/localCargoRepository:LocalCargoRepository terraform-local-test-cargo-repo-basic terraform-local-test-cargo-repo-basic
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. 
@@ -678,6 +681,7 @@ class LocalCargoRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/localCargoRepository:LocalCargoRepository terraform-local-test-cargo-repo-basic terraform-local-test-cargo-repo-basic
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LocalCargoRepositoryArgs args: The arguments to use to populate this resource's properties.

@@ -36,6 +36,7 @@ class LocalGemsRepositoryArgs:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LocalGemsRepository resource.
+
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
                This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
@@ -285,6 +286,7 @@ class _LocalGemsRepositoryState:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering LocalGemsRepository resources.
+
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
                This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         :param pulumi.Input[_builtins.bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
@@ -556,6 +558,7 @@ class LocalGemsRepository(pulumi.CustomResource):
         $ pulumi import artifactory:index/localGemsRepository:LocalGemsRepository terraform-local-test-gems-repo terraform-local-test-gems-repo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
@@ -599,6 +602,7 @@ class LocalGemsRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/localGemsRepository:LocalGemsRepository terraform-local-test-gems-repo terraform-local-test-gems-repo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LocalGemsRepositoryArgs args: The arguments to use to populate this resource's properties.

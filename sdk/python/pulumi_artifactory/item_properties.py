@@ -25,6 +25,7 @@ class ItemPropertiesArgs:
                  item_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ItemProperties resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]] properties: Map of key and list of values.
         :param pulumi.Input[_builtins.str] repo_key: Respository key.
         :param pulumi.Input[_builtins.bool] is_recursive: Add this property to the selected folder and to all of artifacts and folders under this folder. Default to `false`
@@ -95,6 +96,7 @@ class _ItemPropertiesState:
                  repo_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ItemProperties resources.
+
         :param pulumi.Input[_builtins.bool] is_recursive: Add this property to the selected folder and to all of artifacts and folders under this folder. Default to `false`
         :param pulumi.Input[_builtins.str] item_path: The relative path of the item (file/folder/repository). Leave unset for repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]] properties: Map of key and list of values.
@@ -209,6 +211,7 @@ class ItemProperties(pulumi.CustomResource):
         $ pulumi import artifactory:index/itemProperties:ItemProperties my-folder-properties repo_key:folder/subfolder
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] is_recursive: Add this property to the selected folder and to all of artifacts and folders under this folder. Default to `false`
@@ -261,6 +264,7 @@ class ItemProperties(pulumi.CustomResource):
 
         $ pulumi import artifactory:index/itemProperties:ItemProperties my-folder-properties repo_key:folder/subfolder
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ItemPropertiesArgs args: The arguments to use to populate this resource's properties.

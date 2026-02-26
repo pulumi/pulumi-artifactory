@@ -30,6 +30,7 @@ class ReleaseBundleV2CleanupPolicyArgs:
                  item_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReleaseBundleV2CleanupPolicy resource.
+
         :param pulumi.Input[_builtins.str] key: An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
         :param pulumi.Input[_builtins.str] cron_expression: The cron expression determines when the policy is run. This parameter is not mandatory, however if left empty the policy will not run automatically and can only be triggered manually.
         :param pulumi.Input[_builtins.int] duration_in_minutes: The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
@@ -140,6 +141,7 @@ class _ReleaseBundleV2CleanupPolicyState:
                  search_criteria: Optional[pulumi.Input['ReleaseBundleV2CleanupPolicySearchCriteriaArgs']] = None):
         """
         Input properties used for looking up and filtering ReleaseBundleV2CleanupPolicy resources.
+
         :param pulumi.Input[_builtins.str] cron_expression: The cron expression determines when the policy is run. This parameter is not mandatory, however if left empty the policy will not run automatically and can only be triggered manually.
         :param pulumi.Input[_builtins.int] duration_in_minutes: The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
         :param pulumi.Input[_builtins.bool] enabled: Enables or disabled the release bundles v2 cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
@@ -339,6 +341,7 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
         $ pulumi import artifactory:index/releaseBundleV2CleanupPolicy:ReleaseBundleV2CleanupPolicy my-cleanup-policy my-policy
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cron_expression: The cron expression determines when the policy is run. This parameter is not mandatory, however if left empty the policy will not run automatically and can only be triggered manually.
@@ -437,6 +440,7 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/releaseBundleV2CleanupPolicy:ReleaseBundleV2CleanupPolicy my-cleanup-policy my-policy
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReleaseBundleV2CleanupPolicyArgs args: The arguments to use to populate this resource's properties.

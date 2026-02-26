@@ -30,6 +30,7 @@ class LdapGroupSettingArgs:
                  sub_tree: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LdapGroupSetting resource.
+
         :param pulumi.Input[_builtins.str] description_attribute: An attribute on the group entry which denoting the group description. Used when importing groups.
         :param pulumi.Input[_builtins.str] filter: The LDAP filter used to search for group entries. Used for importing groups.
         :param pulumi.Input[_builtins.str] group_member_attribute: A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g., uniqueMember,member).
@@ -182,6 +183,7 @@ class _LdapGroupSettingState:
                  sub_tree: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering LdapGroupSetting resources.
+
         :param pulumi.Input[_builtins.str] description_attribute: An attribute on the group entry which denoting the group description. Used when importing groups.
         :param pulumi.Input[_builtins.str] filter: The LDAP filter used to search for group entries. Used for importing groups.
         :param pulumi.Input[_builtins.str] group_base_dn: A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP Setting’s “Search Base”). Used when importing groups.
@@ -379,6 +381,7 @@ class LdapGroupSetting(pulumi.CustomResource):
         $ pulumi import artifactory:index/ldapGroupSetting:LdapGroupSetting ldap_group_name ldap_group_name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description_attribute: An attribute on the group entry which denoting the group description. Used when importing groups.
@@ -436,6 +439,7 @@ class LdapGroupSetting(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/ldapGroupSetting:LdapGroupSetting ldap_group_name ldap_group_name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LdapGroupSettingArgs args: The arguments to use to populate this resource's properties.

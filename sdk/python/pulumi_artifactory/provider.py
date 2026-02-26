@@ -30,6 +30,7 @@ class ProviderArgs:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
+
         :param pulumi.Input[_builtins.str] access_token: This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the 'api_key' attribute value will be used.
         :param pulumi.Input[_builtins.str] api_key: API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
         :param pulumi.Input[_builtins.str] client_certificate_key_path: Filesystem path to the PEM-encoded private key that matches `client_certificate_path`.
@@ -200,6 +201,7 @@ class Provider(pulumi.ProviderResource):
         construction to achieve fine-grained programmatic control over provider settings. See the
         [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_token: This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the 'api_key' attribute value will be used.
@@ -223,6 +225,7 @@ class Provider(pulumi.ProviderResource):
         settings, however an explicit `Provider` instance may be created and passed during resource
         construction to achieve fine-grained programmatic control over provider settings. See the
         [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
+
 
         :param str resource_name: The name of the resource.
         :param ProviderArgs args: The arguments to use to populate this resource's properties.

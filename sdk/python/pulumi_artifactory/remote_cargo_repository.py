@@ -69,6 +69,7 @@ class RemoteCargoRepositoryArgs:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RemoteCargoRepository resource.
+
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.str] url: The remote repo URL.
@@ -803,6 +804,7 @@ class _RemoteCargoRepositoryState:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering RemoteCargoRepository resources.
+
         :param pulumi.Input[_builtins.bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
         :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
@@ -1571,6 +1573,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
         $ pulumi import artifactory:index/remoteCargoRepository:RemoteCargoRepository my-remote-cargo my-remote-cargo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
@@ -1653,6 +1656,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/remoteCargoRepository:RemoteCargoRepository my-remote-cargo my-remote-cargo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RemoteCargoRepositoryArgs args: The arguments to use to populate this resource's properties.

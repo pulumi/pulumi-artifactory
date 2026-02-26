@@ -29,6 +29,7 @@ class ArtifactWebhookArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ArtifactWebhook resource.
+
         :param pulumi.Input['ArtifactWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `deployed`, `deleted`, `moved`, `copied`, `cached`.
         :param pulumi.Input[Sequence[pulumi.Input['ArtifactWebhookHandlerArgs']]] handlers: At least one is required.
@@ -129,6 +130,7 @@ class _ArtifactWebhookState:
                  key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ArtifactWebhook resources.
+
         :param pulumi.Input['ArtifactWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[_builtins.bool] enabled: Status of webhook. Default to `true`.
@@ -274,6 +276,7 @@ class ArtifactWebhook(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[my_generic_local]))
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ArtifactWebhookCriteriaArgs', 'ArtifactWebhookCriteriaArgsDict']] criteria: Specifies where the webhook will be applied on which repositories.
@@ -327,6 +330,7 @@ class ArtifactWebhook(pulumi.CustomResource):
             }],
             opts = pulumi.ResourceOptions(depends_on=[my_generic_local]))
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ArtifactWebhookArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class CertificateArgs:
                  file: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
+
         :param pulumi.Input[_builtins.str] alias: Name of certificate.
         :param pulumi.Input[_builtins.str] content: PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
         :param pulumi.Input[_builtins.str] file: Path to the PEM file. Cannot be set with `content` attribute simultaneously.
@@ -84,6 +85,7 @@ class _CertificateState:
                  valid_until: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
+
         :param pulumi.Input[_builtins.str] alias: Name of certificate.
         :param pulumi.Input[_builtins.str] content: PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
         :param pulumi.Input[_builtins.str] file: Path to the PEM file. Cannot be set with `content` attribute simultaneously.
@@ -243,6 +245,7 @@ class Certificate(pulumi.CustomResource):
         $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: Name of certificate.
@@ -280,6 +283,7 @@ class Certificate(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

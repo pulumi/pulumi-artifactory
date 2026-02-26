@@ -29,6 +29,7 @@ class ReleaseBundleCustomWebhookArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ReleaseBundleCustomWebhook resource.
+
         :param pulumi.Input['ReleaseBundleCustomWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `created`, `signed`, `deleted`.
         :param pulumi.Input[Sequence[pulumi.Input['ReleaseBundleCustomWebhookHandlerArgs']]] handlers: At least one is required.
@@ -129,6 +130,7 @@ class _ReleaseBundleCustomWebhookState:
                  key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReleaseBundleCustomWebhook resources.
+
         :param pulumi.Input['ReleaseBundleCustomWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[_builtins.bool] enabled: Status of webhook. Default to `true`.
@@ -274,6 +276,7 @@ class ReleaseBundleCustomWebhook(pulumi.CustomResource):
             }])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ReleaseBundleCustomWebhookCriteriaArgs', 'ReleaseBundleCustomWebhookCriteriaArgsDict']] criteria: Specifies where the webhook will be applied on which repositories.
@@ -327,6 +330,7 @@ class ReleaseBundleCustomWebhook(pulumi.CustomResource):
                 "payload": "{ \\"ref\\": \\"main\\" , \\"inputs\\": { \\"artifact_path\\": \\"test-repo/repo-path\\" } }",
             }])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReleaseBundleCustomWebhookArgs args: The arguments to use to populate this resource's properties.

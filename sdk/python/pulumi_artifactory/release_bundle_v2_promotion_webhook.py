@@ -29,6 +29,7 @@ class ReleaseBundleV2PromotionWebhookArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ReleaseBundleV2PromotionWebhook resource.
+
         :param pulumi.Input['ReleaseBundleV2PromotionWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which enviroments.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of event triggers for the Webhook. Allow values: `release_bundle_v2_promotion_started`, `release_bundle_v2_promotion_completed`, `release_bundle_v2_promotion_failed`
         :param pulumi.Input[Sequence[pulumi.Input['ReleaseBundleV2PromotionWebhookHandlerArgs']]] handlers: At least one is required.
@@ -129,6 +130,7 @@ class _ReleaseBundleV2PromotionWebhookState:
                  key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReleaseBundleV2PromotionWebhook resources.
+
         :param pulumi.Input['ReleaseBundleV2PromotionWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which enviroments.
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[_builtins.bool] enabled: Status of webhook. Default to `true`
@@ -269,6 +271,7 @@ class ReleaseBundleV2PromotionWebhook(pulumi.CustomResource):
             }])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ReleaseBundleV2PromotionWebhookCriteriaArgs', 'ReleaseBundleV2PromotionWebhookCriteriaArgsDict']] criteria: Specifies where the webhook will be applied on which enviroments.
@@ -317,6 +320,7 @@ class ReleaseBundleV2PromotionWebhook(pulumi.CustomResource):
                 },
             }])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReleaseBundleV2PromotionWebhookArgs args: The arguments to use to populate this resource's properties.

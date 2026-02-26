@@ -28,6 +28,7 @@ class ArtifactLifecycleWebhookArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ArtifactLifecycleWebhook resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of event triggers for the Webhook. Allow values: `archive`, `restore`
         :param pulumi.Input[Sequence[pulumi.Input['ArtifactLifecycleWebhookHandlerArgs']]] handlers: At least one is required.
         :param pulumi.Input[_builtins.str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
@@ -113,6 +114,7 @@ class _ArtifactLifecycleWebhookState:
                  key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ArtifactLifecycleWebhook resources.
+
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[_builtins.bool] enabled: Status of webhook. Default to `true`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of event triggers for the Webhook. Allow values: `archive`, `restore`
@@ -230,6 +232,7 @@ class ArtifactLifecycleWebhook(pulumi.CustomResource):
             }])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
@@ -270,6 +273,7 @@ class ArtifactLifecycleWebhook(pulumi.CustomResource):
                 },
             }])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ArtifactLifecycleWebhookArgs args: The arguments to use to populate this resource's properties.

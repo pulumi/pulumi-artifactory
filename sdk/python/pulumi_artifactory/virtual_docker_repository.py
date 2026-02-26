@@ -33,6 +33,7 @@ class VirtualDockerRepositoryArgs:
                  resolve_docker_tags_by_timestamp: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a VirtualDockerRepository resource.
+
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
@@ -235,6 +236,7 @@ class _VirtualDockerRepositoryState:
                  resolve_docker_tags_by_timestamp: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering VirtualDockerRepository resources.
+
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
@@ -478,6 +480,7 @@ class VirtualDockerRepository(pulumi.CustomResource):
         $ pulumi import artifactory:index/virtualDockerRepository:VirtualDockerRepository foo-docker foo-docker
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
@@ -527,6 +530,7 @@ class VirtualDockerRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/virtualDockerRepository:VirtualDockerRepository foo-docker foo-docker
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualDockerRepositoryArgs args: The arguments to use to populate this resource's properties.

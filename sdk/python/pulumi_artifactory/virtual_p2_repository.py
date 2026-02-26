@@ -32,6 +32,7 @@ class VirtualP2RepositoryArgs:
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualP2Repository resource.
+
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
@@ -218,6 +219,7 @@ class _VirtualP2RepositoryState:
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VirtualP2Repository resources.
+
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
@@ -444,6 +446,7 @@ class VirtualP2Repository(pulumi.CustomResource):
         $ pulumi import artifactory:index/virtualP2Repository:VirtualP2Repository foo-p2 foo-p2
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
@@ -491,6 +494,7 @@ class VirtualP2Repository(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/virtualP2Repository:VirtualP2Repository foo-p2 foo-p2
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualP2RepositoryArgs args: The arguments to use to populate this resource's properties.

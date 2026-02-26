@@ -31,6 +31,7 @@ class ProxyArgs:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Proxy resource.
+
         :param pulumi.Input[_builtins.str] host: The name of the proxy host.
         :param pulumi.Input[_builtins.str] key: The unique ID of the proxy.
         :param pulumi.Input[_builtins.int] port: The proxy port number.
@@ -196,6 +197,7 @@ class _ProxyState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Proxy resources.
+
         :param pulumi.Input[_builtins.str] host: The name of the proxy host.
         :param pulumi.Input[_builtins.str] key: The unique ID of the proxy.
         :param pulumi.Input[_builtins.str] nt_domain: The proxy domain/realm name.
@@ -404,6 +406,7 @@ class Proxy(pulumi.CustomResource):
         $ pulumi import artifactory:index/proxy:Proxy my-proxy proxy-key
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] host: The name of the proxy host.
@@ -460,6 +463,7 @@ class Proxy(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/proxy:Proxy my-proxy proxy-key
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProxyArgs args: The arguments to use to populate this resource's properties.

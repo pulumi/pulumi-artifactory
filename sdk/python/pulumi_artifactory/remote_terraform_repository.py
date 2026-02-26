@@ -68,6 +68,7 @@ class RemoteTerraformRepositoryArgs:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RemoteTerraformRepository resource.
+
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.str] url: The base URL of the Module storage API.
@@ -790,6 +791,7 @@ class _RemoteTerraformRepositoryState:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering RemoteTerraformRepository resources.
+
         :param pulumi.Input[_builtins.bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
                This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
@@ -1571,6 +1573,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         $ pulumi import artifactory:index/remoteTerraformRepository:RemoteTerraformRepository terraform-remote terraform-remote
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
@@ -1679,6 +1682,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/remoteTerraformRepository:RemoteTerraformRepository terraform-remote terraform-remote
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RemoteTerraformRepositoryArgs args: The arguments to use to populate this resource's properties.

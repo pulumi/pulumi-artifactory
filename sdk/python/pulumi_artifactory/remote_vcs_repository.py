@@ -69,6 +69,7 @@ class RemoteVcsRepositoryArgs:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RemoteVcsRepository resource.
+
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.str] url: The remote repo URL.
@@ -811,6 +812,7 @@ class _RemoteVcsRepositoryState:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering RemoteVcsRepository resources.
+
         :param pulumi.Input[_builtins.bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
                This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
@@ -1582,6 +1584,7 @@ class RemoteVcsRepository(pulumi.CustomResource):
         $ pulumi import artifactory:index/remoteVcsRepository:RemoteVcsRepository my-remote-vcs my-remote-vcs
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
@@ -1663,6 +1666,7 @@ class RemoteVcsRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/remoteVcsRepository:RemoteVcsRepository my-remote-vcs my-remote-vcs
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RemoteVcsRepositoryArgs args: The arguments to use to populate this resource's properties.

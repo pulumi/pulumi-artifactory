@@ -32,6 +32,7 @@ class ManagedUserArgs:
                  profile_updatable: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ManagedUser resource.
+
         :param pulumi.Input[_builtins.str] email: Email for user.
         :param pulumi.Input[_builtins.str] password: Password for the user.
         :param pulumi.Input[_builtins.bool] admin: (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
@@ -182,6 +183,7 @@ class _ManagedUserState:
                  profile_updatable: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ManagedUser resources.
+
         :param pulumi.Input[_builtins.bool] admin: (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
         :param pulumi.Input[_builtins.bool] disable_ui_access: (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
         :param pulumi.Input[_builtins.str] email: Email for user.
@@ -374,6 +376,7 @@ class ManagedUser(pulumi.CustomResource):
         $ pulumi import artifactory:index/managedUser:ManagedUser test-user myusername
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] admin: (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
@@ -429,6 +432,7 @@ class ManagedUser(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/managedUser:ManagedUser test-user myusername
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedUserArgs args: The arguments to use to populate this resource's properties.

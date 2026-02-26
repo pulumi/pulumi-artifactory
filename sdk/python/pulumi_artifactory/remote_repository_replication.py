@@ -31,6 +31,7 @@ class RemoteRepositoryReplicationArgs:
                  sync_properties: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RemoteRepositoryReplication resource.
+
         :param pulumi.Input[_builtins.str] repo_key: Repository name.
         :param pulumi.Input[_builtins.bool] check_binary_existence_in_filestore: Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
         :param pulumi.Input[_builtins.str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
@@ -200,6 +201,7 @@ class _RemoteRepositoryReplicationState:
                  sync_properties: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering RemoteRepositoryReplication resources.
+
         :param pulumi.Input[_builtins.bool] check_binary_existence_in_filestore: Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
         :param pulumi.Input[_builtins.str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         :param pulumi.Input[_builtins.bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
@@ -411,6 +413,7 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
         $ pulumi import artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication foo-rep provider_test_source
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] check_binary_existence_in_filestore: Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
@@ -469,6 +472,7 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication foo-rep provider_test_source
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RemoteRepositoryReplicationArgs args: The arguments to use to populate this resource's properties.

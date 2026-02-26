@@ -34,6 +34,7 @@ class VirtualHelmRepositoryArgs:
                  use_namespaces: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a VirtualHelmRepository resource.
+
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
@@ -252,6 +253,7 @@ class _VirtualHelmRepositoryState:
                  use_namespaces: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering VirtualHelmRepository resources.
+
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
@@ -506,6 +508,7 @@ class VirtualHelmRepository(pulumi.CustomResource):
         $ pulumi import artifactory:index/virtualHelmRepository:VirtualHelmRepository foo-helm-virtual foo-helm-virtual
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
@@ -551,6 +554,7 @@ class VirtualHelmRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/virtualHelmRepository:VirtualHelmRepository foo-helm-virtual foo-helm-virtual
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualHelmRepositoryArgs args: The arguments to use to populate this resource's properties.

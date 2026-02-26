@@ -31,6 +31,7 @@ class _ApiKeyState:
                  api_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
+
         :param pulumi.Input[_builtins.str] api_key: The API key. Deprecated.
         """
         if api_key is not None:
@@ -85,6 +86,7 @@ class ApiKey(pulumi.CustomResource):
         $ pulumi import artifactory:index/apiKey:ApiKey test import
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -118,6 +120,7 @@ class ApiKey(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/apiKey:ApiKey test import
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiKeyArgs args: The arguments to use to populate this resource's properties.

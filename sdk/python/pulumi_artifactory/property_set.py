@@ -26,6 +26,7 @@ class PropertySetArgs:
                  visible: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a PropertySet resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]] properties: A list of properties that will be part of the property set.
         :param pulumi.Input[_builtins.str] name: Property set name.
         :param pulumi.Input[_builtins.bool] visible: Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
@@ -81,6 +82,7 @@ class _PropertySetState:
                  visible: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering PropertySet resources.
+
         :param pulumi.Input[_builtins.str] name: Property set name.
         :param pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]] properties: A list of properties that will be part of the property set.
         :param pulumi.Input[_builtins.bool] visible: Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
@@ -202,6 +204,7 @@ class PropertySet(pulumi.CustomResource):
         $ pulumi import artifactory:index/propertySet:PropertySet foo property-set1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Property set name.
@@ -276,6 +279,7 @@ class PropertySet(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/propertySet:PropertySet foo property-set1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PropertySetArgs args: The arguments to use to populate this resource's properties.

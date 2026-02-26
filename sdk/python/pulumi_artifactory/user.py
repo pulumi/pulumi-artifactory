@@ -32,6 +32,7 @@ class UserArgs:
                  profile_updatable: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a User resource.
+
         :param pulumi.Input[_builtins.str] email: Email for user.
         :param pulumi.Input[_builtins.bool] admin: (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
         :param pulumi.Input[_builtins.bool] disable_ui_access: (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
@@ -183,6 +184,7 @@ class _UserState:
                  profile_updatable: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering User resources.
+
         :param pulumi.Input[_builtins.bool] admin: (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
         :param pulumi.Input[_builtins.bool] disable_ui_access: (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
         :param pulumi.Input[_builtins.str] email: Email for user.
@@ -384,6 +386,7 @@ class User(pulumi.CustomResource):
         $ pulumi import artifactory:index/user:User test-user myusername
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] admin: (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
@@ -448,6 +451,7 @@ class User(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/user:User test-user myusername
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

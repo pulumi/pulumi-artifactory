@@ -23,6 +23,7 @@ class GeneralSecurityArgs:
                  encryption_policy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GeneralSecurity resource.
+
         :param pulumi.Input[_builtins.bool] enable_anonymous_access: Enable anonymous access. Default value is `false`.
         :param pulumi.Input[_builtins.str] encryption_policy: Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are:
                - `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
@@ -73,6 +74,7 @@ class _GeneralSecurityState:
                  encryption_policy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GeneralSecurity resources.
+
         :param pulumi.Input[_builtins.bool] enable_anonymous_access: Enable anonymous access. Default value is `false`.
         :param pulumi.Input[_builtins.str] encryption_policy: Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are:
                - `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
@@ -174,6 +176,7 @@ class GeneralSecurity(pulumi.CustomResource):
 
         ~>The `GeneralSecurity` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enable_anonymous_access: Enable anonymous access. Default value is `false`.
@@ -238,6 +241,7 @@ class GeneralSecurity(pulumi.CustomResource):
         ```
 
         ~>The `GeneralSecurity` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
+
 
         :param str resource_name: The name of the resource.
         :param GeneralSecurityArgs args: The arguments to use to populate this resource's properties.

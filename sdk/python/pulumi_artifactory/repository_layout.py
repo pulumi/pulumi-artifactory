@@ -27,6 +27,7 @@ class RepositoryLayoutArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryLayout resource.
+
         :param pulumi.Input[_builtins.str] artifact_path_pattern: Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
         :param pulumi.Input[_builtins.str] file_integration_revision_regexp: A regular expression matching the integration revision string appearing in a file name as part of the artifact's path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
         :param pulumi.Input[_builtins.str] folder_integration_revision_regexp: A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path. For example, `SNAPSHOT`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
@@ -128,6 +129,7 @@ class _RepositoryLayoutState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryLayout resources.
+
         :param pulumi.Input[_builtins.str] artifact_path_pattern: Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
         :param pulumi.Input[_builtins.str] descriptor_path_pattern: Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
         :param pulumi.Input[_builtins.bool] distinctive_descriptor_path_pattern: When set, `descriptor_path_pattern` will be used. Default to `false`.
@@ -262,6 +264,7 @@ class RepositoryLayout(pulumi.CustomResource):
         $ pulumi import artifactory:index/repositoryLayout:RepositoryLayout custom-layout custom-layout
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] artifact_path_pattern: Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
@@ -304,6 +307,7 @@ class RepositoryLayout(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/repositoryLayout:RepositoryLayout custom-layout custom-layout
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryLayoutArgs args: The arguments to use to populate this resource's properties.

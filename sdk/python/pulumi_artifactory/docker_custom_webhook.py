@@ -29,6 +29,7 @@ class DockerCustomWebhookArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a DockerCustomWebhook resource.
+
         :param pulumi.Input['DockerCustomWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
         :param pulumi.Input[Sequence[pulumi.Input['DockerCustomWebhookHandlerArgs']]] handlers: At least one is required.
@@ -129,6 +130,7 @@ class _DockerCustomWebhookState:
                  key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DockerCustomWebhook resources.
+
         :param pulumi.Input['DockerCustomWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[_builtins.bool] enabled: Status of webhook. Default to `true`.
@@ -275,6 +277,7 @@ class DockerCustomWebhook(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[my_docker_local]))
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DockerCustomWebhookCriteriaArgs', 'DockerCustomWebhookCriteriaArgsDict']] criteria: Specifies where the webhook will be applied on which repositories.
@@ -329,6 +332,7 @@ class DockerCustomWebhook(pulumi.CustomResource):
             }],
             opts = pulumi.ResourceOptions(depends_on=[my_docker_local]))
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DockerCustomWebhookArgs args: The arguments to use to populate this resource's properties.

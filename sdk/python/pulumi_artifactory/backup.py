@@ -31,6 +31,7 @@ class BackupArgs:
                  verify_disk_space: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Backup resource.
+
         :param pulumi.Input[_builtins.str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. **Note:** please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
         :param pulumi.Input[_builtins.bool] create_archive: If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`
         :param pulumi.Input[_builtins.bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
@@ -193,6 +194,7 @@ class _BackupState:
                  verify_disk_space: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Backup resources.
+
         :param pulumi.Input[_builtins.bool] create_archive: If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`
         :param pulumi.Input[_builtins.str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. **Note:** please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
         :param pulumi.Input[_builtins.bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
@@ -395,6 +397,7 @@ class Backup(pulumi.CustomResource):
         $ pulumi import artifactory:index/backup:Backup backup_name backup_name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] create_archive: If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`
@@ -448,6 +451,7 @@ class Backup(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/backup:Backup backup_name backup_name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BackupArgs args: The arguments to use to populate this resource's properties.

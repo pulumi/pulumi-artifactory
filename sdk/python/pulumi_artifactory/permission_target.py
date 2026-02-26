@@ -27,6 +27,7 @@ class PermissionTargetArgs:
                  repo: Optional[pulumi.Input['PermissionTargetRepoArgs']] = None):
         """
         The set of arguments for constructing a PermissionTarget resource.
+
         :param pulumi.Input['PermissionTargetBuildArgs'] build: As for repo but for artifactory-build-info permissions.
         :param pulumi.Input[_builtins.str] name: Name of permission.
         :param pulumi.Input['PermissionTargetReleaseBundleArgs'] release_bundle: As for repo for for release-bundles permissions.
@@ -99,6 +100,7 @@ class _PermissionTargetState:
                  repo: Optional[pulumi.Input['PermissionTargetRepoArgs']] = None):
         """
         Input properties used for looking up and filtering PermissionTarget resources.
+
         :param pulumi.Input['PermissionTargetBuildArgs'] build: As for repo but for artifactory-build-info permissions.
         :param pulumi.Input[_builtins.str] name: Name of permission.
         :param pulumi.Input['PermissionTargetReleaseBundleArgs'] release_bundle: As for repo for for release-bundles permissions.
@@ -284,6 +286,7 @@ class PermissionTarget(pulumi.CustomResource):
         $ pulumi import artifactory:index/permissionTarget:PermissionTarget terraform-test-permission mypermission
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict']] build: As for repo but for artifactory-build-info permissions.
@@ -407,6 +410,7 @@ class PermissionTarget(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/permissionTarget:PermissionTarget terraform-test-permission mypermission
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PermissionTargetArgs args: The arguments to use to populate this resource's properties.

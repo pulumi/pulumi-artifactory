@@ -33,6 +33,7 @@ class VirtualHexRepositoryArgs:
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualHexRepository resource.
+
         :param pulumi.Input[_builtins.str] hex_primary_keypair_ref: Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
@@ -235,6 +236,7 @@ class _VirtualHexRepositoryState:
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VirtualHexRepository resources.
+
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
@@ -490,6 +492,7 @@ class VirtualHexRepository(pulumi.CustomResource):
         $ pulumi import artifactory:index/virtualHexRepository:VirtualHexRepository my-virtual-hex my-virtual-hex
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
@@ -561,6 +564,7 @@ class VirtualHexRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/virtualHexRepository:VirtualHexRepository my-virtual-hex my-virtual-hex
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualHexRepositoryArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class KeypairArgs:
                  passphrase: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Keypair resource.
+
         :param pulumi.Input[_builtins.str] alias: Will be used as a filename when retrieving the public key via REST API.
         :param pulumi.Input[_builtins.str] pair_name: A unique identifier for the Key Pair record.
         :param pulumi.Input[_builtins.str] pair_type: Key Pair type. Supported types - GPG and RSA.
@@ -130,6 +131,7 @@ class _KeypairState:
                  public_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Keypair resources.
+
         :param pulumi.Input[_builtins.str] alias: Will be used as a filename when retrieving the public key via REST API.
         :param pulumi.Input[_builtins.str] pair_name: A unique identifier for the Key Pair record.
         :param pulumi.Input[_builtins.str] pair_type: Key Pair type. Supported types - GPG and RSA.
@@ -268,6 +270,7 @@ class Keypair(pulumi.CustomResource):
         $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: Will be used as a filename when retrieving the public key via REST API.
@@ -312,6 +315,7 @@ class Keypair(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KeypairArgs args: The arguments to use to populate this resource's properties.

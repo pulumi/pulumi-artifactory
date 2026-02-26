@@ -37,6 +37,7 @@ class VirtualDebianRepositoryArgs:
                  secondary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualDebianRepository resource.
+
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
@@ -303,6 +304,7 @@ class _VirtualDebianRepositoryState:
                  secondary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualDebianRepository resources.
+
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] debian_default_architectures: Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
@@ -614,6 +616,7 @@ class VirtualDebianRepository(pulumi.CustomResource):
         $ pulumi import artifactory:index/virtualDebianRepository:VirtualDebianRepository foo-debian foo-debian
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
@@ -671,6 +674,7 @@ class VirtualDebianRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/virtualDebianRepository:VirtualDebianRepository foo-debian foo-debian
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualDebianRepositoryArgs args: The arguments to use to populate this resource's properties.

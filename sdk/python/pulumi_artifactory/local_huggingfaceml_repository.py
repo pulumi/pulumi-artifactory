@@ -36,6 +36,7 @@ class LocalHuggingfacemlRepositoryArgs:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LocalHuggingfacemlRepository resource.
+
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
                This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
@@ -285,6 +286,7 @@ class _LocalHuggingfacemlRepositoryState:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering LocalHuggingfacemlRepository resources.
+
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
                This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         :param pulumi.Input[_builtins.bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
@@ -558,6 +560,7 @@ class LocalHuggingfacemlRepository(pulumi.CustomResource):
         $ pulumi import artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository local-huggingfaceml-repo local-huggingfaceml-repo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
@@ -603,6 +606,7 @@ class LocalHuggingfacemlRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository local-huggingfaceml-repo local-huggingfaceml-repo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LocalHuggingfacemlRepositoryArgs args: The arguments to use to populate this resource's properties.

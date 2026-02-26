@@ -34,6 +34,7 @@ class SamlSettingsArgs:
                  verify_audience_restriction: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SamlSettings resource.
+
         :param pulumi.Input[_builtins.str] login_url: Service provider login url configured on the IdP.
         :param pulumi.Input[_builtins.str] logout_url: Service provider logout url, or where to redirect after user logs out.
         :param pulumi.Input[_builtins.str] service_provider_name: The SAML service provider name. This should be a URI that is also known as the entityID, providerID, or entity identity.
@@ -247,6 +248,7 @@ class _SamlSettingsState:
                  verify_audience_restriction: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SamlSettings resources.
+
         :param pulumi.Input[_builtins.bool] allow_user_to_access_profile: Allow persisted users to access their profile.  Default value is `true`.
         :param pulumi.Input[_builtins.bool] auto_redirect: Auto redirect to login through the IdP when clicking on Artifactory's login link.  Default value is `false`.
         :param pulumi.Input[_builtins.str] certificate: SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
@@ -505,6 +507,7 @@ class SamlSettings(pulumi.CustomResource):
         $ pulumi import artifactory:index/samlSettings:SamlSettings saml saml_settings
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_user_to_access_profile: Allow persisted users to access their profile.  Default value is `true`.
@@ -566,6 +569,7 @@ class SamlSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import artifactory:index/samlSettings:SamlSettings saml saml_settings
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SamlSettingsArgs args: The arguments to use to populate this resource's properties.

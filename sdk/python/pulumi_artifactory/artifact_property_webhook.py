@@ -29,6 +29,7 @@ class ArtifactPropertyWebhookArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ArtifactPropertyWebhook resource.
+
         :param pulumi.Input['ArtifactPropertyWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
         :param pulumi.Input[Sequence[pulumi.Input['ArtifactPropertyWebhookHandlerArgs']]] handlers: At least one is required.
@@ -129,6 +130,7 @@ class _ArtifactPropertyWebhookState:
                  key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ArtifactPropertyWebhook resources.
+
         :param pulumi.Input['ArtifactPropertyWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[_builtins.bool] enabled: Status of webhook. Default to `true`.
@@ -272,6 +274,7 @@ class ArtifactPropertyWebhook(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[my_generic_local]))
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ArtifactPropertyWebhookCriteriaArgs', 'ArtifactPropertyWebhookCriteriaArgsDict']] criteria: Specifies where the webhook will be applied on which repositories.
@@ -323,6 +326,7 @@ class ArtifactPropertyWebhook(pulumi.CustomResource):
             }],
             opts = pulumi.ResourceOptions(depends_on=[my_generic_local]))
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ArtifactPropertyWebhookArgs args: The arguments to use to populate this resource's properties.
