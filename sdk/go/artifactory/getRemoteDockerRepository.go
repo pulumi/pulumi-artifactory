@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteDockerRepository(ctx, &artifactory.LookupRemoteDockerRepositoryArgs{
+//			_, err := artifactory.GetRemoteDockerRepository(ctx, &artifactory.LookupRemoteDockerRepositoryArgs{
 //				Key: "remote-docker",
 //			}, nil)
 //			if err != nil {

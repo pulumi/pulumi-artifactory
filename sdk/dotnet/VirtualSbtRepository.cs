@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo_sbt = new Artifactory.VirtualSbtRepository("foo-sbt", new()
+    ///     var foo_sbt = new Artifactory.Index.VirtualSbtRepository("foo-sbt", new()
     ///     {
     ///         Key = "foo-sbt",
     ///         Repositories = new[] {},

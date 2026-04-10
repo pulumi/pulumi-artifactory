@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupLocalOpkgRepository(ctx, &artifactory.LookupLocalOpkgRepositoryArgs{
+//			_, err := artifactory.GetLocalOpkgRepository(ctx, &artifactory.LookupLocalOpkgRepositoryArgs{
 //				Key: "local-test-opkg-repo",
 //			}, nil)
 //			if err != nil {

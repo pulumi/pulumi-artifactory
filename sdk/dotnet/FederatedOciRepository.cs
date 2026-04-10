@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_oci_federated = new Artifactory.FederatedOciRepository("my-oci-federated", new()
+    ///     var my_oci_federated = new Artifactory.Index.FederatedOciRepository("my-oci-federated", new()
     ///     {
     ///         Key = "my-oci-federated",
     ///         Members = new[]

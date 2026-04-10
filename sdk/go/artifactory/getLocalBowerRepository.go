@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupLocalBowerRepository(ctx, &artifactory.LookupLocalBowerRepositoryArgs{
+//			_, err := artifactory.GetLocalBowerRepository(ctx, &artifactory.LookupLocalBowerRepositoryArgs{
 //				Key: "local-test-bower-repo",
 //			}, nil)
 //			if err != nil {

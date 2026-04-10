@@ -27,7 +27,7 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Configure Artifactory OAuth SSO settings
-    ///     var oauth = new Artifactory.OauthSettings("oauth", new()
+    ///     var oauth = new Artifactory.Index.OauthSettings("oauth", new()
     ///     {
     ///         Enable = true,
     ///         PersistUsers = true,

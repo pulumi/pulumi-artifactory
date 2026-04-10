@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_conan = Artifactory.GetRemoteConanRepository.Invoke(new()
+        ///     var remote_conan = Artifactory.Index.GetRemoteConanRepository.Invoke(new()
         ///     {
         ///         Key = "remote-conan",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_conan = Artifactory.GetRemoteConanRepository.Invoke(new()
+        ///     var remote_conan = Artifactory.Index.GetRemoteConanRepository.Invoke(new()
         ///     {
         ///         Key = "remote-conan",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_conan = Artifactory.GetRemoteConanRepository.Invoke(new()
+        ///     var remote_conan = Artifactory.Index.GetRemoteConanRepository.Invoke(new()
         ///     {
         ///         Key = "remote-conan",
         ///     });

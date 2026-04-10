@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_swift = Artifactory.GetVirtualSwiftRepository.Invoke(new()
+        ///     var virtual_swift = Artifactory.Index.GetVirtualSwiftRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-swift",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_swift = Artifactory.GetVirtualSwiftRepository.Invoke(new()
+        ///     var virtual_swift = Artifactory.Index.GetVirtualSwiftRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-swift",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_swift = Artifactory.GetVirtualSwiftRepository.Invoke(new()
+        ///     var virtual_swift = Artifactory.Index.GetVirtualSwiftRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-swift",
         ///     });

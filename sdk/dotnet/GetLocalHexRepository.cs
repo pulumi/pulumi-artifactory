@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_hex_repo = Artifactory.GetLocalHexRepository.Invoke(new()
+        ///     var local_test_hex_repo = Artifactory.Index.GetLocalHexRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-hex-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_hex_repo = Artifactory.GetLocalHexRepository.Invoke(new()
+        ///     var local_test_hex_repo = Artifactory.Index.GetLocalHexRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-hex-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_hex_repo = Artifactory.GetLocalHexRepository.Invoke(new()
+        ///     var local_test_hex_repo = Artifactory.Index.GetLocalHexRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-hex-repo",
         ///     });

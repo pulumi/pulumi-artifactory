@@ -24,37 +24,37 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary_keypair = new Artifactory.Keypair("primary-keypair", new()
+    ///     var primary_keypair = new Artifactory.Index.Keypair("primary-keypair", new()
     ///     {
     ///         PairName = "primary-keypair",
     ///         PairType = "GPG",
     ///         Alias = "foo-alias-1",
-    ///         PrivateKey = Std.File.Invoke(new()
+    ///         PrivateKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/gpg.priv",
     ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         PublicKey = Std.File.Invoke(new()
+    ///         PublicKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/gpg.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
-    ///     var secondary_keypair = new Artifactory.Keypair("secondary-keypair", new()
+    ///     var secondary_keypair = new Artifactory.Index.Keypair("secondary-keypair", new()
     ///     {
     ///         PairName = "secondary-keypair",
     ///         PairType = "GPG",
     ///         Alias = "foo-alias-2",
-    ///         PrivateKey = Std.File.Invoke(new()
+    ///         PrivateKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/gpg.priv",
     ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         PublicKey = Std.File.Invoke(new()
+    ///         PublicKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/gpg.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
-    ///     var foo_rpm_virtual = new Artifactory.VirtualRpmRepository("foo-rpm-virtual", new()
+    ///     var foo_rpm_virtual = new Artifactory.Index.VirtualRpmRepository("foo-rpm-virtual", new()
     ///     {
     ///         Key = "foo-rpm-virtual",
     ///         PrimaryKeypairRef = primary_keypair.PairName,

@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo_puppet = new Artifactory.VirtualPuppetRepository("foo-puppet", new()
+    ///     var foo_puppet = new Artifactory.Index.VirtualPuppetRepository("foo-puppet", new()
     ///     {
     ///         Key = "foo-puppet",
     ///         Repositories = new[] {},

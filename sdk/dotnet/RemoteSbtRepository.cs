@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sbt_remote = new Artifactory.RemoteSbtRepository("sbt-remote", new()
+    ///     var sbt_remote = new Artifactory.Index.RemoteSbtRepository("sbt-remote", new()
     ///     {
     ///         Key = "sbt-remote-foo",
     ///         Url = "https://repo1.maven.org/maven2/",

@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_pub_repo = Artifactory.GetLocalPubRepository.Invoke(new()
+        ///     var local_test_pub_repo = Artifactory.Index.GetLocalPubRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-pub-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_pub_repo = Artifactory.GetLocalPubRepository.Invoke(new()
+        ///     var local_test_pub_repo = Artifactory.Index.GetLocalPubRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-pub-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_pub_repo = Artifactory.GetLocalPubRepository.Invoke(new()
+        ///     var local_test_pub_repo = Artifactory.Index.GetLocalPubRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-pub-repo",
         ///     });

@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_terraform = Artifactory.GetVirtualTerraformRepository.Invoke(new()
+        ///     var virtual_terraform = Artifactory.Index.GetVirtualTerraformRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-terraform",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_terraform = Artifactory.GetVirtualTerraformRepository.Invoke(new()
+        ///     var virtual_terraform = Artifactory.Index.GetVirtualTerraformRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-terraform",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_terraform = Artifactory.GetVirtualTerraformRepository.Invoke(new()
+        ///     var virtual_terraform = Artifactory.Index.GetVirtualTerraformRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-terraform",
         ///     });

@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_ansible_repo_basic = Artifactory.GetLocalAnsibleRepository.Invoke(new()
+        ///     var local_test_ansible_repo_basic = Artifactory.Index.GetLocalAnsibleRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-ansible-repo-basic",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_ansible_repo_basic = Artifactory.GetLocalAnsibleRepository.Invoke(new()
+        ///     var local_test_ansible_repo_basic = Artifactory.Index.GetLocalAnsibleRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-ansible-repo-basic",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_ansible_repo_basic = Artifactory.GetLocalAnsibleRepository.Invoke(new()
+        ///     var local_test_ansible_repo_basic = Artifactory.Index.GetLocalAnsibleRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-ansible-repo-basic",
         ///     });

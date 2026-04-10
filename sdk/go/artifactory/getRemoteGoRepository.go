@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteGoRepository(ctx, &artifactory.LookupRemoteGoRepositoryArgs{
+//			_, err := artifactory.GetRemoteGoRepository(ctx, &artifactory.LookupRemoteGoRepositoryArgs{
 //				Key: "remote-go",
 //			}, nil)
 //			if err != nil {

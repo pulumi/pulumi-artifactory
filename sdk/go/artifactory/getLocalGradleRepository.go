@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupLocalGradleRepository(ctx, &artifactory.LookupLocalGradleRepositoryArgs{
+//			_, err := artifactory.GetLocalGradleRepository(ctx, &artifactory.LookupLocalGradleRepositoryArgs{
 //				Key: "local-test-gradle-repo-basic",
 //			}, nil)
 //			if err != nil {

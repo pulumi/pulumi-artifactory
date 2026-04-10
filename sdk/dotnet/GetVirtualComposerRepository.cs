@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_composer = Artifactory.GetVirtualComposerRepository.Invoke(new()
+        ///     var virtual_composer = Artifactory.Index.GetVirtualComposerRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-composer",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_composer = Artifactory.GetVirtualComposerRepository.Invoke(new()
+        ///     var virtual_composer = Artifactory.Index.GetVirtualComposerRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-composer",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_composer = Artifactory.GetVirtualComposerRepository.Invoke(new()
+        ///     var virtual_composer = Artifactory.Index.GetVirtualComposerRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-composer",
         ///     });

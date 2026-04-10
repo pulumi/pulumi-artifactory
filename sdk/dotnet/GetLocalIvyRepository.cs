@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_ivy_repo = Artifactory.GetLocalIvyRepository.Invoke(new()
+        ///     var local_test_ivy_repo = Artifactory.Index.GetLocalIvyRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-ivy-repo",
         ///     });
@@ -66,7 +66,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_ivy_repo = Artifactory.GetLocalIvyRepository.Invoke(new()
+        ///     var local_test_ivy_repo = Artifactory.Index.GetLocalIvyRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-ivy-repo",
         ///     });
@@ -108,7 +108,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_ivy_repo = Artifactory.GetLocalIvyRepository.Invoke(new()
+        ///     var local_test_ivy_repo = Artifactory.Index.GetLocalIvyRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-ivy-repo",
         ///     });

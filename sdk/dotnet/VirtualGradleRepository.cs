@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo_gradle = new Artifactory.VirtualGradleRepository("foo-gradle", new()
+    ///     var foo_gradle = new Artifactory.Index.VirtualGradleRepository("foo-gradle", new()
     ///     {
     ///         Key = "foo-gradle",
     ///         Repositories = new[] {},

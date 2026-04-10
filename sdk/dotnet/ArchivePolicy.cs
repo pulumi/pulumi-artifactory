@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_archive_policy = new Artifactory.ArchivePolicy("my-archive-policy", new()
+    ///     var my_archive_policy = new Artifactory.Index.ArchivePolicy("my-archive-policy", new()
     ///     {
     ///         Key = "my-archive-policy",
     ///         Description = "My archive policy",
@@ -70,7 +70,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_version_policy = new Artifactory.ArchivePolicy("my-version-policy", new()
+    ///     var my_version_policy = new Artifactory.Index.ArchivePolicy("my-version-policy", new()
     ///     {
     ///         Key = "my-version-policy",
     ///         Description = "Keep only latest versions",
@@ -115,7 +115,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_properties_policy = new Artifactory.ArchivePolicy("my-properties-policy", new()
+    ///     var my_properties_policy = new Artifactory.Index.ArchivePolicy("my-properties-policy", new()
     ///     {
     ///         Key = "my-properties-policy",
     ///         Description = "Archive based on properties",
@@ -173,7 +173,7 @@ namespace Pulumi.Artifactory
     ///     var config = new Config();
     ///     var archivePolicyLastDownloadedBeforeInDays = config.GetDouble("archivePolicyLastDownloadedBeforeInDays") ?? 30;
     ///     var archivePolicyDurationInMinutes = config.GetDouble("archivePolicyDurationInMinutes") ?? 60;
-    ///     var my_archive_policy = new Artifactory.ArchivePolicy("my-archive-policy", new()
+    ///     var my_archive_policy = new Artifactory.Index.ArchivePolicy("my-archive-policy", new()
     ///     {
     ///         Key = "my-archive-policy",
     ///         Description = "My archive policy with variables",

@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteHexRepository(ctx, &artifactory.LookupRemoteHexRepositoryArgs{
+//			_, err := artifactory.GetRemoteHexRepository(ctx, &artifactory.LookupRemoteHexRepositoryArgs{
 //				Key: "remote-hex",
 //			}, nil)
 //			if err != nil {

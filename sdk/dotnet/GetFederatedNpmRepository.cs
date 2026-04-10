@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_npm_repo = Artifactory.GetFederatedNpmRepository.Invoke(new()
+        ///     var federated_test_npm_repo = Artifactory.Index.GetFederatedNpmRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-npm-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_npm_repo = Artifactory.GetFederatedNpmRepository.Invoke(new()
+        ///     var federated_test_npm_repo = Artifactory.Index.GetFederatedNpmRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-npm-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_npm_repo = Artifactory.GetFederatedNpmRepository.Invoke(new()
+        ///     var federated_test_npm_repo = Artifactory.Index.GetFederatedNpmRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-npm-repo",
         ///     });

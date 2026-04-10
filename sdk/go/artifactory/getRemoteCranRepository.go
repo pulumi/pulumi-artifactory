@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteCranRepository(ctx, &artifactory.LookupRemoteCranRepositoryArgs{
+//			_, err := artifactory.GetRemoteCranRepository(ctx, &artifactory.LookupRemoteCranRepositoryArgs{
 //				Key: "remote-cran",
 //			}, nil)
 //			if err != nil {

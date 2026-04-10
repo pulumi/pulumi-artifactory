@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_generic = Artifactory.GetVirtualGenericRepository.Invoke(new()
+        ///     var virtual_generic = Artifactory.Index.GetVirtualGenericRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-generic",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_generic = Artifactory.GetVirtualGenericRepository.Invoke(new()
+        ///     var virtual_generic = Artifactory.Index.GetVirtualGenericRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-generic",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_generic = Artifactory.GetVirtualGenericRepository.Invoke(new()
+        ///     var virtual_generic = Artifactory.Index.GetVirtualGenericRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-generic",
         ///     });

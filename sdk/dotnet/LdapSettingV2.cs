@@ -29,7 +29,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ldapName = new Artifactory.LdapSettingV2("ldap_name", new()
+    ///     var ldapName = new Artifactory.Index.LdapSettingV2("ldap_name", new()
     ///     {
     ///         Key = "ldap_name",
     ///         Enabled = true,

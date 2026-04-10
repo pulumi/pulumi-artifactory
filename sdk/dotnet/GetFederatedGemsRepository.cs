@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_gems_repo = Artifactory.GetFederatedGemsRepository.Invoke(new()
+        ///     var federated_test_gems_repo = Artifactory.Index.GetFederatedGemsRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-gems-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_gems_repo = Artifactory.GetFederatedGemsRepository.Invoke(new()
+        ///     var federated_test_gems_repo = Artifactory.Index.GetFederatedGemsRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-gems-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_gems_repo = Artifactory.GetFederatedGemsRepository.Invoke(new()
+        ///     var federated_test_gems_repo = Artifactory.Index.GetFederatedGemsRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-gems-repo",
         ///     });

@@ -30,14 +30,14 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     //## Create a new Artifactory scoped token for an existing user
-    ///     var scopedToken = new Artifactory.ScopedToken("scoped_token", new()
+    ///     var scopedToken = new Artifactory.Index.ScopedToken("scoped_token", new()
     ///     {
     ///         Username = "existing-user",
     ///     });
     /// 
     ///     //## **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
     ///     //## Create a new Artifactory user and scoped token
-    ///     var newUser = new Artifactory.User("new_user", new()
+    ///     var newUser = new Artifactory.Index.User("new_user", new()
     ///     {
     ///         Name = "new_user",
     ///         Email = "new_user@somewhere.com",
@@ -47,13 +47,13 @@ namespace Pulumi.Artifactory
     ///         },
     ///     });
     /// 
-    ///     var scopedTokenUser = new Artifactory.ScopedToken("scoped_token_user", new()
+    ///     var scopedTokenUser = new Artifactory.Index.ScopedToken("scoped_token_user", new()
     ///     {
     ///         Username = newUser.Name,
     ///     });
     /// 
     ///     //## Creates a new token for groups
-    ///     var scopedTokenGroup = new Artifactory.ScopedToken("scoped_token_group", new()
+    ///     var scopedTokenGroup = new Artifactory.Index.ScopedToken("scoped_token_group", new()
     ///     {
     ///         Scopes = new[]
     ///         {
@@ -62,21 +62,21 @@ namespace Pulumi.Artifactory
     ///     });
     /// 
     ///     //## Create token with expiry
-    ///     var scopedTokenNoExpiry = new Artifactory.ScopedToken("scoped_token_no_expiry", new()
+    ///     var scopedTokenNoExpiry = new Artifactory.Index.ScopedToken("scoped_token_no_expiry", new()
     ///     {
     ///         Username = "existing-user",
     ///         ExpiresIn = 7200,
     ///     });
     /// 
     ///     //## Creates a refreshable token
-    ///     var scopedTokenRefreshable = new Artifactory.ScopedToken("scoped_token_refreshable", new()
+    ///     var scopedTokenRefreshable = new Artifactory.Index.ScopedToken("scoped_token_refreshable", new()
     ///     {
     ///         Username = "existing-user",
     ///         Refreshable = true,
     ///     });
     /// 
     ///     //## Creates an administrator token
-    ///     var admin = new Artifactory.ScopedToken("admin", new()
+    ///     var admin = new Artifactory.Index.ScopedToken("admin", new()
     ///     {
     ///         Username = "admin-user",
     ///         Scopes = new[]
@@ -86,7 +86,7 @@ namespace Pulumi.Artifactory
     ///     });
     /// 
     ///     //## Creates a token with an audience
-    ///     var audience = new Artifactory.ScopedToken("audience", new()
+    ///     var audience = new Artifactory.Index.ScopedToken("audience", new()
     ///     {
     ///         Username = "admin-user",
     ///         Scopes = new[]

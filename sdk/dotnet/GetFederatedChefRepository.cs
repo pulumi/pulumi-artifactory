@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_chef_repo = Artifactory.GetFederatedChefRepository.Invoke(new()
+        ///     var federated_test_chef_repo = Artifactory.Index.GetFederatedChefRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-chef-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_chef_repo = Artifactory.GetFederatedChefRepository.Invoke(new()
+        ///     var federated_test_chef_repo = Artifactory.Index.GetFederatedChefRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-chef-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_chef_repo = Artifactory.GetFederatedChefRepository.Invoke(new()
+        ///     var federated_test_chef_repo = Artifactory.Index.GetFederatedChefRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-chef-repo",
         ///     });

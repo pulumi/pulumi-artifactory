@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteDebianRepository(ctx, &artifactory.LookupRemoteDebianRepositoryArgs{
+//			_, err := artifactory.GetRemoteDebianRepository(ctx, &artifactory.LookupRemoteDebianRepositoryArgs{
 //				Key: "remote-debian",
 //			}, nil)
 //			if err != nil {

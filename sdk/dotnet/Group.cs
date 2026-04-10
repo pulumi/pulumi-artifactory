@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test_group = new Artifactory.Group("test-group", new()
+    ///     var test_group = new Artifactory.Index.Group("test-group", new()
     ///     {
     ///         Name = "terraform",
     ///         Description = "test group",

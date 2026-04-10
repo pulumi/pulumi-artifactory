@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_gradle = Artifactory.GetRemoteGradleRepository.Invoke(new()
+        ///     var remote_gradle = Artifactory.Index.GetRemoteGradleRepository.Invoke(new()
         ///     {
         ///         Key = "remote-gradle",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_gradle = Artifactory.GetRemoteGradleRepository.Invoke(new()
+        ///     var remote_gradle = Artifactory.Index.GetRemoteGradleRepository.Invoke(new()
         ///     {
         ///         Key = "remote-gradle",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_gradle = Artifactory.GetRemoteGradleRepository.Invoke(new()
+        ///     var remote_gradle = Artifactory.Index.GetRemoteGradleRepository.Invoke(new()
         ///     {
         ///         Key = "remote-gradle",
         ///     });

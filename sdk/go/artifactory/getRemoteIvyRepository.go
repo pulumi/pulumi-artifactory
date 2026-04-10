@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteIvyRepository(ctx, &artifactory.LookupRemoteIvyRepositoryArgs{
+//			_, err := artifactory.GetRemoteIvyRepository(ctx, &artifactory.LookupRemoteIvyRepositoryArgs{
 //				Key: "remote-ivy",
 //			}, nil)
 //			if err != nil {

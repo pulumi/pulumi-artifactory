@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupLocalAnsibleRepository(ctx, &artifactory.LookupLocalAnsibleRepositoryArgs{
+//			_, err := artifactory.GetLocalAnsibleRepository(ctx, &artifactory.LookupLocalAnsibleRepositoryArgs{
 //				Key: "local-test-ansible-repo-basic",
 //			}, nil)
 //			if err != nil {

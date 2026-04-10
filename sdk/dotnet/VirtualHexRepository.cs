@@ -25,39 +25,39 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var some_keypairRSA = new Artifactory.Keypair("some-keypairRSA", new()
+    ///     var some_keypairRSA = new Artifactory.Index.Keypair("some-keypairRSA", new()
     ///     {
     ///         PairName = $"some-keypair{randid.Id}",
     ///         PairType = "RSA",
     ///         Alias = "foo-alias",
-    ///         PrivateKey = Std.File.Invoke(new()
+    ///         PrivateKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/rsa.priv",
     ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         PublicKey = Std.File.Invoke(new()
+    ///         PublicKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/rsa.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
-    ///     var local_hex = new Artifactory.LocalHexRepository("local-hex", new()
+    ///     var local_hex = new Artifactory.Index.LocalHexRepository("local-hex", new()
     ///     {
     ///         Key = "local-hex",
     ///         HexPrimaryKeypairRef = some_keypairRSA.PairName,
     ///     });
     /// 
-    ///     var remote_hex = new Artifactory.RemoteHexRepository("remote-hex", new()
+    ///     var remote_hex = new Artifactory.Index.RemoteHexRepository("remote-hex", new()
     ///     {
     ///         Key = "remote-hex",
     ///         Url = "https://repo.hex.pm",
     ///         HexPrimaryKeypairRef = some_keypairRSA.PairName,
-    ///         PublicKey = Std.File.Invoke(new()
+    ///         PublicKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/rsa.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
-    ///     var my_virtual_hex = new Artifactory.VirtualHexRepository("my-virtual-hex", new()
+    ///     var my_virtual_hex = new Artifactory.Index.VirtualHexRepository("my-virtual-hex", new()
     ///     {
     ///         Key = "my-virtual-hex",
     ///         HexPrimaryKeypairRef = some_keypairRSA.PairName,

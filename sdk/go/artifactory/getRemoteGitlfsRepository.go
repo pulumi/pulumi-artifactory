@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteGitlfsRepository(ctx, &artifactory.LookupRemoteGitlfsRepositoryArgs{
+//			_, err := artifactory.GetRemoteGitlfsRepository(ctx, &artifactory.LookupRemoteGitlfsRepositoryArgs{
 //				Key: "remote-gitlfs",
 //			}, nil)
 //			if err != nil {

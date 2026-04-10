@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_chef_repo = Artifactory.GetLocalChefRepository.Invoke(new()
+        ///     var local_test_chef_repo = Artifactory.Index.GetLocalChefRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-chef-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_chef_repo = Artifactory.GetLocalChefRepository.Invoke(new()
+        ///     var local_test_chef_repo = Artifactory.Index.GetLocalChefRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-chef-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_chef_repo = Artifactory.GetLocalChefRepository.Invoke(new()
+        ///     var local_test_chef_repo = Artifactory.Index.GetLocalChefRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-chef-repo",
         ///     });

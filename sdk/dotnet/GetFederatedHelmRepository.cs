@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_helm_repo = Artifactory.GetFederatedHelmRepository.Invoke(new()
+        ///     var federated_test_helm_repo = Artifactory.Index.GetFederatedHelmRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-helm-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_helm_repo = Artifactory.GetFederatedHelmRepository.Invoke(new()
+        ///     var federated_test_helm_repo = Artifactory.Index.GetFederatedHelmRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-helm-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_helm_repo = Artifactory.GetFederatedHelmRepository.Invoke(new()
+        ///     var federated_test_helm_repo = Artifactory.Index.GetFederatedHelmRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-helm-repo",
         ///     });

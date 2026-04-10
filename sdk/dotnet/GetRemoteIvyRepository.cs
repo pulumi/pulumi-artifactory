@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_ivy = Artifactory.GetRemoteIvyRepository.Invoke(new()
+        ///     var remote_ivy = Artifactory.Index.GetRemoteIvyRepository.Invoke(new()
         ///     {
         ///         Key = "remote-ivy",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_ivy = Artifactory.GetRemoteIvyRepository.Invoke(new()
+        ///     var remote_ivy = Artifactory.Index.GetRemoteIvyRepository.Invoke(new()
         ///     {
         ///         Key = "remote-ivy",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_ivy = Artifactory.GetRemoteIvyRepository.Invoke(new()
+        ///     var remote_ivy = Artifactory.Index.GetRemoteIvyRepository.Invoke(new()
         ///     {
         ///         Key = "remote-ivy",
         ///     });

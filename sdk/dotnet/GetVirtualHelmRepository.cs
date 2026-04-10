@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_helm = Artifactory.GetVirtualHelmRepository.Invoke(new()
+        ///     var virtual_helm = Artifactory.Index.GetVirtualHelmRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-helm",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_helm = Artifactory.GetVirtualHelmRepository.Invoke(new()
+        ///     var virtual_helm = Artifactory.Index.GetVirtualHelmRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-helm",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_helm = Artifactory.GetVirtualHelmRepository.Invoke(new()
+        ///     var virtual_helm = Artifactory.Index.GetVirtualHelmRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-helm",
         ///     });

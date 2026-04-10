@@ -23,22 +23,22 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var some_keypair_RSA = new Artifactory.Keypair("some-keypair-RSA", new()
+    ///     var some_keypair_RSA = new Artifactory.Index.Keypair("some-keypair-RSA", new()
     ///     {
     ///         PairName = "some-keypair",
     ///         PairType = "RSA",
     ///         Alias = "foo-alias",
-    ///         PrivateKey = Std.File.Invoke(new()
+    ///         PrivateKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/rsa.priv",
     ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         PublicKey = Std.File.Invoke(new()
+    ///         PublicKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/rsa.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
-    ///     var test_ansible_local_repo = new Artifactory.LocalAnsibleRepository("test-ansible-local-repo", new()
+    ///     var test_ansible_local_repo = new Artifactory.Index.LocalAnsibleRepository("test-ansible-local-repo", new()
     ///     {
     ///         Key = "test-ansible-local-repo",
     ///         PrimaryKeypairRef = some_keypair_RSA.PairName,

@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_gitlfs_repo = Artifactory.GetFederatedGitlfsRepository.Invoke(new()
+        ///     var federated_test_gitlfs_repo = Artifactory.Index.GetFederatedGitlfsRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-gitlfs-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_gitlfs_repo = Artifactory.GetFederatedGitlfsRepository.Invoke(new()
+        ///     var federated_test_gitlfs_repo = Artifactory.Index.GetFederatedGitlfsRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-gitlfs-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_gitlfs_repo = Artifactory.GetFederatedGitlfsRepository.Invoke(new()
+        ///     var federated_test_gitlfs_repo = Artifactory.Index.GetFederatedGitlfsRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-gitlfs-repo",
         ///     });

@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_huggingfaceml_federated = new Artifactory.FederatedHuggingfacemlRepository("my-huggingfaceml-federated", new()
+    ///     var my_huggingfaceml_federated = new Artifactory.Index.FederatedHuggingfacemlRepository("my-huggingfaceml-federated", new()
     ///     {
     ///         Key = "my-huggingfaceml-federated",
     ///         Members = new[]

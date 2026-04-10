@@ -28,7 +28,7 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Configure Artifactory LDAP setting
-    ///     var ldapGroupName = new Artifactory.LdapGroupSetting("ldap_group_name", new()
+    ///     var ldapGroupName = new Artifactory.Index.LdapGroupSetting("ldap_group_name", new()
     ///     {
     ///         Name = "ldap_group_name",
     ///         LdapSettingKey = "ldap_name",

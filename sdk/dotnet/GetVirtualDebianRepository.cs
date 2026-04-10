@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_debian = Artifactory.GetVirtualDebianRepository.Invoke(new()
+        ///     var virtual_debian = Artifactory.Index.GetVirtualDebianRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-debian",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_debian = Artifactory.GetVirtualDebianRepository.Invoke(new()
+        ///     var virtual_debian = Artifactory.Index.GetVirtualDebianRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-debian",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_debian = Artifactory.GetVirtualDebianRepository.Invoke(new()
+        ///     var virtual_debian = Artifactory.Index.GetVirtualDebianRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-debian",
         ///     });

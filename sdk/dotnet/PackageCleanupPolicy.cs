@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_cleanup_policy = new Artifactory.PackageCleanupPolicy("my-cleanup-policy", new()
+    ///     var my_cleanup_policy = new Artifactory.Index.PackageCleanupPolicy("my-cleanup-policy", new()
     ///     {
     ///         Key = "my-cleanup-policy",
     ///         Description = "My cleanup policy",
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_version_policy = new Artifactory.PackageCleanupPolicy("my-version-policy", new()
+    ///     var my_version_policy = new Artifactory.Index.PackageCleanupPolicy("my-version-policy", new()
     ///     {
     ///         Key = "my-version-policy",
     ///         Description = "Keep only latest versions",
@@ -117,7 +117,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_properties_policy = new Artifactory.PackageCleanupPolicy("my-properties-policy", new()
+    ///     var my_properties_policy = new Artifactory.Index.PackageCleanupPolicy("my-properties-policy", new()
     ///     {
     ///         Key = "my-properties-policy",
     ///         Description = "Cleanup based on properties",
@@ -175,7 +175,7 @@ namespace Pulumi.Artifactory
     ///     var config = new Config();
     ///     var cleanupPolicyLastDownloadedBeforeInDays = config.GetDouble("cleanupPolicyLastDownloadedBeforeInDays") ?? 60;
     ///     var cleanupPolicyDurationInMinutes = config.GetDouble("cleanupPolicyDurationInMinutes") ?? 120;
-    ///     var my_cleanup_policy = new Artifactory.PackageCleanupPolicy("my-cleanup-policy", new()
+    ///     var my_cleanup_policy = new Artifactory.Index.PackageCleanupPolicy("my-cleanup-policy", new()
     ///     {
     ///         Key = "my-cleanup-policy",
     ///         Description = "My cleanup policy with variables",

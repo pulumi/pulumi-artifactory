@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_federated_test_gradle_repo = new Artifactory.FederatedGradleRepository("terraform-federated-test-gradle-repo", new()
+    ///     var terraform_federated_test_gradle_repo = new Artifactory.Index.FederatedGradleRepository("terraform-federated-test-gradle-repo", new()
     ///     {
     ///         Key = "terraform-federated-test-gradle-repo",
     ///         Members = new[]

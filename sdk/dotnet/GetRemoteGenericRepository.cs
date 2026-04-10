@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_generic = Artifactory.GetRemoteGenericRepository.Invoke(new()
+        ///     var remote_generic = Artifactory.Index.GetRemoteGenericRepository.Invoke(new()
         ///     {
         ///         Key = "remote-generic",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_generic = Artifactory.GetRemoteGenericRepository.Invoke(new()
+        ///     var remote_generic = Artifactory.Index.GetRemoteGenericRepository.Invoke(new()
         ///     {
         ///         Key = "remote-generic",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_generic = Artifactory.GetRemoteGenericRepository.Invoke(new()
+        ///     var remote_generic = Artifactory.Index.GetRemoteGenericRepository.Invoke(new()
         ///     {
         ///         Key = "remote-generic",
         ///     });

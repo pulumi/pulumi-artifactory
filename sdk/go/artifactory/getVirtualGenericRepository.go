@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualGenericRepository(ctx, &artifactory.LookupVirtualGenericRepositoryArgs{
+//			_, err := artifactory.GetVirtualGenericRepository(ctx, &artifactory.LookupVirtualGenericRepositoryArgs{
 //				Key: "virtual-generic",
 //			}, nil)
 //			if err != nil {

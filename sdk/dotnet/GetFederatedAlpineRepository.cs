@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_alpine_repo = Artifactory.GetFederatedAlpineRepository.Invoke(new()
+        ///     var federated_test_alpine_repo = Artifactory.Index.GetFederatedAlpineRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-alpine-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_alpine_repo = Artifactory.GetFederatedAlpineRepository.Invoke(new()
+        ///     var federated_test_alpine_repo = Artifactory.Index.GetFederatedAlpineRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-alpine-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_alpine_repo = Artifactory.GetFederatedAlpineRepository.Invoke(new()
+        ///     var federated_test_alpine_repo = Artifactory.Index.GetFederatedAlpineRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-alpine-repo",
         ///     });

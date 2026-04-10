@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteRpmRepository(ctx, &artifactory.LookupRemoteRpmRepositoryArgs{
+//			_, err := artifactory.GetRemoteRpmRepository(ctx, &artifactory.LookupRemoteRpmRepositoryArgs{
 //				Key: "remote-rpm",
 //			}, nil)
 //			if err != nil {

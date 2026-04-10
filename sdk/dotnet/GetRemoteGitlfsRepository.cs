@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_gitlfs = Artifactory.GetRemoteGitlfsRepository.Invoke(new()
+        ///     var remote_gitlfs = Artifactory.Index.GetRemoteGitlfsRepository.Invoke(new()
         ///     {
         ///         Key = "remote-gitlfs",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_gitlfs = Artifactory.GetRemoteGitlfsRepository.Invoke(new()
+        ///     var remote_gitlfs = Artifactory.Index.GetRemoteGitlfsRepository.Invoke(new()
         ///     {
         ///         Key = "remote-gitlfs",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_gitlfs = Artifactory.GetRemoteGitlfsRepository.Invoke(new()
+        ///     var remote_gitlfs = Artifactory.Index.GetRemoteGitlfsRepository.Invoke(new()
         ///     {
         ///         Key = "remote-gitlfs",
         ///     });

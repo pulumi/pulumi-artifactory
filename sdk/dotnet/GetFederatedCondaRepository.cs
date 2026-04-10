@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_conda_repo = Artifactory.GetFederatedCondaRepository.Invoke(new()
+        ///     var federated_test_conda_repo = Artifactory.Index.GetFederatedCondaRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-conda-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_conda_repo = Artifactory.GetFederatedCondaRepository.Invoke(new()
+        ///     var federated_test_conda_repo = Artifactory.Index.GetFederatedCondaRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-conda-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_conda_repo = Artifactory.GetFederatedCondaRepository.Invoke(new()
+        ///     var federated_test_conda_repo = Artifactory.Index.GetFederatedCondaRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-conda-repo",
         ///     });

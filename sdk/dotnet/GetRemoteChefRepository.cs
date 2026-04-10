@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_chef = Artifactory.GetRemoteChefRepository.Invoke(new()
+        ///     var remote_chef = Artifactory.Index.GetRemoteChefRepository.Invoke(new()
         ///     {
         ///         Key = "remote-chef",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_chef = Artifactory.GetRemoteChefRepository.Invoke(new()
+        ///     var remote_chef = Artifactory.Index.GetRemoteChefRepository.Invoke(new()
         ///     {
         ///         Key = "remote-chef",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_chef = Artifactory.GetRemoteChefRepository.Invoke(new()
+        ///     var remote_chef = Artifactory.Index.GetRemoteChefRepository.Invoke(new()
         ///     {
         ///         Key = "remote-chef",
         ///     });

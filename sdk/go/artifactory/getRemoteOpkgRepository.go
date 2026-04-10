@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteOpkgRepository(ctx, &artifactory.LookupRemoteOpkgRepositoryArgs{
+//			_, err := artifactory.GetRemoteOpkgRepository(ctx, &artifactory.LookupRemoteOpkgRepositoryArgs{
 //				Key: "remote-opkg",
 //			}, nil)
 //			if err != nil {

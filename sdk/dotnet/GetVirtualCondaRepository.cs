@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_conda = Artifactory.GetVirtualCondaRepository.Invoke(new()
+        ///     var virtual_conda = Artifactory.Index.GetVirtualCondaRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-conda",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_conda = Artifactory.GetVirtualCondaRepository.Invoke(new()
+        ///     var virtual_conda = Artifactory.Index.GetVirtualCondaRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-conda",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_conda = Artifactory.GetVirtualCondaRepository.Invoke(new()
+        ///     var virtual_conda = Artifactory.Index.GetVirtualCondaRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-conda",
         ///     });

@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_gradle_repo = Artifactory.GetFederatedGradleRepository.Invoke(new()
+        ///     var federated_test_gradle_repo = Artifactory.Index.GetFederatedGradleRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-gradle-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_gradle_repo = Artifactory.GetFederatedGradleRepository.Invoke(new()
+        ///     var federated_test_gradle_repo = Artifactory.Index.GetFederatedGradleRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-gradle-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_gradle_repo = Artifactory.GetFederatedGradleRepository.Invoke(new()
+        ///     var federated_test_gradle_repo = Artifactory.Index.GetFederatedGradleRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-gradle-repo",
         ///     });

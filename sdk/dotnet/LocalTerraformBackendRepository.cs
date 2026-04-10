@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_local_test_terraformbackend_repo = new Artifactory.LocalTerraformBackendRepository("terraform-local-test-terraformbackend-repo", new()
+    ///     var terraform_local_test_terraformbackend_repo = new Artifactory.Index.LocalTerraformBackendRepository("terraform-local-test-terraformbackend-repo", new()
     ///     {
     ///         Key = "terraform-local-test-terraformbackend-repo",
     ///     });

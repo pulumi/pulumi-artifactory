@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_composer_repo = Artifactory.GetLocalComposerRepository.Invoke(new()
+        ///     var local_test_composer_repo = Artifactory.Index.GetLocalComposerRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-composer-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_composer_repo = Artifactory.GetLocalComposerRepository.Invoke(new()
+        ///     var local_test_composer_repo = Artifactory.Index.GetLocalComposerRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-composer-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_composer_repo = Artifactory.GetLocalComposerRepository.Invoke(new()
+        ///     var local_test_composer_repo = Artifactory.Index.GetLocalComposerRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-composer-repo",
         ///     });

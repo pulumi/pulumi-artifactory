@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_puppet = Artifactory.GetVirtualPuppetRepository.Invoke(new()
+        ///     var virtual_puppet = Artifactory.Index.GetVirtualPuppetRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-puppet",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_puppet = Artifactory.GetVirtualPuppetRepository.Invoke(new()
+        ///     var virtual_puppet = Artifactory.Index.GetVirtualPuppetRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-puppet",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_puppet = Artifactory.GetVirtualPuppetRepository.Invoke(new()
+        ///     var virtual_puppet = Artifactory.Index.GetVirtualPuppetRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-puppet",
         ///     });

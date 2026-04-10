@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_oci_remote = new Artifactory.RemoteOciRepository("my-oci-remote", new()
+    ///     var my_oci_remote = new Artifactory.Index.RemoteOciRepository("my-oci-remote", new()
     ///     {
     ///         Key = "my-oci-remote",
     ///         Url = "https://registry-1.docker.io/",

@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_gems_repo = Artifactory.GetLocalGemsRepository.Invoke(new()
+        ///     var local_test_gems_repo = Artifactory.Index.GetLocalGemsRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-gems-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_gems_repo = Artifactory.GetLocalGemsRepository.Invoke(new()
+        ///     var local_test_gems_repo = Artifactory.Index.GetLocalGemsRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-gems-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_gems_repo = Artifactory.GetLocalGemsRepository.Invoke(new()
+        ///     var local_test_gems_repo = Artifactory.Index.GetLocalGemsRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-gems-repo",
         ///     });

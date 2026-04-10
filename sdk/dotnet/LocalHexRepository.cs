@@ -23,22 +23,22 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var some_keypairRSA = new Artifactory.Keypair("some-keypairRSA", new()
+    ///     var some_keypairRSA = new Artifactory.Index.Keypair("some-keypairRSA", new()
     ///     {
     ///         PairName = $"some-keypair{randid.Id}",
     ///         PairType = "RSA",
     ///         Alias = "foo-alias",
-    ///         PrivateKey = Std.File.Invoke(new()
+    ///         PrivateKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/rsa.priv",
     ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         PublicKey = Std.File.Invoke(new()
+    ///         PublicKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/rsa.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
-    ///     var my_hex_repo = new Artifactory.LocalHexRepository("my-hex-repo", new()
+    ///     var my_hex_repo = new Artifactory.Index.LocalHexRepository("my-hex-repo", new()
     ///     {
     ///         Key = "my-hex-repo",
     ///         HexPrimaryKeypairRef = some_keypairRSA.PairName,

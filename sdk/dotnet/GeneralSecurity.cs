@@ -27,7 +27,7 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Configure Artifactory general security settings
-    ///     var security = new Artifactory.GeneralSecurity("security", new()
+    ///     var security = new Artifactory.Index.GeneralSecurity("security", new()
     ///     {
     ///         EnableAnonymousAccess = false,
     ///         EncryptionPolicy = "REQUIRED",
@@ -45,7 +45,7 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Enable anonymous access with supported encryption
-    ///     var security = new Artifactory.GeneralSecurity("security", new()
+    ///     var security = new Artifactory.Index.GeneralSecurity("security", new()
     ///     {
     ///         EnableAnonymousAccess = true,
     ///         EncryptionPolicy = "SUPPORTED",
@@ -63,7 +63,7 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Disable encryption policy (clear-text only)
-    ///     var security = new Artifactory.GeneralSecurity("security", new()
+    ///     var security = new Artifactory.Index.GeneralSecurity("security", new()
     ///     {
     ///         EnableAnonymousAccess = false,
     ///         EncryptionPolicy = "UNSUPPORTED",

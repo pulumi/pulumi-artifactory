@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_p2 = Artifactory.GetVirtualP2Repository.Invoke(new()
+        ///     var virtual_p2 = Artifactory.Index.GetVirtualP2Repository.Invoke(new()
         ///     {
         ///         Key = "virtual-p2",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_p2 = Artifactory.GetVirtualP2Repository.Invoke(new()
+        ///     var virtual_p2 = Artifactory.Index.GetVirtualP2Repository.Invoke(new()
         ///     {
         ///         Key = "virtual-p2",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_p2 = Artifactory.GetVirtualP2Repository.Invoke(new()
+        ///     var virtual_p2 = Artifactory.Index.GetVirtualP2Repository.Invoke(new()
         ///     {
         ///         Key = "virtual-p2",
         ///     });

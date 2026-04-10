@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_cocoapods_repo = Artifactory.GetFederatedCocoapodsRepository.Invoke(new()
+        ///     var federated_test_cocoapods_repo = Artifactory.Index.GetFederatedCocoapodsRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-cocoapods-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_cocoapods_repo = Artifactory.GetFederatedCocoapodsRepository.Invoke(new()
+        ///     var federated_test_cocoapods_repo = Artifactory.Index.GetFederatedCocoapodsRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-cocoapods-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_cocoapods_repo = Artifactory.GetFederatedCocoapodsRepository.Invoke(new()
+        ///     var federated_test_cocoapods_repo = Artifactory.Index.GetFederatedCocoapodsRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-cocoapods-repo",
         ///     });

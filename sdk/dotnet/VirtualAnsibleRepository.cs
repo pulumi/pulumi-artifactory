@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_ansible_virtual = new Artifactory.VirtualAnsibleRepository("my-ansible-virtual", new()
+    ///     var my_ansible_virtual = new Artifactory.Index.VirtualAnsibleRepository("my-ansible-virtual", new()
     ///     {
     ///         Key = "my-ansible-virtual",
     ///         Repositories = new[] {},

@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var release_bundle_v2_promotion_custom_webhook = new Artifactory.ReleaseBundleV2PromotionCustomWebhook("release-bundle-v2-promotion-custom-webhook", new()
+    ///     var release_bundle_v2_promotion_custom_webhook = new Artifactory.Index.ReleaseBundleV2PromotionCustomWebhook("release-bundle-v2-promotion-custom-webhook", new()
     ///     {
     ///         Key = "release-bundle-custom-webhook",
     ///         EventTypes = new[]

@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualDebianRepository(ctx, &artifactory.LookupVirtualDebianRepositoryArgs{
+//			_, err := artifactory.GetVirtualDebianRepository(ctx, &artifactory.LookupVirtualDebianRepositoryArgs{
 //				Key: "virtual-debian",
 //			}, nil)
 //			if err != nil {

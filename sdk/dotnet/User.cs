@@ -29,7 +29,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test_user = new Artifactory.User("test-user", new()
+    ///     var test_user = new Artifactory.Index.User("test-user", new()
     ///     {
     ///         Name = "terraform",
     ///         Password = "my super secret password",

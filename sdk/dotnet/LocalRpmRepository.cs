@@ -23,37 +23,37 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var some_keypair_gpg_1 = new Artifactory.Keypair("some-keypair-gpg-1", new()
+    ///     var some_keypair_gpg_1 = new Artifactory.Index.Keypair("some-keypair-gpg-1", new()
     ///     {
     ///         PairName = $"some-keypair{randid.Id}",
     ///         PairType = "GPG",
     ///         Alias = "foo-alias1",
-    ///         PrivateKey = Std.File.Invoke(new()
+    ///         PrivateKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/gpg.priv",
     ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         PublicKey = Std.File.Invoke(new()
+    ///         PublicKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/gpg.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
-    ///     var some_keypair_gpg_2 = new Artifactory.Keypair("some-keypair-gpg-2", new()
+    ///     var some_keypair_gpg_2 = new Artifactory.Index.Keypair("some-keypair-gpg-2", new()
     ///     {
     ///         PairName = $"some-keypair{randid.Id}",
     ///         PairType = "GPG",
     ///         Alias = "foo-alias2",
-    ///         PrivateKey = Std.File.Invoke(new()
+    ///         PrivateKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/gpg.priv",
     ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         PublicKey = Std.File.Invoke(new()
+    ///         PublicKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/gpg.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
-    ///     var terraform_local_test_rpm_repo_basic = new Artifactory.LocalRpmRepository("terraform-local-test-rpm-repo-basic", new()
+    ///     var terraform_local_test_rpm_repo_basic = new Artifactory.Index.LocalRpmRepository("terraform-local-test-rpm-repo-basic", new()
     ///     {
     ///         Key = "terraform-local-test-rpm-repo-basic",
     ///         YumRootDepth = 5,

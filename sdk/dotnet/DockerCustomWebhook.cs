@@ -22,12 +22,12 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_docker_local = new Artifactory.DockerV2Repository("my-docker-local", new()
+    ///     var my_docker_local = new Artifactory.Index.DockerV2Repository("my-docker-local", new()
     ///     {
     ///         Key = "my-docker-local",
     ///     });
     /// 
-    ///     var docker_custom_webhook = new Artifactory.DockerCustomWebhook("docker-custom-webhook", new()
+    ///     var docker_custom_webhook = new Artifactory.Index.DockerCustomWebhook("docker-custom-webhook", new()
     ///     {
     ///         Key = "docker-custom_webhook",
     ///         EventTypes = new[]

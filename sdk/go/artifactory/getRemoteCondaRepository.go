@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteCondaRepository(ctx, &artifactory.LookupRemoteCondaRepositoryArgs{
+//			_, err := artifactory.GetRemoteCondaRepository(ctx, &artifactory.LookupRemoteCondaRepositoryArgs{
 //				Key: "remote-conda",
 //			}, nil)
 //			if err != nil {

@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_vcs = Artifactory.GetRemoteVcsRepository.Invoke(new()
+        ///     var remote_vcs = Artifactory.Index.GetRemoteVcsRepository.Invoke(new()
         ///     {
         ///         Key = "remote-vcs",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_vcs = Artifactory.GetRemoteVcsRepository.Invoke(new()
+        ///     var remote_vcs = Artifactory.Index.GetRemoteVcsRepository.Invoke(new()
         ///     {
         ///         Key = "remote-vcs",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_vcs = Artifactory.GetRemoteVcsRepository.Invoke(new()
+        ///     var remote_vcs = Artifactory.Index.GetRemoteVcsRepository.Invoke(new()
         ///     {
         ///         Key = "remote-vcs",
         ///     });

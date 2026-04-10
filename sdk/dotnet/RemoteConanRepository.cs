@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_conan = new Artifactory.RemoteConanRepository("my-remote-conan", new()
+    ///     var my_remote_conan = new Artifactory.Index.RemoteConanRepository("my-remote-conan", new()
     ///     {
     ///         Key = "my-remote-conan",
     ///         Url = "https://conan.io/center/",

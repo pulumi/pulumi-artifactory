@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteComposerRepository(ctx, &artifactory.LookupRemoteComposerRepositoryArgs{
+//			_, err := artifactory.GetRemoteComposerRepository(ctx, &artifactory.LookupRemoteComposerRepositoryArgs{
 //				Key: "remote-composer",
 //			}, nil)
 //			if err != nil {

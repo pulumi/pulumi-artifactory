@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo_ivy = new Artifactory.VirtualIvyRepository("foo-ivy", new()
+    ///     var foo_ivy = new Artifactory.Index.VirtualIvyRepository("foo-ivy", new()
     ///     {
     ///         Key = "foo-ivy",
     ///         Repositories = new[] {},

@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_composer = Artifactory.GetRemoteComposerRepository.Invoke(new()
+        ///     var remote_composer = Artifactory.Index.GetRemoteComposerRepository.Invoke(new()
         ///     {
         ///         Key = "remote-composer",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_composer = Artifactory.GetRemoteComposerRepository.Invoke(new()
+        ///     var remote_composer = Artifactory.Index.GetRemoteComposerRepository.Invoke(new()
         ///     {
         ///         Key = "remote-composer",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_composer = Artifactory.GetRemoteComposerRepository.Invoke(new()
+        ///     var remote_composer = Artifactory.Index.GetRemoteComposerRepository.Invoke(new()
         ///     {
         ///         Key = "remote-composer",
         ///     });

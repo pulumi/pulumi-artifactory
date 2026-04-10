@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_debian_repo_basic = Artifactory.GetLocalDebianRepository.Invoke(new()
+        ///     var local_test_debian_repo_basic = Artifactory.Index.GetLocalDebianRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-debian-repo-basic",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_debian_repo_basic = Artifactory.GetLocalDebianRepository.Invoke(new()
+        ///     var local_test_debian_repo_basic = Artifactory.Index.GetLocalDebianRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-debian-repo-basic",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_debian_repo_basic = Artifactory.GetLocalDebianRepository.Invoke(new()
+        ///     var local_test_debian_repo_basic = Artifactory.Index.GetLocalDebianRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-debian-repo-basic",
         ///     });

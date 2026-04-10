@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedDockerV2Repository(ctx, &artifactory.LookupFederatedDockerV2RepositoryArgs{
+//			_, err := artifactory.GetFederatedDockerV2Repository(ctx, &artifactory.LookupFederatedDockerV2RepositoryArgs{
 //				Key: "federated-test-docker-repo",
 //			}, nil)
 //			if err != nil {

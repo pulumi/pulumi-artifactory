@@ -30,7 +30,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var backupConfigName = new Artifactory.Backup("backup_config_name", new()
+    ///     var backupConfigName = new Artifactory.Index.Backup("backup_config_name", new()
     ///     {
     ///         Key = "backup_config_name",
     ///         Enabled = true,

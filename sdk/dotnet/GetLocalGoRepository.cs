@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_go_repo = Artifactory.GetLocalGoRepository.Invoke(new()
+        ///     var local_test_go_repo = Artifactory.Index.GetLocalGoRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-go-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_go_repo = Artifactory.GetLocalGoRepository.Invoke(new()
+        ///     var local_test_go_repo = Artifactory.Index.GetLocalGoRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-go-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_go_repo = Artifactory.GetLocalGoRepository.Invoke(new()
+        ///     var local_test_go_repo = Artifactory.Index.GetLocalGoRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-go-repo",
         ///     });

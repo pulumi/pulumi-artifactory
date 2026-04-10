@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var my_helmoci_virtual = Artifactory.GetVirtualHelmociRepository.Invoke(new()
+        ///     var my_helmoci_virtual = Artifactory.Index.GetVirtualHelmociRepository.Invoke(new()
         ///     {
         ///         Key = "my-helmoci-virtual",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var my_helmoci_virtual = Artifactory.GetVirtualHelmociRepository.Invoke(new()
+        ///     var my_helmoci_virtual = Artifactory.Index.GetVirtualHelmociRepository.Invoke(new()
         ///     {
         ///         Key = "my-helmoci-virtual",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var my_helmoci_virtual = Artifactory.GetVirtualHelmociRepository.Invoke(new()
+        ///     var my_helmoci_virtual = Artifactory.Index.GetVirtualHelmociRepository.Invoke(new()
         ///     {
         ///         Key = "my-helmoci-virtual",
         ///     });

@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupLocalIvyRepository(ctx, &artifactory.LookupLocalIvyRepositoryArgs{
+//			_, err := artifactory.GetLocalIvyRepository(ctx, &artifactory.LookupLocalIvyRepositoryArgs{
 //				Key: "local-test-ivy-repo",
 //			}, nil)
 //			if err != nil {

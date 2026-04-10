@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteCargoRepository(ctx, &artifactory.LookupRemoteCargoRepositoryArgs{
+//			_, err := artifactory.GetRemoteCargoRepository(ctx, &artifactory.LookupRemoteCargoRepositoryArgs{
 //				Key: "remote-cargo",
 //			}, nil)
 //			if err != nil {

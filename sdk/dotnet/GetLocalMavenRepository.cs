@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_maven_repo_basic = Artifactory.GetLocalMavenRepository.Invoke(new()
+        ///     var local_test_maven_repo_basic = Artifactory.Index.GetLocalMavenRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-maven-repo-basic",
         ///     });
@@ -66,7 +66,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_maven_repo_basic = Artifactory.GetLocalMavenRepository.Invoke(new()
+        ///     var local_test_maven_repo_basic = Artifactory.Index.GetLocalMavenRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-maven-repo-basic",
         ///     });
@@ -108,7 +108,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_maven_repo_basic = Artifactory.GetLocalMavenRepository.Invoke(new()
+        ///     var local_test_maven_repo_basic = Artifactory.Index.GetLocalMavenRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-maven-repo-basic",
         ///     });

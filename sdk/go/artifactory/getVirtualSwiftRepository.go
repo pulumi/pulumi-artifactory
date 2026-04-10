@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualSwiftRepository(ctx, &artifactory.LookupVirtualSwiftRepositoryArgs{
+//			_, err := artifactory.GetVirtualSwiftRepository(ctx, &artifactory.LookupVirtualSwiftRepositoryArgs{
 //				Key: "virtual-swift",
 //			}, nil)
 //			if err != nil {

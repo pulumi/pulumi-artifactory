@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualGemsRepository(ctx, &artifactory.LookupVirtualGemsRepositoryArgs{
+//			_, err := artifactory.GetVirtualGemsRepository(ctx, &artifactory.LookupVirtualGemsRepositoryArgs{
 //				Key: "virtual-gems",
 //			}, nil)
 //			if err != nil {

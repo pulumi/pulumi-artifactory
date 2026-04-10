@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupLocalGoRepository(ctx, &artifactory.LookupLocalGoRepositoryArgs{
+//			_, err := artifactory.GetLocalGoRepository(ctx, &artifactory.LookupLocalGoRepositoryArgs{
 //				Key: "local-test-go-repo",
 //			}, nil)
 //			if err != nil {

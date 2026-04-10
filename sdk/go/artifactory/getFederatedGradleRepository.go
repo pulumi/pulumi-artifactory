@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedGradleRepository(ctx, &artifactory.LookupFederatedGradleRepositoryArgs{
+//			_, err := artifactory.GetFederatedGradleRepository(ctx, &artifactory.LookupFederatedGradleRepositoryArgs{
 //				Key: "federated-test-gradle-repo",
 //			}, nil)
 //			if err != nil {

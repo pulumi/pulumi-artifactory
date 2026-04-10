@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_ansible_repo = Artifactory.GetFederatedAnsibleRepository.Invoke(new()
+        ///     var federated_test_ansible_repo = Artifactory.Index.GetFederatedAnsibleRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-ansible-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_ansible_repo = Artifactory.GetFederatedAnsibleRepository.Invoke(new()
+        ///     var federated_test_ansible_repo = Artifactory.Index.GetFederatedAnsibleRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-ansible-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_ansible_repo = Artifactory.GetFederatedAnsibleRepository.Invoke(new()
+        ///     var federated_test_ansible_repo = Artifactory.Index.GetFederatedAnsibleRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-ansible-repo",
         ///     });

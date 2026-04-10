@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_ansible = Artifactory.GetRemoteAnsibleRepository.Invoke(new()
+        ///     var remote_ansible = Artifactory.Index.GetRemoteAnsibleRepository.Invoke(new()
         ///     {
         ///         Key = "remote-ansible",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_ansible = Artifactory.GetRemoteAnsibleRepository.Invoke(new()
+        ///     var remote_ansible = Artifactory.Index.GetRemoteAnsibleRepository.Invoke(new()
         ///     {
         ///         Key = "remote-ansible",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_ansible = Artifactory.GetRemoteAnsibleRepository.Invoke(new()
+        ///     var remote_ansible = Artifactory.Index.GetRemoteAnsibleRepository.Invoke(new()
         ///     {
         ///         Key = "remote-ansible",
         ///     });

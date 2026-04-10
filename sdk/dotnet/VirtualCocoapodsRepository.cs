@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo_cocoapods = new Artifactory.VirtualCocoapodsRepository("foo-cocoapods", new()
+    ///     var foo_cocoapods = new Artifactory.Index.VirtualCocoapodsRepository("foo-cocoapods", new()
     ///     {
     ///         Key = "foo-cocoapods",
     ///         Repositories = new[] {},

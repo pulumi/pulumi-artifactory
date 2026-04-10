@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_swift_repo = Artifactory.GetLocalSwiftRepository.Invoke(new()
+        ///     var local_test_swift_repo = Artifactory.Index.GetLocalSwiftRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-swift-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_swift_repo = Artifactory.GetLocalSwiftRepository.Invoke(new()
+        ///     var local_test_swift_repo = Artifactory.Index.GetLocalSwiftRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-swift-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_swift_repo = Artifactory.GetLocalSwiftRepository.Invoke(new()
+        ///     var local_test_swift_repo = Artifactory.Index.GetLocalSwiftRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-swift-repo",
         ///     });

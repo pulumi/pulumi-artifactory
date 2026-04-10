@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_nuget_repo_basic = Artifactory.GetLocalNugetRepository.Invoke(new()
+        ///     var local_test_nuget_repo_basic = Artifactory.Index.GetLocalNugetRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-nuget-repo-basic",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_nuget_repo_basic = Artifactory.GetLocalNugetRepository.Invoke(new()
+        ///     var local_test_nuget_repo_basic = Artifactory.Index.GetLocalNugetRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-nuget-repo-basic",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_nuget_repo_basic = Artifactory.GetLocalNugetRepository.Invoke(new()
+        ///     var local_test_nuget_repo_basic = Artifactory.Index.GetLocalNugetRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-nuget-repo-basic",
         ///     });

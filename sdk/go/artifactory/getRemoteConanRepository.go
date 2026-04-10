@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteConanRepository(ctx, &artifactory.LookupRemoteConanRepositoryArgs{
+//			_, err := artifactory.GetRemoteConanRepository(ctx, &artifactory.LookupRemoteConanRepositoryArgs{
 //				Key: "remote-conan",
 //			}, nil)
 //			if err != nil {

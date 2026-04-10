@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupLocalTerraformModuleRepository(ctx, &artifactory.LookupLocalTerraformModuleRepositoryArgs{
+//			_, err := artifactory.GetLocalTerraformModuleRepository(ctx, &artifactory.LookupLocalTerraformModuleRepositoryArgs{
 //				Key: "terraform-local-test-terraform-module-repo",
 //			}, nil)
 //			if err != nil {

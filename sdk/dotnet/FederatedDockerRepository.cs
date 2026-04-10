@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_federated_test_docker_repo = new Artifactory.FederatedDockerRepository("terraform-federated-test-docker-repo", new()
+    ///     var terraform_federated_test_docker_repo = new Artifactory.Index.FederatedDockerRepository("terraform-federated-test-docker-repo", new()
     ///     {
     ///         Key = "terraform-federated-test-docker-repo",
     ///         Members = new[]

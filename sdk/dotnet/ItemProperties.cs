@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_repo_properties = new Artifactory.ItemProperties("my-repo-properties", new()
+    ///     var my_repo_properties = new Artifactory.Index.ItemProperties("my-repo-properties", new()
     ///     {
     ///         RepoKey = "my-generic-local",
     ///         Properties = 
@@ -40,7 +40,7 @@ namespace Pulumi.Artifactory
     ///         IsRecursive = true,
     ///     });
     /// 
-    ///     var my_folder_properties = new Artifactory.ItemProperties("my-folder-properties", new()
+    ///     var my_folder_properties = new Artifactory.Index.ItemProperties("my-folder-properties", new()
     ///     {
     ///         RepoKey = "my-generic-local",
     ///         ItemPath = "folder/subfolder",

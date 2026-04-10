@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo_gitlfs = new Artifactory.VirtualGitlfsRepository("foo-gitlfs", new()
+    ///     var foo_gitlfs = new Artifactory.Index.VirtualGitlfsRepository("foo-gitlfs", new()
     ///     {
     ///         Key = "foo-gitlfs",
     ///         Repositories = new[] {},

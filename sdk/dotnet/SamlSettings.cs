@@ -29,7 +29,7 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Configure Artifactory SAML SSO settings
-    ///     var saml = new Artifactory.SamlSettings("saml", new()
+    ///     var saml = new Artifactory.Index.SamlSettings("saml", new()
     ///     {
     ///         Enable = true,
     ///         ServiceProviderName = "okta",

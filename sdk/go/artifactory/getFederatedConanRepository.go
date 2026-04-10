@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedConanRepository(ctx, &artifactory.LookupFederatedConanRepositoryArgs{
+//			_, err := artifactory.GetFederatedConanRepository(ctx, &artifactory.LookupFederatedConanRepositoryArgs{
 //				Key: "federated-test-conan-repo",
 //			}, nil)
 //			if err != nil {

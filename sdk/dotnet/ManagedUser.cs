@@ -28,7 +28,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test_user = new Artifactory.ManagedUser("test-user", new()
+    ///     var test_user = new Artifactory.Index.ManagedUser("test-user", new()
     ///     {
     ///         Name = "terraform",
     ///         Password = "my super secret password",

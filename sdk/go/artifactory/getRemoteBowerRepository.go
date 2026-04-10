@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteBowerRepository(ctx, &artifactory.LookupRemoteBowerRepositoryArgs{
+//			_, err := artifactory.GetRemoteBowerRepository(ctx, &artifactory.LookupRemoteBowerRepositoryArgs{
 //				Key: "remote-bower",
 //			}, nil)
 //			if err != nil {

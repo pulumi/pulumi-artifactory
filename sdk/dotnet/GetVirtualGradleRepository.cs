@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_gradle = Artifactory.GetVirtualGradleRepository.Invoke(new()
+        ///     var virtual_gradle = Artifactory.Index.GetVirtualGradleRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-gradle",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_gradle = Artifactory.GetVirtualGradleRepository.Invoke(new()
+        ///     var virtual_gradle = Artifactory.Index.GetVirtualGradleRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-gradle",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_gradle = Artifactory.GetVirtualGradleRepository.Invoke(new()
+        ///     var virtual_gradle = Artifactory.Index.GetVirtualGradleRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-gradle",
         ///     });

@@ -25,7 +25,7 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new Artifactory permission target called testpermission
-    ///     var test_perm = new Artifactory.PermissionTarget("test-perm", new()
+    ///     var test_perm = new Artifactory.Index.PermissionTarget("test-perm", new()
     ///     {
     ///         Name = "test-perm",
     ///         Repo = new Artifactory.Inputs.PermissionTargetRepoArgs

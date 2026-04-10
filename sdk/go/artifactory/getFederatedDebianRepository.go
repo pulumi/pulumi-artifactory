@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedDebianRepository(ctx, &artifactory.LookupFederatedDebianRepositoryArgs{
+//			_, err := artifactory.GetFederatedDebianRepository(ctx, &artifactory.LookupFederatedDebianRepositoryArgs{
 //				Key: "federated-test-debian-repo",
 //			}, nil)
 //			if err != nil {
