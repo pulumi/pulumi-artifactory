@@ -1,3 +1,0 @@
-name: artifactory
-description: A Pulumi resource provider for artifactory.
-language: java
