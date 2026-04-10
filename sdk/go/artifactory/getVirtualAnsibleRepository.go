@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualAnsibleRepository(ctx, &artifactory.LookupVirtualAnsibleRepositoryArgs{
+//			_, err := artifactory.GetVirtualAnsibleRepository(ctx, &artifactory.LookupVirtualAnsibleRepositoryArgs{
 //				Key: "virtual-ansible",
 //			}, nil)
 //			if err != nil {

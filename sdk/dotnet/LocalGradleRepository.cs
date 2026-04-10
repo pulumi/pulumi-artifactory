@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_local_test_gradle_repo_basic = new Artifactory.LocalGradleRepository("terraform-local-test-gradle-repo-basic", new()
+    ///     var terraform_local_test_gradle_repo_basic = new Artifactory.Index.LocalGradleRepository("terraform-local-test-gradle-repo-basic", new()
     ///     {
     ///         Key = "terraform-local-test-gradle-repo-basic",
     ///         ChecksumPolicyType = "client-checksums",

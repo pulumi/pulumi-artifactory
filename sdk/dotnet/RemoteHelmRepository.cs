@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var helm_remote = new Artifactory.RemoteHelmRepository("helm-remote", new()
+    ///     var helm_remote = new Artifactory.Index.RemoteHelmRepository("helm-remote", new()
     ///     {
     ///         Key = "helm-remote-foo25",
     ///         Url = "https://repo.chartcenter.io/",

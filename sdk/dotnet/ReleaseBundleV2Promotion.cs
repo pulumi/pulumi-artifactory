@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_release_bundle_v2_promotion = new Artifactory.ReleaseBundleV2Promotion("my-release-bundle-v2-promotion", new()
+    ///     var my_release_bundle_v2_promotion = new Artifactory.Index.ReleaseBundleV2Promotion("my-release-bundle-v2-promotion", new()
     ///     {
     ///         Name = "my-release-bundle-v2-artifacts",
     ///         Version = "1.0.0",

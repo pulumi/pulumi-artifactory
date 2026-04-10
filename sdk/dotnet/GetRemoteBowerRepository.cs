@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_bower = Artifactory.GetRemoteBowerRepository.Invoke(new()
+        ///     var remote_bower = Artifactory.Index.GetRemoteBowerRepository.Invoke(new()
         ///     {
         ///         Key = "remote-bower",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_bower = Artifactory.GetRemoteBowerRepository.Invoke(new()
+        ///     var remote_bower = Artifactory.Index.GetRemoteBowerRepository.Invoke(new()
         ///     {
         ///         Key = "remote-bower",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_bower = Artifactory.GetRemoteBowerRepository.Invoke(new()
+        ///     var remote_bower = Artifactory.Index.GetRemoteBowerRepository.Invoke(new()
         ///     {
         ///         Key = "remote-bower",
         ///     });

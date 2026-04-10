@@ -25,27 +25,27 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var some_keypairRSA = new Artifactory.Keypair("some-keypairRSA", new()
+    ///     var some_keypairRSA = new Artifactory.Index.Keypair("some-keypairRSA", new()
     ///     {
     ///         PairName = $"some-keypair{randid.Id}",
     ///         PairType = "RSA",
     ///         Alias = "foo-alias",
-    ///         PrivateKey = Std.File.Invoke(new()
+    ///         PrivateKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/rsa.priv",
     ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         PublicKey = Std.File.Invoke(new()
+    ///         PublicKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/rsa.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
-    ///     var my_remote_hex = new Artifactory.RemoteHexRepository("my-remote-hex", new()
+    ///     var my_remote_hex = new Artifactory.Index.RemoteHexRepository("my-remote-hex", new()
     ///     {
     ///         Key = "my-remote-hex",
     ///         Url = "https://repo.hex.pm",
     ///         HexPrimaryKeypairRef = some_keypairRSA.PairName,
-    ///         PublicKey = Std.File.Invoke(new()
+    ///         PublicKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/rsa.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),

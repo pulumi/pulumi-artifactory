@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteAnsibleRepository(ctx, &artifactory.LookupRemoteAnsibleRepositoryArgs{
+//			_, err := artifactory.GetRemoteAnsibleRepository(ctx, &artifactory.LookupRemoteAnsibleRepositoryArgs{
 //				Key: "remote-ansible",
 //			}, nil)
 //			if err != nil {

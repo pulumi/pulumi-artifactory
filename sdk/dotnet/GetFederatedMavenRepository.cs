@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_maven_repo = Artifactory.GetFederatedMavenRepository.Invoke(new()
+        ///     var federated_test_maven_repo = Artifactory.Index.GetFederatedMavenRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-maven-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_maven_repo = Artifactory.GetFederatedMavenRepository.Invoke(new()
+        ///     var federated_test_maven_repo = Artifactory.Index.GetFederatedMavenRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-maven-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_maven_repo = Artifactory.GetFederatedMavenRepository.Invoke(new()
+        ///     var federated_test_maven_repo = Artifactory.Index.GetFederatedMavenRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-maven-repo",
         ///     });

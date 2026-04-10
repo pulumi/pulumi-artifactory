@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test_env = new Artifactory.GlobalEnvironment("test-env", new()
+    ///     var test_env = new Artifactory.Index.GlobalEnvironment("test-env", new()
     ///     {
     ///         Name = "test-env",
     ///     });

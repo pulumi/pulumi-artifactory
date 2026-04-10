@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_ansible = Artifactory.GetVirtualAnsibleRepository.Invoke(new()
+        ///     var virtual_ansible = Artifactory.Index.GetVirtualAnsibleRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-ansible",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_ansible = Artifactory.GetVirtualAnsibleRepository.Invoke(new()
+        ///     var virtual_ansible = Artifactory.Index.GetVirtualAnsibleRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-ansible",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_ansible = Artifactory.GetVirtualAnsibleRepository.Invoke(new()
+        ///     var virtual_ansible = Artifactory.Index.GetVirtualAnsibleRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-ansible",
         ///     });

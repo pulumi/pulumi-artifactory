@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_rpm = Artifactory.GetVirtualRpmRepository.Invoke(new()
+        ///     var virtual_rpm = Artifactory.Index.GetVirtualRpmRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-rpm",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_rpm = Artifactory.GetVirtualRpmRepository.Invoke(new()
+        ///     var virtual_rpm = Artifactory.Index.GetVirtualRpmRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-rpm",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_rpm = Artifactory.GetVirtualRpmRepository.Invoke(new()
+        ///     var virtual_rpm = Artifactory.Index.GetVirtualRpmRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-rpm",
         ///     });

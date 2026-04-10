@@ -23,37 +23,37 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var some_keypairGPG1 = new Artifactory.Keypair("some-keypairGPG1", new()
+    ///     var some_keypairGPG1 = new Artifactory.Index.Keypair("some-keypairGPG1", new()
     ///     {
     ///         PairName = $"some-keypair{randid.Id}",
     ///         PairType = "GPG",
     ///         Alias = "foo-alias1",
-    ///         PrivateKey = Std.File.Invoke(new()
+    ///         PrivateKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/gpg.priv",
     ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         PublicKey = Std.File.Invoke(new()
+    ///         PublicKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/gpg.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
-    ///     var some_keypairGPG2 = new Artifactory.Keypair("some-keypairGPG2", new()
+    ///     var some_keypairGPG2 = new Artifactory.Index.Keypair("some-keypairGPG2", new()
     ///     {
     ///         PairName = $"some-keypair4{randid.Id}",
     ///         PairType = "GPG",
     ///         Alias = "foo-alias2",
-    ///         PrivateKey = Std.File.Invoke(new()
+    ///         PrivateKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/gpg.priv",
     ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         PublicKey = Std.File.Invoke(new()
+    ///         PublicKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/gpg.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
-    ///     var my_debian_repo = new Artifactory.DebianRepository("my-debian-repo", new()
+    ///     var my_debian_repo = new Artifactory.Index.DebianRepository("my-debian-repo", new()
     ///     {
     ///         Key = "my-debian-repo",
     ///         PrimaryKeypairRef = some_keypairGPG1.PairName,

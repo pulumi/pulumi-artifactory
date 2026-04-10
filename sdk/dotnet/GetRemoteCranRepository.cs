@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_cran = Artifactory.GetRemoteCranRepository.Invoke(new()
+        ///     var remote_cran = Artifactory.Index.GetRemoteCranRepository.Invoke(new()
         ///     {
         ///         Key = "remote-cran",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_cran = Artifactory.GetRemoteCranRepository.Invoke(new()
+        ///     var remote_cran = Artifactory.Index.GetRemoteCranRepository.Invoke(new()
         ///     {
         ///         Key = "remote-cran",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_cran = Artifactory.GetRemoteCranRepository.Invoke(new()
+        ///     var remote_cran = Artifactory.Index.GetRemoteCranRepository.Invoke(new()
         ///     {
         ///         Key = "remote-cran",
         ///     });

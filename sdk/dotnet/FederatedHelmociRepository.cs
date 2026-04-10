@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_helmoci_federated = new Artifactory.FederatedHelmociRepository("my-helmoci-federated", new()
+    ///     var my_helmoci_federated = new Artifactory.Index.FederatedHelmociRepository("my-helmoci-federated", new()
     ///     {
     ///         Key = "my-helmoci-federated",
     ///         Members = new[]

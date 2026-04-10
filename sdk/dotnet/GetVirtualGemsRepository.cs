@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_gems = Artifactory.GetVirtualGemsRepository.Invoke(new()
+        ///     var virtual_gems = Artifactory.Index.GetVirtualGemsRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-gems",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_gems = Artifactory.GetVirtualGemsRepository.Invoke(new()
+        ///     var virtual_gems = Artifactory.Index.GetVirtualGemsRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-gems",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_gems = Artifactory.GetVirtualGemsRepository.Invoke(new()
+        ///     var virtual_gems = Artifactory.Index.GetVirtualGemsRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-gems",
         ///     });

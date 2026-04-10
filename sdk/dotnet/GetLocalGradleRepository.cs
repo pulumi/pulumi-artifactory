@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_gradle_repo_basic = Artifactory.GetLocalGradleRepository.Invoke(new()
+        ///     var local_test_gradle_repo_basic = Artifactory.Index.GetLocalGradleRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-gradle-repo-basic",
         ///     });
@@ -66,7 +66,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_gradle_repo_basic = Artifactory.GetLocalGradleRepository.Invoke(new()
+        ///     var local_test_gradle_repo_basic = Artifactory.Index.GetLocalGradleRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-gradle-repo-basic",
         ///     });
@@ -108,7 +108,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_gradle_repo_basic = Artifactory.GetLocalGradleRepository.Invoke(new()
+        ///     var local_test_gradle_repo_basic = Artifactory.Index.GetLocalGradleRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-gradle-repo-basic",
         ///     });

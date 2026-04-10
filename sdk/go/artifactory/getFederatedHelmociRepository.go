@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedHelmociRepository(ctx, &artifactory.LookupFederatedHelmociRepositoryArgs{
+//			_, err := artifactory.GetFederatedHelmociRepository(ctx, &artifactory.LookupFederatedHelmociRepositoryArgs{
 //				Key: "my-helmoci-federated",
 //			}, nil)
 //			if err != nil {

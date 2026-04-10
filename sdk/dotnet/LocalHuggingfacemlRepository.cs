@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var local_huggingfaceml_repo = new Artifactory.LocalHuggingfacemlRepository("local-huggingfaceml-repo", new()
+    ///     var local_huggingfaceml_repo = new Artifactory.Index.LocalHuggingfacemlRepository("local-huggingfaceml-repo", new()
     ///     {
     ///         Key = "local-huggingfaceml-repo",
     ///     });

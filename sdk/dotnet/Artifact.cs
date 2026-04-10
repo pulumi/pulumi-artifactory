@@ -22,14 +22,14 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_artifact = new Artifactory.Artifact("my-artifact", new()
+    ///     var my_artifact = new Artifactory.Index.Artifact("my-artifact", new()
     ///     {
     ///         Repository = "my-generic-local",
     ///         Path = "/my-path/my-file.zip",
     ///         FilePath = "/path/to/my-file.zip",
     ///     });
     /// 
-    ///     var my_base64_artifact = new Artifactory.Artifact("my-base64-artifact", new()
+    ///     var my_base64_artifact = new Artifactory.Index.Artifact("my-base64-artifact", new()
     ///     {
     ///         Repository = "my-generic-local",
     ///         Path = "/my-path/my-file.zip",

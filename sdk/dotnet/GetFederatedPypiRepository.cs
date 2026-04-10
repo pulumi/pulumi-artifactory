@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_pypi_repo = Artifactory.GetFederatedPypiRepository.Invoke(new()
+        ///     var federated_test_pypi_repo = Artifactory.Index.GetFederatedPypiRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-pypi-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_pypi_repo = Artifactory.GetFederatedPypiRepository.Invoke(new()
+        ///     var federated_test_pypi_repo = Artifactory.Index.GetFederatedPypiRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-pypi-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_pypi_repo = Artifactory.GetFederatedPypiRepository.Invoke(new()
+        ///     var federated_test_pypi_repo = Artifactory.Index.GetFederatedPypiRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-pypi-repo",
         ///     });

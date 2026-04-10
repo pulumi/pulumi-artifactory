@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_cargo = Artifactory.GetRemoteCargoRepository.Invoke(new()
+        ///     var remote_cargo = Artifactory.Index.GetRemoteCargoRepository.Invoke(new()
         ///     {
         ///         Key = "remote-cargo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_cargo = Artifactory.GetRemoteCargoRepository.Invoke(new()
+        ///     var remote_cargo = Artifactory.Index.GetRemoteCargoRepository.Invoke(new()
         ///     {
         ///         Key = "remote-cargo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_cargo = Artifactory.GetRemoteCargoRepository.Invoke(new()
+        ///     var remote_cargo = Artifactory.Index.GetRemoteCargoRepository.Invoke(new()
         ///     {
         ///         Key = "remote-cargo",
         ///     });

@@ -25,10 +25,10 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_key = new Artifactory.DistributionPublicKey("my-key", new()
+    ///     var my_key = new Artifactory.Index.DistributionPublicKey("my-key", new()
     ///     {
     ///         Alias = "my-key",
-    ///         PublicKey = Std.File.Invoke(new()
+    ///         PublicKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/rsa.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),

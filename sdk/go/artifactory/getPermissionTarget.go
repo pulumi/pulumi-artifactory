@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupPermissionTarget(ctx, &artifactory.LookupPermissionTargetArgs{
+//			_, err := artifactory.GetPermissionTarget(ctx, &artifactory.LookupPermissionTargetArgs{
 //				Name: "my_permission",
 //			}, nil)
 //			if err != nil {

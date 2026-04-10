@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo_conan = new Artifactory.VirtualConanRepository("foo-conan", new()
+    ///     var foo_conan = new Artifactory.Index.VirtualConanRepository("foo-conan", new()
     ///     {
     ///         Key = "foo-conan",
     ///         RepoLayoutRef = "conan-default",

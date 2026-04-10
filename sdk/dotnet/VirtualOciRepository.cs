@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_oci_virtual = new Artifactory.VirtualOciRepository("my-oci-virtual", new()
+    ///     var my_oci_virtual = new Artifactory.Index.VirtualOciRepository("my-oci-virtual", new()
     ///     {
     ///         Key = "my-oci-virtual",
     ///         Repositories = new[]

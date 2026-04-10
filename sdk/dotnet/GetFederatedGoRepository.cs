@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_go_repo = Artifactory.GetFederatedGoRepository.Invoke(new()
+        ///     var federated_test_go_repo = Artifactory.Index.GetFederatedGoRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-go-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_go_repo = Artifactory.GetFederatedGoRepository.Invoke(new()
+        ///     var federated_test_go_repo = Artifactory.Index.GetFederatedGoRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-go-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_go_repo = Artifactory.GetFederatedGoRepository.Invoke(new()
+        ///     var federated_test_go_repo = Artifactory.Index.GetFederatedGoRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-go-repo",
         ///     });

@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_federated_test_conan_repo = new Artifactory.FederatedConanRepository("terraform-federated-test-conan-repo", new()
+    ///     var terraform_federated_test_conan_repo = new Artifactory.Index.FederatedConanRepository("terraform-federated-test-conan-repo", new()
     ///     {
     ///         Key = "terraform-federated-test-conan-repo",
     ///         Members = new[]

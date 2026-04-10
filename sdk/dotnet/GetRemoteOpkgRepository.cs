@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_opkg = Artifactory.GetRemoteOpkgRepository.Invoke(new()
+        ///     var remote_opkg = Artifactory.Index.GetRemoteOpkgRepository.Invoke(new()
         ///     {
         ///         Key = "remote-opkg",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_opkg = Artifactory.GetRemoteOpkgRepository.Invoke(new()
+        ///     var remote_opkg = Artifactory.Index.GetRemoteOpkgRepository.Invoke(new()
         ///     {
         ///         Key = "remote-opkg",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_opkg = Artifactory.GetRemoteOpkgRepository.Invoke(new()
+        ///     var remote_opkg = Artifactory.Index.GetRemoteOpkgRepository.Invoke(new()
         ///     {
         ///         Key = "remote-opkg",
         ///     });

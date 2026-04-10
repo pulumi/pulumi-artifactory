@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo_debian = new Artifactory.VirtualDebianRepository("foo-debian", new()
+    ///     var foo_debian = new Artifactory.Index.VirtualDebianRepository("foo-debian", new()
     ///     {
     ///         Key = "foo-debian",
     ///         Repositories = new[] {},

@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_rpm = Artifactory.GetRemoteRpmRepository.Invoke(new()
+        ///     var remote_rpm = Artifactory.Index.GetRemoteRpmRepository.Invoke(new()
         ///     {
         ///         Key = "remote-rpm",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_rpm = Artifactory.GetRemoteRpmRepository.Invoke(new()
+        ///     var remote_rpm = Artifactory.Index.GetRemoteRpmRepository.Invoke(new()
         ///     {
         ///         Key = "remote-rpm",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_rpm = Artifactory.GetRemoteRpmRepository.Invoke(new()
+        ///     var remote_rpm = Artifactory.Index.GetRemoteRpmRepository.Invoke(new()
         ///     {
         ///         Key = "remote-rpm",
         ///     });

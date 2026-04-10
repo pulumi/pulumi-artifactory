@@ -27,7 +27,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_trash_can_config = new Artifactory.TrashcanConfig("my-trash-can-config", new()
+    ///     var my_trash_can_config = new Artifactory.Index.TrashcanConfig("my-trash-can-config", new()
     ///     {
     ///         Enabled = true,
     ///         RetentionPeriodDays = 14,

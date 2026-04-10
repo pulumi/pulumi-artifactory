@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedGoRepository(ctx, &artifactory.LookupFederatedGoRepositoryArgs{
+//			_, err := artifactory.GetFederatedGoRepository(ctx, &artifactory.LookupFederatedGoRepositoryArgs{
 //				Key: "federated-test-go-repo",
 //			}, nil)
 //			if err != nil {

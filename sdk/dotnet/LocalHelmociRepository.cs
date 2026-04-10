@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_helmoci_local = new Artifactory.LocalHelmociRepository("my-helmoci-local", new()
+    ///     var my_helmoci_local = new Artifactory.Index.LocalHelmociRepository("my-helmoci-local", new()
     ///     {
     ///         Key = "my-helmoci-local",
     ///         TagRetention = 3,

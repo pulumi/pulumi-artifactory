@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_maven = Artifactory.GetVirtualMavenRepository.Invoke(new()
+        ///     var virtual_maven = Artifactory.Index.GetVirtualMavenRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-maven",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_maven = Artifactory.GetVirtualMavenRepository.Invoke(new()
+        ///     var virtual_maven = Artifactory.Index.GetVirtualMavenRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-maven",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_maven = Artifactory.GetVirtualMavenRepository.Invoke(new()
+        ///     var virtual_maven = Artifactory.Index.GetVirtualMavenRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-maven",
         ///     });

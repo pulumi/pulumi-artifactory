@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_debian = Artifactory.GetRemoteDebianRepository.Invoke(new()
+        ///     var remote_debian = Artifactory.Index.GetRemoteDebianRepository.Invoke(new()
         ///     {
         ///         Key = "remote-debian",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_debian = Artifactory.GetRemoteDebianRepository.Invoke(new()
+        ///     var remote_debian = Artifactory.Index.GetRemoteDebianRepository.Invoke(new()
         ///     {
         ///         Key = "remote-debian",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_debian = Artifactory.GetRemoteDebianRepository.Invoke(new()
+        ///     var remote_debian = Artifactory.Index.GetRemoteDebianRepository.Invoke(new()
         ///     {
         ///         Key = "remote-debian",
         ///     });

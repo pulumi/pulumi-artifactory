@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualHelmRepository(ctx, &artifactory.LookupVirtualHelmRepositoryArgs{
+//			_, err := artifactory.GetVirtualHelmRepository(ctx, &artifactory.LookupVirtualHelmRepositoryArgs{
 //				Key: "virtual-helm",
 //			}, nil)
 //			if err != nil {

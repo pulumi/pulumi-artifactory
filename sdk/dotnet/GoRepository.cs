@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var baz_go = new Artifactory.GoRepository("baz-go", new()
+    ///     var baz_go = new Artifactory.Index.GoRepository("baz-go", new()
     ///     {
     ///         Key = "baz-go",
     ///         RepoLayoutRef = "go-default",

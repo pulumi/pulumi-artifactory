@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_bower_repo = Artifactory.GetFederatedBowerRepository.Invoke(new()
+        ///     var federated_test_bower_repo = Artifactory.Index.GetFederatedBowerRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-bower-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_bower_repo = Artifactory.GetFederatedBowerRepository.Invoke(new()
+        ///     var federated_test_bower_repo = Artifactory.Index.GetFederatedBowerRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-bower-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_bower_repo = Artifactory.GetFederatedBowerRepository.Invoke(new()
+        ///     var federated_test_bower_repo = Artifactory.Index.GetFederatedBowerRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-bower-repo",
         ///     });

@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_terraform = Artifactory.GetRemoteTerraformRepository.Invoke(new()
+        ///     var remote_terraform = Artifactory.Index.GetRemoteTerraformRepository.Invoke(new()
         ///     {
         ///         Key = "remote-terraform",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_terraform = Artifactory.GetRemoteTerraformRepository.Invoke(new()
+        ///     var remote_terraform = Artifactory.Index.GetRemoteTerraformRepository.Invoke(new()
         ///     {
         ///         Key = "remote-terraform",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_terraform = Artifactory.GetRemoteTerraformRepository.Invoke(new()
+        ///     var remote_terraform = Artifactory.Index.GetRemoteTerraformRepository.Invoke(new()
         ///     {
         ///         Key = "remote-terraform",
         ///     });

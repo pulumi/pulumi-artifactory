@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_cran_repo = Artifactory.GetFederatedCranRepository.Invoke(new()
+        ///     var federated_test_cran_repo = Artifactory.Index.GetFederatedCranRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-cran-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_cran_repo = Artifactory.GetFederatedCranRepository.Invoke(new()
+        ///     var federated_test_cran_repo = Artifactory.Index.GetFederatedCranRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-cran-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_cran_repo = Artifactory.GetFederatedCranRepository.Invoke(new()
+        ///     var federated_test_cran_repo = Artifactory.Index.GetFederatedCranRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-cran-repo",
         ///     });

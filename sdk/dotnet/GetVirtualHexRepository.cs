@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_hex = Artifactory.GetVirtualHexRepository.Invoke(new()
+        ///     var virtual_hex = Artifactory.Index.GetVirtualHexRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-hex",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_hex = Artifactory.GetVirtualHexRepository.Invoke(new()
+        ///     var virtual_hex = Artifactory.Index.GetVirtualHexRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-hex",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_hex = Artifactory.GetVirtualHexRepository.Invoke(new()
+        ///     var virtual_hex = Artifactory.Index.GetVirtualHexRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-hex",
         ///     });

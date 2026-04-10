@@ -24,16 +24,16 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var some_keypair_6543461672124900137 = new Artifactory.Keypair("some-keypair-6543461672124900137", new()
+    ///     var some_keypair_6543461672124900137 = new Artifactory.Index.Keypair("some-keypair-6543461672124900137", new()
     ///     {
     ///         PairName = "some-keypair-6543461672124900137",
     ///         PairType = "RSA",
     ///         Alias = "some-alias-6543461672124900137",
-    ///         PrivateKey = Std.File.Invoke(new()
+    ///         PrivateKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/rsa.priv",
     ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         PublicKey = Std.File.Invoke(new()
+    ///         PublicKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "samples/rsa.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),

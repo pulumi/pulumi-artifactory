@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_ivy_repo = Artifactory.GetFederatedIvyRepository.Invoke(new()
+        ///     var federated_test_ivy_repo = Artifactory.Index.GetFederatedIvyRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-ivy-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_ivy_repo = Artifactory.GetFederatedIvyRepository.Invoke(new()
+        ///     var federated_test_ivy_repo = Artifactory.Index.GetFederatedIvyRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-ivy-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_ivy_repo = Artifactory.GetFederatedIvyRepository.Invoke(new()
+        ///     var federated_test_ivy_repo = Artifactory.Index.GetFederatedIvyRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-ivy-repo",
         ///     });

@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var release_bundle_custom_webhook = new Artifactory.ReleaseBundleCustomWebhook("release-bundle-custom-webhook", new()
+    ///     var release_bundle_custom_webhook = new Artifactory.Index.ReleaseBundleCustomWebhook("release-bundle-custom-webhook", new()
     ///     {
     ///         Key = "release-bundle-custom-webhook",
     ///         EventTypes = new[]

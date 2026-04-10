@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_composer_repo = Artifactory.GetFederatedComposerRepository.Invoke(new()
+        ///     var federated_test_composer_repo = Artifactory.Index.GetFederatedComposerRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-composer-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_composer_repo = Artifactory.GetFederatedComposerRepository.Invoke(new()
+        ///     var federated_test_composer_repo = Artifactory.Index.GetFederatedComposerRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-composer-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_composer_repo = Artifactory.GetFederatedComposerRepository.Invoke(new()
+        ///     var federated_test_composer_repo = Artifactory.Index.GetFederatedComposerRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-composer-repo",
         ///     });

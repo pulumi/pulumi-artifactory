@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteAlpineRepository(ctx, &artifactory.LookupRemoteAlpineRepositoryArgs{
+//			_, err := artifactory.GetRemoteAlpineRepository(ctx, &artifactory.LookupRemoteAlpineRepositoryArgs{
 //				Key: "remote-alpine",
 //			}, nil)
 //			if err != nil {

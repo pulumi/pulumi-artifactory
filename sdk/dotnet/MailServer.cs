@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mymailserver = new Artifactory.MailServer("mymailserver", new()
+    ///     var mymailserver = new Artifactory.Index.MailServer("mymailserver", new()
     ///     {
     ///         Enabled = true,
     ///         ArtifactoryUrl = "http://tempurl.org",

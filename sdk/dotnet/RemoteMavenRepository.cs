@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var maven_remote = new Artifactory.RemoteMavenRepository("maven-remote", new()
+    ///     var maven_remote = new Artifactory.Index.RemoteMavenRepository("maven-remote", new()
     ///     {
     ///         Key = "maven-remote-foo",
     ///         Url = "https://repo1.maven.org/maven2/",

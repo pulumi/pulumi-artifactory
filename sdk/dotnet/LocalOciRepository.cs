@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_oci_local = new Artifactory.LocalOciRepository("my-oci-local", new()
+    ///     var my_oci_local = new Artifactory.Index.LocalOciRepository("my-oci-local", new()
     ///     {
     ///         Key = "my-oci-local",
     ///         TagRetention = 3,

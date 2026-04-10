@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_rpm_repo_basic = Artifactory.GetLocalRpmRepository.Invoke(new()
+        ///     var local_test_rpm_repo_basic = Artifactory.Index.GetLocalRpmRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-rpm-repo-basic",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_rpm_repo_basic = Artifactory.GetLocalRpmRepository.Invoke(new()
+        ///     var local_test_rpm_repo_basic = Artifactory.Index.GetLocalRpmRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-rpm-repo-basic",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_rpm_repo_basic = Artifactory.GetLocalRpmRepository.Invoke(new()
+        ///     var local_test_rpm_repo_basic = Artifactory.Index.GetLocalRpmRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-rpm-repo-basic",
         ///     });

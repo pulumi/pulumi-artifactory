@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedIvyRepository(ctx, &artifactory.LookupFederatedIvyRepositoryArgs{
+//			_, err := artifactory.GetFederatedIvyRepository(ctx, &artifactory.LookupFederatedIvyRepositoryArgs{
 //				Key: "federated-test-ivy-repo",
 //			}, nil)
 //			if err != nil {

@@ -22,12 +22,12 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_generic_local = new Artifactory.LocalGenericRepository("my-generic-local", new()
+    ///     var my_generic_local = new Artifactory.Index.LocalGenericRepository("my-generic-local", new()
     ///     {
     ///         Key = "my-generic-local",
     ///     });
     /// 
-    ///     var artifact_custom_webhook = new Artifactory.ArtifactCustomWebhook("artifact-custom-webhook", new()
+    ///     var artifact_custom_webhook = new Artifactory.Index.ArtifactCustomWebhook("artifact-custom-webhook", new()
     ///     {
     ///         Key = "artifact-custom-webhook",
     ///         EventTypes = new[]

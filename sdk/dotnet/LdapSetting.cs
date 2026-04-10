@@ -28,7 +28,7 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Configure Artifactory LDAP setting
-    ///     var ldapName = new Artifactory.LdapSetting("ldap_name", new()
+    ///     var ldapName = new Artifactory.Index.LdapSetting("ldap_name", new()
     ///     {
     ///         Key = "ldap_name",
     ///         Enabled = true,

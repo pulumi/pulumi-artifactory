@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualP2Repository(ctx, &artifactory.LookupVirtualP2RepositoryArgs{
+//			_, err := artifactory.GetVirtualP2Repository(ctx, &artifactory.LookupVirtualP2RepositoryArgs{
 //				Key: "virtual-p2",
 //			}, nil)
 //			if err != nil {

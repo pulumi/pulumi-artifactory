@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_terraformModule_repo = Artifactory.GetFederatedTerraformModuleRepository.Invoke(new()
+        ///     var federated_test_terraformModule_repo = Artifactory.Index.GetFederatedTerraformModuleRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-terraform-module-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_terraformModule_repo = Artifactory.GetFederatedTerraformModuleRepository.Invoke(new()
+        ///     var federated_test_terraformModule_repo = Artifactory.Index.GetFederatedTerraformModuleRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-terraform-module-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_terraformModule_repo = Artifactory.GetFederatedTerraformModuleRepository.Invoke(new()
+        ///     var federated_test_terraformModule_repo = Artifactory.Index.GetFederatedTerraformModuleRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-terraform-module-repo",
         ///     });

@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_swift = Artifactory.GetRemoteSwiftRepository.Invoke(new()
+        ///     var remote_swift = Artifactory.Index.GetRemoteSwiftRepository.Invoke(new()
         ///     {
         ///         Key = "remote-swift",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_swift = Artifactory.GetRemoteSwiftRepository.Invoke(new()
+        ///     var remote_swift = Artifactory.Index.GetRemoteSwiftRepository.Invoke(new()
         ///     {
         ///         Key = "remote-swift",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_swift = Artifactory.GetRemoteSwiftRepository.Invoke(new()
+        ///     var remote_swift = Artifactory.Index.GetRemoteSwiftRepository.Invoke(new()
         ///     {
         ///         Key = "remote-swift",
         ///     });

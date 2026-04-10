@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupLocalPubRepository(ctx, &artifactory.LookupLocalPubRepositoryArgs{
+//			_, err := artifactory.GetLocalPubRepository(ctx, &artifactory.LookupLocalPubRepositoryArgs{
 //				Key: "local-test-pub-repo",
 //			}, nil)
 //			if err != nil {

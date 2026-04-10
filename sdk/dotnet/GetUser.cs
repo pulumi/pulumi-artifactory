@@ -27,7 +27,7 @@ namespace Pulumi.Artifactory
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     //
-        ///     var user1 = Artifactory.GetUser.Invoke(new()
+        ///     var user1 = Artifactory.Index.GetUser.Invoke(new()
         ///     {
         ///         Name = "user1",
         ///     });
@@ -54,7 +54,7 @@ namespace Pulumi.Artifactory
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     //
-        ///     var user1 = Artifactory.GetUser.Invoke(new()
+        ///     var user1 = Artifactory.Index.GetUser.Invoke(new()
         ///     {
         ///         Name = "user1",
         ///     });
@@ -81,7 +81,7 @@ namespace Pulumi.Artifactory
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     //
-        ///     var user1 = Artifactory.GetUser.Invoke(new()
+        ///     var user1 = Artifactory.Index.GetUser.Invoke(new()
         ///     {
         ///         Name = "user1",
         ///     });

@@ -27,7 +27,7 @@ namespace Pulumi.Artifactory
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     //
-        ///     var myGroup = Artifactory.GetGroup.Invoke(new()
+        ///     var myGroup = Artifactory.Index.GetGroup.Invoke(new()
         ///     {
         ///         Name = "my_group",
         ///         IncludeUsers = "true",
@@ -55,7 +55,7 @@ namespace Pulumi.Artifactory
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     //
-        ///     var myGroup = Artifactory.GetGroup.Invoke(new()
+        ///     var myGroup = Artifactory.Index.GetGroup.Invoke(new()
         ///     {
         ///         Name = "my_group",
         ///         IncludeUsers = "true",
@@ -83,7 +83,7 @@ namespace Pulumi.Artifactory
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     //
-        ///     var myGroup = Artifactory.GetGroup.Invoke(new()
+        ///     var myGroup = Artifactory.Index.GetGroup.Invoke(new()
         ///     {
         ///         Name = "my_group",
         ///         IncludeUsers = "true",

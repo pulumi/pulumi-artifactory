@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualTerraformRepository(ctx, &artifactory.LookupVirtualTerraformRepositoryArgs{
+//			_, err := artifactory.GetVirtualTerraformRepository(ctx, &artifactory.LookupVirtualTerraformRepositoryArgs{
 //				Key: "virtual-terraform",
 //			}, nil)
 //			if err != nil {

@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteMavenRepository(ctx, &artifactory.LookupRemoteMavenRepositoryArgs{
+//			_, err := artifactory.GetRemoteMavenRepository(ctx, &artifactory.LookupRemoteMavenRepositoryArgs{
 //				Key: "remote-maven",
 //			}, nil)
 //			if err != nil {

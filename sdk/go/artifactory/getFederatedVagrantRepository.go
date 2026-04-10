@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedVagrantRepository(ctx, &artifactory.LookupFederatedVagrantRepositoryArgs{
+//			_, err := artifactory.GetFederatedVagrantRepository(ctx, &artifactory.LookupFederatedVagrantRepositoryArgs{
 //				Key: "federated-test-vagrant-repo",
 //			}, nil)
 //			if err != nil {

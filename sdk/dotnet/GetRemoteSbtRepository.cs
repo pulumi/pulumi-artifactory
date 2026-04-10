@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_sbt = Artifactory.GetRemoteSbtRepository.Invoke(new()
+        ///     var remote_sbt = Artifactory.Index.GetRemoteSbtRepository.Invoke(new()
         ///     {
         ///         Key = "remote-sbt",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_sbt = Artifactory.GetRemoteSbtRepository.Invoke(new()
+        ///     var remote_sbt = Artifactory.Index.GetRemoteSbtRepository.Invoke(new()
         ///     {
         ///         Key = "remote-sbt",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_sbt = Artifactory.GetRemoteSbtRepository.Invoke(new()
+        ///     var remote_sbt = Artifactory.Index.GetRemoteSbtRepository.Invoke(new()
         ///     {
         ///         Key = "remote-sbt",
         ///     });

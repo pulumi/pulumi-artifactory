@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualComposerRepository(ctx, &artifactory.LookupVirtualComposerRepositoryArgs{
+//			_, err := artifactory.GetVirtualComposerRepository(ctx, &artifactory.LookupVirtualComposerRepositoryArgs{
 //				Key: "virtual-composer",
 //			}, nil)
 //			if err != nil {

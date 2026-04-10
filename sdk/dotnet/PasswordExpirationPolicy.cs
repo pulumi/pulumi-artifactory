@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_password_expiration_policy = new Artifactory.PasswordExpirationPolicy("my-password-expiration-policy", new()
+    ///     var my_password_expiration_policy = new Artifactory.Index.PasswordExpirationPolicy("my-password-expiration-policy", new()
     ///     {
     ///         Name = "my-password-expiration-policy",
     ///         Enabled = true,

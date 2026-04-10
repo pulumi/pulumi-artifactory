@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualOciRepository(ctx, &artifactory.LookupVirtualOciRepositoryArgs{
+//			_, err := artifactory.GetVirtualOciRepository(ctx, &artifactory.LookupVirtualOciRepositoryArgs{
 //				Key: "my-oci-virtual",
 //			}, nil)
 //			if err != nil {

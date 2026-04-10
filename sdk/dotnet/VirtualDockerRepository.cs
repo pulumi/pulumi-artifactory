@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo_docker = new Artifactory.VirtualDockerRepository("foo-docker", new()
+    ///     var foo_docker = new Artifactory.Index.VirtualDockerRepository("foo-docker", new()
     ///     {
     ///         Key = "foo-docker",
     ///         Repositories = new[] {},

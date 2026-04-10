@@ -34,7 +34,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_federated_test_releasebundles_repo = new Artifactory.FederatedReleasebundlesRepository("terraform-federated-test-releasebundles-repo", new()
+    ///     var terraform_federated_test_releasebundles_repo = new Artifactory.Index.FederatedReleasebundlesRepository("terraform-federated-test-releasebundles-repo", new()
     ///     {
     ///         Key = "terraform-federated-test-releasebundles-repo",
     ///         ProjectKey = test.Key,

@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var npm_remote = new Artifactory.RemoteNpmRepository("npm-remote", new()
+    ///     var npm_remote = new Artifactory.Index.RemoteNpmRepository("npm-remote", new()
     ///     {
     ///         Key = "npm-remote",
     ///         Url = "https://registry.npmjs.org",

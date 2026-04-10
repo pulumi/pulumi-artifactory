@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_cocoapods = Artifactory.GetRemoteCocoapodsRepository.Invoke(new()
+        ///     var remote_cocoapods = Artifactory.Index.GetRemoteCocoapodsRepository.Invoke(new()
         ///     {
         ///         Key = "remote-cocoapods",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_cocoapods = Artifactory.GetRemoteCocoapodsRepository.Invoke(new()
+        ///     var remote_cocoapods = Artifactory.Index.GetRemoteCocoapodsRepository.Invoke(new()
         ///     {
         ///         Key = "remote-cocoapods",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var remote_cocoapods = Artifactory.GetRemoteCocoapodsRepository.Invoke(new()
+        ///     var remote_cocoapods = Artifactory.Index.GetRemoteCocoapodsRepository.Invoke(new()
         ///     {
         ///         Key = "remote-cocoapods",
         ///     });

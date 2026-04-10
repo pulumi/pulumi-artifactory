@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteHelmRepository(ctx, &artifactory.LookupRemoteHelmRepositoryArgs{
+//			_, err := artifactory.GetRemoteHelmRepository(ctx, &artifactory.LookupRemoteHelmRepositoryArgs{
 //				Key: "remote-helm",
 //			}, nil)
 //			if err != nil {

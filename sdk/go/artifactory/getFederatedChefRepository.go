@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedChefRepository(ctx, &artifactory.LookupFederatedChefRepositoryArgs{
+//			_, err := artifactory.GetFederatedChefRepository(ctx, &artifactory.LookupFederatedChefRepositoryArgs{
 //				Key: "federated-test-chef-repo",
 //			}, nil)
 //			if err != nil {

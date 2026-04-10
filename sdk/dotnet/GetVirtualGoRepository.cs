@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_go = Artifactory.GetVirtualGoRepository.Invoke(new()
+        ///     var virtual_go = Artifactory.Index.GetVirtualGoRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-go",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_go = Artifactory.GetVirtualGoRepository.Invoke(new()
+        ///     var virtual_go = Artifactory.Index.GetVirtualGoRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-go",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_go = Artifactory.GetVirtualGoRepository.Invoke(new()
+        ///     var virtual_go = Artifactory.Index.GetVirtualGoRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-go",
         ///     });

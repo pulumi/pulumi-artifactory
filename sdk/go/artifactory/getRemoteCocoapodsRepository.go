@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteCocoapodsRepository(ctx, &artifactory.LookupRemoteCocoapodsRepositoryArgs{
+//			_, err := artifactory.GetRemoteCocoapodsRepository(ctx, &artifactory.LookupRemoteCocoapodsRepositoryArgs{
 //				Key: "remote-cocoapods",
 //			}, nil)
 //			if err != nil {

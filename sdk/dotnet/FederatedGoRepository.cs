@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_federated_test_go_repo = new Artifactory.FederatedGoRepository("terraform-federated-test-go-repo", new()
+    ///     var terraform_federated_test_go_repo = new Artifactory.Index.FederatedGoRepository("terraform-federated-test-go-repo", new()
     ///     {
     ///         Key = "terraform-federated-test-go-repo",
     ///         Members = new[]

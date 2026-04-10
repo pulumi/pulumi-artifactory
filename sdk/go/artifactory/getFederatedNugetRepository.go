@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedNugetRepository(ctx, &artifactory.LookupFederatedNugetRepositoryArgs{
+//			_, err := artifactory.GetFederatedNugetRepository(ctx, &artifactory.LookupFederatedNugetRepositoryArgs{
 //				Key: "federated-test-nuget-repo",
 //			}, nil)
 //			if err != nil {

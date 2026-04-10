@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ivy_remote = new Artifactory.RemoteIvyRepository("ivy-remote", new()
+    ///     var ivy_remote = new Artifactory.Index.RemoteIvyRepository("ivy-remote", new()
     ///     {
     ///         Key = "ivy-remote-foo",
     ///         Url = "https://repo1.maven.org/maven2/",

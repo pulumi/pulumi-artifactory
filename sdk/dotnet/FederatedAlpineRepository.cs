@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_federated_test_alpine_repo = new Artifactory.FederatedAlpineRepository("terraform-federated-test-alpine-repo", new()
+    ///     var terraform_federated_test_alpine_repo = new Artifactory.Index.FederatedAlpineRepository("terraform-federated-test-alpine-repo", new()
     ///     {
     ///         Key = "terraform-federated-test-alpine-repo",
     ///         Members = new[]

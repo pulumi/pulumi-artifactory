@@ -25,7 +25,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_terraform_provider_repo = Artifactory.GetLocalTerraformProviderRepository.Invoke(new()
+        ///     var local_test_terraform_provider_repo = Artifactory.Index.GetLocalTerraformProviderRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-terraform-provider-repo",
         ///     });
@@ -50,7 +50,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_terraform_provider_repo = Artifactory.GetLocalTerraformProviderRepository.Invoke(new()
+        ///     var local_test_terraform_provider_repo = Artifactory.Index.GetLocalTerraformProviderRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-terraform-provider-repo",
         ///     });
@@ -75,7 +75,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_terraform_provider_repo = Artifactory.GetLocalTerraformProviderRepository.Invoke(new()
+        ///     var local_test_terraform_provider_repo = Artifactory.Index.GetLocalTerraformProviderRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-terraform-provider-repo",
         ///     });

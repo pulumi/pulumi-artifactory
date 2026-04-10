@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_machinelearning_local = new Artifactory.LocalMachinelearningRepository("my-machinelearning-local", new()
+    ///     var my_machinelearning_local = new Artifactory.Index.LocalMachinelearningRepository("my-machinelearning-local", new()
     ///     {
     ///         Key = "my-machinelearning-local",
     ///     });

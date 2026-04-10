@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var my_repo_file_list = Artifactory.GetFileList.Invoke(new()
+        ///     var my_repo_file_list = Artifactory.Index.GetFileList.Invoke(new()
         ///     {
         ///         RepositoryKey = "my-generic-local",
         ///         FolderPath = "path/to/artifact",
@@ -49,7 +49,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var my_repo_file_list = Artifactory.GetFileList.Invoke(new()
+        ///     var my_repo_file_list = Artifactory.Index.GetFileList.Invoke(new()
         ///     {
         ///         RepositoryKey = "my-generic-local",
         ///         FolderPath = "path/to/artifact",
@@ -74,7 +74,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var my_repo_file_list = Artifactory.GetFileList.Invoke(new()
+        ///     var my_repo_file_list = Artifactory.Index.GetFileList.Invoke(new()
         ///     {
         ///         RepositoryKey = "my-generic-local",
         ///         FolderPath = "path/to/artifact",

@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var my_helmoci_local = Artifactory.GetLocalHelmociRepository.Invoke(new()
+        ///     var my_helmoci_local = Artifactory.Index.GetLocalHelmociRepository.Invoke(new()
         ///     {
         ///         Key = "my-helmoci-local",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var my_helmoci_local = Artifactory.GetLocalHelmociRepository.Invoke(new()
+        ///     var my_helmoci_local = Artifactory.Index.GetLocalHelmociRepository.Invoke(new()
         ///     {
         ///         Key = "my-helmoci-local",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var my_helmoci_local = Artifactory.GetLocalHelmociRepository.Invoke(new()
+        ///     var my_helmoci_local = Artifactory.Index.GetLocalHelmociRepository.Invoke(new()
         ///     {
         ///         Key = "my-helmoci-local",
         ///     });

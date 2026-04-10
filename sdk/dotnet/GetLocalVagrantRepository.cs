@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_vagrant_repo = Artifactory.GetLocalVagrantRepository.Invoke(new()
+        ///     var local_test_vagrant_repo = Artifactory.Index.GetLocalVagrantRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-vagrant-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_vagrant_repo = Artifactory.GetLocalVagrantRepository.Invoke(new()
+        ///     var local_test_vagrant_repo = Artifactory.Index.GetLocalVagrantRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-vagrant-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_vagrant_repo = Artifactory.GetLocalVagrantRepository.Invoke(new()
+        ///     var local_test_vagrant_repo = Artifactory.Index.GetLocalVagrantRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-vagrant-repo",
         ///     });

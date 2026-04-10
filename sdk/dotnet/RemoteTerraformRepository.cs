@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_remote = new Artifactory.RemoteTerraformRepository("terraform-remote", new()
+    ///     var terraform_remote = new Artifactory.Index.RemoteTerraformRepository("terraform-remote", new()
     ///     {
     ///         Key = "terraform-remote",
     ///         Url = "https://github.com/",
@@ -57,7 +57,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_remote = new Artifactory.RemoteTerraformRepository("terraform-remote", new()
+    ///     var terraform_remote = new Artifactory.Index.RemoteTerraformRepository("terraform-remote", new()
     ///     {
     ///         Key = "terraform-remote",
     ///         Url = "https://github.com/",

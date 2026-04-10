@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var my_oci_local = Artifactory.GetLocalOciRepository.Invoke(new()
+        ///     var my_oci_local = Artifactory.Index.GetLocalOciRepository.Invoke(new()
         ///     {
         ///         Key = "my-oci-local",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var my_oci_local = Artifactory.GetLocalOciRepository.Invoke(new()
+        ///     var my_oci_local = Artifactory.Index.GetLocalOciRepository.Invoke(new()
         ///     {
         ///         Key = "my-oci-local",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var my_oci_local = Artifactory.GetLocalOciRepository.Invoke(new()
+        ///     var my_oci_local = Artifactory.Index.GetLocalOciRepository.Invoke(new()
         ///     {
         ///         Key = "my-oci-local",
         ///     });

@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupLocalConanRepository(ctx, &artifactory.LookupLocalConanRepositoryArgs{
+//			_, err := artifactory.GetLocalConanRepository(ctx, &artifactory.LookupLocalConanRepositoryArgs{
 //				Key: "local-test-conan-repo",
 //			}, nil)
 //			if err != nil {

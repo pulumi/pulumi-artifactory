@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_sbt_repo = Artifactory.GetLocalSbtRepository.Invoke(new()
+        ///     var local_test_sbt_repo = Artifactory.Index.GetLocalSbtRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-sbt-repo",
         ///     });
@@ -66,7 +66,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_sbt_repo = Artifactory.GetLocalSbtRepository.Invoke(new()
+        ///     var local_test_sbt_repo = Artifactory.Index.GetLocalSbtRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-sbt-repo",
         ///     });
@@ -108,7 +108,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_sbt_repo = Artifactory.GetLocalSbtRepository.Invoke(new()
+        ///     var local_test_sbt_repo = Artifactory.Index.GetLocalSbtRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-sbt-repo",
         ///     });

@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_vault_config_app_role = new Artifactory.VaultConfiguration("my-vault-config-app-role", new()
+    ///     var my_vault_config_app_role = new Artifactory.Index.VaultConfiguration("my-vault-config-app-role", new()
     ///     {
     ///         Name = "my-vault-config-app-role",
     ///         Config = new Artifactory.Inputs.VaultConfigurationConfigArgs
@@ -47,7 +47,7 @@ namespace Pulumi.Artifactory
     ///         },
     ///     });
     /// 
-    ///     var my_vault_config_cert = new Artifactory.VaultConfiguration("my-vault-config-cert", new()
+    ///     var my_vault_config_cert = new Artifactory.Index.VaultConfiguration("my-vault-config-cert", new()
     ///     {
     ///         Name = "my-vault-config-cert",
     ///         Config = new Artifactory.Inputs.VaultConfigurationConfigArgs
@@ -56,11 +56,11 @@ namespace Pulumi.Artifactory
     ///             Auth = new Artifactory.Inputs.VaultConfigurationConfigAuthArgs
     ///             {
     ///                 Type = "Certificate",
-    ///                 Certificate = Std.File.Invoke(new()
+    ///                 Certificate = Std.Index.File.Invoke(new()
     ///                 {
     ///                     Input = "samples/public.pem",
     ///                 }).Apply(invoke =&gt; invoke.Result),
-    ///                 CertificateKey = Std.File.Invoke(new()
+    ///                 CertificateKey = Std.Index.File.Invoke(new()
     ///                 {
     ///                     Input = "samples/private.pem",
     ///                 }).Apply(invoke =&gt; invoke.Result),

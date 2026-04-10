@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedTerraformProviderRepository(ctx, &artifactory.LookupFederatedTerraformProviderRepositoryArgs{
+//			_, err := artifactory.GetFederatedTerraformProviderRepository(ctx, &artifactory.LookupFederatedTerraformProviderRepositoryArgs{
 //				Key: "federated-test-terraform-provider-repo",
 //			}, nil)
 //			if err != nil {

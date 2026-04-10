@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_helmoci_virtual = new Artifactory.VirtualHelmociRepository("my-helmoci-virtual", new()
+    ///     var my_helmoci_virtual = new Artifactory.Index.VirtualHelmociRepository("my-helmoci-virtual", new()
     ///     {
     ///         Key = "my-helmoci-virtual",
     ///         Repositories = new[] {},

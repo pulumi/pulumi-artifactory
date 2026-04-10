@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedAnsibleRepository(ctx, &artifactory.LookupFederatedAnsibleRepositoryArgs{
+//			_, err := artifactory.GetFederatedAnsibleRepository(ctx, &artifactory.LookupFederatedAnsibleRepositoryArgs{
 //				Key: "federated-test-ansible-repo",
 //			}, nil)
 //			if err != nil {

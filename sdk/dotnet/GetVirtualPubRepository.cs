@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_pub = Artifactory.GetVirtualPubRepository.Invoke(new()
+        ///     var virtual_pub = Artifactory.Index.GetVirtualPubRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-pub",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_pub = Artifactory.GetVirtualPubRepository.Invoke(new()
+        ///     var virtual_pub = Artifactory.Index.GetVirtualPubRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-pub",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_pub = Artifactory.GetVirtualPubRepository.Invoke(new()
+        ///     var virtual_pub = Artifactory.Index.GetVirtualPubRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-pub",
         ///     });

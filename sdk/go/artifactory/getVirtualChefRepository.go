@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualChefRepository(ctx, &artifactory.LookupVirtualChefRepositoryArgs{
+//			_, err := artifactory.GetVirtualChefRepository(ctx, &artifactory.LookupVirtualChefRepositoryArgs{
 //				Key: "virtual-chef",
 //			}, nil)
 //			if err != nil {

@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_alpine = Artifactory.GetVirtualAlpineRepository.Invoke(new()
+        ///     var virtual_alpine = Artifactory.Index.GetVirtualAlpineRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-alpine",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_alpine = Artifactory.GetVirtualAlpineRepository.Invoke(new()
+        ///     var virtual_alpine = Artifactory.Index.GetVirtualAlpineRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-alpine",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_alpine = Artifactory.GetVirtualAlpineRepository.Invoke(new()
+        ///     var virtual_alpine = Artifactory.Index.GetVirtualAlpineRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-alpine",
         ///     });

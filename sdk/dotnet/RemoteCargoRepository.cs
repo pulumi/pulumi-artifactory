@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_cargo = new Artifactory.RemoteCargoRepository("my-remote-cargo", new()
+    ///     var my_remote_cargo = new Artifactory.Index.RemoteCargoRepository("my-remote-cargo", new()
     ///     {
     ///         Key = "my-remote-cargo",
     ///         AnonymousAccess = true,

@@ -26,7 +26,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Artifactory.PropertySet("foo", new()
+    ///     var foo = new Artifactory.Index.PropertySet("foo", new()
     ///     {
     ///         Name = "property-set1",
     ///         Visible = true,

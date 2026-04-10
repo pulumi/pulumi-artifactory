@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_opkg_repo = Artifactory.GetFederatedOpkgRepository.Invoke(new()
+        ///     var federated_test_opkg_repo = Artifactory.Index.GetFederatedOpkgRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-opkg-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_opkg_repo = Artifactory.GetFederatedOpkgRepository.Invoke(new()
+        ///     var federated_test_opkg_repo = Artifactory.Index.GetFederatedOpkgRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-opkg-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_opkg_repo = Artifactory.GetFederatedOpkgRepository.Invoke(new()
+        ///     var federated_test_opkg_repo = Artifactory.Index.GetFederatedOpkgRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-opkg-repo",
         ///     });

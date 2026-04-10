@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_pypi = Artifactory.GetVirtualPypiRepository.Invoke(new()
+        ///     var virtual_pypi = Artifactory.Index.GetVirtualPypiRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-pypi",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_pypi = Artifactory.GetVirtualPypiRepository.Invoke(new()
+        ///     var virtual_pypi = Artifactory.Index.GetVirtualPypiRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-pypi",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_pypi = Artifactory.GetVirtualPypiRepository.Invoke(new()
+        ///     var virtual_pypi = Artifactory.Index.GetVirtualPypiRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-pypi",
         ///     });

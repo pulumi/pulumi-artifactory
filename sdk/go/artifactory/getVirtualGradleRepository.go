@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualGradleRepository(ctx, &artifactory.LookupVirtualGradleRepositoryArgs{
+//			_, err := artifactory.GetVirtualGradleRepository(ctx, &artifactory.LookupVirtualGradleRepositoryArgs{
 //				Key: "virtual-gradle",
 //			}, nil)
 //			if err != nil {

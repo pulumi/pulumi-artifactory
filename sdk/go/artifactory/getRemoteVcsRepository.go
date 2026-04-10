@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteVcsRepository(ctx, &artifactory.LookupRemoteVcsRepositoryArgs{
+//			_, err := artifactory.GetRemoteVcsRepository(ctx, &artifactory.LookupRemoteVcsRepositoryArgs{
 //				Key: "remote-vcs",
 //			}, nil)
 //			if err != nil {

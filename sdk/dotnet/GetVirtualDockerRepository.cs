@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_docker = Artifactory.GetVirtualDockerRepository.Invoke(new()
+        ///     var virtual_docker = Artifactory.Index.GetVirtualDockerRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-docker",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_docker = Artifactory.GetVirtualDockerRepository.Invoke(new()
+        ///     var virtual_docker = Artifactory.Index.GetVirtualDockerRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-docker",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_docker = Artifactory.GetVirtualDockerRepository.Invoke(new()
+        ///     var virtual_docker = Artifactory.Index.GetVirtualDockerRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-docker",
         ///     });

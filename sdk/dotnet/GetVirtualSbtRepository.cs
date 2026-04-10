@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_sbt = Artifactory.GetVirtualSbtRepository.Invoke(new()
+        ///     var virtual_sbt = Artifactory.Index.GetVirtualSbtRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-sbt",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_sbt = Artifactory.GetVirtualSbtRepository.Invoke(new()
+        ///     var virtual_sbt = Artifactory.Index.GetVirtualSbtRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-sbt",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var virtual_sbt = Artifactory.GetVirtualSbtRepository.Invoke(new()
+        ///     var virtual_sbt = Artifactory.Index.GetVirtualSbtRepository.Invoke(new()
         ///     {
         ///         Key = "virtual-sbt",
         ///     });

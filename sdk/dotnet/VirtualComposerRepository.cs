@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo_composer = new Artifactory.VirtualComposerRepository("foo-composer", new()
+    ///     var foo_composer = new Artifactory.Index.VirtualComposerRepository("foo-composer", new()
     ///     {
     ///         Key = "foo-composer",
     ///         Repositories = new[] {},

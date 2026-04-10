@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_pypi_repo = Artifactory.GetLocalPypiRepository.Invoke(new()
+        ///     var local_test_pypi_repo = Artifactory.Index.GetLocalPypiRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-pypi-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_pypi_repo = Artifactory.GetLocalPypiRepository.Invoke(new()
+        ///     var local_test_pypi_repo = Artifactory.Index.GetLocalPypiRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-pypi-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var local_test_pypi_repo = Artifactory.GetLocalPypiRepository.Invoke(new()
+        ///     var local_test_pypi_repo = Artifactory.Index.GetLocalPypiRepository.Invoke(new()
         ///     {
         ///         Key = "local-test-pypi-repo",
         ///     });

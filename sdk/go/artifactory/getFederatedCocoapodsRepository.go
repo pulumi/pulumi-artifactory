@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedCocoapodsRepository(ctx, &artifactory.LookupFederatedCocoapodsRepositoryArgs{
+//			_, err := artifactory.GetFederatedCocoapodsRepository(ctx, &artifactory.LookupFederatedCocoapodsRepositoryArgs{
 //				Key: "federated-test-cocoapods-repo",
 //			}, nil)
 //			if err != nil {

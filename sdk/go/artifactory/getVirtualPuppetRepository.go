@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualPuppetRepository(ctx, &artifactory.LookupVirtualPuppetRepositoryArgs{
+//			_, err := artifactory.GetVirtualPuppetRepository(ctx, &artifactory.LookupVirtualPuppetRepositoryArgs{
 //				Key: "virtual-puppet",
 //			}, nil)
 //			if err != nil {

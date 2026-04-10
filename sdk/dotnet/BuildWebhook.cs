@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var build_webhook = new Artifactory.BuildWebhook("build-webhook", new()
+    ///     var build_webhook = new Artifactory.Index.BuildWebhook("build-webhook", new()
     ///     {
     ///         Key = "build-webhook",
     ///         EventTypes = new[]

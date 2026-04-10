@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteChefRepository(ctx, &artifactory.LookupRemoteChefRepositoryArgs{
+//			_, err := artifactory.GetRemoteChefRepository(ctx, &artifactory.LookupRemoteChefRepositoryArgs{
 //				Key: "remote-chef",
 //			}, nil)
 //			if err != nil {

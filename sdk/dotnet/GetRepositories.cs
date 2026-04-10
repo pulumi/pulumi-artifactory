@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all_alpine_local = Artifactory.GetRepositories.Invoke(new()
+        ///     var all_alpine_local = Artifactory.Index.GetRepositories.Invoke(new()
         ///     {
         ///         RepositoryType = "local",
         ///         PackageType = "alpine",
@@ -49,7 +49,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all_alpine_local = Artifactory.GetRepositories.Invoke(new()
+        ///     var all_alpine_local = Artifactory.Index.GetRepositories.Invoke(new()
         ///     {
         ///         RepositoryType = "local",
         ///         PackageType = "alpine",
@@ -74,7 +74,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all_alpine_local = Artifactory.GetRepositories.Invoke(new()
+        ///     var all_alpine_local = Artifactory.Index.GetRepositories.Invoke(new()
         ///     {
         ///         RepositoryType = "local",
         ///         PackageType = "alpine",

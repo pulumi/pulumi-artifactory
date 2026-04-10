@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_federated_test_sbt_repo = new Artifactory.FederatedSbtRepository("terraform-federated-test-sbt-repo", new()
+    ///     var terraform_federated_test_sbt_repo = new Artifactory.Index.FederatedSbtRepository("terraform-federated-test-sbt-repo", new()
     ///     {
     ///         Key = "terraform-federated-test-sbt-repo",
     ///         Members = new[]

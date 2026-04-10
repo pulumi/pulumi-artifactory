@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedOciRepository(ctx, &artifactory.LookupFederatedOciRepositoryArgs{
+//			_, err := artifactory.GetFederatedOciRepository(ctx, &artifactory.LookupFederatedOciRepositoryArgs{
 //				Key: "my-oci-federated",
 //			}, nil)
 //			if err != nil {

@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_federated_test_gitlfs_repo = new Artifactory.FederatedGitltfsRepository("terraform-federated-test-gitlfs-repo", new()
+    ///     var terraform_federated_test_gitlfs_repo = new Artifactory.Index.FederatedGitltfsRepository("terraform-federated-test-gitlfs-repo", new()
     ///     {
     ///         Key = "terraform-federated-test-gitlfs-repo",
     ///         Members = new[]

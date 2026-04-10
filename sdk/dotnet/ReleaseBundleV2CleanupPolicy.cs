@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_release_bundle_v2_rb = new Artifactory.ReleaseBundleV2("my-release-bundle-v2-rb", new()
+    ///     var my_release_bundle_v2_rb = new Artifactory.Index.ReleaseBundleV2("my-release-bundle-v2-rb", new()
     ///     {
     ///         Name = "my-release-bundle-v2-rb",
     ///         Version = "2.0.0",
@@ -44,7 +44,7 @@ namespace Pulumi.Artifactory
     ///         },
     ///     });
     /// 
-    ///     var my_resource_bundle_v2_cleanup_policy = new Artifactory.ReleaseBundleV2CleanupPolicy("my-resource-bundle-v2-cleanup-policy", new()
+    ///     var my_resource_bundle_v2_cleanup_policy = new Artifactory.Index.ReleaseBundleV2CleanupPolicy("my-resource-bundle-v2-cleanup-policy", new()
     ///     {
     ///         Key = "my-release-bundle-v2-policy-key",
     ///         Description = "Cleanup policy description",
@@ -90,7 +90,7 @@ namespace Pulumi.Artifactory
     ///     var config = new Config();
     ///     var releaseBundleCleanupDurationInMinutes = config.GetDouble("releaseBundleCleanupDurationInMinutes") ?? 120;
     ///     var releaseBundleCleanupCreatedBeforeInMonths = config.GetDouble("releaseBundleCleanupCreatedBeforeInMonths") ?? 36;
-    ///     var my_resource_bundle_v2_cleanup_policy = new Artifactory.ReleaseBundleV2CleanupPolicy("my-resource-bundle-v2-cleanup-policy", new()
+    ///     var my_resource_bundle_v2_cleanup_policy = new Artifactory.Index.ReleaseBundleV2CleanupPolicy("my-resource-bundle-v2-cleanup-policy", new()
     ///     {
     ///         Key = "my-release-bundle-v2-policy-key",
     ///         Description = "Cleanup policy description with variables",

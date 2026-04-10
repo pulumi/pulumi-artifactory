@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualRpmRepository(ctx, &artifactory.LookupVirtualRpmRepositoryArgs{
+//			_, err := artifactory.GetVirtualRpmRepository(ctx, &artifactory.LookupVirtualRpmRepositoryArgs{
 //				Key: "virtual-rpm",
 //			}, nil)
 //			if err != nil {

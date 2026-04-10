@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var custom_layout = new Artifactory.RepositoryLayout("custom-layout", new()
+    ///     var custom_layout = new Artifactory.Index.RepositoryLayout("custom-layout", new()
     ///     {
     ///         Name = "custom-layout",
     ///         ArtifactPathPattern = "[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).[ext]",

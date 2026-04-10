@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_conan_repo = Artifactory.GetFederatedConanRepository.Invoke(new()
+        ///     var federated_test_conan_repo = Artifactory.Index.GetFederatedConanRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-conan-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_conan_repo = Artifactory.GetFederatedConanRepository.Invoke(new()
+        ///     var federated_test_conan_repo = Artifactory.Index.GetFederatedConanRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-conan-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_conan_repo = Artifactory.GetFederatedConanRepository.Invoke(new()
+        ///     var federated_test_conan_repo = Artifactory.Index.GetFederatedConanRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-conan-repo",
         ///     });

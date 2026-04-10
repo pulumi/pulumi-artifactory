@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_debian_repo = Artifactory.GetFederatedDebianRepository.Invoke(new()
+        ///     var federated_test_debian_repo = Artifactory.Index.GetFederatedDebianRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-debian-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_debian_repo = Artifactory.GetFederatedDebianRepository.Invoke(new()
+        ///     var federated_test_debian_repo = Artifactory.Index.GetFederatedDebianRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-debian-repo",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_debian_repo = Artifactory.GetFederatedDebianRepository.Invoke(new()
+        ///     var federated_test_debian_repo = Artifactory.Index.GetFederatedDebianRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-debian-repo",
         ///     });

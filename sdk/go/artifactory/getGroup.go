@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupGroup(ctx, &artifactory.LookupGroupArgs{
+//			_, err := artifactory.GetGroup(ctx, &artifactory.LookupGroupArgs{
 //				Name:         "my_group",
 //				IncludeUsers: pulumi.StringRef("true"),
 //			}, nil)
