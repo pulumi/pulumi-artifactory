@@ -130,7 +130,7 @@ export interface GetRemoteVcsRepositoryArgs {
      */
     vcsGitDownloadUrl?: string;
     /**
-     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket, Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub (GITHUB), GitHub Enterprise (GITHUBENTERPRISE), BitBucket Cloud (BITBUCKET), BitBucket Server (STASH), GitLab (GITLAB), or a remote Artifactory instance. Use CUSTOM for a custom URL. Allowed values are: `GITHUB`, `GITHUBENTERPRISE`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `GITLAB`, `CUSTOM`. Default value is `GITHUB`.
      */
     vcsGitProvider?: string;
     xrayIndex?: boolean;
@@ -196,7 +196,7 @@ export interface GetRemoteVcsRepositoryResult {
      */
     readonly vcsGitDownloadUrl?: string;
     /**
-     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket, Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub (GITHUB), GitHub Enterprise (GITHUBENTERPRISE), BitBucket Cloud (BITBUCKET), BitBucket Server (STASH), GitLab (GITLAB), or a remote Artifactory instance. Use CUSTOM for a custom URL. Allowed values are: `GITHUB`, `GITHUBENTERPRISE`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `GITLAB`, `CUSTOM`. Default value is `GITHUB`.
      */
     readonly vcsGitProvider?: string;
     readonly xrayIndex?: boolean;
@@ -325,7 +325,7 @@ export interface GetRemoteVcsRepositoryOutputArgs {
      */
     vcsGitDownloadUrl?: pulumi.Input<string>;
     /**
-     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket, Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub (GITHUB), GitHub Enterprise (GITHUBENTERPRISE), BitBucket Cloud (BITBUCKET), BitBucket Server (STASH), GitLab (GITLAB), or a remote Artifactory instance. Use CUSTOM for a custom URL. Allowed values are: `GITHUB`, `GITHUBENTERPRISE`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `GITLAB`, `CUSTOM`. Default value is `GITHUB`.
      */
     vcsGitProvider?: pulumi.Input<string>;
     xrayIndex?: pulumi.Input<boolean>;

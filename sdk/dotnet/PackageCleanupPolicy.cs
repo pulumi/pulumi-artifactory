@@ -160,7 +160,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ### Using Variables for Condition Fields
     /// 
-    /// You can use Terraform variables for condition fields (`CreatedBeforeInDays`, `LastDownloadedBeforeInDays`, `CreatedBeforeInMonths`, `LastDownloadedBeforeInMonths`, `KeepLastNVersions`, `IncludedProperties`) and `DurationInMinutes`. The validator will skip validation when values are unknown (variables), allowing `terraform validate` to pass without requiring variable values.
+    /// You can use Terraform variables for condition fields (`CreatedBeforeInDays`, `LastDownloadedBeforeInDays`, `CreatedBeforeInMonths`, `LastDownloadedBeforeInMonths`, `KeepLastNVersions`, `IncludedProperties`, `ExcludedProperties`) and `DurationInMinutes`. The validator will skip validation when values are unknown (variables), allowing `terraform validate` to pass without requiring variable values.
     /// 
     /// **Example with variables:**
     /// 
@@ -223,22 +223,70 @@ namespace Pulumi.Artifactory
     /// - Variables without default values will require values to be provided during `pulumi preview` or `pulumi up`
     /// - The validator automatically skips validation when condition field values are unknown (variables), preventing false validation errors during `terraform validate`
     /// 
+    /// ### Time-based and properties-based combined
+    /// 
+    /// You may combine **time-based** fields with **`IncludedProperties`** in the same policy. On the Artifactory platform, matching both time and property criteria uses **AND** semantics from **Artifactory 7.129** onward. **`KeepLastNVersions`** cannot be used together with time-based or properties-based conditions.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var time_and_properties = new Artifactory.Index.PackageCleanupPolicy("time-and-properties", new()
+    ///     {
+    ///         Key = "time-and-properties",
+    ///         Description = "Delete old packages that match a property",
+    ///         CronExpression = "0 0 2 ? * MON-SAT *",
+    ///         DurationInMinutes = 60,
+    ///         Enabled = true,
+    ///         SkipTrashcan = false,
+    ///         SearchCriteria = new Artifactory.Inputs.PackageCleanupPolicySearchCriteriaArgs
+    ///         {
+    ///             PackageTypes = new[]
+    ///             {
+    ///                 "docker",
+    ///             },
+    ///             Repos = new[]
+    ///             {
+    ///                 "**",
+    ///             },
+    ///             IncludeAllProjects = true,
+    ///             IncludedProjects = new() { },
+    ///             IncludedPackages = new[]
+    ///             {
+    ///                 "**",
+    ///             },
+    ///             ExcludedPackages = new() { },
+    ///             LastDownloadedBeforeInDays = 90,
+    ///             IncludedProperties = 
+    ///             {
+    ///                 { "cleanup.candidate", new[]
+    ///                 {
+    ///                     "true",
+    ///                 } },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Validation Rules
     /// 
     /// The cleanup policy resource enforces the following validation rules:
     /// 
-    /// 1. **Condition Types**: A policy must use exactly one of the following condition types:
-    ///    - Time-based conditions (`days-based`)
-    ///    - Version-based condition (`KeepLastNVersions`)
-    ///    - Properties-based condition (`IncludedProperties`)
+    /// 1. **At least one condition**: A policy must specify at least one of: time-based (days or months), version-based (`KeepLastNVersions`), or properties-based (`IncludedProperties`).
     /// 
-    /// 2. **Mutual Exclusivity**: Cannot use multiple condition types together.
+    /// 2. **Version-based exclusivity**: `KeepLastNVersions` cannot be combined with time-based conditions or with `IncludedProperties`. Time-based and properties-based conditions **may** be combined (AND semantics on Artifactory **7.129+**).
     /// 
-    /// 3. **Zero Values**: Time-based and version-based conditions must have values greater than 0.
+    /// 3. **Zero Values**: When set, time-based and version-based condition values must be greater than 0.
     /// 
     /// 4. **Days vs Months**: Cannot use both days-based conditions (`CreatedBeforeInDays`, `LastDownloadedBeforeInDays`) and months-based conditions (`CreatedBeforeInMonths`, `LastDownloadedBeforeInMonths`) together.
     /// 
-    /// 5. **Properties Validation**: Properties-based conditions must have exactly one key with exactly one string value.
+    /// 5. **Properties Validation**: When using `IncludedProperties` or `ExcludedProperties`, each map must have exactly one key with exactly one string value.
     /// 
     /// 6. **Project Configuration**: When `IncludeAllProjects` is set to `True`, the `IncludedProjects` field can be empty array. When `IncludeAllProjects` is `False`, `IncludedProjects` must contain at least one project key.
     /// 
@@ -287,6 +335,7 @@ namespace Pulumi.Artifactory
     /// ## Version Compatibility
     /// 
     /// - The `CreatedBeforeInDays` and `LastDownloadedBeforeInDays` attributes are only supported in Artifactory 7.111.2 and later. For earlier versions, use `CreatedBeforeInMonths` and `LastDownloadedBeforeInMonths`.
+    /// - Combining time-based conditions with `IncludedProperties` in one policy (AND semantics) requires Artifactory **7.129** or later.
     /// 
     /// ## Import
     /// 
