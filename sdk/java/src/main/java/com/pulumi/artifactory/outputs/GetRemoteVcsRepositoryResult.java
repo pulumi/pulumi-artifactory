@@ -75,7 +75,7 @@ public final class GetRemoteVcsRepositoryResult {
      */
     private @Nullable String vcsGitDownloadUrl;
     /**
-     * @return (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket, Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+     * @return (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub (GITHUB), GitHub Enterprise (GITHUBENTERPRISE), BitBucket Cloud (BITBUCKET), BitBucket Server (STASH), GitLab (GITLAB), or a remote Artifactory instance. Use CUSTOM for a custom URL. Allowed values are: `GITHUB`, `GITHUBENTERPRISE`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `GITLAB`, `CUSTOM`. Default value is `GITHUB`.
      * 
      */
     private @Nullable String vcsGitProvider;
@@ -233,7 +233,7 @@ public final class GetRemoteVcsRepositoryResult {
         return Optional.ofNullable(this.vcsGitDownloadUrl);
     }
     /**
-     * @return (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket, Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+     * @return (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub (GITHUB), GitHub Enterprise (GITHUBENTERPRISE), BitBucket Cloud (BITBUCKET), BitBucket Server (STASH), GitLab (GITLAB), or a remote Artifactory instance. Use CUSTOM for a custom URL. Allowed values are: `GITHUB`, `GITHUBENTERPRISE`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `GITLAB`, `CUSTOM`. Default value is `GITHUB`.
      * 
      */
     public Optional<String> vcsGitProvider() {

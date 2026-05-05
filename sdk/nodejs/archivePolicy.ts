@@ -91,7 +91,7 @@ import * as utilities from "./utilities";
  *
  * ### Using Variables for Condition Fields
  *
- * You can use Terraform variables for condition fields (`createdBeforeInDays`, `lastDownloadedBeforeInDays`, `createdBeforeInMonths`, `lastDownloadedBeforeInMonths`, `keepLastNVersions`, `includedProperties`) and `durationInMinutes`. The validator will skip validation when values are unknown (variables), allowing `terraform validate` to pass without requiring variable values.
+ * You can use Terraform variables for condition fields (`createdBeforeInDays`, `lastDownloadedBeforeInDays`, `createdBeforeInMonths`, `lastDownloadedBeforeInMonths`, `keepLastNVersions`, `includedProperties`, `excludedProperties`) and `durationInMinutes`. The validator will skip validation when values are unknown (variables), allowing `terraform validate` to pass without requiring variable values.
  *
  * **Example with variables:**
  *
@@ -133,22 +133,49 @@ import * as utilities from "./utilities";
  * - Variables without default values will require values to be provided during `pulumi preview` or `pulumi up`
  * - The validator automatically skips validation when condition field values are unknown (variables), preventing false validation errors during `terraform validate`
  *
+ * ### Time-based and properties-based combined
+ *
+ * You may combine **time-based** fields (e.g. `createdBeforeInDays`, `lastDownloadedBeforeInDays`) with **`includedProperties`** in the same policy. **`keepLastNVersions`** cannot be used together with time-based or properties-based conditions—use version-based logic alone, or time and/or properties without `keepLastNVersions`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const time_and_properties = new artifactory.ArchivePolicy("time-and-properties", {
+ *     key: "time-and-properties",
+ *     description: "Archive old packages that match a property",
+ *     cronExpression: "0 0 2 ? * MON-SAT *",
+ *     durationInMinutes: 60,
+ *     enabled: true,
+ *     skipTrashcan: false,
+ *     searchCriteria: {
+ *         packageTypes: ["docker"],
+ *         repos: ["**"],
+ *         includeAllProjects: true,
+ *         includedProjects: [],
+ *         includedPackages: ["**"],
+ *         excludedPackages: [],
+ *         lastDownloadedBeforeInDays: 90,
+ *         includedProperties: {
+ *             "retention.archive": ["true"],
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Validation Rules
  *
  * The archive policy resource enforces the following validation rules:
  *
- * 1. **Condition Types**: A policy must use exactly one of the following condition types:
- *    - Time-based conditions (`days-based`)
- *    - Version-based condition (`keepLastNVersions`)
- *    - Properties-based condition (`includedProperties`)
+ * 1. **At least one condition**: A policy must specify at least one of: time-based (days or months), version-based (`keepLastNVersions`), or properties-based (`includedProperties`).
  *
- * 2. **Mutual Exclusivity**: Cannot use multiple condition types together.
+ * 2. **Version-based exclusivity**: `keepLastNVersions` cannot be combined with time-based conditions or with `includedProperties`. Time-based and properties-based conditions **may** be combined.
  *
- * 3. **Zero Values**: Time-based and version-based conditions must have values greater than 0.
+ * 3. **Zero Values**: When set, time-based and version-based condition values must be greater than 0.
  *
  * 4. **Days vs Months**: Cannot use both days-based conditions (`createdBeforeInDays`, `lastDownloadedBeforeInDays`) and months-based conditions (`createdBeforeInMonths`, `lastDownloadedBeforeInMonths`) together.
  *
- * 5. **Properties Validation**: Properties-based conditions must have exactly one key with exactly one string value.
+ * 5. **Properties Validation**: When using `includedProperties` or `excludedProperties`, each map must have exactly one key with exactly one string value.
  *
  * 6. **Project Configuration**: When `includeAllProjects` is set to `true`, the `includedProjects` field can be empty array. When `includeAllProjects` is `false`, `includedProjects` must contain at least one project key.
  *

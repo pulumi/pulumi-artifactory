@@ -97,7 +97,7 @@ type LookupRemoteVcsRepositoryArgs struct {
 	Username                          *string  `pulumi:"username"`
 	// (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
 	VcsGitDownloadUrl *string `pulumi:"vcsGitDownloadUrl"`
-	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket, Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub (GITHUB), GitHub Enterprise (GITHUBENTERPRISE), BitBucket Cloud (BITBUCKET), BitBucket Server (STASH), GitLab (GITLAB), or a remote Artifactory instance. Use CUSTOM for a custom URL. Allowed values are: `GITHUB`, `GITHUBENTERPRISE`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `GITLAB`, `CUSTOM`. Default value is `GITHUB`.
 	VcsGitProvider *string `pulumi:"vcsGitProvider"`
 	XrayIndex      *bool   `pulumi:"xrayIndex"`
 }
@@ -153,7 +153,7 @@ type LookupRemoteVcsRepositoryResult struct {
 	Username                          *string  `pulumi:"username"`
 	// (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
 	VcsGitDownloadUrl *string `pulumi:"vcsGitDownloadUrl"`
-	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket, Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub (GITHUB), GitHub Enterprise (GITHUBENTERPRISE), BitBucket Cloud (BITBUCKET), BitBucket Server (STASH), GitLab (GITLAB), or a remote Artifactory instance. Use CUSTOM for a custom URL. Allowed values are: `GITHUB`, `GITHUBENTERPRISE`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `GITLAB`, `CUSTOM`. Default value is `GITHUB`.
 	VcsGitProvider *string `pulumi:"vcsGitProvider"`
 	XrayIndex      *bool   `pulumi:"xrayIndex"`
 }
@@ -216,7 +216,7 @@ type LookupRemoteVcsRepositoryOutputArgs struct {
 	Username                          pulumi.StringPtrInput   `pulumi:"username"`
 	// (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
 	VcsGitDownloadUrl pulumi.StringPtrInput `pulumi:"vcsGitDownloadUrl"`
-	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket, Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub (GITHUB), GitHub Enterprise (GITHUBENTERPRISE), BitBucket Cloud (BITBUCKET), BitBucket Server (STASH), GitLab (GITLAB), or a remote Artifactory instance. Use CUSTOM for a custom URL. Allowed values are: `GITHUB`, `GITHUBENTERPRISE`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `GITLAB`, `CUSTOM`. Default value is `GITHUB`.
 	VcsGitProvider pulumi.StringPtrInput `pulumi:"vcsGitProvider"`
 	XrayIndex      pulumi.BoolPtrInput   `pulumi:"xrayIndex"`
 }
@@ -429,7 +429,7 @@ func (o LookupRemoteVcsRepositoryResultOutput) VcsGitDownloadUrl() pulumi.String
 	return o.ApplyT(func(v LookupRemoteVcsRepositoryResult) *string { return v.VcsGitDownloadUrl }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket, Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub (GITHUB), GitHub Enterprise (GITHUBENTERPRISE), BitBucket Cloud (BITBUCKET), BitBucket Server (STASH), GitLab (GITLAB), or a remote Artifactory instance. Use CUSTOM for a custom URL. Allowed values are: `GITHUB`, `GITHUBENTERPRISE`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `GITLAB`, `CUSTOM`. Default value is `GITHUB`.
 func (o LookupRemoteVcsRepositoryResultOutput) VcsGitProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemoteVcsRepositoryResult) *string { return v.VcsGitProvider }).(pulumi.StringPtrOutput)
 }

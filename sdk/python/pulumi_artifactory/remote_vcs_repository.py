@@ -114,9 +114,7 @@ class RemoteVcsRepositoryArgs:
         :param pulumi.Input[_builtins.bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[_builtins.int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[_builtins.str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
-        :param pulumi.Input[_builtins.str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-               Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-               `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+        :param pulumi.Input[_builtins.str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub (GITHUB), GitHub Enterprise (GITHUBENTERPRISE), BitBucket Cloud (BITBUCKET), BitBucket Server (STASH), GitLab (GITLAB), or a remote Artifactory instance. Use CUSTOM for a custom URL. Allowed values are: `GITHUB`, `GITHUBENTERPRISE`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `GITLAB`, `CUSTOM`. Default value is `GITHUB`.
         :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         pulumi.set(__self__, "key", key)
@@ -738,9 +736,7 @@ class RemoteVcsRepositoryArgs:
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-        Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-        `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub (GITHUB), GitHub Enterprise (GITHUBENTERPRISE), BitBucket Cloud (BITBUCKET), BitBucket Server (STASH), GitLab (GITLAB), or a remote Artifactory instance. Use CUSTOM for a custom URL. Allowed values are: `GITHUB`, `GITHUBENTERPRISE`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `GITLAB`, `CUSTOM`. Default value is `GITHUB`.
         """
         return pulumi.get(self, "vcs_git_provider")
 
@@ -857,9 +853,7 @@ class _RemoteVcsRepositoryState:
         :param pulumi.Input[_builtins.int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[_builtins.str] url: The remote repo URL.
         :param pulumi.Input[_builtins.str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
-        :param pulumi.Input[_builtins.str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-               Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-               `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+        :param pulumi.Input[_builtins.str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub (GITHUB), GitHub Enterprise (GITHUBENTERPRISE), BitBucket Cloud (BITBUCKET), BitBucket Server (STASH), GitLab (GITLAB), or a remote Artifactory instance. Use CUSTOM for a custom URL. Allowed values are: `GITHUB`, `GITHUBENTERPRISE`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `GITLAB`, `CUSTOM`. Default value is `GITHUB`.
         :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         if allow_any_host_auth is not None:
@@ -1483,9 +1477,7 @@ class _RemoteVcsRepositoryState:
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-        Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-        `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub (GITHUB), GitHub Enterprise (GITHUBENTERPRISE), BitBucket Cloud (BITBUCKET), BitBucket Server (STASH), GitLab (GITLAB), or a remote Artifactory instance. Use CUSTOM for a custom URL. Allowed values are: `GITHUB`, `GITHUBENTERPRISE`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `GITLAB`, `CUSTOM`. Default value is `GITHUB`.
         """
         return pulumi.get(self, "vcs_git_provider")
 
@@ -1631,9 +1623,7 @@ class RemoteVcsRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[_builtins.str] url: The remote repo URL.
         :param pulumi.Input[_builtins.str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
-        :param pulumi.Input[_builtins.str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-               Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-               `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+        :param pulumi.Input[_builtins.str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub (GITHUB), GitHub Enterprise (GITHUBENTERPRISE), BitBucket Cloud (BITBUCKET), BitBucket Server (STASH), GitLab (GITLAB), or a remote Artifactory instance. Use CUSTOM for a custom URL. Allowed values are: `GITHUB`, `GITHUBENTERPRISE`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `GITLAB`, `CUSTOM`. Default value is `GITHUB`.
         :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         ...
@@ -1897,9 +1887,7 @@ class RemoteVcsRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[_builtins.str] url: The remote repo URL.
         :param pulumi.Input[_builtins.str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
-        :param pulumi.Input[_builtins.str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-               Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-               `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+        :param pulumi.Input[_builtins.str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub (GITHUB), GitHub Enterprise (GITHUBENTERPRISE), BitBucket Cloud (BITBUCKET), BitBucket Server (STASH), GitLab (GITLAB), or a remote Artifactory instance. Use CUSTOM for a custom URL. Allowed values are: `GITHUB`, `GITHUBENTERPRISE`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `GITLAB`, `CUSTOM`. Default value is `GITHUB`.
         :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -2303,9 +2291,7 @@ class RemoteVcsRepository(pulumi.CustomResource):
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> pulumi.Output[_builtins.str]:
         """
-        Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-        Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-        `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub (GITHUB), GitHub Enterprise (GITHUBENTERPRISE), BitBucket Cloud (BITBUCKET), BitBucket Server (STASH), GitLab (GITLAB), or a remote Artifactory instance. Use CUSTOM for a custom URL. Allowed values are: `GITHUB`, `GITHUBENTERPRISE`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `GITLAB`, `CUSTOM`. Default value is `GITHUB`.
         """
         return pulumi.get(self, "vcs_git_provider")
 
