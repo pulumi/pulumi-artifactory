@@ -394,7 +394,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
             key="my-cleanup-policy",
             description="My cleanup policy with variables",
             cron_expression="0 0 2 ? * MON-SAT *",
-            duration_in_minutes=cleanup_policy_duration_in_minutes,
+            duration_in_minutes=int(cleanup_policy_duration_in_minutes),
             enabled=True,
             skip_trashcan=False,
             search_criteria={
@@ -411,7 +411,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
                 "included_projects": ["default"],
                 "included_packages": ["**"],
                 "excluded_packages": ["com/jfrog/latest"],
-                "last_downloaded_before_in_days": cleanup_policy_last_downloaded_before_in_days,
+                "last_downloaded_before_in_days": int(cleanup_policy_last_downloaded_before_in_days),
             })
         ```
 
@@ -641,7 +641,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
             key="my-cleanup-policy",
             description="My cleanup policy with variables",
             cron_expression="0 0 2 ? * MON-SAT *",
-            duration_in_minutes=cleanup_policy_duration_in_minutes,
+            duration_in_minutes=int(cleanup_policy_duration_in_minutes),
             enabled=True,
             skip_trashcan=False,
             search_criteria={
@@ -658,7 +658,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
                 "included_projects": ["default"],
                 "included_packages": ["**"],
                 "excluded_packages": ["com/jfrog/latest"],
-                "last_downloaded_before_in_days": cleanup_policy_last_downloaded_before_in_days,
+                "last_downloaded_before_in_days": int(cleanup_policy_last_downloaded_before_in_days),
             })
         ```
 

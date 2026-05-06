@@ -317,7 +317,7 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
             key="my-release-bundle-v2-policy-key",
             description="Cleanup policy description with variables",
             cron_expression="0 0 2 * * ?",
-            duration_in_minutes=release_bundle_cleanup_duration_in_minutes,
+            duration_in_minutes=int(release_bundle_cleanup_duration_in_minutes),
             enabled=True,
             search_criteria={
                 "include_all_projects": True,
@@ -327,7 +327,7 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
                     "project_key": "",
                 }],
                 "exclude_promoted_environments": ["**"],
-                "created_before_in_months": release_bundle_cleanup_created_before_in_months,
+                "created_before_in_months": int(release_bundle_cleanup_created_before_in_months),
             })
         ```
 
@@ -417,7 +417,7 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
             key="my-release-bundle-v2-policy-key",
             description="Cleanup policy description with variables",
             cron_expression="0 0 2 * * ?",
-            duration_in_minutes=release_bundle_cleanup_duration_in_minutes,
+            duration_in_minutes=int(release_bundle_cleanup_duration_in_minutes),
             enabled=True,
             search_criteria={
                 "include_all_projects": True,
@@ -427,7 +427,7 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
                     "project_key": "",
                 }],
                 "exclude_promoted_environments": ["**"],
-                "created_before_in_months": release_bundle_cleanup_created_before_in_months,
+                "created_before_in_months": int(release_bundle_cleanup_created_before_in_months),
             })
         ```
 

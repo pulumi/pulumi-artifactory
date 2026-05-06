@@ -390,7 +390,7 @@ class ArchivePolicy(pulumi.CustomResource):
             key="my-archive-policy",
             description="My archive policy with variables",
             cron_expression="0 0 2 ? * MON-SAT *",
-            duration_in_minutes=archive_policy_duration_in_minutes,
+            duration_in_minutes=int(archive_policy_duration_in_minutes),
             enabled=True,
             skip_trashcan=False,
             search_criteria={
@@ -407,7 +407,7 @@ class ArchivePolicy(pulumi.CustomResource):
                 "included_projects": ["default"],
                 "included_packages": ["**"],
                 "excluded_packages": ["com/jfrog/latest"],
-                "last_downloaded_before_in_days": archive_policy_last_downloaded_before_in_days,
+                "last_downloaded_before_in_days": int(archive_policy_last_downloaded_before_in_days),
             })
         ```
 
@@ -594,7 +594,7 @@ class ArchivePolicy(pulumi.CustomResource):
             key="my-archive-policy",
             description="My archive policy with variables",
             cron_expression="0 0 2 ? * MON-SAT *",
-            duration_in_minutes=archive_policy_duration_in_minutes,
+            duration_in_minutes=int(archive_policy_duration_in_minutes),
             enabled=True,
             skip_trashcan=False,
             search_criteria={
@@ -611,7 +611,7 @@ class ArchivePolicy(pulumi.CustomResource):
                 "included_projects": ["default"],
                 "included_packages": ["**"],
                 "excluded_packages": ["com/jfrog/latest"],
-                "last_downloaded_before_in_days": archive_policy_last_downloaded_before_in_days,
+                "last_downloaded_before_in_days": int(archive_policy_last_downloaded_before_in_days),
             })
         ```
 
