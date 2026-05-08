@@ -150,19 +150,19 @@ export interface LocalRepositoryMultiReplicationState {
     /**
      * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      */
-    cronExp?: pulumi.Input<string>;
+    cronExp?: pulumi.Input<string | undefined>;
     /**
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      */
-    enableEventReplication?: pulumi.Input<boolean>;
+    enableEventReplication?: pulumi.Input<boolean | undefined>;
     /**
      * List of replications minimum 1 element.
      */
-    replications?: pulumi.Input<pulumi.Input<inputs.LocalRepositoryMultiReplicationReplication>[]>;
+    replications?: pulumi.Input<pulumi.Input<inputs.LocalRepositoryMultiReplicationReplication>[] | undefined>;
     /**
      * Repository name.
      */
-    repoKey?: pulumi.Input<string>;
+    repoKey?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -176,11 +176,11 @@ export interface LocalRepositoryMultiReplicationArgs {
     /**
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      */
-    enableEventReplication?: pulumi.Input<boolean>;
+    enableEventReplication?: pulumi.Input<boolean | undefined>;
     /**
      * List of replications minimum 1 element.
      */
-    replications?: pulumi.Input<pulumi.Input<inputs.LocalRepositoryMultiReplicationReplication>[]>;
+    replications?: pulumi.Input<pulumi.Input<inputs.LocalRepositoryMultiReplicationReplication>[] | undefined>;
     /**
      * Repository name.
      */

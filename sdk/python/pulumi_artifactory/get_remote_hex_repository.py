@@ -462,7 +462,7 @@ def get_remote_hex_repository(key: Optional[_builtins.str] = None,
         unused_artifacts_cleanup_period_hours=pulumi.get(__ret__, 'unused_artifacts_cleanup_period_hours'),
         url=pulumi.get(__ret__, 'url'),
         username=pulumi.get(__ret__, 'username'))
-def get_remote_hex_repository_output(key: Optional[pulumi.Input[_builtins.str]] = None,
+def get_remote_hex_repository_output(key: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRemoteHexRepositoryResult]:
     """
     Retrieves a remote Hex repository.

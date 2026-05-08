@@ -127,26 +127,26 @@ export function getFederatedDockerRepositoryOutput(args: GetFederatedDockerRepos
  * A collection of arguments for invoking getFederatedDockerRepository.
  */
 export interface GetFederatedDockerRepositoryOutputArgs {
-    archiveBrowsingEnabled?: pulumi.Input<boolean>;
-    blackedOut?: pulumi.Input<boolean>;
-    blockPushingSchema1?: pulumi.Input<boolean>;
-    cdnRedirect?: pulumi.Input<boolean>;
-    cleanupOnDelete?: pulumi.Input<boolean>;
-    description?: pulumi.Input<string>;
-    disableProxy?: pulumi.Input<boolean>;
-    downloadDirect?: pulumi.Input<boolean>;
-    excludesPattern?: pulumi.Input<string>;
-    includesPattern?: pulumi.Input<string>;
+    archiveBrowsingEnabled?: pulumi.Input<boolean | undefined>;
+    blackedOut?: pulumi.Input<boolean | undefined>;
+    blockPushingSchema1?: pulumi.Input<boolean | undefined>;
+    cdnRedirect?: pulumi.Input<boolean | undefined>;
+    cleanupOnDelete?: pulumi.Input<boolean | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    disableProxy?: pulumi.Input<boolean | undefined>;
+    downloadDirect?: pulumi.Input<boolean | undefined>;
+    excludesPattern?: pulumi.Input<string | undefined>;
+    includesPattern?: pulumi.Input<string | undefined>;
     key: pulumi.Input<string>;
-    maxUniqueTags?: pulumi.Input<number>;
-    members?: pulumi.Input<pulumi.Input<inputs.GetFederatedDockerRepositoryMemberArgs>[]>;
-    notes?: pulumi.Input<string>;
-    priorityResolution?: pulumi.Input<boolean>;
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    projectKey?: pulumi.Input<string>;
-    propertySets?: pulumi.Input<pulumi.Input<string>[]>;
-    proxy?: pulumi.Input<string>;
-    repoLayoutRef?: pulumi.Input<string>;
-    tagRetention?: pulumi.Input<number>;
-    xrayIndex?: pulumi.Input<boolean>;
+    maxUniqueTags?: pulumi.Input<number | undefined>;
+    members?: pulumi.Input<pulumi.Input<inputs.GetFederatedDockerRepositoryMemberArgs>[] | undefined>;
+    notes?: pulumi.Input<string | undefined>;
+    priorityResolution?: pulumi.Input<boolean | undefined>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    projectKey?: pulumi.Input<string | undefined>;
+    propertySets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    proxy?: pulumi.Input<string | undefined>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
+    tagRetention?: pulumi.Input<number | undefined>;
+    xrayIndex?: pulumi.Input<boolean | undefined>;
 }

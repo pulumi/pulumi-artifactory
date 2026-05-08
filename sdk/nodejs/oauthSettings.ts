@@ -132,19 +132,19 @@ export interface OauthSettingsState {
     /**
      * Allow persisted users to access their profile.  Default value is `false`.
      */
-    allowUserToAccessProfile?: pulumi.Input<boolean>;
+    allowUserToAccessProfile?: pulumi.Input<boolean | undefined>;
     /**
      * Enable OAuth SSO.  Default value is `true`.
      */
-    enable?: pulumi.Input<boolean>;
+    enable?: pulumi.Input<boolean | undefined>;
     /**
      * OAuth provider settings block. Multiple blocks can be defined, at least one is required.
      */
-    oauthProviders?: pulumi.Input<pulumi.Input<inputs.OauthSettingsOauthProvider>[]>;
+    oauthProviders?: pulumi.Input<pulumi.Input<inputs.OauthSettingsOauthProvider>[] | undefined>;
     /**
      * Enable the creation of local Artifactory users.  Default value is `false`.
      */
-    persistUsers?: pulumi.Input<boolean>;
+    persistUsers?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -154,11 +154,11 @@ export interface OauthSettingsArgs {
     /**
      * Allow persisted users to access their profile.  Default value is `false`.
      */
-    allowUserToAccessProfile?: pulumi.Input<boolean>;
+    allowUserToAccessProfile?: pulumi.Input<boolean | undefined>;
     /**
      * Enable OAuth SSO.  Default value is `true`.
      */
-    enable?: pulumi.Input<boolean>;
+    enable?: pulumi.Input<boolean | undefined>;
     /**
      * OAuth provider settings block. Multiple blocks can be defined, at least one is required.
      */
@@ -166,5 +166,5 @@ export interface OauthSettingsArgs {
     /**
      * Enable the creation of local Artifactory users.  Default value is `false`.
      */
-    persistUsers?: pulumi.Input<boolean>;
+    persistUsers?: pulumi.Input<boolean | undefined>;
 }

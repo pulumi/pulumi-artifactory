@@ -101,11 +101,11 @@ export interface TrashcanConfigState {
     /**
      * If set, trash can will be enabled and deleted items will be stored in the trash can for the specified retention period. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The number of days to keep deleted items in the trash can before deleting permanently. Defaults to `14`.
      */
-    retentionPeriodDays?: pulumi.Input<number>;
+    retentionPeriodDays?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -115,9 +115,9 @@ export interface TrashcanConfigArgs {
     /**
      * If set, trash can will be enabled and deleted items will be stored in the trash can for the specified retention period. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The number of days to keep deleted items in the trash can before deleting permanently. Defaults to `14`.
      */
-    retentionPeriodDays?: pulumi.Input<number>;
+    retentionPeriodDays?: pulumi.Input<number | undefined>;
 }

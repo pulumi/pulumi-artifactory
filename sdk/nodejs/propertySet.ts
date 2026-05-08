@@ -148,15 +148,15 @@ export interface PropertySetState {
     /**
      * Property set name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of properties that will be part of the property set.
      */
-    properties?: pulumi.Input<pulumi.Input<inputs.PropertySetProperty>[]>;
+    properties?: pulumi.Input<pulumi.Input<inputs.PropertySetProperty>[] | undefined>;
     /**
      * Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
      */
-    visible?: pulumi.Input<boolean>;
+    visible?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -166,7 +166,7 @@ export interface PropertySetArgs {
     /**
      * Property set name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of properties that will be part of the property set.
      */
@@ -174,5 +174,5 @@ export interface PropertySetArgs {
     /**
      * Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
      */
-    visible?: pulumi.Input<boolean>;
+    visible?: pulumi.Input<boolean | undefined>;
 }

@@ -196,43 +196,43 @@ export interface ReleaseBundleV2State {
     /**
      * Timestamp when the new version was created (ISO 8601 standard).
      */
-    created?: pulumi.Input<string>;
+    created?: pulumi.Input<string | undefined>;
     /**
      * The user who created the Release Bundle.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * Key-pair name to use for signature creation
      */
-    keypairName?: pulumi.Input<string>;
+    keypairName?: pulumi.Input<string | undefined>;
     /**
      * Name of Release Bundle
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Project key the Release Bundle belongs to
      */
-    projectKey?: pulumi.Input<string>;
+    projectKey?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the Artifactory instance where the Release Bundle was created.
      */
-    serviceId?: pulumi.Input<string>;
+    serviceId?: pulumi.Input<string | undefined>;
     /**
      * Determines whether to skip the resolution of the Docker manifest, which adds the image layers to the Release Bundle. The default value is `false` (the manifest is resolved and image layers are included).
      */
-    skipDockerManifestResolution?: pulumi.Input<boolean>;
+    skipDockerManifestResolution?: pulumi.Input<boolean | undefined>;
     /**
      * Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excludedRepositoryKeys`).
      */
-    source?: pulumi.Input<inputs.ReleaseBundleV2Source>;
+    source?: pulumi.Input<inputs.ReleaseBundleV2Source | undefined>;
     /**
      * Source type. Valid values: `aql`, `artifacts`, `builds`, `releaseBundles`
      */
-    sourceType?: pulumi.Input<string>;
+    sourceType?: pulumi.Input<string | undefined>;
     /**
      * Version to promote
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -246,15 +246,15 @@ export interface ReleaseBundleV2Args {
     /**
      * Name of Release Bundle
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Project key the Release Bundle belongs to
      */
-    projectKey?: pulumi.Input<string>;
+    projectKey?: pulumi.Input<string | undefined>;
     /**
      * Determines whether to skip the resolution of the Docker manifest, which adds the image layers to the Release Bundle. The default value is `false` (the manifest is resolved and image layers are included).
      */
-    skipDockerManifestResolution?: pulumi.Input<boolean>;
+    skipDockerManifestResolution?: pulumi.Input<boolean | undefined>;
     /**
      * Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excludedRepositoryKeys`).
      */

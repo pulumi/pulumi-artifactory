@@ -22,13 +22,13 @@ class ProxyArgs:
                  host: pulumi.Input[_builtins.str],
                  key: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int],
-                 nt_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 nt_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 redirect_to_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 nt_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 nt_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 redirect_to_hosts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 services: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Proxy resource.
 
@@ -99,102 +99,102 @@ class ProxyArgs:
 
     @_builtins.property
     @pulumi.getter(name="ntDomain")
-    def nt_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nt_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The proxy domain/realm name.
         """
         return pulumi.get(self, "nt_domain")
 
     @nt_domain.setter
-    def nt_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nt_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nt_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="ntHost")
-    def nt_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nt_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The computer name of the machine (the machine connecting to the NTLM proxy).
         """
         return pulumi.get(self, "nt_host")
 
     @nt_host.setter
-    def nt_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nt_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nt_host", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The proxy password when authentication credentials are required.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="platformDefault")
-    def platform_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def platform_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
         """
         return pulumi.get(self, "platform_default")
 
     @platform_default.setter
-    def platform_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def platform_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "platform_default", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectToHosts")
-    def redirect_to_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def redirect_to_hosts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
         """
         return pulumi.get(self, "redirect_to_hosts")
 
     @redirect_to_hosts.setter
-    def redirect_to_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def redirect_to_hosts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "redirect_to_hosts", value)
 
     @_builtins.property
     @pulumi.getter
-    def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def services(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
         """
         return pulumi.get(self, "services")
 
     @services.setter
-    def services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def services(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "services", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The proxy username when authentication credentials are required.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
 @pulumi.input_type
 class _ProxyState:
     def __init__(__self__, *,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 nt_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 nt_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 redirect_to_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 nt_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 nt_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 redirect_to_hosts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 services: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Proxy resources.
 
@@ -232,122 +232,122 @@ class _ProxyState:
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the proxy host.
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique ID of the proxy.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="ntDomain")
-    def nt_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nt_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The proxy domain/realm name.
         """
         return pulumi.get(self, "nt_domain")
 
     @nt_domain.setter
-    def nt_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nt_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nt_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="ntHost")
-    def nt_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nt_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The computer name of the machine (the machine connecting to the NTLM proxy).
         """
         return pulumi.get(self, "nt_host")
 
     @nt_host.setter
-    def nt_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nt_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nt_host", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The proxy password when authentication credentials are required.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="platformDefault")
-    def platform_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def platform_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
         """
         return pulumi.get(self, "platform_default")
 
     @platform_default.setter
-    def platform_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def platform_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "platform_default", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The proxy port number.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectToHosts")
-    def redirect_to_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def redirect_to_hosts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
         """
         return pulumi.get(self, "redirect_to_hosts")
 
     @redirect_to_hosts.setter
-    def redirect_to_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def redirect_to_hosts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "redirect_to_hosts", value)
 
     @_builtins.property
     @pulumi.getter
-    def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def services(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
         """
         return pulumi.get(self, "services")
 
     @services.setter
-    def services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def services(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "services", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The proxy username when authentication credentials are required.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -357,16 +357,16 @@ class Proxy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 nt_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 nt_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 redirect_to_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 nt_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 nt_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 redirect_to_hosts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 services: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an Artifactory Proxy resource.
@@ -480,16 +480,16 @@ class Proxy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 nt_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 nt_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 redirect_to_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 nt_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 nt_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 redirect_to_hosts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 services: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -527,16 +527,16 @@ class Proxy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            host: Optional[pulumi.Input[_builtins.str]] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            nt_domain: Optional[pulumi.Input[_builtins.str]] = None,
-            nt_host: Optional[pulumi.Input[_builtins.str]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            platform_default: Optional[pulumi.Input[_builtins.bool]] = None,
-            port: Optional[pulumi.Input[_builtins.int]] = None,
-            redirect_to_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'Proxy':
+            host: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            nt_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            nt_host: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            redirect_to_hosts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            services: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> 'Proxy':
         """
         Get an existing Proxy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

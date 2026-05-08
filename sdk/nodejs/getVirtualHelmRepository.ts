@@ -131,26 +131,26 @@ export function getVirtualHelmRepositoryOutput(args: GetVirtualHelmRepositoryOut
  * A collection of arguments for invoking getVirtualHelmRepository.
  */
 export interface GetVirtualHelmRepositoryOutputArgs {
-    artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean>;
-    defaultDeploymentRepo?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    excludesPattern?: pulumi.Input<string>;
-    includesPattern?: pulumi.Input<string>;
+    artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean | undefined>;
+    defaultDeploymentRepo?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    excludesPattern?: pulumi.Input<string | undefined>;
+    includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.
      */
     key: pulumi.Input<string>;
-    notes?: pulumi.Input<string>;
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    projectKey?: pulumi.Input<string>;
-    repoLayoutRef?: pulumi.Input<string>;
-    repositories?: pulumi.Input<pulumi.Input<string>[]>;
+    notes?: pulumi.Input<string | undefined>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    projectKey?: pulumi.Input<string | undefined>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
+    repositories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
      */
-    retrievalCachePeriodSeconds?: pulumi.Input<number>;
+    retrievalCachePeriodSeconds?: pulumi.Input<number | undefined>;
     /**
      * (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is `false`.
      */
-    useNamespaces?: pulumi.Input<boolean>;
+    useNamespaces?: pulumi.Input<boolean | undefined>;
 }

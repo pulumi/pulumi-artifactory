@@ -80,15 +80,15 @@ export function getVirtualCocoapodsRepositoryOutput(args: GetVirtualCocoapodsRep
  * A collection of arguments for invoking getVirtualCocoapodsRepository.
  */
 export interface GetVirtualCocoapodsRepositoryOutputArgs {
-    artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean>;
-    defaultDeploymentRepo?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    excludesPattern?: pulumi.Input<string>;
-    includesPattern?: pulumi.Input<string>;
+    artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean | undefined>;
+    defaultDeploymentRepo?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    excludesPattern?: pulumi.Input<string | undefined>;
+    includesPattern?: pulumi.Input<string | undefined>;
     key: pulumi.Input<string>;
-    notes?: pulumi.Input<string>;
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    projectKey?: pulumi.Input<string>;
-    repoLayoutRef?: pulumi.Input<string>;
-    repositories?: pulumi.Input<pulumi.Input<string>[]>;
+    notes?: pulumi.Input<string | undefined>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    projectKey?: pulumi.Input<string | undefined>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
+    repositories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

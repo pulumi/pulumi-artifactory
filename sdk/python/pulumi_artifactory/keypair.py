@@ -24,7 +24,7 @@ class KeypairArgs:
                  pair_type: pulumi.Input[_builtins.str],
                  private_key: pulumi.Input[_builtins.str],
                  public_key: pulumi.Input[_builtins.str],
-                 passphrase: Optional[pulumi.Input[_builtins.str]] = None):
+                 passphrase: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Keypair resource.
 
@@ -109,26 +109,26 @@ class KeypairArgs:
 
     @_builtins.property
     @pulumi.getter
-    def passphrase(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def passphrase(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Passphrase will be used to decrypt the private key. Validated server side.
         """
         return pulumi.get(self, "passphrase")
 
     @passphrase.setter
-    def passphrase(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def passphrase(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "passphrase", value)
 
 
 @pulumi.input_type
 class _KeypairState:
     def __init__(__self__, *,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 pair_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pair_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 pair_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pair_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Keypair resources.
 
@@ -156,67 +156,67 @@ class _KeypairState:
 
     @_builtins.property
     @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Will be used as a filename when retrieving the public key via REST API.
         """
         return pulumi.get(self, "alias")
 
     @alias.setter
-    def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter(name="pairName")
-    def pair_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pair_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique identifier for the Key Pair record.
         """
         return pulumi.get(self, "pair_name")
 
     @pair_name.setter
-    def pair_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pair_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pair_name", value)
 
     @_builtins.property
     @pulumi.getter(name="pairType")
-    def pair_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pair_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key Pair type. Supported types - GPG and RSA.
         """
         return pulumi.get(self, "pair_type")
 
     @pair_type.setter
-    def pair_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pair_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pair_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def passphrase(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def passphrase(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Passphrase will be used to decrypt the private key. Validated server side.
         """
         return pulumi.get(self, "passphrase")
 
     @passphrase.setter
-    def passphrase(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def passphrase(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "passphrase", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Private key. PEM format will be validated. Must not include extranous spaces or tabs.
         """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
-    def private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Public key. PEM format will be validated. Must not include extranous spaces or tabs.
 
@@ -225,7 +225,7 @@ class _KeypairState:
         return pulumi.get(self, "public_key")
 
     @public_key.setter
-    def public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key", value)
 
 
@@ -235,12 +235,12 @@ class Keypair(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 pair_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pair_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 pair_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pair_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are
@@ -332,12 +332,12 @@ class Keypair(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 pair_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pair_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 pair_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pair_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -375,12 +375,12 @@ class Keypair(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alias: Optional[pulumi.Input[_builtins.str]] = None,
-            pair_name: Optional[pulumi.Input[_builtins.str]] = None,
-            pair_type: Optional[pulumi.Input[_builtins.str]] = None,
-            passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-            private_key: Optional[pulumi.Input[_builtins.str]] = None,
-            public_key: Optional[pulumi.Input[_builtins.str]] = None) -> 'Keypair':
+            alias: pulumi.Input[Optional[_builtins.str]] = None,
+            pair_name: pulumi.Input[Optional[_builtins.str]] = None,
+            pair_type: pulumi.Input[Optional[_builtins.str]] = None,
+            passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+            private_key: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key: pulumi.Input[Optional[_builtins.str]] = None) -> 'Keypair':
         """
         Get an existing Keypair resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

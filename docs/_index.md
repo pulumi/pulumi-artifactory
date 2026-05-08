@@ -108,7 +108,7 @@ using Artifactory = Pulumi.Artifactory;
 return await Deployment.RunAsync(() =>
 {
     // Create a new repository
-    var pypi_libs = new Artifactory.Index.LocalPypiRepository("pypi-libs", new()
+    var pypi_libs = new Artifactory.LocalPypiRepository("pypi-libs", new()
     {
         Key = "pypi-libs",
         RepoLayoutRef = "simple-default",
@@ -204,8 +204,8 @@ import com.pulumi.Pulumi;
 import com.pulumi.core.Output;
 import com.pulumi.artifactory.LocalPypiRepository;
 import com.pulumi.artifactory.LocalPypiRepositoryArgs;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.io.File;
 import java.nio.file.Files;

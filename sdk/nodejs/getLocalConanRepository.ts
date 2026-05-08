@@ -142,27 +142,27 @@ export function getLocalConanRepositoryOutput(args: GetLocalConanRepositoryOutpu
  * A collection of arguments for invoking getLocalConanRepository.
  */
 export interface GetLocalConanRepositoryOutputArgs {
-    archiveBrowsingEnabled?: pulumi.Input<boolean>;
-    blackedOut?: pulumi.Input<boolean>;
-    cdnRedirect?: pulumi.Input<boolean>;
-    description?: pulumi.Input<string>;
-    downloadDirect?: pulumi.Input<boolean>;
-    excludesPattern?: pulumi.Input<string>;
+    archiveBrowsingEnabled?: pulumi.Input<boolean | undefined>;
+    blackedOut?: pulumi.Input<boolean | undefined>;
+    cdnRedirect?: pulumi.Input<boolean | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    downloadDirect?: pulumi.Input<boolean | undefined>;
+    excludesPattern?: pulumi.Input<string | undefined>;
     /**
      * Force basic authentication credentials in order to use this repository.
      * Default is `false`.
      */
-    forceConanAuthentication?: pulumi.Input<boolean>;
-    includesPattern?: pulumi.Input<string>;
+    forceConanAuthentication?: pulumi.Input<boolean | undefined>;
+    includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.
      */
     key: pulumi.Input<string>;
-    notes?: pulumi.Input<string>;
-    priorityResolution?: pulumi.Input<boolean>;
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    projectKey?: pulumi.Input<string>;
-    propertySets?: pulumi.Input<pulumi.Input<string>[]>;
-    repoLayoutRef?: pulumi.Input<string>;
-    xrayIndex?: pulumi.Input<boolean>;
+    notes?: pulumi.Input<string | undefined>;
+    priorityResolution?: pulumi.Input<boolean | undefined>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    projectKey?: pulumi.Input<string | undefined>;
+    propertySets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
+    xrayIndex?: pulumi.Input<boolean | undefined>;
 }

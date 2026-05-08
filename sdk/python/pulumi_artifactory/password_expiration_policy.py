@@ -22,7 +22,7 @@ class PasswordExpirationPolicyArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  notify_by_email: pulumi.Input[_builtins.bool],
                  password_max_age: pulumi.Input[_builtins.int],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PasswordExpirationPolicy resource.
 
@@ -75,24 +75,24 @@ class PasswordExpirationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the resource. Only used for importing.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _PasswordExpirationPolicyState:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_by_email: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password_max_age: Optional[pulumi.Input[_builtins.int]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_by_email: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password_max_age: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering PasswordExpirationPolicy resources.
 
@@ -112,50 +112,50 @@ class _PasswordExpirationPolicyState:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable Password Expiration Policy. This only applies to internal user passwords.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the resource. Only used for importing.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyByEmail")
-    def notify_by_email(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify_by_email(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Send mail notification before password expiration. Users will receive an email notification X days before password will expire. Mail server must be enabled and configured correctly.
         """
         return pulumi.get(self, "notify_by_email")
 
     @notify_by_email.setter
-    def notify_by_email(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify_by_email(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify_by_email", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordMaxAge")
-    def password_max_age(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_max_age(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Password expires every N days. The time interval in which users will be obligated to change their password.
         """
         return pulumi.get(self, "password_max_age")
 
     @password_max_age.setter
-    def password_max_age(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_max_age(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_max_age", value)
 
 
@@ -165,10 +165,10 @@ class PasswordExpirationPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_by_email: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password_max_age: Optional[pulumi.Input[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_by_email: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password_max_age: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides an Artifactory Password Expiration Policy resource.
@@ -244,10 +244,10 @@ class PasswordExpirationPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_by_email: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password_max_age: Optional[pulumi.Input[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_by_email: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password_max_age: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -277,10 +277,10 @@ class PasswordExpirationPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            notify_by_email: Optional[pulumi.Input[_builtins.bool]] = None,
-            password_max_age: Optional[pulumi.Input[_builtins.int]] = None) -> 'PasswordExpirationPolicy':
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notify_by_email: pulumi.Input[Optional[_builtins.bool]] = None,
+            password_max_age: pulumi.Input[Optional[_builtins.int]] = None) -> 'PasswordExpirationPolicy':
         """
         Get an existing PasswordExpirationPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

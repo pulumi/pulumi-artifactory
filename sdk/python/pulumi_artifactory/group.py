@@ -19,18 +19,18 @@ __all__ = ['GroupArgs', 'Group']
 @pulumi.input_type
 class GroupArgs:
     def __init__(__self__, *,
-                 admin_privileges: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_join: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 detach_all_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_manager: Optional[pulumi.Input[_builtins.bool]] = None,
-                 realm: Optional[pulumi.Input[_builtins.str]] = None,
-                 realm_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-                 reports_manager: Optional[pulumi.Input[_builtins.bool]] = None,
-                 users_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 watch_manager: Optional[pulumi.Input[_builtins.bool]] = None):
+                 admin_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_join: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 detach_all_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_manager: pulumi.Input[Optional[_builtins.bool]] = None,
+                 realm: pulumi.Input[Optional[_builtins.str]] = None,
+                 realm_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+                 reports_manager: pulumi.Input[Optional[_builtins.bool]] = None,
+                 users_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 watch_manager: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Group resource.
 
@@ -74,164 +74,164 @@ class GroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="adminPrivileges")
-    def admin_privileges(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def admin_privileges(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Any users added to this group will automatically be assigned with admin privileges in the system.
         """
         return pulumi.get(self, "admin_privileges")
 
     @admin_privileges.setter
-    def admin_privileges(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def admin_privileges(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "admin_privileges", value)
 
     @_builtins.property
     @pulumi.getter(name="autoJoin")
-    def auto_join(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_join(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When this parameter is set, any new users defined in the system are automatically assigned to this group.
         """
         return pulumi.get(self, "auto_join")
 
     @auto_join.setter
-    def auto_join(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_join(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_join", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="detachAllUsers")
-    def detach_all_users(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def detach_all_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When this is set to `true`, an empty or missing usernames array will detach all users from the group.
         """
         return pulumi.get(self, "detach_all_users")
 
     @detach_all_users.setter
-    def detach_all_users(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def detach_all_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "detach_all_users", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         New external group ID used to configure the corresponding group in Azure AD.
         """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the group.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyManager")
-    def policy_manager(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def policy_manager(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
         """
         return pulumi.get(self, "policy_manager")
 
     @policy_manager.setter
-    def policy_manager(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def policy_manager(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "policy_manager", value)
 
     @_builtins.property
     @pulumi.getter
-    def realm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def realm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The realm for the group.
         """
         return pulumi.get(self, "realm")
 
     @realm.setter
-    def realm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def realm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "realm", value)
 
     @_builtins.property
     @pulumi.getter(name="realmAttributes")
-    def realm_attributes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def realm_attributes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The realm attributes for the group.
         """
         return pulumi.get(self, "realm_attributes")
 
     @realm_attributes.setter
-    def realm_attributes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def realm_attributes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "realm_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="reportsManager")
-    def reports_manager(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reports_manager(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
         """
         return pulumi.get(self, "reports_manager")
 
     @reports_manager.setter
-    def reports_manager(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reports_manager(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reports_manager", value)
 
     @_builtins.property
     @pulumi.getter(name="usersNames")
-    def users_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def users_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
         """
         return pulumi.get(self, "users_names")
 
     @users_names.setter
-    def users_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def users_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users_names", value)
 
     @_builtins.property
     @pulumi.getter(name="watchManager")
-    def watch_manager(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def watch_manager(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         """
         return pulumi.get(self, "watch_manager")
 
     @watch_manager.setter
-    def watch_manager(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def watch_manager(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "watch_manager", value)
 
 
 @pulumi.input_type
 class _GroupState:
     def __init__(__self__, *,
-                 admin_privileges: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_join: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 detach_all_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_manager: Optional[pulumi.Input[_builtins.bool]] = None,
-                 realm: Optional[pulumi.Input[_builtins.str]] = None,
-                 realm_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-                 reports_manager: Optional[pulumi.Input[_builtins.bool]] = None,
-                 users_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 watch_manager: Optional[pulumi.Input[_builtins.bool]] = None):
+                 admin_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_join: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 detach_all_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_manager: pulumi.Input[Optional[_builtins.bool]] = None,
+                 realm: pulumi.Input[Optional[_builtins.str]] = None,
+                 realm_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+                 reports_manager: pulumi.Input[Optional[_builtins.bool]] = None,
+                 users_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 watch_manager: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Group resources.
 
@@ -275,146 +275,146 @@ class _GroupState:
 
     @_builtins.property
     @pulumi.getter(name="adminPrivileges")
-    def admin_privileges(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def admin_privileges(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Any users added to this group will automatically be assigned with admin privileges in the system.
         """
         return pulumi.get(self, "admin_privileges")
 
     @admin_privileges.setter
-    def admin_privileges(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def admin_privileges(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "admin_privileges", value)
 
     @_builtins.property
     @pulumi.getter(name="autoJoin")
-    def auto_join(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_join(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When this parameter is set, any new users defined in the system are automatically assigned to this group.
         """
         return pulumi.get(self, "auto_join")
 
     @auto_join.setter
-    def auto_join(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_join(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_join", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="detachAllUsers")
-    def detach_all_users(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def detach_all_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When this is set to `true`, an empty or missing usernames array will detach all users from the group.
         """
         return pulumi.get(self, "detach_all_users")
 
     @detach_all_users.setter
-    def detach_all_users(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def detach_all_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "detach_all_users", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         New external group ID used to configure the corresponding group in Azure AD.
         """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the group.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyManager")
-    def policy_manager(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def policy_manager(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
         """
         return pulumi.get(self, "policy_manager")
 
     @policy_manager.setter
-    def policy_manager(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def policy_manager(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "policy_manager", value)
 
     @_builtins.property
     @pulumi.getter
-    def realm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def realm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The realm for the group.
         """
         return pulumi.get(self, "realm")
 
     @realm.setter
-    def realm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def realm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "realm", value)
 
     @_builtins.property
     @pulumi.getter(name="realmAttributes")
-    def realm_attributes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def realm_attributes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The realm attributes for the group.
         """
         return pulumi.get(self, "realm_attributes")
 
     @realm_attributes.setter
-    def realm_attributes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def realm_attributes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "realm_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="reportsManager")
-    def reports_manager(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reports_manager(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
         """
         return pulumi.get(self, "reports_manager")
 
     @reports_manager.setter
-    def reports_manager(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reports_manager(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reports_manager", value)
 
     @_builtins.property
     @pulumi.getter(name="usersNames")
-    def users_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def users_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
         """
         return pulumi.get(self, "users_names")
 
     @users_names.setter
-    def users_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def users_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users_names", value)
 
     @_builtins.property
     @pulumi.getter(name="watchManager")
-    def watch_manager(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def watch_manager(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         """
         return pulumi.get(self, "watch_manager")
 
     @watch_manager.setter
-    def watch_manager(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def watch_manager(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "watch_manager", value)
 
 
@@ -424,18 +424,18 @@ class Group(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_privileges: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_join: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 detach_all_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_manager: Optional[pulumi.Input[_builtins.bool]] = None,
-                 realm: Optional[pulumi.Input[_builtins.str]] = None,
-                 realm_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-                 reports_manager: Optional[pulumi.Input[_builtins.bool]] = None,
-                 users_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 watch_manager: Optional[pulumi.Input[_builtins.bool]] = None,
+                 admin_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_join: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 detach_all_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_manager: pulumi.Input[Optional[_builtins.bool]] = None,
+                 realm: pulumi.Input[Optional[_builtins.str]] = None,
+                 realm_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+                 reports_manager: pulumi.Input[Optional[_builtins.bool]] = None,
+                 users_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 watch_manager: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides an Artifactory group resource. This can be used to create and manage Artifactory groups.
@@ -551,18 +551,18 @@ class Group(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_privileges: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_join: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 detach_all_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_manager: Optional[pulumi.Input[_builtins.bool]] = None,
-                 realm: Optional[pulumi.Input[_builtins.str]] = None,
-                 realm_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-                 reports_manager: Optional[pulumi.Input[_builtins.bool]] = None,
-                 users_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 watch_manager: Optional[pulumi.Input[_builtins.bool]] = None,
+                 admin_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_join: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 detach_all_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_manager: pulumi.Input[Optional[_builtins.bool]] = None,
+                 realm: pulumi.Input[Optional[_builtins.str]] = None,
+                 realm_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+                 reports_manager: pulumi.Input[Optional[_builtins.bool]] = None,
+                 users_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 watch_manager: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -594,18 +594,18 @@ class Group(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            admin_privileges: Optional[pulumi.Input[_builtins.bool]] = None,
-            auto_join: Optional[pulumi.Input[_builtins.bool]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            detach_all_users: Optional[pulumi.Input[_builtins.bool]] = None,
-            external_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_manager: Optional[pulumi.Input[_builtins.bool]] = None,
-            realm: Optional[pulumi.Input[_builtins.str]] = None,
-            realm_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-            reports_manager: Optional[pulumi.Input[_builtins.bool]] = None,
-            users_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            watch_manager: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Group':
+            admin_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_join: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            detach_all_users: pulumi.Input[Optional[_builtins.bool]] = None,
+            external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_manager: pulumi.Input[Optional[_builtins.bool]] = None,
+            realm: pulumi.Input[Optional[_builtins.str]] = None,
+            realm_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+            reports_manager: pulumi.Input[Optional[_builtins.bool]] = None,
+            users_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            watch_manager: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Group':
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

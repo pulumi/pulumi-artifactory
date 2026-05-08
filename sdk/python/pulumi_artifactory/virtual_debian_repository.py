@@ -20,21 +20,21 @@ __all__ = ['VirtualDebianRepositoryArgs', 'VirtualDebianRepository']
 class VirtualDebianRepositoryArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
-                 artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[_builtins.bool]] = None,
-                 debian_default_architectures: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_deployment_repo: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 excludes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 includes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 primary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 retrieval_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 secondary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifactory_requests_can_retrieve_remote_artifacts: pulumi.Input[Optional[_builtins.bool]] = None,
+                 debian_default_architectures: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_deployment_repo: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_index_compression_formats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 primary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 retrieval_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 secondary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualDebianRepository resource.
 
@@ -103,205 +103,205 @@ class VirtualDebianRepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactoryRequestsCanRetrieveRemoteArtifacts")
-    def artifactory_requests_can_retrieve_remote_artifacts(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def artifactory_requests_can_retrieve_remote_artifacts(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         """
         return pulumi.get(self, "artifactory_requests_can_retrieve_remote_artifacts")
 
     @artifactory_requests_can_retrieve_remote_artifacts.setter
-    def artifactory_requests_can_retrieve_remote_artifacts(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def artifactory_requests_can_retrieve_remote_artifacts(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "artifactory_requests_can_retrieve_remote_artifacts", value)
 
     @_builtins.property
     @pulumi.getter(name="debianDefaultArchitectures")
-    def debian_default_architectures(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def debian_default_architectures(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
         """
         return pulumi.get(self, "debian_default_architectures")
 
     @debian_default_architectures.setter
-    def debian_default_architectures(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def debian_default_architectures(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "debian_default_architectures", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultDeploymentRepo")
-    def default_deployment_repo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_deployment_repo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default repository to deploy artifacts.
         """
         return pulumi.get(self, "default_deployment_repo")
 
     @default_deployment_repo.setter
-    def default_deployment_repo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_deployment_repo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_deployment_repo", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Public description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="excludesPattern")
-    def excludes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
-    def excludes_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def excludes_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "excludes_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="includesPattern")
-    def includes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
-    def includes_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def includes_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "includes_pattern", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Internal description.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalIndexCompressionFormats")
-    def optional_index_compression_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def optional_index_compression_formats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
         """
         return pulumi.get(self, "optional_index_compression_formats")
 
     @optional_index_compression_formats.setter
-    def optional_index_compression_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def optional_index_compression_formats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "optional_index_compression_formats", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKeypairRef")
-    def primary_keypair_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_keypair_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary keypair used to sign artifacts. Default is empty.
         """
         return pulumi.get(self, "primary_keypair_ref")
 
     @primary_keypair_ref.setter
-    def primary_keypair_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_keypair_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_keypair_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
-    def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def project_environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
-    def project_environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def project_environments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "project_environments", value)
 
     @_builtins.property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
     @project_key.setter
-    def project_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_key", value)
 
     @_builtins.property
     @pulumi.getter(name="repoLayoutRef")
-    def repo_layout_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repo_layout_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Repository layout key for the virtual repository
         """
         return pulumi.get(self, "repo_layout_ref")
 
     @repo_layout_ref.setter
-    def repo_layout_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repo_layout_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repo_layout_ref", value)
 
     @_builtins.property
     @pulumi.getter
-    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def repositories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The effective list of actual repositories included in this virtual repository.
         """
         return pulumi.get(self, "repositories")
 
     @repositories.setter
-    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def repositories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="retrievalCachePeriodSeconds")
-    def retrieval_cache_period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retrieval_cache_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
         """
         return pulumi.get(self, "retrieval_cache_period_seconds")
 
     @retrieval_cache_period_seconds.setter
-    def retrieval_cache_period_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retrieval_cache_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retrieval_cache_period_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryKeypairRef")
-    def secondary_keypair_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_keypair_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary keypair used to sign artifacts. Default is empty.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
     @secondary_keypair_ref.setter
-    def secondary_keypair_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_keypair_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_keypair_ref", value)
 
 
 @pulumi.input_type
 class _VirtualDebianRepositoryState:
     def __init__(__self__, *,
-                 artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[_builtins.bool]] = None,
-                 debian_default_architectures: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_deployment_repo: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 excludes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 includes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 package_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 retrieval_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 secondary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifactory_requests_can_retrieve_remote_artifacts: pulumi.Input[Optional[_builtins.bool]] = None,
+                 debian_default_architectures: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_deployment_repo: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_index_compression_formats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 package_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 retrieval_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 secondary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualDebianRepository resources.
 
@@ -360,79 +360,79 @@ class _VirtualDebianRepositoryState:
 
     @_builtins.property
     @pulumi.getter(name="artifactoryRequestsCanRetrieveRemoteArtifacts")
-    def artifactory_requests_can_retrieve_remote_artifacts(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def artifactory_requests_can_retrieve_remote_artifacts(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         """
         return pulumi.get(self, "artifactory_requests_can_retrieve_remote_artifacts")
 
     @artifactory_requests_can_retrieve_remote_artifacts.setter
-    def artifactory_requests_can_retrieve_remote_artifacts(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def artifactory_requests_can_retrieve_remote_artifacts(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "artifactory_requests_can_retrieve_remote_artifacts", value)
 
     @_builtins.property
     @pulumi.getter(name="debianDefaultArchitectures")
-    def debian_default_architectures(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def debian_default_architectures(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
         """
         return pulumi.get(self, "debian_default_architectures")
 
     @debian_default_architectures.setter
-    def debian_default_architectures(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def debian_default_architectures(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "debian_default_architectures", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultDeploymentRepo")
-    def default_deployment_repo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_deployment_repo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default repository to deploy artifacts.
         """
         return pulumi.get(self, "default_deployment_repo")
 
     @default_deployment_repo.setter
-    def default_deployment_repo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_deployment_repo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_deployment_repo", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Public description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="excludesPattern")
-    def excludes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
-    def excludes_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def excludes_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "excludes_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="includesPattern")
-    def includes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
-    def includes_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def includes_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "includes_pattern", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A mandatory identifier for the repository that must be unique. It cannot begin with a number or
         contain spaces or special characters.
@@ -440,124 +440,124 @@ class _VirtualDebianRepositoryState:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Internal description.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalIndexCompressionFormats")
-    def optional_index_compression_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def optional_index_compression_formats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
         """
         return pulumi.get(self, "optional_index_compression_formats")
 
     @optional_index_compression_formats.setter
-    def optional_index_compression_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def optional_index_compression_formats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "optional_index_compression_formats", value)
 
     @_builtins.property
     @pulumi.getter(name="packageType")
-    def package_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "package_type")
 
     @package_type.setter
-    def package_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_type", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKeypairRef")
-    def primary_keypair_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_keypair_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary keypair used to sign artifacts. Default is empty.
         """
         return pulumi.get(self, "primary_keypair_ref")
 
     @primary_keypair_ref.setter
-    def primary_keypair_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_keypair_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_keypair_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
-    def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def project_environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
-    def project_environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def project_environments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "project_environments", value)
 
     @_builtins.property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
     @project_key.setter
-    def project_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_key", value)
 
     @_builtins.property
     @pulumi.getter(name="repoLayoutRef")
-    def repo_layout_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repo_layout_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Repository layout key for the virtual repository
         """
         return pulumi.get(self, "repo_layout_ref")
 
     @repo_layout_ref.setter
-    def repo_layout_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repo_layout_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repo_layout_ref", value)
 
     @_builtins.property
     @pulumi.getter
-    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def repositories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The effective list of actual repositories included in this virtual repository.
         """
         return pulumi.get(self, "repositories")
 
     @repositories.setter
-    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def repositories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="retrievalCachePeriodSeconds")
-    def retrieval_cache_period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retrieval_cache_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
         """
         return pulumi.get(self, "retrieval_cache_period_seconds")
 
     @retrieval_cache_period_seconds.setter
-    def retrieval_cache_period_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retrieval_cache_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retrieval_cache_period_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryKeypairRef")
-    def secondary_keypair_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_keypair_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary keypair used to sign artifacts. Default is empty.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
     @secondary_keypair_ref.setter
-    def secondary_keypair_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_keypair_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_keypair_ref", value)
 
 
@@ -567,22 +567,22 @@ class VirtualDebianRepository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[_builtins.bool]] = None,
-                 debian_default_architectures: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_deployment_repo: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 excludes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 includes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 primary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 retrieval_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 secondary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None,
+                 artifactory_requests_can_retrieve_remote_artifacts: pulumi.Input[Optional[_builtins.bool]] = None,
+                 debian_default_architectures: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_deployment_repo: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_index_compression_formats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 primary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 retrieval_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 secondary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates a virtual Debian repository.
@@ -691,22 +691,22 @@ class VirtualDebianRepository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[_builtins.bool]] = None,
-                 debian_default_architectures: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_deployment_repo: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 excludes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 includes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 primary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 retrieval_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 secondary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None,
+                 artifactory_requests_can_retrieve_remote_artifacts: pulumi.Input[Optional[_builtins.bool]] = None,
+                 debian_default_architectures: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_deployment_repo: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_index_compression_formats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 primary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 retrieval_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 secondary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -745,23 +745,23 @@ class VirtualDebianRepository(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[_builtins.bool]] = None,
-            debian_default_architectures: Optional[pulumi.Input[_builtins.str]] = None,
-            default_deployment_repo: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            excludes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-            includes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            notes: Optional[pulumi.Input[_builtins.str]] = None,
-            optional_index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            package_type: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None,
-            project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            project_key: Optional[pulumi.Input[_builtins.str]] = None,
-            repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-            repositories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            retrieval_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            secondary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None) -> 'VirtualDebianRepository':
+            artifactory_requests_can_retrieve_remote_artifacts: pulumi.Input[Optional[_builtins.bool]] = None,
+            debian_default_architectures: pulumi.Input[Optional[_builtins.str]] = None,
+            default_deployment_repo: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            notes: pulumi.Input[Optional[_builtins.str]] = None,
+            optional_index_compression_formats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            package_type: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            project_key: pulumi.Input[Optional[_builtins.str]] = None,
+            repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            retrieval_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            secondary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None) -> 'VirtualDebianRepository':
         """
         Get an existing VirtualDebianRepository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

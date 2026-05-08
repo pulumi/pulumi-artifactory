@@ -106,13 +106,13 @@ export interface GetRepositoriesOutputArgs {
     /**
      * Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
      */
-    packageType?: pulumi.Input<string>;
+    packageType?: pulumi.Input<string | undefined>;
     /**
      * Filter for repositories assigned to a specific project.
      */
-    projectKey?: pulumi.Input<string>;
+    projectKey?: pulumi.Input<string | undefined>;
     /**
      * Filter for repositories of a specific type. Allowed values are: local, remote, virtual, federated, distribution
      */
-    repositoryType?: pulumi.Input<string>;
+    repositoryType?: pulumi.Input<string | undefined>;
 }

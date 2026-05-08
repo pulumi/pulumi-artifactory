@@ -139,23 +139,23 @@ export interface GetUserOutputArgs {
     /**
      * When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
      */
-    admin?: pulumi.Input<boolean>;
+    admin?: pulumi.Input<boolean | undefined>;
     /**
      * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
      */
-    disableUiAccess?: pulumi.Input<boolean>;
+    disableUiAccess?: pulumi.Input<boolean | undefined>;
     /**
      * Email for user.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * List of groups this user is a part of.
      */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
      */
-    internalPasswordDisabled?: pulumi.Input<boolean>;
+    internalPasswordDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the user.
      */
@@ -163,5 +163,5 @@ export interface GetUserOutputArgs {
     /**
      * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      */
-    profileUpdatable?: pulumi.Input<boolean>;
+    profileUpdatable?: pulumi.Input<boolean | undefined>;
 }

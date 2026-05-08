@@ -135,27 +135,27 @@ export interface RepositoryLayoutState {
     /**
      * Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
      */
-    artifactPathPattern?: pulumi.Input<string>;
+    artifactPathPattern?: pulumi.Input<string | undefined>;
     /**
      * Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
      */
-    descriptorPathPattern?: pulumi.Input<string>;
+    descriptorPathPattern?: pulumi.Input<string | undefined>;
     /**
      * When set, `descriptorPathPattern` will be used. Default to `false`.
      */
-    distinctiveDescriptorPathPattern?: pulumi.Input<boolean>;
+    distinctiveDescriptorPathPattern?: pulumi.Input<boolean | undefined>;
     /**
      * A regular expression matching the integration revision string appearing in a file name as part of the artifact's path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
      */
-    fileIntegrationRevisionRegexp?: pulumi.Input<string>;
+    fileIntegrationRevisionRegexp?: pulumi.Input<string | undefined>;
     /**
      * A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path. For example, `SNAPSHOT`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
      */
-    folderIntegrationRevisionRegexp?: pulumi.Input<string>;
+    folderIntegrationRevisionRegexp?: pulumi.Input<string | undefined>;
     /**
      * Layout name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -169,11 +169,11 @@ export interface RepositoryLayoutArgs {
     /**
      * Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
      */
-    descriptorPathPattern?: pulumi.Input<string>;
+    descriptorPathPattern?: pulumi.Input<string | undefined>;
     /**
      * When set, `descriptorPathPattern` will be used. Default to `false`.
      */
-    distinctiveDescriptorPathPattern?: pulumi.Input<boolean>;
+    distinctiveDescriptorPathPattern?: pulumi.Input<boolean | undefined>;
     /**
      * A regular expression matching the integration revision string appearing in a file name as part of the artifact's path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
      */
@@ -185,5 +185,5 @@ export interface RepositoryLayoutArgs {
     /**
      * Layout name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

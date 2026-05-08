@@ -22,10 +22,10 @@ class ReleaseBundleV2PromotionArgs:
                  environment: pulumi.Input[_builtins.str],
                  keypair_name: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.str],
-                 excluded_repository_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 included_repository_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 excluded_repository_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 included_repository_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReleaseBundleV2Promotion resource.
 
@@ -87,65 +87,65 @@ class ReleaseBundleV2PromotionArgs:
 
     @_builtins.property
     @pulumi.getter(name="excludedRepositoryKeys")
-    def excluded_repository_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_repository_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Defines specific repositories to exclude from the promotion.
         """
         return pulumi.get(self, "excluded_repository_keys")
 
     @excluded_repository_keys.setter
-    def excluded_repository_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_repository_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_repository_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="includedRepositoryKeys")
-    def included_repository_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def included_repository_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
         """
         return pulumi.get(self, "included_repository_keys")
 
     @included_repository_keys.setter
-    def included_repository_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def included_repository_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "included_repository_keys", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Release Bundle
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Project key the Release Bundle belongs to
         """
         return pulumi.get(self, "project_key")
 
     @project_key.setter
-    def project_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_key", value)
 
 
 @pulumi.input_type
 class _ReleaseBundleV2PromotionState:
     def __init__(__self__, *,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_millis: Optional[pulumi.Input[_builtins.int]] = None,
-                 environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 excluded_repository_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 included_repository_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 keypair_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 excluded_repository_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 included_repository_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 keypair_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReleaseBundleV2Promotion resources.
 
@@ -180,110 +180,110 @@ class _ReleaseBundleV2PromotionState:
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp when the new version was created (ISO 8601 standard).
         """
         return pulumi.get(self, "created")
 
     @created.setter
-    def created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created", value)
 
     @_builtins.property
     @pulumi.getter(name="createdMillis")
-    def created_millis(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def created_millis(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Timestamp when the new version was created (in milliseconds).
         """
         return pulumi.get(self, "created_millis")
 
     @created_millis.setter
-    def created_millis(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def created_millis(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "created_millis", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target environment
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter(name="excludedRepositoryKeys")
-    def excluded_repository_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_repository_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Defines specific repositories to exclude from the promotion.
         """
         return pulumi.get(self, "excluded_repository_keys")
 
     @excluded_repository_keys.setter
-    def excluded_repository_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_repository_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_repository_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="includedRepositoryKeys")
-    def included_repository_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def included_repository_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
         """
         return pulumi.get(self, "included_repository_keys")
 
     @included_repository_keys.setter
-    def included_repository_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def included_repository_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "included_repository_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="keypairName")
-    def keypair_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def keypair_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key-pair name to use for signature creation
         """
         return pulumi.get(self, "keypair_name")
 
     @keypair_name.setter
-    def keypair_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def keypair_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "keypair_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Release Bundle
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Project key the Release Bundle belongs to
         """
         return pulumi.get(self, "project_key")
 
     @project_key.setter
-    def project_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version to promote
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -293,13 +293,13 @@ class ReleaseBundleV2Promotion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 excluded_repository_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 included_repository_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 keypair_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 excluded_repository_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 included_repository_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 keypair_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource enables you to promote Release Bundle V2 version. For more information, see [JFrog documentation](https://jfrog.com/help/r/jfrog-artifactory-documentation/promote-a-release-bundle-v2-to-a-target-environment).
@@ -368,13 +368,13 @@ class ReleaseBundleV2Promotion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 excluded_repository_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 included_repository_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 keypair_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 excluded_repository_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 included_repository_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 keypair_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -409,15 +409,15 @@ class ReleaseBundleV2Promotion(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            created: Optional[pulumi.Input[_builtins.str]] = None,
-            created_millis: Optional[pulumi.Input[_builtins.int]] = None,
-            environment: Optional[pulumi.Input[_builtins.str]] = None,
-            excluded_repository_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            included_repository_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            keypair_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            project_key: Optional[pulumi.Input[_builtins.str]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'ReleaseBundleV2Promotion':
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            created_millis: pulumi.Input[Optional[_builtins.int]] = None,
+            environment: pulumi.Input[Optional[_builtins.str]] = None,
+            excluded_repository_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            included_repository_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            keypair_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            project_key: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'ReleaseBundleV2Promotion':
         """
         Get an existing ReleaseBundleV2Promotion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

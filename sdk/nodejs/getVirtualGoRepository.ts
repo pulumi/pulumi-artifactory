@@ -133,27 +133,27 @@ export function getVirtualGoRepositoryOutput(args: GetVirtualGoRepositoryOutputA
  * A collection of arguments for invoking getVirtualGoRepository.
  */
 export interface GetVirtualGoRepositoryOutputArgs {
-    artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean>;
-    defaultDeploymentRepo?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    excludesPattern?: pulumi.Input<string>;
+    artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean | undefined>;
+    defaultDeploymentRepo?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    excludesPattern?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
      * When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
      */
-    externalDependenciesEnabled?: pulumi.Input<boolean>;
+    externalDependenciesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) 'go-import' Allow List on the UI.
      */
-    externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    includesPattern?: pulumi.Input<string>;
+    externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.
      */
     key: pulumi.Input<string>;
-    notes?: pulumi.Input<string>;
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    projectKey?: pulumi.Input<string>;
-    repoLayoutRef?: pulumi.Input<string>;
-    repositories?: pulumi.Input<pulumi.Input<string>[]>;
+    notes?: pulumi.Input<string | undefined>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    projectKey?: pulumi.Input<string | undefined>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
+    repositories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

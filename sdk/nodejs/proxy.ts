@@ -171,43 +171,43 @@ export interface ProxyState {
     /**
      * The name of the proxy host.
      */
-    host?: pulumi.Input<string>;
+    host?: pulumi.Input<string | undefined>;
     /**
      * The unique ID of the proxy.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * The proxy domain/realm name.
      */
-    ntDomain?: pulumi.Input<string>;
+    ntDomain?: pulumi.Input<string | undefined>;
     /**
      * The computer name of the machine (the machine connecting to the NTLM proxy).
      */
-    ntHost?: pulumi.Input<string>;
+    ntHost?: pulumi.Input<string | undefined>;
     /**
      * The proxy password when authentication credentials are required.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
      */
-    platformDefault?: pulumi.Input<boolean>;
+    platformDefault?: pulumi.Input<boolean | undefined>;
     /**
      * The proxy port number.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
      */
-    redirectToHosts?: pulumi.Input<pulumi.Input<string>[]>;
+    redirectToHosts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
      */
-    services?: pulumi.Input<pulumi.Input<string>[]>;
+    services?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The proxy username when authentication credentials are required.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -225,19 +225,19 @@ export interface ProxyArgs {
     /**
      * The proxy domain/realm name.
      */
-    ntDomain?: pulumi.Input<string>;
+    ntDomain?: pulumi.Input<string | undefined>;
     /**
      * The computer name of the machine (the machine connecting to the NTLM proxy).
      */
-    ntHost?: pulumi.Input<string>;
+    ntHost?: pulumi.Input<string | undefined>;
     /**
      * The proxy password when authentication credentials are required.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
      */
-    platformDefault?: pulumi.Input<boolean>;
+    platformDefault?: pulumi.Input<boolean | undefined>;
     /**
      * The proxy port number.
      */
@@ -245,13 +245,13 @@ export interface ProxyArgs {
     /**
      * An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
      */
-    redirectToHosts?: pulumi.Input<pulumi.Input<string>[]>;
+    redirectToHosts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
      */
-    services?: pulumi.Input<pulumi.Input<string>[]>;
+    services?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The proxy username when authentication credentials are required.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }

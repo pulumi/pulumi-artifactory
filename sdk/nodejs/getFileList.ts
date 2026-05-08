@@ -152,11 +152,11 @@ export interface GetFileListOutputArgs {
     /**
      * Get deep listing
      */
-    deepListing?: pulumi.Input<boolean>;
+    deepListing?: pulumi.Input<boolean | undefined>;
     /**
      * Depth of the deep listing
      */
-    depth?: pulumi.Input<number>;
+    depth?: pulumi.Input<number | undefined>;
     /**
      * Path of the folder
      */
@@ -164,15 +164,15 @@ export interface GetFileListOutputArgs {
     /**
      * Include root path
      */
-    includeRootPath?: pulumi.Input<boolean>;
+    includeRootPath?: pulumi.Input<boolean | undefined>;
     /**
      * Include folders
      */
-    listFolders?: pulumi.Input<boolean>;
+    listFolders?: pulumi.Input<boolean | undefined>;
     /**
      * Include metadata timestamps
      */
-    metadataTimestamps?: pulumi.Input<boolean>;
+    metadataTimestamps?: pulumi.Input<boolean | undefined>;
     /**
      * Repository key
      */

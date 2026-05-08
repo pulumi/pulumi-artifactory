@@ -176,7 +176,7 @@ def get_virtual_hex_repository(key: Optional[_builtins.str] = None,
         project_environments=pulumi.get(__ret__, 'project_environments'),
         project_key=pulumi.get(__ret__, 'project_key'),
         repo_layout_ref=pulumi.get(__ret__, 'repo_layout_ref'))
-def get_virtual_hex_repository_output(key: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_hex_repository_output(key: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualHexRepositoryResult]:
     """
     Retrieves a virtual Hex repository.

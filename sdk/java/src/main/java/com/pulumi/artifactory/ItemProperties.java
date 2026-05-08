@@ -31,8 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.ItemProperties;
  * import com.pulumi.artifactory.ItemPropertiesArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -47,10 +47,10 @@ import javax.annotation.Nullable;
  *         var my_repo_properties = new ItemProperties("my-repo-properties", ItemPropertiesArgs.builder()
  *             .repoKey("my-generic-local")
  *             .properties(Map.ofEntries(
- *                 Map.entry("key1", "value1"),
- *                 Map.entry("key2",                 
+ *                 Map.entry("key1", Arrays.asList("value1")),
+ *                 Map.entry("key2", Arrays.asList(                
  *                     "value2",
- *                     "value3")
+ *                     "value3"))
  *             ))
  *             .isRecursive(true)
  *             .build());
@@ -59,10 +59,10 @@ import javax.annotation.Nullable;
  *             .repoKey("my-generic-local")
  *             .itemPath("folder/subfolder")
  *             .properties(Map.ofEntries(
- *                 Map.entry("key1", "value1"),
- *                 Map.entry("key2",                 
+ *                 Map.entry("key1", Arrays.asList("value1")),
+ *                 Map.entry("key2", Arrays.asList(                
  *                     "value2",
- *                     "value3")
+ *                     "value3"))
  *             ))
  *             .isRecursive(true)
  *             .build());

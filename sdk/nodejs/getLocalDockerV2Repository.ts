@@ -169,18 +169,18 @@ export function getLocalDockerV2RepositoryOutput(args: GetLocalDockerV2Repositor
  * A collection of arguments for invoking getLocalDockerV2Repository.
  */
 export interface GetLocalDockerV2RepositoryOutputArgs {
-    archiveBrowsingEnabled?: pulumi.Input<boolean>;
-    blackedOut?: pulumi.Input<boolean>;
+    archiveBrowsingEnabled?: pulumi.Input<boolean | undefined>;
+    blackedOut?: pulumi.Input<boolean | undefined>;
     /**
      * When set, Artifactory will block the pushing of Docker images with manifest v2
      * schema 1 to this repository.
      */
-    blockPushingSchema1?: pulumi.Input<boolean>;
-    cdnRedirect?: pulumi.Input<boolean>;
-    description?: pulumi.Input<string>;
-    downloadDirect?: pulumi.Input<boolean>;
-    excludesPattern?: pulumi.Input<string>;
-    includesPattern?: pulumi.Input<string>;
+    blockPushingSchema1?: pulumi.Input<boolean | undefined>;
+    cdnRedirect?: pulumi.Input<boolean | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    downloadDirect?: pulumi.Input<boolean | undefined>;
+    excludesPattern?: pulumi.Input<string | undefined>;
+    includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.
      */
@@ -190,17 +190,17 @@ export interface GetLocalDockerV2RepositoryOutputArgs {
      * Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there
      * is no limit. This only applies to manifest v2.
      */
-    maxUniqueTags?: pulumi.Input<number>;
-    notes?: pulumi.Input<string>;
-    priorityResolution?: pulumi.Input<boolean>;
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    projectKey?: pulumi.Input<string>;
-    propertySets?: pulumi.Input<pulumi.Input<string>[]>;
-    repoLayoutRef?: pulumi.Input<string>;
+    maxUniqueTags?: pulumi.Input<number | undefined>;
+    notes?: pulumi.Input<string | undefined>;
+    priorityResolution?: pulumi.Input<boolean | undefined>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    projectKey?: pulumi.Input<string | undefined>;
+    propertySets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
     /**
      * If greater than 1, overwritten tags will be saved by their digest, up to the set up
      * number. This only applies to manifest V2.
      */
-    tagRetention?: pulumi.Input<number>;
-    xrayIndex?: pulumi.Input<boolean>;
+    tagRetention?: pulumi.Input<number | undefined>;
+    xrayIndex?: pulumi.Input<boolean | undefined>;
 }

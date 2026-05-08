@@ -188,23 +188,23 @@ export interface GetGroupOutputArgs {
     /**
      * Any users added to this group will automatically be assigned with admin privileges in the system.
      */
-    adminPrivileges?: pulumi.Input<boolean>;
+    adminPrivileges?: pulumi.Input<boolean | undefined>;
     /**
      * When this parameter is set, any new users defined in the system are automatically assigned to this group.
      */
-    autoJoin?: pulumi.Input<boolean>;
+    autoJoin?: pulumi.Input<boolean | undefined>;
     /**
      * A description for the group
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * New external group ID used to configure the corresponding group in Azure AD.
      */
-    externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string | undefined>;
     /**
      * Determines if the group's associated user list will return as an attribute. Default is `false`.
      */
-    includeUsers?: pulumi.Input<string>;
+    includeUsers?: pulumi.Input<string | undefined>;
     /**
      * Name of the group.
      */
@@ -212,25 +212,25 @@ export interface GetGroupOutputArgs {
     /**
      * When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
      */
-    policyManager?: pulumi.Input<boolean>;
+    policyManager?: pulumi.Input<boolean | undefined>;
     /**
      * The realm for the group.
      */
-    realm?: pulumi.Input<string>;
+    realm?: pulumi.Input<string | undefined>;
     /**
      * The realm attributes for the group.
      */
-    realmAttributes?: pulumi.Input<string>;
+    realmAttributes?: pulumi.Input<string | undefined>;
     /**
      * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      */
-    reportsManager?: pulumi.Input<boolean>;
+    reportsManager?: pulumi.Input<boolean | undefined>;
     /**
      * List of users assigned to the group. Set includeUsers to `true` to retrieve this list.
      */
-    usersNames?: pulumi.Input<pulumi.Input<string>[]>;
+    usersNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
      */
-    watchManager?: pulumi.Input<boolean>;
+    watchManager?: pulumi.Input<boolean | undefined>;
 }

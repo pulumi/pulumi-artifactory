@@ -201,9 +201,9 @@ export function getLocalIvyRepositoryOutput(args: GetLocalIvyRepositoryOutputArg
  * A collection of arguments for invoking getLocalIvyRepository.
  */
 export interface GetLocalIvyRepositoryOutputArgs {
-    archiveBrowsingEnabled?: pulumi.Input<boolean>;
-    blackedOut?: pulumi.Input<boolean>;
-    cdnRedirect?: pulumi.Input<boolean>;
+    archiveBrowsingEnabled?: pulumi.Input<boolean | undefined>;
+    blackedOut?: pulumi.Input<boolean | undefined>;
+    cdnRedirect?: pulumi.Input<boolean | undefined>;
     /**
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed
      * resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
@@ -211,25 +211,25 @@ export interface GetLocalIvyRepositoryOutputArgs {
      * to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
      * .
      */
-    checksumPolicyType?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    downloadDirect?: pulumi.Input<boolean>;
-    excludesPattern?: pulumi.Input<string>;
-    handleReleases?: pulumi.Input<boolean>;
-    handleSnapshots?: pulumi.Input<boolean>;
-    includesPattern?: pulumi.Input<string>;
+    checksumPolicyType?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    downloadDirect?: pulumi.Input<boolean | undefined>;
+    excludesPattern?: pulumi.Input<string | undefined>;
+    handleReleases?: pulumi.Input<boolean | undefined>;
+    handleSnapshots?: pulumi.Input<boolean | undefined>;
+    includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.
      */
     key: pulumi.Input<string>;
-    maxUniqueSnapshots?: pulumi.Input<number>;
-    notes?: pulumi.Input<string>;
-    priorityResolution?: pulumi.Input<boolean>;
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    projectKey?: pulumi.Input<string>;
-    propertySets?: pulumi.Input<pulumi.Input<string>[]>;
-    repoLayoutRef?: pulumi.Input<string>;
-    snapshotVersionBehavior?: pulumi.Input<string>;
-    suppressPomConsistencyChecks?: pulumi.Input<boolean>;
-    xrayIndex?: pulumi.Input<boolean>;
+    maxUniqueSnapshots?: pulumi.Input<number | undefined>;
+    notes?: pulumi.Input<string | undefined>;
+    priorityResolution?: pulumi.Input<boolean | undefined>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    projectKey?: pulumi.Input<string | undefined>;
+    propertySets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
+    snapshotVersionBehavior?: pulumi.Input<string | undefined>;
+    suppressPomConsistencyChecks?: pulumi.Input<boolean | undefined>;
+    xrayIndex?: pulumi.Input<boolean | undefined>;
 }

@@ -62,13 +62,13 @@ class DistributionPublicKeyArgs:
 @pulumi.input_type
 class _DistributionPublicKeyState:
     def __init__(__self__, *,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 fingerprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 issued_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 issued_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 valid_until: Optional[pulumi.Input[_builtins.str]] = None):
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 issued_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 issued_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 valid_until: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DistributionPublicKey resources.
 
@@ -99,67 +99,67 @@ class _DistributionPublicKeyState:
 
     @_builtins.property
     @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Will be used as an identifier when uploading/retrieving the public key via REST API.
         """
         return pulumi.get(self, "alias")
 
     @alias.setter
-    def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter
-    def fingerprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fingerprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Returns the computed key fingerprint
         """
         return pulumi.get(self, "fingerprint")
 
     @fingerprint.setter
-    def fingerprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fingerprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fingerprint", value)
 
     @_builtins.property
     @pulumi.getter(name="issuedBy")
-    def issued_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issued_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Returns the name and eMail address of issuer
         """
         return pulumi.get(self, "issued_by")
 
     @issued_by.setter
-    def issued_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issued_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issued_by", value)
 
     @_builtins.property
     @pulumi.getter(name="issuedOn")
-    def issued_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issued_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Returns the date/time when this GPG key was created
         """
         return pulumi.get(self, "issued_on")
 
     @issued_on.setter
-    def issued_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issued_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issued_on", value)
 
     @_builtins.property
     @pulumi.getter(name="keyId")
-    def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Returns the key id by which this key is referenced in Artifactory
         """
         return pulumi.get(self, "key_id")
 
     @key_id.setter
-    def key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Public key to add as a trusted distribution GPG key.
 
@@ -168,19 +168,19 @@ class _DistributionPublicKeyState:
         return pulumi.get(self, "public_key")
 
     @public_key.setter
-    def public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key", value)
 
     @_builtins.property
     @pulumi.getter(name="validUntil")
-    def valid_until(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def valid_until(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Returns the date/time when this GPG key expires.
         """
         return pulumi.get(self, "valid_until")
 
     @valid_until.setter
-    def valid_until(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def valid_until(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "valid_until", value)
 
 
@@ -190,8 +190,8 @@ class DistributionPublicKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an Artifactory Distribution Public Key resource. This can be used to create and manage Artifactory Distribution Public Keys.
@@ -273,8 +273,8 @@ class DistributionPublicKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -305,13 +305,13 @@ class DistributionPublicKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alias: Optional[pulumi.Input[_builtins.str]] = None,
-            fingerprint: Optional[pulumi.Input[_builtins.str]] = None,
-            issued_by: Optional[pulumi.Input[_builtins.str]] = None,
-            issued_on: Optional[pulumi.Input[_builtins.str]] = None,
-            key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            public_key: Optional[pulumi.Input[_builtins.str]] = None,
-            valid_until: Optional[pulumi.Input[_builtins.str]] = None) -> 'DistributionPublicKey':
+            alias: pulumi.Input[Optional[_builtins.str]] = None,
+            fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+            issued_by: pulumi.Input[Optional[_builtins.str]] = None,
+            issued_on: pulumi.Input[Optional[_builtins.str]] = None,
+            key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            valid_until: pulumi.Input[Optional[_builtins.str]] = None) -> 'DistributionPublicKey':
         """
         Get an existing DistributionPublicKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

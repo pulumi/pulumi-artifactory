@@ -25,8 +25,8 @@ class DockerWebhookArgs:
                  event_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  handlers: pulumi.Input[Sequence[pulumi.Input['DockerWebhookHandlerArgs']]],
                  key: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a DockerWebhook resource.
 
@@ -96,38 +96,38 @@ class DockerWebhookArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Webhook description. Max length 1000 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Status of webhook. Default to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
 @pulumi.input_type
 class _DockerWebhookState:
     def __init__(__self__, *,
-                 criteria: Optional[pulumi.Input['DockerWebhookCriteriaArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input['DockerWebhookHandlerArgs']]]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None):
+                 criteria: pulumi.Input[Optional['DockerWebhookCriteriaArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 handlers: pulumi.Input[Optional[Sequence[pulumi.Input['DockerWebhookHandlerArgs']]]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DockerWebhook resources.
 
@@ -153,74 +153,74 @@ class _DockerWebhookState:
 
     @_builtins.property
     @pulumi.getter
-    def criteria(self) -> Optional[pulumi.Input['DockerWebhookCriteriaArgs']]:
+    def criteria(self) -> pulumi.Input[Optional['DockerWebhookCriteriaArgs']]:
         """
         Specifies where the webhook will be applied on which repositories.
         """
         return pulumi.get(self, "criteria")
 
     @criteria.setter
-    def criteria(self, value: Optional[pulumi.Input['DockerWebhookCriteriaArgs']]):
+    def criteria(self, value: pulumi.Input[Optional['DockerWebhookCriteriaArgs']]):
         pulumi.set(self, "criteria", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Webhook description. Max length 1000 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Status of webhook. Default to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="eventTypes")
-    def event_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def event_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
         """
         return pulumi.get(self, "event_types")
 
     @event_types.setter
-    def event_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def event_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "event_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def handlers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DockerWebhookHandlerArgs']]]]:
+    def handlers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DockerWebhookHandlerArgs']]]]:
         """
         At least one is required.
         """
         return pulumi.get(self, "handlers")
 
     @handlers.setter
-    def handlers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DockerWebhookHandlerArgs']]]]):
+    def handlers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DockerWebhookHandlerArgs']]]]):
         pulumi.set(self, "handlers", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
 
@@ -230,12 +230,12 @@ class DockerWebhook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 criteria: Optional[pulumi.Input[Union['DockerWebhookCriteriaArgs', 'DockerWebhookCriteriaArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DockerWebhookHandlerArgs', 'DockerWebhookHandlerArgsDict']]]]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
+                 criteria: pulumi.Input[Optional[Union['DockerWebhookCriteriaArgs', 'DockerWebhookCriteriaArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DockerWebhookHandlerArgs', 'DockerWebhookHandlerArgsDict']]]]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
@@ -345,12 +345,12 @@ class DockerWebhook(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 criteria: Optional[pulumi.Input[Union['DockerWebhookCriteriaArgs', 'DockerWebhookCriteriaArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DockerWebhookHandlerArgs', 'DockerWebhookHandlerArgsDict']]]]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
+                 criteria: pulumi.Input[Optional[Union['DockerWebhookCriteriaArgs', 'DockerWebhookCriteriaArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DockerWebhookHandlerArgs', 'DockerWebhookHandlerArgsDict']]]]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -384,12 +384,12 @@ class DockerWebhook(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            criteria: Optional[pulumi.Input[Union['DockerWebhookCriteriaArgs', 'DockerWebhookCriteriaArgsDict']]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            event_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            handlers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DockerWebhookHandlerArgs', 'DockerWebhookHandlerArgsDict']]]]] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None) -> 'DockerWebhook':
+            criteria: pulumi.Input[Optional[Union['DockerWebhookCriteriaArgs', 'DockerWebhookCriteriaArgsDict']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DockerWebhookHandlerArgs', 'DockerWebhookHandlerArgsDict']]]]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None) -> 'DockerWebhook':
         """
         Get an existing DockerWebhook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

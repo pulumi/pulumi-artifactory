@@ -11,31 +11,31 @@ export interface ArchivePolicySearchCriteria {
      * > **Requires Artifactory 7.111.2 or later.**
      * ~>JFrog recommends using the `createdBeforeInDays` condition to ensure that packages currently in use are not archived.
      */
-    createdBeforeInDays?: pulumi.Input<number>;
+    createdBeforeInDays?: pulumi.Input<number | undefined>;
     /**
      * The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
      *
      * @deprecated Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
      */
-    createdBeforeInMonths?: pulumi.Input<number>;
+    createdBeforeInMonths?: pulumi.Input<number | undefined>;
     /**
      * Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
      */
-    excludedPackages?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedPackages?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from archival.
      */
-    excludedProperties?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+    excludedProperties?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>} | undefined>;
     /**
      * Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
      */
-    excludedRepos?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedRepos?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
      *
      * ~>This attribute is relevant only on the global level, for Platform Admins.
      */
-    includeAllProjects?: pulumi.Input<boolean>;
+    includeAllProjects?: pulumi.Input<boolean | undefined>;
     /**
      * Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = ["**"]`
      */
@@ -48,7 +48,7 @@ export interface ArchivePolicySearchCriteria {
     /**
      * A key-value pair applied to the lead artifact of a package. Packages with this property will be archived.
      */
-    includedProperties?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+    includedProperties?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>} | undefined>;
     /**
      * Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
      *
@@ -56,19 +56,19 @@ export interface ArchivePolicySearchCriteria {
      *
      * ~>Not all package types support this condition. If you include a package type in your policy that is not compatible with this condition, a validation error (400) is returned. For information on which package types support this condition, see here.
      */
-    keepLastNVersions?: pulumi.Input<number>;
+    keepLastNVersions?: pulumi.Input<number | undefined>;
     /**
      * The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
      * > **Requires Artifactory 7.111.2 or later.**
      * ~>JFrog recommends using the `lastDownloadedBeforeInDays` condition to ensure that packages currently in use are not archived.
      */
-    lastDownloadedBeforeInDays?: pulumi.Input<number>;
+    lastDownloadedBeforeInDays?: pulumi.Input<number | undefined>;
     /**
      * The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
      *
      * @deprecated Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
      */
-    lastDownloadedBeforeInMonths?: pulumi.Input<number>;
+    lastDownloadedBeforeInMonths?: pulumi.Input<number | undefined>;
     /**
      * The package types that are archived by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, maven, npm, nuget, oci, opkg, puppet, pypi, sbt, swift, terraform, terraformbackend, vagrant, yum.
      */
@@ -95,11 +95,11 @@ export interface ArtifactCustomWebhookCriteria {
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
-    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
-    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Trigger on this list of repo keys.
      */
@@ -110,23 +110,23 @@ export interface ArtifactCustomWebhookHandler {
     /**
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
-    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
-    payload?: pulumi.Input<string>;
+    payload?: pulumi.Input<string | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example: 
      */
-    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -137,23 +137,23 @@ export interface ArtifactLifecycleCustomWebhookHandler {
     /**
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
-    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
-    payload?: pulumi.Input<string>;
+    payload?: pulumi.Input<string | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
      */
-    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -164,15 +164,15 @@ export interface ArtifactLifecycleWebhookHandler {
     /**
      * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
      */
-    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
      */
-    secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -180,7 +180,7 @@ export interface ArtifactLifecycleWebhookHandler {
     /**
      * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
      */
-    useSecretForSigning?: pulumi.Input<boolean>;
+    useSecretForSigning?: pulumi.Input<boolean | undefined>;
 }
 
 export interface ArtifactPropertyCustomWebhookCriteria {
@@ -199,11 +199,11 @@ export interface ArtifactPropertyCustomWebhookCriteria {
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
-    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
-    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Trigger on this list of repo keys.
      */
@@ -214,23 +214,23 @@ export interface ArtifactPropertyCustomWebhookHandler {
     /**
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
-    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
-    payload?: pulumi.Input<string>;
+    payload?: pulumi.Input<string | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
      */
-    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -253,11 +253,11 @@ export interface ArtifactPropertyWebhookCriteria {
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
-    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
-    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Trigger on this list of repo keys.
      */
@@ -268,15 +268,15 @@ export interface ArtifactPropertyWebhookHandler {
     /**
      * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
      */
-    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
      */
-    secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -284,7 +284,7 @@ export interface ArtifactPropertyWebhookHandler {
     /**
      * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
      */
-    useSecretForSigning?: pulumi.Input<boolean>;
+    useSecretForSigning?: pulumi.Input<boolean | undefined>;
 }
 
 export interface ArtifactWebhookCriteria {
@@ -303,11 +303,11 @@ export interface ArtifactWebhookCriteria {
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
-    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
-    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Trigger on this list of repo keys.
      */
@@ -318,15 +318,15 @@ export interface ArtifactWebhookHandler {
     /**
      * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
      */
-    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
      */
-    secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -334,7 +334,7 @@ export interface ArtifactWebhookHandler {
     /**
      * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
      */
-    useSecretForSigning?: pulumi.Input<boolean>;
+    useSecretForSigning?: pulumi.Input<boolean | undefined>;
 }
 
 export interface ArtifactoryReleaseBundleCustomWebhookCriteria {
@@ -345,38 +345,38 @@ export interface ArtifactoryReleaseBundleCustomWebhookCriteria {
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
      */
-    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
      */
-    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Trigger on this list of release bundle names
      */
-    registeredReleaseBundleNames?: pulumi.Input<pulumi.Input<string>[]>;
+    registeredReleaseBundleNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface ArtifactoryReleaseBundleCustomWebhookHandler {
     /**
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
-    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
-    payload?: pulumi.Input<string>;
+    payload?: pulumi.Input<string | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
      */
-    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -391,30 +391,30 @@ export interface ArtifactoryReleaseBundleWebhookCriteria {
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
      */
-    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
      */
-    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Trigger on this list of release bundle names. Either this or `includePatterns` must be set when `anyReleaseBundle` is `false`.
      */
-    registeredReleaseBundleNames?: pulumi.Input<pulumi.Input<string>[]>;
+    registeredReleaseBundleNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface ArtifactoryReleaseBundleWebhookHandler {
     /**
      * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
      */
-    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
      */
-    secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -422,7 +422,7 @@ export interface ArtifactoryReleaseBundleWebhookHandler {
     /**
      * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
      */
-    useSecretForSigning?: pulumi.Input<boolean>;
+    useSecretForSigning?: pulumi.Input<boolean | undefined>;
 }
 
 export interface BuildCustomWebhookCriteria {
@@ -433,38 +433,38 @@ export interface BuildCustomWebhookCriteria {
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
      */
-    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
      */
-    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Trigger on this list of build names.
      */
-    selectedBuilds?: pulumi.Input<pulumi.Input<string>[]>;
+    selectedBuilds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface BuildCustomWebhookHandler {
     /**
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
-    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
-    payload?: pulumi.Input<string>;
+    payload?: pulumi.Input<string | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
      */
-    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -479,30 +479,30 @@ export interface BuildWebhookCriteria {
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
      */
-    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
      */
-    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Trigger on this list of build names.
      */
-    selectedBuilds?: pulumi.Input<pulumi.Input<string>[]>;
+    selectedBuilds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface BuildWebhookHandler {
     /**
      * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
      */
-    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
      */
-    secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -510,7 +510,7 @@ export interface BuildWebhookHandler {
     /**
      * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
      */
-    useSecretForSigning?: pulumi.Input<boolean>;
+    useSecretForSigning?: pulumi.Input<boolean | undefined>;
 }
 
 export interface DestinationCustomWebhookCriteria {
@@ -521,38 +521,38 @@ export interface DestinationCustomWebhookCriteria {
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
      */
-    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
      */
-    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Trigger on this list of release bundle names
      */
-    registeredReleaseBundleNames?: pulumi.Input<pulumi.Input<string>[]>;
+    registeredReleaseBundleNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface DestinationCustomWebhookHandler {
     /**
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
-    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
-    payload?: pulumi.Input<string>;
+    payload?: pulumi.Input<string | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
      */
-    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -567,30 +567,30 @@ export interface DestinationWebhookCriteria {
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
      */
-    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
      */
-    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Trigger on this list of release bundle names
      */
-    registeredReleaseBundleNames?: pulumi.Input<pulumi.Input<string>[]>;
+    registeredReleaseBundleNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface DestinationWebhookHandler {
     /**
      * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
      */
-    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
      */
-    secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -598,7 +598,7 @@ export interface DestinationWebhookHandler {
     /**
      * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
      */
-    useSecretForSigning?: pulumi.Input<boolean>;
+    useSecretForSigning?: pulumi.Input<boolean | undefined>;
 }
 
 export interface DistributionCustomWebhookCriteria {
@@ -609,38 +609,38 @@ export interface DistributionCustomWebhookCriteria {
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
-    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
-    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Trigger on this list of release bundle names.
      */
-    registeredReleaseBundleNames?: pulumi.Input<pulumi.Input<string>[]>;
+    registeredReleaseBundleNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface DistributionCustomWebhookHandler {
     /**
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
-    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
-    payload?: pulumi.Input<string>;
+    payload?: pulumi.Input<string | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
      */
-    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -655,30 +655,30 @@ export interface DistributionWebhookCriteria {
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
-    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
-    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Trigger on this list of release bundle names.
      */
-    registeredReleaseBundleNames?: pulumi.Input<pulumi.Input<string>[]>;
+    registeredReleaseBundleNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface DistributionWebhookHandler {
     /**
      * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
      */
-    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
      */
-    secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -686,7 +686,7 @@ export interface DistributionWebhookHandler {
     /**
      * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
      */
-    useSecretForSigning?: pulumi.Input<boolean>;
+    useSecretForSigning?: pulumi.Input<boolean | undefined>;
 }
 
 export interface DockerCustomWebhookCriteria {
@@ -705,11 +705,11 @@ export interface DockerCustomWebhookCriteria {
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
-    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
-    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Trigger on this list of repo keys.
      */
@@ -720,23 +720,23 @@ export interface DockerCustomWebhookHandler {
     /**
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
-    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
-    payload?: pulumi.Input<string>;
+    payload?: pulumi.Input<string | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
      */
-    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -759,11 +759,11 @@ export interface DockerWebhookCriteria {
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
-    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
-    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Trigger on this list of repo keys.
      */
@@ -774,15 +774,15 @@ export interface DockerWebhookHandler {
     /**
      * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
      */
-    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
      */
-    secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -790,14 +790,14 @@ export interface DockerWebhookHandler {
     /**
      * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
      */
-    useSecretForSigning?: pulumi.Input<boolean>;
+    useSecretForSigning?: pulumi.Input<boolean | undefined>;
 }
 
 export interface FederatedAlpineRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -813,7 +813,7 @@ export interface FederatedAnsibleRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -829,7 +829,7 @@ export interface FederatedBowerRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -845,7 +845,7 @@ export interface FederatedCargoRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -861,7 +861,7 @@ export interface FederatedChefRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -877,7 +877,7 @@ export interface FederatedCocoapodsRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -893,7 +893,7 @@ export interface FederatedComposerRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -909,7 +909,7 @@ export interface FederatedConanRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -925,7 +925,7 @@ export interface FederatedCondaRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -941,7 +941,7 @@ export interface FederatedCranRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -957,7 +957,7 @@ export interface FederatedDebianRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -973,7 +973,7 @@ export interface FederatedDockerRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -989,7 +989,7 @@ export interface FederatedDockerV1RepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1005,7 +1005,7 @@ export interface FederatedDockerV2RepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1021,7 +1021,7 @@ export interface FederatedGemsRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1037,7 +1037,7 @@ export interface FederatedGenericRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1053,7 +1053,7 @@ export interface FederatedGitltfsRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1069,7 +1069,7 @@ export interface FederatedGoRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1085,7 +1085,7 @@ export interface FederatedGradleRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1101,7 +1101,7 @@ export interface FederatedHelmRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1117,7 +1117,7 @@ export interface FederatedHelmociRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1132,7 +1132,7 @@ export interface FederatedHuggingfacemlRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1147,7 +1147,7 @@ export interface FederatedIvyRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1163,7 +1163,7 @@ export interface FederatedMavenRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1179,7 +1179,7 @@ export interface FederatedNpmRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1195,7 +1195,7 @@ export interface FederatedNugetRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1211,7 +1211,7 @@ export interface FederatedOciRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1227,7 +1227,7 @@ export interface FederatedOpkgRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1243,7 +1243,7 @@ export interface FederatedPuppetRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1259,7 +1259,7 @@ export interface FederatedPypiRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1275,7 +1275,7 @@ export interface FederatedReleasebundlesRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1291,7 +1291,7 @@ export interface FederatedRpmRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1307,7 +1307,7 @@ export interface FederatedSbtRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1323,7 +1323,7 @@ export interface FederatedSwiftRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1339,7 +1339,7 @@ export interface FederatedTerraformModuleRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1355,7 +1355,7 @@ export interface FederatedTerraformProviderRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1371,7 +1371,7 @@ export interface FederatedVagrantRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1403,7 +1403,7 @@ export interface GetFederatedAlpineRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1435,7 +1435,7 @@ export interface GetFederatedAnsibleRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1467,7 +1467,7 @@ export interface GetFederatedBowerRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1499,7 +1499,7 @@ export interface GetFederatedCargoRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1531,7 +1531,7 @@ export interface GetFederatedChefRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1563,7 +1563,7 @@ export interface GetFederatedCocoapodsRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1595,7 +1595,7 @@ export interface GetFederatedComposerRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1627,7 +1627,7 @@ export interface GetFederatedConanRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1659,7 +1659,7 @@ export interface GetFederatedCondaRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1691,7 +1691,7 @@ export interface GetFederatedCranRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1723,7 +1723,7 @@ export interface GetFederatedDebianRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1754,7 +1754,7 @@ export interface GetFederatedDockerRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1785,7 +1785,7 @@ export interface GetFederatedDockerV1RepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1817,7 +1817,7 @@ export interface GetFederatedDockerV2RepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1849,7 +1849,7 @@ export interface GetFederatedGemsRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1881,7 +1881,7 @@ export interface GetFederatedGenericRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1913,7 +1913,7 @@ export interface GetFederatedGitlfsRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1945,7 +1945,7 @@ export interface GetFederatedGoRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1977,7 +1977,7 @@ export interface GetFederatedGradleRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -2009,7 +2009,7 @@ export interface GetFederatedHelmRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -2041,7 +2041,7 @@ export interface GetFederatedHelmociRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -2072,7 +2072,7 @@ export interface GetFederatedHuggingfacemlRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -2103,7 +2103,7 @@ export interface GetFederatedIvyRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -2135,7 +2135,7 @@ export interface GetFederatedMavenRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -2167,7 +2167,7 @@ export interface GetFederatedNpmRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -2199,7 +2199,7 @@ export interface GetFederatedNugetRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -2231,7 +2231,7 @@ export interface GetFederatedOciRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -2263,7 +2263,7 @@ export interface GetFederatedOpkgRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -2295,7 +2295,7 @@ export interface GetFederatedPuppetRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -2327,7 +2327,7 @@ export interface GetFederatedPypiRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -2358,7 +2358,7 @@ export interface GetFederatedReleasebundlesRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -2389,7 +2389,7 @@ export interface GetFederatedRpmRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -2421,7 +2421,7 @@ export interface GetFederatedSbtRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -2453,7 +2453,7 @@ export interface GetFederatedSwiftRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -2485,7 +2485,7 @@ export interface GetFederatedTerraformModuleRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -2517,7 +2517,7 @@ export interface GetFederatedTerraformProviderRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -2549,7 +2549,7 @@ export interface GetFederatedVagrantRepositoryMemberArgs {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -2580,15 +2580,15 @@ export interface GetPermissionTargetBuild {
 }
 
 export interface GetPermissionTargetBuildArgs {
-    actions?: pulumi.Input<inputs.GetPermissionTargetBuildActionsArgs>;
+    actions?: pulumi.Input<inputs.GetPermissionTargetBuildActionsArgs | undefined>;
     /**
      * Pattern of artifacts to exclude.
      */
-    excludesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludesPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Pattern of artifacts to include.
      */
-    includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includesPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of repositories this permission target is applicable for. You can specify the
      * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
@@ -2612,11 +2612,11 @@ export interface GetPermissionTargetBuildActionsArgs {
     /**
      * Groups this permission applies for.
      */
-    groups?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetBuildActionsGroupArgs>[]>;
+    groups?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetBuildActionsGroupArgs>[] | undefined>;
     /**
      * Users this permission target applies for.
      */
-    users?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetBuildActionsUserArgs>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetBuildActionsUserArgs>[] | undefined>;
 }
 
 export interface GetPermissionTargetBuildActionsGroup {
@@ -2670,15 +2670,15 @@ export interface GetPermissionTargetReleaseBundle {
 }
 
 export interface GetPermissionTargetReleaseBundleArgs {
-    actions?: pulumi.Input<inputs.GetPermissionTargetReleaseBundleActionsArgs>;
+    actions?: pulumi.Input<inputs.GetPermissionTargetReleaseBundleActionsArgs | undefined>;
     /**
      * Pattern of artifacts to exclude.
      */
-    excludesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludesPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Pattern of artifacts to include.
      */
-    includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includesPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of repositories this permission target is applicable for. You can specify the
      * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
@@ -2702,11 +2702,11 @@ export interface GetPermissionTargetReleaseBundleActionsArgs {
     /**
      * Groups this permission applies for.
      */
-    groups?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetReleaseBundleActionsGroupArgs>[]>;
+    groups?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetReleaseBundleActionsGroupArgs>[] | undefined>;
     /**
      * Users this permission target applies for.
      */
-    users?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetReleaseBundleActionsUserArgs>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetReleaseBundleActionsUserArgs>[] | undefined>;
 }
 
 export interface GetPermissionTargetReleaseBundleActionsGroup {
@@ -2760,15 +2760,15 @@ export interface GetPermissionTargetRepo {
 }
 
 export interface GetPermissionTargetRepoArgs {
-    actions?: pulumi.Input<inputs.GetPermissionTargetRepoActionsArgs>;
+    actions?: pulumi.Input<inputs.GetPermissionTargetRepoActionsArgs | undefined>;
     /**
      * Pattern of artifacts to exclude.
      */
-    excludesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludesPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Pattern of artifacts to include.
      */
-    includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includesPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of repositories this permission target is applicable for. You can specify the
      * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
@@ -2792,11 +2792,11 @@ export interface GetPermissionTargetRepoActionsArgs {
     /**
      * Groups this permission applies for.
      */
-    groups?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetRepoActionsGroupArgs>[]>;
+    groups?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetRepoActionsGroupArgs>[] | undefined>;
     /**
      * Users this permission target applies for.
      */
-    users?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetRepoActionsUserArgs>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetRepoActionsUserArgs>[] | undefined>;
 }
 
 export interface GetPermissionTargetRepoActionsGroup {
@@ -2854,19 +2854,19 @@ export interface GetRemoteAlpineRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteAnsibleRepositoryContentSynchronisation {
@@ -2892,19 +2892,19 @@ export interface GetRemoteAnsibleRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteBowerRepositoryContentSynchronisation {
@@ -2930,19 +2930,19 @@ export interface GetRemoteBowerRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteCargoRepositoryContentSynchronisation {
@@ -2968,19 +2968,19 @@ export interface GetRemoteCargoRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteChefRepositoryContentSynchronisation {
@@ -3006,19 +3006,19 @@ export interface GetRemoteChefRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteCocoapodsRepositoryContentSynchronisation {
@@ -3044,19 +3044,19 @@ export interface GetRemoteCocoapodsRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteComposerRepositoryContentSynchronisation {
@@ -3082,19 +3082,19 @@ export interface GetRemoteComposerRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteConanRepositoryContentSynchronisation {
@@ -3120,19 +3120,19 @@ export interface GetRemoteConanRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteCondaRepositoryContentSynchronisation {
@@ -3158,19 +3158,19 @@ export interface GetRemoteCondaRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteCranRepositoryContentSynchronisation {
@@ -3196,19 +3196,19 @@ export interface GetRemoteCranRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteDebianRepositoryContentSynchronisation {
@@ -3234,19 +3234,19 @@ export interface GetRemoteDebianRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteDockerRepositoryContentSynchronisation {
@@ -3272,19 +3272,19 @@ export interface GetRemoteDockerRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteGenericRepositoryContentSynchronisation {
@@ -3310,19 +3310,19 @@ export interface GetRemoteGenericRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteGitlfsRepositoryContentSynchronisation {
@@ -3348,19 +3348,19 @@ export interface GetRemoteGitlfsRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteGoRepositoryContentSynchronisation {
@@ -3386,19 +3386,19 @@ export interface GetRemoteGoRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteGradleRepositoryContentSynchronisation {
@@ -3424,19 +3424,19 @@ export interface GetRemoteGradleRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteHelmRepositoryContentSynchronisation {
@@ -3462,19 +3462,19 @@ export interface GetRemoteHelmRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteHelmociRepositoryContentSynchronisation {
@@ -3500,19 +3500,19 @@ export interface GetRemoteHelmociRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteIvyRepositoryContentSynchronisation {
@@ -3538,19 +3538,19 @@ export interface GetRemoteIvyRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteMavenRepositoryContentSynchronisation {
@@ -3576,19 +3576,19 @@ export interface GetRemoteMavenRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteNpmRepositoryContentSynchronisation {
@@ -3614,19 +3614,19 @@ export interface GetRemoteNpmRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteNugetRepositoryContentSynchronisation {
@@ -3652,19 +3652,19 @@ export interface GetRemoteNugetRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteOciRepositoryContentSynchronisation {
@@ -3690,19 +3690,19 @@ export interface GetRemoteOciRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteOpkgRepositoryContentSynchronisation {
@@ -3728,19 +3728,19 @@ export interface GetRemoteOpkgRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteP2RepositoryContentSynchronisation {
@@ -3766,19 +3766,19 @@ export interface GetRemoteP2RepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemotePubRepositoryContentSynchronisation {
@@ -3804,19 +3804,19 @@ export interface GetRemotePubRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemotePuppetRepositoryContentSynchronisation {
@@ -3842,19 +3842,19 @@ export interface GetRemotePuppetRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemotePypiRepositoryContentSynchronisation {
@@ -3880,19 +3880,19 @@ export interface GetRemotePypiRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteRpmRepositoryContentSynchronisation {
@@ -3918,19 +3918,19 @@ export interface GetRemoteRpmRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteSbtRepositoryContentSynchronisation {
@@ -3956,19 +3956,19 @@ export interface GetRemoteSbtRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteSwiftRepositoryContentSynchronisation {
@@ -3994,19 +3994,19 @@ export interface GetRemoteSwiftRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteTerraformRepositoryContentSynchronisation {
@@ -4032,19 +4032,19 @@ export interface GetRemoteTerraformRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetRemoteVcsRepositoryContentSynchronisation {
@@ -4070,70 +4070,70 @@ export interface GetRemoteVcsRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface LocalRepositoryMultiReplicationReplication {
     /**
      * Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      */
-    checkBinaryExistenceInFilestore?: pulumi.Input<boolean>;
+    checkBinaryExistenceInFilestore?: pulumi.Input<boolean | undefined>;
     /**
      * When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
      */
-    disableProxy?: pulumi.Input<boolean>;
+    disableProxy?: pulumi.Input<boolean | undefined>;
     /**
      * When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. By default, no artifacts are excluded.
      */
-    excludePathPrefixPattern?: pulumi.Input<string>;
+    excludePathPrefixPattern?: pulumi.Input<string | undefined>;
     /**
      * List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**&#47;*)`.
      */
-    includePathPrefixPattern?: pulumi.Input<string>;
+    includePathPrefixPattern?: pulumi.Input<string | undefined>;
     /**
      * Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Replication ID, the value is unknown until the resource is created. Can't be set or updated.
      */
-    replicationKey?: pulumi.Input<string>;
+    replicationKey?: pulumi.Input<string | undefined>;
     /**
      * The network timeout in milliseconds to use for remote operations. Default value is `15000`.
      */
-    socketTimeoutMillis?: pulumi.Input<number>;
+    socketTimeoutMillis?: pulumi.Input<number | undefined>;
     /**
      * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
      */
-    syncDeletes?: pulumi.Input<boolean>;
+    syncDeletes?: pulumi.Input<boolean | undefined>;
     /**
      * When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
      */
-    syncProperties?: pulumi.Input<boolean>;
+    syncProperties?: pulumi.Input<boolean | undefined>;
     /**
      * When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
      */
-    syncStatistics?: pulumi.Input<boolean>;
+    syncStatistics?: pulumi.Input<boolean | undefined>;
     /**
      * The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
      */
@@ -4148,23 +4148,23 @@ export interface ManagedUserPasswordPolicy {
     /**
      * Minimum number of digits that the password must contain
      */
-    digit?: pulumi.Input<number>;
+    digit?: pulumi.Input<number | undefined>;
     /**
      * Minimum length of the password
      */
-    length?: pulumi.Input<number>;
+    length?: pulumi.Input<number | undefined>;
     /**
      * Minimum number of lowercase letters that the password must contain
      */
-    lowercase?: pulumi.Input<number>;
+    lowercase?: pulumi.Input<number | undefined>;
     /**
      * Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`
      */
-    specialChar?: pulumi.Input<number>;
+    specialChar?: pulumi.Input<number | undefined>;
     /**
      * Minimum number of uppercase letters that the password must contain
      */
-    uppercase?: pulumi.Input<number>;
+    uppercase?: pulumi.Input<number | undefined>;
 }
 
 export interface OauthSettingsOauthProvider {
@@ -4187,7 +4187,7 @@ export interface OauthSettingsOauthProvider {
     /**
      * Enable the Artifactory OAuth provider.  Default value is `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the Artifactory OAuth provider.
      */
@@ -4208,7 +4208,7 @@ export interface PackageCleanupPolicySearchCriteria {
      *
      * ~>JFrog recommends using the `createdBeforeInDays` condition to ensure that packages currently in use are not deleted.
      */
-    createdBeforeInDays?: pulumi.Input<number>;
+    createdBeforeInDays?: pulumi.Input<number | undefined>;
     /**
      * The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be deleted as part of the policy.
      *
@@ -4216,25 +4216,25 @@ export interface PackageCleanupPolicySearchCriteria {
      *
      * @deprecated Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
      */
-    createdBeforeInMonths?: pulumi.Input<number>;
+    createdBeforeInMonths?: pulumi.Input<number | undefined>;
     /**
      * Specify explicit package names that you want excluded from the policy. Only explicit names (and not patterns) are accepted.
      */
-    excludedPackages?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedPackages?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from deletion.
      */
-    excludedProperties?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+    excludedProperties?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>} | undefined>;
     /**
      * Specify patterns for repository names or explicit repository names that you want excluded from the cleanup policy.
      */
-    excludedRepos?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedRepos?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
      *
      *  ~>This parameter is relevant only on the global level, for Platform Admins.
      */
-    includeAllProjects?: pulumi.Input<boolean>;
+    includeAllProjects?: pulumi.Input<boolean | undefined>;
     /**
      * Specify a pattern for a package name or an explicit package name on which you want the cleanup policy to run. Only one pattern or explicit name can be entered. To include all packages, use `**`. Example: `includedPackages = ["**"]`
      */
@@ -4246,19 +4246,19 @@ export interface PackageCleanupPolicySearchCriteria {
     /**
      * A key-value pair applied to the lead artifact of a package. Packages with this property will be deleted.
      */
-    includedProperties?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+    includedProperties?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>} | undefined>;
     /**
      * Set a value for the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded.
      *
      * ~>Not all package types support this condition. For information on which package types support this condition, [learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage).
      */
-    keepLastNVersions?: pulumi.Input<number>;
+    keepLastNVersions?: pulumi.Input<number | undefined>;
     /**
      * The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be deleted as part of the policy.
      *
      * ~>JFrog recommends using the `lastDownloadedBeforeInDays` condition to ensure that packages currently in use are not deleted.
      */
-    lastDownloadedBeforeInDays?: pulumi.Input<number>;
+    lastDownloadedBeforeInDays?: pulumi.Input<number | undefined>;
     /**
      * The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be deleted as part of the policy.
      *
@@ -4266,7 +4266,7 @@ export interface PackageCleanupPolicySearchCriteria {
      *
      * @deprecated Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
      */
-    lastDownloadedBeforeInMonths?: pulumi.Input<number>;
+    lastDownloadedBeforeInMonths?: pulumi.Input<number | undefined>;
     /**
      * The package types that are cleaned up by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, machinelearning, maven, npm, nuget, oci, puppet, pypi, sbt, swift, terraform, terraformbackend, yum.
      */
@@ -4278,15 +4278,15 @@ export interface PackageCleanupPolicySearchCriteria {
 }
 
 export interface PermissionTargetBuild {
-    actions?: pulumi.Input<inputs.PermissionTargetBuildActions>;
+    actions?: pulumi.Input<inputs.PermissionTargetBuildActions | undefined>;
     /**
      * The default value will be [] if nothing is supplied
      */
-    excludesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludesPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The default value will be [""] if nothing is supplied
      */
-    includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includesPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
      */
@@ -4297,11 +4297,11 @@ export interface PermissionTargetBuildActions {
     /**
      * Groups this permission applies for.
      */
-    groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetBuildActionsGroup>[]>;
+    groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetBuildActionsGroup>[] | undefined>;
     /**
      * Users this permission target applies for.
      */
-    users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetBuildActionsUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetBuildActionsUser>[] | undefined>;
 }
 
 export interface PermissionTargetBuildActionsGroup {
@@ -4321,15 +4321,15 @@ export interface PermissionTargetBuildActionsUser {
 }
 
 export interface PermissionTargetReleaseBundle {
-    actions?: pulumi.Input<inputs.PermissionTargetReleaseBundleActions>;
+    actions?: pulumi.Input<inputs.PermissionTargetReleaseBundleActions | undefined>;
     /**
      * The default value will be [] if nothing is supplied
      */
-    excludesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludesPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The default value will be [""] if nothing is supplied
      */
-    includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includesPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
      */
@@ -4340,11 +4340,11 @@ export interface PermissionTargetReleaseBundleActions {
     /**
      * Groups this permission applies for.
      */
-    groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetReleaseBundleActionsGroup>[]>;
+    groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetReleaseBundleActionsGroup>[] | undefined>;
     /**
      * Users this permission target applies for.
      */
-    users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetReleaseBundleActionsUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetReleaseBundleActionsUser>[] | undefined>;
 }
 
 export interface PermissionTargetReleaseBundleActionsGroup {
@@ -4364,15 +4364,15 @@ export interface PermissionTargetReleaseBundleActionsUser {
 }
 
 export interface PermissionTargetRepo {
-    actions?: pulumi.Input<inputs.PermissionTargetRepoActions>;
+    actions?: pulumi.Input<inputs.PermissionTargetRepoActions | undefined>;
     /**
      * Pattern of artifacts to exclude.
      */
-    excludesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludesPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Pattern of artifacts to include.
      */
-    includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includesPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
      */
@@ -4383,11 +4383,11 @@ export interface PermissionTargetRepoActions {
     /**
      * Groups this permission applies for.
      */
-    groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetRepoActionsGroup>[]>;
+    groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetRepoActionsGroup>[] | undefined>;
     /**
      * Users this permission target applies for.
      */
-    users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetRepoActionsUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetRepoActionsUser>[] | undefined>;
 }
 
 export interface PermissionTargetRepoActionsGroup {
@@ -4410,11 +4410,11 @@ export interface PropertySetProperty {
     /**
      * Disables `multipleChoice` if set to `false` at the same time with multipleChoice set to `true`. Default value is `false`
      */
-    closedPredefinedValues?: pulumi.Input<boolean>;
+    closedPredefinedValues?: pulumi.Input<boolean | undefined>;
     /**
      * Defines if user can select multiple values. `closedPredefinedValues` should be set to `true`. Default value is `false`.
      */
-    multipleChoice?: pulumi.Input<boolean>;
+    multipleChoice?: pulumi.Input<boolean | undefined>;
     /**
      * The name pf the property.
      */
@@ -4422,7 +4422,7 @@ export interface PropertySetProperty {
     /**
      * Properties in the property set. Predefined values is mandatory when closedPredefinedValues or multipleChoice is set to 'true'
      */
-    predefinedValues?: pulumi.Input<pulumi.Input<inputs.PropertySetPropertyPredefinedValue>[]>;
+    predefinedValues?: pulumi.Input<pulumi.Input<inputs.PropertySetPropertyPredefinedValue>[] | undefined>;
 }
 
 export interface PropertySetPropertyPredefinedValue {
@@ -4441,11 +4441,11 @@ export interface PushReplicationReplication {
      * When true, enables distributed checksum storage. For more information, see
      * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      */
-    checkBinaryExistenceInFilestore?: pulumi.Input<boolean>;
+    checkBinaryExistenceInFilestore?: pulumi.Input<boolean | undefined>;
     /**
      * When set, this replication will be enabled when saved.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Required for local repository, but not needed for remote repository.
      */
@@ -4453,28 +4453,28 @@ export interface PushReplicationReplication {
     /**
      * Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
      */
-    pathPrefix?: pulumi.Input<string>;
+    pathPrefix?: pulumi.Input<string | undefined>;
     /**
      * Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * The network timeout in milliseconds to use for remote operations.
      */
-    socketTimeoutMillis?: pulumi.Input<number>;
+    socketTimeoutMillis?: pulumi.Input<number | undefined>;
     /**
      * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
      * Note that enabling this option, will delete artifacts on the target that do not exist in the source repository.
      */
-    syncDeletes?: pulumi.Input<boolean>;
+    syncDeletes?: pulumi.Input<boolean | undefined>;
     /**
      * When set, the task also synchronizes the properties of replicated artifacts.
      */
-    syncProperties?: pulumi.Input<boolean>;
+    syncProperties?: pulumi.Input<boolean | undefined>;
     /**
      * When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
      */
-    syncStatistics?: pulumi.Input<boolean>;
+    syncStatistics?: pulumi.Input<boolean | undefined>;
     /**
      * The URL of the target local repository on a remote Artifactory server. Required for local repository, but not needed for remote repository.
      */
@@ -4493,38 +4493,38 @@ export interface ReleaseBundleCustomWebhookCriteria {
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**". **Cannot be set if `anyReleaseBundle` is set to `true`.**
      */
-    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**". **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
      */
-    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Trigger on this list of release bundle names. Either this or `includePatterns` must be set when `anyReleaseBundle` is `false`.
      */
-    registeredReleaseBundleNames?: pulumi.Input<pulumi.Input<string>[]>;
+    registeredReleaseBundleNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface ReleaseBundleCustomWebhookHandler {
     /**
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
-    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
-    payload?: pulumi.Input<string>;
+    payload?: pulumi.Input<string | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
      */
-    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -4535,7 +4535,7 @@ export interface ReleaseBundleV2CleanupPolicySearchCriteria {
     /**
      * Specifies the time frame for filtering based on item creation date (for example, 24 months). Defaults to `24`.
      */
-    createdBeforeInMonths?: pulumi.Input<number>;
+    createdBeforeInMonths?: pulumi.Input<number | undefined>;
     /**
      * A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `excludePromotedEnvironments = ["**"]`
      */
@@ -4543,17 +4543,17 @@ export interface ReleaseBundleV2CleanupPolicySearchCriteria {
     /**
      * Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
      */
-    includeAllProjects?: pulumi.Input<boolean>;
+    includeAllProjects?: pulumi.Input<boolean | undefined>;
     /**
      * List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
      *
      * ~>This setting is relevant only on the global level, for Platform Admins.
      */
-    includedProjects?: pulumi.Input<pulumi.Input<string>[]>;
+    includedProjects?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specify the release bundles to include in the cleanup policy. The policy will only clean up the release bundles that match the specified criteria.
      */
-    releaseBundles?: pulumi.Input<pulumi.Input<inputs.ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle>[]>;
+    releaseBundles?: pulumi.Input<pulumi.Input<inputs.ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle>[] | undefined>;
 }
 
 export interface ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle {
@@ -4577,40 +4577,40 @@ export interface ReleaseBundleV2CustomWebhookCriteria {
      * Ant-style path expressions are supported (*, **, ?).
      * For example: `product_*`
      */
-    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Simple wildcard patterns for Release Bundle names.
      * Ant-style path expressions are supported (*, **, ?).
      * For example: `product_*`
      */
-    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Trigger on this list of release bundle names.
      */
-    selectedReleaseBundles?: pulumi.Input<pulumi.Input<string>[]>;
+    selectedReleaseBundles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface ReleaseBundleV2CustomWebhookHandler {
     /**
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
-    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
-    payload?: pulumi.Input<string>;
+    payload?: pulumi.Input<string | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
      */
-    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -4618,8 +4618,8 @@ export interface ReleaseBundleV2CustomWebhookHandler {
 }
 
 export interface ReleaseBundleV2PromotionCustomWebhookCriteria {
-    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    includePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Trigger on this list of environment names.
      */
@@ -4630,23 +4630,23 @@ export interface ReleaseBundleV2PromotionCustomWebhookHandler {
     /**
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
-    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
-    payload?: pulumi.Input<string>;
+    payload?: pulumi.Input<string | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
      */
-    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -4654,8 +4654,8 @@ export interface ReleaseBundleV2PromotionCustomWebhookHandler {
 }
 
 export interface ReleaseBundleV2PromotionWebhookCriteria {
-    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    includePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Trigger on this list of environment names.
      */
@@ -4666,15 +4666,15 @@ export interface ReleaseBundleV2PromotionWebhookHandler {
     /**
      * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
      */
-    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
      */
-    secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -4682,26 +4682,26 @@ export interface ReleaseBundleV2PromotionWebhookHandler {
     /**
      * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
      */
-    useSecretForSigning?: pulumi.Input<boolean>;
+    useSecretForSigning?: pulumi.Input<boolean | undefined>;
 }
 
 export interface ReleaseBundleV2Source {
     /**
      * The contents of the AQL query.
      */
-    aql?: pulumi.Input<string>;
+    aql?: pulumi.Input<string | undefined>;
     /**
      * Source type to create a Release Bundle v2 version by collecting source artifacts from a list of path/checksum pairs.
      */
-    artifacts?: pulumi.Input<pulumi.Input<inputs.ReleaseBundleV2SourceArtifact>[]>;
+    artifacts?: pulumi.Input<pulumi.Input<inputs.ReleaseBundleV2SourceArtifact>[] | undefined>;
     /**
      * Source type to create a Release Bundle v2 version by collecting source artifacts from one or multiple builds (also known as build-info).
      */
-    builds?: pulumi.Input<pulumi.Input<inputs.ReleaseBundleV2SourceBuild>[]>;
+    builds?: pulumi.Input<pulumi.Input<inputs.ReleaseBundleV2SourceBuild>[] | undefined>;
     /**
      * Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `sourceType` attribute value.
      */
-    releaseBundles?: pulumi.Input<pulumi.Input<inputs.ReleaseBundleV2SourceReleaseBundle>[]>;
+    releaseBundles?: pulumi.Input<pulumi.Input<inputs.ReleaseBundleV2SourceReleaseBundle>[] | undefined>;
 }
 
 export interface ReleaseBundleV2SourceArtifact {
@@ -4712,14 +4712,14 @@ export interface ReleaseBundleV2SourceArtifact {
     /**
      * The SHA256 for the artifact
      */
-    sha256?: pulumi.Input<string>;
+    sha256?: pulumi.Input<string | undefined>;
 }
 
 export interface ReleaseBundleV2SourceBuild {
     /**
      * Determines whether to include build dependencies in the Release Bundle. The default value is `false`.
      */
-    includeDependencies?: pulumi.Input<boolean>;
+    includeDependencies?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the build.
      */
@@ -4731,11 +4731,11 @@ export interface ReleaseBundleV2SourceBuild {
     /**
      * The repository key of the build. If omitted, the system uses the default built-in repository, `artifactory-build-info`.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the build was created. If omitted, the system uses the latest build run, as identified by the `name` and `number` combination. The timestamp is provided according to the ISO 8601 standard.
      */
-    started?: pulumi.Input<string>;
+    started?: pulumi.Input<string | undefined>;
 }
 
 export interface ReleaseBundleV2SourceReleaseBundle {
@@ -4746,11 +4746,11 @@ export interface ReleaseBundleV2SourceReleaseBundle {
     /**
      * Project key of the release bundle.
      */
-    projectKey?: pulumi.Input<string>;
+    projectKey?: pulumi.Input<string | undefined>;
     /**
      * The key of the release bundle repository.
      */
-    repositoryKey?: pulumi.Input<string>;
+    repositoryKey?: pulumi.Input<string | undefined>;
     /**
      * The version of the release bundle.
      */
@@ -4767,32 +4767,32 @@ export interface ReleaseBundleV2WebhookCriteria {
      * Ant-style path expressions are supported (*, **, ?).
      * For example: `product_*`
      */
-    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Simple wildcard patterns for Release Bundle names.
      * Ant-style path expressions are supported (*, **, ?).
      * For example: `product_*`
      */
-    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Trigger on this list of release bundle names.
      */
-    selectedReleaseBundles?: pulumi.Input<pulumi.Input<string>[]>;
+    selectedReleaseBundles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface ReleaseBundleV2WebhookHandler {
     /**
      * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
      */
-    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
      */
-    secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -4800,7 +4800,7 @@ export interface ReleaseBundleV2WebhookHandler {
     /**
      * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
      */
-    useSecretForSigning?: pulumi.Input<boolean>;
+    useSecretForSigning?: pulumi.Input<boolean | undefined>;
 }
 
 export interface ReleaseBundleWebhookCriteria {
@@ -4811,30 +4811,30 @@ export interface ReleaseBundleWebhookCriteria {
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
      */
-    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
      */
-    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    includePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Trigger on this list of release bundle names.
      */
-    registeredReleaseBundleNames?: pulumi.Input<pulumi.Input<string>[]>;
+    registeredReleaseBundleNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface ReleaseBundleWebhookHandler {
     /**
      * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
      */
-    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
      */
-    secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -4842,737 +4842,737 @@ export interface ReleaseBundleWebhookHandler {
     /**
      * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
      */
-    useSecretForSigning?: pulumi.Input<boolean>;
+    useSecretForSigning?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteAlpineRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteAnsibleRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteBowerRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteCargoRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteChefRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteCocoapodsRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteComposerRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteConanRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteCondaRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteCranRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteDebianRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteDockerRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteGemsRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteGenericRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteGitlfsRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteGoRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteGradleRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteHelmRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteHelmociRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteHexRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteHuggingfacemlRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteIvyRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteMavenRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteNpmRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteNugetRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteOciRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteOpkgRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteP2RepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemotePubRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemotePuppetRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemotePypiRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteRpmRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteSbtRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteSwiftRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteTerraformRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RemoteVcsRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface UnmanagedUserPasswordPolicy {
     /**
      * Minimum number of digits that the password must contain
      */
-    digit?: pulumi.Input<number>;
+    digit?: pulumi.Input<number | undefined>;
     /**
      * Minimum length of the password
      */
-    length?: pulumi.Input<number>;
+    length?: pulumi.Input<number | undefined>;
     /**
      * Minimum number of lowercase letters that the password must contain
      */
-    lowercase?: pulumi.Input<number>;
+    lowercase?: pulumi.Input<number | undefined>;
     /**
      * Minimum number of special char that the password must contain. Special chars list: ``!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~``
      */
-    specialChar?: pulumi.Input<number>;
+    specialChar?: pulumi.Input<number | undefined>;
     /**
      * Minimum number of uppercase letters that the password must contain
      */
-    uppercase?: pulumi.Input<number>;
+    uppercase?: pulumi.Input<number | undefined>;
 }
 
 export interface UserCustomWebhookHandler {
     /**
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
-    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
-    payload?: pulumi.Input<string>;
+    payload?: pulumi.Input<string | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
      */
-    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send a request to.
      */
@@ -5583,38 +5583,38 @@ export interface UserPasswordPolicy {
     /**
      * Minimum number of digits that the password must contain
      */
-    digit?: pulumi.Input<number>;
+    digit?: pulumi.Input<number | undefined>;
     /**
      * Minimum length of the password
      */
-    length?: pulumi.Input<number>;
+    length?: pulumi.Input<number | undefined>;
     /**
      * Minimum number of lowercase letters that the password must contain
      */
-    lowercase?: pulumi.Input<number>;
+    lowercase?: pulumi.Input<number | undefined>;
     /**
      * Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`
      */
-    specialChar?: pulumi.Input<number>;
+    specialChar?: pulumi.Input<number | undefined>;
     /**
      * Minimum number of uppercase letters that the password must contain
      */
-    uppercase?: pulumi.Input<number>;
+    uppercase?: pulumi.Input<number | undefined>;
 }
 
 export interface UserWebhookHandler {
     /**
      * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
      */
-    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
      */
-    secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -5622,7 +5622,7 @@ export interface UserWebhookHandler {
     /**
      * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
      */
-    useSecretForSigning?: pulumi.Input<boolean>;
+    useSecretForSigning?: pulumi.Input<boolean | undefined>;
 }
 
 export interface VaultConfigurationConfig {
@@ -5638,19 +5638,19 @@ export interface VaultConfigurationConfigAuth {
     /**
      * Client certificate (in PEM format) for `Certificate` type.
      */
-    certificate?: pulumi.Input<string>;
+    certificate?: pulumi.Input<string | undefined>;
     /**
      * Private key (in PEM format) for `Certificate` type.
      */
-    certificateKey?: pulumi.Input<string>;
+    certificateKey?: pulumi.Input<string | undefined>;
     /**
      * Role ID for `AppRole` type
      */
-    roleId?: pulumi.Input<string>;
+    roleId?: pulumi.Input<string | undefined>;
     /**
      * Secret ID for `AppRole` type
      */
-    secretId?: pulumi.Input<string>;
+    secretId?: pulumi.Input<string | undefined>;
     /**
      * The authentication method used. The supported methods are `Certificate`, `AppRole`, and `Agent`. For more information, see [Hashicorp Vault Docs](https://developer.hashicorp.com/vault/docs/auth).
      */

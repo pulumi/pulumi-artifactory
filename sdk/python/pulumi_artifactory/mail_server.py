@@ -22,13 +22,13 @@ class MailServerArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  host: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int],
-                 artifactory_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 from_: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_ssl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_tls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifactory_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 from_: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_ssl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_tls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MailServer resource.
 
@@ -99,102 +99,102 @@ class MailServerArgs:
 
     @_builtins.property
     @pulumi.getter(name="artifactoryUrl")
-    def artifactory_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifactory_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Artifactory URL to to link to in all outgoing messages.
         """
         return pulumi.get(self, "artifactory_url")
 
     @artifactory_url.setter
-    def artifactory_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifactory_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifactory_url", value)
 
     @_builtins.property
     @pulumi.getter(name="from")
-    def from_(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def from_(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The 'from' address header to use in all outgoing messages.
         """
         return pulumi.get(self, "from_")
 
     @from_.setter
-    def from_(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def from_(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "from_", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for authentication with the mail server.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectPrefix")
-    def subject_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A prefix to use for the subject of all outgoing mails.
         """
         return pulumi.get(self, "subject_prefix")
 
     @subject_prefix.setter
-    def subject_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="useSsl")
-    def use_ssl(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_ssl(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to 'true', uses a secure connection to the mail server.
         """
         return pulumi.get(self, "use_ssl")
 
     @use_ssl.setter
-    def use_ssl(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_ssl(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_ssl", value)
 
     @_builtins.property
     @pulumi.getter(name="useTls")
-    def use_tls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_tls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to 'true', uses Transport Layer Security when connecting to the mail server.
         """
         return pulumi.get(self, "use_tls")
 
     @use_tls.setter
-    def use_tls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_tls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_tls", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username for authentication with the mail server.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
 @pulumi.input_type
 class _MailServerState:
     def __init__(__self__, *,
-                 artifactory_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 from_: Optional[pulumi.Input[_builtins.str]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 subject_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_ssl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_tls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifactory_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 from_: pulumi.Input[Optional[_builtins.str]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 subject_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_ssl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_tls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MailServer resources.
 
@@ -232,122 +232,122 @@ class _MailServerState:
 
     @_builtins.property
     @pulumi.getter(name="artifactoryUrl")
-    def artifactory_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifactory_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Artifactory URL to to link to in all outgoing messages.
         """
         return pulumi.get(self, "artifactory_url")
 
     @artifactory_url.setter
-    def artifactory_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifactory_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifactory_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, mail notifications are enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="from")
-    def from_(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def from_(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The 'from' address header to use in all outgoing messages.
         """
         return pulumi.get(self, "from_")
 
     @from_.setter
-    def from_(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def from_(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "from_", value)
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The mail server IP address / DNS.
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for authentication with the mail server.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port number of the mail server.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectPrefix")
-    def subject_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A prefix to use for the subject of all outgoing mails.
         """
         return pulumi.get(self, "subject_prefix")
 
     @subject_prefix.setter
-    def subject_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="useSsl")
-    def use_ssl(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_ssl(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to 'true', uses a secure connection to the mail server.
         """
         return pulumi.get(self, "use_ssl")
 
     @use_ssl.setter
-    def use_ssl(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_ssl(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_ssl", value)
 
     @_builtins.property
     @pulumi.getter(name="useTls")
-    def use_tls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_tls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to 'true', uses Transport Layer Security when connecting to the mail server.
         """
         return pulumi.get(self, "use_tls")
 
     @use_tls.setter
-    def use_tls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_tls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_tls", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username for authentication with the mail server.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -357,16 +357,16 @@ class MailServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifactory_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 from_: Optional[pulumi.Input[_builtins.str]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 subject_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_ssl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_tls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 artifactory_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 from_: pulumi.Input[Optional[_builtins.str]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 subject_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_ssl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_tls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an Artifactory Mail Server resource. This can be used to create and manage Artifactory mail server configuration.
@@ -468,16 +468,16 @@ class MailServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifactory_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 from_: Optional[pulumi.Input[_builtins.str]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 subject_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_ssl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_tls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 artifactory_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 from_: pulumi.Input[Optional[_builtins.str]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 subject_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_ssl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_tls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -513,16 +513,16 @@ class MailServer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            artifactory_url: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            from_: Optional[pulumi.Input[_builtins.str]] = None,
-            host: Optional[pulumi.Input[_builtins.str]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            port: Optional[pulumi.Input[_builtins.int]] = None,
-            subject_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            use_ssl: Optional[pulumi.Input[_builtins.bool]] = None,
-            use_tls: Optional[pulumi.Input[_builtins.bool]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'MailServer':
+            artifactory_url: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            from_: pulumi.Input[Optional[_builtins.str]] = None,
+            host: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            subject_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            use_ssl: pulumi.Input[Optional[_builtins.bool]] = None,
+            use_tls: pulumi.Input[Optional[_builtins.bool]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> 'MailServer':
         """
         Get an existing MailServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

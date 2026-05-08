@@ -85,7 +85,7 @@ export interface GlobalEnvironmentState {
     /**
      * Name must start with a letter and contain letters, digits and `-` character. The maximum length is 32 characters
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -95,5 +95,5 @@ export interface GlobalEnvironmentArgs {
     /**
      * Name must start with a letter and contain letters, digits and `-` character. The maximum length is 32 characters
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

@@ -117,19 +117,19 @@ export interface PasswordExpirationPolicyState {
     /**
      * Enable Password Expiration Policy. This only applies to internal user passwords.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the resource. Only used for importing.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Send mail notification before password expiration. Users will receive an email notification X days before password will expire. Mail server must be enabled and configured correctly.
      */
-    notifyByEmail?: pulumi.Input<boolean>;
+    notifyByEmail?: pulumi.Input<boolean | undefined>;
     /**
      * Password expires every N days. The time interval in which users will be obligated to change their password.
      */
-    passwordMaxAge?: pulumi.Input<number>;
+    passwordMaxAge?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -143,7 +143,7 @@ export interface PasswordExpirationPolicyArgs {
     /**
      * Name of the resource. Only used for importing.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Send mail notification before password expiration. Users will receive an email notification X days before password will expire. Mail server must be enabled and configured correctly.
      */

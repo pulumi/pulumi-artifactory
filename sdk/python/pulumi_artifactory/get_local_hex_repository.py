@@ -246,7 +246,7 @@ def get_local_hex_repository(key: Optional[_builtins.str] = None,
         property_sets=pulumi.get(__ret__, 'property_sets'),
         repo_layout_ref=pulumi.get(__ret__, 'repo_layout_ref'),
         xray_index=pulumi.get(__ret__, 'xray_index'))
-def get_local_hex_repository_output(key: Optional[pulumi.Input[_builtins.str]] = None,
+def get_local_hex_repository_output(key: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalHexRepositoryResult]:
     """
     Retrieves a local Hex repository.

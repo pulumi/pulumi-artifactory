@@ -23,29 +23,29 @@ class FederatedRpmRepositoryArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  members: pulumi.Input[Sequence[pulumi.Input['FederatedRpmRepositoryMemberArgs']]],
-                 archive_browsing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 blacked_out: Optional[pulumi.Input[_builtins.bool]] = None,
-                 calculate_yum_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cdn_redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cleanup_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 download_direct: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_file_lists_indexing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excludes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 includes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 xray_index: Optional[pulumi.Input[_builtins.bool]] = None,
-                 yum_group_file_names: Optional[pulumi.Input[_builtins.str]] = None,
-                 yum_root_depth: Optional[pulumi.Input[_builtins.int]] = None):
+                 archive_browsing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 blacked_out: pulumi.Input[Optional[_builtins.bool]] = None,
+                 calculate_yum_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cleanup_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_file_lists_indexing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 xray_index: pulumi.Input[Optional[_builtins.bool]] = None,
+                 yum_group_file_names: pulumi.Input[Optional[_builtins.str]] = None,
+                 yum_root_depth: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a FederatedRpmRepository resource.
 
@@ -155,7 +155,7 @@ class FederatedRpmRepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="archiveBrowsingEnabled")
-    def archive_browsing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def archive_browsing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, you may view content such as HTML or Javadoc files directly from Artifactory.
         This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
@@ -163,297 +163,297 @@ class FederatedRpmRepositoryArgs:
         return pulumi.get(self, "archive_browsing_enabled")
 
     @archive_browsing_enabled.setter
-    def archive_browsing_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def archive_browsing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "archive_browsing_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="blackedOut")
-    def blacked_out(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def blacked_out(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         """
         return pulumi.get(self, "blacked_out")
 
     @blacked_out.setter
-    def blacked_out(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def blacked_out(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "blacked_out", value)
 
     @_builtins.property
     @pulumi.getter(name="calculateYumMetadata")
-    def calculate_yum_metadata(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def calculate_yum_metadata(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "calculate_yum_metadata")
 
     @calculate_yum_metadata.setter
-    def calculate_yum_metadata(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def calculate_yum_metadata(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "calculate_yum_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnRedirect")
-    def cdn_redirect(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cdn_redirect(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
     @cdn_redirect.setter
-    def cdn_redirect(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cdn_redirect(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cdn_redirect", value)
 
     @_builtins.property
     @pulumi.getter(name="cleanupOnDelete")
-    def cleanup_on_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cleanup_on_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Delete all federated members on `terraform destroy` if set to `true`. Default is `false`. This attribute is added to match Terrform logic, so all the resources, created by the provider, must be removed on cleanup. Artifactory's behavior for the federated repositories is different, all the federated repositories stay after the user deletes the initial federated repository. **Caution**: if set to `true` all the repositories in the federation will be deleted, including repositories on other Artifactory instances in the "Circle of trust". This operation can not be reversed.
         """
         return pulumi.get(self, "cleanup_on_delete")
 
     @cleanup_on_delete.setter
-    def cleanup_on_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cleanup_on_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cleanup_on_delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Public description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disableProxy")
-    def disable_proxy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_proxy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         """
         return pulumi.get(self, "disable_proxy")
 
     @disable_proxy.setter
-    def disable_proxy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_proxy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="downloadDirect")
-    def download_direct(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def download_direct(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         """
         return pulumi.get(self, "download_direct")
 
     @download_direct.setter
-    def download_direct(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def download_direct(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "download_direct", value)
 
     @_builtins.property
     @pulumi.getter(name="enableFileListsIndexing")
-    def enable_file_lists_indexing(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_file_lists_indexing(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_file_lists_indexing")
 
     @enable_file_lists_indexing.setter
-    def enable_file_lists_indexing(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_file_lists_indexing(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_file_lists_indexing", value)
 
     @_builtins.property
     @pulumi.getter(name="excludesPattern")
-    def excludes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
-    def excludes_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def excludes_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "excludes_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="includesPattern")
-    def includes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
-    def includes_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def includes_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "includes_pattern", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Internal description.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKeypairRef")
-    def primary_keypair_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_keypair_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary keypair used to sign artifacts. Default value is empty.
         """
         return pulumi.get(self, "primary_keypair_ref")
 
     @primary_keypair_ref.setter
-    def primary_keypair_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_keypair_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_keypair_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="priorityResolution")
-    def priority_resolution(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def priority_resolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         return pulumi.get(self, "priority_resolution")
 
     @priority_resolution.setter
-    def priority_resolution(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def priority_resolution(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "priority_resolution", value)
 
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
-    def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def project_environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
-    def project_environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def project_environments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "project_environments", value)
 
     @_builtins.property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
     @project_key.setter
-    def project_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_key", value)
 
     @_builtins.property
     @pulumi.getter(name="propertySets")
-    def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def property_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of property set name
         """
         return pulumi.get(self, "property_sets")
 
     @property_sets.setter
-    def property_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def property_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "property_sets", value)
 
     @_builtins.property
     @pulumi.getter
-    def proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         """
         return pulumi.get(self, "proxy")
 
     @proxy.setter
-    def proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="repoLayoutRef")
-    def repo_layout_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repo_layout_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Repository layout key for the federated repository
         """
         return pulumi.get(self, "repo_layout_ref")
 
     @repo_layout_ref.setter
-    def repo_layout_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repo_layout_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repo_layout_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryKeypairRef")
-    def secondary_keypair_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_keypair_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary keypair used to sign artifacts.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
     @secondary_keypair_ref.setter
-    def secondary_keypair_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_keypair_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_keypair_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="xrayIndex")
-    def xray_index(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def xray_index(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
-    def xray_index(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def xray_index(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "xray_index", value)
 
     @_builtins.property
     @pulumi.getter(name="yumGroupFileNames")
-    def yum_group_file_names(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def yum_group_file_names(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
         """
         return pulumi.get(self, "yum_group_file_names")
 
     @yum_group_file_names.setter
-    def yum_group_file_names(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def yum_group_file_names(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "yum_group_file_names", value)
 
     @_builtins.property
     @pulumi.getter(name="yumRootDepth")
-    def yum_root_depth(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def yum_root_depth(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4.
         """
         return pulumi.get(self, "yum_root_depth")
 
     @yum_root_depth.setter
-    def yum_root_depth(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def yum_root_depth(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "yum_root_depth", value)
 
 
 @pulumi.input_type
 class _FederatedRpmRepositoryState:
     def __init__(__self__, *,
-                 archive_browsing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 blacked_out: Optional[pulumi.Input[_builtins.bool]] = None,
-                 calculate_yum_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cdn_redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cleanup_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 download_direct: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_file_lists_indexing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excludes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 includes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input['FederatedRpmRepositoryMemberArgs']]]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 xray_index: Optional[pulumi.Input[_builtins.bool]] = None,
-                 yum_group_file_names: Optional[pulumi.Input[_builtins.str]] = None,
-                 yum_root_depth: Optional[pulumi.Input[_builtins.int]] = None):
+                 archive_browsing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 blacked_out: pulumi.Input[Optional[_builtins.bool]] = None,
+                 calculate_yum_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cleanup_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_file_lists_indexing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input['FederatedRpmRepositoryMemberArgs']]]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 xray_index: pulumi.Input[Optional[_builtins.bool]] = None,
+                 yum_group_file_names: pulumi.Input[Optional[_builtins.str]] = None,
+                 yum_root_depth: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering FederatedRpmRepository resources.
 
@@ -540,7 +540,7 @@ class _FederatedRpmRepositoryState:
 
     @_builtins.property
     @pulumi.getter(name="archiveBrowsingEnabled")
-    def archive_browsing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def archive_browsing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, you may view content such as HTML or Javadoc files directly from Artifactory.
         This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
@@ -548,138 +548,138 @@ class _FederatedRpmRepositoryState:
         return pulumi.get(self, "archive_browsing_enabled")
 
     @archive_browsing_enabled.setter
-    def archive_browsing_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def archive_browsing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "archive_browsing_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="blackedOut")
-    def blacked_out(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def blacked_out(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         """
         return pulumi.get(self, "blacked_out")
 
     @blacked_out.setter
-    def blacked_out(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def blacked_out(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "blacked_out", value)
 
     @_builtins.property
     @pulumi.getter(name="calculateYumMetadata")
-    def calculate_yum_metadata(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def calculate_yum_metadata(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "calculate_yum_metadata")
 
     @calculate_yum_metadata.setter
-    def calculate_yum_metadata(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def calculate_yum_metadata(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "calculate_yum_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnRedirect")
-    def cdn_redirect(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cdn_redirect(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
     @cdn_redirect.setter
-    def cdn_redirect(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cdn_redirect(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cdn_redirect", value)
 
     @_builtins.property
     @pulumi.getter(name="cleanupOnDelete")
-    def cleanup_on_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cleanup_on_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Delete all federated members on `terraform destroy` if set to `true`. Default is `false`. This attribute is added to match Terrform logic, so all the resources, created by the provider, must be removed on cleanup. Artifactory's behavior for the federated repositories is different, all the federated repositories stay after the user deletes the initial federated repository. **Caution**: if set to `true` all the repositories in the federation will be deleted, including repositories on other Artifactory instances in the "Circle of trust". This operation can not be reversed.
         """
         return pulumi.get(self, "cleanup_on_delete")
 
     @cleanup_on_delete.setter
-    def cleanup_on_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cleanup_on_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cleanup_on_delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Public description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disableProxy")
-    def disable_proxy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_proxy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         """
         return pulumi.get(self, "disable_proxy")
 
     @disable_proxy.setter
-    def disable_proxy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_proxy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="downloadDirect")
-    def download_direct(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def download_direct(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         """
         return pulumi.get(self, "download_direct")
 
     @download_direct.setter
-    def download_direct(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def download_direct(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "download_direct", value)
 
     @_builtins.property
     @pulumi.getter(name="enableFileListsIndexing")
-    def enable_file_lists_indexing(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_file_lists_indexing(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_file_lists_indexing")
 
     @enable_file_lists_indexing.setter
-    def enable_file_lists_indexing(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_file_lists_indexing(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_file_lists_indexing", value)
 
     @_builtins.property
     @pulumi.getter(name="excludesPattern")
-    def excludes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
-    def excludes_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def excludes_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "excludes_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="includesPattern")
-    def includes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
-    def includes_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def includes_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "includes_pattern", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FederatedRpmRepositoryMemberArgs']]]]:
+    def members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FederatedRpmRepositoryMemberArgs']]]]:
         """
         The list of Federated members and must contain this repository URL (configured base URL
         `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
@@ -689,160 +689,160 @@ class _FederatedRpmRepositoryState:
         return pulumi.get(self, "members")
 
     @members.setter
-    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FederatedRpmRepositoryMemberArgs']]]]):
+    def members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FederatedRpmRepositoryMemberArgs']]]]):
         pulumi.set(self, "members", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Internal description.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter(name="packageType")
-    def package_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "package_type")
 
     @package_type.setter
-    def package_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_type", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKeypairRef")
-    def primary_keypair_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_keypair_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary keypair used to sign artifacts. Default value is empty.
         """
         return pulumi.get(self, "primary_keypair_ref")
 
     @primary_keypair_ref.setter
-    def primary_keypair_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_keypair_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_keypair_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="priorityResolution")
-    def priority_resolution(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def priority_resolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         return pulumi.get(self, "priority_resolution")
 
     @priority_resolution.setter
-    def priority_resolution(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def priority_resolution(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "priority_resolution", value)
 
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
-    def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def project_environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
-    def project_environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def project_environments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "project_environments", value)
 
     @_builtins.property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
     @project_key.setter
-    def project_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_key", value)
 
     @_builtins.property
     @pulumi.getter(name="propertySets")
-    def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def property_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of property set name
         """
         return pulumi.get(self, "property_sets")
 
     @property_sets.setter
-    def property_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def property_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "property_sets", value)
 
     @_builtins.property
     @pulumi.getter
-    def proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         """
         return pulumi.get(self, "proxy")
 
     @proxy.setter
-    def proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="repoLayoutRef")
-    def repo_layout_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repo_layout_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Repository layout key for the federated repository
         """
         return pulumi.get(self, "repo_layout_ref")
 
     @repo_layout_ref.setter
-    def repo_layout_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repo_layout_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repo_layout_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryKeypairRef")
-    def secondary_keypair_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_keypair_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary keypair used to sign artifacts.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
     @secondary_keypair_ref.setter
-    def secondary_keypair_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_keypair_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_keypair_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="xrayIndex")
-    def xray_index(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def xray_index(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
-    def xray_index(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def xray_index(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "xray_index", value)
 
     @_builtins.property
     @pulumi.getter(name="yumGroupFileNames")
-    def yum_group_file_names(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def yum_group_file_names(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
         """
         return pulumi.get(self, "yum_group_file_names")
 
     @yum_group_file_names.setter
-    def yum_group_file_names(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def yum_group_file_names(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "yum_group_file_names", value)
 
     @_builtins.property
     @pulumi.getter(name="yumRootDepth")
-    def yum_root_depth(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def yum_root_depth(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4.
         """
         return pulumi.get(self, "yum_root_depth")
 
     @yum_root_depth.setter
-    def yum_root_depth(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def yum_root_depth(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "yum_root_depth", value)
 
 
@@ -852,31 +852,31 @@ class FederatedRpmRepository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 archive_browsing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 blacked_out: Optional[pulumi.Input[_builtins.bool]] = None,
-                 calculate_yum_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cdn_redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cleanup_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 download_direct: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_file_lists_indexing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excludes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 includes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FederatedRpmRepositoryMemberArgs', 'FederatedRpmRepositoryMemberArgsDict']]]]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 xray_index: Optional[pulumi.Input[_builtins.bool]] = None,
-                 yum_group_file_names: Optional[pulumi.Input[_builtins.str]] = None,
-                 yum_root_depth: Optional[pulumi.Input[_builtins.int]] = None,
+                 archive_browsing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 blacked_out: pulumi.Input[Optional[_builtins.bool]] = None,
+                 calculate_yum_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cleanup_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_file_lists_indexing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedRpmRepositoryMemberArgs', 'FederatedRpmRepositoryMemberArgsDict']]]]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 xray_index: pulumi.Input[Optional[_builtins.bool]] = None,
+                 yum_group_file_names: pulumi.Input[Optional[_builtins.str]] = None,
+                 yum_root_depth: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Creates a federated Rpm repository.
@@ -991,31 +991,31 @@ class FederatedRpmRepository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 archive_browsing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 blacked_out: Optional[pulumi.Input[_builtins.bool]] = None,
-                 calculate_yum_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cdn_redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cleanup_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 download_direct: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_file_lists_indexing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excludes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 includes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FederatedRpmRepositoryMemberArgs', 'FederatedRpmRepositoryMemberArgsDict']]]]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 xray_index: Optional[pulumi.Input[_builtins.bool]] = None,
-                 yum_group_file_names: Optional[pulumi.Input[_builtins.str]] = None,
-                 yum_root_depth: Optional[pulumi.Input[_builtins.int]] = None,
+                 archive_browsing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 blacked_out: pulumi.Input[Optional[_builtins.bool]] = None,
+                 calculate_yum_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cleanup_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_file_lists_indexing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedRpmRepositoryMemberArgs', 'FederatedRpmRepositoryMemberArgsDict']]]]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 xray_index: pulumi.Input[Optional[_builtins.bool]] = None,
+                 yum_group_file_names: pulumi.Input[Optional[_builtins.str]] = None,
+                 yum_root_depth: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1065,32 +1065,32 @@ class FederatedRpmRepository(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            archive_browsing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            blacked_out: Optional[pulumi.Input[_builtins.bool]] = None,
-            calculate_yum_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-            cdn_redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-            cleanup_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            disable_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
-            download_direct: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_file_lists_indexing: Optional[pulumi.Input[_builtins.bool]] = None,
-            excludes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-            includes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FederatedRpmRepositoryMemberArgs', 'FederatedRpmRepositoryMemberArgsDict']]]]] = None,
-            notes: Optional[pulumi.Input[_builtins.str]] = None,
-            package_type: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None,
-            priority_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-            project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            project_key: Optional[pulumi.Input[_builtins.str]] = None,
-            property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            proxy: Optional[pulumi.Input[_builtins.str]] = None,
-            repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_keypair_ref: Optional[pulumi.Input[_builtins.str]] = None,
-            xray_index: Optional[pulumi.Input[_builtins.bool]] = None,
-            yum_group_file_names: Optional[pulumi.Input[_builtins.str]] = None,
-            yum_root_depth: Optional[pulumi.Input[_builtins.int]] = None) -> 'FederatedRpmRepository':
+            archive_browsing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            blacked_out: pulumi.Input[Optional[_builtins.bool]] = None,
+            calculate_yum_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+            cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+            cleanup_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+            download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_file_lists_indexing: pulumi.Input[Optional[_builtins.bool]] = None,
+            excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedRpmRepositoryMemberArgs', 'FederatedRpmRepositoryMemberArgsDict']]]]] = None,
+            notes: pulumi.Input[Optional[_builtins.str]] = None,
+            package_type: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+            project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            project_key: pulumi.Input[Optional[_builtins.str]] = None,
+            property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            proxy: pulumi.Input[Optional[_builtins.str]] = None,
+            repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            xray_index: pulumi.Input[Optional[_builtins.bool]] = None,
+            yum_group_file_names: pulumi.Input[Optional[_builtins.str]] = None,
+            yum_root_depth: pulumi.Input[Optional[_builtins.int]] = None) -> 'FederatedRpmRepository':
         """
         Get an existing FederatedRpmRepository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

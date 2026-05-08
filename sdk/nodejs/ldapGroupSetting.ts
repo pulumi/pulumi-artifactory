@@ -174,42 +174,42 @@ export interface LdapGroupSettingState {
     /**
      * An attribute on the group entry which denoting the group description. Used when importing groups.
      */
-    descriptionAttribute?: pulumi.Input<string>;
+    descriptionAttribute?: pulumi.Input<string | undefined>;
     /**
      * The LDAP filter used to search for group entries. Used for importing groups.
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
     /**
      * A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP Setting’s “Search Base”). Used when importing groups.
      */
-    groupBaseDn?: pulumi.Input<string>;
+    groupBaseDn?: pulumi.Input<string | undefined>;
     /**
      * A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g., uniqueMember,member).
      */
-    groupMemberAttribute?: pulumi.Input<string>;
+    groupMemberAttribute?: pulumi.Input<string | undefined>;
     /**
      * Attribute on the group entry denoting the group name. Used when importing groups.
      */
-    groupNameAttribute?: pulumi.Input<string>;
+    groupNameAttribute?: pulumi.Input<string | undefined>;
     /**
      * The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of the ldap group setting XML block of system configuration.
      */
-    ldapSettingKey?: pulumi.Input<string>;
+    ldapSettingKey?: pulumi.Input<string | undefined>;
     /**
      * Ldap group setting name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas:
      * - STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN.
      * - DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member.
      * - HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org indicates that user1 belongs to two groups: uk and developers.
      */
-    strategy?: pulumi.Input<string>;
+    strategy?: pulumi.Input<string | undefined>;
     /**
      * When set, enables deep search through the sub-tree of the LDAP URL + Search Base. True by default.
      */
-    subTree?: pulumi.Input<boolean>;
+    subTree?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -227,7 +227,7 @@ export interface LdapGroupSettingArgs {
     /**
      * A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP Setting’s “Search Base”). Used when importing groups.
      */
-    groupBaseDn?: pulumi.Input<string>;
+    groupBaseDn?: pulumi.Input<string | undefined>;
     /**
      * A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g., uniqueMember,member).
      */
@@ -243,7 +243,7 @@ export interface LdapGroupSettingArgs {
     /**
      * Ldap group setting name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas:
      * - STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN.
@@ -254,5 +254,5 @@ export interface LdapGroupSettingArgs {
     /**
      * When set, enables deep search through the sub-tree of the LDAP URL + Search Base. True by default.
      */
-    subTree?: pulumi.Input<boolean>;
+    subTree?: pulumi.Input<boolean | undefined>;
 }

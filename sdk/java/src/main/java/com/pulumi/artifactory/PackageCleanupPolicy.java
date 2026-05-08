@@ -34,8 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.artifactory.PackageCleanupPolicy;
  * import com.pulumi.artifactory.PackageCleanupPolicyArgs;
  * import com.pulumi.artifactory.inputs.PackageCleanupPolicySearchCriteriaArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -86,8 +86,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.artifactory.PackageCleanupPolicy;
  * import com.pulumi.artifactory.PackageCleanupPolicyArgs;
  * import com.pulumi.artifactory.inputs.PackageCleanupPolicySearchCriteriaArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -134,8 +134,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.artifactory.PackageCleanupPolicy;
  * import com.pulumi.artifactory.PackageCleanupPolicyArgs;
  * import com.pulumi.artifactory.inputs.PackageCleanupPolicySearchCriteriaArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -161,7 +161,7 @@ import javax.annotation.Nullable;
  *                 .includedProjects()
  *                 .includedPackages("**")
  *                 .excludedPackages("com/jfrog/latest")
- *                 .includedProperties(Map.of("build.name", "my-app"))
+ *                 .includedProperties(Map.of("build.name", Arrays.asList("my-app")))
  *                 .build())
  *             .build());
  * 
@@ -186,8 +186,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.artifactory.PackageCleanupPolicy;
  * import com.pulumi.artifactory.PackageCleanupPolicyArgs;
  * import com.pulumi.artifactory.inputs.PackageCleanupPolicySearchCriteriaArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -250,8 +250,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.artifactory.PackageCleanupPolicy;
  * import com.pulumi.artifactory.PackageCleanupPolicyArgs;
  * import com.pulumi.artifactory.inputs.PackageCleanupPolicySearchCriteriaArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -278,7 +278,7 @@ import javax.annotation.Nullable;
  *                 .includedPackages("**")
  *                 .excludedPackages()
  *                 .lastDownloadedBeforeInDays(90)
- *                 .includedProperties(Map.of("cleanup.candidate", "true"))
+ *                 .includedProperties(Map.of("cleanup.candidate", Arrays.asList("true")))
  *                 .build())
  *             .build());
  * 

@@ -166,55 +166,55 @@ export interface ArtifactState {
     /**
      * MD5 checksum of the artifact.
      */
-    checksumMd5?: pulumi.Input<string>;
+    checksumMd5?: pulumi.Input<string | undefined>;
     /**
      * SHA1 checksum of the artifact.
      */
-    checksumSha1?: pulumi.Input<string>;
+    checksumSha1?: pulumi.Input<string | undefined>;
     /**
      * SHA256 checksum of the artifact.
      */
-    checksumSha256?: pulumi.Input<string>;
+    checksumSha256?: pulumi.Input<string | undefined>;
     /**
      * Base64 content of the source file. Conflicts with `filePath`. Either one of these attribute must be set.
      */
-    contentBase64?: pulumi.Input<string>;
+    contentBase64?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when artifact is created.
      */
-    created?: pulumi.Input<string>;
+    created?: pulumi.Input<string | undefined>;
     /**
      * User who deploys the artifact.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * Download URI of the artifact.
      */
-    downloadUri?: pulumi.Input<string>;
+    downloadUri?: pulumi.Input<string | undefined>;
     /**
      * Path to the source file. Conflicts with `contentBase64`. Either one of these attribute must be set.
      */
-    filePath?: pulumi.Input<string>;
+    filePath?: pulumi.Input<string | undefined>;
     /**
      * MIME type of the artifact.
      */
-    mimeType?: pulumi.Input<string>;
+    mimeType?: pulumi.Input<string | undefined>;
     /**
      * The relative path in the target repository. Must begin with a '/'. You can add key-value matrix parameters to deploy the artifacts with properties. For more details, please refer to [Introducing Matrix Parameters](https://jfrog.com/help/r/jfrog-artifactory-documentation/using-properties-in-deployment-and-resolution).
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * Name of the respository.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * Size of the artifact, in bytes.
      */
-    size?: pulumi.Input<number>;
+    size?: pulumi.Input<number | undefined>;
     /**
      * URI of the artifact.
      */
-    uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -224,11 +224,11 @@ export interface ArtifactArgs {
     /**
      * Base64 content of the source file. Conflicts with `filePath`. Either one of these attribute must be set.
      */
-    contentBase64?: pulumi.Input<string>;
+    contentBase64?: pulumi.Input<string | undefined>;
     /**
      * Path to the source file. Conflicts with `contentBase64`. Either one of these attribute must be set.
      */
-    filePath?: pulumi.Input<string>;
+    filePath?: pulumi.Input<string | undefined>;
     /**
      * The relative path in the target repository. Must begin with a '/'. You can add key-value matrix parameters to deploy the artifacts with properties. For more details, please refer to [Introducing Matrix Parameters](https://jfrog.com/help/r/jfrog-artifactory-documentation/using-properties-in-deployment-and-resolution).
      */

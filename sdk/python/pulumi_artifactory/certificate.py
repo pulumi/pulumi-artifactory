@@ -20,8 +20,8 @@ __all__ = ['CertificateArgs', 'Certificate']
 class CertificateArgs:
     def __init__(__self__, *,
                  alias: pulumi.Input[_builtins.str],
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 file: Optional[pulumi.Input[_builtins.str]] = None):
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 file: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
 
@@ -49,40 +49,40 @@ class CertificateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter
-    def file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to the PEM file. Cannot be set with `content` attribute simultaneously.
         """
         return pulumi.get(self, "file")
 
     @file.setter
-    def file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file", value)
 
 
 @pulumi.input_type
 class _CertificateState:
     def __init__(__self__, *,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 file: Optional[pulumi.Input[_builtins.str]] = None,
-                 fingerprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 issued_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 issued_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 issued_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 valid_until: Optional[pulumi.Input[_builtins.str]] = None):
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 file: pulumi.Input[Optional[_builtins.str]] = None,
+                 fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 issued_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 issued_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 issued_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 valid_until: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
 
@@ -114,98 +114,98 @@ class _CertificateState:
 
     @_builtins.property
     @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of certificate.
         """
         return pulumi.get(self, "alias")
 
     @alias.setter
-    def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter
-    def file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to the PEM file. Cannot be set with `content` attribute simultaneously.
         """
         return pulumi.get(self, "file")
 
     @file.setter
-    def file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file", value)
 
     @_builtins.property
     @pulumi.getter
-    def fingerprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fingerprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SHA256 fingerprint of the certificate.
         """
         return pulumi.get(self, "fingerprint")
 
     @fingerprint.setter
-    def fingerprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fingerprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fingerprint", value)
 
     @_builtins.property
     @pulumi.getter(name="issuedBy")
-    def issued_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issued_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the certificate authority that issued the certificate.
         """
         return pulumi.get(self, "issued_by")
 
     @issued_by.setter
-    def issued_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issued_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issued_by", value)
 
     @_builtins.property
     @pulumi.getter(name="issuedOn")
-    def issued_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issued_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time & date when the certificate is valid from.
         """
         return pulumi.get(self, "issued_on")
 
     @issued_on.setter
-    def issued_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issued_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issued_on", value)
 
     @_builtins.property
     @pulumi.getter(name="issuedTo")
-    def issued_to(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issued_to(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of whom the certificate has been issued to.
         """
         return pulumi.get(self, "issued_to")
 
     @issued_to.setter
-    def issued_to(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issued_to(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issued_to", value)
 
     @_builtins.property
     @pulumi.getter(name="validUntil")
-    def valid_until(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def valid_until(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time & date when the certificate expires.
         """
         return pulumi.get(self, "valid_until")
 
     @valid_until.setter
-    def valid_until(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def valid_until(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "valid_until", value)
 
 
@@ -215,9 +215,9 @@ class Certificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 file: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 file: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an Artifactory certificate resource. This can be used to create and manage Artifactory certificates which can be used as client authentication against remote repositories.
@@ -300,9 +300,9 @@ class Certificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 file: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 file: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -334,14 +334,14 @@ class Certificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alias: Optional[pulumi.Input[_builtins.str]] = None,
-            content: Optional[pulumi.Input[_builtins.str]] = None,
-            file: Optional[pulumi.Input[_builtins.str]] = None,
-            fingerprint: Optional[pulumi.Input[_builtins.str]] = None,
-            issued_by: Optional[pulumi.Input[_builtins.str]] = None,
-            issued_on: Optional[pulumi.Input[_builtins.str]] = None,
-            issued_to: Optional[pulumi.Input[_builtins.str]] = None,
-            valid_until: Optional[pulumi.Input[_builtins.str]] = None) -> 'Certificate':
+            alias: pulumi.Input[Optional[_builtins.str]] = None,
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            file: pulumi.Input[Optional[_builtins.str]] = None,
+            fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+            issued_by: pulumi.Input[Optional[_builtins.str]] = None,
+            issued_on: pulumi.Input[Optional[_builtins.str]] = None,
+            issued_to: pulumi.Input[Optional[_builtins.str]] = None,
+            valid_until: pulumi.Input[Optional[_builtins.str]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

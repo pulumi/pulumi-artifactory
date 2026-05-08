@@ -110,7 +110,7 @@ export interface ProviderArgs {
     /**
      * This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the 'api_key' attribute value will be used.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * API key. If `accessToken` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
      *
@@ -118,35 +118,35 @@ export interface ProviderArgs {
 In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
 By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * Filesystem path to the PEM-encoded private key that matches `clientCertificatePath`.
      */
-    clientCertificateKeyPath?: pulumi.Input<string>;
+    clientCertificateKeyPath?: pulumi.Input<string | undefined>;
     /**
      * Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `clientCertificateKeyPath`.
      */
-    clientCertificatePath?: pulumi.Input<string>;
+    clientCertificatePath?: pulumi.Input<string | undefined>;
     /**
      * Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `clientPrivateKeyPem`.
      */
-    clientCertificatePem?: pulumi.Input<string>;
+    clientCertificatePem?: pulumi.Input<string | undefined>;
     /**
      * Inline PEM-encoded private key that matches `clientCertificatePem`.
      */
-    clientPrivateKeyPem?: pulumi.Input<string>;
+    clientPrivateKeyPem?: pulumi.Input<string | undefined>;
     /**
      * OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
      */
-    oidcProviderName?: pulumi.Input<string>;
+    oidcProviderName?: pulumi.Input<string | undefined>;
     /**
      * Terraform Cloud Workload Identity Token tag name. Use for generating multiple TFC workload identity tokens. When set, the provider will attempt to use env var with this tag name as suffix. **Note:** this is case sensitive, so if set to `JFROG`, then env var `TFC_WORKLOAD_IDENTITY_TOKEN_JFROG` is used instead of `TFC_WORKLOAD_IDENTITY_TOKEN`. See [Generating Multiple Tokens](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/manual-generation#generating-multiple-tokens) on HCP Terraform for more details.
      */
-    tfcCredentialTagName?: pulumi.Input<string>;
+    tfcCredentialTagName?: pulumi.Input<string | undefined>;
     /**
      * Artifactory URL.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 export namespace Provider {

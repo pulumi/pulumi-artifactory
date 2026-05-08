@@ -121,22 +121,22 @@ export function getVirtualNugetRepositoryOutput(args: GetVirtualNugetRepositoryO
  * A collection of arguments for invoking getVirtualNugetRepository.
  */
 export interface GetVirtualNugetRepositoryOutputArgs {
-    artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean>;
-    defaultDeploymentRepo?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    excludesPattern?: pulumi.Input<string>;
+    artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean | undefined>;
+    defaultDeploymentRepo?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    excludesPattern?: pulumi.Input<string | undefined>;
     /**
      * (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
      */
-    forceNugetAuthentication?: pulumi.Input<boolean>;
-    includesPattern?: pulumi.Input<string>;
+    forceNugetAuthentication?: pulumi.Input<boolean | undefined>;
+    includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.
      */
     key: pulumi.Input<string>;
-    notes?: pulumi.Input<string>;
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    projectKey?: pulumi.Input<string>;
-    repoLayoutRef?: pulumi.Input<string>;
-    repositories?: pulumi.Input<pulumi.Input<string>[]>;
+    notes?: pulumi.Input<string | undefined>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    projectKey?: pulumi.Input<string | undefined>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
+    repositories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

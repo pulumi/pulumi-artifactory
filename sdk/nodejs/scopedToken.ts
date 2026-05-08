@@ -253,59 +253,59 @@ export interface ScopedTokenState {
     /**
      * Returns the access token to authenticate to Artifactory.
      */
-    accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string | undefined>;
     /**
      * A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
      */
-    audiences?: pulumi.Input<pulumi.Input<string>[]>;
+    audiences?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
      */
-    expiresIn?: pulumi.Input<number>;
+    expiresIn?: pulumi.Input<number | undefined>;
     /**
      * Returns the token expiry.
      */
-    expiry?: pulumi.Input<number>;
+    expiry?: pulumi.Input<number | undefined>;
     /**
      * The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is also the default value if this parameter is not specified.
      */
-    grantType?: pulumi.Input<string>;
+    grantType?: pulumi.Input<string | undefined>;
     /**
      * Toggle to ignore warning message when token was missing or not created and stored by Artifactory. Default is `false`.
      */
-    ignoreMissingTokenWarning?: pulumi.Input<boolean>;
+    ignoreMissingTokenWarning?: pulumi.Input<boolean | undefined>;
     /**
      * Also create a reference token which can be used like an API key. Default is `false`.
      */
-    includeReferenceToken?: pulumi.Input<boolean>;
+    includeReferenceToken?: pulumi.Input<boolean | undefined>;
     /**
      * Returns the token issued at date/time.
      */
-    issuedAt?: pulumi.Input<number>;
+    issuedAt?: pulumi.Input<number | undefined>;
     /**
      * Returns the token issuer.
      */
-    issuer?: pulumi.Input<string>;
+    issuer?: pulumi.Input<string | undefined>;
     /**
      * The project for which this token is created. Enter the project name on which you want to apply this token.
      */
-    projectKey?: pulumi.Input<string>;
+    projectKey?: pulumi.Input<string | undefined>;
     /**
      * Reference Token (alias to Access Token).
      */
-    referenceToken?: pulumi.Input<string>;
+    referenceToken?: pulumi.Input<string | undefined>;
     /**
      * Refresh token.
      */
-    refreshToken?: pulumi.Input<string>;
+    refreshToken?: pulumi.Input<string | undefined>;
     /**
      * Is this token refreshable? Default is `false`.
      */
-    refreshable?: pulumi.Input<boolean>;
+    refreshable?: pulumi.Input<boolean | undefined>;
     /**
      * The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong. The supported scopes include:
      *   - `applied-permissions/user` - provides user access. If left at the default setting, the token will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not grant any specific access permissions.
@@ -331,19 +331,19 @@ export interface ScopedTokenState {
      * ->The scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in total.
      * From Artifactory 7.84.3, [project admins](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins) can create access tokens that are tied to the projects in which they hold administrative privileges.
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Returns the token type.
      */
-    subject?: pulumi.Input<string>;
+    subject?: pulumi.Input<string | undefined>;
     /**
      * Returns the token type.
      */
-    tokenType?: pulumi.Input<string>;
+    tokenType?: pulumi.Input<string | undefined>;
     /**
      * The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: <service-id>/users/<username>. Limited to 255 characters.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -353,35 +353,35 @@ export interface ScopedTokenArgs {
     /**
      * A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
      */
-    audiences?: pulumi.Input<pulumi.Input<string>[]>;
+    audiences?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
      */
-    expiresIn?: pulumi.Input<number>;
+    expiresIn?: pulumi.Input<number | undefined>;
     /**
      * The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is also the default value if this parameter is not specified.
      */
-    grantType?: pulumi.Input<string>;
+    grantType?: pulumi.Input<string | undefined>;
     /**
      * Toggle to ignore warning message when token was missing or not created and stored by Artifactory. Default is `false`.
      */
-    ignoreMissingTokenWarning?: pulumi.Input<boolean>;
+    ignoreMissingTokenWarning?: pulumi.Input<boolean | undefined>;
     /**
      * Also create a reference token which can be used like an API key. Default is `false`.
      */
-    includeReferenceToken?: pulumi.Input<boolean>;
+    includeReferenceToken?: pulumi.Input<boolean | undefined>;
     /**
      * The project for which this token is created. Enter the project name on which you want to apply this token.
      */
-    projectKey?: pulumi.Input<string>;
+    projectKey?: pulumi.Input<string | undefined>;
     /**
      * Is this token refreshable? Default is `false`.
      */
-    refreshable?: pulumi.Input<boolean>;
+    refreshable?: pulumi.Input<boolean | undefined>;
     /**
      * The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong. The supported scopes include:
      *   - `applied-permissions/user` - provides user access. If left at the default setting, the token will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not grant any specific access permissions.
@@ -407,9 +407,9 @@ export interface ScopedTokenArgs {
      * ->The scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in total.
      * From Artifactory 7.84.3, [project admins](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins) can create access tokens that are tied to the projects in which they hold administrative privileges.
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: <service-id>/users/<username>. Limited to 255 characters.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }

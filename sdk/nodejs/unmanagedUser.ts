@@ -161,31 +161,31 @@ export interface UnmanagedUserState {
     /**
      * (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
      */
-    admin?: pulumi.Input<boolean>;
+    admin?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
      */
-    disableUiAccess?: pulumi.Input<boolean>;
+    disableUiAccess?: pulumi.Input<boolean | undefined>;
     /**
      * Email for user.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
      */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
      */
-    internalPasswordDisabled?: pulumi.Input<boolean>;
+    internalPasswordDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Password policy to match JFrog Access to provide validation before API request.
      *
@@ -193,11 +193,11 @@ export interface UnmanagedUserState {
      *
      * Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
      */
-    passwordPolicy?: pulumi.Input<inputs.UnmanagedUserPasswordPolicy>;
+    passwordPolicy?: pulumi.Input<inputs.UnmanagedUserPasswordPolicy | undefined>;
     /**
      * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      */
-    profileUpdatable?: pulumi.Input<boolean>;
+    profileUpdatable?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -207,11 +207,11 @@ export interface UnmanagedUserArgs {
     /**
      * (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
      */
-    admin?: pulumi.Input<boolean>;
+    admin?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
      */
-    disableUiAccess?: pulumi.Input<boolean>;
+    disableUiAccess?: pulumi.Input<boolean | undefined>;
     /**
      * Email for user.
      */
@@ -219,19 +219,19 @@ export interface UnmanagedUserArgs {
     /**
      * List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
      */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
      */
-    internalPasswordDisabled?: pulumi.Input<boolean>;
+    internalPasswordDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Password policy to match JFrog Access to provide validation before API request.
      *
@@ -239,9 +239,9 @@ export interface UnmanagedUserArgs {
      *
      * Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
      */
-    passwordPolicy?: pulumi.Input<inputs.UnmanagedUserPasswordPolicy>;
+    passwordPolicy?: pulumi.Input<inputs.UnmanagedUserPasswordPolicy | undefined>;
     /**
      * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      */
-    profileUpdatable?: pulumi.Input<boolean>;
+    profileUpdatable?: pulumi.Input<boolean | undefined>;
 }

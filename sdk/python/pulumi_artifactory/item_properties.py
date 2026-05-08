@@ -21,8 +21,8 @@ class ItemPropertiesArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]],
                  repo_key: pulumi.Input[_builtins.str],
-                 is_recursive: Optional[pulumi.Input[_builtins.bool]] = None,
-                 item_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 is_recursive: pulumi.Input[Optional[_builtins.bool]] = None,
+                 item_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ItemProperties resource.
 
@@ -64,36 +64,36 @@ class ItemPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="isRecursive")
-    def is_recursive(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_recursive(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Add this property to the selected folder and to all of artifacts and folders under this folder. Default to `false`
         """
         return pulumi.get(self, "is_recursive")
 
     @is_recursive.setter
-    def is_recursive(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_recursive(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_recursive", value)
 
     @_builtins.property
     @pulumi.getter(name="itemPath")
-    def item_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def item_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relative path of the item (file/folder/repository). Leave unset for repository.
         """
         return pulumi.get(self, "item_path")
 
     @item_path.setter
-    def item_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def item_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "item_path", value)
 
 
 @pulumi.input_type
 class _ItemPropertiesState:
     def __init__(__self__, *,
-                 is_recursive: Optional[pulumi.Input[_builtins.bool]] = None,
-                 item_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 repo_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 is_recursive: pulumi.Input[Optional[_builtins.bool]] = None,
+                 item_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 repo_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ItemProperties resources.
 
@@ -113,50 +113,50 @@ class _ItemPropertiesState:
 
     @_builtins.property
     @pulumi.getter(name="isRecursive")
-    def is_recursive(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_recursive(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Add this property to the selected folder and to all of artifacts and folders under this folder. Default to `false`
         """
         return pulumi.get(self, "is_recursive")
 
     @is_recursive.setter
-    def is_recursive(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_recursive(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_recursive", value)
 
     @_builtins.property
     @pulumi.getter(name="itemPath")
-    def item_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def item_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relative path of the item (file/folder/repository). Leave unset for repository.
         """
         return pulumi.get(self, "item_path")
 
     @item_path.setter
-    def item_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def item_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "item_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
         """
         Map of key and list of values.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="repoKey")
-    def repo_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repo_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Respository key.
         """
         return pulumi.get(self, "repo_key")
 
     @repo_key.setter
-    def repo_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repo_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repo_key", value)
 
 
@@ -166,10 +166,10 @@ class ItemProperties(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 is_recursive: Optional[pulumi.Input[_builtins.bool]] = None,
-                 item_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 repo_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_recursive: pulumi.Input[Optional[_builtins.bool]] = None,
+                 item_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 repo_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource for managaing item (file, folder, or repository) properties. When a folder is used property attachment is recursive by default. See [JFrog documentation](https://jfrog.com/help/r/jfrog-artifactory-documentation/working-with-jfrog-properties) for more details.
@@ -281,10 +281,10 @@ class ItemProperties(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 is_recursive: Optional[pulumi.Input[_builtins.bool]] = None,
-                 item_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 repo_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_recursive: pulumi.Input[Optional[_builtins.bool]] = None,
+                 item_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 repo_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -312,10 +312,10 @@ class ItemProperties(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            is_recursive: Optional[pulumi.Input[_builtins.bool]] = None,
-            item_path: Optional[pulumi.Input[_builtins.str]] = None,
-            properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-            repo_key: Optional[pulumi.Input[_builtins.str]] = None) -> 'ItemProperties':
+            is_recursive: pulumi.Input[Optional[_builtins.bool]] = None,
+            item_path: pulumi.Input[Optional[_builtins.str]] = None,
+            properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+            repo_key: pulumi.Input[Optional[_builtins.str]] = None) -> 'ItemProperties':
         """
         Get an existing ItemProperties resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

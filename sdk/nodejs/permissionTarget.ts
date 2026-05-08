@@ -199,19 +199,19 @@ export interface PermissionTargetState {
     /**
      * As for repo but for artifactory-build-info permissions.
      */
-    build?: pulumi.Input<inputs.PermissionTargetBuild>;
+    build?: pulumi.Input<inputs.PermissionTargetBuild | undefined>;
     /**
      * Name of permission.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * As for repo for for release-bundles permissions.
      */
-    releaseBundle?: pulumi.Input<inputs.PermissionTargetReleaseBundle>;
+    releaseBundle?: pulumi.Input<inputs.PermissionTargetReleaseBundle | undefined>;
     /**
      * Repository permission configuration.
      */
-    repo?: pulumi.Input<inputs.PermissionTargetRepo>;
+    repo?: pulumi.Input<inputs.PermissionTargetRepo | undefined>;
 }
 
 /**
@@ -221,17 +221,17 @@ export interface PermissionTargetArgs {
     /**
      * As for repo but for artifactory-build-info permissions.
      */
-    build?: pulumi.Input<inputs.PermissionTargetBuild>;
+    build?: pulumi.Input<inputs.PermissionTargetBuild | undefined>;
     /**
      * Name of permission.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * As for repo for for release-bundles permissions.
      */
-    releaseBundle?: pulumi.Input<inputs.PermissionTargetReleaseBundle>;
+    releaseBundle?: pulumi.Input<inputs.PermissionTargetReleaseBundle | undefined>;
     /**
      * Repository permission configuration.
      */
-    repo?: pulumi.Input<inputs.PermissionTargetRepo>;
+    repo?: pulumi.Input<inputs.PermissionTargetRepo | undefined>;
 }

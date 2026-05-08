@@ -183,63 +183,63 @@ export interface VirtualGradleRepositoryState {
     /**
      * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
      */
-    artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean>;
+    artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean | undefined>;
     /**
      * Default repository to deploy artifacts.
      */
-    defaultDeploymentRepo?: pulumi.Input<string>;
+    defaultDeploymentRepo?: pulumi.Input<string | undefined>;
     /**
      * Public description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      */
-    excludesPattern?: pulumi.Input<string>;
+    excludesPattern?: pulumi.Input<string | undefined>;
     /**
      * User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests.
      */
-    forceMavenAuthentication?: pulumi.Input<boolean>;
+    forceMavenAuthentication?: pulumi.Input<boolean | undefined>;
     /**
      * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
-    includesPattern?: pulumi.Input<string>;
+    includesPattern?: pulumi.Input<string | undefined>;
     /**
      * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
      * contain spaces or special characters.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * The keypair used to sign artifacts.
      */
-    keyPair?: pulumi.Input<string>;
+    keyPair?: pulumi.Input<string | undefined>;
     /**
      * Internal description.
      */
-    notes?: pulumi.Input<string>;
-    packageType?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
+    packageType?: pulumi.Input<string | undefined>;
     /**
      * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
      * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
      * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
      */
-    pomRepositoryReferencesCleanupPolicy?: pulumi.Input<string>;
+    pomRepositoryReferencesCleanupPolicy?: pulumi.Input<string | undefined>;
     /**
      * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      */
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
-    projectKey?: pulumi.Input<string>;
+    projectKey?: pulumi.Input<string | undefined>;
     /**
      * Repository layout key for the virtual repository
      */
-    repoLayoutRef?: pulumi.Input<string>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
     /**
      * The effective list of actual repositories included in this virtual repository.
      */
-    repositories?: pulumi.Input<pulumi.Input<string>[]>;
+    repositories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -249,27 +249,27 @@ export interface VirtualGradleRepositoryArgs {
     /**
      * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
      */
-    artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean>;
+    artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean | undefined>;
     /**
      * Default repository to deploy artifacts.
      */
-    defaultDeploymentRepo?: pulumi.Input<string>;
+    defaultDeploymentRepo?: pulumi.Input<string | undefined>;
     /**
      * Public description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      */
-    excludesPattern?: pulumi.Input<string>;
+    excludesPattern?: pulumi.Input<string | undefined>;
     /**
      * User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests.
      */
-    forceMavenAuthentication?: pulumi.Input<boolean>;
+    forceMavenAuthentication?: pulumi.Input<boolean | undefined>;
     /**
      * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
-    includesPattern?: pulumi.Input<string>;
+    includesPattern?: pulumi.Input<string | undefined>;
     /**
      * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
      * contain spaces or special characters.
@@ -278,31 +278,31 @@ export interface VirtualGradleRepositoryArgs {
     /**
      * The keypair used to sign artifacts.
      */
-    keyPair?: pulumi.Input<string>;
+    keyPair?: pulumi.Input<string | undefined>;
     /**
      * Internal description.
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
      * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
      * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
      */
-    pomRepositoryReferencesCleanupPolicy?: pulumi.Input<string>;
+    pomRepositoryReferencesCleanupPolicy?: pulumi.Input<string | undefined>;
     /**
      * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      */
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
-    projectKey?: pulumi.Input<string>;
+    projectKey?: pulumi.Input<string | undefined>;
     /**
      * Repository layout key for the virtual repository
      */
-    repoLayoutRef?: pulumi.Input<string>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
     /**
      * The effective list of actual repositories included in this virtual repository.
      */
-    repositories?: pulumi.Input<pulumi.Input<string>[]>;
+    repositories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

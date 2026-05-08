@@ -22,8 +22,8 @@ __all__ = ['PropertySetArgs', 'PropertySet']
 class PropertySetArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a PropertySet resource.
 
@@ -51,35 +51,35 @@ class PropertySetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Property set name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def visible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def visible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
         """
         return pulumi.get(self, "visible")
 
     @visible.setter
-    def visible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def visible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "visible", value)
 
 
 @pulumi.input_type
 class _PropertySetState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Sequence[pulumi.Input['PropertySetPropertyArgs']]]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering PropertySet resources.
 
@@ -96,38 +96,38 @@ class _PropertySetState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Property set name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]]]:
+    def properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PropertySetPropertyArgs']]]]:
         """
         A list of properties that will be part of the property set.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]]]):
+    def properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PropertySetPropertyArgs']]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def visible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def visible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
         """
         return pulumi.get(self, "visible")
 
     @visible.setter
-    def visible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def visible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "visible", value)
 
 
@@ -137,9 +137,9 @@ class PropertySet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict']]]]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict']]]]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides an Artifactory Property Set resource.
@@ -296,9 +296,9 @@ class PropertySet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict']]]]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict']]]]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -323,9 +323,9 @@ class PropertySet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict']]]]] = None,
-            visible: Optional[pulumi.Input[_builtins.bool]] = None) -> 'PropertySet':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict']]]]] = None,
+            visible: pulumi.Input[Optional[_builtins.bool]] = None) -> 'PropertySet':
         """
         Get an existing PropertySet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

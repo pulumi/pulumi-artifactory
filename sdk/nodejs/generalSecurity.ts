@@ -130,7 +130,7 @@ export interface GeneralSecurityState {
     /**
      * Enable anonymous access. Default value is `false`.
      */
-    enableAnonymousAccess?: pulumi.Input<boolean>;
+    enableAnonymousAccess?: pulumi.Input<boolean | undefined>;
     /**
      * Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are:
      * - `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
@@ -139,7 +139,7 @@ export interface GeneralSecurityState {
      *
      * Default value is `SUPPORTED`.
      */
-    encryptionPolicy?: pulumi.Input<string>;
+    encryptionPolicy?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -149,7 +149,7 @@ export interface GeneralSecurityArgs {
     /**
      * Enable anonymous access. Default value is `false`.
      */
-    enableAnonymousAccess?: pulumi.Input<boolean>;
+    enableAnonymousAccess?: pulumi.Input<boolean | undefined>;
     /**
      * Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are:
      * - `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
@@ -158,5 +158,5 @@ export interface GeneralSecurityArgs {
      *
      * Default value is `SUPPORTED`.
      */
-    encryptionPolicy?: pulumi.Input<string>;
+    encryptionPolicy?: pulumi.Input<string | undefined>;
 }

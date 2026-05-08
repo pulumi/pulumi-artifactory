@@ -19,8 +19,8 @@ __all__ = ['TrashcanConfigArgs', 'TrashcanConfig']
 @pulumi.input_type
 class TrashcanConfigArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retention_period_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retention_period_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a TrashcanConfig resource.
 
@@ -34,34 +34,34 @@ class TrashcanConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set, trash can will be enabled and deleted items will be stored in the trash can for the specified retention period. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriodDays")
-    def retention_period_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_period_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days to keep deleted items in the trash can before deleting permanently. Defaults to `14`.
         """
         return pulumi.get(self, "retention_period_days")
 
     @retention_period_days.setter
-    def retention_period_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_period_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_period_days", value)
 
 
 @pulumi.input_type
 class _TrashcanConfigState:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retention_period_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retention_period_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering TrashcanConfig resources.
 
@@ -75,26 +75,26 @@ class _TrashcanConfigState:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set, trash can will be enabled and deleted items will be stored in the trash can for the specified retention period. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriodDays")
-    def retention_period_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_period_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days to keep deleted items in the trash can before deleting permanently. Defaults to `14`.
         """
         return pulumi.get(self, "retention_period_days")
 
     @retention_period_days.setter
-    def retention_period_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_period_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_period_days", value)
 
 
@@ -104,8 +104,8 @@ class TrashcanConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retention_period_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retention_period_days: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides an Artifactory Trash Can configuration resource. This can be used to create and manage Artifactory trash can configuration.
@@ -189,8 +189,8 @@ class TrashcanConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retention_period_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retention_period_days: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -212,8 +212,8 @@ class TrashcanConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            retention_period_days: Optional[pulumi.Input[_builtins.int]] = None) -> 'TrashcanConfig':
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            retention_period_days: pulumi.Input[Optional[_builtins.int]] = None) -> 'TrashcanConfig':
         """
         Get an existing TrashcanConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

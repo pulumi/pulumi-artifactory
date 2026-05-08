@@ -141,30 +141,30 @@ export function getVirtualBowerRepositoryOutput(args: GetVirtualBowerRepositoryO
  * A collection of arguments for invoking getVirtualBowerRepository.
  */
 export interface GetVirtualBowerRepositoryOutputArgs {
-    artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean>;
-    defaultDeploymentRepo?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    excludesPattern?: pulumi.Input<string>;
+    artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean | undefined>;
+    defaultDeploymentRepo?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    excludesPattern?: pulumi.Input<string | undefined>;
     /**
      * (Optional) When set, external dependencies are rewritten. Default value is false.
      */
-    externalDependenciesEnabled?: pulumi.Input<boolean>;
+    externalDependenciesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
      */
-    externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
      */
-    externalDependenciesRemoteRepo?: pulumi.Input<string>;
-    includesPattern?: pulumi.Input<string>;
+    externalDependenciesRemoteRepo?: pulumi.Input<string | undefined>;
+    includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.
      */
     key: pulumi.Input<string>;
-    notes?: pulumi.Input<string>;
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    projectKey?: pulumi.Input<string>;
-    repoLayoutRef?: pulumi.Input<string>;
-    repositories?: pulumi.Input<pulumi.Input<string>[]>;
+    notes?: pulumi.Input<string | undefined>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    projectKey?: pulumi.Input<string | undefined>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
+    repositories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

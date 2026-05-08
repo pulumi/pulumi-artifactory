@@ -125,11 +125,11 @@ export class VaultConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VaultConfiguration resources.
  */
 export interface VaultConfigurationState {
-    config?: pulumi.Input<inputs.VaultConfigurationConfig>;
+    config?: pulumi.Input<inputs.VaultConfigurationConfig | undefined>;
     /**
      * Name of the Vault configuration
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -140,5 +140,5 @@ export interface VaultConfigurationArgs {
     /**
      * Name of the Vault configuration
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

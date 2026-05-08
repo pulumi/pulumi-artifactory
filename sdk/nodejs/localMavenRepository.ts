@@ -227,95 +227,95 @@ export interface LocalMavenRepositoryState {
      * When set, you may view content such as HTML or Javadoc files directly from Artifactory.
      * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      */
-    archiveBrowsingEnabled?: pulumi.Input<boolean>;
+    archiveBrowsingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
-    blackedOut?: pulumi.Input<boolean>;
+    blackedOut?: pulumi.Input<boolean | undefined>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
-    cdnRedirect?: pulumi.Input<boolean>;
+    cdnRedirect?: pulumi.Input<boolean | undefined>;
     /**
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
      * - `client-checksums`
      * - `server-generated-checksums`.
      * For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
      */
-    checksumPolicyType?: pulumi.Input<string>;
+    checksumPolicyType?: pulumi.Input<string | undefined>;
     /**
      * Public description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
      */
-    downloadDirect?: pulumi.Input<boolean>;
+    downloadDirect?: pulumi.Input<boolean | undefined>;
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      */
-    excludesPattern?: pulumi.Input<string>;
+    excludesPattern?: pulumi.Input<string | undefined>;
     /**
      * If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
      */
-    handleReleases?: pulumi.Input<boolean>;
+    handleReleases?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
      */
-    handleSnapshots?: pulumi.Input<boolean>;
+    handleSnapshots?: pulumi.Input<boolean | undefined>;
     /**
      * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
-    includesPattern?: pulumi.Input<string>;
+    includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of unique snapshots of a single artifact to store.
      * Once the number of snapshots exceeds this setting, older versions are removed.
      * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      */
-    maxUniqueSnapshots?: pulumi.Input<number>;
+    maxUniqueSnapshots?: pulumi.Input<number | undefined>;
     /**
      * Internal description.
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
-    priorityResolution?: pulumi.Input<boolean>;
+    priorityResolution?: pulumi.Input<boolean | undefined>;
     /**
      * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      */
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
-    projectKey?: pulumi.Input<string>;
+    projectKey?: pulumi.Input<string | undefined>;
     /**
      * List of property set name
      */
-    propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    propertySets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
-    repoLayoutRef?: pulumi.Input<string>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
     /**
      * Specifies the naming convention for Maven SNAPSHOT versions.
      * The options are -
      */
-    snapshotVersionBehavior?: pulumi.Input<string>;
+    snapshotVersionBehavior?: pulumi.Input<string | undefined>;
     /**
      * By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
      * If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
      * You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
      */
-    suppressPomConsistencyChecks?: pulumi.Input<boolean>;
+    suppressPomConsistencyChecks?: pulumi.Input<boolean | undefined>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      */
-    xrayIndex?: pulumi.Input<boolean>;
+    xrayIndex?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -326,46 +326,46 @@ export interface LocalMavenRepositoryArgs {
      * When set, you may view content such as HTML or Javadoc files directly from Artifactory.
      * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      */
-    archiveBrowsingEnabled?: pulumi.Input<boolean>;
+    archiveBrowsingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
-    blackedOut?: pulumi.Input<boolean>;
+    blackedOut?: pulumi.Input<boolean | undefined>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
-    cdnRedirect?: pulumi.Input<boolean>;
+    cdnRedirect?: pulumi.Input<boolean | undefined>;
     /**
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
      * - `client-checksums`
      * - `server-generated-checksums`.
      * For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
      */
-    checksumPolicyType?: pulumi.Input<string>;
+    checksumPolicyType?: pulumi.Input<string | undefined>;
     /**
      * Public description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
      */
-    downloadDirect?: pulumi.Input<boolean>;
+    downloadDirect?: pulumi.Input<boolean | undefined>;
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      */
-    excludesPattern?: pulumi.Input<string>;
+    excludesPattern?: pulumi.Input<string | undefined>;
     /**
      * If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
      */
-    handleReleases?: pulumi.Input<boolean>;
+    handleReleases?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
      */
-    handleSnapshots?: pulumi.Input<boolean>;
+    handleSnapshots?: pulumi.Input<boolean | undefined>;
     /**
      * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
-    includesPattern?: pulumi.Input<string>;
+    includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.
      */
@@ -375,44 +375,44 @@ export interface LocalMavenRepositoryArgs {
      * Once the number of snapshots exceeds this setting, older versions are removed.
      * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      */
-    maxUniqueSnapshots?: pulumi.Input<number>;
+    maxUniqueSnapshots?: pulumi.Input<number | undefined>;
     /**
      * Internal description.
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
-    priorityResolution?: pulumi.Input<boolean>;
+    priorityResolution?: pulumi.Input<boolean | undefined>;
     /**
      * Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      */
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
-    projectKey?: pulumi.Input<string>;
+    projectKey?: pulumi.Input<string | undefined>;
     /**
      * List of property set name
      */
-    propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    propertySets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
-    repoLayoutRef?: pulumi.Input<string>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
     /**
      * Specifies the naming convention for Maven SNAPSHOT versions.
      * The options are -
      */
-    snapshotVersionBehavior?: pulumi.Input<string>;
+    snapshotVersionBehavior?: pulumi.Input<string | undefined>;
     /**
      * By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
      * If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
      * You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
      */
-    suppressPomConsistencyChecks?: pulumi.Input<boolean>;
+    suppressPomConsistencyChecks?: pulumi.Input<boolean | undefined>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      */
-    xrayIndex?: pulumi.Input<boolean>;
+    xrayIndex?: pulumi.Input<boolean | undefined>;
 }

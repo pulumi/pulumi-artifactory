@@ -22,16 +22,16 @@ class SamlSettingsArgs:
                  login_url: pulumi.Input[_builtins.str],
                  logout_url: pulumi.Input[_builtins.str],
                  service_provider_name: pulumi.Input[_builtins.str],
-                 allow_user_to_access_profile: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 no_auto_user_creation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sync_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_encrypted_assertion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 verify_audience_restriction: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 no_auto_user_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sync_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_encrypted_assertion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 verify_audience_restriction: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SamlSettings resource.
 
@@ -111,141 +111,141 @@ class SamlSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowUserToAccessProfile")
-    def allow_user_to_access_profile(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_user_to_access_profile(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow persisted users to access their profile.  Default value is `true`.
         """
         return pulumi.get(self, "allow_user_to_access_profile")
 
     @allow_user_to_access_profile.setter
-    def allow_user_to_access_profile(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_user_to_access_profile(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_user_to_access_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="autoRedirect")
-    def auto_redirect(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_redirect(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Auto redirect to login through the IdP when clicking on Artifactory's login link.  Default value is `false`.
         """
         return pulumi.get(self, "auto_redirect")
 
     @auto_redirect.setter
-    def auto_redirect(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_redirect(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_redirect", value)
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
         """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAttribute")
-    def email_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is ``.
         """
         return pulumi.get(self, "email_attribute")
 
     @email_attribute.setter
-    def email_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_attribute", value)
 
     @_builtins.property
     @pulumi.getter
-    def enable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable SAML SSO.  Default value is `true`.
         """
         return pulumi.get(self, "enable")
 
     @enable.setter
-    def enable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable", value)
 
     @_builtins.property
     @pulumi.getter(name="groupAttribute")
-    def group_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is ``.
         """
         return pulumi.get(self, "group_attribute")
 
     @group_attribute.setter
-    def group_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="noAutoUserCreation")
-    def no_auto_user_creation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def no_auto_user_creation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
         """
         return pulumi.get(self, "no_auto_user_creation")
 
     @no_auto_user_creation.setter
-    def no_auto_user_creation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def no_auto_user_creation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "no_auto_user_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="syncGroups")
-    def sync_groups(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sync_groups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
         """
         return pulumi.get(self, "sync_groups")
 
     @sync_groups.setter
-    def sync_groups(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sync_groups(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sync_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="useEncryptedAssertion")
-    def use_encrypted_assertion(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_encrypted_assertion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
         """
         return pulumi.get(self, "use_encrypted_assertion")
 
     @use_encrypted_assertion.setter
-    def use_encrypted_assertion(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_encrypted_assertion(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_encrypted_assertion", value)
 
     @_builtins.property
     @pulumi.getter(name="verifyAudienceRestriction")
-    def verify_audience_restriction(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def verify_audience_restriction(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
         """
         return pulumi.get(self, "verify_audience_restriction")
 
     @verify_audience_restriction.setter
-    def verify_audience_restriction(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def verify_audience_restriction(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "verify_audience_restriction", value)
 
 
 @pulumi.input_type
 class _SamlSettingsState:
     def __init__(__self__, *,
-                 allow_user_to_access_profile: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 logout_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 no_auto_user_creation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_encrypted_assertion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 verify_audience_restriction: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 logout_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 no_auto_user_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_encrypted_assertion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 verify_audience_restriction: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SamlSettings resources.
 
@@ -292,158 +292,158 @@ class _SamlSettingsState:
 
     @_builtins.property
     @pulumi.getter(name="allowUserToAccessProfile")
-    def allow_user_to_access_profile(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_user_to_access_profile(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow persisted users to access their profile.  Default value is `true`.
         """
         return pulumi.get(self, "allow_user_to_access_profile")
 
     @allow_user_to_access_profile.setter
-    def allow_user_to_access_profile(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_user_to_access_profile(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_user_to_access_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="autoRedirect")
-    def auto_redirect(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_redirect(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Auto redirect to login through the IdP when clicking on Artifactory's login link.  Default value is `false`.
         """
         return pulumi.get(self, "auto_redirect")
 
     @auto_redirect.setter
-    def auto_redirect(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_redirect(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_redirect", value)
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
         """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAttribute")
-    def email_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is ``.
         """
         return pulumi.get(self, "email_attribute")
 
     @email_attribute.setter
-    def email_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_attribute", value)
 
     @_builtins.property
     @pulumi.getter
-    def enable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable SAML SSO.  Default value is `true`.
         """
         return pulumi.get(self, "enable")
 
     @enable.setter
-    def enable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable", value)
 
     @_builtins.property
     @pulumi.getter(name="groupAttribute")
-    def group_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is ``.
         """
         return pulumi.get(self, "group_attribute")
 
     @group_attribute.setter
-    def group_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="loginUrl")
-    def login_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Service provider login url configured on the IdP.
         """
         return pulumi.get(self, "login_url")
 
     @login_url.setter
-    def login_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login_url", value)
 
     @_builtins.property
     @pulumi.getter(name="logoutUrl")
-    def logout_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logout_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Service provider logout url, or where to redirect after user logs out.
         """
         return pulumi.get(self, "logout_url")
 
     @logout_url.setter
-    def logout_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logout_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logout_url", value)
 
     @_builtins.property
     @pulumi.getter(name="noAutoUserCreation")
-    def no_auto_user_creation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def no_auto_user_creation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
         """
         return pulumi.get(self, "no_auto_user_creation")
 
     @no_auto_user_creation.setter
-    def no_auto_user_creation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def no_auto_user_creation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "no_auto_user_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceProviderName")
-    def service_provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SAML service provider name. This should be a URI that is also known as the entityID, providerID, or entity identity.
         """
         return pulumi.get(self, "service_provider_name")
 
     @service_provider_name.setter
-    def service_provider_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_provider_name", value)
 
     @_builtins.property
     @pulumi.getter(name="syncGroups")
-    def sync_groups(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sync_groups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
         """
         return pulumi.get(self, "sync_groups")
 
     @sync_groups.setter
-    def sync_groups(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sync_groups(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sync_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="useEncryptedAssertion")
-    def use_encrypted_assertion(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_encrypted_assertion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
         """
         return pulumi.get(self, "use_encrypted_assertion")
 
     @use_encrypted_assertion.setter
-    def use_encrypted_assertion(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_encrypted_assertion(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_encrypted_assertion", value)
 
     @_builtins.property
     @pulumi.getter(name="verifyAudienceRestriction")
-    def verify_audience_restriction(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def verify_audience_restriction(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
         """
         return pulumi.get(self, "verify_audience_restriction")
 
     @verify_audience_restriction.setter
-    def verify_audience_restriction(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def verify_audience_restriction(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "verify_audience_restriction", value)
 
 
@@ -453,19 +453,19 @@ class SamlSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_user_to_access_profile: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 logout_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 no_auto_user_creation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_encrypted_assertion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 verify_audience_restriction: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 logout_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 no_auto_user_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_encrypted_assertion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 verify_audience_restriction: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         This resource can be used to manage Artifactory's SAML SSO settings.
@@ -586,19 +586,19 @@ class SamlSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_user_to_access_profile: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 logout_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 no_auto_user_creation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_encrypted_assertion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 verify_audience_restriction: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 logout_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 no_auto_user_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_encrypted_assertion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 verify_audience_restriction: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -637,19 +637,19 @@ class SamlSettings(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_user_to_access_profile: Optional[pulumi.Input[_builtins.bool]] = None,
-            auto_redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-            certificate: Optional[pulumi.Input[_builtins.str]] = None,
-            email_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-            enable: Optional[pulumi.Input[_builtins.bool]] = None,
-            group_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-            login_url: Optional[pulumi.Input[_builtins.str]] = None,
-            logout_url: Optional[pulumi.Input[_builtins.str]] = None,
-            no_auto_user_creation: Optional[pulumi.Input[_builtins.bool]] = None,
-            service_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sync_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-            use_encrypted_assertion: Optional[pulumi.Input[_builtins.bool]] = None,
-            verify_audience_restriction: Optional[pulumi.Input[_builtins.bool]] = None) -> 'SamlSettings':
+            allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+            certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            email_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            enable: pulumi.Input[Optional[_builtins.bool]] = None,
+            group_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            login_url: pulumi.Input[Optional[_builtins.str]] = None,
+            logout_url: pulumi.Input[Optional[_builtins.str]] = None,
+            no_auto_user_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+            service_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sync_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+            use_encrypted_assertion: pulumi.Input[Optional[_builtins.bool]] = None,
+            verify_audience_restriction: pulumi.Input[Optional[_builtins.bool]] = None) -> 'SamlSettings':
         """
         Get an existing SamlSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

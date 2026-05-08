@@ -151,27 +151,27 @@ export interface ReleaseBundleCustomWebhookState {
     /**
      * Specifies where the webhook will be applied on which repositories.
      */
-    criteria?: pulumi.Input<inputs.ReleaseBundleCustomWebhookCriteria>;
+    criteria?: pulumi.Input<inputs.ReleaseBundleCustomWebhookCriteria | undefined>;
     /**
      * Webhook description. Max length 1000 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Status of webhook. Default to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `created`, `signed`, `deleted`.
      */
-    eventTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    eventTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * At least one is required.
      */
-    handlers?: pulumi.Input<pulumi.Input<inputs.ReleaseBundleCustomWebhookHandler>[]>;
+    handlers?: pulumi.Input<pulumi.Input<inputs.ReleaseBundleCustomWebhookHandler>[] | undefined>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -185,11 +185,11 @@ export interface ReleaseBundleCustomWebhookArgs {
     /**
      * Webhook description. Max length 1000 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Status of webhook. Default to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `created`, `signed`, `deleted`.
      */

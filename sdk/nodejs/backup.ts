@@ -161,40 +161,40 @@ export interface BackupState {
     /**
      * If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`
      */
-    createArchive?: pulumi.Input<boolean>;
+    createArchive?: pulumi.Input<boolean | undefined>;
     /**
      * A valid CRON expression that you can use to control backup frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. **Note:** please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
      */
-    cronExp?: pulumi.Input<string>;
+    cronExp?: pulumi.Input<string | undefined>;
     /**
      * Flag to enable or disable the backup config. Default value is `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * When set to true, new repositories will not be automatically added to the backup. Default value is `false`.
      */
-    excludeNewRepositories?: pulumi.Input<boolean>;
+    excludeNewRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * List of excluded repositories from the backup.
      */
-    excludedRepositories?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedRepositories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * When set to true, mission control will not be automatically added to the backup. Default value is `false`.
      */
-    exportMissionControl?: pulumi.Input<boolean>;
-    key?: pulumi.Input<string>;
+    exportMissionControl?: pulumi.Input<boolean | undefined>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours i.e. 7 days.
      */
-    retentionPeriodHours?: pulumi.Input<number>;
+    retentionPeriodHours?: pulumi.Input<number | undefined>;
     /**
      * If set to true, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
      */
-    sendMailOnError?: pulumi.Input<boolean>;
+    sendMailOnError?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups. Default value is `false`.
      */
-    verifyDiskSpace?: pulumi.Input<boolean>;
+    verifyDiskSpace?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -204,7 +204,7 @@ export interface BackupArgs {
     /**
      * If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`
      */
-    createArchive?: pulumi.Input<boolean>;
+    createArchive?: pulumi.Input<boolean | undefined>;
     /**
      * A valid CRON expression that you can use to control backup frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. **Note:** please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
      */
@@ -212,30 +212,30 @@ export interface BackupArgs {
     /**
      * Flag to enable or disable the backup config. Default value is `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * When set to true, new repositories will not be automatically added to the backup. Default value is `false`.
      */
-    excludeNewRepositories?: pulumi.Input<boolean>;
+    excludeNewRepositories?: pulumi.Input<boolean | undefined>;
     /**
      * List of excluded repositories from the backup.
      */
-    excludedRepositories?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedRepositories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * When set to true, mission control will not be automatically added to the backup. Default value is `false`.
      */
-    exportMissionControl?: pulumi.Input<boolean>;
+    exportMissionControl?: pulumi.Input<boolean | undefined>;
     key: pulumi.Input<string>;
     /**
      * The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours i.e. 7 days.
      */
-    retentionPeriodHours?: pulumi.Input<number>;
+    retentionPeriodHours?: pulumi.Input<number | undefined>;
     /**
      * If set to true, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
      */
-    sendMailOnError?: pulumi.Input<boolean>;
+    sendMailOnError?: pulumi.Input<boolean | undefined>;
     /**
      * If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups. Default value is `false`.
      */
-    verifyDiskSpace?: pulumi.Input<boolean>;
+    verifyDiskSpace?: pulumi.Input<boolean | undefined>;
 }

@@ -187,58 +187,58 @@ export interface PullReplicationState {
      * When true, enables distributed checksum storage. For more information, see
      * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      */
-    checkBinaryExistenceInFilestore?: pulumi.Input<boolean>;
+    checkBinaryExistenceInFilestore?: pulumi.Input<boolean | undefined>;
     /**
      * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      */
-    cronExp?: pulumi.Input<string>;
+    cronExp?: pulumi.Input<string | undefined>;
     /**
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
      */
-    enableEventReplication?: pulumi.Input<boolean>;
+    enableEventReplication?: pulumi.Input<boolean | undefined>;
     /**
      * When set, this replication will be enabled when saved.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Required for local repository, but not needed for remote repository.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
      */
-    pathPrefix?: pulumi.Input<string>;
+    pathPrefix?: pulumi.Input<string | undefined>;
     /**
      * Proxy key from Artifactory Proxies setting
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Repository name.
      */
-    repoKey?: pulumi.Input<string>;
-    socketTimeoutMillis?: pulumi.Input<number>;
+    repoKey?: pulumi.Input<string | undefined>;
+    socketTimeoutMillis?: pulumi.Input<number | undefined>;
     /**
      * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
      */
-    syncDeletes?: pulumi.Input<boolean>;
+    syncDeletes?: pulumi.Input<boolean | undefined>;
     /**
      * When set, the task also synchronizes the properties of replicated artifacts.
      */
-    syncProperties?: pulumi.Input<boolean>;
+    syncProperties?: pulumi.Input<boolean | undefined>;
     /**
      * When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
      */
-    syncStatistics?: pulumi.Input<boolean>;
+    syncStatistics?: pulumi.Input<boolean | undefined>;
     /**
      * The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
      * For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
      * Required for local repository, but not needed for remote repository.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * Required for local repository, but not needed for remote repository.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -249,56 +249,56 @@ export interface PullReplicationArgs {
      * When true, enables distributed checksum storage. For more information, see
      * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      */
-    checkBinaryExistenceInFilestore?: pulumi.Input<boolean>;
+    checkBinaryExistenceInFilestore?: pulumi.Input<boolean | undefined>;
     /**
      * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      */
-    cronExp?: pulumi.Input<string>;
+    cronExp?: pulumi.Input<string | undefined>;
     /**
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
      */
-    enableEventReplication?: pulumi.Input<boolean>;
+    enableEventReplication?: pulumi.Input<boolean | undefined>;
     /**
      * When set, this replication will be enabled when saved.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Required for local repository, but not needed for remote repository.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
      */
-    pathPrefix?: pulumi.Input<string>;
+    pathPrefix?: pulumi.Input<string | undefined>;
     /**
      * Proxy key from Artifactory Proxies setting
      */
-    proxy?: pulumi.Input<string>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * Repository name.
      */
     repoKey: pulumi.Input<string>;
-    socketTimeoutMillis?: pulumi.Input<number>;
+    socketTimeoutMillis?: pulumi.Input<number | undefined>;
     /**
      * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
      */
-    syncDeletes?: pulumi.Input<boolean>;
+    syncDeletes?: pulumi.Input<boolean | undefined>;
     /**
      * When set, the task also synchronizes the properties of replicated artifacts.
      */
-    syncProperties?: pulumi.Input<boolean>;
+    syncProperties?: pulumi.Input<boolean | undefined>;
     /**
      * When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
      */
-    syncStatistics?: pulumi.Input<boolean>;
+    syncStatistics?: pulumi.Input<boolean | undefined>;
     /**
      * The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
      * For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
      * Required for local repository, but not needed for remote repository.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * Required for local repository, but not needed for remote repository.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }

@@ -153,7 +153,7 @@ export interface GetFileOutputArgs {
     /**
      * If set to true, an existing file in the outputPath will be overwritten. Default: `false`
      */
-    forceOverwrite?: pulumi.Input<boolean>;
+    forceOverwrite?: pulumi.Input<boolean | undefined>;
     /**
      * The local path the file should be downloaded to.
      */
@@ -165,7 +165,7 @@ export interface GetFileOutputArgs {
     /**
      * If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory if the file exists. When using a smart remote repository, it is recommended to set this attribute to `true`. This is necessary to ensure that the provider fetches the artifact directly from Artifactory. If this attribute is not set or is set to `false`, there is a risk of fetching the `-cache` directory in Artifactory, potentially resulting in resource expiration and a 404 error.
      */
-    pathIsAliased?: pulumi.Input<boolean>;
+    pathIsAliased?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the repository where the file is stored.
      */
