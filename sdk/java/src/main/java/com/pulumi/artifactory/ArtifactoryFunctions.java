@@ -467,8 +467,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedAlpineRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -507,8 +507,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedAlpineRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -547,8 +547,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedAlpineRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -587,8 +587,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedAlpineRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -627,8 +627,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedAlpineRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -667,8 +667,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedAnsibleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -707,8 +707,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedAnsibleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -747,8 +747,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedAnsibleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -787,8 +787,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedAnsibleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -827,8 +827,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedAnsibleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -867,8 +867,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedBowerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -907,8 +907,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedBowerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -947,8 +947,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedBowerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -987,8 +987,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedBowerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1027,8 +1027,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedBowerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1067,8 +1067,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedCargoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1107,8 +1107,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedCargoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1147,8 +1147,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedCargoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1187,8 +1187,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedCargoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1227,8 +1227,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedCargoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1267,8 +1267,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedChefRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1307,8 +1307,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedChefRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1347,8 +1347,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedChefRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1387,8 +1387,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedChefRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1427,8 +1427,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedChefRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1467,8 +1467,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedCocoapodsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1507,8 +1507,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedCocoapodsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1547,8 +1547,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedCocoapodsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1587,8 +1587,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedCocoapodsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1627,8 +1627,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedCocoapodsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1667,8 +1667,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedComposerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1707,8 +1707,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedComposerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1747,8 +1747,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedComposerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1787,8 +1787,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedComposerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1827,8 +1827,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedComposerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1867,8 +1867,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedConanRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1907,8 +1907,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedConanRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1947,8 +1947,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedConanRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1987,8 +1987,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedConanRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2027,8 +2027,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedConanRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2067,8 +2067,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedCondaRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2107,8 +2107,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedCondaRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2147,8 +2147,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedCondaRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2187,8 +2187,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedCondaRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2227,8 +2227,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedCondaRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2267,8 +2267,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedCranRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2307,8 +2307,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedCranRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2347,8 +2347,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedCranRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2387,8 +2387,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedCranRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2427,8 +2427,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedCranRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2467,8 +2467,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedDebianRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2507,8 +2507,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedDebianRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2547,8 +2547,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedDebianRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2587,8 +2587,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedDebianRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2627,8 +2627,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedDebianRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2682,8 +2682,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedDockerV1RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2722,8 +2722,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedDockerV1RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2762,8 +2762,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedDockerV1RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2802,8 +2802,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedDockerV1RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2842,8 +2842,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedDockerV1RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2882,8 +2882,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedDockerV2RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2922,8 +2922,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedDockerV2RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2962,8 +2962,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedDockerV2RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3002,8 +3002,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedDockerV2RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3042,8 +3042,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedDockerV2RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3082,8 +3082,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGemsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3122,8 +3122,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGemsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3162,8 +3162,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGemsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3202,8 +3202,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGemsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3242,8 +3242,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGemsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3282,8 +3282,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGenericRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3322,8 +3322,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGenericRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3362,8 +3362,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGenericRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3402,8 +3402,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGenericRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3442,8 +3442,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGenericRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3482,8 +3482,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGitlfsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3522,8 +3522,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGitlfsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3562,8 +3562,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGitlfsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3602,8 +3602,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGitlfsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3642,8 +3642,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGitlfsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3682,8 +3682,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3722,8 +3722,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3762,8 +3762,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3802,8 +3802,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3842,8 +3842,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3882,8 +3882,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGradleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3922,8 +3922,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGradleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3962,8 +3962,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGradleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4002,8 +4002,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGradleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4042,8 +4042,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedGradleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4082,8 +4082,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedHelmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4122,8 +4122,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedHelmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4162,8 +4162,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedHelmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4202,8 +4202,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedHelmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4242,8 +4242,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedHelmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4282,8 +4282,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedHelmociRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4322,8 +4322,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedHelmociRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4362,8 +4362,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedHelmociRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4402,8 +4402,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedHelmociRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4442,8 +4442,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedHelmociRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4497,8 +4497,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedIvyRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4537,8 +4537,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedIvyRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4577,8 +4577,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedIvyRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4617,8 +4617,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedIvyRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4657,8 +4657,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedIvyRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4697,8 +4697,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedMavenRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4737,8 +4737,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedMavenRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4777,8 +4777,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedMavenRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4817,8 +4817,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedMavenRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4857,8 +4857,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedMavenRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4897,8 +4897,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4937,8 +4937,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4977,8 +4977,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5017,8 +5017,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5057,8 +5057,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5097,8 +5097,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedNugetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5137,8 +5137,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedNugetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5177,8 +5177,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedNugetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5217,8 +5217,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedNugetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5257,8 +5257,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedNugetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5297,8 +5297,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedOciRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5337,8 +5337,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedOciRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5377,8 +5377,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedOciRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5417,8 +5417,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedOciRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5457,8 +5457,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedOciRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5497,8 +5497,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedOpkgRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5537,8 +5537,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedOpkgRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5577,8 +5577,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedOpkgRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5617,8 +5617,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedOpkgRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5657,8 +5657,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedOpkgRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5697,8 +5697,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedPuppetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5737,8 +5737,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedPuppetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5777,8 +5777,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedPuppetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5817,8 +5817,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedPuppetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5857,8 +5857,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedPuppetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5897,8 +5897,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedPypiRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5937,8 +5937,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedPypiRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5977,8 +5977,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedPypiRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6017,8 +6017,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedPypiRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6057,8 +6057,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedPypiRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6112,8 +6112,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedRpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6152,8 +6152,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedRpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6192,8 +6192,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedRpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6232,8 +6232,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedRpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6272,8 +6272,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedRpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6312,8 +6312,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedSbtRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6352,8 +6352,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedSbtRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6392,8 +6392,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedSbtRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6432,8 +6432,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedSbtRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6472,8 +6472,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedSbtRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6512,8 +6512,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedSwiftRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6552,8 +6552,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedSwiftRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6592,8 +6592,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedSwiftRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6632,8 +6632,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedSwiftRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6672,8 +6672,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedSwiftRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6712,8 +6712,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedTerraformModuleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6752,8 +6752,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedTerraformModuleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6792,8 +6792,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedTerraformModuleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6832,8 +6832,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedTerraformModuleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6872,8 +6872,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedTerraformModuleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6912,8 +6912,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedTerraformProviderRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6952,8 +6952,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedTerraformProviderRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6992,8 +6992,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedTerraformProviderRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7032,8 +7032,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedTerraformProviderRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7072,8 +7072,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedTerraformProviderRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7112,8 +7112,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedVagrantRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7152,8 +7152,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedVagrantRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7192,8 +7192,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedVagrantRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7232,8 +7232,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedVagrantRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7272,8 +7272,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFederatedVagrantRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7314,8 +7314,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7358,8 +7358,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7402,8 +7402,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7446,8 +7446,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7490,8 +7490,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7532,8 +7532,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFileListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7573,8 +7573,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFileListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7614,8 +7614,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFileListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7655,8 +7655,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFileListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7696,8 +7696,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFileListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7739,8 +7739,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFileinfoArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7783,8 +7783,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFileinfoArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7827,8 +7827,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFileinfoArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7871,8 +7871,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFileinfoArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7915,8 +7915,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetFileinfoArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7959,8 +7959,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8003,8 +8003,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8047,8 +8047,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8091,8 +8091,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8135,8 +8135,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8177,8 +8177,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalAlpineRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8217,8 +8217,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalAlpineRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8257,8 +8257,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalAlpineRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8297,8 +8297,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalAlpineRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8337,8 +8337,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalAlpineRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8377,8 +8377,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalAnsibleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8417,8 +8417,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalAnsibleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8457,8 +8457,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalAnsibleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8497,8 +8497,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalAnsibleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8537,8 +8537,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalAnsibleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8577,8 +8577,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalBowerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8617,8 +8617,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalBowerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8657,8 +8657,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalBowerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8697,8 +8697,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalBowerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8737,8 +8737,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalBowerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8777,8 +8777,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalCargoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8817,8 +8817,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalCargoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8857,8 +8857,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalCargoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8897,8 +8897,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalCargoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8937,8 +8937,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalCargoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8977,8 +8977,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalChefRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9017,8 +9017,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalChefRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9057,8 +9057,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalChefRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9097,8 +9097,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalChefRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9137,8 +9137,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalChefRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9177,8 +9177,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalCocoapodsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9217,8 +9217,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalCocoapodsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9257,8 +9257,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalCocoapodsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9297,8 +9297,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalCocoapodsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9337,8 +9337,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalCocoapodsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9377,8 +9377,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalComposerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9417,8 +9417,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalComposerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9457,8 +9457,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalComposerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9497,8 +9497,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalComposerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9537,8 +9537,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalComposerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9577,8 +9577,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalConanRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9617,8 +9617,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalConanRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9657,8 +9657,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalConanRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9697,8 +9697,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalConanRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9737,8 +9737,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalConanRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9777,8 +9777,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalCondaRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9817,8 +9817,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalCondaRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9857,8 +9857,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalCondaRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9897,8 +9897,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalCondaRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9937,8 +9937,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalCondaRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9977,8 +9977,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalCranRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10017,8 +10017,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalCranRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10057,8 +10057,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalCranRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10097,8 +10097,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalCranRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10137,8 +10137,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalCranRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10177,8 +10177,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalDebianRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10217,8 +10217,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalDebianRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10257,8 +10257,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalDebianRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10297,8 +10297,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalDebianRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10337,8 +10337,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalDebianRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10377,8 +10377,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalDockerV1RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10417,8 +10417,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalDockerV1RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10457,8 +10457,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalDockerV1RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10497,8 +10497,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalDockerV1RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10537,8 +10537,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalDockerV1RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10577,8 +10577,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalDockerV2RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10617,8 +10617,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalDockerV2RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10657,8 +10657,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalDockerV2RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10697,8 +10697,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalDockerV2RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10737,8 +10737,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalDockerV2RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10777,8 +10777,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGemsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10817,8 +10817,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGemsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10857,8 +10857,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGemsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10897,8 +10897,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGemsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10937,8 +10937,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGemsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10977,8 +10977,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGenericRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11017,8 +11017,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGenericRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11057,8 +11057,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGenericRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11097,8 +11097,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGenericRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11137,8 +11137,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGenericRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11177,8 +11177,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGitlfsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11217,8 +11217,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGitlfsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11257,8 +11257,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGitlfsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11297,8 +11297,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGitlfsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11337,8 +11337,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGitlfsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11377,8 +11377,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11417,8 +11417,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11457,8 +11457,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11497,8 +11497,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11537,8 +11537,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11577,8 +11577,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGradleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11635,8 +11635,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGradleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11693,8 +11693,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGradleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11751,8 +11751,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGradleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11809,8 +11809,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalGradleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11867,8 +11867,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalHelmociRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11907,8 +11907,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalHelmociRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11947,8 +11947,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalHelmociRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11987,8 +11987,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalHelmociRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12027,8 +12027,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalHelmociRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12067,8 +12067,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalHexRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12107,8 +12107,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalHexRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12147,8 +12147,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalHexRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12187,8 +12187,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalHexRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12227,8 +12227,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalHexRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12302,8 +12302,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalIvyRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12360,8 +12360,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalIvyRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12418,8 +12418,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalIvyRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12476,8 +12476,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalIvyRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12534,8 +12534,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalIvyRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12592,8 +12592,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalMavenRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12650,8 +12650,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalMavenRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12708,8 +12708,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalMavenRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12766,8 +12766,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalMavenRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12824,8 +12824,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalMavenRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12882,8 +12882,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12922,8 +12922,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12962,8 +12962,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13002,8 +13002,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13042,8 +13042,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13082,8 +13082,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalNugetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13122,8 +13122,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalNugetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13162,8 +13162,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalNugetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13202,8 +13202,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalNugetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13242,8 +13242,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalNugetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13282,8 +13282,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalOciRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13322,8 +13322,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalOciRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13362,8 +13362,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalOciRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13402,8 +13402,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalOciRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13442,8 +13442,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalOciRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13482,8 +13482,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalOpkgRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13522,8 +13522,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalOpkgRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13562,8 +13562,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalOpkgRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13602,8 +13602,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalOpkgRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13642,8 +13642,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalOpkgRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13682,8 +13682,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalPubRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13722,8 +13722,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalPubRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13762,8 +13762,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalPubRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13802,8 +13802,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalPubRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13842,8 +13842,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalPubRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13882,8 +13882,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalPuppetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13922,8 +13922,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalPuppetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13962,8 +13962,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalPuppetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14002,8 +14002,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalPuppetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14042,8 +14042,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalPuppetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14082,8 +14082,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalPypiRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14122,8 +14122,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalPypiRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14162,8 +14162,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalPypiRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14202,8 +14202,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalPypiRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14242,8 +14242,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalPypiRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14282,8 +14282,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalRpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14322,8 +14322,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalRpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14362,8 +14362,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalRpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14402,8 +14402,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalRpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14442,8 +14442,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalRpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14482,8 +14482,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalSbtRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14540,8 +14540,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalSbtRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14598,8 +14598,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalSbtRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14656,8 +14656,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalSbtRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14714,8 +14714,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalSbtRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14772,8 +14772,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalSwiftRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14812,8 +14812,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalSwiftRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14852,8 +14852,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalSwiftRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14892,8 +14892,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalSwiftRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14932,8 +14932,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalSwiftRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14973,8 +14973,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalTerraformModuleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15014,8 +15014,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalTerraformModuleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15055,8 +15055,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalTerraformModuleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15096,8 +15096,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalTerraformModuleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15137,8 +15137,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalTerraformModuleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15178,8 +15178,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalTerraformProviderRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15219,8 +15219,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalTerraformProviderRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15260,8 +15260,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalTerraformProviderRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15301,8 +15301,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalTerraformProviderRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15342,8 +15342,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalTerraformProviderRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15382,8 +15382,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalTerraformbackendRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15422,8 +15422,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalTerraformbackendRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15462,8 +15462,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalTerraformbackendRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15502,8 +15502,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalTerraformbackendRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15542,8 +15542,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalTerraformbackendRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15582,8 +15582,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalVagrantRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15622,8 +15622,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalVagrantRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15662,8 +15662,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalVagrantRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15702,8 +15702,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalVagrantRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15742,8 +15742,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetLocalVagrantRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15784,8 +15784,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetPermissionTargetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15827,8 +15827,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetPermissionTargetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15870,8 +15870,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetPermissionTargetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15913,8 +15913,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetPermissionTargetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15956,8 +15956,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetPermissionTargetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15997,8 +15997,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteAlpineRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16037,8 +16037,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteAlpineRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16077,8 +16077,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteAlpineRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16117,8 +16117,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteAlpineRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16157,8 +16157,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteAlpineRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16197,8 +16197,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteAnsibleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16237,8 +16237,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteAnsibleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16277,8 +16277,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteAnsibleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16317,8 +16317,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteAnsibleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16357,8 +16357,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteAnsibleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16397,8 +16397,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteBowerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16437,8 +16437,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteBowerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16477,8 +16477,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteBowerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16517,8 +16517,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteBowerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16557,8 +16557,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteBowerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16597,8 +16597,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteCargoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16637,8 +16637,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteCargoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16677,8 +16677,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteCargoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16717,8 +16717,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteCargoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16757,8 +16757,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteCargoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16797,8 +16797,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteChefRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16837,8 +16837,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteChefRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16877,8 +16877,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteChefRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16917,8 +16917,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteChefRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16957,8 +16957,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteChefRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16997,8 +16997,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteCocoapodsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17037,8 +17037,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteCocoapodsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17077,8 +17077,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteCocoapodsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17117,8 +17117,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteCocoapodsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17157,8 +17157,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteCocoapodsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17197,8 +17197,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteComposerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17237,8 +17237,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteComposerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17277,8 +17277,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteComposerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17317,8 +17317,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteComposerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17357,8 +17357,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteComposerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17397,8 +17397,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteConanRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17437,8 +17437,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteConanRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17477,8 +17477,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteConanRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17517,8 +17517,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteConanRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17557,8 +17557,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteConanRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17597,8 +17597,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteCondaRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17637,8 +17637,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteCondaRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17677,8 +17677,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteCondaRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17717,8 +17717,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteCondaRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17757,8 +17757,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteCondaRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17797,8 +17797,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteCranRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17837,8 +17837,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteCranRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17877,8 +17877,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteCranRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17917,8 +17917,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteCranRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17957,8 +17957,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteCranRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17997,8 +17997,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteDebianRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18037,8 +18037,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteDebianRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18077,8 +18077,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteDebianRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18117,8 +18117,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteDebianRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18157,8 +18157,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteDebianRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18197,8 +18197,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteDockerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18237,8 +18237,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteDockerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18277,8 +18277,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteDockerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18317,8 +18317,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteDockerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18357,8 +18357,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteDockerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18397,8 +18397,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteGenericRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18437,8 +18437,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteGenericRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18477,8 +18477,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteGenericRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18517,8 +18517,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteGenericRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18557,8 +18557,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteGenericRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18597,8 +18597,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteGitlfsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18637,8 +18637,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteGitlfsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18677,8 +18677,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteGitlfsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18717,8 +18717,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteGitlfsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18757,8 +18757,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteGitlfsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18797,8 +18797,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteGoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18837,8 +18837,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteGoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18877,8 +18877,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteGoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18917,8 +18917,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteGoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18957,8 +18957,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteGoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18997,8 +18997,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteGradleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19037,8 +19037,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteGradleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19077,8 +19077,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteGradleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19117,8 +19117,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteGradleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19157,8 +19157,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteGradleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19197,8 +19197,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteHelmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19237,8 +19237,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteHelmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19277,8 +19277,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteHelmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19317,8 +19317,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteHelmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19357,8 +19357,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteHelmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19397,8 +19397,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteHelmociRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19437,8 +19437,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteHelmociRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19477,8 +19477,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteHelmociRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19517,8 +19517,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteHelmociRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19557,8 +19557,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteHelmociRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19597,8 +19597,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteHexRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19637,8 +19637,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteHexRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19677,8 +19677,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteHexRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19717,8 +19717,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteHexRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19757,8 +19757,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteHexRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19797,8 +19797,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteIvyRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19837,8 +19837,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteIvyRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19877,8 +19877,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteIvyRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19917,8 +19917,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteIvyRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19957,8 +19957,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteIvyRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19997,8 +19997,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteMavenRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20037,8 +20037,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteMavenRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20077,8 +20077,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteMavenRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20117,8 +20117,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteMavenRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20157,8 +20157,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteMavenRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20197,8 +20197,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20237,8 +20237,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20277,8 +20277,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20317,8 +20317,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20357,8 +20357,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20397,8 +20397,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteNugetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20437,8 +20437,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteNugetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20477,8 +20477,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteNugetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20517,8 +20517,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteNugetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20557,8 +20557,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteNugetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20597,8 +20597,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteOciRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20637,8 +20637,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteOciRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20677,8 +20677,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteOciRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20717,8 +20717,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteOciRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20757,8 +20757,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteOciRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20797,8 +20797,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteOpkgRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20837,8 +20837,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteOpkgRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20877,8 +20877,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteOpkgRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20917,8 +20917,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteOpkgRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20957,8 +20957,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteOpkgRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20997,8 +20997,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteP2RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21037,8 +21037,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteP2RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21077,8 +21077,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteP2RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21117,8 +21117,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteP2RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21157,8 +21157,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteP2RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21197,8 +21197,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemotePubRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21237,8 +21237,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemotePubRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21277,8 +21277,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemotePubRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21317,8 +21317,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemotePubRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21357,8 +21357,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemotePubRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21432,8 +21432,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemotePypiRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21472,8 +21472,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemotePypiRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21512,8 +21512,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemotePypiRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21552,8 +21552,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemotePypiRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21592,8 +21592,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemotePypiRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21632,8 +21632,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteRpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21672,8 +21672,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteRpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21712,8 +21712,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteRpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21752,8 +21752,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteRpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21792,8 +21792,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteRpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21832,8 +21832,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteSbtRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21872,8 +21872,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteSbtRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21912,8 +21912,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteSbtRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21952,8 +21952,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteSbtRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21992,8 +21992,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteSbtRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22032,8 +22032,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteSwiftRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22072,8 +22072,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteSwiftRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22112,8 +22112,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteSwiftRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22152,8 +22152,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteSwiftRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22192,8 +22192,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteSwiftRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22232,8 +22232,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteTerraformRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22272,8 +22272,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteTerraformRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22312,8 +22312,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteTerraformRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22352,8 +22352,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteTerraformRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22392,8 +22392,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteTerraformRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22432,8 +22432,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteVcsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22472,8 +22472,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteVcsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22512,8 +22512,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteVcsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22552,8 +22552,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteVcsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22592,8 +22592,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRemoteVcsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22632,8 +22632,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22673,8 +22673,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22714,8 +22714,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22755,8 +22755,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22796,8 +22796,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22837,8 +22837,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22878,8 +22878,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22921,8 +22921,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22964,8 +22964,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23007,8 +23007,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23050,8 +23050,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23093,8 +23093,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23134,8 +23134,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualAlpineRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23174,8 +23174,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualAlpineRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23214,8 +23214,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualAlpineRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23254,8 +23254,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualAlpineRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23294,8 +23294,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualAlpineRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23334,8 +23334,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualAnsibleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23374,8 +23374,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualAnsibleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23414,8 +23414,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualAnsibleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23454,8 +23454,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualAnsibleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23494,8 +23494,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualAnsibleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23534,8 +23534,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualBowerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23574,8 +23574,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualBowerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23614,8 +23614,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualBowerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23654,8 +23654,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualBowerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23694,8 +23694,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualBowerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23734,8 +23734,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualChefRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23774,8 +23774,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualChefRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23814,8 +23814,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualChefRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23854,8 +23854,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualChefRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23894,8 +23894,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualChefRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23949,8 +23949,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualComposerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23989,8 +23989,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualComposerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24029,8 +24029,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualComposerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24069,8 +24069,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualComposerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24109,8 +24109,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualComposerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24149,8 +24149,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualConanRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24189,8 +24189,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualConanRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24229,8 +24229,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualConanRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24269,8 +24269,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualConanRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24309,8 +24309,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualConanRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24349,8 +24349,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualCondaRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24389,8 +24389,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualCondaRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24429,8 +24429,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualCondaRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24469,8 +24469,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualCondaRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24509,8 +24509,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualCondaRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24549,8 +24549,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualCranRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24589,8 +24589,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualCranRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24629,8 +24629,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualCranRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24669,8 +24669,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualCranRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24709,8 +24709,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualCranRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24749,8 +24749,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualDebianRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24789,8 +24789,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualDebianRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24829,8 +24829,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualDebianRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24869,8 +24869,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualDebianRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24909,8 +24909,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualDebianRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24949,8 +24949,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualDockerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24989,8 +24989,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualDockerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25029,8 +25029,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualDockerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25069,8 +25069,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualDockerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25109,8 +25109,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualDockerRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25149,8 +25149,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGemsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25189,8 +25189,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGemsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25229,8 +25229,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGemsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25269,8 +25269,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGemsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25309,8 +25309,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGemsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25349,8 +25349,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGenericRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25389,8 +25389,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGenericRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25429,8 +25429,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGenericRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25469,8 +25469,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGenericRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25509,8 +25509,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGenericRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25549,8 +25549,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGitlfsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25589,8 +25589,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGitlfsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25629,8 +25629,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGitlfsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25669,8 +25669,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGitlfsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25709,8 +25709,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGitlfsRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25749,8 +25749,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25789,8 +25789,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25829,8 +25829,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25869,8 +25869,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25909,8 +25909,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGoRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25949,8 +25949,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGradleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25989,8 +25989,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGradleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26029,8 +26029,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGradleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26069,8 +26069,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGradleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26109,8 +26109,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualGradleRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26149,8 +26149,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualHelmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26189,8 +26189,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualHelmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26229,8 +26229,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualHelmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26269,8 +26269,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualHelmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26309,8 +26309,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualHelmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26349,8 +26349,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualHelmociRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26389,8 +26389,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualHelmociRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26429,8 +26429,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualHelmociRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26469,8 +26469,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualHelmociRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26509,8 +26509,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualHelmociRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26549,8 +26549,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualHexRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26589,8 +26589,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualHexRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26629,8 +26629,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualHexRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26669,8 +26669,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualHexRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26709,8 +26709,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualHexRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26749,8 +26749,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualIvyRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26789,8 +26789,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualIvyRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26829,8 +26829,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualIvyRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26869,8 +26869,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualIvyRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26909,8 +26909,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualIvyRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26949,8 +26949,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualMavenRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -26989,8 +26989,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualMavenRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27029,8 +27029,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualMavenRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27069,8 +27069,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualMavenRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27109,8 +27109,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualMavenRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27149,8 +27149,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27189,8 +27189,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27229,8 +27229,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27269,8 +27269,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27309,8 +27309,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27349,8 +27349,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27389,8 +27389,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27429,8 +27429,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27469,8 +27469,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27509,8 +27509,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualNpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27549,8 +27549,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualOciRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27589,8 +27589,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualOciRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27629,8 +27629,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualOciRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27669,8 +27669,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualOciRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27709,8 +27709,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualOciRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27749,8 +27749,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualP2RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27789,8 +27789,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualP2RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27829,8 +27829,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualP2RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27869,8 +27869,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualP2RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27909,8 +27909,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualP2RepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27949,8 +27949,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualPubRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -27989,8 +27989,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualPubRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28029,8 +28029,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualPubRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28069,8 +28069,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualPubRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28109,8 +28109,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualPubRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28149,8 +28149,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualPuppetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28189,8 +28189,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualPuppetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28229,8 +28229,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualPuppetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28269,8 +28269,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualPuppetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28309,8 +28309,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualPuppetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28349,8 +28349,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualPypiRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28389,8 +28389,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualPypiRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28429,8 +28429,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualPypiRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28469,8 +28469,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualPypiRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28509,8 +28509,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualPypiRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28549,8 +28549,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualRpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28589,8 +28589,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualRpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28629,8 +28629,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualRpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28669,8 +28669,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualRpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28709,8 +28709,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualRpmRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28749,8 +28749,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualSbtRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28789,8 +28789,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualSbtRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28829,8 +28829,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualSbtRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28869,8 +28869,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualSbtRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28909,8 +28909,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualSbtRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28949,8 +28949,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualSwiftRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -28989,8 +28989,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualSwiftRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -29029,8 +29029,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualSwiftRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -29069,8 +29069,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualSwiftRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -29109,8 +29109,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualSwiftRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -29149,8 +29149,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualTerraformRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -29189,8 +29189,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualTerraformRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -29229,8 +29229,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualTerraformRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -29269,8 +29269,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualTerraformRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -29309,8 +29309,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.artifactory.ArtifactoryFunctions;
      * import com.pulumi.artifactory.inputs.GetVirtualTerraformRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

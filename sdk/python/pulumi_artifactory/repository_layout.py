@@ -22,9 +22,9 @@ class RepositoryLayoutArgs:
                  artifact_path_pattern: pulumi.Input[_builtins.str],
                  file_integration_revision_regexp: pulumi.Input[_builtins.str],
                  folder_integration_revision_regexp: pulumi.Input[_builtins.str],
-                 descriptor_path_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 distinctive_descriptor_path_pattern: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 descriptor_path_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 distinctive_descriptor_path_pattern: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryLayout resource.
 
@@ -83,50 +83,50 @@ class RepositoryLayoutArgs:
 
     @_builtins.property
     @pulumi.getter(name="descriptorPathPattern")
-    def descriptor_path_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def descriptor_path_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
         """
         return pulumi.get(self, "descriptor_path_pattern")
 
     @descriptor_path_pattern.setter
-    def descriptor_path_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def descriptor_path_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "descriptor_path_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="distinctiveDescriptorPathPattern")
-    def distinctive_descriptor_path_pattern(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def distinctive_descriptor_path_pattern(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, `descriptor_path_pattern` will be used. Default to `false`.
         """
         return pulumi.get(self, "distinctive_descriptor_path_pattern")
 
     @distinctive_descriptor_path_pattern.setter
-    def distinctive_descriptor_path_pattern(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def distinctive_descriptor_path_pattern(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "distinctive_descriptor_path_pattern", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Layout name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _RepositoryLayoutState:
     def __init__(__self__, *,
-                 artifact_path_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 descriptor_path_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 distinctive_descriptor_path_pattern: Optional[pulumi.Input[_builtins.bool]] = None,
-                 file_integration_revision_regexp: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_integration_revision_regexp: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifact_path_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 descriptor_path_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 distinctive_descriptor_path_pattern: pulumi.Input[Optional[_builtins.bool]] = None,
+                 file_integration_revision_regexp: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_integration_revision_regexp: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryLayout resources.
 
@@ -152,74 +152,74 @@ class _RepositoryLayoutState:
 
     @_builtins.property
     @pulumi.getter(name="artifactPathPattern")
-    def artifact_path_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifact_path_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
         """
         return pulumi.get(self, "artifact_path_pattern")
 
     @artifact_path_pattern.setter
-    def artifact_path_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifact_path_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifact_path_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="descriptorPathPattern")
-    def descriptor_path_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def descriptor_path_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
         """
         return pulumi.get(self, "descriptor_path_pattern")
 
     @descriptor_path_pattern.setter
-    def descriptor_path_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def descriptor_path_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "descriptor_path_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="distinctiveDescriptorPathPattern")
-    def distinctive_descriptor_path_pattern(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def distinctive_descriptor_path_pattern(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, `descriptor_path_pattern` will be used. Default to `false`.
         """
         return pulumi.get(self, "distinctive_descriptor_path_pattern")
 
     @distinctive_descriptor_path_pattern.setter
-    def distinctive_descriptor_path_pattern(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def distinctive_descriptor_path_pattern(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "distinctive_descriptor_path_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="fileIntegrationRevisionRegexp")
-    def file_integration_revision_regexp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_integration_revision_regexp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A regular expression matching the integration revision string appearing in a file name as part of the artifact's path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
         """
         return pulumi.get(self, "file_integration_revision_regexp")
 
     @file_integration_revision_regexp.setter
-    def file_integration_revision_regexp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_integration_revision_regexp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_integration_revision_regexp", value)
 
     @_builtins.property
     @pulumi.getter(name="folderIntegrationRevisionRegexp")
-    def folder_integration_revision_regexp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def folder_integration_revision_regexp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path. For example, `SNAPSHOT`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
         """
         return pulumi.get(self, "folder_integration_revision_regexp")
 
     @folder_integration_revision_regexp.setter
-    def folder_integration_revision_regexp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def folder_integration_revision_regexp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "folder_integration_revision_regexp", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Layout name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -229,12 +229,12 @@ class RepositoryLayout(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_path_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 descriptor_path_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 distinctive_descriptor_path_pattern: Optional[pulumi.Input[_builtins.bool]] = None,
-                 file_integration_revision_regexp: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_integration_revision_regexp: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 artifact_path_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 descriptor_path_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 distinctive_descriptor_path_pattern: pulumi.Input[Optional[_builtins.bool]] = None,
+                 file_integration_revision_regexp: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_integration_revision_regexp: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource can be used to manage Artifactory's Repository Layout settings. See [Repository Layouts](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts) in the Artifactory Wiki documentation for more details.
@@ -324,12 +324,12 @@ class RepositoryLayout(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_path_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 descriptor_path_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 distinctive_descriptor_path_pattern: Optional[pulumi.Input[_builtins.bool]] = None,
-                 file_integration_revision_regexp: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_integration_revision_regexp: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 artifact_path_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 descriptor_path_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 distinctive_descriptor_path_pattern: pulumi.Input[Optional[_builtins.bool]] = None,
+                 file_integration_revision_regexp: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_integration_revision_regexp: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -361,12 +361,12 @@ class RepositoryLayout(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            artifact_path_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-            descriptor_path_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-            distinctive_descriptor_path_pattern: Optional[pulumi.Input[_builtins.bool]] = None,
-            file_integration_revision_regexp: Optional[pulumi.Input[_builtins.str]] = None,
-            folder_integration_revision_regexp: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'RepositoryLayout':
+            artifact_path_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            descriptor_path_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            distinctive_descriptor_path_pattern: pulumi.Input[Optional[_builtins.bool]] = None,
+            file_integration_revision_regexp: pulumi.Input[Optional[_builtins.str]] = None,
+            folder_integration_revision_regexp: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'RepositoryLayout':
         """
         Get an existing RepositoryLayout resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -223,13 +223,13 @@ def get_file_list(deep_listing: Optional[_builtins.bool] = None,
         metadata_timestamps=pulumi.get(__ret__, 'metadata_timestamps'),
         repository_key=pulumi.get(__ret__, 'repository_key'),
         uri=pulumi.get(__ret__, 'uri'))
-def get_file_list_output(deep_listing: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                         depth: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                         folder_path: Optional[pulumi.Input[_builtins.str]] = None,
-                         include_root_path: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                         list_folders: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                         metadata_timestamps: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                         repository_key: Optional[pulumi.Input[_builtins.str]] = None,
+def get_file_list_output(deep_listing: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                         depth: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                         folder_path: pulumi.Input[Optional[_builtins.str]] = None,
+                         include_root_path: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                         list_folders: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                         metadata_timestamps: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                         repository_key: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileListResult]:
     """
     Get a flat (the default) or deep listing of the files and folders (not included by default) within a folder. For deep listing you can specify an optional depth to limit the results. Optionally include a map of metadata timestamp values as part of the result.

@@ -19,8 +19,8 @@ __all__ = ['GeneralSecurityArgs', 'GeneralSecurity']
 @pulumi.input_type
 class GeneralSecurityArgs:
     def __init__(__self__, *,
-                 enable_anonymous_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_policy: Optional[pulumi.Input[_builtins.str]] = None):
+                 enable_anonymous_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GeneralSecurity resource.
 
@@ -39,19 +39,19 @@ class GeneralSecurityArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableAnonymousAccess")
-    def enable_anonymous_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_anonymous_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable anonymous access. Default value is `false`.
         """
         return pulumi.get(self, "enable_anonymous_access")
 
     @enable_anonymous_access.setter
-    def enable_anonymous_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_anonymous_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_anonymous_access", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionPolicy")
-    def encryption_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are:
         - `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
@@ -63,15 +63,15 @@ class GeneralSecurityArgs:
         return pulumi.get(self, "encryption_policy")
 
     @encryption_policy.setter
-    def encryption_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_policy", value)
 
 
 @pulumi.input_type
 class _GeneralSecurityState:
     def __init__(__self__, *,
-                 enable_anonymous_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_policy: Optional[pulumi.Input[_builtins.str]] = None):
+                 enable_anonymous_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GeneralSecurity resources.
 
@@ -90,19 +90,19 @@ class _GeneralSecurityState:
 
     @_builtins.property
     @pulumi.getter(name="enableAnonymousAccess")
-    def enable_anonymous_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_anonymous_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable anonymous access. Default value is `false`.
         """
         return pulumi.get(self, "enable_anonymous_access")
 
     @enable_anonymous_access.setter
-    def enable_anonymous_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_anonymous_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_anonymous_access", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionPolicy")
-    def encryption_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are:
         - `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
@@ -114,7 +114,7 @@ class _GeneralSecurityState:
         return pulumi.get(self, "encryption_policy")
 
     @encryption_policy.setter
-    def encryption_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_policy", value)
 
 
@@ -124,8 +124,8 @@ class GeneralSecurity(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enable_anonymous_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_policy: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_anonymous_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource can be used to manage Artifactory's general security settings.
@@ -258,8 +258,8 @@ class GeneralSecurity(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enable_anonymous_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_policy: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_anonymous_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -281,8 +281,8 @@ class GeneralSecurity(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enable_anonymous_access: Optional[pulumi.Input[_builtins.bool]] = None,
-            encryption_policy: Optional[pulumi.Input[_builtins.str]] = None) -> 'GeneralSecurity':
+            enable_anonymous_access: pulumi.Input[Optional[_builtins.bool]] = None,
+            encryption_policy: pulumi.Input[Optional[_builtins.str]] = None) -> 'GeneralSecurity':
         """
         Get an existing GeneralSecurity resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

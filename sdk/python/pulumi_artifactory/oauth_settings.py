@@ -22,9 +22,9 @@ __all__ = ['OauthSettingsArgs', 'OauthSettings']
 class OauthSettingsArgs:
     def __init__(__self__, *,
                  oauth_providers: pulumi.Input[Sequence[pulumi.Input['OauthSettingsOauthProviderArgs']]],
-                 allow_user_to_access_profile: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 persist_users: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 persist_users: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a OauthSettings resource.
 
@@ -55,48 +55,48 @@ class OauthSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowUserToAccessProfile")
-    def allow_user_to_access_profile(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_user_to_access_profile(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow persisted users to access their profile.  Default value is `false`.
         """
         return pulumi.get(self, "allow_user_to_access_profile")
 
     @allow_user_to_access_profile.setter
-    def allow_user_to_access_profile(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_user_to_access_profile(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_user_to_access_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def enable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable OAuth SSO.  Default value is `true`.
         """
         return pulumi.get(self, "enable")
 
     @enable.setter
-    def enable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable", value)
 
     @_builtins.property
     @pulumi.getter(name="persistUsers")
-    def persist_users(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def persist_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable the creation of local Artifactory users.  Default value is `false`.
         """
         return pulumi.get(self, "persist_users")
 
     @persist_users.setter
-    def persist_users(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def persist_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "persist_users", value)
 
 
 @pulumi.input_type
 class _OauthSettingsState:
     def __init__(__self__, *,
-                 allow_user_to_access_profile: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 oauth_providers: Optional[pulumi.Input[Sequence[pulumi.Input['OauthSettingsOauthProviderArgs']]]] = None,
-                 persist_users: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 oauth_providers: pulumi.Input[Optional[Sequence[pulumi.Input['OauthSettingsOauthProviderArgs']]]] = None,
+                 persist_users: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering OauthSettings resources.
 
@@ -116,50 +116,50 @@ class _OauthSettingsState:
 
     @_builtins.property
     @pulumi.getter(name="allowUserToAccessProfile")
-    def allow_user_to_access_profile(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_user_to_access_profile(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow persisted users to access their profile.  Default value is `false`.
         """
         return pulumi.get(self, "allow_user_to_access_profile")
 
     @allow_user_to_access_profile.setter
-    def allow_user_to_access_profile(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_user_to_access_profile(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_user_to_access_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def enable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable OAuth SSO.  Default value is `true`.
         """
         return pulumi.get(self, "enable")
 
     @enable.setter
-    def enable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthProviders")
-    def oauth_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OauthSettingsOauthProviderArgs']]]]:
+    def oauth_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OauthSettingsOauthProviderArgs']]]]:
         """
         OAuth provider settings block. Multiple blocks can be defined, at least one is required.
         """
         return pulumi.get(self, "oauth_providers")
 
     @oauth_providers.setter
-    def oauth_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OauthSettingsOauthProviderArgs']]]]):
+    def oauth_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OauthSettingsOauthProviderArgs']]]]):
         pulumi.set(self, "oauth_providers", value)
 
     @_builtins.property
     @pulumi.getter(name="persistUsers")
-    def persist_users(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def persist_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable the creation of local Artifactory users.  Default value is `false`.
         """
         return pulumi.get(self, "persist_users")
 
     @persist_users.setter
-    def persist_users(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def persist_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "persist_users", value)
 
 
@@ -169,10 +169,10 @@ class OauthSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_user_to_access_profile: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 oauth_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict']]]]] = None,
-                 persist_users: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 oauth_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict']]]]] = None,
+                 persist_users: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         This resource can be used to manage Artifactory's OAuth SSO settings.
@@ -286,10 +286,10 @@ class OauthSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_user_to_access_profile: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 oauth_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict']]]]] = None,
-                 persist_users: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 oauth_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict']]]]] = None,
+                 persist_users: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -315,10 +315,10 @@ class OauthSettings(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_user_to_access_profile: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable: Optional[pulumi.Input[_builtins.bool]] = None,
-            oauth_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict']]]]] = None,
-            persist_users: Optional[pulumi.Input[_builtins.bool]] = None) -> 'OauthSettings':
+            allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable: pulumi.Input[Optional[_builtins.bool]] = None,
+            oauth_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict']]]]] = None,
+            persist_users: pulumi.Input[Optional[_builtins.bool]] = None) -> 'OauthSettings':
         """
         Get an existing OauthSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -343,29 +343,29 @@ export interface PackageCleanupPolicyState {
     /**
      * The cron expression that determines when the policy is run, However if left empty the policy will not run automatically and can only be triggered manually.
      */
-    cronExpression?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
+    cronExpression?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
      */
-    durationInMinutes?: pulumi.Input<number>;
+    durationInMinutes?: pulumi.Input<number | undefined>;
     /**
      * A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `projectKey` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
      */
-    projectKey?: pulumi.Input<string>;
-    searchCriteria?: pulumi.Input<inputs.PackageCleanupPolicySearchCriteria>;
+    projectKey?: pulumi.Input<string | undefined>;
+    searchCriteria?: pulumi.Input<inputs.PackageCleanupPolicySearchCriteria | undefined>;
     /**
      * A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
      */
-    skipTrashcan?: pulumi.Input<boolean>;
+    skipTrashcan?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -375,16 +375,16 @@ export interface PackageCleanupPolicyArgs {
     /**
      * The cron expression that determines when the policy is run, However if left empty the policy will not run automatically and can only be triggered manually.
      */
-    cronExpression?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
+    cronExpression?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
      */
-    durationInMinutes?: pulumi.Input<number>;
+    durationInMinutes?: pulumi.Input<number | undefined>;
     /**
      * A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
      */
@@ -392,10 +392,10 @@ export interface PackageCleanupPolicyArgs {
     /**
      * This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `projectKey` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
      */
-    projectKey?: pulumi.Input<string>;
+    projectKey?: pulumi.Input<string | undefined>;
     searchCriteria: pulumi.Input<inputs.PackageCleanupPolicySearchCriteria>;
     /**
      * A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
      */
-    skipTrashcan?: pulumi.Input<boolean>;
+    skipTrashcan?: pulumi.Input<boolean | undefined>;
 }

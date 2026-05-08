@@ -22,14 +22,14 @@ __all__ = ['UnmanagedUserArgs', 'UnmanagedUser']
 class UnmanagedUserArgs:
     def __init__(__self__, *,
                  email: pulumi.Input[_builtins.str],
-                 admin: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_ui_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 internal_password_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_policy: Optional[pulumi.Input['UnmanagedUserPasswordPolicyArgs']] = None,
-                 profile_updatable: Optional[pulumi.Input[_builtins.bool]] = None):
+                 admin: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_ui_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 internal_password_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_policy: pulumi.Input[Optional['UnmanagedUserPasswordPolicyArgs']] = None,
+                 profile_updatable: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a UnmanagedUser resource.
 
@@ -79,79 +79,79 @@ class UnmanagedUserArgs:
 
     @_builtins.property
     @pulumi.getter
-    def admin(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def admin(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
         """
         return pulumi.get(self, "admin")
 
     @admin.setter
-    def admin(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def admin(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "admin", value)
 
     @_builtins.property
     @pulumi.getter(name="disableUiAccess")
-    def disable_ui_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_ui_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
         """
         return pulumi.get(self, "disable_ui_access")
 
     @disable_ui_access.setter
-    def disable_ui_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_ui_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_ui_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups", value)
 
     @_builtins.property
     @pulumi.getter(name="internalPasswordDisabled")
-    def internal_password_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internal_password_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
         """
         return pulumi.get(self, "internal_password_disabled")
 
     @internal_password_disabled.setter
-    def internal_password_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internal_password_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internal_password_disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordPolicy")
-    def password_policy(self) -> Optional[pulumi.Input['UnmanagedUserPasswordPolicyArgs']]:
+    def password_policy(self) -> pulumi.Input[Optional['UnmanagedUserPasswordPolicyArgs']]:
         """
         Password policy to match JFrog Access to provide validation before API request.
 
@@ -162,34 +162,34 @@ class UnmanagedUserArgs:
         return pulumi.get(self, "password_policy")
 
     @password_policy.setter
-    def password_policy(self, value: Optional[pulumi.Input['UnmanagedUserPasswordPolicyArgs']]):
+    def password_policy(self, value: pulumi.Input[Optional['UnmanagedUserPasswordPolicyArgs']]):
         pulumi.set(self, "password_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="profileUpdatable")
-    def profile_updatable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def profile_updatable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
         """
         return pulumi.get(self, "profile_updatable")
 
     @profile_updatable.setter
-    def profile_updatable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def profile_updatable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "profile_updatable", value)
 
 
 @pulumi.input_type
 class _UnmanagedUserState:
     def __init__(__self__, *,
-                 admin: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_ui_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 internal_password_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_policy: Optional[pulumi.Input['UnmanagedUserPasswordPolicyArgs']] = None,
-                 profile_updatable: Optional[pulumi.Input[_builtins.bool]] = None):
+                 admin: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_ui_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 internal_password_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_policy: pulumi.Input[Optional['UnmanagedUserPasswordPolicyArgs']] = None,
+                 profile_updatable: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering UnmanagedUser resources.
 
@@ -228,91 +228,91 @@ class _UnmanagedUserState:
 
     @_builtins.property
     @pulumi.getter
-    def admin(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def admin(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
         """
         return pulumi.get(self, "admin")
 
     @admin.setter
-    def admin(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def admin(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "admin", value)
 
     @_builtins.property
     @pulumi.getter(name="disableUiAccess")
-    def disable_ui_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_ui_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
         """
         return pulumi.get(self, "disable_ui_access")
 
     @disable_ui_access.setter
-    def disable_ui_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_ui_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_ui_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email for user.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups", value)
 
     @_builtins.property
     @pulumi.getter(name="internalPasswordDisabled")
-    def internal_password_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internal_password_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
         """
         return pulumi.get(self, "internal_password_disabled")
 
     @internal_password_disabled.setter
-    def internal_password_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internal_password_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internal_password_disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordPolicy")
-    def password_policy(self) -> Optional[pulumi.Input['UnmanagedUserPasswordPolicyArgs']]:
+    def password_policy(self) -> pulumi.Input[Optional['UnmanagedUserPasswordPolicyArgs']]:
         """
         Password policy to match JFrog Access to provide validation before API request.
 
@@ -323,19 +323,19 @@ class _UnmanagedUserState:
         return pulumi.get(self, "password_policy")
 
     @password_policy.setter
-    def password_policy(self, value: Optional[pulumi.Input['UnmanagedUserPasswordPolicyArgs']]):
+    def password_policy(self, value: pulumi.Input[Optional['UnmanagedUserPasswordPolicyArgs']]):
         pulumi.set(self, "password_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="profileUpdatable")
-    def profile_updatable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def profile_updatable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
         """
         return pulumi.get(self, "profile_updatable")
 
     @profile_updatable.setter
-    def profile_updatable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def profile_updatable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "profile_updatable", value)
 
 
@@ -345,15 +345,15 @@ class UnmanagedUser(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_ui_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 internal_password_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_policy: Optional[pulumi.Input[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict']]] = None,
-                 profile_updatable: Optional[pulumi.Input[_builtins.bool]] = None,
+                 admin: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_ui_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 internal_password_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_policy: pulumi.Input[Optional[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict']]] = None,
+                 profile_updatable: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides an Artifactory unmanaged user resource. This can be used to create and manage Artifactory users.
@@ -462,15 +462,15 @@ class UnmanagedUser(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_ui_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 internal_password_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_policy: Optional[pulumi.Input[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict']]] = None,
-                 profile_updatable: Optional[pulumi.Input[_builtins.bool]] = None,
+                 admin: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_ui_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 internal_password_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_policy: pulumi.Input[Optional[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict']]] = None,
+                 profile_updatable: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -503,15 +503,15 @@ class UnmanagedUser(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            admin: Optional[pulumi.Input[_builtins.bool]] = None,
-            disable_ui_access: Optional[pulumi.Input[_builtins.bool]] = None,
-            email: Optional[pulumi.Input[_builtins.str]] = None,
-            groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            internal_password_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            password_policy: Optional[pulumi.Input[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict']]] = None,
-            profile_updatable: Optional[pulumi.Input[_builtins.bool]] = None) -> 'UnmanagedUser':
+            admin: pulumi.Input[Optional[_builtins.bool]] = None,
+            disable_ui_access: pulumi.Input[Optional[_builtins.bool]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            internal_password_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            password_policy: pulumi.Input[Optional[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict']]] = None,
+            profile_updatable: pulumi.Input[Optional[_builtins.bool]] = None) -> 'UnmanagedUser':
         """
         Get an existing UnmanagedUser resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

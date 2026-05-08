@@ -142,39 +142,39 @@ export interface ReleaseBundleV2PromotionState {
     /**
      * Timestamp when the new version was created (ISO 8601 standard).
      */
-    created?: pulumi.Input<string>;
+    created?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the new version was created (in milliseconds).
      */
-    createdMillis?: pulumi.Input<number>;
+    createdMillis?: pulumi.Input<number | undefined>;
     /**
      * Target environment
      */
-    environment?: pulumi.Input<string>;
+    environment?: pulumi.Input<string | undefined>;
     /**
      * Defines specific repositories to exclude from the promotion.
      */
-    excludedRepositoryKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedRepositoryKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excludedRepositoryKeys`).
      */
-    includedRepositoryKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    includedRepositoryKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-pair name to use for signature creation
      */
-    keypairName?: pulumi.Input<string>;
+    keypairName?: pulumi.Input<string | undefined>;
     /**
      * Name of Release Bundle
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Project key the Release Bundle belongs to
      */
-    projectKey?: pulumi.Input<string>;
+    projectKey?: pulumi.Input<string | undefined>;
     /**
      * Version to promote
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -188,11 +188,11 @@ export interface ReleaseBundleV2PromotionArgs {
     /**
      * Defines specific repositories to exclude from the promotion.
      */
-    excludedRepositoryKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedRepositoryKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excludedRepositoryKeys`).
      */
-    includedRepositoryKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    includedRepositoryKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-pair name to use for signature creation
      */
@@ -200,11 +200,11 @@ export interface ReleaseBundleV2PromotionArgs {
     /**
      * Name of Release Bundle
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Project key the Release Bundle belongs to
      */
-    projectKey?: pulumi.Input<string>;
+    projectKey?: pulumi.Input<string | undefined>;
     /**
      * Version to promote
      */

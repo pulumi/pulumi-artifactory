@@ -107,15 +107,15 @@ export interface UserLockPolicyState {
     /**
      * Enable User Lock Policy. Lock user after exceeding max failed login attempts.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Max failed login attempts.
      */
-    loginAttempts?: pulumi.Input<number>;
+    loginAttempts?: pulumi.Input<number | undefined>;
     /**
      * Name of the resource. Only used for importing.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -133,5 +133,5 @@ export interface UserLockPolicyArgs {
     /**
      * Name of the resource. Only used for importing.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

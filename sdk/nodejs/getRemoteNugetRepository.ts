@@ -299,72 +299,72 @@ export function getRemoteNugetRepositoryOutput(args: GetRemoteNugetRepositoryOut
  * A collection of arguments for invoking getRemoteNugetRepository.
  */
 export interface GetRemoteNugetRepositoryOutputArgs {
-    allowAnyHostAuth?: pulumi.Input<boolean>;
-    archiveBrowsingEnabled?: pulumi.Input<boolean>;
-    assumedOfflinePeriodSecs?: pulumi.Input<number>;
-    blackedOut?: pulumi.Input<boolean>;
-    blockMismatchingMimeTypes?: pulumi.Input<boolean>;
-    bypassHeadRequests?: pulumi.Input<boolean>;
-    cdnRedirect?: pulumi.Input<boolean>;
-    clientTlsCertificate?: pulumi.Input<string>;
-    contentSynchronisation?: pulumi.Input<inputs.GetRemoteNugetRepositoryContentSynchronisationArgs>;
-    curated?: pulumi.Input<boolean>;
-    description?: pulumi.Input<string>;
-    disableProxy?: pulumi.Input<boolean>;
-    disableUrlNormalization?: pulumi.Input<boolean>;
+    allowAnyHostAuth?: pulumi.Input<boolean | undefined>;
+    archiveBrowsingEnabled?: pulumi.Input<boolean | undefined>;
+    assumedOfflinePeriodSecs?: pulumi.Input<number | undefined>;
+    blackedOut?: pulumi.Input<boolean | undefined>;
+    blockMismatchingMimeTypes?: pulumi.Input<boolean | undefined>;
+    bypassHeadRequests?: pulumi.Input<boolean | undefined>;
+    cdnRedirect?: pulumi.Input<boolean | undefined>;
+    clientTlsCertificate?: pulumi.Input<string | undefined>;
+    contentSynchronisation?: pulumi.Input<inputs.GetRemoteNugetRepositoryContentSynchronisationArgs | undefined>;
+    curated?: pulumi.Input<boolean | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    disableProxy?: pulumi.Input<boolean | undefined>;
+    disableUrlNormalization?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
      */
-    downloadContextPath?: pulumi.Input<string>;
-    downloadDirect?: pulumi.Input<boolean>;
-    enableCookieManagement?: pulumi.Input<boolean>;
-    excludesPattern?: pulumi.Input<string>;
+    downloadContextPath?: pulumi.Input<string | undefined>;
+    downloadDirect?: pulumi.Input<boolean | undefined>;
+    enableCookieManagement?: pulumi.Input<boolean | undefined>;
+    excludesPattern?: pulumi.Input<string | undefined>;
     /**
      * (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
      */
-    feedContextPath?: pulumi.Input<string>;
+    feedContextPath?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
      */
-    forceNugetAuthentication?: pulumi.Input<boolean>;
-    hardFail?: pulumi.Input<boolean>;
-    includesPattern?: pulumi.Input<string>;
+    forceNugetAuthentication?: pulumi.Input<boolean | undefined>;
+    hardFail?: pulumi.Input<boolean | undefined>;
+    includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.
      */
     key: pulumi.Input<string>;
-    listRemoteFolderItems?: pulumi.Input<boolean>;
-    localAddress?: pulumi.Input<string>;
-    metadataRetrievalTimeoutSecs?: pulumi.Input<number>;
-    mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
-    missedCachePeriodSeconds?: pulumi.Input<number>;
-    notes?: pulumi.Input<string>;
-    offline?: pulumi.Input<boolean>;
-    passThrough?: pulumi.Input<boolean>;
-    password?: pulumi.Input<string>;
-    priorityResolution?: pulumi.Input<boolean>;
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    projectKey?: pulumi.Input<string>;
-    propertySets?: pulumi.Input<pulumi.Input<string>[]>;
-    proxy?: pulumi.Input<string>;
-    queryParams?: pulumi.Input<string>;
-    remoteRepoLayoutRef?: pulumi.Input<string>;
-    repoLayoutRef?: pulumi.Input<string>;
-    retrievalCachePeriodSeconds?: pulumi.Input<number>;
-    shareConfiguration?: pulumi.Input<boolean>;
-    socketTimeoutMillis?: pulumi.Input<number>;
-    storeArtifactsLocally?: pulumi.Input<boolean>;
+    listRemoteFolderItems?: pulumi.Input<boolean | undefined>;
+    localAddress?: pulumi.Input<string | undefined>;
+    metadataRetrievalTimeoutSecs?: pulumi.Input<number | undefined>;
+    mismatchingMimeTypesOverrideList?: pulumi.Input<string | undefined>;
+    missedCachePeriodSeconds?: pulumi.Input<number | undefined>;
+    notes?: pulumi.Input<string | undefined>;
+    offline?: pulumi.Input<boolean | undefined>;
+    passThrough?: pulumi.Input<boolean | undefined>;
+    password?: pulumi.Input<string | undefined>;
+    priorityResolution?: pulumi.Input<boolean | undefined>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    projectKey?: pulumi.Input<string | undefined>;
+    propertySets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    proxy?: pulumi.Input<string | undefined>;
+    queryParams?: pulumi.Input<string | undefined>;
+    remoteRepoLayoutRef?: pulumi.Input<string | undefined>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
+    retrievalCachePeriodSeconds?: pulumi.Input<number | undefined>;
+    shareConfiguration?: pulumi.Input<boolean | undefined>;
+    socketTimeoutMillis?: pulumi.Input<number | undefined>;
+    storeArtifactsLocally?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
      */
-    symbolServerUrl?: pulumi.Input<string>;
-    synchronizeProperties?: pulumi.Input<boolean>;
-    unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
-    url?: pulumi.Input<string>;
-    username?: pulumi.Input<string>;
+    symbolServerUrl?: pulumi.Input<string | undefined>;
+    synchronizeProperties?: pulumi.Input<boolean | undefined>;
+    unusedArtifactsCleanupPeriodHours?: pulumi.Input<number | undefined>;
+    url?: pulumi.Input<string | undefined>;
+    username?: pulumi.Input<string | undefined>;
     /**
      * (Optional) The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
      */
-    v3FeedUrl?: pulumi.Input<string>;
-    xrayIndex?: pulumi.Input<boolean>;
+    v3FeedUrl?: pulumi.Input<string | undefined>;
+    xrayIndex?: pulumi.Input<boolean | undefined>;
 }

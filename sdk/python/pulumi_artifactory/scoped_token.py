@@ -19,16 +19,16 @@ __all__ = ['ScopedTokenArgs', 'ScopedToken']
 @pulumi.input_type
 class ScopedTokenArgs:
     def __init__(__self__, *,
-                 audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_in: Optional[pulumi.Input[_builtins.int]] = None,
-                 grant_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_missing_token_warning: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_reference_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 refreshable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_in: pulumi.Input[Optional[_builtins.int]] = None,
+                 grant_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_missing_token_warning: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_reference_token: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 refreshable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScopedToken resource.
 
@@ -88,103 +88,103 @@ class ScopedTokenArgs:
 
     @_builtins.property
     @pulumi.getter
-    def audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def audiences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
         """
         return pulumi.get(self, "audiences")
 
     @audiences.setter
-    def audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def audiences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "audiences", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="expiresIn")
-    def expires_in(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expires_in(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
         """
         return pulumi.get(self, "expires_in")
 
     @expires_in.setter
-    def expires_in(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expires_in(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expires_in", value)
 
     @_builtins.property
     @pulumi.getter(name="grantType")
-    def grant_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grant_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
         """
         return pulumi.get(self, "grant_type")
 
     @grant_type.setter
-    def grant_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grant_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grant_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreMissingTokenWarning")
-    def ignore_missing_token_warning(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_missing_token_warning(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Toggle to ignore warning message when token was missing or not created and stored by Artifactory. Default is `false`.
         """
         return pulumi.get(self, "ignore_missing_token_warning")
 
     @ignore_missing_token_warning.setter
-    def ignore_missing_token_warning(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_missing_token_warning(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_missing_token_warning", value)
 
     @_builtins.property
     @pulumi.getter(name="includeReferenceToken")
-    def include_reference_token(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_reference_token(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Also create a reference token which can be used like an API key. Default is `false`.
         """
         return pulumi.get(self, "include_reference_token")
 
     @include_reference_token.setter
-    def include_reference_token(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_reference_token(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_reference_token", value)
 
     @_builtins.property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The project for which this token is created. Enter the project name on which you want to apply this token.
         """
         return pulumi.get(self, "project_key")
 
     @project_key.setter
-    def project_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def refreshable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def refreshable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is this token refreshable? Default is `false`.
         """
         return pulumi.get(self, "refreshable")
 
     @refreshable.setter
-    def refreshable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def refreshable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "refreshable", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong. The supported scopes include:
           - `applied-permissions/user` - provides user access. If left at the default setting, the token will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not grant any specific access permissions.
@@ -213,43 +213,43 @@ class ScopedTokenArgs:
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: <service-id>/users/<username>. Limited to 255 characters.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
 @pulumi.input_type
 class _ScopedTokenState:
     def __init__(__self__, *,
-                 access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_in: Optional[pulumi.Input[_builtins.int]] = None,
-                 expiry: Optional[pulumi.Input[_builtins.int]] = None,
-                 grant_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_missing_token_warning: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_reference_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 issued_at: Optional[pulumi.Input[_builtins.int]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 reference_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 refreshable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_in: pulumi.Input[Optional[_builtins.int]] = None,
+                 expiry: pulumi.Input[Optional[_builtins.int]] = None,
+                 grant_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_missing_token_warning: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_reference_token: pulumi.Input[Optional[_builtins.bool]] = None,
+                 issued_at: pulumi.Input[Optional[_builtins.int]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 refreshable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ScopedToken resources.
 
@@ -333,175 +333,175 @@ class _ScopedTokenState:
 
     @_builtins.property
     @pulumi.getter(name="accessToken")
-    def access_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Returns the access token to authenticate to Artifactory.
         """
         return pulumi.get(self, "access_token")
 
     @access_token.setter
-    def access_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_token", value)
 
     @_builtins.property
     @pulumi.getter
-    def audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def audiences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
         """
         return pulumi.get(self, "audiences")
 
     @audiences.setter
-    def audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def audiences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "audiences", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="expiresIn")
-    def expires_in(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expires_in(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
         """
         return pulumi.get(self, "expires_in")
 
     @expires_in.setter
-    def expires_in(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expires_in(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expires_in", value)
 
     @_builtins.property
     @pulumi.getter
-    def expiry(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expiry(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Returns the token expiry.
         """
         return pulumi.get(self, "expiry")
 
     @expiry.setter
-    def expiry(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expiry(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expiry", value)
 
     @_builtins.property
     @pulumi.getter(name="grantType")
-    def grant_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grant_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
         """
         return pulumi.get(self, "grant_type")
 
     @grant_type.setter
-    def grant_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grant_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grant_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreMissingTokenWarning")
-    def ignore_missing_token_warning(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_missing_token_warning(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Toggle to ignore warning message when token was missing or not created and stored by Artifactory. Default is `false`.
         """
         return pulumi.get(self, "ignore_missing_token_warning")
 
     @ignore_missing_token_warning.setter
-    def ignore_missing_token_warning(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_missing_token_warning(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_missing_token_warning", value)
 
     @_builtins.property
     @pulumi.getter(name="includeReferenceToken")
-    def include_reference_token(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_reference_token(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Also create a reference token which can be used like an API key. Default is `false`.
         """
         return pulumi.get(self, "include_reference_token")
 
     @include_reference_token.setter
-    def include_reference_token(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_reference_token(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_reference_token", value)
 
     @_builtins.property
     @pulumi.getter(name="issuedAt")
-    def issued_at(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def issued_at(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Returns the token issued at date/time.
         """
         return pulumi.get(self, "issued_at")
 
     @issued_at.setter
-    def issued_at(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def issued_at(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "issued_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Returns the token issuer.
         """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
-    def issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer", value)
 
     @_builtins.property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The project for which this token is created. Enter the project name on which you want to apply this token.
         """
         return pulumi.get(self, "project_key")
 
     @project_key.setter
-    def project_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_key", value)
 
     @_builtins.property
     @pulumi.getter(name="referenceToken")
-    def reference_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reference_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reference Token (alias to Access Token).
         """
         return pulumi.get(self, "reference_token")
 
     @reference_token.setter
-    def reference_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reference_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reference_token", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshToken")
-    def refresh_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def refresh_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Refresh token.
         """
         return pulumi.get(self, "refresh_token")
 
     @refresh_token.setter
-    def refresh_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def refresh_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "refresh_token", value)
 
     @_builtins.property
     @pulumi.getter
-    def refreshable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def refreshable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is this token refreshable? Default is `false`.
         """
         return pulumi.get(self, "refreshable")
 
     @refreshable.setter
-    def refreshable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def refreshable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "refreshable", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong. The supported scopes include:
           - `applied-permissions/user` - provides user access. If left at the default setting, the token will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not grant any specific access permissions.
@@ -530,43 +530,43 @@ class _ScopedTokenState:
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter
-    def subject(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Returns the token type.
         """
         return pulumi.get(self, "subject")
 
     @subject.setter
-    def subject(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenType")
-    def token_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Returns the token type.
         """
         return pulumi.get(self, "token_type")
 
     @token_type.setter
-    def token_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: <service-id>/users/<username>. Limited to 255 characters.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -576,16 +576,16 @@ class ScopedToken(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_in: Optional[pulumi.Input[_builtins.int]] = None,
-                 grant_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_missing_token_warning: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_reference_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 refreshable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_in: pulumi.Input[Optional[_builtins.int]] = None,
+                 grant_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_missing_token_warning: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_reference_token: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 refreshable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an Artifactory Scoped Token resource. This can be used to create and manage Artifactory Scoped Tokens.
@@ -755,16 +755,16 @@ class ScopedToken(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_in: Optional[pulumi.Input[_builtins.int]] = None,
-                 grant_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_missing_token_warning: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_reference_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 refreshable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_in: pulumi.Input[Optional[_builtins.int]] = None,
+                 grant_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_missing_token_warning: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_reference_token: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 refreshable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -804,24 +804,24 @@ class ScopedToken(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_token: Optional[pulumi.Input[_builtins.str]] = None,
-            audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            expires_in: Optional[pulumi.Input[_builtins.int]] = None,
-            expiry: Optional[pulumi.Input[_builtins.int]] = None,
-            grant_type: Optional[pulumi.Input[_builtins.str]] = None,
-            ignore_missing_token_warning: Optional[pulumi.Input[_builtins.bool]] = None,
-            include_reference_token: Optional[pulumi.Input[_builtins.bool]] = None,
-            issued_at: Optional[pulumi.Input[_builtins.int]] = None,
-            issuer: Optional[pulumi.Input[_builtins.str]] = None,
-            project_key: Optional[pulumi.Input[_builtins.str]] = None,
-            reference_token: Optional[pulumi.Input[_builtins.str]] = None,
-            refresh_token: Optional[pulumi.Input[_builtins.str]] = None,
-            refreshable: Optional[pulumi.Input[_builtins.bool]] = None,
-            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            subject: Optional[pulumi.Input[_builtins.str]] = None,
-            token_type: Optional[pulumi.Input[_builtins.str]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'ScopedToken':
+            access_token: pulumi.Input[Optional[_builtins.str]] = None,
+            audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            expires_in: pulumi.Input[Optional[_builtins.int]] = None,
+            expiry: pulumi.Input[Optional[_builtins.int]] = None,
+            grant_type: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_missing_token_warning: pulumi.Input[Optional[_builtins.bool]] = None,
+            include_reference_token: pulumi.Input[Optional[_builtins.bool]] = None,
+            issued_at: pulumi.Input[Optional[_builtins.int]] = None,
+            issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            project_key: pulumi.Input[Optional[_builtins.str]] = None,
+            reference_token: pulumi.Input[Optional[_builtins.str]] = None,
+            refresh_token: pulumi.Input[Optional[_builtins.str]] = None,
+            refreshable: pulumi.Input[Optional[_builtins.bool]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            subject: pulumi.Input[Optional[_builtins.str]] = None,
+            token_type: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> 'ScopedToken':
         """
         Get an existing ScopedToken resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

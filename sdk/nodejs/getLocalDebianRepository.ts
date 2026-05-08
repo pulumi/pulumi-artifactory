@@ -173,41 +173,41 @@ export function getLocalDebianRepositoryOutput(args: GetLocalDebianRepositoryOut
  * A collection of arguments for invoking getLocalDebianRepository.
  */
 export interface GetLocalDebianRepositoryOutputArgs {
-    archiveBrowsingEnabled?: pulumi.Input<boolean>;
-    blackedOut?: pulumi.Input<boolean>;
-    cdnRedirect?: pulumi.Input<boolean>;
-    description?: pulumi.Input<string>;
-    downloadDirect?: pulumi.Input<boolean>;
-    excludesPattern?: pulumi.Input<string>;
-    includesPattern?: pulumi.Input<string>;
+    archiveBrowsingEnabled?: pulumi.Input<boolean | undefined>;
+    blackedOut?: pulumi.Input<boolean | undefined>;
+    cdnRedirect?: pulumi.Input<boolean | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    downloadDirect?: pulumi.Input<boolean | undefined>;
+    excludesPattern?: pulumi.Input<string | undefined>;
+    includesPattern?: pulumi.Input<string | undefined>;
     /**
      * The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
      * and XZ (.xz extension).
      */
-    indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
+    indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * the identity key of the repo.
      */
     key: pulumi.Input<string>;
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * The primary RSA key to be used to sign packages.
      */
-    primaryKeypairRef?: pulumi.Input<string>;
-    priorityResolution?: pulumi.Input<boolean>;
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    projectKey?: pulumi.Input<string>;
-    propertySets?: pulumi.Input<pulumi.Input<string>[]>;
-    repoLayoutRef?: pulumi.Input<string>;
+    primaryKeypairRef?: pulumi.Input<string | undefined>;
+    priorityResolution?: pulumi.Input<boolean | undefined>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    projectKey?: pulumi.Input<string | undefined>;
+    propertySets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
     /**
      * The secondary RSA key to be used to sign packages.
      */
-    secondaryKeypairRef?: pulumi.Input<string>;
+    secondaryKeypairRef?: pulumi.Input<string | undefined>;
     /**
      * When set, the repository will use the deprecated trivial layout.
      *
      * @deprecated You shouldn't be using this
      */
-    trivialLayout?: pulumi.Input<boolean>;
-    xrayIndex?: pulumi.Input<boolean>;
+    trivialLayout?: pulumi.Input<boolean | undefined>;
+    xrayIndex?: pulumi.Input<boolean | undefined>;
 }

@@ -143,35 +143,35 @@ export interface CertificateState {
     /**
      * Name of certificate.
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * Path to the PEM file. Cannot be set with `content` attribute simultaneously.
      */
-    file?: pulumi.Input<string>;
+    file?: pulumi.Input<string | undefined>;
     /**
      * SHA256 fingerprint of the certificate.
      */
-    fingerprint?: pulumi.Input<string>;
+    fingerprint?: pulumi.Input<string | undefined>;
     /**
      * Name of the certificate authority that issued the certificate.
      */
-    issuedBy?: pulumi.Input<string>;
+    issuedBy?: pulumi.Input<string | undefined>;
     /**
      * The time & date when the certificate is valid from.
      */
-    issuedOn?: pulumi.Input<string>;
+    issuedOn?: pulumi.Input<string | undefined>;
     /**
      * Name of whom the certificate has been issued to.
      */
-    issuedTo?: pulumi.Input<string>;
+    issuedTo?: pulumi.Input<string | undefined>;
     /**
      * The time & date when the certificate expires.
      */
-    validUntil?: pulumi.Input<string>;
+    validUntil?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -185,9 +185,9 @@ export interface CertificateArgs {
     /**
      * PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * Path to the PEM file. Cannot be set with `content` attribute simultaneously.
      */
-    file?: pulumi.Input<string>;
+    file?: pulumi.Input<string | undefined>;
 }

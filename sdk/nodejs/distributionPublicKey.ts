@@ -139,33 +139,33 @@ export interface DistributionPublicKeyState {
     /**
      * Will be used as an identifier when uploading/retrieving the public key via REST API.
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * Returns the computed key fingerprint
      */
-    fingerprint?: pulumi.Input<string>;
+    fingerprint?: pulumi.Input<string | undefined>;
     /**
      * Returns the name and eMail address of issuer
      */
-    issuedBy?: pulumi.Input<string>;
+    issuedBy?: pulumi.Input<string | undefined>;
     /**
      * Returns the date/time when this GPG key was created
      */
-    issuedOn?: pulumi.Input<string>;
+    issuedOn?: pulumi.Input<string | undefined>;
     /**
      * Returns the key id by which this key is referenced in Artifactory
      */
-    keyId?: pulumi.Input<string>;
+    keyId?: pulumi.Input<string | undefined>;
     /**
      * The Public key to add as a trusted distribution GPG key.
      *
      * The following additional attributes are exported:
      */
-    publicKey?: pulumi.Input<string>;
+    publicKey?: pulumi.Input<string | undefined>;
     /**
      * Returns the date/time when this GPG key expires.
      */
-    validUntil?: pulumi.Input<string>;
+    validUntil?: pulumi.Input<string | undefined>;
 }
 
 /**

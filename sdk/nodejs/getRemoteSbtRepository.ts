@@ -315,79 +315,79 @@ export function getRemoteSbtRepositoryOutput(args: GetRemoteSbtRepositoryOutputA
  * A collection of arguments for invoking getRemoteSbtRepository.
  */
 export interface GetRemoteSbtRepositoryOutputArgs {
-    allowAnyHostAuth?: pulumi.Input<boolean>;
-    archiveBrowsingEnabled?: pulumi.Input<boolean>;
-    assumedOfflinePeriodSecs?: pulumi.Input<number>;
-    blackedOut?: pulumi.Input<boolean>;
-    blockMismatchingMimeTypes?: pulumi.Input<boolean>;
-    bypassHeadRequests?: pulumi.Input<boolean>;
-    cdnRedirect?: pulumi.Input<boolean>;
-    clientTlsCertificate?: pulumi.Input<string>;
-    contentSynchronisation?: pulumi.Input<inputs.GetRemoteSbtRepositoryContentSynchronisationArgs>;
-    description?: pulumi.Input<string>;
-    disableProxy?: pulumi.Input<boolean>;
-    disableUrlNormalization?: pulumi.Input<boolean>;
-    downloadDirect?: pulumi.Input<boolean>;
-    enableCookieManagement?: pulumi.Input<boolean>;
-    excludesPattern?: pulumi.Input<string>;
+    allowAnyHostAuth?: pulumi.Input<boolean | undefined>;
+    archiveBrowsingEnabled?: pulumi.Input<boolean | undefined>;
+    assumedOfflinePeriodSecs?: pulumi.Input<number | undefined>;
+    blackedOut?: pulumi.Input<boolean | undefined>;
+    blockMismatchingMimeTypes?: pulumi.Input<boolean | undefined>;
+    bypassHeadRequests?: pulumi.Input<boolean | undefined>;
+    cdnRedirect?: pulumi.Input<boolean | undefined>;
+    clientTlsCertificate?: pulumi.Input<string | undefined>;
+    contentSynchronisation?: pulumi.Input<inputs.GetRemoteSbtRepositoryContentSynchronisationArgs | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    disableProxy?: pulumi.Input<boolean | undefined>;
+    disableUrlNormalization?: pulumi.Input<boolean | undefined>;
+    downloadDirect?: pulumi.Input<boolean | undefined>;
+    enableCookieManagement?: pulumi.Input<boolean | undefined>;
+    excludesPattern?: pulumi.Input<string | undefined>;
     /**
      * (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
      */
-    fetchJarsEagerly?: pulumi.Input<boolean>;
+    fetchJarsEagerly?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional, Default: `false`) - When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
      */
-    fetchSourcesEagerly?: pulumi.Input<boolean>;
+    fetchSourcesEagerly?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
      */
-    handleReleases?: pulumi.Input<boolean>;
+    handleReleases?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
      */
-    handleSnapshots?: pulumi.Input<boolean>;
-    hardFail?: pulumi.Input<boolean>;
-    includesPattern?: pulumi.Input<string>;
+    handleSnapshots?: pulumi.Input<boolean | undefined>;
+    hardFail?: pulumi.Input<boolean | undefined>;
+    includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.
      */
     key: pulumi.Input<string>;
-    listRemoteFolderItems?: pulumi.Input<boolean>;
-    localAddress?: pulumi.Input<string>;
-    maxUniqueSnapshots?: pulumi.Input<number>;
-    metadataRetrievalTimeoutSecs?: pulumi.Input<number>;
-    mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
-    missedCachePeriodSeconds?: pulumi.Input<number>;
-    notes?: pulumi.Input<string>;
-    offline?: pulumi.Input<boolean>;
-    password?: pulumi.Input<string>;
-    priorityResolution?: pulumi.Input<boolean>;
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    projectKey?: pulumi.Input<string>;
-    propertySets?: pulumi.Input<pulumi.Input<string>[]>;
-    proxy?: pulumi.Input<string>;
-    queryParams?: pulumi.Input<string>;
+    listRemoteFolderItems?: pulumi.Input<boolean | undefined>;
+    localAddress?: pulumi.Input<string | undefined>;
+    maxUniqueSnapshots?: pulumi.Input<number | undefined>;
+    metadataRetrievalTimeoutSecs?: pulumi.Input<number | undefined>;
+    mismatchingMimeTypesOverrideList?: pulumi.Input<string | undefined>;
+    missedCachePeriodSeconds?: pulumi.Input<number | undefined>;
+    notes?: pulumi.Input<string | undefined>;
+    offline?: pulumi.Input<boolean | undefined>;
+    password?: pulumi.Input<string | undefined>;
+    priorityResolution?: pulumi.Input<boolean | undefined>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    projectKey?: pulumi.Input<string | undefined>;
+    propertySets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    proxy?: pulumi.Input<string | undefined>;
+    queryParams?: pulumi.Input<string | undefined>;
     /**
      * (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
      */
-    rejectInvalidJars?: pulumi.Input<boolean>;
+    rejectInvalidJars?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
      */
-    remoteRepoChecksumPolicyType?: pulumi.Input<string>;
-    remoteRepoLayoutRef?: pulumi.Input<string>;
-    repoLayoutRef?: pulumi.Input<string>;
-    retrievalCachePeriodSeconds?: pulumi.Input<number>;
-    shareConfiguration?: pulumi.Input<boolean>;
-    socketTimeoutMillis?: pulumi.Input<number>;
-    storeArtifactsLocally?: pulumi.Input<boolean>;
+    remoteRepoChecksumPolicyType?: pulumi.Input<string | undefined>;
+    remoteRepoLayoutRef?: pulumi.Input<string | undefined>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
+    retrievalCachePeriodSeconds?: pulumi.Input<number | undefined>;
+    shareConfiguration?: pulumi.Input<boolean | undefined>;
+    socketTimeoutMillis?: pulumi.Input<number | undefined>;
+    storeArtifactsLocally?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional, Default: `true`) By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
      */
-    suppressPomConsistencyChecks?: pulumi.Input<boolean>;
-    synchronizeProperties?: pulumi.Input<boolean>;
-    unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
-    url?: pulumi.Input<string>;
-    username?: pulumi.Input<string>;
-    xrayIndex?: pulumi.Input<boolean>;
+    suppressPomConsistencyChecks?: pulumi.Input<boolean | undefined>;
+    synchronizeProperties?: pulumi.Input<boolean | undefined>;
+    unusedArtifactsCleanupPeriodHours?: pulumi.Input<number | undefined>;
+    url?: pulumi.Input<string | undefined>;
+    username?: pulumi.Input<string | undefined>;
+    xrayIndex?: pulumi.Input<boolean | undefined>;
 }

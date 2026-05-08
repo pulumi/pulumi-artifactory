@@ -136,10 +136,10 @@ def get_permission_target(build: Optional[Union['GetPermissionTargetBuildArgs', 
         name=pulumi.get(__ret__, 'name'),
         release_bundle=pulumi.get(__ret__, 'release_bundle'),
         repo=pulumi.get(__ret__, 'repo'))
-def get_permission_target_output(build: Optional[pulumi.Input[Optional[Union['GetPermissionTargetBuildArgs', 'GetPermissionTargetBuildArgsDict']]]] = None,
-                                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 release_bundle: Optional[pulumi.Input[Optional[Union['GetPermissionTargetReleaseBundleArgs', 'GetPermissionTargetReleaseBundleArgsDict']]]] = None,
-                                 repo: Optional[pulumi.Input[Optional[Union['GetPermissionTargetRepoArgs', 'GetPermissionTargetRepoArgsDict']]]] = None,
+def get_permission_target_output(build: pulumi.Input[Optional[Optional[Union['GetPermissionTargetBuildArgs', 'GetPermissionTargetBuildArgsDict']]]] = None,
+                                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 release_bundle: pulumi.Input[Optional[Optional[Union['GetPermissionTargetReleaseBundleArgs', 'GetPermissionTargetReleaseBundleArgsDict']]]] = None,
+                                 repo: pulumi.Input[Optional[Optional[Union['GetPermissionTargetRepoArgs', 'GetPermissionTargetRepoArgsDict']]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionTargetResult]:
     """
     ## # Artifactory Permission Target Data Source

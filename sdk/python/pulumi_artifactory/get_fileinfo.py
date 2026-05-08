@@ -243,8 +243,8 @@ def get_fileinfo(path: Optional[_builtins.str] = None,
         sha1=pulumi.get(__ret__, 'sha1'),
         sha256=pulumi.get(__ret__, 'sha256'),
         size=pulumi.get(__ret__, 'size'))
-def get_fileinfo_output(path: Optional[pulumi.Input[_builtins.str]] = None,
-                        repository: Optional[pulumi.Input[_builtins.str]] = None,
+def get_fileinfo_output(path: pulumi.Input[Optional[_builtins.str]] = None,
+                        repository: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileinfoResult]:
     """
     ## # Artifactory File Info Data Source

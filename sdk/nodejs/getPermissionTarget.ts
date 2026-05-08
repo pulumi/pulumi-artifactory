@@ -111,7 +111,7 @@ export interface GetPermissionTargetOutputArgs {
     /**
      * Same as repo but for artifactory-build-info permissions.
      */
-    build?: pulumi.Input<inputs.GetPermissionTargetBuildArgs>;
+    build?: pulumi.Input<inputs.GetPermissionTargetBuildArgs | undefined>;
     /**
      * Name of the permission target.
      */
@@ -119,9 +119,9 @@ export interface GetPermissionTargetOutputArgs {
     /**
      * Same as repo but for release-bundles permissions.
      */
-    releaseBundle?: pulumi.Input<inputs.GetPermissionTargetReleaseBundleArgs>;
+    releaseBundle?: pulumi.Input<inputs.GetPermissionTargetReleaseBundleArgs | undefined>;
     /**
      * Repository permission configuration.
      */
-    repo?: pulumi.Input<inputs.GetPermissionTargetRepoArgs>;
+    repo?: pulumi.Input<inputs.GetPermissionTargetRepoArgs | undefined>;
 }

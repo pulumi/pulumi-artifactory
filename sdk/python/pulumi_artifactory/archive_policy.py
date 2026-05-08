@@ -23,12 +23,12 @@ class ArchivePolicyArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  search_criteria: pulumi.Input['ArchivePolicySearchCriteriaArgs'],
-                 cron_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_trashcan: Optional[pulumi.Input[_builtins.bool]] = None):
+                 cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_trashcan: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ArchivePolicy resource.
 
@@ -77,85 +77,85 @@ class ArchivePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="cronExpression")
-    def cron_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cron_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cron expression determines when the policy is run. This parameter is not mandatory, however if left empty the policy will not run automatically and can only be triggered manually.
         """
         return pulumi.get(self, "cron_expression")
 
     @cron_expression.setter
-    def cron_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cron_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cron_expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="durationInMinutes")
-    def duration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def duration_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
         """
         return pulumi.get(self, "duration_in_minutes")
 
     @duration_in_minutes.setter
-    def duration_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def duration_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "duration_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This attribute is used only for project-level archive V2 policies, it is not used for global-level policies.
         """
         return pulumi.get(self, "project_key")
 
     @project_key.setter
-    def project_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_key", value)
 
     @_builtins.property
     @pulumi.getter(name="skipTrashcan")
-    def skip_trashcan(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_trashcan(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A `true` value means that when this policy is executed, packages will be permanently deleted. `false` means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
         """
         return pulumi.get(self, "skip_trashcan")
 
     @skip_trashcan.setter
-    def skip_trashcan(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_trashcan(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_trashcan", value)
 
 
 @pulumi.input_type
 class _ArchivePolicyState:
     def __init__(__self__, *,
-                 cron_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_criteria: Optional[pulumi.Input['ArchivePolicySearchCriteriaArgs']] = None,
-                 skip_trashcan: Optional[pulumi.Input[_builtins.bool]] = None):
+                 cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_criteria: pulumi.Input[Optional['ArchivePolicySearchCriteriaArgs']] = None,
+                 skip_trashcan: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ArchivePolicy resources.
 
@@ -185,92 +185,92 @@ class _ArchivePolicyState:
 
     @_builtins.property
     @pulumi.getter(name="cronExpression")
-    def cron_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cron_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cron expression determines when the policy is run. This parameter is not mandatory, however if left empty the policy will not run automatically and can only be triggered manually.
         """
         return pulumi.get(self, "cron_expression")
 
     @cron_expression.setter
-    def cron_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cron_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cron_expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="durationInMinutes")
-    def duration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def duration_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
         """
         return pulumi.get(self, "duration_in_minutes")
 
     @duration_in_minutes.setter
-    def duration_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def duration_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "duration_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An ID that is used to identify the archive policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This attribute is used only for project-level archive V2 policies, it is not used for global-level policies.
         """
         return pulumi.get(self, "project_key")
 
     @project_key.setter
-    def project_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_key", value)
 
     @_builtins.property
     @pulumi.getter(name="searchCriteria")
-    def search_criteria(self) -> Optional[pulumi.Input['ArchivePolicySearchCriteriaArgs']]:
+    def search_criteria(self) -> pulumi.Input[Optional['ArchivePolicySearchCriteriaArgs']]:
         return pulumi.get(self, "search_criteria")
 
     @search_criteria.setter
-    def search_criteria(self, value: Optional[pulumi.Input['ArchivePolicySearchCriteriaArgs']]):
+    def search_criteria(self, value: pulumi.Input[Optional['ArchivePolicySearchCriteriaArgs']]):
         pulumi.set(self, "search_criteria", value)
 
     @_builtins.property
     @pulumi.getter(name="skipTrashcan")
-    def skip_trashcan(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_trashcan(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A `true` value means that when this policy is executed, packages will be permanently deleted. `false` means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
         """
         return pulumi.get(self, "skip_trashcan")
 
     @skip_trashcan.setter
-    def skip_trashcan(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_trashcan(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_trashcan", value)
 
 
@@ -280,14 +280,14 @@ class ArchivePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cron_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_criteria: Optional[pulumi.Input[Union['ArchivePolicySearchCriteriaArgs', 'ArchivePolicySearchCriteriaArgsDict']]] = None,
-                 skip_trashcan: Optional[pulumi.Input[_builtins.bool]] = None,
+                 cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_criteria: pulumi.Input[Optional[Union['ArchivePolicySearchCriteriaArgs', 'ArchivePolicySearchCriteriaArgsDict']]] = None,
+                 skip_trashcan: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides an Artifactory Archive Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. See [Retention Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/archive) for more details.
@@ -390,7 +390,7 @@ class ArchivePolicy(pulumi.CustomResource):
             key="my-archive-policy",
             description="My archive policy with variables",
             cron_expression="0 0 2 ? * MON-SAT *",
-            duration_in_minutes=archive_policy_duration_in_minutes,
+            duration_in_minutes=int(archive_policy_duration_in_minutes),
             enabled=True,
             skip_trashcan=False,
             search_criteria={
@@ -407,7 +407,7 @@ class ArchivePolicy(pulumi.CustomResource):
                 "included_projects": ["default"],
                 "included_packages": ["**"],
                 "excluded_packages": ["com/jfrog/latest"],
-                "last_downloaded_before_in_days": archive_policy_last_downloaded_before_in_days,
+                "last_downloaded_before_in_days": int(archive_policy_last_downloaded_before_in_days),
             })
         ```
 
@@ -594,7 +594,7 @@ class ArchivePolicy(pulumi.CustomResource):
             key="my-archive-policy",
             description="My archive policy with variables",
             cron_expression="0 0 2 ? * MON-SAT *",
-            duration_in_minutes=archive_policy_duration_in_minutes,
+            duration_in_minutes=int(archive_policy_duration_in_minutes),
             enabled=True,
             skip_trashcan=False,
             search_criteria={
@@ -611,7 +611,7 @@ class ArchivePolicy(pulumi.CustomResource):
                 "included_projects": ["default"],
                 "included_packages": ["**"],
                 "excluded_packages": ["com/jfrog/latest"],
-                "last_downloaded_before_in_days": archive_policy_last_downloaded_before_in_days,
+                "last_downloaded_before_in_days": int(archive_policy_last_downloaded_before_in_days),
             })
         ```
 
@@ -697,14 +697,14 @@ class ArchivePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cron_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_criteria: Optional[pulumi.Input[Union['ArchivePolicySearchCriteriaArgs', 'ArchivePolicySearchCriteriaArgsDict']]] = None,
-                 skip_trashcan: Optional[pulumi.Input[_builtins.bool]] = None,
+                 cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_criteria: pulumi.Input[Optional[Union['ArchivePolicySearchCriteriaArgs', 'ArchivePolicySearchCriteriaArgsDict']]] = None,
+                 skip_trashcan: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -736,14 +736,14 @@ class ArchivePolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cron_expression: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            project_key: Optional[pulumi.Input[_builtins.str]] = None,
-            search_criteria: Optional[pulumi.Input[Union['ArchivePolicySearchCriteriaArgs', 'ArchivePolicySearchCriteriaArgsDict']]] = None,
-            skip_trashcan: Optional[pulumi.Input[_builtins.bool]] = None) -> 'ArchivePolicy':
+            cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            project_key: pulumi.Input[Optional[_builtins.str]] = None,
+            search_criteria: pulumi.Input[Optional[Union['ArchivePolicySearchCriteriaArgs', 'ArchivePolicySearchCriteriaArgsDict']]] = None,
+            skip_trashcan: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ArchivePolicy':
         """
         Get an existing ArchivePolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

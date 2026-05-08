@@ -19,15 +19,15 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_key_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_private_key_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tfc_credential_tag_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_key_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_private_key_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 oidc_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tfc_credential_tag_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
 
@@ -69,14 +69,14 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
 
     @_builtins.property
     @pulumi.getter(name="accessToken")
-    def access_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the 'api_key' attribute value will be used.
         """
         return pulumi.get(self, "access_token")
 
     @access_token.setter
-    def access_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_token", value)
 
     @_builtins.property
@@ -84,98 +84,98 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
     @_utilities.deprecated("""An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
 By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.""")
-    def api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
         """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
-    def api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateKeyPath")
-    def client_certificate_key_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_key_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Filesystem path to the PEM-encoded private key that matches `client_certificate_path`.
         """
         return pulumi.get(self, "client_certificate_key_path")
 
     @client_certificate_key_path.setter
-    def client_certificate_key_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_key_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_key_path", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificatePath")
-    def client_certificate_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Filesystem path to a PEM-encoded client certificate or certificate chain to use for mutual TLS authentication. Must be specified together with `client_certificate_key_path`.
         """
         return pulumi.get(self, "client_certificate_path")
 
     @client_certificate_path.setter
-    def client_certificate_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_path", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificatePem")
-    def client_certificate_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_pem(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Inline PEM-encoded client certificate or certificate chain used for mutual TLS authentication. Must be specified together with `client_private_key_pem`.
         """
         return pulumi.get(self, "client_certificate_pem")
 
     @client_certificate_pem.setter
-    def client_certificate_pem(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_pem(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_pem", value)
 
     @_builtins.property
     @pulumi.getter(name="clientPrivateKeyPem")
-    def client_private_key_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_private_key_pem(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Inline PEM-encoded private key that matches `client_certificate_pem`.
         """
         return pulumi.get(self, "client_private_key_pem")
 
     @client_private_key_pem.setter
-    def client_private_key_pem(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_private_key_pem(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_private_key_pem", value)
 
     @_builtins.property
     @pulumi.getter(name="oidcProviderName")
-    def oidc_provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oidc_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
         """
         return pulumi.get(self, "oidc_provider_name")
 
     @oidc_provider_name.setter
-    def oidc_provider_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oidc_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oidc_provider_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tfcCredentialTagName")
-    def tfc_credential_tag_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tfc_credential_tag_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Terraform Cloud Workload Identity Token tag name. Use for generating multiple TFC workload identity tokens. When set, the provider will attempt to use env var with this tag name as suffix. **Note:** this is case sensitive, so if set to `JFROG`, then env var `TFC_WORKLOAD_IDENTITY_TOKEN_JFROG` is used instead of `TFC_WORKLOAD_IDENTITY_TOKEN`. See [Generating Multiple Tokens](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/manual-generation#generating-multiple-tokens) on HCP Terraform for more details.
         """
         return pulumi.get(self, "tfc_credential_tag_name")
 
     @tfc_credential_tag_name.setter
-    def tfc_credential_tag_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tfc_credential_tag_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tfc_credential_tag_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Artifactory URL.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -185,15 +185,15 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_key_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_private_key_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tfc_credential_tag_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_key_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_private_key_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 oidc_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tfc_credential_tag_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The provider type for the artifactory package. By default, resources use package-wide configuration
@@ -242,15 +242,15 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_key_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_private_key_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tfc_credential_tag_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_key_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_private_key_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 oidc_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tfc_credential_tag_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

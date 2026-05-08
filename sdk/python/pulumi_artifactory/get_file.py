@@ -282,11 +282,11 @@ def get_file(force_overwrite: Optional[_builtins.bool] = None,
         sha1=pulumi.get(__ret__, 'sha1'),
         sha256=pulumi.get(__ret__, 'sha256'),
         size=pulumi.get(__ret__, 'size'))
-def get_file_output(force_overwrite: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                    output_path: Optional[pulumi.Input[_builtins.str]] = None,
-                    path: Optional[pulumi.Input[_builtins.str]] = None,
-                    path_is_aliased: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                    repository: Optional[pulumi.Input[_builtins.str]] = None,
+def get_file_output(force_overwrite: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                    output_path: pulumi.Input[Optional[_builtins.str]] = None,
+                    path: pulumi.Input[Optional[_builtins.str]] = None,
+                    path_is_aliased: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                    repository: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileResult]:
     """
     ## # Artifactory File Data Source

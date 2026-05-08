@@ -23,29 +23,29 @@ class FederatedMavenRepositoryArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  members: pulumi.Input[Sequence[pulumi.Input['FederatedMavenRepositoryMemberArgs']]],
-                 archive_browsing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 blacked_out: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cdn_redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 checksum_policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cleanup_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 download_direct: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excludes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 handle_releases: Optional[pulumi.Input[_builtins.bool]] = None,
-                 handle_snapshots: Optional[pulumi.Input[_builtins.bool]] = None,
-                 includes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_unique_snapshots: Optional[pulumi.Input[_builtins.int]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_version_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 suppress_pom_consistency_checks: Optional[pulumi.Input[_builtins.bool]] = None,
-                 xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
+                 archive_browsing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 blacked_out: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 checksum_policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cleanup_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 handle_releases: pulumi.Input[Optional[_builtins.bool]] = None,
+                 handle_snapshots: pulumi.Input[Optional[_builtins.bool]] = None,
+                 includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_unique_snapshots: pulumi.Input[Optional[_builtins.int]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_version_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 suppress_pom_consistency_checks: pulumi.Input[Optional[_builtins.bool]] = None,
+                 xray_index: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a FederatedMavenRepository resource.
 
@@ -165,7 +165,7 @@ class FederatedMavenRepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="archiveBrowsingEnabled")
-    def archive_browsing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def archive_browsing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, you may view content such as HTML or Javadoc files directly from Artifactory.
         This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
@@ -173,144 +173,144 @@ class FederatedMavenRepositoryArgs:
         return pulumi.get(self, "archive_browsing_enabled")
 
     @archive_browsing_enabled.setter
-    def archive_browsing_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def archive_browsing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "archive_browsing_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="blackedOut")
-    def blacked_out(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def blacked_out(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         """
         return pulumi.get(self, "blacked_out")
 
     @blacked_out.setter
-    def blacked_out(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def blacked_out(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "blacked_out", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnRedirect")
-    def cdn_redirect(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cdn_redirect(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
     @cdn_redirect.setter
-    def cdn_redirect(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cdn_redirect(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cdn_redirect", value)
 
     @_builtins.property
     @pulumi.getter(name="checksumPolicyType")
-    def checksum_policy_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def checksum_policy_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or "server-generated-checksums". Default: "client-checksums"\\n For more details, please refer to Checksum Policy - https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         """
         return pulumi.get(self, "checksum_policy_type")
 
     @checksum_policy_type.setter
-    def checksum_policy_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def checksum_policy_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "checksum_policy_type", value)
 
     @_builtins.property
     @pulumi.getter(name="cleanupOnDelete")
-    def cleanup_on_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cleanup_on_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Delete all federated members on `terraform destroy` if set to `true`. Default is `false`. This attribute is added to match Terrform logic, so all the resources, created by the provider, must be removed on cleanup. Artifactory's behavior for the federated repositories is different, all the federated repositories stay after the user deletes the initial federated repository. **Caution**: if set to `true` all the repositories in the federation will be deleted, including repositories on other Artifactory instances in the "Circle of trust". This operation can not be reversed.
         """
         return pulumi.get(self, "cleanup_on_delete")
 
     @cleanup_on_delete.setter
-    def cleanup_on_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cleanup_on_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cleanup_on_delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Public description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disableProxy")
-    def disable_proxy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_proxy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         """
         return pulumi.get(self, "disable_proxy")
 
     @disable_proxy.setter
-    def disable_proxy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_proxy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="downloadDirect")
-    def download_direct(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def download_direct(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         """
         return pulumi.get(self, "download_direct")
 
     @download_direct.setter
-    def download_direct(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def download_direct(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "download_direct", value)
 
     @_builtins.property
     @pulumi.getter(name="excludesPattern")
-    def excludes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
-    def excludes_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def excludes_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "excludes_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="handleReleases")
-    def handle_releases(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def handle_releases(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set, Artifactory allows you to deploy release artifacts into this repository.
         """
         return pulumi.get(self, "handle_releases")
 
     @handle_releases.setter
-    def handle_releases(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def handle_releases(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "handle_releases", value)
 
     @_builtins.property
     @pulumi.getter(name="handleSnapshots")
-    def handle_snapshots(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def handle_snapshots(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         """
         return pulumi.get(self, "handle_snapshots")
 
     @handle_snapshots.setter
-    def handle_snapshots(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def handle_snapshots(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "handle_snapshots", value)
 
     @_builtins.property
     @pulumi.getter(name="includesPattern")
-    def includes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
-    def includes_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def includes_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "includes_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="maxUniqueSnapshots")
-    def max_unique_snapshots(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_unique_snapshots(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of unique snapshots of a single artifact to store.
         Once the number of snapshots exceeds this setting, older versions are removed.
@@ -319,96 +319,96 @@ class FederatedMavenRepositoryArgs:
         return pulumi.get(self, "max_unique_snapshots")
 
     @max_unique_snapshots.setter
-    def max_unique_snapshots(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_unique_snapshots(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_unique_snapshots", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Internal description.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter(name="priorityResolution")
-    def priority_resolution(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def priority_resolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         return pulumi.get(self, "priority_resolution")
 
     @priority_resolution.setter
-    def priority_resolution(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def priority_resolution(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "priority_resolution", value)
 
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
-    def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def project_environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
-    def project_environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def project_environments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "project_environments", value)
 
     @_builtins.property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
     @project_key.setter
-    def project_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_key", value)
 
     @_builtins.property
     @pulumi.getter(name="propertySets")
-    def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def property_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of property set name
         """
         return pulumi.get(self, "property_sets")
 
     @property_sets.setter
-    def property_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def property_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "property_sets", value)
 
     @_builtins.property
     @pulumi.getter
-    def proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         """
         return pulumi.get(self, "proxy")
 
     @proxy.setter
-    def proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="repoLayoutRef")
-    def repo_layout_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repo_layout_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Repository layout key for the federated repository
         """
         return pulumi.get(self, "repo_layout_ref")
 
     @repo_layout_ref.setter
-    def repo_layout_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repo_layout_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repo_layout_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotVersionBehavior")
-    def snapshot_version_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_version_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the naming convention for Maven SNAPSHOT versions.
         The options are -
@@ -419,12 +419,12 @@ class FederatedMavenRepositoryArgs:
         return pulumi.get(self, "snapshot_version_behavior")
 
     @snapshot_version_behavior.setter
-    def snapshot_version_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_version_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_version_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="suppressPomConsistencyChecks")
-    def suppress_pom_consistency_checks(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def suppress_pom_consistency_checks(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
           If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
@@ -433,51 +433,51 @@ class FederatedMavenRepositoryArgs:
         return pulumi.get(self, "suppress_pom_consistency_checks")
 
     @suppress_pom_consistency_checks.setter
-    def suppress_pom_consistency_checks(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def suppress_pom_consistency_checks(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "suppress_pom_consistency_checks", value)
 
     @_builtins.property
     @pulumi.getter(name="xrayIndex")
-    def xray_index(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def xray_index(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
-    def xray_index(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def xray_index(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "xray_index", value)
 
 
 @pulumi.input_type
 class _FederatedMavenRepositoryState:
     def __init__(__self__, *,
-                 archive_browsing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 blacked_out: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cdn_redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 checksum_policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cleanup_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 download_direct: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excludes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 handle_releases: Optional[pulumi.Input[_builtins.bool]] = None,
-                 handle_snapshots: Optional[pulumi.Input[_builtins.bool]] = None,
-                 includes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_unique_snapshots: Optional[pulumi.Input[_builtins.int]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input['FederatedMavenRepositoryMemberArgs']]]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_version_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 suppress_pom_consistency_checks: Optional[pulumi.Input[_builtins.bool]] = None,
-                 xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
+                 archive_browsing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 blacked_out: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 checksum_policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cleanup_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 handle_releases: pulumi.Input[Optional[_builtins.bool]] = None,
+                 handle_snapshots: pulumi.Input[Optional[_builtins.bool]] = None,
+                 includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_unique_snapshots: pulumi.Input[Optional[_builtins.int]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input['FederatedMavenRepositoryMemberArgs']]]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_version_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 suppress_pom_consistency_checks: pulumi.Input[Optional[_builtins.bool]] = None,
+                 xray_index: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering FederatedMavenRepository resources.
 
@@ -574,7 +574,7 @@ class _FederatedMavenRepositoryState:
 
     @_builtins.property
     @pulumi.getter(name="archiveBrowsingEnabled")
-    def archive_browsing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def archive_browsing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, you may view content such as HTML or Javadoc files directly from Artifactory.
         This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
@@ -582,156 +582,156 @@ class _FederatedMavenRepositoryState:
         return pulumi.get(self, "archive_browsing_enabled")
 
     @archive_browsing_enabled.setter
-    def archive_browsing_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def archive_browsing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "archive_browsing_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="blackedOut")
-    def blacked_out(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def blacked_out(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         """
         return pulumi.get(self, "blacked_out")
 
     @blacked_out.setter
-    def blacked_out(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def blacked_out(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "blacked_out", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnRedirect")
-    def cdn_redirect(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cdn_redirect(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
     @cdn_redirect.setter
-    def cdn_redirect(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cdn_redirect(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cdn_redirect", value)
 
     @_builtins.property
     @pulumi.getter(name="checksumPolicyType")
-    def checksum_policy_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def checksum_policy_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or "server-generated-checksums". Default: "client-checksums"\\n For more details, please refer to Checksum Policy - https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         """
         return pulumi.get(self, "checksum_policy_type")
 
     @checksum_policy_type.setter
-    def checksum_policy_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def checksum_policy_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "checksum_policy_type", value)
 
     @_builtins.property
     @pulumi.getter(name="cleanupOnDelete")
-    def cleanup_on_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cleanup_on_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Delete all federated members on `terraform destroy` if set to `true`. Default is `false`. This attribute is added to match Terrform logic, so all the resources, created by the provider, must be removed on cleanup. Artifactory's behavior for the federated repositories is different, all the federated repositories stay after the user deletes the initial federated repository. **Caution**: if set to `true` all the repositories in the federation will be deleted, including repositories on other Artifactory instances in the "Circle of trust". This operation can not be reversed.
         """
         return pulumi.get(self, "cleanup_on_delete")
 
     @cleanup_on_delete.setter
-    def cleanup_on_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cleanup_on_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cleanup_on_delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Public description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disableProxy")
-    def disable_proxy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_proxy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         """
         return pulumi.get(self, "disable_proxy")
 
     @disable_proxy.setter
-    def disable_proxy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_proxy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="downloadDirect")
-    def download_direct(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def download_direct(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         """
         return pulumi.get(self, "download_direct")
 
     @download_direct.setter
-    def download_direct(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def download_direct(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "download_direct", value)
 
     @_builtins.property
     @pulumi.getter(name="excludesPattern")
-    def excludes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
-    def excludes_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def excludes_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "excludes_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="handleReleases")
-    def handle_releases(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def handle_releases(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set, Artifactory allows you to deploy release artifacts into this repository.
         """
         return pulumi.get(self, "handle_releases")
 
     @handle_releases.setter
-    def handle_releases(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def handle_releases(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "handle_releases", value)
 
     @_builtins.property
     @pulumi.getter(name="handleSnapshots")
-    def handle_snapshots(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def handle_snapshots(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         """
         return pulumi.get(self, "handle_snapshots")
 
     @handle_snapshots.setter
-    def handle_snapshots(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def handle_snapshots(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "handle_snapshots", value)
 
     @_builtins.property
     @pulumi.getter(name="includesPattern")
-    def includes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
-    def includes_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def includes_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "includes_pattern", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="maxUniqueSnapshots")
-    def max_unique_snapshots(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_unique_snapshots(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of unique snapshots of a single artifact to store.
         Once the number of snapshots exceeds this setting, older versions are removed.
@@ -740,12 +740,12 @@ class _FederatedMavenRepositoryState:
         return pulumi.get(self, "max_unique_snapshots")
 
     @max_unique_snapshots.setter
-    def max_unique_snapshots(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_unique_snapshots(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_unique_snapshots", value)
 
     @_builtins.property
     @pulumi.getter
-    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FederatedMavenRepositoryMemberArgs']]]]:
+    def members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FederatedMavenRepositoryMemberArgs']]]]:
         """
         The list of Federated members and must contain this repository URL (configured base URL
         `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
@@ -755,105 +755,105 @@ class _FederatedMavenRepositoryState:
         return pulumi.get(self, "members")
 
     @members.setter
-    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FederatedMavenRepositoryMemberArgs']]]]):
+    def members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FederatedMavenRepositoryMemberArgs']]]]):
         pulumi.set(self, "members", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Internal description.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter(name="packageType")
-    def package_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "package_type")
 
     @package_type.setter
-    def package_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_type", value)
 
     @_builtins.property
     @pulumi.getter(name="priorityResolution")
-    def priority_resolution(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def priority_resolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         return pulumi.get(self, "priority_resolution")
 
     @priority_resolution.setter
-    def priority_resolution(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def priority_resolution(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "priority_resolution", value)
 
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
-    def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def project_environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
-    def project_environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def project_environments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "project_environments", value)
 
     @_builtins.property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
     @project_key.setter
-    def project_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_key", value)
 
     @_builtins.property
     @pulumi.getter(name="propertySets")
-    def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def property_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of property set name
         """
         return pulumi.get(self, "property_sets")
 
     @property_sets.setter
-    def property_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def property_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "property_sets", value)
 
     @_builtins.property
     @pulumi.getter
-    def proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         """
         return pulumi.get(self, "proxy")
 
     @proxy.setter
-    def proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="repoLayoutRef")
-    def repo_layout_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repo_layout_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Repository layout key for the federated repository
         """
         return pulumi.get(self, "repo_layout_ref")
 
     @repo_layout_ref.setter
-    def repo_layout_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repo_layout_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repo_layout_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotVersionBehavior")
-    def snapshot_version_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_version_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the naming convention for Maven SNAPSHOT versions.
         The options are -
@@ -864,12 +864,12 @@ class _FederatedMavenRepositoryState:
         return pulumi.get(self, "snapshot_version_behavior")
 
     @snapshot_version_behavior.setter
-    def snapshot_version_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_version_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_version_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="suppressPomConsistencyChecks")
-    def suppress_pom_consistency_checks(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def suppress_pom_consistency_checks(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
           If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
@@ -878,19 +878,19 @@ class _FederatedMavenRepositoryState:
         return pulumi.get(self, "suppress_pom_consistency_checks")
 
     @suppress_pom_consistency_checks.setter
-    def suppress_pom_consistency_checks(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def suppress_pom_consistency_checks(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "suppress_pom_consistency_checks", value)
 
     @_builtins.property
     @pulumi.getter(name="xrayIndex")
-    def xray_index(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def xray_index(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
-    def xray_index(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def xray_index(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "xray_index", value)
 
 
@@ -900,31 +900,31 @@ class FederatedMavenRepository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 archive_browsing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 blacked_out: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cdn_redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 checksum_policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cleanup_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 download_direct: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excludes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 handle_releases: Optional[pulumi.Input[_builtins.bool]] = None,
-                 handle_snapshots: Optional[pulumi.Input[_builtins.bool]] = None,
-                 includes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_unique_snapshots: Optional[pulumi.Input[_builtins.int]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FederatedMavenRepositoryMemberArgs', 'FederatedMavenRepositoryMemberArgsDict']]]]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_version_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 suppress_pom_consistency_checks: Optional[pulumi.Input[_builtins.bool]] = None,
-                 xray_index: Optional[pulumi.Input[_builtins.bool]] = None,
+                 archive_browsing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 blacked_out: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 checksum_policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cleanup_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 handle_releases: pulumi.Input[Optional[_builtins.bool]] = None,
+                 handle_snapshots: pulumi.Input[Optional[_builtins.bool]] = None,
+                 includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_unique_snapshots: pulumi.Input[Optional[_builtins.int]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedMavenRepositoryMemberArgs', 'FederatedMavenRepositoryMemberArgsDict']]]]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_version_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 suppress_pom_consistency_checks: pulumi.Input[Optional[_builtins.bool]] = None,
+                 xray_index: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Creates a federated Maven repository.
@@ -1049,31 +1049,31 @@ class FederatedMavenRepository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 archive_browsing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 blacked_out: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cdn_redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 checksum_policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cleanup_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 download_direct: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excludes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 handle_releases: Optional[pulumi.Input[_builtins.bool]] = None,
-                 handle_snapshots: Optional[pulumi.Input[_builtins.bool]] = None,
-                 includes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_unique_snapshots: Optional[pulumi.Input[_builtins.int]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FederatedMavenRepositoryMemberArgs', 'FederatedMavenRepositoryMemberArgsDict']]]]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_version_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 suppress_pom_consistency_checks: Optional[pulumi.Input[_builtins.bool]] = None,
-                 xray_index: Optional[pulumi.Input[_builtins.bool]] = None,
+                 archive_browsing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 blacked_out: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 checksum_policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cleanup_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 handle_releases: pulumi.Input[Optional[_builtins.bool]] = None,
+                 handle_snapshots: pulumi.Input[Optional[_builtins.bool]] = None,
+                 includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_unique_snapshots: pulumi.Input[Optional[_builtins.int]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedMavenRepositoryMemberArgs', 'FederatedMavenRepositoryMemberArgsDict']]]]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_version_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 suppress_pom_consistency_checks: pulumi.Input[Optional[_builtins.bool]] = None,
+                 xray_index: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1123,32 +1123,32 @@ class FederatedMavenRepository(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            archive_browsing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            blacked_out: Optional[pulumi.Input[_builtins.bool]] = None,
-            cdn_redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-            checksum_policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-            cleanup_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            disable_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
-            download_direct: Optional[pulumi.Input[_builtins.bool]] = None,
-            excludes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-            handle_releases: Optional[pulumi.Input[_builtins.bool]] = None,
-            handle_snapshots: Optional[pulumi.Input[_builtins.bool]] = None,
-            includes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            max_unique_snapshots: Optional[pulumi.Input[_builtins.int]] = None,
-            members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FederatedMavenRepositoryMemberArgs', 'FederatedMavenRepositoryMemberArgsDict']]]]] = None,
-            notes: Optional[pulumi.Input[_builtins.str]] = None,
-            package_type: Optional[pulumi.Input[_builtins.str]] = None,
-            priority_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-            project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            project_key: Optional[pulumi.Input[_builtins.str]] = None,
-            property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            proxy: Optional[pulumi.Input[_builtins.str]] = None,
-            repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-            snapshot_version_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-            suppress_pom_consistency_checks: Optional[pulumi.Input[_builtins.bool]] = None,
-            xray_index: Optional[pulumi.Input[_builtins.bool]] = None) -> 'FederatedMavenRepository':
+            archive_browsing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            blacked_out: pulumi.Input[Optional[_builtins.bool]] = None,
+            cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+            checksum_policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+            cleanup_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+            download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
+            excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            handle_releases: pulumi.Input[Optional[_builtins.bool]] = None,
+            handle_snapshots: pulumi.Input[Optional[_builtins.bool]] = None,
+            includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            max_unique_snapshots: pulumi.Input[Optional[_builtins.int]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedMavenRepositoryMemberArgs', 'FederatedMavenRepositoryMemberArgsDict']]]]] = None,
+            notes: pulumi.Input[Optional[_builtins.str]] = None,
+            package_type: pulumi.Input[Optional[_builtins.str]] = None,
+            priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+            project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            project_key: pulumi.Input[Optional[_builtins.str]] = None,
+            property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            proxy: pulumi.Input[Optional[_builtins.str]] = None,
+            repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            snapshot_version_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            suppress_pom_consistency_checks: pulumi.Input[Optional[_builtins.bool]] = None,
+            xray_index: pulumi.Input[Optional[_builtins.bool]] = None) -> 'FederatedMavenRepository':
         """
         Get an existing FederatedMavenRepository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

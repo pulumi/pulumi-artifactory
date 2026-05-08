@@ -98,7 +98,7 @@ export interface ApiKeyState {
      *
      * @deprecated Deprecated in favor of "artifactory.ScopedToken".
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
 }
 
 /**

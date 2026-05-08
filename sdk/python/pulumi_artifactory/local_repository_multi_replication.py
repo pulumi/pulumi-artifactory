@@ -23,8 +23,8 @@ class LocalRepositoryMultiReplicationArgs:
     def __init__(__self__, *,
                  cron_exp: pulumi.Input[_builtins.str],
                  repo_key: pulumi.Input[_builtins.str],
-                 enable_event_replication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replications: Optional[pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]] = None):
+                 enable_event_replication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replications: pulumi.Input[Optional[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]] = None):
         """
         The set of arguments for constructing a LocalRepositoryMultiReplication resource.
 
@@ -66,36 +66,36 @@ class LocalRepositoryMultiReplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableEventReplication")
-    def enable_event_replication(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_event_replication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         """
         return pulumi.get(self, "enable_event_replication")
 
     @enable_event_replication.setter
-    def enable_event_replication(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_event_replication(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_event_replication", value)
 
     @_builtins.property
     @pulumi.getter
-    def replications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]]:
+    def replications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]]:
         """
         List of replications minimum 1 element.
         """
         return pulumi.get(self, "replications")
 
     @replications.setter
-    def replications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]]):
+    def replications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]]):
         pulumi.set(self, "replications", value)
 
 
 @pulumi.input_type
 class _LocalRepositoryMultiReplicationState:
     def __init__(__self__, *,
-                 cron_exp: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_event_replication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replications: Optional[pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]] = None,
-                 repo_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_event_replication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replications: pulumi.Input[Optional[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]] = None,
+                 repo_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocalRepositoryMultiReplication resources.
 
@@ -115,50 +115,50 @@ class _LocalRepositoryMultiReplicationState:
 
     @_builtins.property
     @pulumi.getter(name="cronExp")
-    def cron_exp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cron_exp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         """
         return pulumi.get(self, "cron_exp")
 
     @cron_exp.setter
-    def cron_exp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cron_exp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cron_exp", value)
 
     @_builtins.property
     @pulumi.getter(name="enableEventReplication")
-    def enable_event_replication(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_event_replication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         """
         return pulumi.get(self, "enable_event_replication")
 
     @enable_event_replication.setter
-    def enable_event_replication(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_event_replication(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_event_replication", value)
 
     @_builtins.property
     @pulumi.getter
-    def replications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]]:
+    def replications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]]:
         """
         List of replications minimum 1 element.
         """
         return pulumi.get(self, "replications")
 
     @replications.setter
-    def replications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]]):
+    def replications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]]):
         pulumi.set(self, "replications", value)
 
     @_builtins.property
     @pulumi.getter(name="repoKey")
-    def repo_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repo_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Repository name.
         """
         return pulumi.get(self, "repo_key")
 
     @repo_key.setter
-    def repo_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repo_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repo_key", value)
 
 
@@ -168,10 +168,10 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cron_exp: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_event_replication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict']]]]] = None,
-                 repo_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_event_replication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict']]]]] = None,
+                 repo_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a local repository replication resource, also referred to as Artifactory push replication. This can be used to create and manage Artifactory local repository replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
@@ -315,10 +315,10 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cron_exp: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_event_replication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict']]]]] = None,
-                 repo_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_event_replication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict']]]]] = None,
+                 repo_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -346,10 +346,10 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cron_exp: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_event_replication: Optional[pulumi.Input[_builtins.bool]] = None,
-            replications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict']]]]] = None,
-            repo_key: Optional[pulumi.Input[_builtins.str]] = None) -> 'LocalRepositoryMultiReplication':
+            cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_event_replication: pulumi.Input[Optional[_builtins.bool]] = None,
+            replications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict']]]]] = None,
+            repo_key: pulumi.Input[Optional[_builtins.str]] = None) -> 'LocalRepositoryMultiReplication':
         """
         Get an existing LocalRepositoryMultiReplication resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

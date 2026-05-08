@@ -162,29 +162,29 @@ export interface GetLocalCargoRepositoryOutputArgs {
      * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
      * access option. Default value is `false`.
      */
-    anonymousAccess?: pulumi.Input<boolean>;
-    archiveBrowsingEnabled?: pulumi.Input<boolean>;
-    blackedOut?: pulumi.Input<boolean>;
-    cdnRedirect?: pulumi.Input<boolean>;
-    description?: pulumi.Input<string>;
-    downloadDirect?: pulumi.Input<boolean>;
+    anonymousAccess?: pulumi.Input<boolean | undefined>;
+    archiveBrowsingEnabled?: pulumi.Input<boolean | undefined>;
+    blackedOut?: pulumi.Input<boolean | undefined>;
+    cdnRedirect?: pulumi.Input<boolean | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    downloadDirect?: pulumi.Input<boolean | undefined>;
     /**
      * Enable internal index support based on Cargo sparse index specifications, instead
      * of the default git index. Default value is `false`.
      */
-    enableSparseIndex?: pulumi.Input<boolean>;
-    excludesPattern?: pulumi.Input<string>;
-    includesPattern?: pulumi.Input<string>;
-    indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
+    enableSparseIndex?: pulumi.Input<boolean | undefined>;
+    excludesPattern?: pulumi.Input<string | undefined>;
+    includesPattern?: pulumi.Input<string | undefined>;
+    indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * the identity key of the repo.
      */
     key: pulumi.Input<string>;
-    notes?: pulumi.Input<string>;
-    priorityResolution?: pulumi.Input<boolean>;
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    projectKey?: pulumi.Input<string>;
-    propertySets?: pulumi.Input<pulumi.Input<string>[]>;
-    repoLayoutRef?: pulumi.Input<string>;
-    xrayIndex?: pulumi.Input<boolean>;
+    notes?: pulumi.Input<string | undefined>;
+    priorityResolution?: pulumi.Input<boolean | undefined>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    projectKey?: pulumi.Input<string | undefined>;
+    propertySets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
+    xrayIndex?: pulumi.Input<boolean | undefined>;
 }

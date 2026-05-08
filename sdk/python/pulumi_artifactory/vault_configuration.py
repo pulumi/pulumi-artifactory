@@ -22,7 +22,7 @@ __all__ = ['VaultConfigurationArgs', 'VaultConfiguration']
 class VaultConfigurationArgs:
     def __init__(__self__, *,
                  config: pulumi.Input['VaultConfigurationConfigArgs'],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VaultConfiguration resource.
 
@@ -43,22 +43,22 @@ class VaultConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Vault configuration
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _VaultConfigurationState:
     def __init__(__self__, *,
-                 config: Optional[pulumi.Input['VaultConfigurationConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 config: pulumi.Input[Optional['VaultConfigurationConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VaultConfiguration resources.
 
@@ -71,23 +71,23 @@ class _VaultConfigurationState:
 
     @_builtins.property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input['VaultConfigurationConfigArgs']]:
+    def config(self) -> pulumi.Input[Optional['VaultConfigurationConfigArgs']]:
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input['VaultConfigurationConfigArgs']]):
+    def config(self, value: pulumi.Input[Optional['VaultConfigurationConfigArgs']]):
         pulumi.set(self, "config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Vault configuration
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -97,8 +97,8 @@ class VaultConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[Union['VaultConfigurationConfigArgs', 'VaultConfigurationConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 config: pulumi.Input[Optional[Union['VaultConfigurationConfigArgs', 'VaultConfigurationConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource enables you to configure an external vault connector to use as a centralized secret management tool for the keys used to sign packages. For more information, see [JFrog documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/vault).
@@ -221,8 +221,8 @@ class VaultConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[Union['VaultConfigurationConfigArgs', 'VaultConfigurationConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 config: pulumi.Input[Optional[Union['VaultConfigurationConfigArgs', 'VaultConfigurationConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -246,8 +246,8 @@ class VaultConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            config: Optional[pulumi.Input[Union['VaultConfigurationConfigArgs', 'VaultConfigurationConfigArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'VaultConfiguration':
+            config: pulumi.Input[Optional[Union['VaultConfigurationConfigArgs', 'VaultConfigurationConfigArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'VaultConfiguration':
         """
         Get an existing VaultConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

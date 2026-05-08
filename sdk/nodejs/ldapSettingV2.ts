@@ -193,59 +193,59 @@ export interface LdapSettingV2State {
     /**
      * Auto created users will have access to their profile page and will be able to perform actions such as generating an API key. Default value is `false`.
      */
-    allowUserToAccessProfile?: pulumi.Input<boolean>;
+    allowUserToAccessProfile?: pulumi.Input<boolean | undefined>;
     /**
      * When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with auto-join groups defined in Artifactory. Default value is `true`.
      */
-    autoCreateUser?: pulumi.Input<boolean>;
+    autoCreateUser?: pulumi.Input<boolean | undefined>;
     /**
      * An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is`mail`.
      */
-    emailAttribute?: pulumi.Input<string>;
+    emailAttribute?: pulumi.Input<string | undefined>;
     /**
      * Flag to enable or disable the ldap setting. Default value is `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Ldap setting name.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * When this is set to `true`, an empty or missing usernames array will detach all users from the group.
      */
-    ldapPoisoningProtection?: pulumi.Input<boolean>;
+    ldapPoisoningProtection?: pulumi.Input<boolean | undefined>;
     /**
      * Location of the LDAP server in the following format: `ldap://myldapserver/dc=sampledomain,dc=com`
      */
-    ldapUrl?: pulumi.Input<string>;
+    ldapUrl?: pulumi.Input<string | undefined>;
     /**
      * The full DN of the user that binds to the LDAP server to perform user searches. Only used with `search` authentication.
      */
-    managerDn?: pulumi.Input<string>;
+    managerDn?: pulumi.Input<string | undefined>;
     /**
      * The password of the user that binds to the LDAP server to perform the search. Only used with `search` authentication.
      */
-    managerPassword?: pulumi.Input<string>;
+    managerPassword?: pulumi.Input<string | undefined>;
     /**
      * When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a PagedResultsControl configuration. Default value is `true`.
      */
-    pagingSupportEnabled?: pulumi.Input<boolean>;
+    pagingSupportEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A context name to search in relative to the base DN of the LDAP URL. For example, 'ou=users' With the LDAP Group Add-on enabled, it is possible to enter multiple search base entries separated by a pipe ('|') character.
      */
-    searchBase?: pulumi.Input<string>;
+    searchBase?: pulumi.Input<string | undefined>;
     /**
      * A filter expression used to search for the user DN used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, and is denoted by '{0}'. Possible examples are: (uid={0}) - This searches for a username match on the attribute. Authentication to LDAP is performed from the DN found if successful.
      */
-    searchFilter?: pulumi.Input<string>;
+    searchFilter?: pulumi.Input<string | undefined>;
     /**
      * When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is `true`.
      */
-    searchSubTree?: pulumi.Input<boolean>;
+    searchSubTree?: pulumi.Input<boolean | undefined>;
     /**
      * A DN pattern that can be used to log users directly in to LDAP. This pattern is used to create a DN string for 'direct' user authentication where the pattern is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username. This only works if anonymous binding is allowed and a direct user DN can be used, which is not the default case for Active Directory (use User DN search filter instead). Example: uid={0},ou=People. Default value is blank/empty.
      */
-    userDnPattern?: pulumi.Input<string>;
+    userDnPattern?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -255,19 +255,19 @@ export interface LdapSettingV2Args {
     /**
      * Auto created users will have access to their profile page and will be able to perform actions such as generating an API key. Default value is `false`.
      */
-    allowUserToAccessProfile?: pulumi.Input<boolean>;
+    allowUserToAccessProfile?: pulumi.Input<boolean | undefined>;
     /**
      * When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with auto-join groups defined in Artifactory. Default value is `true`.
      */
-    autoCreateUser?: pulumi.Input<boolean>;
+    autoCreateUser?: pulumi.Input<boolean | undefined>;
     /**
      * An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is`mail`.
      */
-    emailAttribute?: pulumi.Input<string>;
+    emailAttribute?: pulumi.Input<string | undefined>;
     /**
      * Flag to enable or disable the ldap setting. Default value is `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Ldap setting name.
      */
@@ -275,7 +275,7 @@ export interface LdapSettingV2Args {
     /**
      * When this is set to `true`, an empty or missing usernames array will detach all users from the group.
      */
-    ldapPoisoningProtection?: pulumi.Input<boolean>;
+    ldapPoisoningProtection?: pulumi.Input<boolean | undefined>;
     /**
      * Location of the LDAP server in the following format: `ldap://myldapserver/dc=sampledomain,dc=com`
      */
@@ -283,29 +283,29 @@ export interface LdapSettingV2Args {
     /**
      * The full DN of the user that binds to the LDAP server to perform user searches. Only used with `search` authentication.
      */
-    managerDn?: pulumi.Input<string>;
+    managerDn?: pulumi.Input<string | undefined>;
     /**
      * The password of the user that binds to the LDAP server to perform the search. Only used with `search` authentication.
      */
-    managerPassword?: pulumi.Input<string>;
+    managerPassword?: pulumi.Input<string | undefined>;
     /**
      * When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a PagedResultsControl configuration. Default value is `true`.
      */
-    pagingSupportEnabled?: pulumi.Input<boolean>;
+    pagingSupportEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A context name to search in relative to the base DN of the LDAP URL. For example, 'ou=users' With the LDAP Group Add-on enabled, it is possible to enter multiple search base entries separated by a pipe ('|') character.
      */
-    searchBase?: pulumi.Input<string>;
+    searchBase?: pulumi.Input<string | undefined>;
     /**
      * A filter expression used to search for the user DN used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, and is denoted by '{0}'. Possible examples are: (uid={0}) - This searches for a username match on the attribute. Authentication to LDAP is performed from the DN found if successful.
      */
-    searchFilter?: pulumi.Input<string>;
+    searchFilter?: pulumi.Input<string | undefined>;
     /**
      * When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is `true`.
      */
-    searchSubTree?: pulumi.Input<boolean>;
+    searchSubTree?: pulumi.Input<boolean | undefined>;
     /**
      * A DN pattern that can be used to log users directly in to LDAP. This pattern is used to create a DN string for 'direct' user authentication where the pattern is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username. This only works if anonymous binding is allowed and a direct user DN can be used, which is not the default case for Active Directory (use User DN search filter instead). Example: uid={0},ou=People. Default value is blank/empty.
      */
-    userDnPattern?: pulumi.Input<string>;
+    userDnPattern?: pulumi.Input<string | undefined>;
 }

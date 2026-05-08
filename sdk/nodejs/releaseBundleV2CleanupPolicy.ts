@@ -189,25 +189,25 @@ export interface ReleaseBundleV2CleanupPolicyState {
     /**
      * The cron expression determines when the policy is run. This parameter is not mandatory, however if left empty the policy will not run automatically and can only be triggered manually.
      */
-    cronExpression?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
+    cronExpression?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
      */
-    durationInMinutes?: pulumi.Input<number>;
+    durationInMinutes?: pulumi.Input<number | undefined>;
     /**
      * Enables or disabled the release bundles v2 cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Needs to be set to releaseBundle.
      */
-    itemType?: pulumi.Input<string>;
+    itemType?: pulumi.Input<string | undefined>;
     /**
      * An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
      */
-    key?: pulumi.Input<string>;
-    searchCriteria?: pulumi.Input<inputs.ReleaseBundleV2CleanupPolicySearchCriteria>;
+    key?: pulumi.Input<string | undefined>;
+    searchCriteria?: pulumi.Input<inputs.ReleaseBundleV2CleanupPolicySearchCriteria | undefined>;
 }
 
 /**
@@ -217,20 +217,20 @@ export interface ReleaseBundleV2CleanupPolicyArgs {
     /**
      * The cron expression determines when the policy is run. This parameter is not mandatory, however if left empty the policy will not run automatically and can only be triggered manually.
      */
-    cronExpression?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
+    cronExpression?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
      */
-    durationInMinutes?: pulumi.Input<number>;
+    durationInMinutes?: pulumi.Input<number | undefined>;
     /**
      * Enables or disabled the release bundles v2 cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Needs to be set to releaseBundle.
      */
-    itemType?: pulumi.Input<string>;
+    itemType?: pulumi.Input<string | undefined>;
     /**
      * An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
      */

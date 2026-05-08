@@ -25,8 +25,8 @@ class DestinationCustomWebhookArgs:
                  event_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  handlers: pulumi.Input[Sequence[pulumi.Input['DestinationCustomWebhookHandlerArgs']]],
                  key: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a DestinationCustomWebhook resource.
 
@@ -96,38 +96,38 @@ class DestinationCustomWebhookArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Webhook description. Max length 1000 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Status of webhook. Default to `true`
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
 @pulumi.input_type
 class _DestinationCustomWebhookState:
     def __init__(__self__, *,
-                 criteria: Optional[pulumi.Input['DestinationCustomWebhookCriteriaArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input['DestinationCustomWebhookHandlerArgs']]]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None):
+                 criteria: pulumi.Input[Optional['DestinationCustomWebhookCriteriaArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 handlers: pulumi.Input[Optional[Sequence[pulumi.Input['DestinationCustomWebhookHandlerArgs']]]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DestinationCustomWebhook resources.
 
@@ -153,74 +153,74 @@ class _DestinationCustomWebhookState:
 
     @_builtins.property
     @pulumi.getter
-    def criteria(self) -> Optional[pulumi.Input['DestinationCustomWebhookCriteriaArgs']]:
+    def criteria(self) -> pulumi.Input[Optional['DestinationCustomWebhookCriteriaArgs']]:
         """
         Specifies where the webhook will be applied on which repositories.
         """
         return pulumi.get(self, "criteria")
 
     @criteria.setter
-    def criteria(self, value: Optional[pulumi.Input['DestinationCustomWebhookCriteriaArgs']]):
+    def criteria(self, value: pulumi.Input[Optional['DestinationCustomWebhookCriteriaArgs']]):
         pulumi.set(self, "criteria", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Webhook description. Max length 1000 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Status of webhook. Default to `true`
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="eventTypes")
-    def event_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def event_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
         """
         return pulumi.get(self, "event_types")
 
     @event_types.setter
-    def event_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def event_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "event_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def handlers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DestinationCustomWebhookHandlerArgs']]]]:
+    def handlers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DestinationCustomWebhookHandlerArgs']]]]:
         """
         At least one is required.
         """
         return pulumi.get(self, "handlers")
 
     @handlers.setter
-    def handlers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DestinationCustomWebhookHandlerArgs']]]]):
+    def handlers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DestinationCustomWebhookHandlerArgs']]]]):
         pulumi.set(self, "handlers", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
 
@@ -230,12 +230,12 @@ class DestinationCustomWebhook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 criteria: Optional[pulumi.Input[Union['DestinationCustomWebhookCriteriaArgs', 'DestinationCustomWebhookCriteriaArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DestinationCustomWebhookHandlerArgs', 'DestinationCustomWebhookHandlerArgsDict']]]]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
+                 criteria: pulumi.Input[Optional[Union['DestinationCustomWebhookCriteriaArgs', 'DestinationCustomWebhookCriteriaArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DestinationCustomWebhookHandlerArgs', 'DestinationCustomWebhookHandlerArgsDict']]]]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an Artifactory custom webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
@@ -347,12 +347,12 @@ class DestinationCustomWebhook(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 criteria: Optional[pulumi.Input[Union['DestinationCustomWebhookCriteriaArgs', 'DestinationCustomWebhookCriteriaArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DestinationCustomWebhookHandlerArgs', 'DestinationCustomWebhookHandlerArgsDict']]]]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
+                 criteria: pulumi.Input[Optional[Union['DestinationCustomWebhookCriteriaArgs', 'DestinationCustomWebhookCriteriaArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DestinationCustomWebhookHandlerArgs', 'DestinationCustomWebhookHandlerArgsDict']]]]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -386,12 +386,12 @@ class DestinationCustomWebhook(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            criteria: Optional[pulumi.Input[Union['DestinationCustomWebhookCriteriaArgs', 'DestinationCustomWebhookCriteriaArgsDict']]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            event_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            handlers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DestinationCustomWebhookHandlerArgs', 'DestinationCustomWebhookHandlerArgsDict']]]]] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None) -> 'DestinationCustomWebhook':
+            criteria: pulumi.Input[Optional[Union['DestinationCustomWebhookCriteriaArgs', 'DestinationCustomWebhookCriteriaArgsDict']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DestinationCustomWebhookHandlerArgs', 'DestinationCustomWebhookHandlerArgsDict']]]]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None) -> 'DestinationCustomWebhook':
         """
         Get an existing DestinationCustomWebhook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

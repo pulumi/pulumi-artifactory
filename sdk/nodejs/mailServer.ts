@@ -163,43 +163,43 @@ export interface MailServerState {
     /**
      * The Artifactory URL to to link to in all outgoing messages.
      */
-    artifactoryUrl?: pulumi.Input<string>;
+    artifactoryUrl?: pulumi.Input<string | undefined>;
     /**
      * When set, mail notifications are enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The 'from' address header to use in all outgoing messages.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The mail server IP address / DNS.
      */
-    host?: pulumi.Input<string>;
+    host?: pulumi.Input<string | undefined>;
     /**
      * The password for authentication with the mail server.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The port number of the mail server.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * A prefix to use for the subject of all outgoing mails.
      */
-    subjectPrefix?: pulumi.Input<string>;
+    subjectPrefix?: pulumi.Input<string | undefined>;
     /**
      * When set to 'true', uses a secure connection to the mail server.
      */
-    useSsl?: pulumi.Input<boolean>;
+    useSsl?: pulumi.Input<boolean | undefined>;
     /**
      * When set to 'true', uses Transport Layer Security when connecting to the mail server.
      */
-    useTls?: pulumi.Input<boolean>;
+    useTls?: pulumi.Input<boolean | undefined>;
     /**
      * The username for authentication with the mail server.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -209,7 +209,7 @@ export interface MailServerArgs {
     /**
      * The Artifactory URL to to link to in all outgoing messages.
      */
-    artifactoryUrl?: pulumi.Input<string>;
+    artifactoryUrl?: pulumi.Input<string | undefined>;
     /**
      * When set, mail notifications are enabled.
      */
@@ -217,7 +217,7 @@ export interface MailServerArgs {
     /**
      * The 'from' address header to use in all outgoing messages.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The mail server IP address / DNS.
      */
@@ -225,7 +225,7 @@ export interface MailServerArgs {
     /**
      * The password for authentication with the mail server.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The port number of the mail server.
      */
@@ -233,17 +233,17 @@ export interface MailServerArgs {
     /**
      * A prefix to use for the subject of all outgoing mails.
      */
-    subjectPrefix?: pulumi.Input<string>;
+    subjectPrefix?: pulumi.Input<string | undefined>;
     /**
      * When set to 'true', uses a secure connection to the mail server.
      */
-    useSsl?: pulumi.Input<boolean>;
+    useSsl?: pulumi.Input<boolean | undefined>;
     /**
      * When set to 'true', uses Transport Layer Security when connecting to the mail server.
      */
-    useTls?: pulumi.Input<boolean>;
+    useTls?: pulumi.Input<boolean | undefined>;
     /**
      * The username for authentication with the mail server.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }

@@ -133,9 +133,9 @@ def get_repositories(package_type: Optional[_builtins.str] = None,
         project_key=pulumi.get(__ret__, 'project_key'),
         repos=pulumi.get(__ret__, 'repos'),
         repository_type=pulumi.get(__ret__, 'repository_type'))
-def get_repositories_output(package_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            project_key: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            repository_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_repositories_output(package_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            project_key: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            repository_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoriesResult]:
     """
     Returns a list of minimal repository details for all repositories of the specified type.

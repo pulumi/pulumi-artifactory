@@ -21,8 +21,8 @@ class ArtifactArgs:
     def __init__(__self__, *,
                  path: pulumi.Input[_builtins.str],
                  repository: pulumi.Input[_builtins.str],
-                 content_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Artifact resource.
 
@@ -64,45 +64,45 @@ class ArtifactArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentBase64")
-    def content_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
         """
         return pulumi.get(self, "content_base64")
 
     @content_base64.setter
-    def content_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="filePath")
-    def file_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
         """
         return pulumi.get(self, "file_path")
 
     @file_path.setter
-    def file_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_path", value)
 
 
 @pulumi.input_type
 class _ArtifactState:
     def __init__(__self__, *,
-                 checksum_md5: Optional[pulumi.Input[_builtins.str]] = None,
-                 checksum_sha1: Optional[pulumi.Input[_builtins.str]] = None,
-                 checksum_sha256: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 download_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 mime_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 size: Optional[pulumi.Input[_builtins.int]] = None,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 checksum_md5: pulumi.Input[Optional[_builtins.str]] = None,
+                 checksum_sha1: pulumi.Input[Optional[_builtins.str]] = None,
+                 checksum_sha256: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 download_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 mime_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 size: pulumi.Input[Optional[_builtins.int]] = None,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Artifact resources.
 
@@ -149,158 +149,158 @@ class _ArtifactState:
 
     @_builtins.property
     @pulumi.getter(name="checksumMd5")
-    def checksum_md5(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def checksum_md5(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         MD5 checksum of the artifact.
         """
         return pulumi.get(self, "checksum_md5")
 
     @checksum_md5.setter
-    def checksum_md5(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def checksum_md5(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "checksum_md5", value)
 
     @_builtins.property
     @pulumi.getter(name="checksumSha1")
-    def checksum_sha1(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def checksum_sha1(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SHA1 checksum of the artifact.
         """
         return pulumi.get(self, "checksum_sha1")
 
     @checksum_sha1.setter
-    def checksum_sha1(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def checksum_sha1(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "checksum_sha1", value)
 
     @_builtins.property
     @pulumi.getter(name="checksumSha256")
-    def checksum_sha256(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def checksum_sha256(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SHA256 checksum of the artifact.
         """
         return pulumi.get(self, "checksum_sha256")
 
     @checksum_sha256.setter
-    def checksum_sha256(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def checksum_sha256(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "checksum_sha256", value)
 
     @_builtins.property
     @pulumi.getter(name="contentBase64")
-    def content_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
         """
         return pulumi.get(self, "content_base64")
 
     @content_base64.setter
-    def content_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_base64", value)
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp when artifact is created.
         """
         return pulumi.get(self, "created")
 
     @created.setter
-    def created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created", value)
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User who deploys the artifact.
         """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter(name="downloadUri")
-    def download_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def download_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Download URI of the artifact.
         """
         return pulumi.get(self, "download_uri")
 
     @download_uri.setter
-    def download_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def download_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "download_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="filePath")
-    def file_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
         """
         return pulumi.get(self, "file_path")
 
     @file_path.setter
-    def file_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_path", value)
 
     @_builtins.property
     @pulumi.getter(name="mimeType")
-    def mime_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mime_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         MIME type of the artifact.
         """
         return pulumi.get(self, "mime_type")
 
     @mime_type.setter
-    def mime_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mime_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mime_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relative path in the target repository. Must begin with a '/'. You can add key-value matrix parameters to deploy the artifacts with properties. For more details, please refer to [Introducing Matrix Parameters](https://jfrog.com/help/r/jfrog-artifactory-documentation/using-properties-in-deployment-and-resolution).
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the respository.
         """
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Size of the artifact, in bytes.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI of the artifact.
         """
         return pulumi.get(self, "uri")
 
     @uri.setter
-    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uri", value)
 
 
@@ -310,10 +310,10 @@ class Artifact(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
+                 content_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource for deploying artifact to Artifactory repository. Support deploying a single artifact only. Changes to `repository` or `path` attributes will trigger a recreation of the resource (i.e. delete then create). See [JFrog documentation](https://jfrog.com/help/r/jfrog-artifactory-documentation/deploy-a-single-artifact) for more details.
@@ -383,10 +383,10 @@ class Artifact(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
+                 content_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -423,19 +423,19 @@ class Artifact(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            checksum_md5: Optional[pulumi.Input[_builtins.str]] = None,
-            checksum_sha1: Optional[pulumi.Input[_builtins.str]] = None,
-            checksum_sha256: Optional[pulumi.Input[_builtins.str]] = None,
-            content_base64: Optional[pulumi.Input[_builtins.str]] = None,
-            created: Optional[pulumi.Input[_builtins.str]] = None,
-            created_by: Optional[pulumi.Input[_builtins.str]] = None,
-            download_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            file_path: Optional[pulumi.Input[_builtins.str]] = None,
-            mime_type: Optional[pulumi.Input[_builtins.str]] = None,
-            path: Optional[pulumi.Input[_builtins.str]] = None,
-            repository: Optional[pulumi.Input[_builtins.str]] = None,
-            size: Optional[pulumi.Input[_builtins.int]] = None,
-            uri: Optional[pulumi.Input[_builtins.str]] = None) -> 'Artifact':
+            checksum_md5: pulumi.Input[Optional[_builtins.str]] = None,
+            checksum_sha1: pulumi.Input[Optional[_builtins.str]] = None,
+            checksum_sha256: pulumi.Input[Optional[_builtins.str]] = None,
+            content_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            download_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            file_path: pulumi.Input[Optional[_builtins.str]] = None,
+            mime_type: pulumi.Input[Optional[_builtins.str]] = None,
+            path: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            size: pulumi.Input[Optional[_builtins.int]] = None,
+            uri: pulumi.Input[Optional[_builtins.str]] = None) -> 'Artifact':
         """
         Get an existing Artifact resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

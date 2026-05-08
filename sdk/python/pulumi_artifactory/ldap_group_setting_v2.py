@@ -24,11 +24,11 @@ class LdapGroupSettingV2Args:
                  group_member_attribute: pulumi.Input[_builtins.str],
                  group_name_attribute: pulumi.Input[_builtins.str],
                  strategy: pulumi.Input[_builtins.str],
-                 enabled_ldap: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_attribute_search: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group_base_dn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sub_tree: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled_ldap: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_attribute_search: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group_base_dn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sub_tree: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LdapGroupSettingV2 resource.
 
@@ -121,78 +121,78 @@ class LdapGroupSettingV2Args:
 
     @_builtins.property
     @pulumi.getter(name="enabledLdap")
-    def enabled_ldap(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enabled_ldap(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The LDAP setting key you want to use for group retrieval.
         """
         return pulumi.get(self, "enabled_ldap")
 
     @enabled_ldap.setter
-    def enabled_ldap(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enabled_ldap(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enabled_ldap", value)
 
     @_builtins.property
     @pulumi.getter(name="forceAttributeSearch")
-    def force_attribute_search(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_attribute_search(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This attribute is used in very specific cases of LDAP group settings. Don't switch it to `false`, unless instructed by the JFrog support team. Default value is `false`.
         """
         return pulumi.get(self, "force_attribute_search")
 
     @force_attribute_search.setter
-    def force_attribute_search(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_attribute_search(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_attribute_search", value)
 
     @_builtins.property
     @pulumi.getter(name="groupBaseDn")
-    def group_base_dn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_base_dn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP Setting’s “Search Base”). Used when importing groups.
         """
         return pulumi.get(self, "group_base_dn")
 
     @group_base_dn.setter
-    def group_base_dn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_base_dn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_base_dn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Ldap group setting name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="subTree")
-    def sub_tree(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sub_tree(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `sub_tree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
         """
         return pulumi.get(self, "sub_tree")
 
     @sub_tree.setter
-    def sub_tree(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sub_tree(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sub_tree", value)
 
 
 @pulumi.input_type
 class _LdapGroupSettingV2State:
     def __init__(__self__, *,
-                 description_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_ldap: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_attribute_search: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group_base_dn: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_member_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_name_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 sub_tree: Optional[pulumi.Input[_builtins.bool]] = None):
+                 description_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_ldap: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_attribute_search: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group_base_dn: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_member_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_name_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 sub_tree: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering LdapGroupSettingV2 resources.
 
@@ -230,122 +230,122 @@ class _LdapGroupSettingV2State:
 
     @_builtins.property
     @pulumi.getter(name="descriptionAttribute")
-    def description_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An attribute on the group entry which denoting the group description. Used when importing groups.
         """
         return pulumi.get(self, "description_attribute")
 
     @description_attribute.setter
-    def description_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledLdap")
-    def enabled_ldap(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enabled_ldap(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The LDAP setting key you want to use for group retrieval.
         """
         return pulumi.get(self, "enabled_ldap")
 
     @enabled_ldap.setter
-    def enabled_ldap(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enabled_ldap(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enabled_ldap", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The LDAP filter used to search for group entries. Used for importing groups.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="forceAttributeSearch")
-    def force_attribute_search(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_attribute_search(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This attribute is used in very specific cases of LDAP group settings. Don't switch it to `false`, unless instructed by the JFrog support team. Default value is `false`.
         """
         return pulumi.get(self, "force_attribute_search")
 
     @force_attribute_search.setter
-    def force_attribute_search(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_attribute_search(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_attribute_search", value)
 
     @_builtins.property
     @pulumi.getter(name="groupBaseDn")
-    def group_base_dn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_base_dn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP Setting’s “Search Base”). Used when importing groups.
         """
         return pulumi.get(self, "group_base_dn")
 
     @group_base_dn.setter
-    def group_base_dn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_base_dn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_base_dn", value)
 
     @_builtins.property
     @pulumi.getter(name="groupMemberAttribute")
-    def group_member_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_member_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g., uniqueMember, member).
         """
         return pulumi.get(self, "group_member_attribute")
 
     @group_member_attribute.setter
-    def group_member_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_member_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_member_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="groupNameAttribute")
-    def group_name_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_name_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Attribute on the group entry denoting the group name. Used when importing groups.
         """
         return pulumi.get(self, "group_name_attribute")
 
     @group_name_attribute.setter
-    def group_name_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_name_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_name_attribute", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Ldap group setting name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN. DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member. HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, `uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org` indicates that `user1` belongs to two groups: `uk` and `developers`. Valid values are: `STATIC`, `DYNAMIC`, `HIERARCHICAL`, case sensitive, all caps.
         """
         return pulumi.get(self, "strategy")
 
     @strategy.setter
-    def strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="subTree")
-    def sub_tree(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sub_tree(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `sub_tree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
         """
         return pulumi.get(self, "sub_tree")
 
     @sub_tree.setter
-    def sub_tree(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sub_tree(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sub_tree", value)
 
 
@@ -355,16 +355,16 @@ class LdapGroupSettingV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_ldap: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_attribute_search: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group_base_dn: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_member_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_name_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 sub_tree: Optional[pulumi.Input[_builtins.bool]] = None,
+                 description_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_ldap: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_attribute_search: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group_base_dn: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_member_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_name_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 sub_tree: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides an Artifactory LDAP Setting resource.
@@ -472,16 +472,16 @@ class LdapGroupSettingV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_ldap: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_attribute_search: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group_base_dn: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_member_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_name_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 sub_tree: Optional[pulumi.Input[_builtins.bool]] = None,
+                 description_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_ldap: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_attribute_search: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group_base_dn: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_member_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_name_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 sub_tree: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -521,16 +521,16 @@ class LdapGroupSettingV2(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled_ldap: Optional[pulumi.Input[_builtins.str]] = None,
-            filter: Optional[pulumi.Input[_builtins.str]] = None,
-            force_attribute_search: Optional[pulumi.Input[_builtins.bool]] = None,
-            group_base_dn: Optional[pulumi.Input[_builtins.str]] = None,
-            group_member_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-            group_name_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            strategy: Optional[pulumi.Input[_builtins.str]] = None,
-            sub_tree: Optional[pulumi.Input[_builtins.bool]] = None) -> 'LdapGroupSettingV2':
+            description_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled_ldap: pulumi.Input[Optional[_builtins.str]] = None,
+            filter: pulumi.Input[Optional[_builtins.str]] = None,
+            force_attribute_search: pulumi.Input[Optional[_builtins.bool]] = None,
+            group_base_dn: pulumi.Input[Optional[_builtins.str]] = None,
+            group_member_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            group_name_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            sub_tree: pulumi.Input[Optional[_builtins.bool]] = None) -> 'LdapGroupSettingV2':
         """
         Get an existing LdapGroupSettingV2 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

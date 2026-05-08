@@ -269,60 +269,60 @@ export function getRemotePypiRepositoryOutput(args: GetRemotePypiRepositoryOutpu
  * A collection of arguments for invoking getRemotePypiRepository.
  */
 export interface GetRemotePypiRepositoryOutputArgs {
-    allowAnyHostAuth?: pulumi.Input<boolean>;
-    archiveBrowsingEnabled?: pulumi.Input<boolean>;
-    assumedOfflinePeriodSecs?: pulumi.Input<number>;
-    blackedOut?: pulumi.Input<boolean>;
-    blockMismatchingMimeTypes?: pulumi.Input<boolean>;
-    bypassHeadRequests?: pulumi.Input<boolean>;
-    cdnRedirect?: pulumi.Input<boolean>;
-    clientTlsCertificate?: pulumi.Input<string>;
-    contentSynchronisation?: pulumi.Input<inputs.GetRemotePypiRepositoryContentSynchronisationArgs>;
-    curated?: pulumi.Input<boolean>;
-    description?: pulumi.Input<string>;
-    disableProxy?: pulumi.Input<boolean>;
-    disableUrlNormalization?: pulumi.Input<boolean>;
-    downloadDirect?: pulumi.Input<boolean>;
-    enableCookieManagement?: pulumi.Input<boolean>;
-    excludesPattern?: pulumi.Input<string>;
-    hardFail?: pulumi.Input<boolean>;
-    includesPattern?: pulumi.Input<string>;
+    allowAnyHostAuth?: pulumi.Input<boolean | undefined>;
+    archiveBrowsingEnabled?: pulumi.Input<boolean | undefined>;
+    assumedOfflinePeriodSecs?: pulumi.Input<number | undefined>;
+    blackedOut?: pulumi.Input<boolean | undefined>;
+    blockMismatchingMimeTypes?: pulumi.Input<boolean | undefined>;
+    bypassHeadRequests?: pulumi.Input<boolean | undefined>;
+    cdnRedirect?: pulumi.Input<boolean | undefined>;
+    clientTlsCertificate?: pulumi.Input<string | undefined>;
+    contentSynchronisation?: pulumi.Input<inputs.GetRemotePypiRepositoryContentSynchronisationArgs | undefined>;
+    curated?: pulumi.Input<boolean | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    disableProxy?: pulumi.Input<boolean | undefined>;
+    disableUrlNormalization?: pulumi.Input<boolean | undefined>;
+    downloadDirect?: pulumi.Input<boolean | undefined>;
+    enableCookieManagement?: pulumi.Input<boolean | undefined>;
+    excludesPattern?: pulumi.Input<string | undefined>;
+    hardFail?: pulumi.Input<boolean | undefined>;
+    includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.
      */
     key: pulumi.Input<string>;
-    listRemoteFolderItems?: pulumi.Input<boolean>;
-    localAddress?: pulumi.Input<string>;
-    metadataRetrievalTimeoutSecs?: pulumi.Input<number>;
-    mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
-    missedCachePeriodSeconds?: pulumi.Input<number>;
-    notes?: pulumi.Input<string>;
-    offline?: pulumi.Input<boolean>;
-    passThrough?: pulumi.Input<boolean>;
-    password?: pulumi.Input<string>;
-    priorityResolution?: pulumi.Input<boolean>;
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    projectKey?: pulumi.Input<string>;
-    propertySets?: pulumi.Input<pulumi.Input<string>[]>;
-    proxy?: pulumi.Input<string>;
+    listRemoteFolderItems?: pulumi.Input<boolean | undefined>;
+    localAddress?: pulumi.Input<string | undefined>;
+    metadataRetrievalTimeoutSecs?: pulumi.Input<number | undefined>;
+    mismatchingMimeTypesOverrideList?: pulumi.Input<string | undefined>;
+    missedCachePeriodSeconds?: pulumi.Input<number | undefined>;
+    notes?: pulumi.Input<string | undefined>;
+    offline?: pulumi.Input<boolean | undefined>;
+    passThrough?: pulumi.Input<boolean | undefined>;
+    password?: pulumi.Input<string | undefined>;
+    priorityResolution?: pulumi.Input<boolean | undefined>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    projectKey?: pulumi.Input<string | undefined>;
+    propertySets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    proxy?: pulumi.Input<string | undefined>;
     /**
      * (Optional) To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
      */
-    pypiRegistryUrl?: pulumi.Input<string>;
+    pypiRegistryUrl?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
      */
-    pypiRepositorySuffix?: pulumi.Input<string>;
-    queryParams?: pulumi.Input<string>;
-    remoteRepoLayoutRef?: pulumi.Input<string>;
-    repoLayoutRef?: pulumi.Input<string>;
-    retrievalCachePeriodSeconds?: pulumi.Input<number>;
-    shareConfiguration?: pulumi.Input<boolean>;
-    socketTimeoutMillis?: pulumi.Input<number>;
-    storeArtifactsLocally?: pulumi.Input<boolean>;
-    synchronizeProperties?: pulumi.Input<boolean>;
-    unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
-    url?: pulumi.Input<string>;
-    username?: pulumi.Input<string>;
-    xrayIndex?: pulumi.Input<boolean>;
+    pypiRepositorySuffix?: pulumi.Input<string | undefined>;
+    queryParams?: pulumi.Input<string | undefined>;
+    remoteRepoLayoutRef?: pulumi.Input<string | undefined>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
+    retrievalCachePeriodSeconds?: pulumi.Input<number | undefined>;
+    shareConfiguration?: pulumi.Input<boolean | undefined>;
+    socketTimeoutMillis?: pulumi.Input<number | undefined>;
+    storeArtifactsLocally?: pulumi.Input<boolean | undefined>;
+    synchronizeProperties?: pulumi.Input<boolean | undefined>;
+    unusedArtifactsCleanupPeriodHours?: pulumi.Input<number | undefined>;
+    url?: pulumi.Input<string | undefined>;
+    username?: pulumi.Input<string | undefined>;
+    xrayIndex?: pulumi.Input<boolean | undefined>;
 }

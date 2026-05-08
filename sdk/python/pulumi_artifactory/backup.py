@@ -21,14 +21,14 @@ class BackupArgs:
     def __init__(__self__, *,
                  cron_exp: pulumi.Input[_builtins.str],
                  key: pulumi.Input[_builtins.str],
-                 create_archive: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exclude_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excluded_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 export_mission_control: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retention_period_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 send_mail_on_error: Optional[pulumi.Input[_builtins.bool]] = None,
-                 verify_disk_space: Optional[pulumi.Input[_builtins.bool]] = None):
+                 create_archive: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exclude_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excluded_repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 export_mission_control: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retention_period_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 send_mail_on_error: pulumi.Input[Optional[_builtins.bool]] = None,
+                 verify_disk_space: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Backup resource.
 
@@ -84,114 +84,114 @@ class BackupArgs:
 
     @_builtins.property
     @pulumi.getter(name="createArchive")
-    def create_archive(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def create_archive(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`
         """
         return pulumi.get(self, "create_archive")
 
     @create_archive.setter
-    def create_archive(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def create_archive(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create_archive", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to enable or disable the backup config. Default value is `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeNewRepositories")
-    def exclude_new_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def exclude_new_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to true, new repositories will not be automatically added to the backup. Default value is `false`.
         """
         return pulumi.get(self, "exclude_new_repositories")
 
     @exclude_new_repositories.setter
-    def exclude_new_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def exclude_new_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exclude_new_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="excludedRepositories")
-    def excluded_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_repositories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of excluded repositories from the backup.
         """
         return pulumi.get(self, "excluded_repositories")
 
     @excluded_repositories.setter
-    def excluded_repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_repositories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="exportMissionControl")
-    def export_mission_control(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def export_mission_control(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to true, mission control will not be automatically added to the backup. Default value is `false`.
         """
         return pulumi.get(self, "export_mission_control")
 
     @export_mission_control.setter
-    def export_mission_control(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def export_mission_control(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "export_mission_control", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriodHours")
-    def retention_period_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_period_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours i.e. 7 days.
         """
         return pulumi.get(self, "retention_period_hours")
 
     @retention_period_hours.setter
-    def retention_period_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_period_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_period_hours", value)
 
     @_builtins.property
     @pulumi.getter(name="sendMailOnError")
-    def send_mail_on_error(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_mail_on_error(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
         """
         return pulumi.get(self, "send_mail_on_error")
 
     @send_mail_on_error.setter
-    def send_mail_on_error(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_mail_on_error(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_mail_on_error", value)
 
     @_builtins.property
     @pulumi.getter(name="verifyDiskSpace")
-    def verify_disk_space(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def verify_disk_space(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups. Default value is `false`.
         """
         return pulumi.get(self, "verify_disk_space")
 
     @verify_disk_space.setter
-    def verify_disk_space(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def verify_disk_space(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "verify_disk_space", value)
 
 
 @pulumi.input_type
 class _BackupState:
     def __init__(__self__, *,
-                 create_archive: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cron_exp: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exclude_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excluded_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 export_mission_control: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 send_mail_on_error: Optional[pulumi.Input[_builtins.bool]] = None,
-                 verify_disk_space: Optional[pulumi.Input[_builtins.bool]] = None):
+                 create_archive: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exclude_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excluded_repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 export_mission_control: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 send_mail_on_error: pulumi.Input[Optional[_builtins.bool]] = None,
+                 verify_disk_space: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Backup resources.
 
@@ -228,119 +228,119 @@ class _BackupState:
 
     @_builtins.property
     @pulumi.getter(name="createArchive")
-    def create_archive(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def create_archive(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`
         """
         return pulumi.get(self, "create_archive")
 
     @create_archive.setter
-    def create_archive(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def create_archive(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create_archive", value)
 
     @_builtins.property
     @pulumi.getter(name="cronExp")
-    def cron_exp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cron_exp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A valid CRON expression that you can use to control backup frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. **Note:** please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
         """
         return pulumi.get(self, "cron_exp")
 
     @cron_exp.setter
-    def cron_exp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cron_exp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cron_exp", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to enable or disable the backup config. Default value is `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeNewRepositories")
-    def exclude_new_repositories(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def exclude_new_repositories(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to true, new repositories will not be automatically added to the backup. Default value is `false`.
         """
         return pulumi.get(self, "exclude_new_repositories")
 
     @exclude_new_repositories.setter
-    def exclude_new_repositories(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def exclude_new_repositories(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exclude_new_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="excludedRepositories")
-    def excluded_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_repositories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of excluded repositories from the backup.
         """
         return pulumi.get(self, "excluded_repositories")
 
     @excluded_repositories.setter
-    def excluded_repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_repositories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="exportMissionControl")
-    def export_mission_control(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def export_mission_control(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to true, mission control will not be automatically added to the backup. Default value is `false`.
         """
         return pulumi.get(self, "export_mission_control")
 
     @export_mission_control.setter
-    def export_mission_control(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def export_mission_control(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "export_mission_control", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriodHours")
-    def retention_period_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_period_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours i.e. 7 days.
         """
         return pulumi.get(self, "retention_period_hours")
 
     @retention_period_hours.setter
-    def retention_period_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_period_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_period_hours", value)
 
     @_builtins.property
     @pulumi.getter(name="sendMailOnError")
-    def send_mail_on_error(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_mail_on_error(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
         """
         return pulumi.get(self, "send_mail_on_error")
 
     @send_mail_on_error.setter
-    def send_mail_on_error(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_mail_on_error(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_mail_on_error", value)
 
     @_builtins.property
     @pulumi.getter(name="verifyDiskSpace")
-    def verify_disk_space(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def verify_disk_space(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups. Default value is `false`.
         """
         return pulumi.get(self, "verify_disk_space")
 
     @verify_disk_space.setter
-    def verify_disk_space(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def verify_disk_space(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "verify_disk_space", value)
 
 
@@ -350,16 +350,16 @@ class Backup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_archive: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cron_exp: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exclude_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excluded_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 export_mission_control: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 send_mail_on_error: Optional[pulumi.Input[_builtins.bool]] = None,
-                 verify_disk_space: Optional[pulumi.Input[_builtins.bool]] = None,
+                 create_archive: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exclude_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excluded_repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 export_mission_control: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 send_mail_on_error: pulumi.Input[Optional[_builtins.bool]] = None,
+                 verify_disk_space: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         This resource can be used to manage the automatic and periodic backups of the entire Artifactory instance.
@@ -468,16 +468,16 @@ class Backup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_archive: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cron_exp: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exclude_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excluded_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 export_mission_control: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 send_mail_on_error: Optional[pulumi.Input[_builtins.bool]] = None,
-                 verify_disk_space: Optional[pulumi.Input[_builtins.bool]] = None,
+                 create_archive: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exclude_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excluded_repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 export_mission_control: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 send_mail_on_error: pulumi.Input[Optional[_builtins.bool]] = None,
+                 verify_disk_space: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -511,16 +511,16 @@ class Backup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            create_archive: Optional[pulumi.Input[_builtins.bool]] = None,
-            cron_exp: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            exclude_new_repositories: Optional[pulumi.Input[_builtins.bool]] = None,
-            excluded_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            export_mission_control: Optional[pulumi.Input[_builtins.bool]] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_period_hours: Optional[pulumi.Input[_builtins.int]] = None,
-            send_mail_on_error: Optional[pulumi.Input[_builtins.bool]] = None,
-            verify_disk_space: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Backup':
+            create_archive: pulumi.Input[Optional[_builtins.bool]] = None,
+            cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            exclude_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            excluded_repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            export_mission_control: pulumi.Input[Optional[_builtins.bool]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_period_hours: pulumi.Input[Optional[_builtins.int]] = None,
+            send_mail_on_error: pulumi.Input[Optional[_builtins.bool]] = None,
+            verify_disk_space: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Backup':
         """
         Get an existing Backup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

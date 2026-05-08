@@ -213,17 +213,17 @@ def get_virtual_pypi_repository(artifactory_requests_can_retrieve_remote_artifac
         project_key=pulumi.get(__ret__, 'project_key'),
         repo_layout_ref=pulumi.get(__ret__, 'repo_layout_ref'),
         repositories=pulumi.get(__ret__, 'repositories'))
-def get_virtual_pypi_repository_output(artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                       default_deployment_repo: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       description: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       excludes_pattern: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       includes_pattern: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       key: Optional[pulumi.Input[_builtins.str]] = None,
-                                       notes: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       project_environments: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                       project_key: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       repo_layout_ref: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       repositories: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+def get_virtual_pypi_repository_output(artifactory_requests_can_retrieve_remote_artifacts: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                       default_deployment_repo: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       description: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       excludes_pattern: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       includes_pattern: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       key: pulumi.Input[Optional[_builtins.str]] = None,
+                                       notes: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       project_environments: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                       project_key: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       repo_layout_ref: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       repositories: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualPypiRepositoryResult]:
     """
     Retrieves a virtual Pypi repository.

@@ -199,46 +199,46 @@ export function getLocalRpmRepositoryOutput(args: GetLocalRpmRepositoryOutputArg
  * A collection of arguments for invoking getLocalRpmRepository.
  */
 export interface GetLocalRpmRepositoryOutputArgs {
-    archiveBrowsingEnabled?: pulumi.Input<boolean>;
-    blackedOut?: pulumi.Input<boolean>;
+    archiveBrowsingEnabled?: pulumi.Input<boolean | undefined>;
+    blackedOut?: pulumi.Input<boolean | undefined>;
     /**
      * Default: `false`.
      */
-    calculateYumMetadata?: pulumi.Input<boolean>;
-    cdnRedirect?: pulumi.Input<boolean>;
-    description?: pulumi.Input<string>;
-    downloadDirect?: pulumi.Input<boolean>;
+    calculateYumMetadata?: pulumi.Input<boolean | undefined>;
+    cdnRedirect?: pulumi.Input<boolean | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    downloadDirect?: pulumi.Input<boolean | undefined>;
     /**
      * Default: `false`.
      */
-    enableFileListsIndexing?: pulumi.Input<boolean>;
-    excludesPattern?: pulumi.Input<string>;
-    includesPattern?: pulumi.Input<string>;
+    enableFileListsIndexing?: pulumi.Input<boolean | undefined>;
+    excludesPattern?: pulumi.Input<string | undefined>;
+    includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.
      */
     key: pulumi.Input<string>;
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * The primary GPG key to be used to sign packages.
      */
-    primaryKeypairRef?: pulumi.Input<string>;
-    priorityResolution?: pulumi.Input<boolean>;
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    projectKey?: pulumi.Input<string>;
-    propertySets?: pulumi.Input<pulumi.Input<string>[]>;
-    repoLayoutRef?: pulumi.Input<string>;
+    primaryKeypairRef?: pulumi.Input<string | undefined>;
+    priorityResolution?: pulumi.Input<boolean | undefined>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    projectKey?: pulumi.Input<string | undefined>;
+    propertySets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
     /**
      * The secondary GPG key to be used to sign packages.
      */
-    secondaryKeypairRef?: pulumi.Input<string>;
-    xrayIndex?: pulumi.Input<boolean>;
+    secondaryKeypairRef?: pulumi.Input<string | undefined>;
+    xrayIndex?: pulumi.Input<boolean | undefined>;
     /**
      * A comma separated list of XML file names containing RPM group component
      * definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as
      * automatically generating a gzipped version of the group files, if required. Default is empty string.
      */
-    yumGroupFileNames?: pulumi.Input<string>;
+    yumGroupFileNames?: pulumi.Input<string | undefined>;
     /**
      * The depth, relative to the repository's root folder, where RPM metadata is created. This
      * is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your
@@ -246,5 +246,5 @@ export interface GetLocalRpmRepositoryOutputArgs {
      * this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are
      * not cleaned up.
      */
-    yumRootDepth?: pulumi.Input<number>;
+    yumRootDepth?: pulumi.Input<number | undefined>;
 }

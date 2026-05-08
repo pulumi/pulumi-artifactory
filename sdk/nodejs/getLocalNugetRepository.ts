@@ -153,18 +153,18 @@ export function getLocalNugetRepositoryOutput(args: GetLocalNugetRepositoryOutpu
  * A collection of arguments for invoking getLocalNugetRepository.
  */
 export interface GetLocalNugetRepositoryOutputArgs {
-    archiveBrowsingEnabled?: pulumi.Input<boolean>;
-    blackedOut?: pulumi.Input<boolean>;
-    cdnRedirect?: pulumi.Input<boolean>;
-    description?: pulumi.Input<string>;
-    downloadDirect?: pulumi.Input<boolean>;
-    excludesPattern?: pulumi.Input<string>;
+    archiveBrowsingEnabled?: pulumi.Input<boolean | undefined>;
+    blackedOut?: pulumi.Input<boolean | undefined>;
+    cdnRedirect?: pulumi.Input<boolean | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    downloadDirect?: pulumi.Input<boolean | undefined>;
+    excludesPattern?: pulumi.Input<string | undefined>;
     /**
      * Force basic authentication credentials in order to use this repository.
      * Default is `false`.
      */
-    forceNugetAuthentication?: pulumi.Input<boolean>;
-    includesPattern?: pulumi.Input<string>;
+    forceNugetAuthentication?: pulumi.Input<boolean | undefined>;
+    includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.
      */
@@ -174,12 +174,12 @@ export interface GetLocalNugetRepositoryOutputArgs {
      * number of snapshots exceeds this setting, older versions are removed A value of 0 (default) indicates there is no
      * limit, and unique snapshots are not cleaned up.
      */
-    maxUniqueSnapshots?: pulumi.Input<number>;
-    notes?: pulumi.Input<string>;
-    priorityResolution?: pulumi.Input<boolean>;
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    projectKey?: pulumi.Input<string>;
-    propertySets?: pulumi.Input<pulumi.Input<string>[]>;
-    repoLayoutRef?: pulumi.Input<string>;
-    xrayIndex?: pulumi.Input<boolean>;
+    maxUniqueSnapshots?: pulumi.Input<number | undefined>;
+    notes?: pulumi.Input<string | undefined>;
+    priorityResolution?: pulumi.Input<boolean | undefined>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    projectKey?: pulumi.Input<string | undefined>;
+    propertySets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
+    xrayIndex?: pulumi.Input<boolean | undefined>;
 }

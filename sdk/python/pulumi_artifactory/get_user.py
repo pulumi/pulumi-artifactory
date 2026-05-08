@@ -182,13 +182,13 @@ def get_user(admin: Optional[_builtins.bool] = None,
         internal_password_disabled=pulumi.get(__ret__, 'internal_password_disabled'),
         name=pulumi.get(__ret__, 'name'),
         profile_updatable=pulumi.get(__ret__, 'profile_updatable'))
-def get_user_output(admin: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                    disable_ui_access: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                    email: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    groups: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                    internal_password_disabled: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                    name: Optional[pulumi.Input[_builtins.str]] = None,
-                    profile_updatable: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_user_output(admin: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                    disable_ui_access: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                    email: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    groups: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                    internal_password_disabled: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                    name: pulumi.Input[Optional[_builtins.str]] = None,
+                    profile_updatable: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     ## # Artifactory User Data Source

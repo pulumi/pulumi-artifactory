@@ -25,9 +25,9 @@ class ReleaseBundleV2Args:
                  source: pulumi.Input['ReleaseBundleV2SourceArgs'],
                  source_type: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_docker_manifest_resolution: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_docker_manifest_resolution: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ReleaseBundleV2 resource.
 
@@ -100,54 +100,54 @@ class ReleaseBundleV2Args:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Release Bundle
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Project key the Release Bundle belongs to
         """
         return pulumi.get(self, "project_key")
 
     @project_key.setter
-    def project_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_key", value)
 
     @_builtins.property
     @pulumi.getter(name="skipDockerManifestResolution")
-    def skip_docker_manifest_resolution(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_docker_manifest_resolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether to skip the resolution of the Docker manifest, which adds the image layers to the Release Bundle. The default value is `false` (the manifest is resolved and image layers are included).
         """
         return pulumi.get(self, "skip_docker_manifest_resolution")
 
     @skip_docker_manifest_resolution.setter
-    def skip_docker_manifest_resolution(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_docker_manifest_resolution(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_docker_manifest_resolution", value)
 
 
 @pulumi.input_type
 class _ReleaseBundleV2State:
     def __init__(__self__, *,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 keypair_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_docker_manifest_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source: Optional[pulumi.Input['ReleaseBundleV2SourceArgs']] = None,
-                 source_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 keypair_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_docker_manifest_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source: pulumi.Input[Optional['ReleaseBundleV2SourceArgs']] = None,
+                 source_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReleaseBundleV2 resources.
 
@@ -185,122 +185,122 @@ class _ReleaseBundleV2State:
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp when the new version was created (ISO 8601 standard).
         """
         return pulumi.get(self, "created")
 
     @created.setter
-    def created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created", value)
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user who created the Release Bundle.
         """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter(name="keypairName")
-    def keypair_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def keypair_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key-pair name to use for signature creation
         """
         return pulumi.get(self, "keypair_name")
 
     @keypair_name.setter
-    def keypair_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def keypair_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "keypair_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Release Bundle
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Project key the Release Bundle belongs to
         """
         return pulumi.get(self, "project_key")
 
     @project_key.setter
-    def project_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_key", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceId")
-    def service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the Artifactory instance where the Release Bundle was created.
         """
         return pulumi.get(self, "service_id")
 
     @service_id.setter
-    def service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_id", value)
 
     @_builtins.property
     @pulumi.getter(name="skipDockerManifestResolution")
-    def skip_docker_manifest_resolution(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_docker_manifest_resolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether to skip the resolution of the Docker manifest, which adds the image layers to the Release Bundle. The default value is `false` (the manifest is resolved and image layers are included).
         """
         return pulumi.get(self, "skip_docker_manifest_resolution")
 
     @skip_docker_manifest_resolution.setter
-    def skip_docker_manifest_resolution(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_docker_manifest_resolution(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_docker_manifest_resolution", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['ReleaseBundleV2SourceArgs']]:
+    def source(self) -> pulumi.Input[Optional['ReleaseBundleV2SourceArgs']]:
         """
         Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['ReleaseBundleV2SourceArgs']]):
+    def source(self, value: pulumi.Input[Optional['ReleaseBundleV2SourceArgs']]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source type. Valid values: `aql`, `artifacts`, `builds`, `release_bundles`
         """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
-    def source_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version to promote
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -310,13 +310,13 @@ class ReleaseBundleV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 keypair_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_docker_manifest_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source: Optional[pulumi.Input[Union['ReleaseBundleV2SourceArgs', 'ReleaseBundleV2SourceArgsDict']]] = None,
-                 source_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 keypair_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_docker_manifest_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source: pulumi.Input[Optional[Union['ReleaseBundleV2SourceArgs', 'ReleaseBundleV2SourceArgsDict']]] = None,
+                 source_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource enables you to creates a new Release Bundle v2, uniquely identified by a combination of repository key, name, and version. For more information, see [Understanding Release Bundles v2](https://jfrog.com/help/r/jfrog-artifactory-documentation/understanding-release-bundles-v2) and [REST API](https://jfrog.com/help/r/jfrog-rest-apis/create-release-bundle-v2-version).
@@ -465,13 +465,13 @@ class ReleaseBundleV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 keypair_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_docker_manifest_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source: Optional[pulumi.Input[Union['ReleaseBundleV2SourceArgs', 'ReleaseBundleV2SourceArgsDict']]] = None,
-                 source_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 keypair_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_docker_manifest_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source: pulumi.Input[Optional[Union['ReleaseBundleV2SourceArgs', 'ReleaseBundleV2SourceArgsDict']]] = None,
+                 source_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -509,16 +509,16 @@ class ReleaseBundleV2(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            created: Optional[pulumi.Input[_builtins.str]] = None,
-            created_by: Optional[pulumi.Input[_builtins.str]] = None,
-            keypair_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            project_key: Optional[pulumi.Input[_builtins.str]] = None,
-            service_id: Optional[pulumi.Input[_builtins.str]] = None,
-            skip_docker_manifest_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-            source: Optional[pulumi.Input[Union['ReleaseBundleV2SourceArgs', 'ReleaseBundleV2SourceArgsDict']]] = None,
-            source_type: Optional[pulumi.Input[_builtins.str]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'ReleaseBundleV2':
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            keypair_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            project_key: pulumi.Input[Optional[_builtins.str]] = None,
+            service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_docker_manifest_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+            source: pulumi.Input[Optional[Union['ReleaseBundleV2SourceArgs', 'ReleaseBundleV2SourceArgsDict']]] = None,
+            source_type: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'ReleaseBundleV2':
         """
         Get an existing ReleaseBundleV2 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

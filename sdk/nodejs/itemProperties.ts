@@ -133,19 +133,19 @@ export interface ItemPropertiesState {
     /**
      * Add this property to the selected folder and to all of artifacts and folders under this folder. Default to `false`
      */
-    isRecursive?: pulumi.Input<boolean>;
+    isRecursive?: pulumi.Input<boolean | undefined>;
     /**
      * The relative path of the item (file/folder/repository). Leave unset for repository.
      */
-    itemPath?: pulumi.Input<string>;
+    itemPath?: pulumi.Input<string | undefined>;
     /**
      * Map of key and list of values.
      */
-    properties?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>} | undefined>;
     /**
      * Respository key.
      */
-    repoKey?: pulumi.Input<string>;
+    repoKey?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -155,11 +155,11 @@ export interface ItemPropertiesArgs {
     /**
      * Add this property to the selected folder and to all of artifacts and folders under this folder. Default to `false`
      */
-    isRecursive?: pulumi.Input<boolean>;
+    isRecursive?: pulumi.Input<boolean | undefined>;
     /**
      * The relative path of the item (file/folder/repository). Leave unset for repository.
      */
-    itemPath?: pulumi.Input<string>;
+    itemPath?: pulumi.Input<string | undefined>;
     /**
      * Map of key and list of values.
      */

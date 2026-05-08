@@ -23,55 +23,55 @@ class RemoteIvyRepositoryArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  url: pulumi.Input[_builtins.str],
-                 allow_any_host_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 archive_browsing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 assumed_offline_period_secs: Optional[pulumi.Input[_builtins.int]] = None,
-                 blacked_out: Optional[pulumi.Input[_builtins.bool]] = None,
-                 block_mismatching_mime_types: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bypass_head_requests: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cdn_redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_tls_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_synchronisation: Optional[pulumi.Input['RemoteIvyRepositoryContentSynchronisationArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_url_normalization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 download_direct: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_cookie_management: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excludes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 fetch_jars_eagerly: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fetch_sources_eagerly: Optional[pulumi.Input[_builtins.bool]] = None,
-                 handle_releases: Optional[pulumi.Input[_builtins.bool]] = None,
-                 handle_snapshots: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hard_fail: Optional[pulumi.Input[_builtins.bool]] = None,
-                 includes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 list_remote_folder_items: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_unique_snapshots: Optional[pulumi.Input[_builtins.int]] = None,
-                 metadata_retrieval_timeout_secs: Optional[pulumi.Input[_builtins.int]] = None,
-                 mismatching_mime_types_override_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 missed_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 offline: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_params: Optional[pulumi.Input[_builtins.str]] = None,
-                 reject_invalid_jars: Optional[pulumi.Input[_builtins.bool]] = None,
-                 remote_repo_checksum_policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 retrieval_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 share_configuration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 socket_timeout_millis: Optional[pulumi.Input[_builtins.int]] = None,
-                 store_artifacts_locally: Optional[pulumi.Input[_builtins.bool]] = None,
-                 suppress_pom_consistency_checks: Optional[pulumi.Input[_builtins.bool]] = None,
-                 synchronize_properties: Optional[pulumi.Input[_builtins.bool]] = None,
-                 unused_artifacts_cleanup_period_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
-                 xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_any_host_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 archive_browsing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 assumed_offline_period_secs: pulumi.Input[Optional[_builtins.int]] = None,
+                 blacked_out: pulumi.Input[Optional[_builtins.bool]] = None,
+                 block_mismatching_mime_types: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bypass_head_requests: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_synchronisation: pulumi.Input[Optional['RemoteIvyRepositoryContentSynchronisationArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_cookie_management: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 fetch_jars_eagerly: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fetch_sources_eagerly: pulumi.Input[Optional[_builtins.bool]] = None,
+                 handle_releases: pulumi.Input[Optional[_builtins.bool]] = None,
+                 handle_snapshots: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hard_fail: pulumi.Input[Optional[_builtins.bool]] = None,
+                 includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 list_remote_folder_items: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_unique_snapshots: pulumi.Input[Optional[_builtins.int]] = None,
+                 metadata_retrieval_timeout_secs: pulumi.Input[Optional[_builtins.int]] = None,
+                 mismatching_mime_types_override_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 missed_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 offline: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_params: pulumi.Input[Optional[_builtins.str]] = None,
+                 reject_invalid_jars: pulumi.Input[Optional[_builtins.bool]] = None,
+                 remote_repo_checksum_policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 retrieval_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 share_configuration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 socket_timeout_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 store_artifacts_locally: pulumi.Input[Optional[_builtins.bool]] = None,
+                 suppress_pom_consistency_checks: pulumi.Input[Optional[_builtins.bool]] = None,
+                 synchronize_properties: pulumi.Input[Optional[_builtins.bool]] = None,
+                 unused_artifacts_cleanup_period_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
+                 xray_index: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RemoteIvyRepository resource.
 
@@ -256,19 +256,19 @@ class RemoteIvyRepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowAnyHostAuth")
-    def allow_any_host_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_any_host_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
         """
         return pulumi.get(self, "allow_any_host_auth")
 
     @allow_any_host_auth.setter
-    def allow_any_host_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_any_host_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_any_host_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="archiveBrowsingEnabled")
-    def archive_browsing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def archive_browsing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, you may view content such as HTML or Javadoc files directly from Artifactory.
         This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
@@ -276,617 +276,617 @@ class RemoteIvyRepositoryArgs:
         return pulumi.get(self, "archive_browsing_enabled")
 
     @archive_browsing_enabled.setter
-    def archive_browsing_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def archive_browsing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "archive_browsing_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="assumedOfflinePeriodSecs")
-    def assumed_offline_period_secs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def assumed_offline_period_secs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
         """
         return pulumi.get(self, "assumed_offline_period_secs")
 
     @assumed_offline_period_secs.setter
-    def assumed_offline_period_secs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def assumed_offline_period_secs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "assumed_offline_period_secs", value)
 
     @_builtins.property
     @pulumi.getter(name="blackedOut")
-    def blacked_out(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def blacked_out(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
         """
         return pulumi.get(self, "blacked_out")
 
     @blacked_out.setter
-    def blacked_out(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def blacked_out(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "blacked_out", value)
 
     @_builtins.property
     @pulumi.getter(name="blockMismatchingMimeTypes")
-    def block_mismatching_mime_types(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def block_mismatching_mime_types(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
         """
         return pulumi.get(self, "block_mismatching_mime_types")
 
     @block_mismatching_mime_types.setter
-    def block_mismatching_mime_types(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def block_mismatching_mime_types(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "block_mismatching_mime_types", value)
 
     @_builtins.property
     @pulumi.getter(name="bypassHeadRequests")
-    def bypass_head_requests(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bypass_head_requests(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         """
         return pulumi.get(self, "bypass_head_requests")
 
     @bypass_head_requests.setter
-    def bypass_head_requests(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bypass_head_requests(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bypass_head_requests", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnRedirect")
-    def cdn_redirect(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cdn_redirect(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
     @cdn_redirect.setter
-    def cdn_redirect(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cdn_redirect(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cdn_redirect", value)
 
     @_builtins.property
     @pulumi.getter(name="clientTlsCertificate")
-    def client_tls_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_tls_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client TLS certificate name.
         """
         return pulumi.get(self, "client_tls_certificate")
 
     @client_tls_certificate.setter
-    def client_tls_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_tls_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_tls_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="contentSynchronisation")
-    def content_synchronisation(self) -> Optional[pulumi.Input['RemoteIvyRepositoryContentSynchronisationArgs']]:
+    def content_synchronisation(self) -> pulumi.Input[Optional['RemoteIvyRepositoryContentSynchronisationArgs']]:
         return pulumi.get(self, "content_synchronisation")
 
     @content_synchronisation.setter
-    def content_synchronisation(self, value: Optional[pulumi.Input['RemoteIvyRepositoryContentSynchronisationArgs']]):
+    def content_synchronisation(self, value: pulumi.Input[Optional['RemoteIvyRepositoryContentSynchronisationArgs']]):
         pulumi.set(self, "content_synchronisation", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Public description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disableProxy")
-    def disable_proxy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_proxy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         """
         return pulumi.get(self, "disable_proxy")
 
     @disable_proxy.setter
-    def disable_proxy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_proxy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="disableUrlNormalization")
-    def disable_url_normalization(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_url_normalization(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to disable URL normalization. Default is `false`.
         """
         return pulumi.get(self, "disable_url_normalization")
 
     @disable_url_normalization.setter
-    def disable_url_normalization(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_url_normalization(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_url_normalization", value)
 
     @_builtins.property
     @pulumi.getter(name="downloadDirect")
-    def download_direct(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def download_direct(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         """
         return pulumi.get(self, "download_direct")
 
     @download_direct.setter
-    def download_direct(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def download_direct(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "download_direct", value)
 
     @_builtins.property
     @pulumi.getter(name="enableCookieManagement")
-    def enable_cookie_management(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_cookie_management(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables cookie management if the remote repository uses cookies to manage client state.
         """
         return pulumi.get(self, "enable_cookie_management")
 
     @enable_cookie_management.setter
-    def enable_cookie_management(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_cookie_management(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_cookie_management", value)
 
     @_builtins.property
     @pulumi.getter(name="excludesPattern")
-    def excludes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
-    def excludes_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def excludes_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "excludes_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchJarsEagerly")
-    def fetch_jars_eagerly(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_jars_eagerly(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
         """
         return pulumi.get(self, "fetch_jars_eagerly")
 
     @fetch_jars_eagerly.setter
-    def fetch_jars_eagerly(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_jars_eagerly(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_jars_eagerly", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchSourcesEagerly")
-    def fetch_sources_eagerly(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_sources_eagerly(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
         """
         return pulumi.get(self, "fetch_sources_eagerly")
 
     @fetch_sources_eagerly.setter
-    def fetch_sources_eagerly(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_sources_eagerly(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_sources_eagerly", value)
 
     @_builtins.property
     @pulumi.getter(name="handleReleases")
-    def handle_releases(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def handle_releases(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set, Artifactory allows you to deploy release artifacts into this repository.
         """
         return pulumi.get(self, "handle_releases")
 
     @handle_releases.setter
-    def handle_releases(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def handle_releases(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "handle_releases", value)
 
     @_builtins.property
     @pulumi.getter(name="handleSnapshots")
-    def handle_snapshots(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def handle_snapshots(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         """
         return pulumi.get(self, "handle_snapshots")
 
     @handle_snapshots.setter
-    def handle_snapshots(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def handle_snapshots(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "handle_snapshots", value)
 
     @_builtins.property
     @pulumi.getter(name="hardFail")
-    def hard_fail(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hard_fail(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
         """
         return pulumi.get(self, "hard_fail")
 
     @hard_fail.setter
-    def hard_fail(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hard_fail(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hard_fail", value)
 
     @_builtins.property
     @pulumi.getter(name="includesPattern")
-    def includes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
-    def includes_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def includes_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "includes_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="listRemoteFolderItems")
-    def list_remote_folder_items(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def list_remote_folder_items(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         """
         return pulumi.get(self, "list_remote_folder_items")
 
     @list_remote_folder_items.setter
-    def list_remote_folder_items(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def list_remote_folder_items(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "list_remote_folder_items", value)
 
     @_builtins.property
     @pulumi.getter(name="localAddress")
-    def local_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
         """
         return pulumi.get(self, "local_address")
 
     @local_address.setter
-    def local_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_address", value)
 
     @_builtins.property
     @pulumi.getter(name="maxUniqueSnapshots")
-    def max_unique_snapshots(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_unique_snapshots(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         """
         return pulumi.get(self, "max_unique_snapshots")
 
     @max_unique_snapshots.setter
-    def max_unique_snapshots(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_unique_snapshots(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_unique_snapshots", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataRetrievalTimeoutSecs")
-    def metadata_retrieval_timeout_secs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metadata_retrieval_timeout_secs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
         """
         return pulumi.get(self, "metadata_retrieval_timeout_secs")
 
     @metadata_retrieval_timeout_secs.setter
-    def metadata_retrieval_timeout_secs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metadata_retrieval_timeout_secs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metadata_retrieval_timeout_secs", value)
 
     @_builtins.property
     @pulumi.getter(name="mismatchingMimeTypesOverrideList")
-    def mismatching_mime_types_override_list(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mismatching_mime_types_override_list(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The set of mime types that should override the block_mismatching_mime_types setting. Eg: 'application/json,application/xml'. Default value is empty.
         """
         return pulumi.get(self, "mismatching_mime_types_override_list")
 
     @mismatching_mime_types_override_list.setter
-    def mismatching_mime_types_override_list(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mismatching_mime_types_override_list(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mismatching_mime_types_override_list", value)
 
     @_builtins.property
     @pulumi.getter(name="missedCachePeriodSeconds")
-    def missed_cache_period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def missed_cache_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         """
         return pulumi.get(self, "missed_cache_period_seconds")
 
     @missed_cache_period_seconds.setter
-    def missed_cache_period_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def missed_cache_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "missed_cache_period_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Internal description.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter
-    def offline(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def offline(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         """
         return pulumi.get(self, "offline")
 
     @offline.setter
-    def offline(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def offline(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "offline", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="priorityResolution")
-    def priority_resolution(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def priority_resolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         return pulumi.get(self, "priority_resolution")
 
     @priority_resolution.setter
-    def priority_resolution(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def priority_resolution(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "priority_resolution", value)
 
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
-    def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def project_environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
-    def project_environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def project_environments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "project_environments", value)
 
     @_builtins.property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
     @project_key.setter
-    def project_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_key", value)
 
     @_builtins.property
     @pulumi.getter(name="propertySets")
-    def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def property_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of property set name
         """
         return pulumi.get(self, "property_sets")
 
     @property_sets.setter
-    def property_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def property_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "property_sets", value)
 
     @_builtins.property
     @pulumi.getter
-    def proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         """
         return pulumi.get(self, "proxy")
 
     @proxy.setter
-    def proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="queryParams")
-    def query_params(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_params(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&param2=val2&param3=val3`
         """
         return pulumi.get(self, "query_params")
 
     @query_params.setter
-    def query_params(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_params(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_params", value)
 
     @_builtins.property
     @pulumi.getter(name="rejectInvalidJars")
-    def reject_invalid_jars(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reject_invalid_jars(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
         """
         return pulumi.get(self, "reject_invalid_jars")
 
     @reject_invalid_jars.setter
-    def reject_invalid_jars(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reject_invalid_jars(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reject_invalid_jars", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteRepoChecksumPolicyType")
-    def remote_repo_checksum_policy_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_repo_checksum_policy_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
         """
         return pulumi.get(self, "remote_repo_checksum_policy_type")
 
     @remote_repo_checksum_policy_type.setter
-    def remote_repo_checksum_policy_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_repo_checksum_policy_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_repo_checksum_policy_type", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteRepoLayoutRef")
-    def remote_repo_layout_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_repo_layout_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         """
         return pulumi.get(self, "remote_repo_layout_ref")
 
     @remote_repo_layout_ref.setter
-    def remote_repo_layout_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_repo_layout_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_repo_layout_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="repoLayoutRef")
-    def repo_layout_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repo_layout_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         """
         return pulumi.get(self, "repo_layout_ref")
 
     @repo_layout_ref.setter
-    def repo_layout_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repo_layout_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repo_layout_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="retrievalCachePeriodSeconds")
-    def retrieval_cache_period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retrieval_cache_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
         """
         return pulumi.get(self, "retrieval_cache_period_seconds")
 
     @retrieval_cache_period_seconds.setter
-    def retrieval_cache_period_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retrieval_cache_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retrieval_cache_period_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="shareConfiguration")
     @_utilities.deprecated("""No longer supported""")
-    def share_configuration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def share_configuration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "share_configuration")
 
     @share_configuration.setter
-    def share_configuration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def share_configuration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "share_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="socketTimeoutMillis")
-    def socket_timeout_millis(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def socket_timeout_millis(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
         """
         return pulumi.get(self, "socket_timeout_millis")
 
     @socket_timeout_millis.setter
-    def socket_timeout_millis(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def socket_timeout_millis(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "socket_timeout_millis", value)
 
     @_builtins.property
     @pulumi.getter(name="storeArtifactsLocally")
-    def store_artifacts_locally(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def store_artifacts_locally(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
         """
         return pulumi.get(self, "store_artifacts_locally")
 
     @store_artifacts_locally.setter
-    def store_artifacts_locally(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def store_artifacts_locally(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "store_artifacts_locally", value)
 
     @_builtins.property
     @pulumi.getter(name="suppressPomConsistencyChecks")
-    def suppress_pom_consistency_checks(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def suppress_pom_consistency_checks(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
         """
         return pulumi.get(self, "suppress_pom_consistency_checks")
 
     @suppress_pom_consistency_checks.setter
-    def suppress_pom_consistency_checks(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def suppress_pom_consistency_checks(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "suppress_pom_consistency_checks", value)
 
     @_builtins.property
     @pulumi.getter(name="synchronizeProperties")
-    def synchronize_properties(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def synchronize_properties(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, remote artifacts are fetched along with their properties.
         """
         return pulumi.get(self, "synchronize_properties")
 
     @synchronize_properties.setter
-    def synchronize_properties(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def synchronize_properties(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "synchronize_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="unusedArtifactsCleanupPeriodHours")
-    def unused_artifacts_cleanup_period_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def unused_artifacts_cleanup_period_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         """
         return pulumi.get(self, "unused_artifacts_cleanup_period_hours")
 
     @unused_artifacts_cleanup_period_hours.setter
-    def unused_artifacts_cleanup_period_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def unused_artifacts_cleanup_period_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "unused_artifacts_cleanup_period_hours", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
     @_builtins.property
     @pulumi.getter(name="xrayIndex")
-    def xray_index(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def xray_index(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
-    def xray_index(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def xray_index(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "xray_index", value)
 
 
 @pulumi.input_type
 class _RemoteIvyRepositoryState:
     def __init__(__self__, *,
-                 allow_any_host_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 archive_browsing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 assumed_offline_period_secs: Optional[pulumi.Input[_builtins.int]] = None,
-                 blacked_out: Optional[pulumi.Input[_builtins.bool]] = None,
-                 block_mismatching_mime_types: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bypass_head_requests: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cdn_redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_tls_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_synchronisation: Optional[pulumi.Input['RemoteIvyRepositoryContentSynchronisationArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_url_normalization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 download_direct: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_cookie_management: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excludes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 fetch_jars_eagerly: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fetch_sources_eagerly: Optional[pulumi.Input[_builtins.bool]] = None,
-                 handle_releases: Optional[pulumi.Input[_builtins.bool]] = None,
-                 handle_snapshots: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hard_fail: Optional[pulumi.Input[_builtins.bool]] = None,
-                 includes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 list_remote_folder_items: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_unique_snapshots: Optional[pulumi.Input[_builtins.int]] = None,
-                 metadata_retrieval_timeout_secs: Optional[pulumi.Input[_builtins.int]] = None,
-                 mismatching_mime_types_override_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 missed_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 offline: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_params: Optional[pulumi.Input[_builtins.str]] = None,
-                 reject_invalid_jars: Optional[pulumi.Input[_builtins.bool]] = None,
-                 remote_repo_checksum_policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 retrieval_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 share_configuration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 socket_timeout_millis: Optional[pulumi.Input[_builtins.int]] = None,
-                 store_artifacts_locally: Optional[pulumi.Input[_builtins.bool]] = None,
-                 suppress_pom_consistency_checks: Optional[pulumi.Input[_builtins.bool]] = None,
-                 synchronize_properties: Optional[pulumi.Input[_builtins.bool]] = None,
-                 unused_artifacts_cleanup_period_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
-                 xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_any_host_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 archive_browsing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 assumed_offline_period_secs: pulumi.Input[Optional[_builtins.int]] = None,
+                 blacked_out: pulumi.Input[Optional[_builtins.bool]] = None,
+                 block_mismatching_mime_types: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bypass_head_requests: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_synchronisation: pulumi.Input[Optional['RemoteIvyRepositoryContentSynchronisationArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_cookie_management: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 fetch_jars_eagerly: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fetch_sources_eagerly: pulumi.Input[Optional[_builtins.bool]] = None,
+                 handle_releases: pulumi.Input[Optional[_builtins.bool]] = None,
+                 handle_snapshots: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hard_fail: pulumi.Input[Optional[_builtins.bool]] = None,
+                 includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 list_remote_folder_items: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_unique_snapshots: pulumi.Input[Optional[_builtins.int]] = None,
+                 metadata_retrieval_timeout_secs: pulumi.Input[Optional[_builtins.int]] = None,
+                 mismatching_mime_types_override_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 missed_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 offline: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_params: pulumi.Input[Optional[_builtins.str]] = None,
+                 reject_invalid_jars: pulumi.Input[Optional[_builtins.bool]] = None,
+                 remote_repo_checksum_policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 retrieval_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 share_configuration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 socket_timeout_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 store_artifacts_locally: pulumi.Input[Optional[_builtins.bool]] = None,
+                 suppress_pom_consistency_checks: pulumi.Input[Optional[_builtins.bool]] = None,
+                 synchronize_properties: pulumi.Input[Optional[_builtins.bool]] = None,
+                 unused_artifacts_cleanup_period_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
+                 xray_index: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering RemoteIvyRepository resources.
 
@@ -1048,19 +1048,19 @@ class _RemoteIvyRepositoryState:
 
     @_builtins.property
     @pulumi.getter(name="allowAnyHostAuth")
-    def allow_any_host_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_any_host_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
         """
         return pulumi.get(self, "allow_any_host_auth")
 
     @allow_any_host_auth.setter
-    def allow_any_host_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_any_host_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_any_host_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="archiveBrowsingEnabled")
-    def archive_browsing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def archive_browsing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, you may view content such as HTML or Javadoc files directly from Artifactory.
         This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
@@ -1068,237 +1068,237 @@ class _RemoteIvyRepositoryState:
         return pulumi.get(self, "archive_browsing_enabled")
 
     @archive_browsing_enabled.setter
-    def archive_browsing_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def archive_browsing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "archive_browsing_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="assumedOfflinePeriodSecs")
-    def assumed_offline_period_secs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def assumed_offline_period_secs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
         """
         return pulumi.get(self, "assumed_offline_period_secs")
 
     @assumed_offline_period_secs.setter
-    def assumed_offline_period_secs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def assumed_offline_period_secs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "assumed_offline_period_secs", value)
 
     @_builtins.property
     @pulumi.getter(name="blackedOut")
-    def blacked_out(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def blacked_out(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
         """
         return pulumi.get(self, "blacked_out")
 
     @blacked_out.setter
-    def blacked_out(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def blacked_out(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "blacked_out", value)
 
     @_builtins.property
     @pulumi.getter(name="blockMismatchingMimeTypes")
-    def block_mismatching_mime_types(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def block_mismatching_mime_types(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
         """
         return pulumi.get(self, "block_mismatching_mime_types")
 
     @block_mismatching_mime_types.setter
-    def block_mismatching_mime_types(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def block_mismatching_mime_types(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "block_mismatching_mime_types", value)
 
     @_builtins.property
     @pulumi.getter(name="bypassHeadRequests")
-    def bypass_head_requests(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bypass_head_requests(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         """
         return pulumi.get(self, "bypass_head_requests")
 
     @bypass_head_requests.setter
-    def bypass_head_requests(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bypass_head_requests(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bypass_head_requests", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnRedirect")
-    def cdn_redirect(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cdn_redirect(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
     @cdn_redirect.setter
-    def cdn_redirect(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cdn_redirect(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cdn_redirect", value)
 
     @_builtins.property
     @pulumi.getter(name="clientTlsCertificate")
-    def client_tls_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_tls_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client TLS certificate name.
         """
         return pulumi.get(self, "client_tls_certificate")
 
     @client_tls_certificate.setter
-    def client_tls_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_tls_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_tls_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="contentSynchronisation")
-    def content_synchronisation(self) -> Optional[pulumi.Input['RemoteIvyRepositoryContentSynchronisationArgs']]:
+    def content_synchronisation(self) -> pulumi.Input[Optional['RemoteIvyRepositoryContentSynchronisationArgs']]:
         return pulumi.get(self, "content_synchronisation")
 
     @content_synchronisation.setter
-    def content_synchronisation(self, value: Optional[pulumi.Input['RemoteIvyRepositoryContentSynchronisationArgs']]):
+    def content_synchronisation(self, value: pulumi.Input[Optional['RemoteIvyRepositoryContentSynchronisationArgs']]):
         pulumi.set(self, "content_synchronisation", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Public description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disableProxy")
-    def disable_proxy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_proxy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         """
         return pulumi.get(self, "disable_proxy")
 
     @disable_proxy.setter
-    def disable_proxy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_proxy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="disableUrlNormalization")
-    def disable_url_normalization(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_url_normalization(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to disable URL normalization. Default is `false`.
         """
         return pulumi.get(self, "disable_url_normalization")
 
     @disable_url_normalization.setter
-    def disable_url_normalization(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_url_normalization(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_url_normalization", value)
 
     @_builtins.property
     @pulumi.getter(name="downloadDirect")
-    def download_direct(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def download_direct(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         """
         return pulumi.get(self, "download_direct")
 
     @download_direct.setter
-    def download_direct(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def download_direct(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "download_direct", value)
 
     @_builtins.property
     @pulumi.getter(name="enableCookieManagement")
-    def enable_cookie_management(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_cookie_management(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables cookie management if the remote repository uses cookies to manage client state.
         """
         return pulumi.get(self, "enable_cookie_management")
 
     @enable_cookie_management.setter
-    def enable_cookie_management(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_cookie_management(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_cookie_management", value)
 
     @_builtins.property
     @pulumi.getter(name="excludesPattern")
-    def excludes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
-    def excludes_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def excludes_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "excludes_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchJarsEagerly")
-    def fetch_jars_eagerly(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_jars_eagerly(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
         """
         return pulumi.get(self, "fetch_jars_eagerly")
 
     @fetch_jars_eagerly.setter
-    def fetch_jars_eagerly(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_jars_eagerly(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_jars_eagerly", value)
 
     @_builtins.property
     @pulumi.getter(name="fetchSourcesEagerly")
-    def fetch_sources_eagerly(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fetch_sources_eagerly(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
         """
         return pulumi.get(self, "fetch_sources_eagerly")
 
     @fetch_sources_eagerly.setter
-    def fetch_sources_eagerly(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fetch_sources_eagerly(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fetch_sources_eagerly", value)
 
     @_builtins.property
     @pulumi.getter(name="handleReleases")
-    def handle_releases(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def handle_releases(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set, Artifactory allows you to deploy release artifacts into this repository.
         """
         return pulumi.get(self, "handle_releases")
 
     @handle_releases.setter
-    def handle_releases(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def handle_releases(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "handle_releases", value)
 
     @_builtins.property
     @pulumi.getter(name="handleSnapshots")
-    def handle_snapshots(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def handle_snapshots(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         """
         return pulumi.get(self, "handle_snapshots")
 
     @handle_snapshots.setter
-    def handle_snapshots(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def handle_snapshots(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "handle_snapshots", value)
 
     @_builtins.property
     @pulumi.getter(name="hardFail")
-    def hard_fail(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hard_fail(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
         """
         return pulumi.get(self, "hard_fail")
 
     @hard_fail.setter
-    def hard_fail(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hard_fail(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hard_fail", value)
 
     @_builtins.property
     @pulumi.getter(name="includesPattern")
-    def includes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
-    def includes_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def includes_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "includes_pattern", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A mandatory identifier for the repository that must be unique. It cannot begin with a number or
         contain spaces or special characters.
@@ -1306,347 +1306,347 @@ class _RemoteIvyRepositoryState:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="listRemoteFolderItems")
-    def list_remote_folder_items(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def list_remote_folder_items(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         """
         return pulumi.get(self, "list_remote_folder_items")
 
     @list_remote_folder_items.setter
-    def list_remote_folder_items(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def list_remote_folder_items(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "list_remote_folder_items", value)
 
     @_builtins.property
     @pulumi.getter(name="localAddress")
-    def local_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
         """
         return pulumi.get(self, "local_address")
 
     @local_address.setter
-    def local_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_address", value)
 
     @_builtins.property
     @pulumi.getter(name="maxUniqueSnapshots")
-    def max_unique_snapshots(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_unique_snapshots(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         """
         return pulumi.get(self, "max_unique_snapshots")
 
     @max_unique_snapshots.setter
-    def max_unique_snapshots(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_unique_snapshots(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_unique_snapshots", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataRetrievalTimeoutSecs")
-    def metadata_retrieval_timeout_secs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def metadata_retrieval_timeout_secs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
         """
         return pulumi.get(self, "metadata_retrieval_timeout_secs")
 
     @metadata_retrieval_timeout_secs.setter
-    def metadata_retrieval_timeout_secs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def metadata_retrieval_timeout_secs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "metadata_retrieval_timeout_secs", value)
 
     @_builtins.property
     @pulumi.getter(name="mismatchingMimeTypesOverrideList")
-    def mismatching_mime_types_override_list(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mismatching_mime_types_override_list(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The set of mime types that should override the block_mismatching_mime_types setting. Eg: 'application/json,application/xml'. Default value is empty.
         """
         return pulumi.get(self, "mismatching_mime_types_override_list")
 
     @mismatching_mime_types_override_list.setter
-    def mismatching_mime_types_override_list(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mismatching_mime_types_override_list(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mismatching_mime_types_override_list", value)
 
     @_builtins.property
     @pulumi.getter(name="missedCachePeriodSeconds")
-    def missed_cache_period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def missed_cache_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         """
         return pulumi.get(self, "missed_cache_period_seconds")
 
     @missed_cache_period_seconds.setter
-    def missed_cache_period_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def missed_cache_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "missed_cache_period_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Internal description.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter
-    def offline(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def offline(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         """
         return pulumi.get(self, "offline")
 
     @offline.setter
-    def offline(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def offline(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "offline", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="priorityResolution")
-    def priority_resolution(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def priority_resolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         return pulumi.get(self, "priority_resolution")
 
     @priority_resolution.setter
-    def priority_resolution(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def priority_resolution(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "priority_resolution", value)
 
     @_builtins.property
     @pulumi.getter(name="projectEnvironments")
-    def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def project_environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
-    def project_environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def project_environments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "project_environments", value)
 
     @_builtins.property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
     @project_key.setter
-    def project_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_key", value)
 
     @_builtins.property
     @pulumi.getter(name="propertySets")
-    def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def property_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of property set name
         """
         return pulumi.get(self, "property_sets")
 
     @property_sets.setter
-    def property_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def property_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "property_sets", value)
 
     @_builtins.property
     @pulumi.getter
-    def proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         """
         return pulumi.get(self, "proxy")
 
     @proxy.setter
-    def proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="queryParams")
-    def query_params(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_params(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&param2=val2&param3=val3`
         """
         return pulumi.get(self, "query_params")
 
     @query_params.setter
-    def query_params(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_params(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_params", value)
 
     @_builtins.property
     @pulumi.getter(name="rejectInvalidJars")
-    def reject_invalid_jars(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reject_invalid_jars(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
         """
         return pulumi.get(self, "reject_invalid_jars")
 
     @reject_invalid_jars.setter
-    def reject_invalid_jars(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reject_invalid_jars(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reject_invalid_jars", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteRepoChecksumPolicyType")
-    def remote_repo_checksum_policy_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_repo_checksum_policy_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
         """
         return pulumi.get(self, "remote_repo_checksum_policy_type")
 
     @remote_repo_checksum_policy_type.setter
-    def remote_repo_checksum_policy_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_repo_checksum_policy_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_repo_checksum_policy_type", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteRepoLayoutRef")
-    def remote_repo_layout_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_repo_layout_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         """
         return pulumi.get(self, "remote_repo_layout_ref")
 
     @remote_repo_layout_ref.setter
-    def remote_repo_layout_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_repo_layout_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_repo_layout_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="repoLayoutRef")
-    def repo_layout_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repo_layout_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         """
         return pulumi.get(self, "repo_layout_ref")
 
     @repo_layout_ref.setter
-    def repo_layout_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repo_layout_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repo_layout_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="retrievalCachePeriodSeconds")
-    def retrieval_cache_period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retrieval_cache_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
         """
         return pulumi.get(self, "retrieval_cache_period_seconds")
 
     @retrieval_cache_period_seconds.setter
-    def retrieval_cache_period_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retrieval_cache_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retrieval_cache_period_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="shareConfiguration")
     @_utilities.deprecated("""No longer supported""")
-    def share_configuration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def share_configuration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "share_configuration")
 
     @share_configuration.setter
-    def share_configuration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def share_configuration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "share_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="socketTimeoutMillis")
-    def socket_timeout_millis(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def socket_timeout_millis(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
         """
         return pulumi.get(self, "socket_timeout_millis")
 
     @socket_timeout_millis.setter
-    def socket_timeout_millis(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def socket_timeout_millis(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "socket_timeout_millis", value)
 
     @_builtins.property
     @pulumi.getter(name="storeArtifactsLocally")
-    def store_artifacts_locally(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def store_artifacts_locally(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
         """
         return pulumi.get(self, "store_artifacts_locally")
 
     @store_artifacts_locally.setter
-    def store_artifacts_locally(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def store_artifacts_locally(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "store_artifacts_locally", value)
 
     @_builtins.property
     @pulumi.getter(name="suppressPomConsistencyChecks")
-    def suppress_pom_consistency_checks(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def suppress_pom_consistency_checks(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
         """
         return pulumi.get(self, "suppress_pom_consistency_checks")
 
     @suppress_pom_consistency_checks.setter
-    def suppress_pom_consistency_checks(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def suppress_pom_consistency_checks(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "suppress_pom_consistency_checks", value)
 
     @_builtins.property
     @pulumi.getter(name="synchronizeProperties")
-    def synchronize_properties(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def synchronize_properties(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, remote artifacts are fetched along with their properties.
         """
         return pulumi.get(self, "synchronize_properties")
 
     @synchronize_properties.setter
-    def synchronize_properties(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def synchronize_properties(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "synchronize_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="unusedArtifactsCleanupPeriodHours")
-    def unused_artifacts_cleanup_period_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def unused_artifacts_cleanup_period_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         """
         return pulumi.get(self, "unused_artifacts_cleanup_period_hours")
 
     @unused_artifacts_cleanup_period_hours.setter
-    def unused_artifacts_cleanup_period_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def unused_artifacts_cleanup_period_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "unused_artifacts_cleanup_period_hours", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The remote repo URL.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
     @_builtins.property
     @pulumi.getter(name="xrayIndex")
-    def xray_index(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def xray_index(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
-    def xray_index(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def xray_index(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "xray_index", value)
 
 
@@ -1656,57 +1656,57 @@ class RemoteIvyRepository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_any_host_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 archive_browsing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 assumed_offline_period_secs: Optional[pulumi.Input[_builtins.int]] = None,
-                 blacked_out: Optional[pulumi.Input[_builtins.bool]] = None,
-                 block_mismatching_mime_types: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bypass_head_requests: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cdn_redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_tls_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_synchronisation: Optional[pulumi.Input[Union['RemoteIvyRepositoryContentSynchronisationArgs', 'RemoteIvyRepositoryContentSynchronisationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_url_normalization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 download_direct: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_cookie_management: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excludes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 fetch_jars_eagerly: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fetch_sources_eagerly: Optional[pulumi.Input[_builtins.bool]] = None,
-                 handle_releases: Optional[pulumi.Input[_builtins.bool]] = None,
-                 handle_snapshots: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hard_fail: Optional[pulumi.Input[_builtins.bool]] = None,
-                 includes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 list_remote_folder_items: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_unique_snapshots: Optional[pulumi.Input[_builtins.int]] = None,
-                 metadata_retrieval_timeout_secs: Optional[pulumi.Input[_builtins.int]] = None,
-                 mismatching_mime_types_override_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 missed_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 offline: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_params: Optional[pulumi.Input[_builtins.str]] = None,
-                 reject_invalid_jars: Optional[pulumi.Input[_builtins.bool]] = None,
-                 remote_repo_checksum_policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 retrieval_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 share_configuration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 socket_timeout_millis: Optional[pulumi.Input[_builtins.int]] = None,
-                 store_artifacts_locally: Optional[pulumi.Input[_builtins.bool]] = None,
-                 suppress_pom_consistency_checks: Optional[pulumi.Input[_builtins.bool]] = None,
-                 synchronize_properties: Optional[pulumi.Input[_builtins.bool]] = None,
-                 unused_artifacts_cleanup_period_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
-                 xray_index: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_any_host_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 archive_browsing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 assumed_offline_period_secs: pulumi.Input[Optional[_builtins.int]] = None,
+                 blacked_out: pulumi.Input[Optional[_builtins.bool]] = None,
+                 block_mismatching_mime_types: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bypass_head_requests: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_synchronisation: pulumi.Input[Optional[Union['RemoteIvyRepositoryContentSynchronisationArgs', 'RemoteIvyRepositoryContentSynchronisationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_cookie_management: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 fetch_jars_eagerly: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fetch_sources_eagerly: pulumi.Input[Optional[_builtins.bool]] = None,
+                 handle_releases: pulumi.Input[Optional[_builtins.bool]] = None,
+                 handle_snapshots: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hard_fail: pulumi.Input[Optional[_builtins.bool]] = None,
+                 includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 list_remote_folder_items: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_unique_snapshots: pulumi.Input[Optional[_builtins.int]] = None,
+                 metadata_retrieval_timeout_secs: pulumi.Input[Optional[_builtins.int]] = None,
+                 mismatching_mime_types_override_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 missed_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 offline: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_params: pulumi.Input[Optional[_builtins.str]] = None,
+                 reject_invalid_jars: pulumi.Input[Optional[_builtins.bool]] = None,
+                 remote_repo_checksum_policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 retrieval_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 share_configuration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 socket_timeout_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 store_artifacts_locally: pulumi.Input[Optional[_builtins.bool]] = None,
+                 suppress_pom_consistency_checks: pulumi.Input[Optional[_builtins.bool]] = None,
+                 synchronize_properties: pulumi.Input[Optional[_builtins.bool]] = None,
+                 unused_artifacts_cleanup_period_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
+                 xray_index: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Creates a remote Ivy repository.
@@ -1837,57 +1837,57 @@ class RemoteIvyRepository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_any_host_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 archive_browsing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 assumed_offline_period_secs: Optional[pulumi.Input[_builtins.int]] = None,
-                 blacked_out: Optional[pulumi.Input[_builtins.bool]] = None,
-                 block_mismatching_mime_types: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bypass_head_requests: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cdn_redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_tls_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_synchronisation: Optional[pulumi.Input[Union['RemoteIvyRepositoryContentSynchronisationArgs', 'RemoteIvyRepositoryContentSynchronisationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_url_normalization: Optional[pulumi.Input[_builtins.bool]] = None,
-                 download_direct: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_cookie_management: Optional[pulumi.Input[_builtins.bool]] = None,
-                 excludes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 fetch_jars_eagerly: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fetch_sources_eagerly: Optional[pulumi.Input[_builtins.bool]] = None,
-                 handle_releases: Optional[pulumi.Input[_builtins.bool]] = None,
-                 handle_snapshots: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hard_fail: Optional[pulumi.Input[_builtins.bool]] = None,
-                 includes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 list_remote_folder_items: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_unique_snapshots: Optional[pulumi.Input[_builtins.int]] = None,
-                 metadata_retrieval_timeout_secs: Optional[pulumi.Input[_builtins.int]] = None,
-                 mismatching_mime_types_override_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 missed_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 offline: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_params: Optional[pulumi.Input[_builtins.str]] = None,
-                 reject_invalid_jars: Optional[pulumi.Input[_builtins.bool]] = None,
-                 remote_repo_checksum_policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 retrieval_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 share_configuration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 socket_timeout_millis: Optional[pulumi.Input[_builtins.int]] = None,
-                 store_artifacts_locally: Optional[pulumi.Input[_builtins.bool]] = None,
-                 suppress_pom_consistency_checks: Optional[pulumi.Input[_builtins.bool]] = None,
-                 synchronize_properties: Optional[pulumi.Input[_builtins.bool]] = None,
-                 unused_artifacts_cleanup_period_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
-                 xray_index: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_any_host_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 archive_browsing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 assumed_offline_period_secs: pulumi.Input[Optional[_builtins.int]] = None,
+                 blacked_out: pulumi.Input[Optional[_builtins.bool]] = None,
+                 block_mismatching_mime_types: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bypass_head_requests: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_synchronisation: pulumi.Input[Optional[Union['RemoteIvyRepositoryContentSynchronisationArgs', 'RemoteIvyRepositoryContentSynchronisationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_cookie_management: pulumi.Input[Optional[_builtins.bool]] = None,
+                 excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 fetch_jars_eagerly: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fetch_sources_eagerly: pulumi.Input[Optional[_builtins.bool]] = None,
+                 handle_releases: pulumi.Input[Optional[_builtins.bool]] = None,
+                 handle_snapshots: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hard_fail: pulumi.Input[Optional[_builtins.bool]] = None,
+                 includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 list_remote_folder_items: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_unique_snapshots: pulumi.Input[Optional[_builtins.int]] = None,
+                 metadata_retrieval_timeout_secs: pulumi.Input[Optional[_builtins.int]] = None,
+                 mismatching_mime_types_override_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 missed_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 offline: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_params: pulumi.Input[Optional[_builtins.str]] = None,
+                 reject_invalid_jars: pulumi.Input[Optional[_builtins.bool]] = None,
+                 remote_repo_checksum_policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 retrieval_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 share_configuration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 socket_timeout_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 store_artifacts_locally: pulumi.Input[Optional[_builtins.bool]] = None,
+                 suppress_pom_consistency_checks: pulumi.Input[Optional[_builtins.bool]] = None,
+                 synchronize_properties: pulumi.Input[Optional[_builtins.bool]] = None,
+                 unused_artifacts_cleanup_period_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
+                 xray_index: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1964,57 +1964,57 @@ class RemoteIvyRepository(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_any_host_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-            archive_browsing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            assumed_offline_period_secs: Optional[pulumi.Input[_builtins.int]] = None,
-            blacked_out: Optional[pulumi.Input[_builtins.bool]] = None,
-            block_mismatching_mime_types: Optional[pulumi.Input[_builtins.bool]] = None,
-            bypass_head_requests: Optional[pulumi.Input[_builtins.bool]] = None,
-            cdn_redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-            client_tls_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-            content_synchronisation: Optional[pulumi.Input[Union['RemoteIvyRepositoryContentSynchronisationArgs', 'RemoteIvyRepositoryContentSynchronisationArgsDict']]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            disable_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
-            disable_url_normalization: Optional[pulumi.Input[_builtins.bool]] = None,
-            download_direct: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_cookie_management: Optional[pulumi.Input[_builtins.bool]] = None,
-            excludes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-            fetch_jars_eagerly: Optional[pulumi.Input[_builtins.bool]] = None,
-            fetch_sources_eagerly: Optional[pulumi.Input[_builtins.bool]] = None,
-            handle_releases: Optional[pulumi.Input[_builtins.bool]] = None,
-            handle_snapshots: Optional[pulumi.Input[_builtins.bool]] = None,
-            hard_fail: Optional[pulumi.Input[_builtins.bool]] = None,
-            includes_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            list_remote_folder_items: Optional[pulumi.Input[_builtins.bool]] = None,
-            local_address: Optional[pulumi.Input[_builtins.str]] = None,
-            max_unique_snapshots: Optional[pulumi.Input[_builtins.int]] = None,
-            metadata_retrieval_timeout_secs: Optional[pulumi.Input[_builtins.int]] = None,
-            mismatching_mime_types_override_list: Optional[pulumi.Input[_builtins.str]] = None,
-            missed_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            notes: Optional[pulumi.Input[_builtins.str]] = None,
-            offline: Optional[pulumi.Input[_builtins.bool]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            priority_resolution: Optional[pulumi.Input[_builtins.bool]] = None,
-            project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            project_key: Optional[pulumi.Input[_builtins.str]] = None,
-            property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            proxy: Optional[pulumi.Input[_builtins.str]] = None,
-            query_params: Optional[pulumi.Input[_builtins.str]] = None,
-            reject_invalid_jars: Optional[pulumi.Input[_builtins.bool]] = None,
-            remote_repo_checksum_policy_type: Optional[pulumi.Input[_builtins.str]] = None,
-            remote_repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-            repo_layout_ref: Optional[pulumi.Input[_builtins.str]] = None,
-            retrieval_cache_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            share_configuration: Optional[pulumi.Input[_builtins.bool]] = None,
-            socket_timeout_millis: Optional[pulumi.Input[_builtins.int]] = None,
-            store_artifacts_locally: Optional[pulumi.Input[_builtins.bool]] = None,
-            suppress_pom_consistency_checks: Optional[pulumi.Input[_builtins.bool]] = None,
-            synchronize_properties: Optional[pulumi.Input[_builtins.bool]] = None,
-            unused_artifacts_cleanup_period_hours: Optional[pulumi.Input[_builtins.int]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None,
-            xray_index: Optional[pulumi.Input[_builtins.bool]] = None) -> 'RemoteIvyRepository':
+            allow_any_host_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+            archive_browsing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            assumed_offline_period_secs: pulumi.Input[Optional[_builtins.int]] = None,
+            blacked_out: pulumi.Input[Optional[_builtins.bool]] = None,
+            block_mismatching_mime_types: pulumi.Input[Optional[_builtins.bool]] = None,
+            bypass_head_requests: pulumi.Input[Optional[_builtins.bool]] = None,
+            cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            content_synchronisation: pulumi.Input[Optional[Union['RemoteIvyRepositoryContentSynchronisationArgs', 'RemoteIvyRepositoryContentSynchronisationArgsDict']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+            disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
+            download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_cookie_management: pulumi.Input[Optional[_builtins.bool]] = None,
+            excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            fetch_jars_eagerly: pulumi.Input[Optional[_builtins.bool]] = None,
+            fetch_sources_eagerly: pulumi.Input[Optional[_builtins.bool]] = None,
+            handle_releases: pulumi.Input[Optional[_builtins.bool]] = None,
+            handle_snapshots: pulumi.Input[Optional[_builtins.bool]] = None,
+            hard_fail: pulumi.Input[Optional[_builtins.bool]] = None,
+            includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            list_remote_folder_items: pulumi.Input[Optional[_builtins.bool]] = None,
+            local_address: pulumi.Input[Optional[_builtins.str]] = None,
+            max_unique_snapshots: pulumi.Input[Optional[_builtins.int]] = None,
+            metadata_retrieval_timeout_secs: pulumi.Input[Optional[_builtins.int]] = None,
+            mismatching_mime_types_override_list: pulumi.Input[Optional[_builtins.str]] = None,
+            missed_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            notes: pulumi.Input[Optional[_builtins.str]] = None,
+            offline: pulumi.Input[Optional[_builtins.bool]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+            project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            project_key: pulumi.Input[Optional[_builtins.str]] = None,
+            property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            proxy: pulumi.Input[Optional[_builtins.str]] = None,
+            query_params: pulumi.Input[Optional[_builtins.str]] = None,
+            reject_invalid_jars: pulumi.Input[Optional[_builtins.bool]] = None,
+            remote_repo_checksum_policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            retrieval_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            share_configuration: pulumi.Input[Optional[_builtins.bool]] = None,
+            socket_timeout_millis: pulumi.Input[Optional[_builtins.int]] = None,
+            store_artifacts_locally: pulumi.Input[Optional[_builtins.bool]] = None,
+            suppress_pom_consistency_checks: pulumi.Input[Optional[_builtins.bool]] = None,
+            synchronize_properties: pulumi.Input[Optional[_builtins.bool]] = None,
+            unused_artifacts_cleanup_period_hours: pulumi.Input[Optional[_builtins.int]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None,
+            xray_index: pulumi.Input[Optional[_builtins.bool]] = None) -> 'RemoteIvyRepository':
         """
         Get an existing RemoteIvyRepository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

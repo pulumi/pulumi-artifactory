@@ -23,11 +23,11 @@ class ReleaseBundleV2CleanupPolicyArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  search_criteria: pulumi.Input['ReleaseBundleV2CleanupPolicySearchCriteriaArgs'],
-                 cron_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 item_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 item_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReleaseBundleV2CleanupPolicy resource.
 
@@ -73,72 +73,72 @@ class ReleaseBundleV2CleanupPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="cronExpression")
-    def cron_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cron_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cron expression determines when the policy is run. This parameter is not mandatory, however if left empty the policy will not run automatically and can only be triggered manually.
         """
         return pulumi.get(self, "cron_expression")
 
     @cron_expression.setter
-    def cron_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cron_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cron_expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="durationInMinutes")
-    def duration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def duration_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
         """
         return pulumi.get(self, "duration_in_minutes")
 
     @duration_in_minutes.setter
-    def duration_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def duration_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "duration_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables or disabled the release bundles v2 cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="itemType")
-    def item_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def item_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Needs to be set to releaseBundle.
         """
         return pulumi.get(self, "item_type")
 
     @item_type.setter
-    def item_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def item_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "item_type", value)
 
 
 @pulumi.input_type
 class _ReleaseBundleV2CleanupPolicyState:
     def __init__(__self__, *,
-                 cron_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 item_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_criteria: Optional[pulumi.Input['ReleaseBundleV2CleanupPolicySearchCriteriaArgs']] = None):
+                 cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 item_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_criteria: pulumi.Input[Optional['ReleaseBundleV2CleanupPolicySearchCriteriaArgs']] = None):
         """
         Input properties used for looking up and filtering ReleaseBundleV2CleanupPolicy resources.
 
@@ -165,80 +165,80 @@ class _ReleaseBundleV2CleanupPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="cronExpression")
-    def cron_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cron_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cron expression determines when the policy is run. This parameter is not mandatory, however if left empty the policy will not run automatically and can only be triggered manually.
         """
         return pulumi.get(self, "cron_expression")
 
     @cron_expression.setter
-    def cron_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cron_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cron_expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="durationInMinutes")
-    def duration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def duration_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
         """
         return pulumi.get(self, "duration_in_minutes")
 
     @duration_in_minutes.setter
-    def duration_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def duration_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "duration_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables or disabled the release bundles v2 cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="itemType")
-    def item_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def item_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Needs to be set to releaseBundle.
         """
         return pulumi.get(self, "item_type")
 
     @item_type.setter
-    def item_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def item_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "item_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="searchCriteria")
-    def search_criteria(self) -> Optional[pulumi.Input['ReleaseBundleV2CleanupPolicySearchCriteriaArgs']]:
+    def search_criteria(self) -> pulumi.Input[Optional['ReleaseBundleV2CleanupPolicySearchCriteriaArgs']]:
         return pulumi.get(self, "search_criteria")
 
     @search_criteria.setter
-    def search_criteria(self, value: Optional[pulumi.Input['ReleaseBundleV2CleanupPolicySearchCriteriaArgs']]):
+    def search_criteria(self, value: pulumi.Input[Optional['ReleaseBundleV2CleanupPolicySearchCriteriaArgs']]):
         pulumi.set(self, "search_criteria", value)
 
 
@@ -248,13 +248,13 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cron_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 item_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_criteria: Optional[pulumi.Input[Union['ReleaseBundleV2CleanupPolicySearchCriteriaArgs', 'ReleaseBundleV2CleanupPolicySearchCriteriaArgsDict']]] = None,
+                 cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 item_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_criteria: pulumi.Input[Optional[Union['ReleaseBundleV2CleanupPolicySearchCriteriaArgs', 'ReleaseBundleV2CleanupPolicySearchCriteriaArgsDict']]] = None,
                  __props__=None):
         """
         Provides an Artifactory Archive Policy resource. This resource enable system administrators to configure and maintain JFrog cleanup policies for Release Bundles V2. See [Cleanup Policies](https://jfrog.com/help/r/jfrog-rest-apis/cleanup-policies-release-bundles-v2-apis) for more details.
@@ -317,7 +317,7 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
             key="my-release-bundle-v2-policy-key",
             description="Cleanup policy description with variables",
             cron_expression="0 0 2 * * ?",
-            duration_in_minutes=release_bundle_cleanup_duration_in_minutes,
+            duration_in_minutes=int(release_bundle_cleanup_duration_in_minutes),
             enabled=True,
             search_criteria={
                 "include_all_projects": True,
@@ -327,7 +327,7 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
                     "project_key": "",
                 }],
                 "exclude_promoted_environments": ["**"],
-                "created_before_in_months": release_bundle_cleanup_created_before_in_months,
+                "created_before_in_months": int(release_bundle_cleanup_created_before_in_months),
             })
         ```
 
@@ -417,7 +417,7 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
             key="my-release-bundle-v2-policy-key",
             description="Cleanup policy description with variables",
             cron_expression="0 0 2 * * ?",
-            duration_in_minutes=release_bundle_cleanup_duration_in_minutes,
+            duration_in_minutes=int(release_bundle_cleanup_duration_in_minutes),
             enabled=True,
             search_criteria={
                 "include_all_projects": True,
@@ -427,7 +427,7 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
                     "project_key": "",
                 }],
                 "exclude_promoted_environments": ["**"],
-                "created_before_in_months": release_bundle_cleanup_created_before_in_months,
+                "created_before_in_months": int(release_bundle_cleanup_created_before_in_months),
             })
         ```
 
@@ -457,13 +457,13 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cron_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 item_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_criteria: Optional[pulumi.Input[Union['ReleaseBundleV2CleanupPolicySearchCriteriaArgs', 'ReleaseBundleV2CleanupPolicySearchCriteriaArgsDict']]] = None,
+                 cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 item_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_criteria: pulumi.Input[Optional[Union['ReleaseBundleV2CleanupPolicySearchCriteriaArgs', 'ReleaseBundleV2CleanupPolicySearchCriteriaArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -494,13 +494,13 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cron_expression: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            item_type: Optional[pulumi.Input[_builtins.str]] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            search_criteria: Optional[pulumi.Input[Union['ReleaseBundleV2CleanupPolicySearchCriteriaArgs', 'ReleaseBundleV2CleanupPolicySearchCriteriaArgsDict']]] = None) -> 'ReleaseBundleV2CleanupPolicy':
+            cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            item_type: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            search_criteria: pulumi.Input[Optional[Union['ReleaseBundleV2CleanupPolicySearchCriteriaArgs', 'ReleaseBundleV2CleanupPolicySearchCriteriaArgsDict']]] = None) -> 'ReleaseBundleV2CleanupPolicy':
         """
         Get an existing ReleaseBundleV2CleanupPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

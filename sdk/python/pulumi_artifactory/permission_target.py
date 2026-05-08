@@ -21,10 +21,10 @@ __all__ = ['PermissionTargetArgs', 'PermissionTarget']
 @pulumi.input_type
 class PermissionTargetArgs:
     def __init__(__self__, *,
-                 build: Optional[pulumi.Input['PermissionTargetBuildArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_bundle: Optional[pulumi.Input['PermissionTargetReleaseBundleArgs']] = None,
-                 repo: Optional[pulumi.Input['PermissionTargetRepoArgs']] = None):
+                 build: pulumi.Input[Optional['PermissionTargetBuildArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_bundle: pulumi.Input[Optional['PermissionTargetReleaseBundleArgs']] = None,
+                 repo: pulumi.Input[Optional['PermissionTargetRepoArgs']] = None):
         """
         The set of arguments for constructing a PermissionTarget resource.
 
@@ -44,60 +44,60 @@ class PermissionTargetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def build(self) -> Optional[pulumi.Input['PermissionTargetBuildArgs']]:
+    def build(self) -> pulumi.Input[Optional['PermissionTargetBuildArgs']]:
         """
         As for repo but for artifactory-build-info permissions.
         """
         return pulumi.get(self, "build")
 
     @build.setter
-    def build(self, value: Optional[pulumi.Input['PermissionTargetBuildArgs']]):
+    def build(self, value: pulumi.Input[Optional['PermissionTargetBuildArgs']]):
         pulumi.set(self, "build", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of permission.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseBundle")
-    def release_bundle(self) -> Optional[pulumi.Input['PermissionTargetReleaseBundleArgs']]:
+    def release_bundle(self) -> pulumi.Input[Optional['PermissionTargetReleaseBundleArgs']]:
         """
         As for repo for for release-bundles permissions.
         """
         return pulumi.get(self, "release_bundle")
 
     @release_bundle.setter
-    def release_bundle(self, value: Optional[pulumi.Input['PermissionTargetReleaseBundleArgs']]):
+    def release_bundle(self, value: pulumi.Input[Optional['PermissionTargetReleaseBundleArgs']]):
         pulumi.set(self, "release_bundle", value)
 
     @_builtins.property
     @pulumi.getter
-    def repo(self) -> Optional[pulumi.Input['PermissionTargetRepoArgs']]:
+    def repo(self) -> pulumi.Input[Optional['PermissionTargetRepoArgs']]:
         """
         Repository permission configuration.
         """
         return pulumi.get(self, "repo")
 
     @repo.setter
-    def repo(self, value: Optional[pulumi.Input['PermissionTargetRepoArgs']]):
+    def repo(self, value: pulumi.Input[Optional['PermissionTargetRepoArgs']]):
         pulumi.set(self, "repo", value)
 
 
 @pulumi.input_type
 class _PermissionTargetState:
     def __init__(__self__, *,
-                 build: Optional[pulumi.Input['PermissionTargetBuildArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_bundle: Optional[pulumi.Input['PermissionTargetReleaseBundleArgs']] = None,
-                 repo: Optional[pulumi.Input['PermissionTargetRepoArgs']] = None):
+                 build: pulumi.Input[Optional['PermissionTargetBuildArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_bundle: pulumi.Input[Optional['PermissionTargetReleaseBundleArgs']] = None,
+                 repo: pulumi.Input[Optional['PermissionTargetRepoArgs']] = None):
         """
         Input properties used for looking up and filtering PermissionTarget resources.
 
@@ -117,50 +117,50 @@ class _PermissionTargetState:
 
     @_builtins.property
     @pulumi.getter
-    def build(self) -> Optional[pulumi.Input['PermissionTargetBuildArgs']]:
+    def build(self) -> pulumi.Input[Optional['PermissionTargetBuildArgs']]:
         """
         As for repo but for artifactory-build-info permissions.
         """
         return pulumi.get(self, "build")
 
     @build.setter
-    def build(self, value: Optional[pulumi.Input['PermissionTargetBuildArgs']]):
+    def build(self, value: pulumi.Input[Optional['PermissionTargetBuildArgs']]):
         pulumi.set(self, "build", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of permission.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseBundle")
-    def release_bundle(self) -> Optional[pulumi.Input['PermissionTargetReleaseBundleArgs']]:
+    def release_bundle(self) -> pulumi.Input[Optional['PermissionTargetReleaseBundleArgs']]:
         """
         As for repo for for release-bundles permissions.
         """
         return pulumi.get(self, "release_bundle")
 
     @release_bundle.setter
-    def release_bundle(self, value: Optional[pulumi.Input['PermissionTargetReleaseBundleArgs']]):
+    def release_bundle(self, value: pulumi.Input[Optional['PermissionTargetReleaseBundleArgs']]):
         pulumi.set(self, "release_bundle", value)
 
     @_builtins.property
     @pulumi.getter
-    def repo(self) -> Optional[pulumi.Input['PermissionTargetRepoArgs']]:
+    def repo(self) -> pulumi.Input[Optional['PermissionTargetRepoArgs']]:
         """
         Repository permission configuration.
         """
         return pulumi.get(self, "repo")
 
     @repo.setter
-    def repo(self, value: Optional[pulumi.Input['PermissionTargetRepoArgs']]):
+    def repo(self, value: pulumi.Input[Optional['PermissionTargetRepoArgs']]):
         pulumi.set(self, "repo", value)
 
 
@@ -170,10 +170,10 @@ class PermissionTarget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 build: Optional[pulumi.Input[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_bundle: Optional[pulumi.Input[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict']]] = None,
-                 repo: Optional[pulumi.Input[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict']]] = None,
+                 build: pulumi.Input[Optional[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_bundle: pulumi.Input[Optional[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict']]] = None,
+                 repo: pulumi.Input[Optional[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict']]] = None,
                  __props__=None):
         """
         Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
@@ -427,10 +427,10 @@ class PermissionTarget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 build: Optional[pulumi.Input[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_bundle: Optional[pulumi.Input[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict']]] = None,
-                 repo: Optional[pulumi.Input[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict']]] = None,
+                 build: pulumi.Input[Optional[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_bundle: pulumi.Input[Optional[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict']]] = None,
+                 repo: pulumi.Input[Optional[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -454,10 +454,10 @@ class PermissionTarget(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            build: Optional[pulumi.Input[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            release_bundle: Optional[pulumi.Input[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict']]] = None,
-            repo: Optional[pulumi.Input[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict']]] = None) -> 'PermissionTarget':
+            build: pulumi.Input[Optional[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            release_bundle: pulumi.Input[Optional[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict']]] = None,
+            repo: pulumi.Input[Optional[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict']]] = None) -> 'PermissionTarget':
         """
         Get an existing PermissionTarget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

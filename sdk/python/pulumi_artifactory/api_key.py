@@ -28,7 +28,7 @@ class ApiKeyArgs:
 @pulumi.input_type
 class _ApiKeyState:
     def __init__(__self__, *,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
 
@@ -43,14 +43,14 @@ class _ApiKeyState:
     @_builtins.property
     @pulumi.getter(name="apiKey")
     @_utilities.deprecated("""Deprecated in favor of \"ScopedToken\".""")
-    def api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The API key. Deprecated.
         """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
-    def api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
 
 
@@ -159,7 +159,7 @@ class ApiKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_key: Optional[pulumi.Input[_builtins.str]] = None) -> 'ApiKey':
+            api_key: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApiKey':
         """
         Get an existing ApiKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -21,18 +21,18 @@ class LdapSettingArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  ldap_url: pulumi.Input[_builtins.str],
-                 allow_user_to_access_profile: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_create_user: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ldap_poisoning_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 manager_dn: Optional[pulumi.Input[_builtins.str]] = None,
-                 manager_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 paging_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 search_base: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_sub_tree: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_dn_pattern: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_create_user: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ldap_poisoning_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 manager_dn: pulumi.Input[Optional[_builtins.str]] = None,
+                 manager_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 paging_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 search_base: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_sub_tree: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_dn_pattern: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LdapSetting resource.
 
@@ -107,31 +107,31 @@ class LdapSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowUserToAccessProfile")
-    def allow_user_to_access_profile(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_user_to_access_profile(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
         """
         return pulumi.get(self, "allow_user_to_access_profile")
 
     @allow_user_to_access_profile.setter
-    def allow_user_to_access_profile(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_user_to_access_profile(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_user_to_access_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="autoCreateUser")
-    def auto_create_user(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_create_user(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
         """
         return pulumi.get(self, "auto_create_user")
 
     @auto_create_user.setter
-    def auto_create_user(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_create_user(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_create_user", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAttribute")
-    def email_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
         - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
@@ -139,84 +139,84 @@ class LdapSettingArgs:
         return pulumi.get(self, "email_attribute")
 
     @email_attribute.setter
-    def email_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_attribute", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, these settings are enabled. Default value is `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="ldapPoisoningProtection")
-    def ldap_poisoning_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ldap_poisoning_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Protects against LDAP poisoning by filtering out users exposed to vulnerabilities.  Default value is `true`.
         """
         return pulumi.get(self, "ldap_poisoning_protection")
 
     @ldap_poisoning_protection.setter
-    def ldap_poisoning_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ldap_poisoning_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ldap_poisoning_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="managerDn")
-    def manager_dn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manager_dn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full DN of a user with permissions that allow querying the LDAP server. When working with LDAP Groups, the user should have permissions for any extra group attributes such as memberOf.
         """
         return pulumi.get(self, "manager_dn")
 
     @manager_dn.setter
-    def manager_dn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manager_dn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manager_dn", value)
 
     @_builtins.property
     @pulumi.getter(name="managerPassword")
-    def manager_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manager_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password of the user binding to the LDAP server when using "search" authentication.
         """
         return pulumi.get(self, "manager_password")
 
     @manager_password.setter
-    def manager_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manager_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manager_password", value)
 
     @_builtins.property
     @pulumi.getter(name="pagingSupportEnabled")
-    def paging_support_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def paging_support_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, supports paging results for the LDAP server. This feature requires that the LDAP Server supports a PagedResultsControl configuration.  Default value is `true`.
         """
         return pulumi.get(self, "paging_support_enabled")
 
     @paging_support_enabled.setter
-    def paging_support_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def paging_support_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "paging_support_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="searchBase")
-    def search_base(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def search_base(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Context name in which to search relative to the base DN in the LDAP URL. Multiple search bases may be specified separated by a pipe ( | ).
         """
         return pulumi.get(self, "search_base")
 
     @search_base.setter
-    def search_base(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def search_base(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "search_base", value)
 
     @_builtins.property
     @pulumi.getter(name="searchFilter")
-    def search_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def search_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty.
         - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
@@ -224,24 +224,24 @@ class LdapSettingArgs:
         return pulumi.get(self, "search_filter")
 
     @search_filter.setter
-    def search_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def search_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "search_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="searchSubTree")
-    def search_sub_tree(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def search_sub_tree(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, enables deep search through the sub-tree of the LDAP URL + Search Base.  Default value is `true`.
         """
         return pulumi.get(self, "search_sub_tree")
 
     @search_sub_tree.setter
-    def search_sub_tree(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def search_sub_tree(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "search_sub_tree", value)
 
     @_builtins.property
     @pulumi.getter(name="userDnPattern")
-    def user_dn_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_dn_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
         - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
@@ -249,27 +249,27 @@ class LdapSettingArgs:
         return pulumi.get(self, "user_dn_pattern")
 
     @user_dn_pattern.setter
-    def user_dn_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_dn_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_dn_pattern", value)
 
 
 @pulumi.input_type
 class _LdapSettingState:
     def __init__(__self__, *,
-                 allow_user_to_access_profile: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_create_user: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 ldap_poisoning_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ldap_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 manager_dn: Optional[pulumi.Input[_builtins.str]] = None,
-                 manager_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 paging_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 search_base: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_sub_tree: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_dn_pattern: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_create_user: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 ldap_poisoning_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ldap_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 manager_dn: pulumi.Input[Optional[_builtins.str]] = None,
+                 manager_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 paging_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 search_base: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_sub_tree: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_dn_pattern: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LdapSetting resources.
 
@@ -322,31 +322,31 @@ class _LdapSettingState:
 
     @_builtins.property
     @pulumi.getter(name="allowUserToAccessProfile")
-    def allow_user_to_access_profile(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_user_to_access_profile(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
         """
         return pulumi.get(self, "allow_user_to_access_profile")
 
     @allow_user_to_access_profile.setter
-    def allow_user_to_access_profile(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_user_to_access_profile(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_user_to_access_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="autoCreateUser")
-    def auto_create_user(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_create_user(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
         """
         return pulumi.get(self, "auto_create_user")
 
     @auto_create_user.setter
-    def auto_create_user(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_create_user(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_create_user", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAttribute")
-    def email_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
         - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
@@ -354,108 +354,108 @@ class _LdapSettingState:
         return pulumi.get(self, "email_attribute")
 
     @email_attribute.setter
-    def email_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_attribute", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, these settings are enabled. Default value is `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique ID of the LDAP setting.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="ldapPoisoningProtection")
-    def ldap_poisoning_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ldap_poisoning_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Protects against LDAP poisoning by filtering out users exposed to vulnerabilities.  Default value is `true`.
         """
         return pulumi.get(self, "ldap_poisoning_protection")
 
     @ldap_poisoning_protection.setter
-    def ldap_poisoning_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ldap_poisoning_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ldap_poisoning_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="ldapUrl")
-    def ldap_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ldap_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location of the LDAP server in the following format: ldap://myserver:myport/dc=sampledomain,dc=com. The URL should include the base DN used to search for and/or authenticate users.
         """
         return pulumi.get(self, "ldap_url")
 
     @ldap_url.setter
-    def ldap_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ldap_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ldap_url", value)
 
     @_builtins.property
     @pulumi.getter(name="managerDn")
-    def manager_dn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manager_dn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full DN of a user with permissions that allow querying the LDAP server. When working with LDAP Groups, the user should have permissions for any extra group attributes such as memberOf.
         """
         return pulumi.get(self, "manager_dn")
 
     @manager_dn.setter
-    def manager_dn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manager_dn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manager_dn", value)
 
     @_builtins.property
     @pulumi.getter(name="managerPassword")
-    def manager_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manager_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password of the user binding to the LDAP server when using "search" authentication.
         """
         return pulumi.get(self, "manager_password")
 
     @manager_password.setter
-    def manager_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manager_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manager_password", value)
 
     @_builtins.property
     @pulumi.getter(name="pagingSupportEnabled")
-    def paging_support_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def paging_support_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, supports paging results for the LDAP server. This feature requires that the LDAP Server supports a PagedResultsControl configuration.  Default value is `true`.
         """
         return pulumi.get(self, "paging_support_enabled")
 
     @paging_support_enabled.setter
-    def paging_support_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def paging_support_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "paging_support_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="searchBase")
-    def search_base(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def search_base(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Context name in which to search relative to the base DN in the LDAP URL. Multiple search bases may be specified separated by a pipe ( | ).
         """
         return pulumi.get(self, "search_base")
 
     @search_base.setter
-    def search_base(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def search_base(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "search_base", value)
 
     @_builtins.property
     @pulumi.getter(name="searchFilter")
-    def search_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def search_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty.
         - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
@@ -463,24 +463,24 @@ class _LdapSettingState:
         return pulumi.get(self, "search_filter")
 
     @search_filter.setter
-    def search_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def search_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "search_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="searchSubTree")
-    def search_sub_tree(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def search_sub_tree(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, enables deep search through the sub-tree of the LDAP URL + Search Base.  Default value is `true`.
         """
         return pulumi.get(self, "search_sub_tree")
 
     @search_sub_tree.setter
-    def search_sub_tree(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def search_sub_tree(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "search_sub_tree", value)
 
     @_builtins.property
     @pulumi.getter(name="userDnPattern")
-    def user_dn_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_dn_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
         - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
@@ -488,7 +488,7 @@ class _LdapSettingState:
         return pulumi.get(self, "user_dn_pattern")
 
     @user_dn_pattern.setter
-    def user_dn_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_dn_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_dn_pattern", value)
 
 
@@ -498,20 +498,20 @@ class LdapSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_user_to_access_profile: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_create_user: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 ldap_poisoning_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ldap_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 manager_dn: Optional[pulumi.Input[_builtins.str]] = None,
-                 manager_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 paging_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 search_base: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_sub_tree: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_dn_pattern: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_create_user: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 ldap_poisoning_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ldap_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 manager_dn: pulumi.Input[Optional[_builtins.str]] = None,
+                 manager_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 paging_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 search_base: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_sub_tree: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_dn_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource can be used to manage Artifactory's LDAP settings for user authentication.
@@ -640,20 +640,20 @@ class LdapSetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_user_to_access_profile: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_create_user: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 ldap_poisoning_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ldap_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 manager_dn: Optional[pulumi.Input[_builtins.str]] = None,
-                 manager_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 paging_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 search_base: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_sub_tree: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_dn_pattern: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_create_user: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 ldap_poisoning_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ldap_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 manager_dn: pulumi.Input[Optional[_builtins.str]] = None,
+                 manager_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 paging_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 search_base: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_sub_tree: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_dn_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -693,20 +693,20 @@ class LdapSetting(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_user_to_access_profile: Optional[pulumi.Input[_builtins.bool]] = None,
-            auto_create_user: Optional[pulumi.Input[_builtins.bool]] = None,
-            email_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            ldap_poisoning_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-            ldap_url: Optional[pulumi.Input[_builtins.str]] = None,
-            manager_dn: Optional[pulumi.Input[_builtins.str]] = None,
-            manager_password: Optional[pulumi.Input[_builtins.str]] = None,
-            paging_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            search_base: Optional[pulumi.Input[_builtins.str]] = None,
-            search_filter: Optional[pulumi.Input[_builtins.str]] = None,
-            search_sub_tree: Optional[pulumi.Input[_builtins.bool]] = None,
-            user_dn_pattern: Optional[pulumi.Input[_builtins.str]] = None) -> 'LdapSetting':
+            allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_create_user: pulumi.Input[Optional[_builtins.bool]] = None,
+            email_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            ldap_poisoning_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            ldap_url: pulumi.Input[Optional[_builtins.str]] = None,
+            manager_dn: pulumi.Input[Optional[_builtins.str]] = None,
+            manager_password: pulumi.Input[Optional[_builtins.str]] = None,
+            paging_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            search_base: pulumi.Input[Optional[_builtins.str]] = None,
+            search_filter: pulumi.Input[Optional[_builtins.str]] = None,
+            search_sub_tree: pulumi.Input[Optional[_builtins.bool]] = None,
+            user_dn_pattern: pulumi.Input[Optional[_builtins.str]] = None) -> 'LdapSetting':
         """
         Get an existing LdapSetting resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -141,12 +141,12 @@ export function getVirtualGradleRepositoryOutput(args: GetVirtualGradleRepositor
  * A collection of arguments for invoking getVirtualGradleRepository.
  */
 export interface GetVirtualGradleRepositoryOutputArgs {
-    artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean>;
-    defaultDeploymentRepo?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    excludesPattern?: pulumi.Input<string>;
-    forceMavenAuthentication?: pulumi.Input<boolean>;
-    includesPattern?: pulumi.Input<string>;
+    artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean | undefined>;
+    defaultDeploymentRepo?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    excludesPattern?: pulumi.Input<string | undefined>;
+    forceMavenAuthentication?: pulumi.Input<boolean | undefined>;
+    includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.
      */
@@ -154,17 +154,17 @@ export interface GetVirtualGradleRepositoryOutputArgs {
     /**
      * (Optional) The keypair used to sign artifacts.
      */
-    keyPair?: pulumi.Input<string>;
-    notes?: pulumi.Input<string>;
+    keyPair?: pulumi.Input<string | undefined>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * (Optional)
      * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
      * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
      * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
      */
-    pomRepositoryReferencesCleanupPolicy?: pulumi.Input<string>;
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    projectKey?: pulumi.Input<string>;
-    repoLayoutRef?: pulumi.Input<string>;
-    repositories?: pulumi.Input<pulumi.Input<string>[]>;
+    pomRepositoryReferencesCleanupPolicy?: pulumi.Input<string | undefined>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    projectKey?: pulumi.Input<string | undefined>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
+    repositories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

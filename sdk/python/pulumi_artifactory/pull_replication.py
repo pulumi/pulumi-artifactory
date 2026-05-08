@@ -20,19 +20,19 @@ __all__ = ['PullReplicationArgs', 'PullReplication']
 class PullReplicationArgs:
     def __init__(__self__, *,
                  repo_key: pulumi.Input[_builtins.str],
-                 check_binary_existence_in_filestore: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cron_exp: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_event_replication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 path_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 socket_timeout_millis: Optional[pulumi.Input[_builtins.int]] = None,
-                 sync_deletes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sync_properties: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sync_statistics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 check_binary_existence_in_filestore: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_event_replication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 path_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 socket_timeout_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 sync_deletes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sync_properties: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sync_statistics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PullReplication resource.
 
@@ -95,7 +95,7 @@ class PullReplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="checkBinaryExistenceInFilestore")
-    def check_binary_existence_in_filestore(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def check_binary_existence_in_filestore(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When true, enables distributed checksum storage. For more information, see
         [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
@@ -103,129 +103,129 @@ class PullReplicationArgs:
         return pulumi.get(self, "check_binary_existence_in_filestore")
 
     @check_binary_existence_in_filestore.setter
-    def check_binary_existence_in_filestore(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def check_binary_existence_in_filestore(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "check_binary_existence_in_filestore", value)
 
     @_builtins.property
     @pulumi.getter(name="cronExp")
-    def cron_exp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cron_exp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         """
         return pulumi.get(self, "cron_exp")
 
     @cron_exp.setter
-    def cron_exp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cron_exp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cron_exp", value)
 
     @_builtins.property
     @pulumi.getter(name="enableEventReplication")
-    def enable_event_replication(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_event_replication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
         """
         return pulumi.get(self, "enable_event_replication")
 
     @enable_event_replication.setter
-    def enable_event_replication(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_event_replication(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_event_replication", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, this replication will be enabled when saved.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Required for local repository, but not needed for remote repository.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="pathPrefix")
-    def path_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
         """
         return pulumi.get(self, "path_prefix")
 
     @path_prefix.setter
-    def path_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Proxy key from Artifactory Proxies setting
         """
         return pulumi.get(self, "proxy")
 
     @proxy.setter
-    def proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="socketTimeoutMillis")
-    def socket_timeout_millis(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def socket_timeout_millis(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "socket_timeout_millis")
 
     @socket_timeout_millis.setter
-    def socket_timeout_millis(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def socket_timeout_millis(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "socket_timeout_millis", value)
 
     @_builtins.property
     @pulumi.getter(name="syncDeletes")
-    def sync_deletes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sync_deletes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
         """
         return pulumi.get(self, "sync_deletes")
 
     @sync_deletes.setter
-    def sync_deletes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sync_deletes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sync_deletes", value)
 
     @_builtins.property
     @pulumi.getter(name="syncProperties")
-    def sync_properties(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sync_properties(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, the task also synchronizes the properties of replicated artifacts.
         """
         return pulumi.get(self, "sync_properties")
 
     @sync_properties.setter
-    def sync_properties(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sync_properties(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sync_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="syncStatistics")
-    def sync_statistics(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sync_statistics(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
         """
         return pulumi.get(self, "sync_statistics")
 
     @sync_statistics.setter
-    def sync_statistics(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sync_statistics(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sync_statistics", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
         For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
@@ -234,39 +234,39 @@ class PullReplicationArgs:
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Required for local repository, but not needed for remote repository.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
 @pulumi.input_type
 class _PullReplicationState:
     def __init__(__self__, *,
-                 check_binary_existence_in_filestore: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cron_exp: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_event_replication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 path_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 socket_timeout_millis: Optional[pulumi.Input[_builtins.int]] = None,
-                 sync_deletes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sync_properties: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sync_statistics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 check_binary_existence_in_filestore: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_event_replication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 path_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 socket_timeout_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 sync_deletes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sync_properties: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sync_statistics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PullReplication resources.
 
@@ -318,7 +318,7 @@ class _PullReplicationState:
 
     @_builtins.property
     @pulumi.getter(name="checkBinaryExistenceInFilestore")
-    def check_binary_existence_in_filestore(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def check_binary_existence_in_filestore(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When true, enables distributed checksum storage. For more information, see
         [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
@@ -326,141 +326,141 @@ class _PullReplicationState:
         return pulumi.get(self, "check_binary_existence_in_filestore")
 
     @check_binary_existence_in_filestore.setter
-    def check_binary_existence_in_filestore(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def check_binary_existence_in_filestore(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "check_binary_existence_in_filestore", value)
 
     @_builtins.property
     @pulumi.getter(name="cronExp")
-    def cron_exp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cron_exp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         """
         return pulumi.get(self, "cron_exp")
 
     @cron_exp.setter
-    def cron_exp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cron_exp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cron_exp", value)
 
     @_builtins.property
     @pulumi.getter(name="enableEventReplication")
-    def enable_event_replication(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_event_replication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
         """
         return pulumi.get(self, "enable_event_replication")
 
     @enable_event_replication.setter
-    def enable_event_replication(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_event_replication(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_event_replication", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, this replication will be enabled when saved.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Required for local repository, but not needed for remote repository.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="pathPrefix")
-    def path_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
         """
         return pulumi.get(self, "path_prefix")
 
     @path_prefix.setter
-    def path_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Proxy key from Artifactory Proxies setting
         """
         return pulumi.get(self, "proxy")
 
     @proxy.setter
-    def proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="repoKey")
-    def repo_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repo_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Repository name.
         """
         return pulumi.get(self, "repo_key")
 
     @repo_key.setter
-    def repo_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repo_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repo_key", value)
 
     @_builtins.property
     @pulumi.getter(name="socketTimeoutMillis")
-    def socket_timeout_millis(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def socket_timeout_millis(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "socket_timeout_millis")
 
     @socket_timeout_millis.setter
-    def socket_timeout_millis(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def socket_timeout_millis(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "socket_timeout_millis", value)
 
     @_builtins.property
     @pulumi.getter(name="syncDeletes")
-    def sync_deletes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sync_deletes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
         """
         return pulumi.get(self, "sync_deletes")
 
     @sync_deletes.setter
-    def sync_deletes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sync_deletes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sync_deletes", value)
 
     @_builtins.property
     @pulumi.getter(name="syncProperties")
-    def sync_properties(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sync_properties(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, the task also synchronizes the properties of replicated artifacts.
         """
         return pulumi.get(self, "sync_properties")
 
     @sync_properties.setter
-    def sync_properties(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sync_properties(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sync_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="syncStatistics")
-    def sync_statistics(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sync_statistics(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
         """
         return pulumi.get(self, "sync_statistics")
 
     @sync_statistics.setter
-    def sync_statistics(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sync_statistics(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sync_statistics", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
         For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
@@ -469,19 +469,19 @@ class _PullReplicationState:
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Required for local repository, but not needed for remote repository.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -491,20 +491,20 @@ class PullReplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 check_binary_existence_in_filestore: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cron_exp: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_event_replication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 path_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 socket_timeout_millis: Optional[pulumi.Input[_builtins.int]] = None,
-                 sync_deletes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sync_properties: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sync_statistics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 check_binary_existence_in_filestore: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_event_replication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 path_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 socket_timeout_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 sync_deletes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sync_properties: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sync_statistics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > This resource is deprecated and replaced by `RemoteRepositoryReplication` for clarity.
@@ -616,20 +616,20 @@ class PullReplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 check_binary_existence_in_filestore: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cron_exp: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_event_replication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 path_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 repo_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 socket_timeout_millis: Optional[pulumi.Input[_builtins.int]] = None,
-                 sync_deletes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sync_properties: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sync_statistics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 check_binary_existence_in_filestore: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_event_replication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 path_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 repo_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 socket_timeout_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 sync_deletes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sync_properties: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sync_statistics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -667,20 +667,20 @@ class PullReplication(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            check_binary_existence_in_filestore: Optional[pulumi.Input[_builtins.bool]] = None,
-            cron_exp: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_event_replication: Optional[pulumi.Input[_builtins.bool]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            path_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            proxy: Optional[pulumi.Input[_builtins.str]] = None,
-            repo_key: Optional[pulumi.Input[_builtins.str]] = None,
-            socket_timeout_millis: Optional[pulumi.Input[_builtins.int]] = None,
-            sync_deletes: Optional[pulumi.Input[_builtins.bool]] = None,
-            sync_properties: Optional[pulumi.Input[_builtins.bool]] = None,
-            sync_statistics: Optional[pulumi.Input[_builtins.bool]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'PullReplication':
+            check_binary_existence_in_filestore: pulumi.Input[Optional[_builtins.bool]] = None,
+            cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_event_replication: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            path_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            proxy: pulumi.Input[Optional[_builtins.str]] = None,
+            repo_key: pulumi.Input[Optional[_builtins.str]] = None,
+            socket_timeout_millis: pulumi.Input[Optional[_builtins.int]] = None,
+            sync_deletes: pulumi.Input[Optional[_builtins.bool]] = None,
+            sync_properties: pulumi.Input[Optional[_builtins.bool]] = None,
+            sync_statistics: pulumi.Input[Optional[_builtins.bool]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> 'PullReplication':
         """
         Get an existing PullReplication resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

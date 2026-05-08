@@ -149,29 +149,29 @@ export interface KeypairState {
     /**
      * Will be used as a filename when retrieving the public key via REST API.
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * A unique identifier for the Key Pair record.
      */
-    pairName?: pulumi.Input<string>;
+    pairName?: pulumi.Input<string | undefined>;
     /**
      * Key Pair type. Supported types - GPG and RSA.
      */
-    pairType?: pulumi.Input<string>;
+    pairType?: pulumi.Input<string | undefined>;
     /**
      * Passphrase will be used to decrypt the private key. Validated server side.
      */
-    passphrase?: pulumi.Input<string>;
+    passphrase?: pulumi.Input<string | undefined>;
     /**
      * Private key. PEM format will be validated. Must not include extranous spaces or tabs.
      */
-    privateKey?: pulumi.Input<string>;
+    privateKey?: pulumi.Input<string | undefined>;
     /**
      * Public key. PEM format will be validated. Must not include extranous spaces or tabs.
      *
      * Artifactory REST API call 'Get Key Pair' doesn't return attributes `privateKey` and `passphrase`, but consumes these keys in the POST call.
      */
-    publicKey?: pulumi.Input<string>;
+    publicKey?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -193,7 +193,7 @@ export interface KeypairArgs {
     /**
      * Passphrase will be used to decrypt the private key. Validated server side.
      */
-    passphrase?: pulumi.Input<string>;
+    passphrase?: pulumi.Input<string | undefined>;
     /**
      * Private key. PEM format will be validated. Must not include extranous spaces or tabs.
      */

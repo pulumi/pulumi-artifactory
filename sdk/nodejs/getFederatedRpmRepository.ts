@@ -193,20 +193,20 @@ export function getFederatedRpmRepositoryOutput(args: GetFederatedRpmRepositoryO
  * A collection of arguments for invoking getFederatedRpmRepository.
  */
 export interface GetFederatedRpmRepositoryOutputArgs {
-    archiveBrowsingEnabled?: pulumi.Input<boolean>;
-    blackedOut?: pulumi.Input<boolean>;
-    calculateYumMetadata?: pulumi.Input<boolean>;
-    cdnRedirect?: pulumi.Input<boolean>;
-    cleanupOnDelete?: pulumi.Input<boolean>;
-    description?: pulumi.Input<string>;
+    archiveBrowsingEnabled?: pulumi.Input<boolean | undefined>;
+    blackedOut?: pulumi.Input<boolean | undefined>;
+    calculateYumMetadata?: pulumi.Input<boolean | undefined>;
+    cdnRedirect?: pulumi.Input<boolean | undefined>;
+    cleanupOnDelete?: pulumi.Input<boolean | undefined>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
      */
-    disableProxy?: pulumi.Input<boolean>;
-    downloadDirect?: pulumi.Input<boolean>;
-    enableFileListsIndexing?: pulumi.Input<boolean>;
-    excludesPattern?: pulumi.Input<string>;
-    includesPattern?: pulumi.Input<string>;
+    disableProxy?: pulumi.Input<boolean | undefined>;
+    downloadDirect?: pulumi.Input<boolean | undefined>;
+    enableFileListsIndexing?: pulumi.Input<boolean | undefined>;
+    excludesPattern?: pulumi.Input<string | undefined>;
+    includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.
      */
@@ -217,20 +217,20 @@ export interface GetFederatedRpmRepositoryOutputArgs {
      * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
      * to set up Federated repositories correctly.
      */
-    members?: pulumi.Input<pulumi.Input<inputs.GetFederatedRpmRepositoryMemberArgs>[]>;
-    notes?: pulumi.Input<string>;
-    primaryKeypairRef?: pulumi.Input<string>;
-    priorityResolution?: pulumi.Input<boolean>;
-    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    projectKey?: pulumi.Input<string>;
-    propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    members?: pulumi.Input<pulumi.Input<inputs.GetFederatedRpmRepositoryMemberArgs>[] | undefined>;
+    notes?: pulumi.Input<string | undefined>;
+    primaryKeypairRef?: pulumi.Input<string | undefined>;
+    priorityResolution?: pulumi.Input<boolean | undefined>;
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    projectKey?: pulumi.Input<string | undefined>;
+    propertySets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Proxy key from Artifactory Proxies settings.
      */
-    proxy?: pulumi.Input<string>;
-    repoLayoutRef?: pulumi.Input<string>;
-    secondaryKeypairRef?: pulumi.Input<string>;
-    xrayIndex?: pulumi.Input<boolean>;
-    yumGroupFileNames?: pulumi.Input<string>;
-    yumRootDepth?: pulumi.Input<number>;
+    proxy?: pulumi.Input<string | undefined>;
+    repoLayoutRef?: pulumi.Input<string | undefined>;
+    secondaryKeypairRef?: pulumi.Input<string | undefined>;
+    xrayIndex?: pulumi.Input<boolean | undefined>;
+    yumGroupFileNames?: pulumi.Input<string | undefined>;
+    yumRootDepth?: pulumi.Input<number | undefined>;
 }

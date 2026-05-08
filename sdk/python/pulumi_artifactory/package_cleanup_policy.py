@@ -23,12 +23,12 @@ class PackageCleanupPolicyArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  search_criteria: pulumi.Input['PackageCleanupPolicySearchCriteriaArgs'],
-                 cron_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_trashcan: Optional[pulumi.Input[_builtins.bool]] = None):
+                 cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_trashcan: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a PackageCleanupPolicy resource.
 
@@ -77,85 +77,85 @@ class PackageCleanupPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="cronExpression")
-    def cron_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cron_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cron expression that determines when the policy is run, However if left empty the policy will not run automatically and can only be triggered manually.
         """
         return pulumi.get(self, "cron_expression")
 
     @cron_expression.setter
-    def cron_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cron_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cron_expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="durationInMinutes")
-    def duration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def duration_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
         """
         return pulumi.get(self, "duration_in_minutes")
 
     @duration_in_minutes.setter
-    def duration_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def duration_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "duration_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
         """
         return pulumi.get(self, "project_key")
 
     @project_key.setter
-    def project_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_key", value)
 
     @_builtins.property
     @pulumi.getter(name="skipTrashcan")
-    def skip_trashcan(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_trashcan(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
         """
         return pulumi.get(self, "skip_trashcan")
 
     @skip_trashcan.setter
-    def skip_trashcan(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_trashcan(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_trashcan", value)
 
 
 @pulumi.input_type
 class _PackageCleanupPolicyState:
     def __init__(__self__, *,
-                 cron_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_criteria: Optional[pulumi.Input['PackageCleanupPolicySearchCriteriaArgs']] = None,
-                 skip_trashcan: Optional[pulumi.Input[_builtins.bool]] = None):
+                 cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_criteria: pulumi.Input[Optional['PackageCleanupPolicySearchCriteriaArgs']] = None,
+                 skip_trashcan: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering PackageCleanupPolicy resources.
 
@@ -185,92 +185,92 @@ class _PackageCleanupPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="cronExpression")
-    def cron_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cron_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cron expression that determines when the policy is run, However if left empty the policy will not run automatically and can only be triggered manually.
         """
         return pulumi.get(self, "cron_expression")
 
     @cron_expression.setter
-    def cron_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cron_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cron_expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="durationInMinutes")
-    def duration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def duration_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
         """
         return pulumi.get(self, "duration_in_minutes")
 
     @duration_in_minutes.setter
-    def duration_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def duration_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "duration_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
         """
         return pulumi.get(self, "project_key")
 
     @project_key.setter
-    def project_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_key", value)
 
     @_builtins.property
     @pulumi.getter(name="searchCriteria")
-    def search_criteria(self) -> Optional[pulumi.Input['PackageCleanupPolicySearchCriteriaArgs']]:
+    def search_criteria(self) -> pulumi.Input[Optional['PackageCleanupPolicySearchCriteriaArgs']]:
         return pulumi.get(self, "search_criteria")
 
     @search_criteria.setter
-    def search_criteria(self, value: Optional[pulumi.Input['PackageCleanupPolicySearchCriteriaArgs']]):
+    def search_criteria(self, value: pulumi.Input[Optional['PackageCleanupPolicySearchCriteriaArgs']]):
         pulumi.set(self, "search_criteria", value)
 
     @_builtins.property
     @pulumi.getter(name="skipTrashcan")
-    def skip_trashcan(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_trashcan(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
         """
         return pulumi.get(self, "skip_trashcan")
 
     @skip_trashcan.setter
-    def skip_trashcan(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_trashcan(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_trashcan", value)
 
 
@@ -280,14 +280,14 @@ class PackageCleanupPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cron_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_criteria: Optional[pulumi.Input[Union['PackageCleanupPolicySearchCriteriaArgs', 'PackageCleanupPolicySearchCriteriaArgsDict']]] = None,
-                 skip_trashcan: Optional[pulumi.Input[_builtins.bool]] = None,
+                 cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_criteria: pulumi.Input[Optional[Union['PackageCleanupPolicySearchCriteriaArgs', 'PackageCleanupPolicySearchCriteriaArgsDict']]] = None,
+                 skip_trashcan: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides an Artifactory Package Cleanup Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. Package cleanup policies are supported on the Cloud (7.98.2) and Self-Hosted (7.98.7) platforms, with an Enterprise+ license. See [Cleanup Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/cleanup-policies) for more details.
@@ -394,7 +394,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
             key="my-cleanup-policy",
             description="My cleanup policy with variables",
             cron_expression="0 0 2 ? * MON-SAT *",
-            duration_in_minutes=cleanup_policy_duration_in_minutes,
+            duration_in_minutes=int(cleanup_policy_duration_in_minutes),
             enabled=True,
             skip_trashcan=False,
             search_criteria={
@@ -411,7 +411,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
                 "included_projects": ["default"],
                 "included_packages": ["**"],
                 "excluded_packages": ["com/jfrog/latest"],
-                "last_downloaded_before_in_days": cleanup_policy_last_downloaded_before_in_days,
+                "last_downloaded_before_in_days": int(cleanup_policy_last_downloaded_before_in_days),
             })
         ```
 
@@ -641,7 +641,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
             key="my-cleanup-policy",
             description="My cleanup policy with variables",
             cron_expression="0 0 2 ? * MON-SAT *",
-            duration_in_minutes=cleanup_policy_duration_in_minutes,
+            duration_in_minutes=int(cleanup_policy_duration_in_minutes),
             enabled=True,
             skip_trashcan=False,
             search_criteria={
@@ -658,7 +658,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
                 "included_projects": ["default"],
                 "included_packages": ["**"],
                 "excluded_packages": ["com/jfrog/latest"],
-                "last_downloaded_before_in_days": cleanup_policy_last_downloaded_before_in_days,
+                "last_downloaded_before_in_days": int(cleanup_policy_last_downloaded_before_in_days),
             })
         ```
 
@@ -783,14 +783,14 @@ class PackageCleanupPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cron_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_criteria: Optional[pulumi.Input[Union['PackageCleanupPolicySearchCriteriaArgs', 'PackageCleanupPolicySearchCriteriaArgsDict']]] = None,
-                 skip_trashcan: Optional[pulumi.Input[_builtins.bool]] = None,
+                 cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_criteria: pulumi.Input[Optional[Union['PackageCleanupPolicySearchCriteriaArgs', 'PackageCleanupPolicySearchCriteriaArgsDict']]] = None,
+                 skip_trashcan: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -822,14 +822,14 @@ class PackageCleanupPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cron_expression: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            project_key: Optional[pulumi.Input[_builtins.str]] = None,
-            search_criteria: Optional[pulumi.Input[Union['PackageCleanupPolicySearchCriteriaArgs', 'PackageCleanupPolicySearchCriteriaArgsDict']]] = None,
-            skip_trashcan: Optional[pulumi.Input[_builtins.bool]] = None) -> 'PackageCleanupPolicy':
+            cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            project_key: pulumi.Input[Optional[_builtins.str]] = None,
+            search_criteria: pulumi.Input[Optional[Union['PackageCleanupPolicySearchCriteriaArgs', 'PackageCleanupPolicySearchCriteriaArgsDict']]] = None,
+            skip_trashcan: pulumi.Input[Optional[_builtins.bool]] = None) -> 'PackageCleanupPolicy':
         """
         Get an existing PackageCleanupPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
