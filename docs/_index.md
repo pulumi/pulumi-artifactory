@@ -34,7 +34,7 @@ curl -sL ${host}/artifactory/api/system/licenses/ | jq .
 }
 ```
 ## Example Usage
-{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml,hcl" >}}
 {{% choosable language typescript %}}
 ```yaml
 # Pulumi.yaml provider configuration file
@@ -225,6 +225,25 @@ public class App {
             .build());
 
     }
+}
+```
+
+{{% /choosable %}}
+{{% choosable language hcl %}}
+```hcl
+pulumi {
+  required_providers {
+    artifactory = {
+      source = "pulumi/artifactory"
+    }
+  }
+}
+
+# Create a new repository
+resource "artifactory_localpypirepository" "pypi-libs" {
+  key             = "pypi-libs"
+  repo_layout_ref = "simple-default"
+  description     = "A pypi repository for python packages"
 }
 ```
 
