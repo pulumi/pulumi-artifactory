@@ -7621,7 +7621,7 @@ class PermissionTargetBuildArgsDict(TypedDict):
     """
     This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
     """
-    actions: NotRequired[pulumi.Input[Optional['PermissionTargetBuildActionsArgs']]]
+    actions: NotRequired[pulumi.Input[Optional['PermissionTargetBuildActionsArgsDict']]]
     excludes_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The default value will be [] if nothing is supplied
@@ -7698,11 +7698,11 @@ class PermissionTargetBuildArgs:
 
 
 class PermissionTargetBuildActionsArgsDict(TypedDict):
-    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PermissionTargetBuildActionsGroupArgs']]]]]
+    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PermissionTargetBuildActionsGroupArgsDict']]]]]
     """
     Groups this permission applies for.
     """
-    users: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PermissionTargetBuildActionsUserArgs']]]]]
+    users: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PermissionTargetBuildActionsUserArgsDict']]]]]
     """
     Users this permission target applies for.
     """
@@ -7831,7 +7831,7 @@ class PermissionTargetReleaseBundleArgsDict(TypedDict):
     """
     This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
     """
-    actions: NotRequired[pulumi.Input[Optional['PermissionTargetReleaseBundleActionsArgs']]]
+    actions: NotRequired[pulumi.Input[Optional['PermissionTargetReleaseBundleActionsArgsDict']]]
     excludes_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The default value will be [] if nothing is supplied
@@ -7908,11 +7908,11 @@ class PermissionTargetReleaseBundleArgs:
 
 
 class PermissionTargetReleaseBundleActionsArgsDict(TypedDict):
-    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PermissionTargetReleaseBundleActionsGroupArgs']]]]]
+    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PermissionTargetReleaseBundleActionsGroupArgsDict']]]]]
     """
     Groups this permission applies for.
     """
-    users: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PermissionTargetReleaseBundleActionsUserArgs']]]]]
+    users: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PermissionTargetReleaseBundleActionsUserArgsDict']]]]]
     """
     Users this permission target applies for.
     """
@@ -8041,7 +8041,7 @@ class PermissionTargetRepoArgsDict(TypedDict):
     """
     List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
     """
-    actions: NotRequired[pulumi.Input[Optional['PermissionTargetRepoActionsArgs']]]
+    actions: NotRequired[pulumi.Input[Optional['PermissionTargetRepoActionsArgsDict']]]
     excludes_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Pattern of artifacts to exclude.
@@ -8118,11 +8118,11 @@ class PermissionTargetRepoArgs:
 
 
 class PermissionTargetRepoActionsArgsDict(TypedDict):
-    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PermissionTargetRepoActionsGroupArgs']]]]]
+    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PermissionTargetRepoActionsGroupArgsDict']]]]]
     """
     Groups this permission applies for.
     """
-    users: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PermissionTargetRepoActionsUserArgs']]]]]
+    users: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PermissionTargetRepoActionsUserArgsDict']]]]]
     """
     Users this permission target applies for.
     """
@@ -8259,7 +8259,7 @@ class PropertySetPropertyArgsDict(TypedDict):
     """
     Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
     """
-    predefined_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PropertySetPropertyPredefinedValueArgs']]]]]
+    predefined_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PropertySetPropertyPredefinedValueArgsDict']]]]]
     """
     Properties in the property set. Predefined values is mandatory when closed_predefined_values or multiple_choice is set to 'true'
     """
@@ -8848,7 +8848,7 @@ class ReleaseBundleV2CleanupPolicySearchCriteriaArgsDict(TypedDict):
 
     ~>This setting is relevant only on the global level, for Platform Admins.
     """
-    release_bundles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArgs']]]]]
+    release_bundles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArgsDict']]]]]
     """
     Specify the release bundles to include in the cleanup policy. The policy will only clean up the release bundles that match the specified criteria.
     """
@@ -9567,15 +9567,15 @@ class ReleaseBundleV2SourceArgsDict(TypedDict):
     """
     The contents of the AQL query.
     """
-    artifacts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReleaseBundleV2SourceArtifactArgs']]]]]
+    artifacts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReleaseBundleV2SourceArtifactArgsDict']]]]]
     """
     Source type to create a Release Bundle v2 version by collecting source artifacts from a list of path/checksum pairs.
     """
-    builds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReleaseBundleV2SourceBuildArgs']]]]]
+    builds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReleaseBundleV2SourceBuildArgsDict']]]]]
     """
     Source type to create a Release Bundle v2 version by collecting source artifacts from one or multiple builds (also known as build-info).
     """
-    release_bundles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReleaseBundleV2SourceReleaseBundleArgs']]]]]
+    release_bundles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReleaseBundleV2SourceReleaseBundleArgsDict']]]]]
     """
     Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `source_type` attribute value.
     """
