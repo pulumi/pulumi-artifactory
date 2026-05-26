@@ -135,6 +135,7 @@ from .get_local_hex_repository import *
 from .get_local_huggingfaceml_repository import *
 from .get_local_ivy_repository import *
 from .get_local_maven_repository import *
+from .get_local_nix_repository import *
 from .get_local_npm_repository import *
 from .get_local_nuget_repository import *
 from .get_local_oci_repository import *
@@ -171,6 +172,7 @@ from .get_remote_helmoci_repository import *
 from .get_remote_hex_repository import *
 from .get_remote_ivy_repository import *
 from .get_remote_maven_repository import *
+from .get_remote_nix_repository import *
 from .get_remote_npm_repository import *
 from .get_remote_nuget_repository import *
 from .get_remote_oci_repository import *
@@ -207,6 +209,7 @@ from .get_virtual_helmoci_repository import *
 from .get_virtual_hex_repository import *
 from .get_virtual_ivy_repository import *
 from .get_virtual_maven_repository import *
+from .get_virtual_nix_repository import *
 from .get_virtual_npm_repository import *
 from .get_virtual_nuget_repository import *
 from .get_virtual_oci_repository import *
@@ -248,6 +251,7 @@ from .local_huggingfaceml_repository import *
 from .local_ivy_repository import *
 from .local_machinelearning_repository import *
 from .local_maven_repository import *
+from .local_nix_repository import *
 from .local_npm_repository import *
 from .local_nuget_repository import *
 from .local_oci_repository import *
@@ -308,6 +312,7 @@ from .remote_hex_repository import *
 from .remote_huggingfaceml_repository import *
 from .remote_ivy_repository import *
 from .remote_maven_repository import *
+from .remote_nix_repository import *
 from .remote_npm_repository import *
 from .remote_nuget_repository import *
 from .remote_oci_repository import *
@@ -351,6 +356,7 @@ from .virtual_helm_repository import *
 from .virtual_helmoci_repository import *
 from .virtual_hex_repository import *
 from .virtual_ivy_repository import *
+from .virtual_nix_repository import *
 from .virtual_npm_repository import *
 from .virtual_nuget_repository import *
 from .virtual_oci_repository import *
@@ -1137,6 +1143,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/localNixRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localNixRepository:LocalNixRepository": "LocalNixRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/localNpmRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -1609,6 +1623,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/remoteNixRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteNixRepository:RemoteNixRepository": "RemoteNixRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/remoteNpmRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -1949,6 +1971,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/virtualIvyRepository:VirtualIvyRepository": "VirtualIvyRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualNixRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualNixRepository:VirtualNixRepository": "VirtualNixRepository"
   }
  },
  {

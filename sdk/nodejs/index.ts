@@ -650,6 +650,11 @@ export const getLocalMavenRepository: typeof import("./getLocalMavenRepository")
 export const getLocalMavenRepositoryOutput: typeof import("./getLocalMavenRepository").getLocalMavenRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getLocalMavenRepository","getLocalMavenRepositoryOutput"], () => require("./getLocalMavenRepository"));
 
+export { GetLocalNixRepositoryArgs, GetLocalNixRepositoryResult, GetLocalNixRepositoryOutputArgs } from "./getLocalNixRepository";
+export const getLocalNixRepository: typeof import("./getLocalNixRepository").getLocalNixRepository = null as any;
+export const getLocalNixRepositoryOutput: typeof import("./getLocalNixRepository").getLocalNixRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalNixRepository","getLocalNixRepositoryOutput"], () => require("./getLocalNixRepository"));
+
 export { GetLocalNpmRepositoryArgs, GetLocalNpmRepositoryResult, GetLocalNpmRepositoryOutputArgs } from "./getLocalNpmRepository";
 export const getLocalNpmRepository: typeof import("./getLocalNpmRepository").getLocalNpmRepository = null as any;
 export const getLocalNpmRepositoryOutput: typeof import("./getLocalNpmRepository").getLocalNpmRepositoryOutput = null as any;
@@ -830,6 +835,11 @@ export const getRemoteMavenRepository: typeof import("./getRemoteMavenRepository
 export const getRemoteMavenRepositoryOutput: typeof import("./getRemoteMavenRepository").getRemoteMavenRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getRemoteMavenRepository","getRemoteMavenRepositoryOutput"], () => require("./getRemoteMavenRepository"));
 
+export { GetRemoteNixRepositoryArgs, GetRemoteNixRepositoryResult, GetRemoteNixRepositoryOutputArgs } from "./getRemoteNixRepository";
+export const getRemoteNixRepository: typeof import("./getRemoteNixRepository").getRemoteNixRepository = null as any;
+export const getRemoteNixRepositoryOutput: typeof import("./getRemoteNixRepository").getRemoteNixRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteNixRepository","getRemoteNixRepositoryOutput"], () => require("./getRemoteNixRepository"));
+
 export { GetRemoteNpmRepositoryArgs, GetRemoteNpmRepositoryResult, GetRemoteNpmRepositoryOutputArgs } from "./getRemoteNpmRepository";
 export const getRemoteNpmRepository: typeof import("./getRemoteNpmRepository").getRemoteNpmRepository = null as any;
 export const getRemoteNpmRepositoryOutput: typeof import("./getRemoteNpmRepository").getRemoteNpmRepositoryOutput = null as any;
@@ -1009,6 +1019,11 @@ export { GetVirtualMavenRepositoryArgs, GetVirtualMavenRepositoryResult, GetVirt
 export const getVirtualMavenRepository: typeof import("./getVirtualMavenRepository").getVirtualMavenRepository = null as any;
 export const getVirtualMavenRepositoryOutput: typeof import("./getVirtualMavenRepository").getVirtualMavenRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualMavenRepository","getVirtualMavenRepositoryOutput"], () => require("./getVirtualMavenRepository"));
+
+export { GetVirtualNixRepositoryArgs, GetVirtualNixRepositoryResult, GetVirtualNixRepositoryOutputArgs } from "./getVirtualNixRepository";
+export const getVirtualNixRepository: typeof import("./getVirtualNixRepository").getVirtualNixRepository = null as any;
+export const getVirtualNixRepositoryOutput: typeof import("./getVirtualNixRepository").getVirtualNixRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualNixRepository","getVirtualNixRepositoryOutput"], () => require("./getVirtualNixRepository"));
 
 export { GetVirtualNpmRepositoryArgs, GetVirtualNpmRepositoryResult, GetVirtualNpmRepositoryOutputArgs } from "./getVirtualNpmRepository";
 export const getVirtualNpmRepository: typeof import("./getVirtualNpmRepository").getVirtualNpmRepository = null as any;
@@ -1214,6 +1229,11 @@ export { LocalMavenRepositoryArgs, LocalMavenRepositoryState } from "./localMave
 export type LocalMavenRepository = import("./localMavenRepository").LocalMavenRepository;
 export const LocalMavenRepository: typeof import("./localMavenRepository").LocalMavenRepository = null as any;
 utilities.lazyLoad(exports, ["LocalMavenRepository"], () => require("./localMavenRepository"));
+
+export { LocalNixRepositoryArgs, LocalNixRepositoryState } from "./localNixRepository";
+export type LocalNixRepository = import("./localNixRepository").LocalNixRepository;
+export const LocalNixRepository: typeof import("./localNixRepository").LocalNixRepository = null as any;
+utilities.lazyLoad(exports, ["LocalNixRepository"], () => require("./localNixRepository"));
 
 export { LocalNpmRepositoryArgs, LocalNpmRepositoryState } from "./localNpmRepository";
 export type LocalNpmRepository = import("./localNpmRepository").LocalNpmRepository;
@@ -1513,6 +1533,11 @@ export type RemoteMavenRepository = import("./remoteMavenRepository").RemoteMave
 export const RemoteMavenRepository: typeof import("./remoteMavenRepository").RemoteMavenRepository = null as any;
 utilities.lazyLoad(exports, ["RemoteMavenRepository"], () => require("./remoteMavenRepository"));
 
+export { RemoteNixRepositoryArgs, RemoteNixRepositoryState } from "./remoteNixRepository";
+export type RemoteNixRepository = import("./remoteNixRepository").RemoteNixRepository;
+export const RemoteNixRepository: typeof import("./remoteNixRepository").RemoteNixRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteNixRepository"], () => require("./remoteNixRepository"));
+
 export { RemoteNpmRepositoryArgs, RemoteNpmRepositoryState } from "./remoteNpmRepository";
 export type RemoteNpmRepository = import("./remoteNpmRepository").RemoteNpmRepository;
 export const RemoteNpmRepository: typeof import("./remoteNpmRepository").RemoteNpmRepository = null as any;
@@ -1727,6 +1752,11 @@ export { VirtualIvyRepositoryArgs, VirtualIvyRepositoryState } from "./virtualIv
 export type VirtualIvyRepository = import("./virtualIvyRepository").VirtualIvyRepository;
 export const VirtualIvyRepository: typeof import("./virtualIvyRepository").VirtualIvyRepository = null as any;
 utilities.lazyLoad(exports, ["VirtualIvyRepository"], () => require("./virtualIvyRepository"));
+
+export { VirtualNixRepositoryArgs, VirtualNixRepositoryState } from "./virtualNixRepository";
+export type VirtualNixRepository = import("./virtualNixRepository").VirtualNixRepository;
+export const VirtualNixRepository: typeof import("./virtualNixRepository").VirtualNixRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualNixRepository"], () => require("./virtualNixRepository"));
 
 export { VirtualNpmRepositoryArgs, VirtualNpmRepositoryState } from "./virtualNpmRepository";
 export type VirtualNpmRepository = import("./virtualNpmRepository").VirtualNpmRepository;
@@ -1987,6 +2017,8 @@ const _module = {
                 return new LocalMachinelearningRepository(name, <any>undefined, { urn })
             case "artifactory:index/localMavenRepository:LocalMavenRepository":
                 return new LocalMavenRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localNixRepository:LocalNixRepository":
+                return new LocalNixRepository(name, <any>undefined, { urn })
             case "artifactory:index/localNpmRepository:LocalNpmRepository":
                 return new LocalNpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/localNugetRepository:LocalNugetRepository":
@@ -2105,6 +2137,8 @@ const _module = {
                 return new RemoteIvyRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteMavenRepository:RemoteMavenRepository":
                 return new RemoteMavenRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteNixRepository:RemoteNixRepository":
+                return new RemoteNixRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteNpmRepository:RemoteNpmRepository":
                 return new RemoteNpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteNugetRepository:RemoteNugetRepository":
@@ -2191,6 +2225,8 @@ const _module = {
                 return new VirtualHexRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualIvyRepository:VirtualIvyRepository":
                 return new VirtualIvyRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualNixRepository:VirtualNixRepository":
+                return new VirtualNixRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualNpmRepository:VirtualNpmRepository":
                 return new VirtualNpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualNugetRepository:VirtualNugetRepository":
@@ -2313,6 +2349,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/localHuggingfacemlRe
 pulumi.runtime.registerResourceModule("artifactory", "index/localIvyRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localMachinelearningRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localMavenRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localNixRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localNpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localNugetRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localOciRepository", _module)
@@ -2372,6 +2409,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/remoteHexRepository"
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteHuggingfacemlRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteIvyRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteMavenRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteNixRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteNpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteNugetRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteOciRepository", _module)
@@ -2415,6 +2453,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/virtualHelmRepositor
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualHelmociRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualHexRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualIvyRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualNixRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualNpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualNugetRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualOciRepository", _module)

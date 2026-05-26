@@ -132,6 +132,8 @@ import com.pulumi.artifactory.inputs.GetLocalIvyRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetLocalIvyRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetLocalMavenRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetLocalMavenRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalNixRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalNixRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetLocalNpmRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetLocalNpmRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetLocalNugetRepositoryArgs;
@@ -204,6 +206,8 @@ import com.pulumi.artifactory.inputs.GetRemoteIvyRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteIvyRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteMavenRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteMavenRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetRemoteNixRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetRemoteNixRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteNpmRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteNpmRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteNugetRepositoryArgs;
@@ -276,6 +280,8 @@ import com.pulumi.artifactory.inputs.GetVirtualIvyRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualIvyRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualMavenRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualMavenRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetVirtualNixRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetVirtualNixRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualNpmRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualNpmRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualNugetRepositoryArgs;
@@ -362,6 +368,7 @@ import com.pulumi.artifactory.outputs.GetLocalHexRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalHuggingfacemlRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalIvyRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalMavenRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalNixRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalNpmRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalNugetRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalOciRepositoryResult;
@@ -398,6 +405,7 @@ import com.pulumi.artifactory.outputs.GetRemoteHelmociRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteHexRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteIvyRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteMavenRepositoryResult;
+import com.pulumi.artifactory.outputs.GetRemoteNixRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteNpmRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteNugetRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteOciRepositoryResult;
@@ -434,6 +442,7 @@ import com.pulumi.artifactory.outputs.GetVirtualHelmociRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualHexRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualIvyRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualMavenRepositoryResult;
+import com.pulumi.artifactory.outputs.GetVirtualNixRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualNpmRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualNugetRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualOciRepositoryResult;
@@ -12869,6 +12878,206 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalMavenRepository:getLocalMavenRepository", TypeShape.of(GetLocalMavenRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves configuration for a local Nix repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalNixRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getLocalNixRepository(GetLocalNixRepositoryArgs.builder()
+     *             .key("my-nix-local")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetLocalNixRepositoryResult> getLocalNixRepository(GetLocalNixRepositoryArgs args) {
+        return getLocalNixRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves configuration for a local Nix repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalNixRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getLocalNixRepository(GetLocalNixRepositoryArgs.builder()
+     *             .key("my-nix-local")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetLocalNixRepositoryResult> getLocalNixRepositoryPlain(GetLocalNixRepositoryPlainArgs args) {
+        return getLocalNixRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves configuration for a local Nix repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalNixRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getLocalNixRepository(GetLocalNixRepositoryArgs.builder()
+     *             .key("my-nix-local")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetLocalNixRepositoryResult> getLocalNixRepository(GetLocalNixRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalNixRepository:getLocalNixRepository", TypeShape.of(GetLocalNixRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves configuration for a local Nix repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalNixRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getLocalNixRepository(GetLocalNixRepositoryArgs.builder()
+     *             .key("my-nix-local")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetLocalNixRepositoryResult> getLocalNixRepository(GetLocalNixRepositoryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalNixRepository:getLocalNixRepository", TypeShape.of(GetLocalNixRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves configuration for a local Nix repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalNixRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getLocalNixRepository(GetLocalNixRepositoryArgs.builder()
+     *             .key("my-nix-local")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetLocalNixRepositoryResult> getLocalNixRepositoryPlain(GetLocalNixRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalNixRepository:getLocalNixRepository", TypeShape.of(GetLocalNixRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Retrieves a local npm repository.
      * 
      * ## Example Usage
@@ -20184,6 +20393,206 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getRemoteMavenRepository:getRemoteMavenRepository", TypeShape.of(GetRemoteMavenRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves configuration for a remote Nix repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteNixRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getRemoteNixRepository(GetRemoteNixRepositoryArgs.builder()
+     *             .key("my-nix-remote")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRemoteNixRepositoryResult> getRemoteNixRepository(GetRemoteNixRepositoryArgs args) {
+        return getRemoteNixRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves configuration for a remote Nix repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteNixRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getRemoteNixRepository(GetRemoteNixRepositoryArgs.builder()
+     *             .key("my-nix-remote")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRemoteNixRepositoryResult> getRemoteNixRepositoryPlain(GetRemoteNixRepositoryPlainArgs args) {
+        return getRemoteNixRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves configuration for a remote Nix repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteNixRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getRemoteNixRepository(GetRemoteNixRepositoryArgs.builder()
+     *             .key("my-nix-remote")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRemoteNixRepositoryResult> getRemoteNixRepository(GetRemoteNixRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getRemoteNixRepository:getRemoteNixRepository", TypeShape.of(GetRemoteNixRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves configuration for a remote Nix repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteNixRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getRemoteNixRepository(GetRemoteNixRepositoryArgs.builder()
+     *             .key("my-nix-remote")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRemoteNixRepositoryResult> getRemoteNixRepository(GetRemoteNixRepositoryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getRemoteNixRepository:getRemoteNixRepository", TypeShape.of(GetRemoteNixRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves configuration for a remote Nix repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteNixRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getRemoteNixRepository(GetRemoteNixRepositoryArgs.builder()
+     *             .key("my-nix-remote")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRemoteNixRepositoryResult> getRemoteNixRepositoryPlain(GetRemoteNixRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getRemoteNixRepository:getRemoteNixRepository", TypeShape.of(GetRemoteNixRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Retrieves a remote Npm repository.
      * 
      * ## Example Usage
@@ -27134,6 +27543,206 @@ public final class ArtifactoryFunctions {
      */
     public static CompletableFuture<GetVirtualMavenRepositoryResult> getVirtualMavenRepositoryPlain(GetVirtualMavenRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getVirtualMavenRepository:getVirtualMavenRepository", TypeShape.of(GetVirtualMavenRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves configuration for a virtual Nix repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualNixRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getVirtualNixRepository(GetVirtualNixRepositoryArgs.builder()
+     *             .key("my-nix-virtual")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetVirtualNixRepositoryResult> getVirtualNixRepository(GetVirtualNixRepositoryArgs args) {
+        return getVirtualNixRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves configuration for a virtual Nix repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualNixRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getVirtualNixRepository(GetVirtualNixRepositoryArgs.builder()
+     *             .key("my-nix-virtual")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetVirtualNixRepositoryResult> getVirtualNixRepositoryPlain(GetVirtualNixRepositoryPlainArgs args) {
+        return getVirtualNixRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves configuration for a virtual Nix repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualNixRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getVirtualNixRepository(GetVirtualNixRepositoryArgs.builder()
+     *             .key("my-nix-virtual")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetVirtualNixRepositoryResult> getVirtualNixRepository(GetVirtualNixRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getVirtualNixRepository:getVirtualNixRepository", TypeShape.of(GetVirtualNixRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves configuration for a virtual Nix repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualNixRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getVirtualNixRepository(GetVirtualNixRepositoryArgs.builder()
+     *             .key("my-nix-virtual")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetVirtualNixRepositoryResult> getVirtualNixRepository(GetVirtualNixRepositoryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getVirtualNixRepository:getVirtualNixRepository", TypeShape.of(GetVirtualNixRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves configuration for a virtual Nix repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualNixRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getVirtualNixRepository(GetVirtualNixRepositoryArgs.builder()
+     *             .key("my-nix-virtual")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetVirtualNixRepositoryResult> getVirtualNixRepositoryPlain(GetVirtualNixRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getVirtualNixRepository:getVirtualNixRepository", TypeShape.of(GetVirtualNixRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves a virtual NPM repository.

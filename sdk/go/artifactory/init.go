@@ -211,6 +211,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LocalMachinelearningRepository{}
 	case "artifactory:index/localMavenRepository:LocalMavenRepository":
 		r = &LocalMavenRepository{}
+	case "artifactory:index/localNixRepository:LocalNixRepository":
+		r = &LocalNixRepository{}
 	case "artifactory:index/localNpmRepository:LocalNpmRepository":
 		r = &LocalNpmRepository{}
 	case "artifactory:index/localNugetRepository:LocalNugetRepository":
@@ -329,6 +331,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RemoteIvyRepository{}
 	case "artifactory:index/remoteMavenRepository:RemoteMavenRepository":
 		r = &RemoteMavenRepository{}
+	case "artifactory:index/remoteNixRepository:RemoteNixRepository":
+		r = &RemoteNixRepository{}
 	case "artifactory:index/remoteNpmRepository:RemoteNpmRepository":
 		r = &RemoteNpmRepository{}
 	case "artifactory:index/remoteNugetRepository:RemoteNugetRepository":
@@ -415,6 +419,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VirtualHexRepository{}
 	case "artifactory:index/virtualIvyRepository:VirtualIvyRepository":
 		r = &VirtualIvyRepository{}
+	case "artifactory:index/virtualNixRepository:VirtualNixRepository":
+		r = &VirtualNixRepository{}
 	case "artifactory:index/virtualNpmRepository:VirtualNpmRepository":
 		r = &VirtualNpmRepository{}
 	case "artifactory:index/virtualNugetRepository:VirtualNugetRepository":
@@ -945,6 +951,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/localNixRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/localNpmRepository",
 		&module{version},
 	)
@@ -1240,6 +1251,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/remoteNixRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/remoteNpmRepository",
 		&module{version},
 	)
@@ -1451,6 +1467,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/virtualIvyRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/virtualNixRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

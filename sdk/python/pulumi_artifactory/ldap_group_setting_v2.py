@@ -28,6 +28,7 @@ class LdapGroupSettingV2Args:
                  force_attribute_search: pulumi.Input[Optional[_builtins.bool]] = None,
                  group_base_dn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_operation: pulumi.Input[Optional[_builtins.str]] = None,
                  sub_tree: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LdapGroupSettingV2 resource.
@@ -41,6 +42,7 @@ class LdapGroupSettingV2Args:
         :param pulumi.Input[_builtins.bool] force_attribute_search: This attribute is used in very specific cases of LDAP group settings. Don't switch it to `false`, unless instructed by the JFrog support team. Default value is `false`.
         :param pulumi.Input[_builtins.str] group_base_dn: A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP Setting’s “Search Base”). Used when importing groups.
         :param pulumi.Input[_builtins.str] name: Ldap group setting name.
+        :param pulumi.Input[_builtins.str] refresh_operation: Operation used when refreshing LDAP groups after create/update. Valid values: `UPDATE`, `IMPORT`, `UPDATE_AND_IMPORT`. Defaults to `UPDATE_AND_IMPORT`.
         :param pulumi.Input[_builtins.bool] sub_tree: When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `sub_tree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
         """
         pulumi.set(__self__, "description_attribute", description_attribute)
@@ -56,6 +58,8 @@ class LdapGroupSettingV2Args:
             pulumi.set(__self__, "group_base_dn", group_base_dn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if refresh_operation is not None:
+            pulumi.set(__self__, "refresh_operation", refresh_operation)
         if sub_tree is not None:
             pulumi.set(__self__, "sub_tree", sub_tree)
 
@@ -168,6 +172,18 @@ class LdapGroupSettingV2Args:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="refreshOperation")
+    def refresh_operation(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Operation used when refreshing LDAP groups after create/update. Valid values: `UPDATE`, `IMPORT`, `UPDATE_AND_IMPORT`. Defaults to `UPDATE_AND_IMPORT`.
+        """
+        return pulumi.get(self, "refresh_operation")
+
+    @refresh_operation.setter
+    def refresh_operation(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "refresh_operation", value)
+
+    @_builtins.property
     @pulumi.getter(name="subTree")
     def sub_tree(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -191,6 +207,7 @@ class _LdapGroupSettingV2State:
                  group_member_attribute: pulumi.Input[Optional[_builtins.str]] = None,
                  group_name_attribute: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_operation: pulumi.Input[Optional[_builtins.str]] = None,
                  strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  sub_tree: pulumi.Input[Optional[_builtins.bool]] = None):
         """
@@ -204,6 +221,7 @@ class _LdapGroupSettingV2State:
         :param pulumi.Input[_builtins.str] group_member_attribute: A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g., uniqueMember, member).
         :param pulumi.Input[_builtins.str] group_name_attribute: Attribute on the group entry denoting the group name. Used when importing groups.
         :param pulumi.Input[_builtins.str] name: Ldap group setting name.
+        :param pulumi.Input[_builtins.str] refresh_operation: Operation used when refreshing LDAP groups after create/update. Valid values: `UPDATE`, `IMPORT`, `UPDATE_AND_IMPORT`. Defaults to `UPDATE_AND_IMPORT`.
         :param pulumi.Input[_builtins.str] strategy: The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN. DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member. HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, `uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org` indicates that `user1` belongs to two groups: `uk` and `developers`. Valid values are: `STATIC`, `DYNAMIC`, `HIERARCHICAL`, case sensitive, all caps.
         :param pulumi.Input[_builtins.bool] sub_tree: When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `sub_tree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
         """
@@ -223,6 +241,8 @@ class _LdapGroupSettingV2State:
             pulumi.set(__self__, "group_name_attribute", group_name_attribute)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if refresh_operation is not None:
+            pulumi.set(__self__, "refresh_operation", refresh_operation)
         if strategy is not None:
             pulumi.set(__self__, "strategy", strategy)
         if sub_tree is not None:
@@ -325,6 +345,18 @@ class _LdapGroupSettingV2State:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="refreshOperation")
+    def refresh_operation(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Operation used when refreshing LDAP groups after create/update. Valid values: `UPDATE`, `IMPORT`, `UPDATE_AND_IMPORT`. Defaults to `UPDATE_AND_IMPORT`.
+        """
+        return pulumi.get(self, "refresh_operation")
+
+    @refresh_operation.setter
+    def refresh_operation(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "refresh_operation", value)
+
+    @_builtins.property
     @pulumi.getter
     def strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -363,6 +395,7 @@ class LdapGroupSettingV2(pulumi.CustomResource):
                  group_member_attribute: pulumi.Input[Optional[_builtins.str]] = None,
                  group_name_attribute: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_operation: pulumi.Input[Optional[_builtins.str]] = None,
                  strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  sub_tree: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
@@ -392,7 +425,8 @@ class LdapGroupSettingV2(pulumi.CustomResource):
             force_attribute_search=False,
             filter="(objectClass=groupOfNames)",
             description_attribute="description",
-            strategy="STATIC")
+            strategy="STATIC",
+            refresh_operation="UPDATE_AND_IMPORT")
         ```
 
         ## Import
@@ -412,6 +446,7 @@ class LdapGroupSettingV2(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] group_member_attribute: A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g., uniqueMember, member).
         :param pulumi.Input[_builtins.str] group_name_attribute: Attribute on the group entry denoting the group name. Used when importing groups.
         :param pulumi.Input[_builtins.str] name: Ldap group setting name.
+        :param pulumi.Input[_builtins.str] refresh_operation: Operation used when refreshing LDAP groups after create/update. Valid values: `UPDATE`, `IMPORT`, `UPDATE_AND_IMPORT`. Defaults to `UPDATE_AND_IMPORT`.
         :param pulumi.Input[_builtins.str] strategy: The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN. DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member. HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, `uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org` indicates that `user1` belongs to two groups: `uk` and `developers`. Valid values are: `STATIC`, `DYNAMIC`, `HIERARCHICAL`, case sensitive, all caps.
         :param pulumi.Input[_builtins.bool] sub_tree: When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `sub_tree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
         """
@@ -447,7 +482,8 @@ class LdapGroupSettingV2(pulumi.CustomResource):
             force_attribute_search=False,
             filter="(objectClass=groupOfNames)",
             description_attribute="description",
-            strategy="STATIC")
+            strategy="STATIC",
+            refresh_operation="UPDATE_AND_IMPORT")
         ```
 
         ## Import
@@ -480,6 +516,7 @@ class LdapGroupSettingV2(pulumi.CustomResource):
                  group_member_attribute: pulumi.Input[Optional[_builtins.str]] = None,
                  group_name_attribute: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_operation: pulumi.Input[Optional[_builtins.str]] = None,
                  strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  sub_tree: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
@@ -507,6 +544,7 @@ class LdapGroupSettingV2(pulumi.CustomResource):
                 raise TypeError("Missing required property 'group_name_attribute'")
             __props__.__dict__["group_name_attribute"] = group_name_attribute
             __props__.__dict__["name"] = name
+            __props__.__dict__["refresh_operation"] = refresh_operation
             if strategy is None and not opts.urn:
                 raise TypeError("Missing required property 'strategy'")
             __props__.__dict__["strategy"] = strategy
@@ -529,6 +567,7 @@ class LdapGroupSettingV2(pulumi.CustomResource):
             group_member_attribute: pulumi.Input[Optional[_builtins.str]] = None,
             group_name_attribute: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
+            refresh_operation: pulumi.Input[Optional[_builtins.str]] = None,
             strategy: pulumi.Input[Optional[_builtins.str]] = None,
             sub_tree: pulumi.Input[Optional[_builtins.bool]] = None) -> 'LdapGroupSettingV2':
         """
@@ -546,6 +585,7 @@ class LdapGroupSettingV2(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] group_member_attribute: A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g., uniqueMember, member).
         :param pulumi.Input[_builtins.str] group_name_attribute: Attribute on the group entry denoting the group name. Used when importing groups.
         :param pulumi.Input[_builtins.str] name: Ldap group setting name.
+        :param pulumi.Input[_builtins.str] refresh_operation: Operation used when refreshing LDAP groups after create/update. Valid values: `UPDATE`, `IMPORT`, `UPDATE_AND_IMPORT`. Defaults to `UPDATE_AND_IMPORT`.
         :param pulumi.Input[_builtins.str] strategy: The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN. DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member. HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, `uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org` indicates that `user1` belongs to two groups: `uk` and `developers`. Valid values are: `STATIC`, `DYNAMIC`, `HIERARCHICAL`, case sensitive, all caps.
         :param pulumi.Input[_builtins.bool] sub_tree: When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `sub_tree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
         """
@@ -561,6 +601,7 @@ class LdapGroupSettingV2(pulumi.CustomResource):
         __props__.__dict__["group_member_attribute"] = group_member_attribute
         __props__.__dict__["group_name_attribute"] = group_name_attribute
         __props__.__dict__["name"] = name
+        __props__.__dict__["refresh_operation"] = refresh_operation
         __props__.__dict__["strategy"] = strategy
         __props__.__dict__["sub_tree"] = sub_tree
         return LdapGroupSettingV2(resource_name, opts=opts, __props__=__props__)
@@ -628,6 +669,14 @@ class LdapGroupSettingV2(pulumi.CustomResource):
         Ldap group setting name.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="refreshOperation")
+    def refresh_operation(self) -> pulumi.Output[_builtins.str]:
+        """
+        Operation used when refreshing LDAP groups after create/update. Valid values: `UPDATE`, `IMPORT`, `UPDATE_AND_IMPORT`. Defaults to `UPDATE_AND_IMPORT`.
+        """
+        return pulumi.get(self, "refresh_operation")
 
     @_builtins.property
     @pulumi.getter

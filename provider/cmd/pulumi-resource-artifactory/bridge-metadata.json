@@ -1399,6 +1399,18 @@
                     }
                 }
             },
+            "artifactory_local_nix_repository": {
+                "current": "artifactory:index/localNixRepository:LocalNixRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_local_npm_repository": {
                 "current": "artifactory:index/localNpmRepository:LocalNpmRepository",
                 "majorVersion": 8,
@@ -2243,6 +2255,9 @@
                     "content_synchronisation": {
                         "maxItemsOne": true
                     },
+                    "custom_http_headers": {
+                        "maxItemsOne": false
+                    },
                     "project_environments": {
                         "maxItemsOne": false
                     },
@@ -2379,6 +2394,21 @@
             },
             "artifactory_remote_maven_repository": {
                 "current": "artifactory:index/remoteMavenRepository:RemoteMavenRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "content_synchronisation": {
+                        "maxItemsOne": true
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_remote_nix_repository": {
+                "current": "artifactory:index/remoteNixRepository:RemoteNixRepository",
                 "majorVersion": 8,
                 "fields": {
                     "content_synchronisation": {
@@ -2928,6 +2958,18 @@
             },
             "artifactory_virtual_maven_repository": {
                 "current": "artifactory:index/mavenRepository:MavenRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "repositories": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_virtual_nix_repository": {
+                "current": "artifactory:index/virtualNixRepository:VirtualNixRepository",
                 "majorVersion": 8,
                 "fields": {
                     "project_environments": {
@@ -3950,6 +3992,18 @@
                     }
                 }
             },
+            "artifactory_local_nix_repository": {
+                "current": "artifactory:index/getLocalNixRepository:getLocalNixRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_local_npm_repository": {
                 "current": "artifactory:index/getLocalNpmRepository:getLocalNpmRepository",
                 "majorVersion": 8,
@@ -4571,6 +4625,15 @@
                     }
                 }
             },
+            "artifactory_remote_nix_repository": {
+                "current": "artifactory:index/getRemoteNixRepository:getRemoteNixRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_remote_npm_repository": {
                 "current": "artifactory:index/getRemoteNpmRepository:getRemoteNpmRepository",
                 "majorVersion": 8,
@@ -5041,6 +5104,15 @@
                         "maxItemsOne": false
                     },
                     "repositories": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_virtual_nix_repository": {
+                "current": "artifactory:index/getVirtualNixRepository:getVirtualNixRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "project_environments": {
                         "maxItemsOne": false
                     }
                 }
@@ -5525,6 +5597,9 @@
             "artifactory_local_maven_repository": [
                 "key"
             ],
+            "artifactory_local_nix_repository": [
+                "key"
+            ],
             "artifactory_local_npm_repository": [
                 "key"
             ],
@@ -5657,6 +5732,9 @@
             "artifactory_remote_maven_repository": [
                 "key"
             ],
+            "artifactory_remote_nix_repository": [
+                "key"
+            ],
             "artifactory_remote_npm_repository": [
                 "key"
             ],
@@ -5763,6 +5841,9 @@
                 "key"
             ],
             "artifactory_virtual_maven_repository": [
+                "key"
+            ],
+            "artifactory_virtual_nix_repository": [
                 "key"
             ],
             "artifactory_virtual_npm_repository": [
@@ -5897,6 +5978,7 @@
             "artifactory:index/localIvyRepository:LocalIvyRepository": 1,
             "artifactory:index/localMachinelearningRepository:LocalMachinelearningRepository": 1,
             "artifactory:index/localMavenRepository:LocalMavenRepository": 1,
+            "artifactory:index/localNixRepository:LocalNixRepository": 1,
             "artifactory:index/localNpmRepository:LocalNpmRepository": 1,
             "artifactory:index/localNugetRepository:LocalNugetRepository": 1,
             "artifactory:index/localOciRepository:LocalOciRepository": 1,
@@ -5956,6 +6038,7 @@
             "artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository": 1,
             "artifactory:index/remoteIvyRepository:RemoteIvyRepository": 1,
             "artifactory:index/remoteMavenRepository:RemoteMavenRepository": 1,
+            "artifactory:index/remoteNixRepository:RemoteNixRepository": 1,
             "artifactory:index/remoteNpmRepository:RemoteNpmRepository": 1,
             "artifactory:index/remoteNugetRepository:RemoteNugetRepository": 1,
             "artifactory:index/remoteOciRepository:RemoteOciRepository": 1,
@@ -5999,6 +6082,7 @@
             "artifactory:index/virtualHelmociRepository:VirtualHelmociRepository": 0,
             "artifactory:index/virtualHexRepository:VirtualHexRepository": 1,
             "artifactory:index/virtualIvyRepository:VirtualIvyRepository": 0,
+            "artifactory:index/virtualNixRepository:VirtualNixRepository": 1,
             "artifactory:index/virtualNpmRepository:VirtualNpmRepository": 0,
             "artifactory:index/virtualNugetRepository:VirtualNugetRepository": 0,
             "artifactory:index/virtualOciRepository:VirtualOciRepository": 0,
@@ -6076,6 +6160,7 @@
             "artifactory:index/getLocalHuggingfacemlRepository:getLocalHuggingfacemlRepository": 0,
             "artifactory:index/getLocalIvyRepository:getLocalIvyRepository": 0,
             "artifactory:index/getLocalMavenRepository:getLocalMavenRepository": 0,
+            "artifactory:index/getLocalNixRepository:getLocalNixRepository": 1,
             "artifactory:index/getLocalNpmRepository:getLocalNpmRepository": 0,
             "artifactory:index/getLocalNugetRepository:getLocalNugetRepository": 0,
             "artifactory:index/getLocalOciRepository:getLocalOciRepository": 0,
@@ -6112,6 +6197,7 @@
             "artifactory:index/getRemoteHexRepository:getRemoteHexRepository": 1,
             "artifactory:index/getRemoteIvyRepository:getRemoteIvyRepository": 0,
             "artifactory:index/getRemoteMavenRepository:getRemoteMavenRepository": 0,
+            "artifactory:index/getRemoteNixRepository:getRemoteNixRepository": 1,
             "artifactory:index/getRemoteNpmRepository:getRemoteNpmRepository": 0,
             "artifactory:index/getRemoteNugetRepository:getRemoteNugetRepository": 0,
             "artifactory:index/getRemoteOciRepository:getRemoteOciRepository": 0,
@@ -6148,6 +6234,7 @@
             "artifactory:index/getVirtualHexRepository:getVirtualHexRepository": 1,
             "artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository": 0,
             "artifactory:index/getVirtualMavenRepository:getVirtualMavenRepository": 0,
+            "artifactory:index/getVirtualNixRepository:getVirtualNixRepository": 1,
             "artifactory:index/getVirtualNpmRepository:getVirtualNpmRepository": 0,
             "artifactory:index/getVirtualNugetRepository:getVirtualNugetRepository": 0,
             "artifactory:index/getVirtualOciRepository:getVirtualOciRepository": 0,

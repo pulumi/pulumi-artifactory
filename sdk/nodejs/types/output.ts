@@ -3806,6 +3806,21 @@ export interface RemoteGenericRepositoryContentSynchronisation {
     statisticsEnabled: boolean;
 }
 
+export interface RemoteGenericRepositoryCustomHttpHeader {
+    /**
+     * Header name.
+     */
+    name: string;
+    /**
+     * When `true`, Artifactory encrypts the value server-side.
+     */
+    sensitive: boolean;
+    /**
+     * Header value. Masked in pulumi preview output. Stored in state as configured; never read back from Artifactory.
+     */
+    value: string;
+}
+
 export interface RemoteGitlfsRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
@@ -3959,6 +3974,25 @@ export interface RemoteIvyRepositoryContentSynchronisation {
 }
 
 export interface RemoteMavenRepositoryContentSynchronisation {
+    /**
+     * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+     */
+    enabled: boolean;
+    /**
+     * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+     */
+    propertiesEnabled: boolean;
+    /**
+     * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+     */
+    sourceOriginAbsenceDetection: boolean;
+    /**
+     * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+     */
+    statisticsEnabled: boolean;
+}
+
+export interface RemoteNixRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
