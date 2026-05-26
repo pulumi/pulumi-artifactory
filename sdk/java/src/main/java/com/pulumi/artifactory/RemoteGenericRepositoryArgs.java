@@ -4,6 +4,7 @@
 package com.pulumi.artifactory;
 
 import com.pulumi.artifactory.inputs.RemoteGenericRepositoryContentSynchronisationArgs;
+import com.pulumi.artifactory.inputs.RemoteGenericRepositoryCustomHttpHeaderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -147,6 +148,21 @@ public final class RemoteGenericRepositoryArgs extends com.pulumi.resources.Reso
 
     public Optional<Output<RemoteGenericRepositoryContentSynchronisationArgs>> contentSynchronisation() {
         return Optional.ofNullable(this.contentSynchronisation);
+    }
+
+    /**
+     * List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+     * 
+     */
+    @Import(name="customHttpHeaders")
+    private @Nullable Output<List<RemoteGenericRepositoryCustomHttpHeaderArgs>> customHttpHeaders;
+
+    /**
+     * @return List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+     * 
+     */
+    public Optional<Output<List<RemoteGenericRepositoryCustomHttpHeaderArgs>>> customHttpHeaders() {
+        return Optional.ofNullable(this.customHttpHeaders);
     }
 
     /**
@@ -691,6 +707,7 @@ public final class RemoteGenericRepositoryArgs extends com.pulumi.resources.Reso
         this.cdnRedirect = $.cdnRedirect;
         this.clientTlsCertificate = $.clientTlsCertificate;
         this.contentSynchronisation = $.contentSynchronisation;
+        this.customHttpHeaders = $.customHttpHeaders;
         this.description = $.description;
         this.disableProxy = $.disableProxy;
         this.disableUrlNormalization = $.disableUrlNormalization;
@@ -924,6 +941,37 @@ public final class RemoteGenericRepositoryArgs extends com.pulumi.resources.Reso
 
         public Builder contentSynchronisation(RemoteGenericRepositoryContentSynchronisationArgs contentSynchronisation) {
             return contentSynchronisation(Output.of(contentSynchronisation));
+        }
+
+        /**
+         * @param customHttpHeaders List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customHttpHeaders(@Nullable Output<List<RemoteGenericRepositoryCustomHttpHeaderArgs>> customHttpHeaders) {
+            $.customHttpHeaders = customHttpHeaders;
+            return this;
+        }
+
+        /**
+         * @param customHttpHeaders List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customHttpHeaders(List<RemoteGenericRepositoryCustomHttpHeaderArgs> customHttpHeaders) {
+            return customHttpHeaders(Output.of(customHttpHeaders));
+        }
+
+        /**
+         * @param customHttpHeaders List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customHttpHeaders(RemoteGenericRepositoryCustomHttpHeaderArgs... customHttpHeaders) {
+            return customHttpHeaders(List.of(customHttpHeaders));
         }
 
         /**

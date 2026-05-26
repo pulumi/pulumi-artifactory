@@ -7,6 +7,7 @@ import com.pulumi.artifactory.RemoteGenericRepositoryArgs;
 import com.pulumi.artifactory.Utilities;
 import com.pulumi.artifactory.inputs.RemoteGenericRepositoryState;
 import com.pulumi.artifactory.outputs.RemoteGenericRepositoryContentSynchronisation;
+import com.pulumi.artifactory.outputs.RemoteGenericRepositoryCustomHttpHeader;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -55,12 +56,63 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Custom HTTP headers
+ * 
+ * Use `customHttpHeaders` to send up to 5 static headers on every outbound request to the remote URL. A common use case is authenticating to Azure Blob Storage or packagecloud.io.
+ * 
+ * Each header has a `name`, a `value` (masked in plan output), and an optional `sensitive` flag. When `sensitive = true`, Artifactory encrypts the value server-side. The default is `false` (plaintext). Header values are never read back from Artifactory — the value you configure is preserved in state.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.RemoteGenericRepository;
+ * import com.pulumi.artifactory.RemoteGenericRepositoryArgs;
+ * import com.pulumi.artifactory.inputs.RemoteGenericRepositoryCustomHttpHeaderArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var azure_blob = new RemoteGenericRepository("azure-blob", RemoteGenericRepositoryArgs.builder()
+ *             .key("azure-blob-generic")
+ *             .url("https://example.blob.core.windows.net/container/")
+ *             .customHttpHeaders(            
+ *                 RemoteGenericRepositoryCustomHttpHeaderArgs.builder()
+ *                     .name("x-ms-version")
+ *                     .value("2021-12-02")
+ *                     .build(),
+ *                 RemoteGenericRepositoryCustomHttpHeaderArgs.builder()
+ *                     .name("x-api-key")
+ *                     .value("my-secret-token")
+ *                     .sensitive(true)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Remote repositories can be imported using their name, e.g.
  * ```sh
  * $ pulumi import artifactory:index/remoteGenericRepository:RemoteGenericRepository my-remote-generic my-remote-generic
  * ```
+ * 
+ * Note: `customHttpHeaders` values are not read back from Artifactory during import. After importing, run `pulumi up` to push your configured headers.
  * 
  */
 @ResourceType(type="artifactory:index/remoteGenericRepository:RemoteGenericRepository")
@@ -184,6 +236,20 @@ public class RemoteGenericRepository extends com.pulumi.resources.CustomResource
 
     public Output<Optional<RemoteGenericRepositoryContentSynchronisation>> contentSynchronisation() {
         return Codegen.optional(this.contentSynchronisation);
+    }
+    /**
+     * List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+     * 
+     */
+    @Export(name="customHttpHeaders", refs={List.class,RemoteGenericRepositoryCustomHttpHeader.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<RemoteGenericRepositoryCustomHttpHeader>> customHttpHeaders;
+
+    /**
+     * @return List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+     * 
+     */
+    public Output<Optional<List<RemoteGenericRepositoryCustomHttpHeader>>> customHttpHeaders() {
+        return Codegen.optional(this.customHttpHeaders);
     }
     /**
      * Public description.

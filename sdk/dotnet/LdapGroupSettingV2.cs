@@ -41,6 +41,7 @@ namespace Pulumi.Artifactory
     ///         Filter = "(objectClass=groupOfNames)",
     ///         DescriptionAttribute = "description",
     ///         Strategy = "STATIC",
+    ///         RefreshOperation = "UPDATE_AND_IMPORT",
     ///     });
     /// 
     /// });
@@ -102,6 +103,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Operation used when refreshing LDAP groups after create/update. Valid values: `UPDATE`, `IMPORT`, `UPDATE_AND_IMPORT`. Defaults to `UPDATE_AND_IMPORT`.
+        /// </summary>
+        [Output("refreshOperation")]
+        public Output<string> RefreshOperation { get; private set; } = null!;
 
         /// <summary>
         /// The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN. DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member. HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, `uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org` indicates that `User1` belongs to two groups: `Uk` and `Developers`. Valid values are: `STATIC`, `DYNAMIC`, `HIERARCHICAL`, case sensitive, all caps.
@@ -210,6 +217,12 @@ namespace Pulumi.Artifactory
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Operation used when refreshing LDAP groups after create/update. Valid values: `UPDATE`, `IMPORT`, `UPDATE_AND_IMPORT`. Defaults to `UPDATE_AND_IMPORT`.
+        /// </summary>
+        [Input("refreshOperation")]
+        public Input<string>? RefreshOperation { get; set; }
+
+        /// <summary>
         /// The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN. DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member. HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, `uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org` indicates that `User1` belongs to two groups: `Uk` and `Developers`. Valid values are: `STATIC`, `DYNAMIC`, `HIERARCHICAL`, case sensitive, all caps.
         /// </summary>
         [Input("strategy", required: true)]
@@ -276,6 +289,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Operation used when refreshing LDAP groups after create/update. Valid values: `UPDATE`, `IMPORT`, `UPDATE_AND_IMPORT`. Defaults to `UPDATE_AND_IMPORT`.
+        /// </summary>
+        [Input("refreshOperation")]
+        public Input<string>? RefreshOperation { get; set; }
 
         /// <summary>
         /// The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN. DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member. HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, `uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org` indicates that `User1` belongs to two groups: `Uk` and `Developers`. Valid values are: `STATIC`, `DYNAMIC`, `HIERARCHICAL`, case sensitive, all caps.

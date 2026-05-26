@@ -31,12 +31,51 @@ namespace Pulumi.Artifactory
     /// });
     /// ```
     /// 
+    /// ### Custom HTTP headers
+    /// 
+    /// Use `CustomHttpHeaders` to send up to 5 static headers on every outbound request to the remote URL. A common use case is authenticating to Azure Blob Storage or packagecloud.io.
+    /// 
+    /// Each header has a `Name`, a `Value` (masked in plan output), and an optional `Sensitive` flag. When `sensitive = true`, Artifactory encrypts the value server-side. The default is `False` (plaintext). Header values are never read back from Artifactory — the value you configure is preserved in state.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azure_blob = new Artifactory.RemoteGenericRepository("azure-blob", new()
+    ///     {
+    ///         Key = "azure-blob-generic",
+    ///         Url = "https://example.blob.core.windows.net/container/",
+    ///         CustomHttpHeaders = new[]
+    ///         {
+    ///             new Artifactory.Inputs.RemoteGenericRepositoryCustomHttpHeaderArgs
+    ///             {
+    ///                 Name = "x-ms-version",
+    ///                 Value = "2021-12-02",
+    ///             },
+    ///             new Artifactory.Inputs.RemoteGenericRepositoryCustomHttpHeaderArgs
+    ///             {
+    ///                 Name = "x-api-key",
+    ///                 Value = "my-secret-token",
+    ///                 Sensitive = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Remote repositories can be imported using their name, e.g.
     /// ```sh
     /// $ pulumi import artifactory:index/remoteGenericRepository:RemoteGenericRepository my-remote-generic my-remote-generic
     /// ```
+    /// 
+    /// Note: `CustomHttpHeaders` values are not read back from Artifactory during import. After importing, run `pulumi up` to push your configured headers.
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteGenericRepository:RemoteGenericRepository")]
     public partial class RemoteGenericRepository : global::Pulumi.CustomResource
@@ -92,6 +131,12 @@ namespace Pulumi.Artifactory
 
         [Output("contentSynchronisation")]
         public Output<Outputs.RemoteGenericRepositoryContentSynchronisation?> ContentSynchronisation { get; private set; } = null!;
+
+        /// <summary>
+        /// List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+        /// </summary>
+        [Output("customHttpHeaders")]
+        public Output<ImmutableArray<Outputs.RemoteGenericRepositoryCustomHttpHeader>> CustomHttpHeaders { get; private set; } = null!;
 
         /// <summary>
         /// Public description.
@@ -403,6 +448,18 @@ namespace Pulumi.Artifactory
         [Input("contentSynchronisation")]
         public Input<Inputs.RemoteGenericRepositoryContentSynchronisationArgs>? ContentSynchronisation { get; set; }
 
+        [Input("customHttpHeaders")]
+        private InputList<Inputs.RemoteGenericRepositoryCustomHttpHeaderArgs>? _customHttpHeaders;
+
+        /// <summary>
+        /// List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+        /// </summary>
+        public InputList<Inputs.RemoteGenericRepositoryCustomHttpHeaderArgs> CustomHttpHeaders
+        {
+            get => _customHttpHeaders ?? (_customHttpHeaders = new InputList<Inputs.RemoteGenericRepositoryCustomHttpHeaderArgs>());
+            set => _customHttpHeaders = value;
+        }
+
         /// <summary>
         /// Public description.
         /// </summary>
@@ -691,6 +748,18 @@ namespace Pulumi.Artifactory
 
         [Input("contentSynchronisation")]
         public Input<Inputs.RemoteGenericRepositoryContentSynchronisationGetArgs>? ContentSynchronisation { get; set; }
+
+        [Input("customHttpHeaders")]
+        private InputList<Inputs.RemoteGenericRepositoryCustomHttpHeaderGetArgs>? _customHttpHeaders;
+
+        /// <summary>
+        /// List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+        /// </summary>
+        public InputList<Inputs.RemoteGenericRepositoryCustomHttpHeaderGetArgs> CustomHttpHeaders
+        {
+            get => _customHttpHeaders ?? (_customHttpHeaders = new InputList<Inputs.RemoteGenericRepositoryCustomHttpHeaderGetArgs>());
+            set => _customHttpHeaders = value;
+        }
 
         /// <summary>
         /// Public description.

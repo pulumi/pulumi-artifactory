@@ -46,6 +46,7 @@ import (
 //				Filter:               pulumi.String("(objectClass=groupOfNames)"),
 //				DescriptionAttribute: pulumi.String("description"),
 //				Strategy:             pulumi.String("STATIC"),
+//				RefreshOperation:     pulumi.String("UPDATE_AND_IMPORT"),
 //			})
 //			if err != nil {
 //				return err
@@ -80,6 +81,8 @@ type LdapGroupSettingV2 struct {
 	GroupNameAttribute pulumi.StringOutput `pulumi:"groupNameAttribute"`
 	// Ldap group setting name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Operation used when refreshing LDAP groups after create/update. Valid values: `UPDATE`, `IMPORT`, `UPDATE_AND_IMPORT`. Defaults to `UPDATE_AND_IMPORT`.
+	RefreshOperation pulumi.StringOutput `pulumi:"refreshOperation"`
 	// The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN. DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member. HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, `uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org` indicates that `user1` belongs to two groups: `uk` and `developers`. Valid values are: `STATIC`, `DYNAMIC`, `HIERARCHICAL`, case sensitive, all caps.
 	Strategy pulumi.StringOutput `pulumi:"strategy"`
 	// When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `subTree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
@@ -147,6 +150,8 @@ type ldapGroupSettingV2State struct {
 	GroupNameAttribute *string `pulumi:"groupNameAttribute"`
 	// Ldap group setting name.
 	Name *string `pulumi:"name"`
+	// Operation used when refreshing LDAP groups after create/update. Valid values: `UPDATE`, `IMPORT`, `UPDATE_AND_IMPORT`. Defaults to `UPDATE_AND_IMPORT`.
+	RefreshOperation *string `pulumi:"refreshOperation"`
 	// The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN. DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member. HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, `uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org` indicates that `user1` belongs to two groups: `uk` and `developers`. Valid values are: `STATIC`, `DYNAMIC`, `HIERARCHICAL`, case sensitive, all caps.
 	Strategy *string `pulumi:"strategy"`
 	// When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `subTree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
@@ -170,6 +175,8 @@ type LdapGroupSettingV2State struct {
 	GroupNameAttribute pulumi.StringPtrInput
 	// Ldap group setting name.
 	Name pulumi.StringPtrInput
+	// Operation used when refreshing LDAP groups after create/update. Valid values: `UPDATE`, `IMPORT`, `UPDATE_AND_IMPORT`. Defaults to `UPDATE_AND_IMPORT`.
+	RefreshOperation pulumi.StringPtrInput
 	// The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN. DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member. HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, `uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org` indicates that `user1` belongs to two groups: `uk` and `developers`. Valid values are: `STATIC`, `DYNAMIC`, `HIERARCHICAL`, case sensitive, all caps.
 	Strategy pulumi.StringPtrInput
 	// When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `subTree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
@@ -197,6 +204,8 @@ type ldapGroupSettingV2Args struct {
 	GroupNameAttribute string `pulumi:"groupNameAttribute"`
 	// Ldap group setting name.
 	Name *string `pulumi:"name"`
+	// Operation used when refreshing LDAP groups after create/update. Valid values: `UPDATE`, `IMPORT`, `UPDATE_AND_IMPORT`. Defaults to `UPDATE_AND_IMPORT`.
+	RefreshOperation *string `pulumi:"refreshOperation"`
 	// The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN. DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member. HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, `uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org` indicates that `user1` belongs to two groups: `uk` and `developers`. Valid values are: `STATIC`, `DYNAMIC`, `HIERARCHICAL`, case sensitive, all caps.
 	Strategy string `pulumi:"strategy"`
 	// When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `subTree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
@@ -221,6 +230,8 @@ type LdapGroupSettingV2Args struct {
 	GroupNameAttribute pulumi.StringInput
 	// Ldap group setting name.
 	Name pulumi.StringPtrInput
+	// Operation used when refreshing LDAP groups after create/update. Valid values: `UPDATE`, `IMPORT`, `UPDATE_AND_IMPORT`. Defaults to `UPDATE_AND_IMPORT`.
+	RefreshOperation pulumi.StringPtrInput
 	// The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN. DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member. HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, `uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org` indicates that `user1` belongs to two groups: `uk` and `developers`. Valid values are: `STATIC`, `DYNAMIC`, `HIERARCHICAL`, case sensitive, all caps.
 	Strategy pulumi.StringInput
 	// When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `subTree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
@@ -352,6 +363,11 @@ func (o LdapGroupSettingV2Output) GroupNameAttribute() pulumi.StringOutput {
 // Ldap group setting name.
 func (o LdapGroupSettingV2Output) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LdapGroupSettingV2) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Operation used when refreshing LDAP groups after create/update. Valid values: `UPDATE`, `IMPORT`, `UPDATE_AND_IMPORT`. Defaults to `UPDATE_AND_IMPORT`.
+func (o LdapGroupSettingV2Output) RefreshOperation() pulumi.StringOutput {
+	return o.ApplyT(func(v *LdapGroupSettingV2) pulumi.StringOutput { return v.RefreshOperation }).(pulumi.StringOutput)
 }
 
 // The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN. DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member. HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, `uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org` indicates that `user1` belongs to two groups: `uk` and `developers`. Valid values are: `STATIC`, `DYNAMIC`, `HIERARCHICAL`, case sensitive, all caps.

@@ -32,6 +32,7 @@ class RemoteGenericRepositoryArgs:
                  cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
                  content_synchronisation: pulumi.Input[Optional['RemoteGenericRepositoryContentSynchronisationArgs']] = None,
+                 custom_http_headers: pulumi.Input[Optional[Sequence[pulumi.Input['RemoteGenericRepositoryCustomHttpHeaderArgs']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -81,6 +82,7 @@ class RemoteGenericRepositoryArgs:
         :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
+        :param pulumi.Input[Sequence[pulumi.Input['RemoteGenericRepositoryCustomHttpHeaderArgs']]] custom_http_headers: List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
@@ -133,6 +135,8 @@ class RemoteGenericRepositoryArgs:
             pulumi.set(__self__, "client_tls_certificate", client_tls_certificate)
         if content_synchronisation is not None:
             pulumi.set(__self__, "content_synchronisation", content_synchronisation)
+        if custom_http_headers is not None:
+            pulumi.set(__self__, "custom_http_headers", custom_http_headers)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if disable_proxy is not None:
@@ -335,6 +339,18 @@ class RemoteGenericRepositoryArgs:
     @content_synchronisation.setter
     def content_synchronisation(self, value: pulumi.Input[Optional['RemoteGenericRepositoryContentSynchronisationArgs']]):
         pulumi.set(self, "content_synchronisation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customHttpHeaders")
+    def custom_http_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RemoteGenericRepositoryCustomHttpHeaderArgs']]]]:
+        """
+        List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+        """
+        return pulumi.get(self, "custom_http_headers")
+
+    @custom_http_headers.setter
+    def custom_http_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RemoteGenericRepositoryCustomHttpHeaderArgs']]]]):
+        pulumi.set(self, "custom_http_headers", value)
 
     @_builtins.property
     @pulumi.getter
@@ -749,6 +765,7 @@ class _RemoteGenericRepositoryState:
                  cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
                  content_synchronisation: pulumi.Input[Optional['RemoteGenericRepositoryContentSynchronisationArgs']] = None,
+                 custom_http_headers: pulumi.Input[Optional[Sequence[pulumi.Input['RemoteGenericRepositoryCustomHttpHeaderArgs']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -797,6 +814,7 @@ class _RemoteGenericRepositoryState:
         :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
+        :param pulumi.Input[Sequence[pulumi.Input['RemoteGenericRepositoryCustomHttpHeaderArgs']]] custom_http_headers: List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
@@ -850,6 +868,8 @@ class _RemoteGenericRepositoryState:
             pulumi.set(__self__, "client_tls_certificate", client_tls_certificate)
         if content_synchronisation is not None:
             pulumi.set(__self__, "content_synchronisation", content_synchronisation)
+        if custom_http_headers is not None:
+            pulumi.set(__self__, "custom_http_headers", custom_http_headers)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if disable_proxy is not None:
@@ -1031,6 +1051,18 @@ class _RemoteGenericRepositoryState:
     @content_synchronisation.setter
     def content_synchronisation(self, value: pulumi.Input[Optional['RemoteGenericRepositoryContentSynchronisationArgs']]):
         pulumi.set(self, "content_synchronisation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customHttpHeaders")
+    def custom_http_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RemoteGenericRepositoryCustomHttpHeaderArgs']]]]:
+        """
+        List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+        """
+        return pulumi.get(self, "custom_http_headers")
+
+    @custom_http_headers.setter
+    def custom_http_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RemoteGenericRepositoryCustomHttpHeaderArgs']]]]):
+        pulumi.set(self, "custom_http_headers", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1473,6 +1505,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
                  cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
                  content_synchronisation: pulumi.Input[Optional[Union['RemoteGenericRepositoryContentSynchronisationArgs', 'RemoteGenericRepositoryContentSynchronisationArgsDict']]] = None,
+                 custom_http_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RemoteGenericRepositoryCustomHttpHeaderArgs', 'RemoteGenericRepositoryCustomHttpHeaderArgsDict']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1524,12 +1557,40 @@ class RemoteGenericRepository(pulumi.CustomResource):
             url="http://testartifactory.io/artifactory/example-generic/")
         ```
 
+        ### Custom HTTP headers
+
+        Use `custom_http_headers` to send up to 5 static headers on every outbound request to the remote URL. A common use case is authenticating to Azure Blob Storage or packagecloud.io.
+
+        Each header has a `name`, a `value` (masked in plan output), and an optional `sensitive` flag. When `sensitive = true`, Artifactory encrypts the value server-side. The default is `false` (plaintext). Header values are never read back from Artifactory — the value you configure is preserved in state.
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        azure_blob = artifactory.RemoteGenericRepository("azure-blob",
+            key="azure-blob-generic",
+            url="https://example.blob.core.windows.net/container/",
+            custom_http_headers=[
+                {
+                    "name": "x-ms-version",
+                    "value": "2021-12-02",
+                },
+                {
+                    "name": "x-api-key",
+                    "value": "my-secret-token",
+                    "sensitive": True,
+                },
+            ])
+        ```
+
         ## Import
 
         Remote repositories can be imported using their name, e.g.
         ```sh
         $ pulumi import artifactory:index/remoteGenericRepository:RemoteGenericRepository my-remote-generic my-remote-generic
         ```
+
+        Note: `custom_http_headers` values are not read back from Artifactory during import. After importing, run `pulumi up` to push your configured headers.
 
 
         :param str resource_name: The name of the resource.
@@ -1543,6 +1604,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RemoteGenericRepositoryCustomHttpHeaderArgs', 'RemoteGenericRepositoryCustomHttpHeaderArgsDict']]]] custom_http_headers: List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
@@ -1598,12 +1660,40 @@ class RemoteGenericRepository(pulumi.CustomResource):
             url="http://testartifactory.io/artifactory/example-generic/")
         ```
 
+        ### Custom HTTP headers
+
+        Use `custom_http_headers` to send up to 5 static headers on every outbound request to the remote URL. A common use case is authenticating to Azure Blob Storage or packagecloud.io.
+
+        Each header has a `name`, a `value` (masked in plan output), and an optional `sensitive` flag. When `sensitive = true`, Artifactory encrypts the value server-side. The default is `false` (plaintext). Header values are never read back from Artifactory — the value you configure is preserved in state.
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        azure_blob = artifactory.RemoteGenericRepository("azure-blob",
+            key="azure-blob-generic",
+            url="https://example.blob.core.windows.net/container/",
+            custom_http_headers=[
+                {
+                    "name": "x-ms-version",
+                    "value": "2021-12-02",
+                },
+                {
+                    "name": "x-api-key",
+                    "value": "my-secret-token",
+                    "sensitive": True,
+                },
+            ])
+        ```
+
         ## Import
 
         Remote repositories can be imported using their name, e.g.
         ```sh
         $ pulumi import artifactory:index/remoteGenericRepository:RemoteGenericRepository my-remote-generic my-remote-generic
         ```
+
+        Note: `custom_http_headers` values are not read back from Artifactory during import. After importing, run `pulumi up` to push your configured headers.
 
 
         :param str resource_name: The name of the resource.
@@ -1630,6 +1720,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
                  cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
                  content_synchronisation: pulumi.Input[Optional[Union['RemoteGenericRepositoryContentSynchronisationArgs', 'RemoteGenericRepositoryContentSynchronisationArgsDict']]] = None,
+                 custom_http_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RemoteGenericRepositoryCustomHttpHeaderArgs', 'RemoteGenericRepositoryCustomHttpHeaderArgsDict']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1684,6 +1775,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
             __props__.__dict__["cdn_redirect"] = cdn_redirect
             __props__.__dict__["client_tls_certificate"] = client_tls_certificate
             __props__.__dict__["content_synchronisation"] = content_synchronisation
+            __props__.__dict__["custom_http_headers"] = custom_http_headers
             __props__.__dict__["description"] = description
             __props__.__dict__["disable_proxy"] = disable_proxy
             __props__.__dict__["disable_url_normalization"] = disable_url_normalization
@@ -1745,6 +1837,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
             cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
             client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
             content_synchronisation: pulumi.Input[Optional[Union['RemoteGenericRepositoryContentSynchronisationArgs', 'RemoteGenericRepositoryContentSynchronisationArgsDict']]] = None,
+            custom_http_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RemoteGenericRepositoryCustomHttpHeaderArgs', 'RemoteGenericRepositoryCustomHttpHeaderArgsDict']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
             disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1797,6 +1890,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RemoteGenericRepositoryCustomHttpHeaderArgs', 'RemoteGenericRepositoryCustomHttpHeaderArgsDict']]]] custom_http_headers: List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
@@ -1845,6 +1939,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
         __props__.__dict__["cdn_redirect"] = cdn_redirect
         __props__.__dict__["client_tls_certificate"] = client_tls_certificate
         __props__.__dict__["content_synchronisation"] = content_synchronisation
+        __props__.__dict__["custom_http_headers"] = custom_http_headers
         __props__.__dict__["description"] = description
         __props__.__dict__["disable_proxy"] = disable_proxy
         __props__.__dict__["disable_url_normalization"] = disable_url_normalization
@@ -1952,6 +2047,14 @@ class RemoteGenericRepository(pulumi.CustomResource):
     @pulumi.getter(name="contentSynchronisation")
     def content_synchronisation(self) -> pulumi.Output[Optional['outputs.RemoteGenericRepositoryContentSynchronisation']]:
         return pulumi.get(self, "content_synchronisation")
+
+    @_builtins.property
+    @pulumi.getter(name="customHttpHeaders")
+    def custom_http_headers(self) -> pulumi.Output[Optional[Sequence['outputs.RemoteGenericRepositoryCustomHttpHeader']]]:
+        """
+        List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+        """
+        return pulumi.get(self, "custom_http_headers")
 
     @_builtins.property
     @pulumi.getter

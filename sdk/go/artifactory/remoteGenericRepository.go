@@ -41,12 +41,56 @@ import (
 //
 // ```
 //
+// ### Custom HTTP headers
+//
+// Use `customHttpHeaders` to send up to 5 static headers on every outbound request to the remote URL. A common use case is authenticating to Azure Blob Storage or packagecloud.io.
+//
+// Each header has a `name`, a `value` (masked in plan output), and an optional `sensitive` flag. When `sensitive = true`, Artifactory encrypts the value server-side. The default is `false` (plaintext). Header values are never read back from Artifactory — the value you configure is preserved in state.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteGenericRepository(ctx, "azure-blob", &artifactory.RemoteGenericRepositoryArgs{
+//				Key: pulumi.String("azure-blob-generic"),
+//				Url: pulumi.String("https://example.blob.core.windows.net/container/"),
+//				CustomHttpHeaders: artifactory.RemoteGenericRepositoryCustomHttpHeaderArray{
+//					&artifactory.RemoteGenericRepositoryCustomHttpHeaderArgs{
+//						Name:  pulumi.String("x-ms-version"),
+//						Value: pulumi.String("2021-12-02"),
+//					},
+//					&artifactory.RemoteGenericRepositoryCustomHttpHeaderArgs{
+//						Name:      pulumi.String("x-api-key"),
+//						Value:     pulumi.String("my-secret-token"),
+//						Sensitive: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Remote repositories can be imported using their name, e.g.
 // ```sh
 // $ pulumi import artifactory:index/remoteGenericRepository:RemoteGenericRepository my-remote-generic my-remote-generic
 // ```
+//
+// Note: `customHttpHeaders` values are not read back from Artifactory during import. After importing, run `pulumi up` to push your configured headers.
 type RemoteGenericRepository struct {
 	pulumi.CustomResourceState
 
@@ -68,6 +112,8 @@ type RemoteGenericRepository struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringOutput                                    `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemoteGenericRepositoryContentSynchronisationPtrOutput `pulumi:"contentSynchronisation"`
+	// List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+	CustomHttpHeaders RemoteGenericRepositoryCustomHttpHeaderArrayOutput `pulumi:"customHttpHeaders"`
 	// Public description.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
@@ -202,6 +248,8 @@ type remoteGenericRepositoryState struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   *string                                        `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteGenericRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	// List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+	CustomHttpHeaders []RemoteGenericRepositoryCustomHttpHeader `pulumi:"customHttpHeaders"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
@@ -294,6 +342,8 @@ type RemoteGenericRepositoryState struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteGenericRepositoryContentSynchronisationPtrInput
+	// List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+	CustomHttpHeaders RemoteGenericRepositoryCustomHttpHeaderArrayInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
@@ -390,6 +440,8 @@ type remoteGenericRepositoryArgs struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   *string                                        `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteGenericRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	// List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+	CustomHttpHeaders []RemoteGenericRepositoryCustomHttpHeader `pulumi:"customHttpHeaders"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
@@ -483,6 +535,8 @@ type RemoteGenericRepositoryArgs struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteGenericRepositoryContentSynchronisationPtrInput
+	// List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+	CustomHttpHeaders RemoteGenericRepositoryCustomHttpHeaderArrayInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
@@ -688,6 +742,13 @@ func (o RemoteGenericRepositoryOutput) ContentSynchronisation() RemoteGenericRep
 	return o.ApplyT(func(v *RemoteGenericRepository) RemoteGenericRepositoryContentSynchronisationPtrOutput {
 		return v.ContentSynchronisation
 	}).(RemoteGenericRepositoryContentSynchronisationPtrOutput)
+}
+
+// List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+func (o RemoteGenericRepositoryOutput) CustomHttpHeaders() RemoteGenericRepositoryCustomHttpHeaderArrayOutput {
+	return o.ApplyT(func(v *RemoteGenericRepository) RemoteGenericRepositoryCustomHttpHeaderArrayOutput {
+		return v.CustomHttpHeaders
+	}).(RemoteGenericRepositoryCustomHttpHeaderArrayOutput)
 }
 
 // Public description.

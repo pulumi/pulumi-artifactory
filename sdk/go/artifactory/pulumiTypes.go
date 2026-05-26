@@ -18648,6 +18648,121 @@ func (o RemoteGenericRepositoryContentSynchronisationPtrOutput) StatisticsEnable
 	}).(pulumi.BoolPtrOutput)
 }
 
+type RemoteGenericRepositoryCustomHttpHeader struct {
+	// Header name.
+	Name string `pulumi:"name"`
+	// When `true`, Artifactory encrypts the value server-side.
+	Sensitive *bool `pulumi:"sensitive"`
+	// Header value. Masked in pulumi preview output. Stored in state as configured; never read back from Artifactory.
+	Value string `pulumi:"value"`
+}
+
+// RemoteGenericRepositoryCustomHttpHeaderInput is an input type that accepts RemoteGenericRepositoryCustomHttpHeaderArgs and RemoteGenericRepositoryCustomHttpHeaderOutput values.
+// You can construct a concrete instance of `RemoteGenericRepositoryCustomHttpHeaderInput` via:
+//
+//	RemoteGenericRepositoryCustomHttpHeaderArgs{...}
+type RemoteGenericRepositoryCustomHttpHeaderInput interface {
+	pulumi.Input
+
+	ToRemoteGenericRepositoryCustomHttpHeaderOutput() RemoteGenericRepositoryCustomHttpHeaderOutput
+	ToRemoteGenericRepositoryCustomHttpHeaderOutputWithContext(context.Context) RemoteGenericRepositoryCustomHttpHeaderOutput
+}
+
+type RemoteGenericRepositoryCustomHttpHeaderArgs struct {
+	// Header name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// When `true`, Artifactory encrypts the value server-side.
+	Sensitive pulumi.BoolPtrInput `pulumi:"sensitive"`
+	// Header value. Masked in pulumi preview output. Stored in state as configured; never read back from Artifactory.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RemoteGenericRepositoryCustomHttpHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteGenericRepositoryCustomHttpHeader)(nil)).Elem()
+}
+
+func (i RemoteGenericRepositoryCustomHttpHeaderArgs) ToRemoteGenericRepositoryCustomHttpHeaderOutput() RemoteGenericRepositoryCustomHttpHeaderOutput {
+	return i.ToRemoteGenericRepositoryCustomHttpHeaderOutputWithContext(context.Background())
+}
+
+func (i RemoteGenericRepositoryCustomHttpHeaderArgs) ToRemoteGenericRepositoryCustomHttpHeaderOutputWithContext(ctx context.Context) RemoteGenericRepositoryCustomHttpHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteGenericRepositoryCustomHttpHeaderOutput)
+}
+
+// RemoteGenericRepositoryCustomHttpHeaderArrayInput is an input type that accepts RemoteGenericRepositoryCustomHttpHeaderArray and RemoteGenericRepositoryCustomHttpHeaderArrayOutput values.
+// You can construct a concrete instance of `RemoteGenericRepositoryCustomHttpHeaderArrayInput` via:
+//
+//	RemoteGenericRepositoryCustomHttpHeaderArray{ RemoteGenericRepositoryCustomHttpHeaderArgs{...} }
+type RemoteGenericRepositoryCustomHttpHeaderArrayInput interface {
+	pulumi.Input
+
+	ToRemoteGenericRepositoryCustomHttpHeaderArrayOutput() RemoteGenericRepositoryCustomHttpHeaderArrayOutput
+	ToRemoteGenericRepositoryCustomHttpHeaderArrayOutputWithContext(context.Context) RemoteGenericRepositoryCustomHttpHeaderArrayOutput
+}
+
+type RemoteGenericRepositoryCustomHttpHeaderArray []RemoteGenericRepositoryCustomHttpHeaderInput
+
+func (RemoteGenericRepositoryCustomHttpHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RemoteGenericRepositoryCustomHttpHeader)(nil)).Elem()
+}
+
+func (i RemoteGenericRepositoryCustomHttpHeaderArray) ToRemoteGenericRepositoryCustomHttpHeaderArrayOutput() RemoteGenericRepositoryCustomHttpHeaderArrayOutput {
+	return i.ToRemoteGenericRepositoryCustomHttpHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i RemoteGenericRepositoryCustomHttpHeaderArray) ToRemoteGenericRepositoryCustomHttpHeaderArrayOutputWithContext(ctx context.Context) RemoteGenericRepositoryCustomHttpHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteGenericRepositoryCustomHttpHeaderArrayOutput)
+}
+
+type RemoteGenericRepositoryCustomHttpHeaderOutput struct{ *pulumi.OutputState }
+
+func (RemoteGenericRepositoryCustomHttpHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteGenericRepositoryCustomHttpHeader)(nil)).Elem()
+}
+
+func (o RemoteGenericRepositoryCustomHttpHeaderOutput) ToRemoteGenericRepositoryCustomHttpHeaderOutput() RemoteGenericRepositoryCustomHttpHeaderOutput {
+	return o
+}
+
+func (o RemoteGenericRepositoryCustomHttpHeaderOutput) ToRemoteGenericRepositoryCustomHttpHeaderOutputWithContext(ctx context.Context) RemoteGenericRepositoryCustomHttpHeaderOutput {
+	return o
+}
+
+// Header name.
+func (o RemoteGenericRepositoryCustomHttpHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RemoteGenericRepositoryCustomHttpHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// When `true`, Artifactory encrypts the value server-side.
+func (o RemoteGenericRepositoryCustomHttpHeaderOutput) Sensitive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteGenericRepositoryCustomHttpHeader) *bool { return v.Sensitive }).(pulumi.BoolPtrOutput)
+}
+
+// Header value. Masked in pulumi preview output. Stored in state as configured; never read back from Artifactory.
+func (o RemoteGenericRepositoryCustomHttpHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RemoteGenericRepositoryCustomHttpHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RemoteGenericRepositoryCustomHttpHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (RemoteGenericRepositoryCustomHttpHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RemoteGenericRepositoryCustomHttpHeader)(nil)).Elem()
+}
+
+func (o RemoteGenericRepositoryCustomHttpHeaderArrayOutput) ToRemoteGenericRepositoryCustomHttpHeaderArrayOutput() RemoteGenericRepositoryCustomHttpHeaderArrayOutput {
+	return o
+}
+
+func (o RemoteGenericRepositoryCustomHttpHeaderArrayOutput) ToRemoteGenericRepositoryCustomHttpHeaderArrayOutputWithContext(ctx context.Context) RemoteGenericRepositoryCustomHttpHeaderArrayOutput {
+	return o
+}
+
+func (o RemoteGenericRepositoryCustomHttpHeaderArrayOutput) Index(i pulumi.IntInput) RemoteGenericRepositoryCustomHttpHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RemoteGenericRepositoryCustomHttpHeader {
+		return vs[0].([]RemoteGenericRepositoryCustomHttpHeader)[vs[1].(int)]
+	}).(RemoteGenericRepositoryCustomHttpHeaderOutput)
+}
+
 type RemoteGitlfsRepositoryContentSynchronisation struct {
 	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 	Enabled *bool `pulumi:"enabled"`
@@ -20389,6 +20504,200 @@ func (o RemoteMavenRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenc
 // If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteMavenRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteMavenRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type RemoteNixRepositoryContentSynchronisation struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+}
+
+// RemoteNixRepositoryContentSynchronisationInput is an input type that accepts RemoteNixRepositoryContentSynchronisationArgs and RemoteNixRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `RemoteNixRepositoryContentSynchronisationInput` via:
+//
+//	RemoteNixRepositoryContentSynchronisationArgs{...}
+type RemoteNixRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToRemoteNixRepositoryContentSynchronisationOutput() RemoteNixRepositoryContentSynchronisationOutput
+	ToRemoteNixRepositoryContentSynchronisationOutputWithContext(context.Context) RemoteNixRepositoryContentSynchronisationOutput
+}
+
+type RemoteNixRepositoryContentSynchronisationArgs struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (RemoteNixRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteNixRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i RemoteNixRepositoryContentSynchronisationArgs) ToRemoteNixRepositoryContentSynchronisationOutput() RemoteNixRepositoryContentSynchronisationOutput {
+	return i.ToRemoteNixRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i RemoteNixRepositoryContentSynchronisationArgs) ToRemoteNixRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteNixRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteNixRepositoryContentSynchronisationOutput)
+}
+
+func (i RemoteNixRepositoryContentSynchronisationArgs) ToRemoteNixRepositoryContentSynchronisationPtrOutput() RemoteNixRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteNixRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i RemoteNixRepositoryContentSynchronisationArgs) ToRemoteNixRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteNixRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteNixRepositoryContentSynchronisationOutput).ToRemoteNixRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// RemoteNixRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteNixRepositoryContentSynchronisationArgs, RemoteNixRepositoryContentSynchronisationPtr and RemoteNixRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `RemoteNixRepositoryContentSynchronisationPtrInput` via:
+//
+//	        RemoteNixRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RemoteNixRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToRemoteNixRepositoryContentSynchronisationPtrOutput() RemoteNixRepositoryContentSynchronisationPtrOutput
+	ToRemoteNixRepositoryContentSynchronisationPtrOutputWithContext(context.Context) RemoteNixRepositoryContentSynchronisationPtrOutput
+}
+
+type remoteNixRepositoryContentSynchronisationPtrType RemoteNixRepositoryContentSynchronisationArgs
+
+func RemoteNixRepositoryContentSynchronisationPtr(v *RemoteNixRepositoryContentSynchronisationArgs) RemoteNixRepositoryContentSynchronisationPtrInput {
+	return (*remoteNixRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*remoteNixRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteNixRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *remoteNixRepositoryContentSynchronisationPtrType) ToRemoteNixRepositoryContentSynchronisationPtrOutput() RemoteNixRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteNixRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *remoteNixRepositoryContentSynchronisationPtrType) ToRemoteNixRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteNixRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteNixRepositoryContentSynchronisationPtrOutput)
+}
+
+type RemoteNixRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (RemoteNixRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteNixRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteNixRepositoryContentSynchronisationOutput) ToRemoteNixRepositoryContentSynchronisationOutput() RemoteNixRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteNixRepositoryContentSynchronisationOutput) ToRemoteNixRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteNixRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteNixRepositoryContentSynchronisationOutput) ToRemoteNixRepositoryContentSynchronisationPtrOutput() RemoteNixRepositoryContentSynchronisationPtrOutput {
+	return o.ToRemoteNixRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o RemoteNixRepositoryContentSynchronisationOutput) ToRemoteNixRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteNixRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemoteNixRepositoryContentSynchronisation) *RemoteNixRepositoryContentSynchronisation {
+		return &v
+	}).(RemoteNixRepositoryContentSynchronisationPtrOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o RemoteNixRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteNixRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o RemoteNixRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteNixRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o RemoteNixRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteNixRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o RemoteNixRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteNixRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type RemoteNixRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (RemoteNixRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteNixRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteNixRepositoryContentSynchronisationPtrOutput) ToRemoteNixRepositoryContentSynchronisationPtrOutput() RemoteNixRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteNixRepositoryContentSynchronisationPtrOutput) ToRemoteNixRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteNixRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteNixRepositoryContentSynchronisationPtrOutput) Elem() RemoteNixRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *RemoteNixRepositoryContentSynchronisation) RemoteNixRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret RemoteNixRepositoryContentSynchronisation
+		return ret
+	}).(RemoteNixRepositoryContentSynchronisationOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o RemoteNixRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteNixRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o RemoteNixRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteNixRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o RemoteNixRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteNixRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o RemoteNixRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteNixRepositoryContentSynchronisation) *bool {
 		if v == nil {
 			return nil
 		}
@@ -37112,6 +37421,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteGemsRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteGemsRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteGenericRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteGenericRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteGenericRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteGenericRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteGenericRepositoryCustomHttpHeaderInput)(nil)).Elem(), RemoteGenericRepositoryCustomHttpHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteGenericRepositoryCustomHttpHeaderArrayInput)(nil)).Elem(), RemoteGenericRepositoryCustomHttpHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteGitlfsRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteGitlfsRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteGitlfsRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteGitlfsRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteGoRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteGoRepositoryContentSynchronisationArgs{})
@@ -37130,6 +37441,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteIvyRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteIvyRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteMavenRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteMavenRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteMavenRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteMavenRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteNixRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteNixRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteNixRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteNixRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteNpmRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteNpmRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteNpmRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteNpmRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteNugetRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteNugetRepositoryContentSynchronisationArgs{})
@@ -37577,6 +37890,8 @@ func init() {
 	pulumi.RegisterOutputType(RemoteGemsRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteGenericRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteGenericRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(RemoteGenericRepositoryCustomHttpHeaderOutput{})
+	pulumi.RegisterOutputType(RemoteGenericRepositoryCustomHttpHeaderArrayOutput{})
 	pulumi.RegisterOutputType(RemoteGitlfsRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteGitlfsRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteGoRepositoryContentSynchronisationOutput{})
@@ -37595,6 +37910,8 @@ func init() {
 	pulumi.RegisterOutputType(RemoteIvyRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteMavenRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteMavenRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(RemoteNixRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(RemoteNixRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteNpmRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteNpmRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteNugetRepositoryContentSynchronisationOutput{})

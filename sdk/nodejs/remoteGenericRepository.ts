@@ -21,12 +21,41 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * ### Custom HTTP headers
+ *
+ * Use `customHttpHeaders` to send up to 5 static headers on every outbound request to the remote URL. A common use case is authenticating to Azure Blob Storage or packagecloud.io.
+ *
+ * Each header has a `name`, a `value` (masked in plan output), and an optional `sensitive` flag. When `sensitive = true`, Artifactory encrypts the value server-side. The default is `false` (plaintext). Header values are never read back from Artifactory — the value you configure is preserved in state.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const azure_blob = new artifactory.RemoteGenericRepository("azure-blob", {
+ *     key: "azure-blob-generic",
+ *     url: "https://example.blob.core.windows.net/container/",
+ *     customHttpHeaders: [
+ *         {
+ *             name: "x-ms-version",
+ *             value: "2021-12-02",
+ *         },
+ *         {
+ *             name: "x-api-key",
+ *             value: "my-secret-token",
+ *             sensitive: true,
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Remote repositories can be imported using their name, e.g.
  * ```sh
  * $ pulumi import artifactory:index/remoteGenericRepository:RemoteGenericRepository my-remote-generic my-remote-generic
  * ```
+ *
+ * Note: `customHttpHeaders` values are not read back from Artifactory during import. After importing, run `pulumi up` to push your configured headers.
  */
 export class RemoteGenericRepository extends pulumi.CustomResource {
     /**
@@ -90,6 +119,10 @@ export class RemoteGenericRepository extends pulumi.CustomResource {
      */
     declare public readonly clientTlsCertificate: pulumi.Output<string>;
     declare public readonly contentSynchronisation: pulumi.Output<outputs.RemoteGenericRepositoryContentSynchronisation | undefined>;
+    /**
+     * List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+     */
+    declare public readonly customHttpHeaders: pulumi.Output<outputs.RemoteGenericRepositoryCustomHttpHeader[] | undefined>;
     /**
      * Public description.
      */
@@ -252,6 +285,7 @@ export class RemoteGenericRepository extends pulumi.CustomResource {
             resourceInputs["cdnRedirect"] = state?.cdnRedirect;
             resourceInputs["clientTlsCertificate"] = state?.clientTlsCertificate;
             resourceInputs["contentSynchronisation"] = state?.contentSynchronisation;
+            resourceInputs["customHttpHeaders"] = state?.customHttpHeaders;
             resourceInputs["description"] = state?.description;
             resourceInputs["disableProxy"] = state?.disableProxy;
             resourceInputs["disableUrlNormalization"] = state?.disableUrlNormalization;
@@ -305,6 +339,7 @@ export class RemoteGenericRepository extends pulumi.CustomResource {
             resourceInputs["cdnRedirect"] = args?.cdnRedirect;
             resourceInputs["clientTlsCertificate"] = args?.clientTlsCertificate;
             resourceInputs["contentSynchronisation"] = args?.contentSynchronisation;
+            resourceInputs["customHttpHeaders"] = args?.customHttpHeaders;
             resourceInputs["description"] = args?.description;
             resourceInputs["disableProxy"] = args?.disableProxy;
             resourceInputs["disableUrlNormalization"] = args?.disableUrlNormalization;
@@ -387,6 +422,10 @@ export interface RemoteGenericRepositoryState {
      */
     clientTlsCertificate?: pulumi.Input<string | undefined>;
     contentSynchronisation?: pulumi.Input<inputs.RemoteGenericRepositoryContentSynchronisation | undefined>;
+    /**
+     * List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+     */
+    customHttpHeaders?: pulumi.Input<pulumi.Input<inputs.RemoteGenericRepositoryCustomHttpHeader>[] | undefined>;
     /**
      * Public description.
      */
@@ -566,6 +605,10 @@ export interface RemoteGenericRepositoryArgs {
      */
     clientTlsCertificate?: pulumi.Input<string | undefined>;
     contentSynchronisation?: pulumi.Input<inputs.RemoteGenericRepositoryContentSynchronisation | undefined>;
+    /**
+     * List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+     */
+    customHttpHeaders?: pulumi.Input<pulumi.Input<inputs.RemoteGenericRepositoryCustomHttpHeader>[] | undefined>;
     /**
      * Public description.
      */
