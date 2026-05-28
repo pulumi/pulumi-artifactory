@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
  *
  * This resource is not intended for managing the 'anonymous' user in Artifactory. Use the `artifactory.User` resource instead.
  *
- * !> Anonymous user cannot be created from scratch, nor updated/deleted once imported into Terraform state.
+ * > Anonymous user cannot be created from scratch, nor updated/deleted once imported into Terraform state.
  *
  * ## Example Usage
  *
