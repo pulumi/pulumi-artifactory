@@ -14,7 +14,7 @@ namespace Pulumi.Artifactory
     /// 
     /// This resource is not intended for managing the 'anonymous' user in Artifactory. Use the `artifactory.User` resource instead.
     /// 
-    /// !&gt; Anonymous user cannot be created from scratch, nor updated/deleted once imported into Terraform state.
+    /// &gt; Anonymous user cannot be created from scratch, nor updated/deleted once imported into Terraform state.
     /// 
     /// ## Example Usage
     /// 

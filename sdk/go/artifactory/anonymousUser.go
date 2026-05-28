@@ -15,7 +15,7 @@ import (
 //
 // This resource is not intended for managing the 'anonymous' user in Artifactory. Use the `User` resource instead.
 //
-// !> Anonymous user cannot be created from scratch, nor updated/deleted once imported into Terraform state.
+// > Anonymous user cannot be created from scratch, nor updated/deleted once imported into Terraform state.
 //
 // ## Example Usage
 //

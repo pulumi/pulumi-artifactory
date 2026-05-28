@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
  * 
  * This resource is not intended for managing the &#39;anonymous&#39; user in Artifactory. Use the `artifactory.User` resource instead.
  * 
- * !&gt; Anonymous user cannot be created from scratch, nor updated/deleted once imported into Terraform state.
+ * &gt; Anonymous user cannot be created from scratch, nor updated/deleted once imported into Terraform state.
  * 
  * ## Example Usage
  * 
