@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.artifactory.PropertySet;
  * import com.pulumi.artifactory.PropertySetArgs;
  * import com.pulumi.artifactory.inputs.PropertySetPropertyArgs;
+ * import com.pulumi.artifactory.inputs.PropertySetPropertyPredefinedValueArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

@@ -200,8 +200,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var cleanupPolicyLastDownloadedBeforeInDays = config.get("cleanupPolicyLastDownloadedBeforeInDays").orElse(60);
- *         final var cleanupPolicyDurationInMinutes = config.get("cleanupPolicyDurationInMinutes").orElse(120);
+ *         final var cleanupPolicyLastDownloadedBeforeInDays = config.getDouble("cleanupPolicyLastDownloadedBeforeInDays").orElse(60);
+ *         final var cleanupPolicyDurationInMinutes = config.getDouble("cleanupPolicyDurationInMinutes").orElse(120);
  *         var my_cleanup_policy = new PackageCleanupPolicy("my-cleanup-policy", PackageCleanupPolicyArgs.builder()
  *             .key("my-cleanup-policy")
  *             .description("My cleanup policy with variables")
