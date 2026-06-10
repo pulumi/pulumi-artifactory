@@ -26,7 +26,7 @@ class GetVirtualRpmRepositoryResult:
     """
     A collection of values returned by getVirtualRpmRepository.
     """
-    def __init__(__self__, artifactory_requests_can_retrieve_remote_artifacts=None, default_deployment_repo=None, description=None, excludes_pattern=None, id=None, includes_pattern=None, key=None, notes=None, package_type=None, primary_keypair_ref=None, project_environments=None, project_key=None, repo_layout_ref=None, repositories=None, secondary_keypair_ref=None):
+    def __init__(__self__, artifactory_requests_can_retrieve_remote_artifacts=None, default_deployment_repo=None, description=None, excludes_pattern=None, id=None, includes_pattern=None, key=None, notes=None, package_type=None, primary_keypair_ref=None, project_environments=None, project_key=None, repo_layout_ref=None, repositories=None, retrieval_cache_period_seconds=None, secondary_keypair_ref=None):
         if artifactory_requests_can_retrieve_remote_artifacts and not isinstance(artifactory_requests_can_retrieve_remote_artifacts, bool):
             raise TypeError("Expected argument 'artifactory_requests_can_retrieve_remote_artifacts' to be a bool")
         pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
@@ -69,6 +69,9 @@ class GetVirtualRpmRepositoryResult:
         if repositories and not isinstance(repositories, list):
             raise TypeError("Expected argument 'repositories' to be a list")
         pulumi.set(__self__, "repositories", repositories)
+        if retrieval_cache_period_seconds and not isinstance(retrieval_cache_period_seconds, int):
+            raise TypeError("Expected argument 'retrieval_cache_period_seconds' to be a int")
+        pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
         if secondary_keypair_ref and not isinstance(secondary_keypair_ref, str):
             raise TypeError("Expected argument 'secondary_keypair_ref' to be a str")
         pulumi.set(__self__, "secondary_keypair_ref", secondary_keypair_ref)
@@ -150,6 +153,11 @@ class GetVirtualRpmRepositoryResult:
         return pulumi.get(self, "repositories")
 
     @_builtins.property
+    @pulumi.getter(name="retrievalCachePeriodSeconds")
+    def retrieval_cache_period_seconds(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "retrieval_cache_period_seconds")
+
+    @_builtins.property
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> Optional[_builtins.str]:
         """
@@ -178,6 +186,7 @@ class AwaitableGetVirtualRpmRepositoryResult(GetVirtualRpmRepositoryResult):
             project_key=self.project_key,
             repo_layout_ref=self.repo_layout_ref,
             repositories=self.repositories,
+            retrieval_cache_period_seconds=self.retrieval_cache_period_seconds,
             secondary_keypair_ref=self.secondary_keypair_ref)
 
 
@@ -193,6 +202,7 @@ def get_virtual_rpm_repository(artifactory_requests_can_retrieve_remote_artifact
                                project_key: Optional[_builtins.str] = None,
                                repo_layout_ref: Optional[_builtins.str] = None,
                                repositories: Optional[Sequence[_builtins.str]] = None,
+                               retrieval_cache_period_seconds: Optional[_builtins.int] = None,
                                secondary_keypair_ref: Optional[_builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualRpmRepositoryResult:
     """
@@ -225,6 +235,7 @@ def get_virtual_rpm_repository(artifactory_requests_can_retrieve_remote_artifact
     __args__['projectKey'] = project_key
     __args__['repoLayoutRef'] = repo_layout_ref
     __args__['repositories'] = repositories
+    __args__['retrievalCachePeriodSeconds'] = retrieval_cache_period_seconds
     __args__['secondaryKeypairRef'] = secondary_keypair_ref
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('artifactory:index/getVirtualRpmRepository:getVirtualRpmRepository', __args__, opts=opts, typ=GetVirtualRpmRepositoryResult).value
@@ -244,6 +255,7 @@ def get_virtual_rpm_repository(artifactory_requests_can_retrieve_remote_artifact
         project_key=pulumi.get(__ret__, 'project_key'),
         repo_layout_ref=pulumi.get(__ret__, 'repo_layout_ref'),
         repositories=pulumi.get(__ret__, 'repositories'),
+        retrieval_cache_period_seconds=pulumi.get(__ret__, 'retrieval_cache_period_seconds'),
         secondary_keypair_ref=pulumi.get(__ret__, 'secondary_keypair_ref'))
 def get_virtual_rpm_repository_output(artifactory_requests_can_retrieve_remote_artifacts: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                       default_deployment_repo: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -257,6 +269,7 @@ def get_virtual_rpm_repository_output(artifactory_requests_can_retrieve_remote_a
                                       project_key: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                       repo_layout_ref: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                       repositories: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                      retrieval_cache_period_seconds: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                                       secondary_keypair_ref: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualRpmRepositoryResult]:
     """
@@ -289,6 +302,7 @@ def get_virtual_rpm_repository_output(artifactory_requests_can_retrieve_remote_a
     __args__['projectKey'] = project_key
     __args__['repoLayoutRef'] = repo_layout_ref
     __args__['repositories'] = repositories
+    __args__['retrievalCachePeriodSeconds'] = retrieval_cache_period_seconds
     __args__['secondaryKeypairRef'] = secondary_keypair_ref
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getVirtualRpmRepository:getVirtualRpmRepository', __args__, opts=opts, typ=GetVirtualRpmRepositoryResult)
@@ -307,4 +321,5 @@ def get_virtual_rpm_repository_output(artifactory_requests_can_retrieve_remote_a
         project_key=pulumi.get(__response__, 'project_key'),
         repo_layout_ref=pulumi.get(__response__, 'repo_layout_ref'),
         repositories=pulumi.get(__response__, 'repositories'),
+        retrieval_cache_period_seconds=pulumi.get(__response__, 'retrieval_cache_period_seconds'),
         secondary_keypair_ref=pulumi.get(__response__, 'secondary_keypair_ref')))

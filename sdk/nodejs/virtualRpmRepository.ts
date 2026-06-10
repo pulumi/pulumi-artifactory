@@ -136,11 +136,15 @@ export class VirtualRpmRepository extends pulumi.CustomResource {
      */
     declare public readonly repositories: pulumi.Output<string[] | undefined>;
     /**
-     * The secondary GPG key to be used to sign packages.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
      *
      * Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
      *
      * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
+     */
+    declare public readonly retrievalCachePeriodSeconds: pulumi.Output<number | undefined>;
+    /**
+     * The secondary GPG key to be used to sign packages.
      */
     declare public readonly secondaryKeypairRef: pulumi.Output<string | undefined>;
 
@@ -170,6 +174,7 @@ export class VirtualRpmRepository extends pulumi.CustomResource {
             resourceInputs["projectKey"] = state?.projectKey;
             resourceInputs["repoLayoutRef"] = state?.repoLayoutRef;
             resourceInputs["repositories"] = state?.repositories;
+            resourceInputs["retrievalCachePeriodSeconds"] = state?.retrievalCachePeriodSeconds;
             resourceInputs["secondaryKeypairRef"] = state?.secondaryKeypairRef;
         } else {
             const args = argsOrState as VirtualRpmRepositoryArgs | undefined;
@@ -188,6 +193,7 @@ export class VirtualRpmRepository extends pulumi.CustomResource {
             resourceInputs["projectKey"] = args?.projectKey;
             resourceInputs["repoLayoutRef"] = args?.repoLayoutRef;
             resourceInputs["repositories"] = args?.repositories;
+            resourceInputs["retrievalCachePeriodSeconds"] = args?.retrievalCachePeriodSeconds;
             resourceInputs["secondaryKeypairRef"] = args?.secondaryKeypairRef;
             resourceInputs["packageType"] = undefined /*out*/;
         }
@@ -251,11 +257,15 @@ export interface VirtualRpmRepositoryState {
      */
     repositories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The secondary GPG key to be used to sign packages.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
      *
      * Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
      *
      * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
+     */
+    retrievalCachePeriodSeconds?: pulumi.Input<number | undefined>;
+    /**
+     * The secondary GPG key to be used to sign packages.
      */
     secondaryKeypairRef?: pulumi.Input<string | undefined>;
 }
@@ -314,11 +324,15 @@ export interface VirtualRpmRepositoryArgs {
      */
     repositories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The secondary GPG key to be used to sign packages.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
      *
      * Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
      *
      * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
+     */
+    retrievalCachePeriodSeconds?: pulumi.Input<number | undefined>;
+    /**
+     * The secondary GPG key to be used to sign packages.
      */
     secondaryKeypairRef?: pulumi.Input<string | undefined>;
 }

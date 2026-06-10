@@ -6,6 +6,7 @@ package com.pulumi.artifactory.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -36,6 +37,7 @@ public final class GetVirtualRpmRepositoryResult {
     private @Nullable String projectKey;
     private @Nullable String repoLayoutRef;
     private @Nullable List<String> repositories;
+    private @Nullable Integer retrievalCachePeriodSeconds;
     /**
      * @return (Optional) The secondary GPG key to be used to sign packages.
      * 
@@ -93,6 +95,9 @@ public final class GetVirtualRpmRepositoryResult {
     public List<String> repositories() {
         return this.repositories == null ? List.of() : this.repositories;
     }
+    public Optional<Integer> retrievalCachePeriodSeconds() {
+        return Optional.ofNullable(this.retrievalCachePeriodSeconds);
+    }
     /**
      * @return (Optional) The secondary GPG key to be used to sign packages.
      * 
@@ -124,6 +129,7 @@ public final class GetVirtualRpmRepositoryResult {
         private @Nullable String projectKey;
         private @Nullable String repoLayoutRef;
         private @Nullable List<String> repositories;
+        private @Nullable Integer retrievalCachePeriodSeconds;
         private @Nullable String secondaryKeypairRef;
         public Builder() {}
         public Builder(GetVirtualRpmRepositoryResult defaults) {
@@ -142,6 +148,7 @@ public final class GetVirtualRpmRepositoryResult {
     	      this.projectKey = defaults.projectKey;
     	      this.repoLayoutRef = defaults.repoLayoutRef;
     	      this.repositories = defaults.repositories;
+    	      this.retrievalCachePeriodSeconds = defaults.retrievalCachePeriodSeconds;
     	      this.secondaryKeypairRef = defaults.secondaryKeypairRef;
         }
 
@@ -244,6 +251,12 @@ public final class GetVirtualRpmRepositoryResult {
             return repositories(List.of(repositories));
         }
         @CustomType.Setter
+        public Builder retrievalCachePeriodSeconds(@Nullable Integer retrievalCachePeriodSeconds) {
+
+            this.retrievalCachePeriodSeconds = retrievalCachePeriodSeconds;
+            return this;
+        }
+        @CustomType.Setter
         public Builder secondaryKeypairRef(@Nullable String secondaryKeypairRef) {
 
             this.secondaryKeypairRef = secondaryKeypairRef;
@@ -265,6 +278,7 @@ public final class GetVirtualRpmRepositoryResult {
             _resultValue.projectKey = projectKey;
             _resultValue.repoLayoutRef = repoLayoutRef;
             _resultValue.repositories = repositories;
+            _resultValue.retrievalCachePeriodSeconds = retrievalCachePeriodSeconds;
             _resultValue.secondaryKeypairRef = secondaryKeypairRef;
             return _resultValue;
         }

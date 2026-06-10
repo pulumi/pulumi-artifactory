@@ -139,6 +139,9 @@ namespace Pulumi.Artifactory
             set => _repositories = value;
         }
 
+        [Input("retrievalCachePeriodSeconds")]
+        public int? RetrievalCachePeriodSeconds { get; set; }
+
         /// <summary>
         /// (Optional) The secondary GPG key to be used to sign packages.
         /// </summary>
@@ -205,6 +208,9 @@ namespace Pulumi.Artifactory
             set => _repositories = value;
         }
 
+        [Input("retrievalCachePeriodSeconds")]
+        public Input<int>? RetrievalCachePeriodSeconds { get; set; }
+
         /// <summary>
         /// (Optional) The secondary GPG key to be used to sign packages.
         /// </summary>
@@ -241,6 +247,7 @@ namespace Pulumi.Artifactory
         public readonly string? ProjectKey;
         public readonly string? RepoLayoutRef;
         public readonly ImmutableArray<string> Repositories;
+        public readonly int? RetrievalCachePeriodSeconds;
         /// <summary>
         /// (Optional) The secondary GPG key to be used to sign packages.
         /// </summary>
@@ -276,6 +283,8 @@ namespace Pulumi.Artifactory
 
             ImmutableArray<string> repositories,
 
+            int? retrievalCachePeriodSeconds,
+
             string? secondaryKeypairRef)
         {
             ArtifactoryRequestsCanRetrieveRemoteArtifacts = artifactoryRequestsCanRetrieveRemoteArtifacts;
@@ -292,6 +301,7 @@ namespace Pulumi.Artifactory
             ProjectKey = projectKey;
             RepoLayoutRef = repoLayoutRef;
             Repositories = repositories;
+            RetrievalCachePeriodSeconds = retrievalCachePeriodSeconds;
             SecondaryKeypairRef = secondaryKeypairRef;
         }
     }

@@ -59,11 +59,12 @@ type LookupVirtualRpmRepositoryArgs struct {
 	Key   string  `pulumi:"key"`
 	Notes *string `pulumi:"notes"`
 	// (Optional) The primary GPG key to be used to sign packages.
-	PrimaryKeypairRef   *string  `pulumi:"primaryKeypairRef"`
-	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	ProjectKey          *string  `pulumi:"projectKey"`
-	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
-	Repositories        []string `pulumi:"repositories"`
+	PrimaryKeypairRef           *string  `pulumi:"primaryKeypairRef"`
+	ProjectEnvironments         []string `pulumi:"projectEnvironments"`
+	ProjectKey                  *string  `pulumi:"projectKey"`
+	RepoLayoutRef               *string  `pulumi:"repoLayoutRef"`
+	Repositories                []string `pulumi:"repositories"`
+	RetrievalCachePeriodSeconds *int     `pulumi:"retrievalCachePeriodSeconds"`
 	// (Optional) The secondary GPG key to be used to sign packages.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 }
@@ -81,11 +82,12 @@ type LookupVirtualRpmRepositoryResult struct {
 	Notes           *string `pulumi:"notes"`
 	PackageType     string  `pulumi:"packageType"`
 	// (Optional) The primary GPG key to be used to sign packages.
-	PrimaryKeypairRef   *string  `pulumi:"primaryKeypairRef"`
-	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	ProjectKey          *string  `pulumi:"projectKey"`
-	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
-	Repositories        []string `pulumi:"repositories"`
+	PrimaryKeypairRef           *string  `pulumi:"primaryKeypairRef"`
+	ProjectEnvironments         []string `pulumi:"projectEnvironments"`
+	ProjectKey                  *string  `pulumi:"projectKey"`
+	RepoLayoutRef               *string  `pulumi:"repoLayoutRef"`
+	Repositories                []string `pulumi:"repositories"`
+	RetrievalCachePeriodSeconds *int     `pulumi:"retrievalCachePeriodSeconds"`
 	// (Optional) The secondary GPG key to be used to sign packages.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 }
@@ -110,11 +112,12 @@ type LookupVirtualRpmRepositoryOutputArgs struct {
 	Key   pulumi.StringInput    `pulumi:"key"`
 	Notes pulumi.StringPtrInput `pulumi:"notes"`
 	// (Optional) The primary GPG key to be used to sign packages.
-	PrimaryKeypairRef   pulumi.StringPtrInput   `pulumi:"primaryKeypairRef"`
-	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey          pulumi.StringPtrInput   `pulumi:"projectKey"`
-	RepoLayoutRef       pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	Repositories        pulumi.StringArrayInput `pulumi:"repositories"`
+	PrimaryKeypairRef           pulumi.StringPtrInput   `pulumi:"primaryKeypairRef"`
+	ProjectEnvironments         pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey                  pulumi.StringPtrInput   `pulumi:"projectKey"`
+	RepoLayoutRef               pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	Repositories                pulumi.StringArrayInput `pulumi:"repositories"`
+	RetrievalCachePeriodSeconds pulumi.IntPtrInput      `pulumi:"retrievalCachePeriodSeconds"`
 	// (Optional) The secondary GPG key to be used to sign packages.
 	SecondaryKeypairRef pulumi.StringPtrInput `pulumi:"secondaryKeypairRef"`
 }
@@ -194,6 +197,10 @@ func (o LookupVirtualRpmRepositoryResultOutput) RepoLayoutRef() pulumi.StringPtr
 
 func (o LookupVirtualRpmRepositoryResultOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVirtualRpmRepositoryResult) []string { return v.Repositories }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupVirtualRpmRepositoryResultOutput) RetrievalCachePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupVirtualRpmRepositoryResult) *int { return v.RetrievalCachePeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
 // (Optional) The secondary GPG key to be used to sign packages.
