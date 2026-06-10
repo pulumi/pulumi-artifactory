@@ -159,11 +159,17 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> Repositories { get; private set; } = null!;
 
         /// <summary>
-        /// The secondary GPG key to be used to sign packages.
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
         /// 
         /// Artifactory REST API call Get Key Pair doesn't return keys `PrivateKey` and `Passphrase`, but consumes these keys in the POST call.
         /// 
         /// The meta-argument `Lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
+        /// </summary>
+        [Output("retrievalCachePeriodSeconds")]
+        public Output<int?> RetrievalCachePeriodSeconds { get; private set; } = null!;
+
+        /// <summary>
+        /// The secondary GPG key to be used to sign packages.
         /// </summary>
         [Output("secondaryKeypairRef")]
         public Output<string?> SecondaryKeypairRef { get; private set; } = null!;
@@ -300,11 +306,17 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// The secondary GPG key to be used to sign packages.
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
         /// 
         /// Artifactory REST API call Get Key Pair doesn't return keys `PrivateKey` and `Passphrase`, but consumes these keys in the POST call.
         /// 
         /// The meta-argument `Lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
+        /// </summary>
+        [Input("retrievalCachePeriodSeconds")]
+        public Input<int>? RetrievalCachePeriodSeconds { get; set; }
+
+        /// <summary>
+        /// The secondary GPG key to be used to sign packages.
         /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }
@@ -406,11 +418,17 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// The secondary GPG key to be used to sign packages.
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
         /// 
         /// Artifactory REST API call Get Key Pair doesn't return keys `PrivateKey` and `Passphrase`, but consumes these keys in the POST call.
         /// 
         /// The meta-argument `Lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
+        /// </summary>
+        [Input("retrievalCachePeriodSeconds")]
+        public Input<int>? RetrievalCachePeriodSeconds { get; set; }
+
+        /// <summary>
+        /// The secondary GPG key to be used to sign packages.
         /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }

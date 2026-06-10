@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -118,6 +119,13 @@ public final class GetVirtualRpmRepositoryArgs extends com.pulumi.resources.Invo
         return Optional.ofNullable(this.repositories);
     }
 
+    @Import(name="retrievalCachePeriodSeconds")
+    private @Nullable Output<Integer> retrievalCachePeriodSeconds;
+
+    public Optional<Output<Integer>> retrievalCachePeriodSeconds() {
+        return Optional.ofNullable(this.retrievalCachePeriodSeconds);
+    }
+
     /**
      * (Optional) The secondary GPG key to be used to sign packages.
      * 
@@ -148,6 +156,7 @@ public final class GetVirtualRpmRepositoryArgs extends com.pulumi.resources.Invo
         this.projectKey = $.projectKey;
         this.repoLayoutRef = $.repoLayoutRef;
         this.repositories = $.repositories;
+        this.retrievalCachePeriodSeconds = $.retrievalCachePeriodSeconds;
         this.secondaryKeypairRef = $.secondaryKeypairRef;
     }
 
@@ -307,6 +316,15 @@ public final class GetVirtualRpmRepositoryArgs extends com.pulumi.resources.Invo
 
         public Builder repositories(String... repositories) {
             return repositories(List.of(repositories));
+        }
+
+        public Builder retrievalCachePeriodSeconds(@Nullable Output<Integer> retrievalCachePeriodSeconds) {
+            $.retrievalCachePeriodSeconds = retrievalCachePeriodSeconds;
+            return this;
+        }
+
+        public Builder retrievalCachePeriodSeconds(Integer retrievalCachePeriodSeconds) {
+            return retrievalCachePeriodSeconds(Output.of(retrievalCachePeriodSeconds));
         }
 
         /**

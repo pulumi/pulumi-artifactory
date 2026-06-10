@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -276,11 +277,29 @@ public class VirtualRpmRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.repositories);
     }
     /**
-     * The secondary GPG key to be used to sign packages.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
      * 
      * Artifactory REST API call Get Key Pair doesn&#39;t return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
      * 
      * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
+     * 
+     */
+    @Export(name="retrievalCachePeriodSeconds", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> retrievalCachePeriodSeconds;
+
+    /**
+     * @return This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     * 
+     * Artifactory REST API call Get Key Pair doesn&#39;t return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
+     * 
+     * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
+     * 
+     */
+    public Output<Optional<Integer>> retrievalCachePeriodSeconds() {
+        return Codegen.optional(this.retrievalCachePeriodSeconds);
+    }
+    /**
+     * The secondary GPG key to be used to sign packages.
      * 
      */
     @Export(name="secondaryKeypairRef", refs={String.class}, tree="[0]")
@@ -288,10 +307,6 @@ public class VirtualRpmRepository extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The secondary GPG key to be used to sign packages.
-     * 
-     * Artifactory REST API call Get Key Pair doesn&#39;t return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
-     * 
-     * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
      * 
      */
     public Output<Optional<String>> secondaryKeypairRef() {

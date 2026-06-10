@@ -33,6 +33,7 @@ export function getVirtualRpmRepository(args: GetVirtualRpmRepositoryArgs, opts?
         "projectKey": args.projectKey,
         "repoLayoutRef": args.repoLayoutRef,
         "repositories": args.repositories,
+        "retrievalCachePeriodSeconds": args.retrievalCachePeriodSeconds,
         "secondaryKeypairRef": args.secondaryKeypairRef,
     }, opts);
 }
@@ -59,6 +60,7 @@ export interface GetVirtualRpmRepositoryArgs {
     projectKey?: string;
     repoLayoutRef?: string;
     repositories?: string[];
+    retrievalCachePeriodSeconds?: number;
     /**
      * (Optional) The secondary GPG key to be used to sign packages.
      */
@@ -89,6 +91,7 @@ export interface GetVirtualRpmRepositoryResult {
     readonly projectKey?: string;
     readonly repoLayoutRef?: string;
     readonly repositories?: string[];
+    readonly retrievalCachePeriodSeconds?: number;
     /**
      * (Optional) The secondary GPG key to be used to sign packages.
      */
@@ -123,6 +126,7 @@ export function getVirtualRpmRepositoryOutput(args: GetVirtualRpmRepositoryOutpu
         "projectKey": args.projectKey,
         "repoLayoutRef": args.repoLayoutRef,
         "repositories": args.repositories,
+        "retrievalCachePeriodSeconds": args.retrievalCachePeriodSeconds,
         "secondaryKeypairRef": args.secondaryKeypairRef,
     }, opts);
 }
@@ -149,6 +153,7 @@ export interface GetVirtualRpmRepositoryOutputArgs {
     projectKey?: pulumi.Input<string | undefined>;
     repoLayoutRef?: pulumi.Input<string | undefined>;
     repositories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    retrievalCachePeriodSeconds?: pulumi.Input<number | undefined>;
     /**
      * (Optional) The secondary GPG key to be used to sign packages.
      */

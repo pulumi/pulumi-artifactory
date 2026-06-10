@@ -31,6 +31,7 @@ class VirtualRpmRepositoryArgs:
                  project_key: pulumi.Input[Optional[_builtins.str]] = None,
                  repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
                  repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 retrieval_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  secondary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualRpmRepository resource.
@@ -48,11 +49,12 @@ class VirtualRpmRepositoryArgs:
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[_builtins.str] repo_layout_ref: Repository layout key for the virtual repository
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[_builtins.str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
+        :param pulumi.Input[_builtins.int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
                
                Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
                
                The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
+        :param pulumi.Input[_builtins.str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
         """
         pulumi.set(__self__, "key", key)
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
@@ -77,6 +79,8 @@ class VirtualRpmRepositoryArgs:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if repositories is not None:
             pulumi.set(__self__, "repositories", repositories)
+        if retrieval_cache_period_seconds is not None:
+            pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
         if secondary_keypair_ref is not None:
             pulumi.set(__self__, "secondary_keypair_ref", secondary_keypair_ref)
 
@@ -226,14 +230,26 @@ class VirtualRpmRepositoryArgs:
         pulumi.set(self, "repositories", value)
 
     @_builtins.property
-    @pulumi.getter(name="secondaryKeypairRef")
-    def secondary_keypair_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+    @pulumi.getter(name="retrievalCachePeriodSeconds")
+    def retrieval_cache_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The secondary GPG key to be used to sign packages.
+        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
 
         Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
 
         The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
+        """
+        return pulumi.get(self, "retrieval_cache_period_seconds")
+
+    @retrieval_cache_period_seconds.setter
+    def retrieval_cache_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "retrieval_cache_period_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secondaryKeypairRef")
+    def secondary_keypair_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The secondary GPG key to be used to sign packages.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
@@ -258,6 +274,7 @@ class _VirtualRpmRepositoryState:
                  project_key: pulumi.Input[Optional[_builtins.str]] = None,
                  repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
                  repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 retrieval_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  secondary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualRpmRepository resources.
@@ -275,11 +292,12 @@ class _VirtualRpmRepositoryState:
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[_builtins.str] repo_layout_ref: Repository layout key for the virtual repository
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[_builtins.str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
+        :param pulumi.Input[_builtins.int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
                
                Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
                
                The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
+        :param pulumi.Input[_builtins.str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
         """
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
             pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
@@ -307,6 +325,8 @@ class _VirtualRpmRepositoryState:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if repositories is not None:
             pulumi.set(__self__, "repositories", repositories)
+        if retrieval_cache_period_seconds is not None:
+            pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
         if secondary_keypair_ref is not None:
             pulumi.set(__self__, "secondary_keypair_ref", secondary_keypair_ref)
 
@@ -465,14 +485,26 @@ class _VirtualRpmRepositoryState:
         pulumi.set(self, "repositories", value)
 
     @_builtins.property
-    @pulumi.getter(name="secondaryKeypairRef")
-    def secondary_keypair_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+    @pulumi.getter(name="retrievalCachePeriodSeconds")
+    def retrieval_cache_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The secondary GPG key to be used to sign packages.
+        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
 
         Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
 
         The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
+        """
+        return pulumi.get(self, "retrieval_cache_period_seconds")
+
+    @retrieval_cache_period_seconds.setter
+    def retrieval_cache_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "retrieval_cache_period_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secondaryKeypairRef")
+    def secondary_keypair_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The secondary GPG key to be used to sign packages.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
@@ -499,6 +531,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
                  project_key: pulumi.Input[Optional[_builtins.str]] = None,
                  repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
                  repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 retrieval_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  secondary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -558,11 +591,12 @@ class VirtualRpmRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[_builtins.str] repo_layout_ref: Repository layout key for the virtual repository
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[_builtins.str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
+        :param pulumi.Input[_builtins.int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
                
                Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
                
                The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
+        :param pulumi.Input[_builtins.str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
         """
         ...
     @overload
@@ -639,6 +673,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
                  project_key: pulumi.Input[Optional[_builtins.str]] = None,
                  repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
                  repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 retrieval_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  secondary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -663,6 +698,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
             __props__.__dict__["project_key"] = project_key
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
             __props__.__dict__["repositories"] = repositories
+            __props__.__dict__["retrieval_cache_period_seconds"] = retrieval_cache_period_seconds
             __props__.__dict__["secondary_keypair_ref"] = secondary_keypair_ref
             __props__.__dict__["package_type"] = None
         super(VirtualRpmRepository, __self__).__init__(
@@ -688,6 +724,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
             project_key: pulumi.Input[Optional[_builtins.str]] = None,
             repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
             repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            retrieval_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             secondary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None) -> 'VirtualRpmRepository':
         """
         Get an existing VirtualRpmRepository resource's state with the given name, id, and optional extra
@@ -709,11 +746,12 @@ class VirtualRpmRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[_builtins.str] repo_layout_ref: Repository layout key for the virtual repository
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[_builtins.str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
+        :param pulumi.Input[_builtins.int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
                
                Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
                
                The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
+        :param pulumi.Input[_builtins.str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -732,6 +770,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
         __props__.__dict__["project_key"] = project_key
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
         __props__.__dict__["repositories"] = repositories
+        __props__.__dict__["retrieval_cache_period_seconds"] = retrieval_cache_period_seconds
         __props__.__dict__["secondary_keypair_ref"] = secondary_keypair_ref
         return VirtualRpmRepository(resource_name, opts=opts, __props__=__props__)
 
@@ -838,14 +877,22 @@ class VirtualRpmRepository(pulumi.CustomResource):
         return pulumi.get(self, "repositories")
 
     @_builtins.property
-    @pulumi.getter(name="secondaryKeypairRef")
-    def secondary_keypair_ref(self) -> pulumi.Output[Optional[_builtins.str]]:
+    @pulumi.getter(name="retrievalCachePeriodSeconds")
+    def retrieval_cache_period_seconds(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The secondary GPG key to be used to sign packages.
+        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
 
         Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
 
         The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
+        """
+        return pulumi.get(self, "retrieval_cache_period_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="secondaryKeypairRef")
+    def secondary_keypair_ref(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The secondary GPG key to be used to sign packages.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
