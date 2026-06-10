@@ -3528,8 +3528,8 @@ github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 h1:BQSFePA1RWJOl
 github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99/go.mod h1:1lJo3i6rXxKeerYnT8Nvf0QmHCRC1n8sfWVwXF2Frvo=
 github.com/jezek/xgb v1.0.0/go.mod h1:nrhwO0FX/enq75I7Y7G8iN1ubpSGZEiA3v9e9GyRFlk=
 github.com/jezek/xgb v1.1.1/go.mod h1:nrhwO0FX/enq75I7Y7G8iN1ubpSGZEiA3v9e9GyRFlk=
-github.com/jfrog/terraform-provider-artifactory/v12 v12.11.5 h1:tDFzi7RX2nlLZQl3RchPZZEVtMFVWiUOiUJn//l6PDo=
-github.com/jfrog/terraform-provider-artifactory/v12 v12.11.5/go.mod h1:A64nNIW0y77kh51CxKmAMPWnaYw6XSzHT/6oJmRPY28=
+github.com/jfrog/terraform-provider-artifactory/v12 v12.11.6 h1:Jb4LFXdf+YypeLDOZy6HFMuhnQJBnKAI/JmiYQO6pxA=
+github.com/jfrog/terraform-provider-artifactory/v12 v12.11.6/go.mod h1:A64nNIW0y77kh51CxKmAMPWnaYw6XSzHT/6oJmRPY28=
 github.com/jfrog/terraform-provider-shared v1.30.7 h1:lMv3AwAEisrvHBKwowLLBxFXYghUTrHCgdx95rBJr8A=
 github.com/jfrog/terraform-provider-shared v1.30.7/go.mod h1:tamr2tl0ZK6iltmeAwi0gtY3yKm4isnP4xSjh//0Lhc=
 github.com/jhump/gopoet v0.0.0-20190322174617-17282ff210b3/go.mod h1:me9yfT6IJSlOL3FCfrg+L6yzUEZ+5jW6WHt4Sk+UPUI=
