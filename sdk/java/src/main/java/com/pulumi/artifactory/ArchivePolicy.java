@@ -197,8 +197,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var archivePolicyLastDownloadedBeforeInDays = config.get("archivePolicyLastDownloadedBeforeInDays").orElse(30);
- *         final var archivePolicyDurationInMinutes = config.get("archivePolicyDurationInMinutes").orElse(60);
+ *         final var archivePolicyLastDownloadedBeforeInDays = config.getDouble("archivePolicyLastDownloadedBeforeInDays").orElse(30);
+ *         final var archivePolicyDurationInMinutes = config.getDouble("archivePolicyDurationInMinutes").orElse(60);
  *         var my_archive_policy = new ArchivePolicy("my-archive-policy", ArchivePolicyArgs.builder()
  *             .key("my-archive-policy")
  *             .description("My archive policy with variables")

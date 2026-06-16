@@ -34,9 +34,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.artifactory.ReleaseBundleV2;
  * import com.pulumi.artifactory.ReleaseBundleV2Args;
  * import com.pulumi.artifactory.inputs.ReleaseBundleV2SourceArgs;
+ * import com.pulumi.artifactory.inputs.ReleaseBundleV2SourceReleaseBundleArgs;
  * import com.pulumi.artifactory.ReleaseBundleV2CleanupPolicy;
  * import com.pulumi.artifactory.ReleaseBundleV2CleanupPolicyArgs;
  * import com.pulumi.artifactory.inputs.ReleaseBundleV2CleanupPolicySearchCriteriaArgs;
+ * import com.pulumi.artifactory.inputs.ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -102,6 +104,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.artifactory.ReleaseBundleV2CleanupPolicy;
  * import com.pulumi.artifactory.ReleaseBundleV2CleanupPolicyArgs;
  * import com.pulumi.artifactory.inputs.ReleaseBundleV2CleanupPolicySearchCriteriaArgs;
+ * import com.pulumi.artifactory.inputs.ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -116,8 +119,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var releaseBundleCleanupDurationInMinutes = config.get("releaseBundleCleanupDurationInMinutes").orElse(120);
- *         final var releaseBundleCleanupCreatedBeforeInMonths = config.get("releaseBundleCleanupCreatedBeforeInMonths").orElse(36);
+ *         final var releaseBundleCleanupDurationInMinutes = config.getDouble("releaseBundleCleanupDurationInMinutes").orElse(120);
+ *         final var releaseBundleCleanupCreatedBeforeInMonths = config.getDouble("releaseBundleCleanupCreatedBeforeInMonths").orElse(36);
  *         var my_resource_bundle_v2_cleanup_policy = new ReleaseBundleV2CleanupPolicy("my-resource-bundle-v2-cleanup-policy", ReleaseBundleV2CleanupPolicyArgs.builder()
  *             .key("my-release-bundle-v2-policy-key")
  *             .description("Cleanup policy description with variables")

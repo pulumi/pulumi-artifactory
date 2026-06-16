@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.artifactory.VaultConfigurationArgs;
  * import com.pulumi.artifactory.inputs.VaultConfigurationConfigArgs;
  * import com.pulumi.artifactory.inputs.VaultConfigurationConfigAuthArgs;
+ * import com.pulumi.artifactory.inputs.VaultConfigurationConfigMountArgs;
  * import com.pulumi.std.StdFunctions;
  * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
