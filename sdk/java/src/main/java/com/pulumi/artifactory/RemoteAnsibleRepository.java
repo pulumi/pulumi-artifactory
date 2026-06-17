@@ -50,6 +50,7 @@ import javax.annotation.Nullable;
  *         var my_remote_ansible = new RemoteAnsibleRepository("my-remote-ansible", RemoteAnsibleRepositoryArgs.builder()
  *             .key("my-remote-ansible")
  *             .url("https://galaxy.ansible.com")
+ *             .bypassHeadRequests(true)
  *             .build());
  * 
  *     }
@@ -140,14 +141,14 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
         return this.blockMismatchingMimeTypes;
     }
     /**
-     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. Default to &#39;true&#39; for Ansible repositories as &#39;https://galaxy.ansible.com&#39; rejects HEAD requests.
      * 
      */
     @Export(name="bypassHeadRequests", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> bypassHeadRequests;
 
     /**
-     * @return Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+     * @return Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. Default to &#39;true&#39; for Ansible repositories as &#39;https://galaxy.ansible.com&#39; rejects HEAD requests.
      * 
      */
     public Output<Boolean> bypassHeadRequests() {

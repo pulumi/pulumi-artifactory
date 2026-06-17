@@ -31,8 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteAnsibleRepository(ctx, "my-remote-ansible", &artifactory.RemoteAnsibleRepositoryArgs{
-//				Key: pulumi.String("my-remote-ansible"),
-//				Url: pulumi.String("https://galaxy.ansible.com"),
+//				Key:                pulumi.String("my-remote-ansible"),
+//				Url:                pulumi.String("https://galaxy.ansible.com"),
+//				BypassHeadRequests: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -63,7 +64,7 @@ type RemoteAnsibleRepository struct {
 	BlackedOut pulumi.BoolOutput `pulumi:"blackedOut"`
 	// If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
 	BlockMismatchingMimeTypes pulumi.BoolOutput `pulumi:"blockMismatchingMimeTypes"`
-	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. Default to 'true' for Ansible repositories as 'https://galaxy.ansible.com' rejects HEAD requests.
 	BypassHeadRequests pulumi.BoolOutput `pulumi:"bypassHeadRequests"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
@@ -190,7 +191,7 @@ type remoteAnsibleRepositoryState struct {
 	BlackedOut *bool `pulumi:"blackedOut"`
 	// If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
 	BlockMismatchingMimeTypes *bool `pulumi:"blockMismatchingMimeTypes"`
-	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. Default to 'true' for Ansible repositories as 'https://galaxy.ansible.com' rejects HEAD requests.
 	BypassHeadRequests *bool `pulumi:"bypassHeadRequests"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
@@ -278,7 +279,7 @@ type RemoteAnsibleRepositoryState struct {
 	BlackedOut pulumi.BoolPtrInput
 	// If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
 	BlockMismatchingMimeTypes pulumi.BoolPtrInput
-	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. Default to 'true' for Ansible repositories as 'https://galaxy.ansible.com' rejects HEAD requests.
 	BypassHeadRequests pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
@@ -370,7 +371,7 @@ type remoteAnsibleRepositoryArgs struct {
 	BlackedOut *bool `pulumi:"blackedOut"`
 	// If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
 	BlockMismatchingMimeTypes *bool `pulumi:"blockMismatchingMimeTypes"`
-	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. Default to 'true' for Ansible repositories as 'https://galaxy.ansible.com' rejects HEAD requests.
 	BypassHeadRequests *bool `pulumi:"bypassHeadRequests"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
@@ -459,7 +460,7 @@ type RemoteAnsibleRepositoryArgs struct {
 	BlackedOut pulumi.BoolPtrInput
 	// If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
 	BlockMismatchingMimeTypes pulumi.BoolPtrInput
-	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. Default to 'true' for Ansible repositories as 'https://galaxy.ansible.com' rejects HEAD requests.
 	BypassHeadRequests pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
@@ -648,7 +649,7 @@ func (o RemoteAnsibleRepositoryOutput) BlockMismatchingMimeTypes() pulumi.BoolOu
 	return o.ApplyT(func(v *RemoteAnsibleRepository) pulumi.BoolOutput { return v.BlockMismatchingMimeTypes }).(pulumi.BoolOutput)
 }
 
-// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. Default to 'true' for Ansible repositories as 'https://galaxy.ansible.com' rejects HEAD requests.
 func (o RemoteAnsibleRepositoryOutput) BypassHeadRequests() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RemoteAnsibleRepository) pulumi.BoolOutput { return v.BypassHeadRequests }).(pulumi.BoolOutput)
 }
