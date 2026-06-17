@@ -75,7 +75,7 @@ class RemoteAnsibleRepositoryArgs:
         :param pulumi.Input[_builtins.int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
         :param pulumi.Input[_builtins.bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
         :param pulumi.Input[_builtins.bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
-        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. Default to 'true' for Ansible repositories as 'https://galaxy.ansible.com' rejects HEAD requests.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[_builtins.str] description: Public description.
@@ -276,7 +276,7 @@ class RemoteAnsibleRepositoryArgs:
     @pulumi.getter(name="bypassHeadRequests")
     def bypass_head_requests(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. Default to 'true' for Ansible repositories as 'https://galaxy.ansible.com' rejects HEAD requests.
         """
         return pulumi.get(self, "bypass_head_requests")
 
@@ -761,7 +761,7 @@ class _RemoteAnsibleRepositoryState:
         :param pulumi.Input[_builtins.int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
         :param pulumi.Input[_builtins.bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
         :param pulumi.Input[_builtins.bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
-        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. Default to 'true' for Ansible repositories as 'https://galaxy.ansible.com' rejects HEAD requests.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[_builtins.str] description: Public description.
@@ -952,7 +952,7 @@ class _RemoteAnsibleRepositoryState:
     @pulumi.getter(name="bypassHeadRequests")
     def bypass_head_requests(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. Default to 'true' for Ansible repositories as 'https://galaxy.ansible.com' rejects HEAD requests.
         """
         return pulumi.get(self, "bypass_head_requests")
 
@@ -1458,7 +1458,8 @@ class RemoteAnsibleRepository(pulumi.CustomResource):
 
         my_remote_ansible = artifactory.RemoteAnsibleRepository("my-remote-ansible",
             key="my-remote-ansible",
-            url="https://galaxy.ansible.com")
+            url="https://galaxy.ansible.com",
+            bypass_head_requests=True)
         ```
 
         ## Import
@@ -1477,7 +1478,7 @@ class RemoteAnsibleRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
         :param pulumi.Input[_builtins.bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
         :param pulumi.Input[_builtins.bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
-        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. Default to 'true' for Ansible repositories as 'https://galaxy.ansible.com' rejects HEAD requests.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[_builtins.str] description: Public description.
@@ -1532,7 +1533,8 @@ class RemoteAnsibleRepository(pulumi.CustomResource):
 
         my_remote_ansible = artifactory.RemoteAnsibleRepository("my-remote-ansible",
             key="my-remote-ansible",
-            url="https://galaxy.ansible.com")
+            url="https://galaxy.ansible.com",
+            bypass_head_requests=True)
         ```
 
         ## Import
@@ -1723,7 +1725,7 @@ class RemoteAnsibleRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
         :param pulumi.Input[_builtins.bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
         :param pulumi.Input[_builtins.bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
-        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. Default to 'true' for Ansible repositories as 'https://galaxy.ansible.com' rejects HEAD requests.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[_builtins.str] description: Public description.
@@ -1853,7 +1855,7 @@ class RemoteAnsibleRepository(pulumi.CustomResource):
     @pulumi.getter(name="bypassHeadRequests")
     def bypass_head_requests(self) -> pulumi.Output[_builtins.bool]:
         """
-        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. Default to 'true' for Ansible repositories as 'https://galaxy.ansible.com' rejects HEAD requests.
         """
         return pulumi.get(self, "bypass_head_requests")
 

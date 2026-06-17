@@ -20,6 +20,7 @@ import * as utilities from "./utilities";
  * const my_remote_ansible = new artifactory.RemoteAnsibleRepository("my-remote-ansible", {
  *     key: "my-remote-ansible",
  *     url: "https://galaxy.ansible.com",
+ *     bypassHeadRequests: true,
  * });
  * ```
  *
@@ -80,7 +81,7 @@ export class RemoteAnsibleRepository extends pulumi.CustomResource {
      */
     declare public readonly blockMismatchingMimeTypes: pulumi.Output<boolean>;
     /**
-     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. Default to 'true' for Ansible repositories as 'https://galaxy.ansible.com' rejects HEAD requests.
      */
     declare public readonly bypassHeadRequests: pulumi.Output<boolean>;
     /**
@@ -362,7 +363,7 @@ export interface RemoteAnsibleRepositoryState {
      */
     blockMismatchingMimeTypes?: pulumi.Input<boolean | undefined>;
     /**
-     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. Default to 'true' for Ansible repositories as 'https://galaxy.ansible.com' rejects HEAD requests.
      */
     bypassHeadRequests?: pulumi.Input<boolean | undefined>;
     /**
@@ -533,7 +534,7 @@ export interface RemoteAnsibleRepositoryArgs {
      */
     blockMismatchingMimeTypes?: pulumi.Input<boolean | undefined>;
     /**
-     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request. Default to 'true' for Ansible repositories as 'https://galaxy.ansible.com' rejects HEAD requests.
      */
     bypassHeadRequests?: pulumi.Input<boolean | undefined>;
     /**
