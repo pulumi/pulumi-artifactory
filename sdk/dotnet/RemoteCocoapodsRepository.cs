@@ -197,6 +197,19 @@ namespace Pulumi.Artifactory
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only equivalent of `Password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `Password`. Because write-only values are not tracked in state, use `PasswordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+        /// </summary>
+        [Output("passwordWo")]
+        public Output<string?> PasswordWo { get; private set; } = null!;
+
+        /// <summary>
+        /// A version identifier for `PasswordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `PasswordWo` value to Artifactory. Only meaningful together with `PasswordWo`.
+        /// </summary>
+        [Output("passwordWoVersion")]
+        public Output<string?> PasswordWoVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
         /// </summary>
         [Output("podsSpecsRepoUrl")]
@@ -337,6 +350,7 @@ namespace Pulumi.Artifactory
                 AdditionalSecretOutputs =
                 {
                     "password",
+                    "passwordWo",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -521,6 +535,29 @@ namespace Pulumi.Artifactory
                 _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        [Input("passwordWo")]
+        private Input<string>? _passwordWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only equivalent of `Password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `Password`. Because write-only values are not tracked in state, use `PasswordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+        /// </summary>
+        public Input<string>? PasswordWo
+        {
+            get => _passwordWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _passwordWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// A version identifier for `PasswordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `PasswordWo` value to Artifactory. Only meaningful together with `PasswordWo`.
+        /// </summary>
+        [Input("passwordWoVersion")]
+        public Input<string>? PasswordWoVersion { get; set; }
 
         /// <summary>
         /// Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
@@ -817,6 +854,29 @@ namespace Pulumi.Artifactory
                 _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        [Input("passwordWo")]
+        private Input<string>? _passwordWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only equivalent of `Password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `Password`. Because write-only values are not tracked in state, use `PasswordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+        /// </summary>
+        public Input<string>? PasswordWo
+        {
+            get => _passwordWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _passwordWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// A version identifier for `PasswordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `PasswordWo` value to Artifactory. Only meaningful together with `PasswordWo`.
+        /// </summary>
+        [Input("passwordWoVersion")]
+        public Input<string>? PasswordWoVersion { get; set; }
 
         /// <summary>
         /// Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.

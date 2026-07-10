@@ -2080,6 +2080,21 @@
                     }
                 }
             },
+            "artifactory_remote_bazel_repository": {
+                "current": "artifactory:index/remoteBazelRepository:RemoteBazelRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "content_synchronisation": {
+                        "maxItemsOne": true
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_remote_bower_repository": {
                 "current": "artifactory:index/remoteBowerRepository:RemoteBowerRepository",
                 "majorVersion": 8,
@@ -4337,6 +4352,15 @@
                     }
                 }
             },
+            "artifactory_remote_bazel_repository": {
+                "current": "artifactory:index/getRemoteBazelRepository:getRemoteBazelRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_remote_bower_repository": {
                 "current": "artifactory:index/getRemoteBowerRepository:getRemoteBowerRepository",
                 "majorVersion": 8,
@@ -5448,6 +5472,7 @@
             "artifactory_release_bundle_webhook": {},
             "artifactory_remote_alpine_repository": {},
             "artifactory_remote_ansible_repository": {},
+            "artifactory_remote_bazel_repository": {},
             "artifactory_remote_bower_repository": {},
             "artifactory_remote_cargo_repository": {},
             "artifactory_remote_chef_repository": {},
@@ -5812,6 +5837,9 @@
             "artifactory_remote_ansible_repository": [
                 "key"
             ],
+            "artifactory_remote_bazel_repository": [
+                "key"
+            ],
             "artifactory_remote_bower_repository": [
                 "key"
             ],
@@ -6160,6 +6188,7 @@
             "artifactory:index/releaseBundleWebhook:ReleaseBundleWebhook": 1,
             "artifactory:index/remoteAlpineRepository:RemoteAlpineRepository": 1,
             "artifactory:index/remoteAnsibleRepository:RemoteAnsibleRepository": 1,
+            "artifactory:index/remoteBazelRepository:RemoteBazelRepository": 1,
             "artifactory:index/remoteBowerRepository:RemoteBowerRepository": 1,
             "artifactory:index/remoteCargoRepository:RemoteCargoRepository": 1,
             "artifactory:index/remoteChefRepository:RemoteChefRepository": 1,
@@ -6321,6 +6350,7 @@
             "artifactory:index/getPermissionTarget:getPermissionTarget": 0,
             "artifactory:index/getRemoteAlpineRepository:getRemoteAlpineRepository": 0,
             "artifactory:index/getRemoteAnsibleRepository:getRemoteAnsibleRepository": 0,
+            "artifactory:index/getRemoteBazelRepository:getRemoteBazelRepository": 1,
             "artifactory:index/getRemoteBowerRepository:getRemoteBowerRepository": 0,
             "artifactory:index/getRemoteCargoRepository:getRemoteCargoRepository": 0,
             "artifactory:index/getRemoteChefRepository:getRemoteChefRepository": 0,

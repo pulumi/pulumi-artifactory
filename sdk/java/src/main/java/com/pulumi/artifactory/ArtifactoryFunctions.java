@@ -168,6 +168,8 @@ import com.pulumi.artifactory.inputs.GetRemoteAlpineRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteAlpineRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteAnsibleRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteAnsibleRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetRemoteBazelRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetRemoteBazelRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteBowerRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteBowerRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteCargoRepositoryArgs;
@@ -386,6 +388,7 @@ import com.pulumi.artifactory.outputs.GetLocalVagrantRepositoryResult;
 import com.pulumi.artifactory.outputs.GetPermissionTargetResult;
 import com.pulumi.artifactory.outputs.GetRemoteAlpineRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteAnsibleRepositoryResult;
+import com.pulumi.artifactory.outputs.GetRemoteBazelRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteBowerRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteCargoRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteChefRepositoryResult;
@@ -16591,6 +16594,206 @@ public final class ArtifactoryFunctions {
      */
     public static CompletableFuture<GetRemoteAnsibleRepositoryResult> getRemoteAnsibleRepositoryPlain(GetRemoteAnsibleRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getRemoteAnsibleRepository:getRemoteAnsibleRepository", TypeShape.of(GetRemoteAnsibleRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves configuration for a remote Bazel Modules repository. See [Bazel Modules Repositories](https://docs.jfrog.com/artifactory/docs/bazel-modules-repositories).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteBazelRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getRemoteBazelRepository(GetRemoteBazelRepositoryArgs.builder()
+     *             .key("my-remote-bazelmodules")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRemoteBazelRepositoryResult> getRemoteBazelRepository(GetRemoteBazelRepositoryArgs args) {
+        return getRemoteBazelRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves configuration for a remote Bazel Modules repository. See [Bazel Modules Repositories](https://docs.jfrog.com/artifactory/docs/bazel-modules-repositories).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteBazelRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getRemoteBazelRepository(GetRemoteBazelRepositoryArgs.builder()
+     *             .key("my-remote-bazelmodules")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRemoteBazelRepositoryResult> getRemoteBazelRepositoryPlain(GetRemoteBazelRepositoryPlainArgs args) {
+        return getRemoteBazelRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves configuration for a remote Bazel Modules repository. See [Bazel Modules Repositories](https://docs.jfrog.com/artifactory/docs/bazel-modules-repositories).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteBazelRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getRemoteBazelRepository(GetRemoteBazelRepositoryArgs.builder()
+     *             .key("my-remote-bazelmodules")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRemoteBazelRepositoryResult> getRemoteBazelRepository(GetRemoteBazelRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getRemoteBazelRepository:getRemoteBazelRepository", TypeShape.of(GetRemoteBazelRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves configuration for a remote Bazel Modules repository. See [Bazel Modules Repositories](https://docs.jfrog.com/artifactory/docs/bazel-modules-repositories).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteBazelRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getRemoteBazelRepository(GetRemoteBazelRepositoryArgs.builder()
+     *             .key("my-remote-bazelmodules")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRemoteBazelRepositoryResult> getRemoteBazelRepository(GetRemoteBazelRepositoryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getRemoteBazelRepository:getRemoteBazelRepository", TypeShape.of(GetRemoteBazelRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves configuration for a remote Bazel Modules repository. See [Bazel Modules Repositories](https://docs.jfrog.com/artifactory/docs/bazel-modules-repositories).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteBazelRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getRemoteBazelRepository(GetRemoteBazelRepositoryArgs.builder()
+     *             .key("my-remote-bazelmodules")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRemoteBazelRepositoryResult> getRemoteBazelRepositoryPlain(GetRemoteBazelRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getRemoteBazelRepository:getRemoteBazelRepository", TypeShape.of(GetRemoteBazelRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves a remote Bower repository.

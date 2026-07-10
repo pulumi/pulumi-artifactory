@@ -16320,6 +16320,200 @@ func (o RemoteAnsibleRepositoryContentSynchronisationPtrOutput) StatisticsEnable
 	}).(pulumi.BoolPtrOutput)
 }
 
+type RemoteBazelRepositoryContentSynchronisation struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+}
+
+// RemoteBazelRepositoryContentSynchronisationInput is an input type that accepts RemoteBazelRepositoryContentSynchronisationArgs and RemoteBazelRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `RemoteBazelRepositoryContentSynchronisationInput` via:
+//
+//	RemoteBazelRepositoryContentSynchronisationArgs{...}
+type RemoteBazelRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToRemoteBazelRepositoryContentSynchronisationOutput() RemoteBazelRepositoryContentSynchronisationOutput
+	ToRemoteBazelRepositoryContentSynchronisationOutputWithContext(context.Context) RemoteBazelRepositoryContentSynchronisationOutput
+}
+
+type RemoteBazelRepositoryContentSynchronisationArgs struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (RemoteBazelRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteBazelRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i RemoteBazelRepositoryContentSynchronisationArgs) ToRemoteBazelRepositoryContentSynchronisationOutput() RemoteBazelRepositoryContentSynchronisationOutput {
+	return i.ToRemoteBazelRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i RemoteBazelRepositoryContentSynchronisationArgs) ToRemoteBazelRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteBazelRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteBazelRepositoryContentSynchronisationOutput)
+}
+
+func (i RemoteBazelRepositoryContentSynchronisationArgs) ToRemoteBazelRepositoryContentSynchronisationPtrOutput() RemoteBazelRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteBazelRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i RemoteBazelRepositoryContentSynchronisationArgs) ToRemoteBazelRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteBazelRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteBazelRepositoryContentSynchronisationOutput).ToRemoteBazelRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// RemoteBazelRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteBazelRepositoryContentSynchronisationArgs, RemoteBazelRepositoryContentSynchronisationPtr and RemoteBazelRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `RemoteBazelRepositoryContentSynchronisationPtrInput` via:
+//
+//	        RemoteBazelRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RemoteBazelRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToRemoteBazelRepositoryContentSynchronisationPtrOutput() RemoteBazelRepositoryContentSynchronisationPtrOutput
+	ToRemoteBazelRepositoryContentSynchronisationPtrOutputWithContext(context.Context) RemoteBazelRepositoryContentSynchronisationPtrOutput
+}
+
+type remoteBazelRepositoryContentSynchronisationPtrType RemoteBazelRepositoryContentSynchronisationArgs
+
+func RemoteBazelRepositoryContentSynchronisationPtr(v *RemoteBazelRepositoryContentSynchronisationArgs) RemoteBazelRepositoryContentSynchronisationPtrInput {
+	return (*remoteBazelRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*remoteBazelRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteBazelRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *remoteBazelRepositoryContentSynchronisationPtrType) ToRemoteBazelRepositoryContentSynchronisationPtrOutput() RemoteBazelRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteBazelRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *remoteBazelRepositoryContentSynchronisationPtrType) ToRemoteBazelRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteBazelRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteBazelRepositoryContentSynchronisationPtrOutput)
+}
+
+type RemoteBazelRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (RemoteBazelRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteBazelRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteBazelRepositoryContentSynchronisationOutput) ToRemoteBazelRepositoryContentSynchronisationOutput() RemoteBazelRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteBazelRepositoryContentSynchronisationOutput) ToRemoteBazelRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteBazelRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteBazelRepositoryContentSynchronisationOutput) ToRemoteBazelRepositoryContentSynchronisationPtrOutput() RemoteBazelRepositoryContentSynchronisationPtrOutput {
+	return o.ToRemoteBazelRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o RemoteBazelRepositoryContentSynchronisationOutput) ToRemoteBazelRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteBazelRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemoteBazelRepositoryContentSynchronisation) *RemoteBazelRepositoryContentSynchronisation {
+		return &v
+	}).(RemoteBazelRepositoryContentSynchronisationPtrOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o RemoteBazelRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteBazelRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o RemoteBazelRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteBazelRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o RemoteBazelRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteBazelRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o RemoteBazelRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteBazelRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type RemoteBazelRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (RemoteBazelRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteBazelRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteBazelRepositoryContentSynchronisationPtrOutput) ToRemoteBazelRepositoryContentSynchronisationPtrOutput() RemoteBazelRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteBazelRepositoryContentSynchronisationPtrOutput) ToRemoteBazelRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteBazelRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteBazelRepositoryContentSynchronisationPtrOutput) Elem() RemoteBazelRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *RemoteBazelRepositoryContentSynchronisation) RemoteBazelRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret RemoteBazelRepositoryContentSynchronisation
+		return ret
+	}).(RemoteBazelRepositoryContentSynchronisationOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o RemoteBazelRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteBazelRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o RemoteBazelRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteBazelRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o RemoteBazelRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteBazelRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o RemoteBazelRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteBazelRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type RemoteBowerRepositoryContentSynchronisation struct {
 	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 	Enabled *bool `pulumi:"enabled"`
@@ -37397,6 +37591,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteAlpineRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteAlpineRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteAnsibleRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteAnsibleRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteAnsibleRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteAnsibleRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteBazelRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteBazelRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteBazelRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteBazelRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteBowerRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteBowerRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteBowerRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteBowerRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteCargoRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteCargoRepositoryContentSynchronisationArgs{})
@@ -37866,6 +38062,8 @@ func init() {
 	pulumi.RegisterOutputType(RemoteAlpineRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteAnsibleRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteAnsibleRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(RemoteBazelRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(RemoteBazelRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteBowerRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteBowerRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteCargoRepositoryContentSynchronisationOutput{})

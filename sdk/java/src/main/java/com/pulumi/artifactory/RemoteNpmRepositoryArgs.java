@@ -429,6 +429,38 @@ public final class RemoteNpmRepositoryArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+     * 
+     */
+    @Import(name="passwordWo")
+    private @Nullable Output<String> passwordWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+     * 
+     */
+    public Optional<Output<String>> passwordWo() {
+        return Optional.ofNullable(this.passwordWo);
+    }
+
+    /**
+     * A version identifier for `passwordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `passwordWo` value to Artifactory. Only meaningful together with `passwordWo`.
+     * 
+     */
+    @Import(name="passwordWoVersion")
+    private @Nullable Output<String> passwordWoVersion;
+
+    /**
+     * @return A version identifier for `passwordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `passwordWo` value to Artifactory. Only meaningful together with `passwordWo`.
+     * 
+     */
+    public Optional<Output<String>> passwordWoVersion() {
+        return Optional.ofNullable(this.passwordWoVersion);
+    }
+
+    /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      * 
      */
@@ -710,6 +742,8 @@ public final class RemoteNpmRepositoryArgs extends com.pulumi.resources.Resource
         this.offline = $.offline;
         this.passThrough = $.passThrough;
         this.password = $.password;
+        this.passwordWo = $.passwordWo;
+        this.passwordWoVersion = $.passwordWoVersion;
         this.priorityResolution = $.priorityResolution;
         this.projectEnvironments = $.projectEnvironments;
         this.projectKey = $.projectKey;
@@ -1313,6 +1347,50 @@ public final class RemoteNpmRepositoryArgs extends com.pulumi.resources.Resource
 
         public Builder password(String password) {
             return password(Output.of(password));
+        }
+
+        /**
+         * @param passwordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordWo(@Nullable Output<String> passwordWo) {
+            $.passwordWo = passwordWo;
+            return this;
+        }
+
+        /**
+         * @param passwordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordWo(String passwordWo) {
+            return passwordWo(Output.of(passwordWo));
+        }
+
+        /**
+         * @param passwordWoVersion A version identifier for `passwordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `passwordWo` value to Artifactory. Only meaningful together with `passwordWo`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordWoVersion(@Nullable Output<String> passwordWoVersion) {
+            $.passwordWoVersion = passwordWoVersion;
+            return this;
+        }
+
+        /**
+         * @param passwordWoVersion A version identifier for `passwordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `passwordWo` value to Artifactory. Only meaningful together with `passwordWo`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordWoVersion(String passwordWoVersion) {
+            return passwordWoVersion(Output.of(passwordWoVersion));
         }
 
         /**

@@ -153,6 +153,7 @@ from .get_local_vagrant_repository import *
 from .get_permission_target import *
 from .get_remote_alpine_repository import *
 from .get_remote_ansible_repository import *
+from .get_remote_bazel_repository import *
 from .get_remote_bower_repository import *
 from .get_remote_cargo_repository import *
 from .get_remote_chef_repository import *
@@ -291,6 +292,7 @@ from .release_bundle_v2_webhook import *
 from .release_bundle_webhook import *
 from .remote_alpine_repository import *
 from .remote_ansible_repository import *
+from .remote_bazel_repository import *
 from .remote_bower_repository import *
 from .remote_cargo_repository import *
 from .remote_chef_repository import *
@@ -1451,6 +1453,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/remoteAnsibleRepository:RemoteAnsibleRepository": "RemoteAnsibleRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteBazelRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteBazelRepository:RemoteBazelRepository": "RemoteBazelRepository"
   }
  },
  {
