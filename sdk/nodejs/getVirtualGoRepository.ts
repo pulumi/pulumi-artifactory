@@ -46,7 +46,7 @@ export interface GetVirtualGoRepositoryArgs {
     description?: string;
     excludesPattern?: string;
     /**
-     * (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+     * (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
      * When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
      */
     externalDependenciesEnabled?: boolean;
@@ -75,7 +75,7 @@ export interface GetVirtualGoRepositoryResult {
     readonly description?: string;
     readonly excludesPattern?: string;
     /**
-     * (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+     * (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
      * When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
      */
     readonly externalDependenciesEnabled?: boolean;
@@ -138,7 +138,7 @@ export interface GetVirtualGoRepositoryOutputArgs {
     description?: pulumi.Input<string | undefined>;
     excludesPattern?: pulumi.Input<string | undefined>;
     /**
-     * (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+     * (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
      * When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
      */
     externalDependenciesEnabled?: pulumi.Input<boolean | undefined>;

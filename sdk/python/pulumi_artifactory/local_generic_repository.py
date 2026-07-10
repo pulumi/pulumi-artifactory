@@ -37,7 +37,7 @@ class LocalGenericRepositoryArgs:
         """
         The set of arguments for constructing a LocalGenericRepository resource.
 
-        :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. 
+        :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique.
                It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
                This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
@@ -89,7 +89,7 @@ class LocalGenericRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
         """
-        A mandatory identifier for the repository that must be unique. 
+        A mandatory identifier for the repository that must be unique.
         It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
@@ -297,7 +297,7 @@ class _LocalGenericRepositoryState:
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
-        :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. 
+        :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique.
                It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -427,7 +427,7 @@ class _LocalGenericRepositoryState:
     @pulumi.getter
     def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A mandatory identifier for the repository that must be unique. 
+        A mandatory identifier for the repository that must be unique.
         It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
@@ -573,7 +573,7 @@ class LocalGenericRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
-        :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. 
+        :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique.
                It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -705,7 +705,7 @@ class LocalGenericRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
-        :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. 
+        :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique.
                It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -797,7 +797,7 @@ class LocalGenericRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[_builtins.str]:
         """
-        A mandatory identifier for the repository that must be unique. 
+        A mandatory identifier for the repository that must be unique.
         It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")

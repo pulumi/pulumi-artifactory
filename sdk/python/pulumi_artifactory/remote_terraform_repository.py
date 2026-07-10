@@ -115,7 +115,7 @@ class RemoteTerraformRepositoryArgs:
         :param pulumi.Input[_builtins.bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[_builtins.str] terraform_providers_url: The base URL of the Provider's storage API.
                When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
-        :param pulumi.Input[_builtins.str] terraform_registry_url: The base URL of the registry API. 
+        :param pulumi.Input[_builtins.str] terraform_registry_url: The base URL of the registry API.
                When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
         :param pulumi.Input[_builtins.int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
@@ -732,7 +732,7 @@ class RemoteTerraformRepositoryArgs:
     @pulumi.getter(name="terraformRegistryUrl")
     def terraform_registry_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The base URL of the registry API. 
+        The base URL of the registry API.
         When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
         """
         return pulumi.get(self, "terraform_registry_url")
@@ -871,7 +871,7 @@ class _RemoteTerraformRepositoryState:
         :param pulumi.Input[_builtins.bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[_builtins.str] terraform_providers_url: The base URL of the Provider's storage API.
                When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
-        :param pulumi.Input[_builtins.str] terraform_registry_url: The base URL of the registry API. 
+        :param pulumi.Input[_builtins.str] terraform_registry_url: The base URL of the registry API.
                When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
         :param pulumi.Input[_builtins.int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[_builtins.str] url: The base URL of the Module storage API.
@@ -1479,7 +1479,7 @@ class _RemoteTerraformRepositoryState:
     @pulumi.getter(name="terraformRegistryUrl")
     def terraform_registry_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The base URL of the registry API. 
+        The base URL of the registry API.
         When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
         """
         return pulumi.get(self, "terraform_registry_url")
@@ -1689,7 +1689,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[_builtins.str] terraform_providers_url: The base URL of the Provider's storage API.
                When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
-        :param pulumi.Input[_builtins.str] terraform_registry_url: The base URL of the registry API. 
+        :param pulumi.Input[_builtins.str] terraform_registry_url: The base URL of the registry API.
                When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
         :param pulumi.Input[_builtins.int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[_builtins.str] url: The base URL of the Module storage API.
@@ -1988,7 +1988,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[_builtins.str] terraform_providers_url: The base URL of the Provider's storage API.
                When using Smart remote repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey/providers`.
-        :param pulumi.Input[_builtins.str] terraform_registry_url: The base URL of the registry API. 
+        :param pulumi.Input[_builtins.str] terraform_registry_url: The base URL of the registry API.
                When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
         :param pulumi.Input[_builtins.int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[_builtins.str] url: The base URL of the Module storage API.
@@ -2383,7 +2383,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
     @pulumi.getter(name="terraformRegistryUrl")
     def terraform_registry_url(self) -> pulumi.Output[_builtins.str]:
         """
-        The base URL of the registry API. 
+        The base URL of the registry API.
         When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
         """
         return pulumi.get(self, "terraform_registry_url")

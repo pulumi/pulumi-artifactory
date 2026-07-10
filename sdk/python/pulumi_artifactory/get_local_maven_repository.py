@@ -120,8 +120,8 @@ class GetLocalMavenRepositoryResult:
         deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
         - `client-checksums`
         - `server-generated-checksums`. For more details, please refer
-        to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
-        .
+          to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+          .
         """
         return pulumi.get(self, "checksum_policy_type")
 
@@ -291,8 +291,7 @@ def get_local_maven_repository(archive_browsing_enabled: Optional[_builtins.bool
 
     ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
 
-    -   
-      * `unique`: Version number is based on a time-stamp (default)
+    - * `unique`: Version number is based on a time-stamp (default)
       * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
       * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
     * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the
@@ -312,8 +311,8 @@ def get_local_maven_repository(archive_browsing_enabled: Optional[_builtins.bool
            deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
            - `client-checksums`
            - `server-generated-checksums`. For more details, please refer
-           to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
-           .
+             to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+             .
     :param _builtins.str key: the identity key of the repo.
     """
     __args__ = dict()
@@ -401,8 +400,7 @@ def get_local_maven_repository_output(archive_browsing_enabled: pulumi.Input[Opt
 
     ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
 
-    -   
-      * `unique`: Version number is based on a time-stamp (default)
+    - * `unique`: Version number is based on a time-stamp (default)
       * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
       * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
     * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the
@@ -422,8 +420,8 @@ def get_local_maven_repository_output(archive_browsing_enabled: pulumi.Input[Opt
            deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
            - `client-checksums`
            - `server-generated-checksums`. For more details, please refer
-           to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
-           .
+             to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+             .
     :param _builtins.str key: the identity key of the repo.
     """
     __args__ = dict()

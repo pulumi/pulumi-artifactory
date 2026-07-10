@@ -52,7 +52,6 @@ class AlpineRepositoryArgs:
                
                Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
                
-               
                The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
@@ -210,7 +209,6 @@ class AlpineRepositoryArgs:
 
         Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
 
-
         The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         """
         return pulumi.get(self, "primary_keypair_ref")
@@ -327,7 +325,6 @@ class _AlpineRepositoryState:
         :param pulumi.Input[_builtins.str] primary_keypair_ref: The RSA key to be used to sign alpine indices.
                
                Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
-               
                
                The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -487,7 +484,6 @@ class _AlpineRepositoryState:
 
         Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
 
-
         The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         """
         return pulumi.get(self, "primary_keypair_ref")
@@ -638,7 +634,6 @@ class AlpineRepository(pulumi.CustomResource):
                
                Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
                
-               
                The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
@@ -788,7 +783,6 @@ class AlpineRepository(pulumi.CustomResource):
                
                Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
                
-               
                The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
@@ -899,7 +893,6 @@ class AlpineRepository(pulumi.CustomResource):
         The RSA key to be used to sign alpine indices.
 
         Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
-
 
         The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         """

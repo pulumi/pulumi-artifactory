@@ -86,7 +86,7 @@ export class DistributionWebhook extends pulumi.CustomResource {
      */
     declare public readonly enabled: pulumi.Output<boolean>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distributeStarted`, `distributeCompleted`, `distributeAborted`, `distribute_failed, `deleteStarted`, `deleteCompleted`, `deleteFailed`
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distributeStarted`, `distributeCompleted`, `distributeAborted`, ` distribute_failed,  `deleteStarted` ,  `deleteCompleted` ,  `deleteFailed`
      */
     declare public readonly eventTypes: pulumi.Output<string[]>;
     /**
@@ -160,7 +160,7 @@ export interface DistributionWebhookState {
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distributeStarted`, `distributeCompleted`, `distributeAborted`, `distribute_failed, `deleteStarted`, `deleteCompleted`, `deleteFailed`
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distributeStarted`, `distributeCompleted`, `distributeAborted`, ` distribute_failed,  `deleteStarted` ,  `deleteCompleted` ,  `deleteFailed`
      */
     eventTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -190,7 +190,7 @@ export interface DistributionWebhookArgs {
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distributeStarted`, `distributeCompleted`, `distributeAborted`, `distribute_failed, `deleteStarted`, `deleteCompleted`, `deleteFailed`
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distributeStarted`, `distributeCompleted`, `distributeAborted`, ` distribute_failed,  `deleteStarted` ,  `deleteCompleted` ,  `deleteFailed`
      */
     eventTypes: pulumi.Input<pulumi.Input<string>[]>;
     /**

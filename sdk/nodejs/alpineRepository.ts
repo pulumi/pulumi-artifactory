@@ -110,7 +110,6 @@ export class AlpineRepository extends pulumi.CustomResource {
      *
      * Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
      *
-     *
      * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
      */
     declare public readonly primaryKeypairRef: pulumi.Output<string>;
@@ -241,7 +240,6 @@ export interface AlpineRepositoryState {
      *
      * Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
      *
-     *
      * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
      */
     primaryKeypairRef?: pulumi.Input<string | undefined>;
@@ -316,7 +314,6 @@ export interface AlpineRepositoryArgs {
      * The RSA key to be used to sign alpine indices.
      *
      * Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
-     *
      *
      * The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
      */

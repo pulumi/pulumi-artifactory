@@ -290,8 +290,7 @@ def get_local_ivy_repository(archive_browsing_enabled: Optional[_builtins.bool] 
 
     ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
 
-    -   
-      * `unique`: Version number is based on a time-stamp (default)
+    - * `unique`: Version number is based on a time-stamp (default)
       * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
       * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
     * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the number of
@@ -399,8 +398,7 @@ def get_local_ivy_repository_output(archive_browsing_enabled: pulumi.Input[Optio
 
     ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
 
-    -   
-      * `unique`: Version number is based on a time-stamp (default)
+    - * `unique`: Version number is based on a time-stamp (default)
       * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
       * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
     * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the number of

@@ -238,7 +238,7 @@ export class RemoteCocoapodsRepository extends pulumi.CustomResource {
      */
     declare public readonly vcsGitDownloadUrl: pulumi.Output<string | undefined>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. 
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`.
      * Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
      */
     declare public readonly vcsGitProvider: pulumi.Output<string>;
@@ -555,7 +555,7 @@ export interface RemoteCocoapodsRepositoryState {
      */
     vcsGitDownloadUrl?: pulumi.Input<string | undefined>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. 
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`.
      * Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
      */
     vcsGitProvider?: pulumi.Input<string | undefined>;
@@ -748,7 +748,7 @@ export interface RemoteCocoapodsRepositoryArgs {
      */
     vcsGitDownloadUrl?: pulumi.Input<string | undefined>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. 
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`.
      * Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
      */
     vcsGitProvider?: pulumi.Input<string | undefined>;

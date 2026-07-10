@@ -51,7 +51,7 @@ class LocalMavenRepositoryArgs:
         :param pulumi.Input[_builtins.str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
                - `client-checksums`
                - `server-generated-checksums`.
-               For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+                 For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
@@ -172,7 +172,7 @@ class LocalMavenRepositoryArgs:
         Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
         - `client-checksums`
         - `server-generated-checksums`.
-        For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+          For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
         """
         return pulumi.get(self, "checksum_policy_type")
 
@@ -412,7 +412,7 @@ class _LocalMavenRepositoryState:
         :param pulumi.Input[_builtins.str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
                - `client-checksums`
                - `server-generated-checksums`.
-               For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+                 For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
@@ -523,7 +523,7 @@ class _LocalMavenRepositoryState:
         Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
         - `client-checksums`
         - `server-generated-checksums`.
-        For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+          For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
         """
         return pulumi.get(self, "checksum_policy_type")
 
@@ -805,7 +805,7 @@ class LocalMavenRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
                - `client-checksums`
                - `server-generated-checksums`.
-               For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+                 For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
@@ -975,7 +975,7 @@ class LocalMavenRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
                - `client-checksums`
                - `server-generated-checksums`.
-               For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+                 For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
@@ -1058,7 +1058,7 @@ class LocalMavenRepository(pulumi.CustomResource):
         Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
         - `client-checksums`
         - `server-generated-checksums`.
-        For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+          For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
         """
         return pulumi.get(self, "checksum_policy_type")
 

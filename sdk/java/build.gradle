@@ -95,7 +95,7 @@ publishing {
                 inceptionYear = "2022"
                 name = "pulumi-artifactory"
                 packaging = "jar"
-                description = "A Pulumi package for creating and managing artifactory cloud resources."
+                description = $/A Pulumi package for creating and managing artifactory cloud resources./$
 
                 url = "https://github.com/pulumi/pulumi-artifactory"
 

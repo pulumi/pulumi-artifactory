@@ -31,7 +31,7 @@ class DistributionCustomWebhookArgs:
         The set of arguments for constructing a DistributionCustomWebhook resource.
 
         :param pulumi.Input['DistributionCustomWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distribute_started`, `distribute_completed`, `distribute_aborted`, `distribute_failed, `delete_started`, `delete_completed`, `delete_failed`
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distribute_started`, `distribute_completed`, `distribute_aborted`, ` distribute_failed,  `delete_started` ,  `delete_completed` ,  `delete_failed`
         :param pulumi.Input[Sequence[pulumi.Input['DistributionCustomWebhookHandlerArgs']]] handlers: At least one is required.
         :param pulumi.Input[_builtins.str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
@@ -62,7 +62,7 @@ class DistributionCustomWebhookArgs:
     @pulumi.getter(name="eventTypes")
     def event_types(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distribute_started`, `distribute_completed`, `distribute_aborted`, `distribute_failed, `delete_started`, `delete_completed`, `delete_failed`
+        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distribute_started`, `distribute_completed`, `distribute_aborted`, ` distribute_failed,  `delete_started` ,  `delete_completed` ,  `delete_failed`
         """
         return pulumi.get(self, "event_types")
 
@@ -134,7 +134,7 @@ class _DistributionCustomWebhookState:
         :param pulumi.Input['DistributionCustomWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[_builtins.bool] enabled: Status of webhook. Default to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distribute_started`, `distribute_completed`, `distribute_aborted`, `distribute_failed, `delete_started`, `delete_completed`, `delete_failed`
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distribute_started`, `distribute_completed`, `distribute_aborted`, ` distribute_failed,  `delete_started` ,  `delete_completed` ,  `delete_failed`
         :param pulumi.Input[Sequence[pulumi.Input['DistributionCustomWebhookHandlerArgs']]] handlers: At least one is required.
         :param pulumi.Input[_builtins.str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
@@ -191,7 +191,7 @@ class _DistributionCustomWebhookState:
     @pulumi.getter(name="eventTypes")
     def event_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distribute_started`, `distribute_completed`, `distribute_aborted`, `distribute_failed, `delete_started`, `delete_completed`, `delete_failed`
+        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distribute_started`, `distribute_completed`, `distribute_aborted`, ` distribute_failed,  `delete_started` ,  `delete_completed` ,  `delete_failed`
         """
         return pulumi.get(self, "event_types")
 
@@ -284,7 +284,7 @@ class DistributionCustomWebhook(pulumi.CustomResource):
         :param pulumi.Input[Union['DistributionCustomWebhookCriteriaArgs', 'DistributionCustomWebhookCriteriaArgsDict']] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[_builtins.bool] enabled: Status of webhook. Default to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distribute_started`, `distribute_completed`, `distribute_aborted`, `distribute_failed, `delete_started`, `delete_completed`, `delete_failed`
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distribute_started`, `distribute_completed`, `distribute_aborted`, ` distribute_failed,  `delete_started` ,  `delete_completed` ,  `delete_failed`
         :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionCustomWebhookHandlerArgs', 'DistributionCustomWebhookHandlerArgsDict']]]] handlers: At least one is required.
         :param pulumi.Input[_builtins.str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
@@ -406,7 +406,7 @@ class DistributionCustomWebhook(pulumi.CustomResource):
         :param pulumi.Input[Union['DistributionCustomWebhookCriteriaArgs', 'DistributionCustomWebhookCriteriaArgsDict']] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[_builtins.bool] enabled: Status of webhook. Default to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distribute_started`, `distribute_completed`, `distribute_aborted`, `distribute_failed, `delete_started`, `delete_completed`, `delete_failed`
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distribute_started`, `distribute_completed`, `distribute_aborted`, ` distribute_failed,  `delete_started` ,  `delete_completed` ,  `delete_failed`
         :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionCustomWebhookHandlerArgs', 'DistributionCustomWebhookHandlerArgsDict']]]] handlers: At least one is required.
         :param pulumi.Input[_builtins.str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
@@ -450,7 +450,7 @@ class DistributionCustomWebhook(pulumi.CustomResource):
     @pulumi.getter(name="eventTypes")
     def event_types(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distribute_started`, `distribute_completed`, `distribute_aborted`, `distribute_failed, `delete_started`, `delete_completed`, `delete_failed`
+        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distribute_started`, `distribute_completed`, `distribute_aborted`, ` distribute_failed,  `delete_started` ,  `delete_completed` ,  `delete_failed`
         """
         return pulumi.get(self, "event_types")
 
