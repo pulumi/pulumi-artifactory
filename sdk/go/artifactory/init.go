@@ -289,6 +289,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RemoteAlpineRepository{}
 	case "artifactory:index/remoteAnsibleRepository:RemoteAnsibleRepository":
 		r = &RemoteAnsibleRepository{}
+	case "artifactory:index/remoteBazelRepository:RemoteBazelRepository":
+		r = &RemoteBazelRepository{}
 	case "artifactory:index/remoteBowerRepository:RemoteBowerRepository":
 		r = &RemoteBowerRepository{}
 	case "artifactory:index/remoteCargoRepository:RemoteCargoRepository":
@@ -1142,6 +1144,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/remoteAnsibleRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/remoteBazelRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

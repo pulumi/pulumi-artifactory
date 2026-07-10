@@ -740,6 +740,11 @@ export const getRemoteAnsibleRepository: typeof import("./getRemoteAnsibleReposi
 export const getRemoteAnsibleRepositoryOutput: typeof import("./getRemoteAnsibleRepository").getRemoteAnsibleRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getRemoteAnsibleRepository","getRemoteAnsibleRepositoryOutput"], () => require("./getRemoteAnsibleRepository"));
 
+export { GetRemoteBazelRepositoryArgs, GetRemoteBazelRepositoryResult, GetRemoteBazelRepositoryOutputArgs } from "./getRemoteBazelRepository";
+export const getRemoteBazelRepository: typeof import("./getRemoteBazelRepository").getRemoteBazelRepository = null as any;
+export const getRemoteBazelRepositoryOutput: typeof import("./getRemoteBazelRepository").getRemoteBazelRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteBazelRepository","getRemoteBazelRepositoryOutput"], () => require("./getRemoteBazelRepository"));
+
 export { GetRemoteBowerRepositoryArgs, GetRemoteBowerRepositoryResult, GetRemoteBowerRepositoryOutputArgs } from "./getRemoteBowerRepository";
 export const getRemoteBowerRepository: typeof import("./getRemoteBowerRepository").getRemoteBowerRepository = null as any;
 export const getRemoteBowerRepositoryOutput: typeof import("./getRemoteBowerRepository").getRemoteBowerRepositoryOutput = null as any;
@@ -1428,6 +1433,11 @@ export type RemoteAnsibleRepository = import("./remoteAnsibleRepository").Remote
 export const RemoteAnsibleRepository: typeof import("./remoteAnsibleRepository").RemoteAnsibleRepository = null as any;
 utilities.lazyLoad(exports, ["RemoteAnsibleRepository"], () => require("./remoteAnsibleRepository"));
 
+export { RemoteBazelRepositoryArgs, RemoteBazelRepositoryState } from "./remoteBazelRepository";
+export type RemoteBazelRepository = import("./remoteBazelRepository").RemoteBazelRepository;
+export const RemoteBazelRepository: typeof import("./remoteBazelRepository").RemoteBazelRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteBazelRepository"], () => require("./remoteBazelRepository"));
+
 export { RemoteBowerRepositoryArgs, RemoteBowerRepositoryState } from "./remoteBowerRepository";
 export type RemoteBowerRepository = import("./remoteBowerRepository").RemoteBowerRepository;
 export const RemoteBowerRepository: typeof import("./remoteBowerRepository").RemoteBowerRepository = null as any;
@@ -2095,6 +2105,8 @@ const _module = {
                 return new RemoteAlpineRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteAnsibleRepository:RemoteAnsibleRepository":
                 return new RemoteAnsibleRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteBazelRepository:RemoteBazelRepository":
+                return new RemoteBazelRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteBowerRepository:RemoteBowerRepository":
                 return new RemoteBowerRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteCargoRepository:RemoteCargoRepository":
@@ -2388,6 +2400,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2Webho
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteAlpineRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteAnsibleRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteBazelRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteBowerRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteCargoRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteChefRepository", _module)

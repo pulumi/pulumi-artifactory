@@ -105,6 +105,11 @@ type RemoteCocoapodsRepository struct {
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
 	Offline  pulumi.BoolOutput      `pulumi:"offline"`
 	Password pulumi.StringPtrOutput `pulumi:"password"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+	PasswordWo pulumi.StringPtrOutput `pulumi:"passwordWo"`
+	// A version identifier for `passwordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `passwordWo` value to Artifactory. Only meaningful together with `passwordWo`.
+	PasswordWoVersion pulumi.StringPtrOutput `pulumi:"passwordWoVersion"`
 	// Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
 	PodsSpecsRepoUrl pulumi.StringOutput `pulumi:"podsSpecsRepoUrl"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -163,8 +168,12 @@ func NewRemoteCocoapodsRepository(ctx *pulumi.Context,
 	if args.Password != nil {
 		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
 	}
+	if args.PasswordWo != nil {
+		args.PasswordWo = pulumi.ToSecret(args.PasswordWo).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",
+		"passwordWo",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -242,6 +251,11 @@ type remoteCocoapodsRepositoryState struct {
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
 	Offline  *bool   `pulumi:"offline"`
 	Password *string `pulumi:"password"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+	PasswordWo *string `pulumi:"passwordWo"`
+	// A version identifier for `passwordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `passwordWo` value to Artifactory. Only meaningful together with `passwordWo`.
+	PasswordWoVersion *string `pulumi:"passwordWoVersion"`
 	// Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
 	PodsSpecsRepoUrl *string `pulumi:"podsSpecsRepoUrl"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -337,6 +351,11 @@ type RemoteCocoapodsRepositoryState struct {
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
 	Offline  pulumi.BoolPtrInput
 	Password pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+	PasswordWo pulumi.StringPtrInput
+	// A version identifier for `passwordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `passwordWo` value to Artifactory. Only meaningful together with `passwordWo`.
+	PasswordWoVersion pulumi.StringPtrInput
 	// Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
 	PodsSpecsRepoUrl pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -436,6 +455,11 @@ type remoteCocoapodsRepositoryArgs struct {
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
 	Offline  *bool   `pulumi:"offline"`
 	Password *string `pulumi:"password"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+	PasswordWo *string `pulumi:"passwordWo"`
+	// A version identifier for `passwordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `passwordWo` value to Artifactory. Only meaningful together with `passwordWo`.
+	PasswordWoVersion *string `pulumi:"passwordWoVersion"`
 	// Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
 	PodsSpecsRepoUrl *string `pulumi:"podsSpecsRepoUrl"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -532,6 +556,11 @@ type RemoteCocoapodsRepositoryArgs struct {
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
 	Offline  pulumi.BoolPtrInput
 	Password pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+	PasswordWo pulumi.StringPtrInput
+	// A version identifier for `passwordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `passwordWo` value to Artifactory. Only meaningful together with `passwordWo`.
+	PasswordWoVersion pulumi.StringPtrInput
 	// Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
 	PodsSpecsRepoUrl pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -791,6 +820,17 @@ func (o RemoteCocoapodsRepositoryOutput) Offline() pulumi.BoolOutput {
 
 func (o RemoteCocoapodsRepositoryOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteCocoapodsRepository) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+func (o RemoteCocoapodsRepositoryOutput) PasswordWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemoteCocoapodsRepository) pulumi.StringPtrOutput { return v.PasswordWo }).(pulumi.StringPtrOutput)
+}
+
+// A version identifier for `passwordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `passwordWo` value to Artifactory. Only meaningful together with `passwordWo`.
+func (o RemoteCocoapodsRepositoryOutput) PasswordWoVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemoteCocoapodsRepository) pulumi.StringPtrOutput { return v.PasswordWoVersion }).(pulumi.StringPtrOutput)
 }
 
 // Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.

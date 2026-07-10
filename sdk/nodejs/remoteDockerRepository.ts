@@ -189,6 +189,15 @@ export class RemoteDockerRepository extends pulumi.CustomResource {
     declare public readonly passThrough: pulumi.Output<boolean>;
     declare public readonly password: pulumi.Output<string | undefined>;
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+     */
+    declare public readonly passwordWo: pulumi.Output<string | undefined>;
+    /**
+     * A version identifier for `passwordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `passwordWo` value to Artifactory. Only meaningful together with `passwordWo`.
+     */
+    declare public readonly passwordWoVersion: pulumi.Output<string | undefined>;
+    /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     declare public readonly priorityResolution: pulumi.Output<boolean>;
@@ -303,6 +312,8 @@ export class RemoteDockerRepository extends pulumi.CustomResource {
             resourceInputs["offline"] = state?.offline;
             resourceInputs["passThrough"] = state?.passThrough;
             resourceInputs["password"] = state?.password;
+            resourceInputs["passwordWo"] = state?.passwordWo;
+            resourceInputs["passwordWoVersion"] = state?.passwordWoVersion;
             resourceInputs["priorityResolution"] = state?.priorityResolution;
             resourceInputs["projectEnvironments"] = state?.projectEnvironments;
             resourceInputs["projectId"] = state?.projectId;
@@ -361,6 +372,8 @@ export class RemoteDockerRepository extends pulumi.CustomResource {
             resourceInputs["offline"] = args?.offline;
             resourceInputs["passThrough"] = args?.passThrough;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["passwordWo"] = args?.passwordWo ? pulumi.secret(args.passwordWo) : undefined;
+            resourceInputs["passwordWoVersion"] = args?.passwordWoVersion;
             resourceInputs["priorityResolution"] = args?.priorityResolution;
             resourceInputs["projectEnvironments"] = args?.projectEnvironments;
             resourceInputs["projectId"] = args?.projectId;
@@ -381,7 +394,7 @@ export class RemoteDockerRepository extends pulumi.CustomResource {
             resourceInputs["xrayIndex"] = args?.xrayIndex;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["password"] };
+        const secretOpts = { additionalSecretOutputs: ["password", "passwordWo"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(RemoteDockerRepository.__pulumiType, name, resourceInputs, opts);
     }
@@ -517,6 +530,15 @@ export interface RemoteDockerRepositoryState {
      */
     passThrough?: pulumi.Input<boolean | undefined>;
     password?: pulumi.Input<string | undefined>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+     */
+    passwordWo?: pulumi.Input<string | undefined>;
+    /**
+     * A version identifier for `passwordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `passwordWo` value to Artifactory. Only meaningful together with `passwordWo`.
+     */
+    passwordWoVersion?: pulumi.Input<string | undefined>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
@@ -718,6 +740,15 @@ export interface RemoteDockerRepositoryArgs {
      */
     passThrough?: pulumi.Input<boolean | undefined>;
     password?: pulumi.Input<string | undefined>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+     */
+    passwordWo?: pulumi.Input<string | undefined>;
+    /**
+     * A version identifier for `passwordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `passwordWo` value to Artifactory. Only meaningful together with `passwordWo`.
+     */
+    passwordWoVersion?: pulumi.Input<string | undefined>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */

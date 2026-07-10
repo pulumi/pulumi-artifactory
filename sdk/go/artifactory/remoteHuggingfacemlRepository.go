@@ -107,6 +107,11 @@ type RemoteHuggingfacemlRepository struct {
 	// Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
 	PassThrough pulumi.BoolOutput      `pulumi:"passThrough"`
 	Password    pulumi.StringPtrOutput `pulumi:"password"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+	PasswordWo pulumi.StringPtrOutput `pulumi:"passwordWo"`
+	// A version identifier for `passwordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `passwordWo` value to Artifactory. Only meaningful together with `passwordWo`.
+	PasswordWoVersion pulumi.StringPtrOutput `pulumi:"passwordWoVersion"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolOutput `pulumi:"priorityResolution"`
 	// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
@@ -155,8 +160,12 @@ func NewRemoteHuggingfacemlRepository(ctx *pulumi.Context,
 	if args.Password != nil {
 		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
 	}
+	if args.PasswordWo != nil {
+		args.PasswordWo = pulumi.ToSecret(args.PasswordWo).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",
+		"passwordWo",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -238,6 +247,11 @@ type remoteHuggingfacemlRepositoryState struct {
 	// Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
 	PassThrough *bool   `pulumi:"passThrough"`
 	Password    *string `pulumi:"password"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+	PasswordWo *string `pulumi:"passwordWo"`
+	// A version identifier for `passwordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `passwordWo` value to Artifactory. Only meaningful together with `passwordWo`.
+	PasswordWoVersion *string `pulumi:"passwordWoVersion"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
 	// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
@@ -330,6 +344,11 @@ type RemoteHuggingfacemlRepositoryState struct {
 	// Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
 	PassThrough pulumi.BoolPtrInput
 	Password    pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+	PasswordWo pulumi.StringPtrInput
+	// A version identifier for `passwordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `passwordWo` value to Artifactory. Only meaningful together with `passwordWo`.
+	PasswordWoVersion pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
 	// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
@@ -426,6 +445,11 @@ type remoteHuggingfacemlRepositoryArgs struct {
 	// Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
 	PassThrough *bool   `pulumi:"passThrough"`
 	Password    *string `pulumi:"password"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+	PasswordWo *string `pulumi:"passwordWo"`
+	// A version identifier for `passwordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `passwordWo` value to Artifactory. Only meaningful together with `passwordWo`.
+	PasswordWoVersion *string `pulumi:"passwordWoVersion"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
 	// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
@@ -519,6 +543,11 @@ type RemoteHuggingfacemlRepositoryArgs struct {
 	// Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
 	PassThrough pulumi.BoolPtrInput
 	Password    pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+	PasswordWo pulumi.StringPtrInput
+	// A version identifier for `passwordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `passwordWo` value to Artifactory. Only meaningful together with `passwordWo`.
+	PasswordWoVersion pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
 	// Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
@@ -781,6 +810,17 @@ func (o RemoteHuggingfacemlRepositoryOutput) PassThrough() pulumi.BoolOutput {
 
 func (o RemoteHuggingfacemlRepositoryOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteHuggingfacemlRepository) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
+func (o RemoteHuggingfacemlRepositoryOutput) PasswordWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemoteHuggingfacemlRepository) pulumi.StringPtrOutput { return v.PasswordWo }).(pulumi.StringPtrOutput)
+}
+
+// A version identifier for `passwordWo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `passwordWo` value to Artifactory. Only meaningful together with `passwordWo`.
+func (o RemoteHuggingfacemlRepositoryOutput) PasswordWoVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemoteHuggingfacemlRepository) pulumi.StringPtrOutput { return v.PasswordWoVersion }).(pulumi.StringPtrOutput)
 }
 
 // Setting repositories with priority will cause metadata to be merged only from repositories set with this field
