@@ -40,7 +40,7 @@ class LocalCargoRepositoryArgs:
         The set of arguments for constructing a LocalCargoRepository resource.
 
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
-        :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. 
+        :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates.
                Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
                This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
@@ -109,7 +109,7 @@ class LocalCargoRepositoryArgs:
     @pulumi.getter(name="anonymousAccess")
     def anonymous_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Cargo client does not send credentials when performing download and search for crates. 
+        Cargo client does not send credentials when performing download and search for crates.
         Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         """
         return pulumi.get(self, "anonymous_access")
@@ -323,7 +323,7 @@ class _LocalCargoRepositoryState:
         """
         Input properties used for looking up and filtering LocalCargoRepository resources.
 
-        :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. 
+        :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates.
                Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
                This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
@@ -382,7 +382,7 @@ class _LocalCargoRepositoryState:
     @pulumi.getter(name="anonymousAccess")
     def anonymous_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Cargo client does not send credentials when performing download and search for crates. 
+        Cargo client does not send credentials when performing download and search for crates.
         Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         """
         return pulumi.get(self, "anonymous_access")
@@ -634,7 +634,7 @@ class LocalCargoRepository(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. 
+        :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates.
                Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
                This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
@@ -777,7 +777,7 @@ class LocalCargoRepository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. 
+        :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates.
                Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
                This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
@@ -824,7 +824,7 @@ class LocalCargoRepository(pulumi.CustomResource):
     @pulumi.getter(name="anonymousAccess")
     def anonymous_access(self) -> pulumi.Output[_builtins.bool]:
         """
-        Cargo client does not send credentials when performing download and search for crates. 
+        Cargo client does not send credentials when performing download and search for crates.
         Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         """
         return pulumi.get(self, "anonymous_access")

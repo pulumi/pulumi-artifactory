@@ -69,7 +69,7 @@ export class DockerV2Repository extends pulumi.CustomResource {
      */
     declare public readonly blackedOut: pulumi.Output<boolean>;
     /**
-     * When set, Artifactory will block the pushing of Docker images with manifest 
+     * When set, Artifactory will block the pushing of Docker images with manifest
      * v2 schema 1 to this repository.
      */
     declare public readonly blockPushingSchema1: pulumi.Output<boolean>;
@@ -98,7 +98,7 @@ export class DockerV2Repository extends pulumi.CustomResource {
      */
     declare public readonly key: pulumi.Output<string>;
     /**
-     * The maximum number of unique tags of a single Docker image to store in this 
+     * The maximum number of unique tags of a single Docker image to store in this
      * repository. Once the number tags for an image exceeds this setting, older tags are removed.
      * A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
      */
@@ -128,7 +128,7 @@ export class DockerV2Repository extends pulumi.CustomResource {
      */
     declare public readonly repoLayoutRef: pulumi.Output<string>;
     /**
-     * If greater than 1, overwritten tags will be saved by their digest, up to the set up 
+     * If greater than 1, overwritten tags will be saved by their digest, up to the set up
      * number. This only applies to manifest V2.
      */
     declare public readonly tagRetention: pulumi.Output<number>;
@@ -217,7 +217,7 @@ export interface DockerV2RepositoryState {
      */
     blackedOut?: pulumi.Input<boolean | undefined>;
     /**
-     * When set, Artifactory will block the pushing of Docker images with manifest 
+     * When set, Artifactory will block the pushing of Docker images with manifest
      * v2 schema 1 to this repository.
      */
     blockPushingSchema1?: pulumi.Input<boolean | undefined>;
@@ -246,7 +246,7 @@ export interface DockerV2RepositoryState {
      */
     key?: pulumi.Input<string | undefined>;
     /**
-     * The maximum number of unique tags of a single Docker image to store in this 
+     * The maximum number of unique tags of a single Docker image to store in this
      * repository. Once the number tags for an image exceeds this setting, older tags are removed.
      * A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
      */
@@ -276,7 +276,7 @@ export interface DockerV2RepositoryState {
      */
     repoLayoutRef?: pulumi.Input<string | undefined>;
     /**
-     * If greater than 1, overwritten tags will be saved by their digest, up to the set up 
+     * If greater than 1, overwritten tags will be saved by their digest, up to the set up
      * number. This only applies to manifest V2.
      */
     tagRetention?: pulumi.Input<number | undefined>;
@@ -300,7 +300,7 @@ export interface DockerV2RepositoryArgs {
      */
     blackedOut?: pulumi.Input<boolean | undefined>;
     /**
-     * When set, Artifactory will block the pushing of Docker images with manifest 
+     * When set, Artifactory will block the pushing of Docker images with manifest
      * v2 schema 1 to this repository.
      */
     blockPushingSchema1?: pulumi.Input<boolean | undefined>;
@@ -329,7 +329,7 @@ export interface DockerV2RepositoryArgs {
      */
     key: pulumi.Input<string>;
     /**
-     * The maximum number of unique tags of a single Docker image to store in this 
+     * The maximum number of unique tags of a single Docker image to store in this
      * repository. Once the number tags for an image exceeds this setting, older tags are removed.
      * A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
      */
@@ -359,7 +359,7 @@ export interface DockerV2RepositoryArgs {
      */
     repoLayoutRef?: pulumi.Input<string | undefined>;
     /**
-     * If greater than 1, overwritten tags will be saved by their digest, up to the set up 
+     * If greater than 1, overwritten tags will be saved by their digest, up to the set up
      * number. This only applies to manifest V2.
      */
     tagRetention?: pulumi.Input<number | undefined>;

@@ -20,8 +20,7 @@ import * as utilities from "./utilities";
  *
  * ## * `snapshotVersionBehavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
  *
- * -   
- *   * `unique`: Version number is based on a time-stamp (default)
+ * - * `unique`: Version number is based on a time-stamp (default)
  *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
  *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
  * * `maxUniqueSnapshots` - The maximum number of unique snapshots of a single artifact to store. Once the
@@ -75,8 +74,8 @@ export interface GetLocalMavenRepositoryArgs {
      * deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
      * - `client-checksums`
      * - `server-generated-checksums`. For more details, please refer
-     * to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
-     * .
+     *   to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+     *   .
      */
     checksumPolicyType?: string;
     description?: string;
@@ -113,8 +112,8 @@ export interface GetLocalMavenRepositoryResult {
      * deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
      * - `client-checksums`
      * - `server-generated-checksums`. For more details, please refer
-     * to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
-     * .
+     *   to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+     *   .
      */
     readonly checksumPolicyType?: string;
     readonly description?: string;
@@ -156,8 +155,7 @@ export interface GetLocalMavenRepositoryResult {
  *
  * ## * `snapshotVersionBehavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
  *
- * -   
- *   * `unique`: Version number is based on a time-stamp (default)
+ * - * `unique`: Version number is based on a time-stamp (default)
  *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
  *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
  * * `maxUniqueSnapshots` - The maximum number of unique snapshots of a single artifact to store. Once the
@@ -211,8 +209,8 @@ export interface GetLocalMavenRepositoryOutputArgs {
      * deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
      * - `client-checksums`
      * - `server-generated-checksums`. For more details, please refer
-     * to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
-     * .
+     *   to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+     *   .
      */
     checksumPolicyType?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;

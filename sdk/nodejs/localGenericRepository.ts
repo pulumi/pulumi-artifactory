@@ -81,7 +81,7 @@ export class LocalGenericRepository extends pulumi.CustomResource {
      */
     declare public readonly includesPattern: pulumi.Output<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. 
+     * A mandatory identifier for the repository that must be unique.
      * It cannot begin with a number or contain spaces or special characters.
      */
     declare public readonly key: pulumi.Output<string>;
@@ -202,7 +202,7 @@ export interface LocalGenericRepositoryState {
      */
     includesPattern?: pulumi.Input<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. 
+     * A mandatory identifier for the repository that must be unique.
      * It cannot begin with a number or contain spaces or special characters.
      */
     key?: pulumi.Input<string | undefined>;
@@ -270,7 +270,7 @@ export interface LocalGenericRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. 
+     * A mandatory identifier for the repository that must be unique.
      * It cannot begin with a number or contain spaces or special characters.
      */
     key: pulumi.Input<string>;

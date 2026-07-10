@@ -76,7 +76,7 @@ export class LocalMavenRepository extends pulumi.CustomResource {
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
      * - `client-checksums`
      * - `server-generated-checksums`.
-     * For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+     *   For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
      */
     declare public readonly checksumPolicyType: pulumi.Output<string>;
     /**
@@ -240,7 +240,7 @@ export interface LocalMavenRepositoryState {
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
      * - `client-checksums`
      * - `server-generated-checksums`.
-     * For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+     *   For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
      */
     checksumPolicyType?: pulumi.Input<string | undefined>;
     /**
@@ -339,7 +339,7 @@ export interface LocalMavenRepositoryArgs {
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
      * - `client-checksums`
      * - `server-generated-checksums`.
-     * For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+     *   For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
      */
     checksumPolicyType?: pulumi.Input<string | undefined>;
     /**

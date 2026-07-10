@@ -63,10 +63,10 @@ class LocalRpmRepositoryArgs:
         :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[_builtins.str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
         :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
-        :param pulumi.Input[_builtins.str] yum_group_file_names: A comma separated list of XML file names containing RPM group component definitions. 
+        :param pulumi.Input[_builtins.str] yum_group_file_names: A comma separated list of XML file names containing RPM group component definitions.
                Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
                generating a gzipped version of the group files, if required. Default is empty string.
-        :param pulumi.Input[_builtins.int] yum_root_depth: The depth, relative to the repository's root folder, where RPM metadata is created. 
+        :param pulumi.Input[_builtins.int] yum_root_depth: The depth, relative to the repository's root folder, where RPM metadata is created.
                This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
                your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots
                exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
@@ -347,7 +347,7 @@ class LocalRpmRepositoryArgs:
     @pulumi.getter(name="yumGroupFileNames")
     def yum_group_file_names(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A comma separated list of XML file names containing RPM group component definitions. 
+        A comma separated list of XML file names containing RPM group component definitions.
         Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
         generating a gzipped version of the group files, if required. Default is empty string.
         """
@@ -361,7 +361,7 @@ class LocalRpmRepositoryArgs:
     @pulumi.getter(name="yumRootDepth")
     def yum_root_depth(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The depth, relative to the repository's root folder, where RPM metadata is created. 
+        The depth, relative to the repository's root folder, where RPM metadata is created.
         This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
         your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots
         exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
@@ -421,10 +421,10 @@ class _LocalRpmRepositoryState:
         :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[_builtins.str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
         :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
-        :param pulumi.Input[_builtins.str] yum_group_file_names: A comma separated list of XML file names containing RPM group component definitions. 
+        :param pulumi.Input[_builtins.str] yum_group_file_names: A comma separated list of XML file names containing RPM group component definitions.
                Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
                generating a gzipped version of the group files, if required. Default is empty string.
-        :param pulumi.Input[_builtins.int] yum_root_depth: The depth, relative to the repository's root folder, where RPM metadata is created. 
+        :param pulumi.Input[_builtins.int] yum_root_depth: The depth, relative to the repository's root folder, where RPM metadata is created.
                This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
                your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots
                exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
@@ -706,7 +706,7 @@ class _LocalRpmRepositoryState:
     @pulumi.getter(name="yumGroupFileNames")
     def yum_group_file_names(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A comma separated list of XML file names containing RPM group component definitions. 
+        A comma separated list of XML file names containing RPM group component definitions.
         Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
         generating a gzipped version of the group files, if required. Default is empty string.
         """
@@ -720,7 +720,7 @@ class _LocalRpmRepositoryState:
     @pulumi.getter(name="yumRootDepth")
     def yum_root_depth(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The depth, relative to the repository's root folder, where RPM metadata is created. 
+        The depth, relative to the repository's root folder, where RPM metadata is created.
         This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
         your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots
         exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
@@ -827,10 +827,10 @@ class LocalRpmRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[_builtins.str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
         :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
-        :param pulumi.Input[_builtins.str] yum_group_file_names: A comma separated list of XML file names containing RPM group component definitions. 
+        :param pulumi.Input[_builtins.str] yum_group_file_names: A comma separated list of XML file names containing RPM group component definitions.
                Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
                generating a gzipped version of the group files, if required. Default is empty string.
-        :param pulumi.Input[_builtins.int] yum_root_depth: The depth, relative to the repository's root folder, where RPM metadata is created. 
+        :param pulumi.Input[_builtins.int] yum_root_depth: The depth, relative to the repository's root folder, where RPM metadata is created.
                This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
                your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots
                exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
@@ -1012,10 +1012,10 @@ class LocalRpmRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[_builtins.str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
         :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
-        :param pulumi.Input[_builtins.str] yum_group_file_names: A comma separated list of XML file names containing RPM group component definitions. 
+        :param pulumi.Input[_builtins.str] yum_group_file_names: A comma separated list of XML file names containing RPM group component definitions.
                Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
                generating a gzipped version of the group files, if required. Default is empty string.
-        :param pulumi.Input[_builtins.int] yum_root_depth: The depth, relative to the repository's root folder, where RPM metadata is created. 
+        :param pulumi.Input[_builtins.int] yum_root_depth: The depth, relative to the repository's root folder, where RPM metadata is created.
                This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
                your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots
                exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
@@ -1205,7 +1205,7 @@ class LocalRpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="yumGroupFileNames")
     def yum_group_file_names(self) -> pulumi.Output[_builtins.str]:
         """
-        A comma separated list of XML file names containing RPM group component definitions. 
+        A comma separated list of XML file names containing RPM group component definitions.
         Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
         generating a gzipped version of the group files, if required. Default is empty string.
         """
@@ -1215,7 +1215,7 @@ class LocalRpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="yumRootDepth")
     def yum_root_depth(self) -> pulumi.Output[_builtins.int]:
         """
-        The depth, relative to the repository's root folder, where RPM metadata is created. 
+        The depth, relative to the repository's root folder, where RPM metadata is created.
         This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
         your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots
         exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique

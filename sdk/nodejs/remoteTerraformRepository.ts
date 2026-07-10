@@ -258,7 +258,7 @@ export class RemoteTerraformRepository extends pulumi.CustomResource {
      */
     declare public readonly terraformProvidersUrl: pulumi.Output<string>;
     /**
-     * The base URL of the registry API. 
+     * The base URL of the registry API.
      * When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
      */
     declare public readonly terraformRegistryUrl: pulumi.Output<string>;
@@ -570,7 +570,7 @@ export interface RemoteTerraformRepositoryState {
      */
     terraformProvidersUrl?: pulumi.Input<string | undefined>;
     /**
-     * The base URL of the registry API. 
+     * The base URL of the registry API.
      * When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
      */
     terraformRegistryUrl?: pulumi.Input<string | undefined>;
@@ -760,7 +760,7 @@ export interface RemoteTerraformRepositoryArgs {
      */
     terraformProvidersUrl?: pulumi.Input<string | undefined>;
     /**
-     * The base URL of the registry API. 
+     * The base URL of the registry API.
      * When using Smart Remote Repositories, set the URL to `<base_Artifactory_URL>/api/terraform/repokey`.
      */
     terraformRegistryUrl?: pulumi.Input<string | undefined>;

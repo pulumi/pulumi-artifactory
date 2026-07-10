@@ -56,7 +56,7 @@ export class LocalCargoRepository extends pulumi.CustomResource {
     }
 
     /**
-     * Cargo client does not send credentials when performing download and search for crates. 
+     * Cargo client does not send credentials when performing download and search for crates.
      * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      */
     declare public readonly anonymousAccess: pulumi.Output<boolean>;
@@ -189,7 +189,7 @@ export class LocalCargoRepository extends pulumi.CustomResource {
  */
 export interface LocalCargoRepositoryState {
     /**
-     * Cargo client does not send credentials when performing download and search for crates. 
+     * Cargo client does not send credentials when performing download and search for crates.
      * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      */
     anonymousAccess?: pulumi.Input<boolean | undefined>;
@@ -265,7 +265,7 @@ export interface LocalCargoRepositoryState {
  */
 export interface LocalCargoRepositoryArgs {
     /**
-     * Cargo client does not send credentials when performing download and search for crates. 
+     * Cargo client does not send credentials when performing download and search for crates.
      * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      */
     anonymousAccess?: pulumi.Input<boolean | undefined>;
