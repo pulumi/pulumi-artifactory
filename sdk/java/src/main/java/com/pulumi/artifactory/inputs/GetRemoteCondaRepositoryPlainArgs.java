@@ -82,6 +82,13 @@ public final class GetRemoteCondaRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.contentSynchronisation);
     }
 
+    @Import(name="curated")
+    private @Nullable Boolean curated;
+
+    public Optional<Boolean> curated() {
+        return Optional.ofNullable(this.curated);
+    }
+
     @Import(name="description")
     private @Nullable String description;
 
@@ -200,6 +207,13 @@ public final class GetRemoteCondaRepositoryPlainArgs extends com.pulumi.resource
 
     public Optional<Boolean> offline() {
         return Optional.ofNullable(this.offline);
+    }
+
+    @Import(name="passThrough")
+    private @Nullable Boolean passThrough;
+
+    public Optional<Boolean> passThrough() {
+        return Optional.ofNullable(this.passThrough);
     }
 
     @Import(name="password")
@@ -340,6 +354,7 @@ public final class GetRemoteCondaRepositoryPlainArgs extends com.pulumi.resource
         this.cdnRedirect = $.cdnRedirect;
         this.clientTlsCertificate = $.clientTlsCertificate;
         this.contentSynchronisation = $.contentSynchronisation;
+        this.curated = $.curated;
         this.description = $.description;
         this.disableProxy = $.disableProxy;
         this.disableUrlNormalization = $.disableUrlNormalization;
@@ -356,6 +371,7 @@ public final class GetRemoteCondaRepositoryPlainArgs extends com.pulumi.resource
         this.missedCachePeriodSeconds = $.missedCachePeriodSeconds;
         this.notes = $.notes;
         this.offline = $.offline;
+        this.passThrough = $.passThrough;
         this.password = $.password;
         this.priorityResolution = $.priorityResolution;
         this.projectEnvironments = $.projectEnvironments;
@@ -436,6 +452,11 @@ public final class GetRemoteCondaRepositoryPlainArgs extends com.pulumi.resource
 
         public Builder contentSynchronisation(@Nullable GetRemoteCondaRepositoryContentSynchronisation contentSynchronisation) {
             $.contentSynchronisation = contentSynchronisation;
+            return this;
+        }
+
+        public Builder curated(@Nullable Boolean curated) {
+            $.curated = curated;
             return this;
         }
 
@@ -522,6 +543,11 @@ public final class GetRemoteCondaRepositoryPlainArgs extends com.pulumi.resource
 
         public Builder offline(@Nullable Boolean offline) {
             $.offline = offline;
+            return this;
+        }
+
+        public Builder passThrough(@Nullable Boolean passThrough) {
+            $.passThrough = passThrough;
             return this;
         }
 

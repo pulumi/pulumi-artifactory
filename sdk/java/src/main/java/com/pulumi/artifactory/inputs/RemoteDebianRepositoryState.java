@@ -149,6 +149,21 @@ public final class RemoteDebianRepositoryState extends com.pulumi.resources.Reso
     }
 
     /**
+     * Enable repository to be protected by the Curation service.
+     * 
+     */
+    @Import(name="curated")
+    private @Nullable Output<Boolean> curated;
+
+    /**
+     * @return Enable repository to be protected by the Curation service.
+     * 
+     */
+    public Optional<Output<Boolean>> curated() {
+        return Optional.ofNullable(this.curated);
+    }
+
+    /**
      * Public description.
      * 
      */
@@ -390,6 +405,21 @@ public final class RemoteDebianRepositoryState extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.offline);
     }
 
+    /**
+     * Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+     * 
+     */
+    @Import(name="passThrough")
+    private @Nullable Output<Boolean> passThrough;
+
+    /**
+     * @return Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+     * 
+     */
+    public Optional<Output<Boolean>> passThrough() {
+        return Optional.ofNullable(this.passThrough);
+    }
+
     @Import(name="password")
     private @Nullable Output<String> password;
 
@@ -472,6 +502,21 @@ public final class RemoteDebianRepositoryState extends com.pulumi.resources.Reso
      */
     public Optional<Output<String>> projectKey() {
         return Optional.ofNullable(this.projectKey);
+    }
+
+    /**
+     * When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+     * 
+     */
+    @Import(name="propagateQueryParams")
+    private @Nullable Output<Boolean> propagateQueryParams;
+
+    /**
+     * @return When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+     * 
+     */
+    public Optional<Output<Boolean>> propagateQueryParams() {
+        return Optional.ofNullable(this.propagateQueryParams);
     }
 
     /**
@@ -562,6 +607,21 @@ public final class RemoteDebianRepositoryState extends com.pulumi.resources.Reso
      */
     public Optional<Output<Integer>> retrievalCachePeriodSeconds() {
         return Optional.ofNullable(this.retrievalCachePeriodSeconds);
+    }
+
+    /**
+     * When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+     * 
+     */
+    @Import(name="retrieveSha256FromServer")
+    private @Nullable Output<Boolean> retrieveSha256FromServer;
+
+    /**
+     * @return When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+     * 
+     */
+    public Optional<Output<Boolean>> retrieveSha256FromServer() {
+        return Optional.ofNullable(this.retrieveSha256FromServer);
     }
 
     /**
@@ -692,6 +752,7 @@ public final class RemoteDebianRepositoryState extends com.pulumi.resources.Reso
         this.cdnRedirect = $.cdnRedirect;
         this.clientTlsCertificate = $.clientTlsCertificate;
         this.contentSynchronisation = $.contentSynchronisation;
+        this.curated = $.curated;
         this.description = $.description;
         this.disableProxy = $.disableProxy;
         this.disableUrlNormalization = $.disableUrlNormalization;
@@ -708,18 +769,21 @@ public final class RemoteDebianRepositoryState extends com.pulumi.resources.Reso
         this.missedCachePeriodSeconds = $.missedCachePeriodSeconds;
         this.notes = $.notes;
         this.offline = $.offline;
+        this.passThrough = $.passThrough;
         this.password = $.password;
         this.passwordWo = $.passwordWo;
         this.passwordWoVersion = $.passwordWoVersion;
         this.priorityResolution = $.priorityResolution;
         this.projectEnvironments = $.projectEnvironments;
         this.projectKey = $.projectKey;
+        this.propagateQueryParams = $.propagateQueryParams;
         this.propertySets = $.propertySets;
         this.proxy = $.proxy;
         this.queryParams = $.queryParams;
         this.remoteRepoLayoutRef = $.remoteRepoLayoutRef;
         this.repoLayoutRef = $.repoLayoutRef;
         this.retrievalCachePeriodSeconds = $.retrievalCachePeriodSeconds;
+        this.retrieveSha256FromServer = $.retrieveSha256FromServer;
         this.shareConfiguration = $.shareConfiguration;
         this.socketTimeoutMillis = $.socketTimeoutMillis;
         this.storeArtifactsLocally = $.storeArtifactsLocally;
@@ -925,6 +989,27 @@ public final class RemoteDebianRepositoryState extends com.pulumi.resources.Reso
 
         public Builder contentSynchronisation(RemoteDebianRepositoryContentSynchronisationArgs contentSynchronisation) {
             return contentSynchronisation(Output.of(contentSynchronisation));
+        }
+
+        /**
+         * @param curated Enable repository to be protected by the Curation service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder curated(@Nullable Output<Boolean> curated) {
+            $.curated = curated;
+            return this;
+        }
+
+        /**
+         * @param curated Enable repository to be protected by the Curation service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder curated(Boolean curated) {
+            return curated(Output.of(curated));
         }
 
         /**
@@ -1265,6 +1350,27 @@ public final class RemoteDebianRepositoryState extends com.pulumi.resources.Reso
             return offline(Output.of(offline));
         }
 
+        /**
+         * @param passThrough Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passThrough(@Nullable Output<Boolean> passThrough) {
+            $.passThrough = passThrough;
+            return this;
+        }
+
+        /**
+         * @param passThrough Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passThrough(Boolean passThrough) {
+            return passThrough(Output.of(passThrough));
+        }
+
         public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
@@ -1389,6 +1495,27 @@ public final class RemoteDebianRepositoryState extends com.pulumi.resources.Reso
          */
         public Builder projectKey(String projectKey) {
             return projectKey(Output.of(projectKey));
+        }
+
+        /**
+         * @param propagateQueryParams When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder propagateQueryParams(@Nullable Output<Boolean> propagateQueryParams) {
+            $.propagateQueryParams = propagateQueryParams;
+            return this;
+        }
+
+        /**
+         * @param propagateQueryParams When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder propagateQueryParams(Boolean propagateQueryParams) {
+            return propagateQueryParams(Output.of(propagateQueryParams));
         }
 
         /**
@@ -1525,6 +1652,27 @@ public final class RemoteDebianRepositoryState extends com.pulumi.resources.Reso
          */
         public Builder retrievalCachePeriodSeconds(Integer retrievalCachePeriodSeconds) {
             return retrievalCachePeriodSeconds(Output.of(retrievalCachePeriodSeconds));
+        }
+
+        /**
+         * @param retrieveSha256FromServer When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retrieveSha256FromServer(@Nullable Output<Boolean> retrieveSha256FromServer) {
+            $.retrieveSha256FromServer = retrieveSha256FromServer;
+            return this;
+        }
+
+        /**
+         * @param retrieveSha256FromServer When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retrieveSha256FromServer(Boolean retrieveSha256FromServer) {
+            return retrieveSha256FromServer(Output.of(retrieveSha256FromServer));
         }
 
         /**
