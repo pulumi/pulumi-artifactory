@@ -18,11 +18,6 @@ public final class GetVirtualHexRepositoryResult {
      * 
      */
     private String hexPrimaryKeypairRef;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String includesPattern;
     private String key;
     private String notes;
@@ -44,13 +39,6 @@ public final class GetVirtualHexRepositoryResult {
      */
     public String hexPrimaryKeypairRef() {
         return this.hexPrimaryKeypairRef;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String includesPattern() {
         return this.includesPattern;
@@ -86,7 +74,6 @@ public final class GetVirtualHexRepositoryResult {
         private String description;
         private String excludesPattern;
         private String hexPrimaryKeypairRef;
-        private String id;
         private String includesPattern;
         private String key;
         private String notes;
@@ -100,7 +87,6 @@ public final class GetVirtualHexRepositoryResult {
     	      this.description = defaults.description;
     	      this.excludesPattern = defaults.excludesPattern;
     	      this.hexPrimaryKeypairRef = defaults.hexPrimaryKeypairRef;
-    	      this.id = defaults.id;
     	      this.includesPattern = defaults.includesPattern;
     	      this.key = defaults.key;
     	      this.notes = defaults.notes;
@@ -132,14 +118,6 @@ public final class GetVirtualHexRepositoryResult {
               throw new MissingRequiredPropertyException("GetVirtualHexRepositoryResult", "hexPrimaryKeypairRef");
             }
             this.hexPrimaryKeypairRef = hexPrimaryKeypairRef;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetVirtualHexRepositoryResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -206,7 +184,6 @@ public final class GetVirtualHexRepositoryResult {
             _resultValue.description = description;
             _resultValue.excludesPattern = excludesPattern;
             _resultValue.hexPrimaryKeypairRef = hexPrimaryKeypairRef;
-            _resultValue.id = id;
             _resultValue.includesPattern = includesPattern;
             _resultValue.key = key;
             _resultValue.notes = notes;

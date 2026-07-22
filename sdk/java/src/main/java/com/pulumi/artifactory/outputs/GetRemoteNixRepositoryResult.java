@@ -24,11 +24,6 @@ public final class GetRemoteNixRepositoryResult {
     private Boolean enableCookieManagement;
     private String excludesPattern;
     private Boolean hardFail;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String includesPattern;
     private String key;
     private Boolean listRemoteFolderItems;
@@ -88,13 +83,6 @@ public final class GetRemoteNixRepositoryResult {
     }
     public Boolean hardFail() {
         return this.hardFail;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String includesPattern() {
         return this.includesPattern;
@@ -192,7 +180,6 @@ public final class GetRemoteNixRepositoryResult {
         private Boolean enableCookieManagement;
         private String excludesPattern;
         private Boolean hardFail;
-        private String id;
         private String includesPattern;
         private String key;
         private Boolean listRemoteFolderItems;
@@ -232,7 +219,6 @@ public final class GetRemoteNixRepositoryResult {
     	      this.enableCookieManagement = defaults.enableCookieManagement;
     	      this.excludesPattern = defaults.excludesPattern;
     	      this.hardFail = defaults.hardFail;
-    	      this.id = defaults.id;
     	      this.includesPattern = defaults.includesPattern;
     	      this.key = defaults.key;
     	      this.listRemoteFolderItems = defaults.listRemoteFolderItems;
@@ -346,14 +332,6 @@ public final class GetRemoteNixRepositoryResult {
               throw new MissingRequiredPropertyException("GetRemoteNixRepositoryResult", "hardFail");
             }
             this.hardFail = hardFail;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetRemoteNixRepositoryResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -572,7 +550,6 @@ public final class GetRemoteNixRepositoryResult {
             _resultValue.enableCookieManagement = enableCookieManagement;
             _resultValue.excludesPattern = excludesPattern;
             _resultValue.hardFail = hardFail;
-            _resultValue.id = id;
             _resultValue.includesPattern = includesPattern;
             _resultValue.key = key;
             _resultValue.listRemoteFolderItems = listRemoteFolderItems;

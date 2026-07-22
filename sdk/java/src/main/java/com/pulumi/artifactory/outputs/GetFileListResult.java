@@ -42,11 +42,6 @@ public final class GetFileListResult {
      */
     private String folderPath;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return Include root path
      * 
      */
@@ -109,13 +104,6 @@ public final class GetFileListResult {
         return this.folderPath;
     }
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
-    /**
      * @return Include root path
      * 
      */
@@ -165,7 +153,6 @@ public final class GetFileListResult {
         private @Nullable Integer depth;
         private List<GetFileListFile> files;
         private String folderPath;
-        private String id;
         private @Nullable Boolean includeRootPath;
         private @Nullable Boolean listFolders;
         private @Nullable Boolean metadataTimestamps;
@@ -179,7 +166,6 @@ public final class GetFileListResult {
     	      this.depth = defaults.depth;
     	      this.files = defaults.files;
     	      this.folderPath = defaults.folderPath;
-    	      this.id = defaults.id;
     	      this.includeRootPath = defaults.includeRootPath;
     	      this.listFolders = defaults.listFolders;
     	      this.metadataTimestamps = defaults.metadataTimestamps;
@@ -227,14 +213,6 @@ public final class GetFileListResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetFileListResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder includeRootPath(@Nullable Boolean includeRootPath) {
 
             this.includeRootPath = includeRootPath;
@@ -275,7 +253,6 @@ public final class GetFileListResult {
             _resultValue.depth = depth;
             _resultValue.files = files;
             _resultValue.folderPath = folderPath;
-            _resultValue.id = id;
             _resultValue.includeRootPath = includeRootPath;
             _resultValue.listFolders = listFolders;
             _resultValue.metadataTimestamps = metadataTimestamps;

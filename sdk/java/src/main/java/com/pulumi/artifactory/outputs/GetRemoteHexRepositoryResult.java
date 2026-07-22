@@ -29,11 +29,6 @@ public final class GetRemoteHexRepositoryResult {
      * 
      */
     private String hexPrimaryKeypairRef;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String includesPattern;
     private String key;
     private Boolean listRemoteFolderItems;
@@ -109,13 +104,6 @@ public final class GetRemoteHexRepositoryResult {
      */
     public String hexPrimaryKeypairRef() {
         return this.hexPrimaryKeypairRef;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String includesPattern() {
         return this.includesPattern;
@@ -225,7 +213,6 @@ public final class GetRemoteHexRepositoryResult {
         private String excludesPattern;
         private Boolean hardFail;
         private String hexPrimaryKeypairRef;
-        private String id;
         private String includesPattern;
         private String key;
         private Boolean listRemoteFolderItems;
@@ -267,7 +254,6 @@ public final class GetRemoteHexRepositoryResult {
     	      this.excludesPattern = defaults.excludesPattern;
     	      this.hardFail = defaults.hardFail;
     	      this.hexPrimaryKeypairRef = defaults.hexPrimaryKeypairRef;
-    	      this.id = defaults.id;
     	      this.includesPattern = defaults.includesPattern;
     	      this.key = defaults.key;
     	      this.listRemoteFolderItems = defaults.listRemoteFolderItems;
@@ -390,14 +376,6 @@ public final class GetRemoteHexRepositoryResult {
               throw new MissingRequiredPropertyException("GetRemoteHexRepositoryResult", "hexPrimaryKeypairRef");
             }
             this.hexPrimaryKeypairRef = hexPrimaryKeypairRef;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetRemoteHexRepositoryResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -625,7 +603,6 @@ public final class GetRemoteHexRepositoryResult {
             _resultValue.excludesPattern = excludesPattern;
             _resultValue.hardFail = hardFail;
             _resultValue.hexPrimaryKeypairRef = hexPrimaryKeypairRef;
-            _resultValue.id = id;
             _resultValue.includesPattern = includesPattern;
             _resultValue.key = key;
             _resultValue.listRemoteFolderItems = listRemoteFolderItems;

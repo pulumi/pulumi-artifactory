@@ -79,8 +79,6 @@ type GetFileListResult struct {
 	Files []GetFileListFile `pulumi:"files"`
 	// Path of the folder
 	FolderPath string `pulumi:"folderPath"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// Include root path
 	IncludeRootPath *bool `pulumi:"includeRootPath"`
 	// Include folders
@@ -162,11 +160,6 @@ func (o GetFileListResultOutput) Files() GetFileListFileArrayOutput {
 // Path of the folder
 func (o GetFileListResultOutput) FolderPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileListResult) string { return v.FolderPath }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetFileListResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFileListResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Include root path

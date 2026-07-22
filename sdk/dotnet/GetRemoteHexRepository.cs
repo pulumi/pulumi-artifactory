@@ -132,10 +132,6 @@ namespace Pulumi.Artifactory
         /// Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
         /// </summary>
         public readonly string HexPrimaryKeypairRef;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string IncludesPattern;
         public readonly string Key;
         public readonly bool ListRemoteFolderItems;
@@ -194,8 +190,6 @@ namespace Pulumi.Artifactory
             bool hardFail,
 
             string hexPrimaryKeypairRef,
-
-            string id,
 
             string includesPattern,
 
@@ -261,7 +255,6 @@ namespace Pulumi.Artifactory
             ExcludesPattern = excludesPattern;
             HardFail = hardFail;
             HexPrimaryKeypairRef = hexPrimaryKeypairRef;
-            Id = id;
             IncludesPattern = includesPattern;
             Key = key;
             ListRemoteFolderItems = listRemoteFolderItems;

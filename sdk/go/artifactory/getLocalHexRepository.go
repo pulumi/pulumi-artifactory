@@ -63,19 +63,17 @@ type LookupLocalHexRepositoryResult struct {
 	DownloadDirect         bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        string `pulumi:"excludesPattern"`
 	// Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
-	HexPrimaryKeypairRef string `pulumi:"hexPrimaryKeypairRef"`
-	// The provider-assigned unique ID for this managed resource.
-	Id                  string   `pulumi:"id"`
-	IncludesPattern     string   `pulumi:"includesPattern"`
-	Key                 string   `pulumi:"key"`
-	Notes               string   `pulumi:"notes"`
-	PackageType         string   `pulumi:"packageType"`
-	PriorityResolution  bool     `pulumi:"priorityResolution"`
-	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	ProjectKey          string   `pulumi:"projectKey"`
-	PropertySets        []string `pulumi:"propertySets"`
-	RepoLayoutRef       string   `pulumi:"repoLayoutRef"`
-	XrayIndex           bool     `pulumi:"xrayIndex"`
+	HexPrimaryKeypairRef string   `pulumi:"hexPrimaryKeypairRef"`
+	IncludesPattern      string   `pulumi:"includesPattern"`
+	Key                  string   `pulumi:"key"`
+	Notes                string   `pulumi:"notes"`
+	PackageType          string   `pulumi:"packageType"`
+	PriorityResolution   bool     `pulumi:"priorityResolution"`
+	ProjectEnvironments  []string `pulumi:"projectEnvironments"`
+	ProjectKey           string   `pulumi:"projectKey"`
+	PropertySets         []string `pulumi:"propertySets"`
+	RepoLayoutRef        string   `pulumi:"repoLayoutRef"`
+	XrayIndex            bool     `pulumi:"xrayIndex"`
 }
 
 func LookupLocalHexRepositoryOutput(ctx *pulumi.Context, args LookupLocalHexRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalHexRepositoryResultOutput {
@@ -139,11 +137,6 @@ func (o LookupLocalHexRepositoryResultOutput) ExcludesPattern() pulumi.StringOut
 // Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
 func (o LookupLocalHexRepositoryResultOutput) HexPrimaryKeypairRef() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalHexRepositoryResult) string { return v.HexPrimaryKeypairRef }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupLocalHexRepositoryResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLocalHexRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o LookupLocalHexRepositoryResultOutput) IncludesPattern() pulumi.StringOutput {

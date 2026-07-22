@@ -56,10 +56,8 @@ type LookupVirtualNixRepositoryArgs struct {
 
 // A collection of values returned by getVirtualNixRepository.
 type LookupVirtualNixRepositoryResult struct {
-	Description     string `pulumi:"description"`
-	ExcludesPattern string `pulumi:"excludesPattern"`
-	// The provider-assigned unique ID for this managed resource.
-	Id                  string   `pulumi:"id"`
+	Description         string   `pulumi:"description"`
+	ExcludesPattern     string   `pulumi:"excludesPattern"`
 	IncludesPattern     string   `pulumi:"includesPattern"`
 	Key                 string   `pulumi:"key"`
 	Notes               string   `pulumi:"notes"`
@@ -109,11 +107,6 @@ func (o LookupVirtualNixRepositoryResultOutput) Description() pulumi.StringOutpu
 
 func (o LookupVirtualNixRepositoryResultOutput) ExcludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualNixRepositoryResult) string { return v.ExcludesPattern }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupVirtualNixRepositoryResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVirtualNixRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o LookupVirtualNixRepositoryResultOutput) IncludesPattern() pulumi.StringOutput {

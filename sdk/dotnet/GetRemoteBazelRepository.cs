@@ -128,10 +128,6 @@ namespace Pulumi.Artifactory
         public readonly bool EnableCookieManagement;
         public readonly string ExcludesPattern;
         public readonly bool HardFail;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string IncludesPattern;
         public readonly string Key;
         public readonly bool ListRemoteFolderItems;
@@ -181,8 +177,6 @@ namespace Pulumi.Artifactory
             string excludesPattern,
 
             bool hardFail,
-
-            string id,
 
             string includesPattern,
 
@@ -245,7 +239,6 @@ namespace Pulumi.Artifactory
             EnableCookieManagement = enableCookieManagement;
             ExcludesPattern = excludesPattern;
             HardFail = hardFail;
-            Id = id;
             IncludesPattern = includesPattern;
             Key = key;
             ListRemoteFolderItems = listRemoteFolderItems;

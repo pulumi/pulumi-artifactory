@@ -26,7 +26,7 @@ class GetRemoteNixRepositoryResult:
     """
     A collection of values returned by getRemoteNixRepository.
     """
-    def __init__(__self__, allow_any_host_auth=None, assumed_offline_period_secs=None, block_mismatching_mime_types=None, bypass_head_requests=None, client_tls_certificate=None, description=None, disable_proxy=None, disable_url_normalization=None, enable_cookie_management=None, excludes_pattern=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, project_environments=None, project_key=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None):
+    def __init__(__self__, allow_any_host_auth=None, assumed_offline_period_secs=None, block_mismatching_mime_types=None, bypass_head_requests=None, client_tls_certificate=None, description=None, disable_proxy=None, disable_url_normalization=None, enable_cookie_management=None, excludes_pattern=None, hard_fail=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, project_environments=None, project_key=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None):
         if allow_any_host_auth and not isinstance(allow_any_host_auth, bool):
             raise TypeError("Expected argument 'allow_any_host_auth' to be a bool")
         pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
@@ -60,9 +60,6 @@ class GetRemoteNixRepositoryResult:
         if hard_fail and not isinstance(hard_fail, bool):
             raise TypeError("Expected argument 'hard_fail' to be a bool")
         pulumi.set(__self__, "hard_fail", hard_fail)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if includes_pattern and not isinstance(includes_pattern, str):
             raise TypeError("Expected argument 'includes_pattern' to be a str")
         pulumi.set(__self__, "includes_pattern", includes_pattern)
@@ -193,14 +190,6 @@ class GetRemoteNixRepositoryResult:
     @pulumi.getter(name="hardFail")
     def hard_fail(self) -> _builtins.bool:
         return pulumi.get(self, "hard_fail")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="includesPattern")
@@ -345,7 +334,6 @@ class AwaitableGetRemoteNixRepositoryResult(GetRemoteNixRepositoryResult):
             enable_cookie_management=self.enable_cookie_management,
             excludes_pattern=self.excludes_pattern,
             hard_fail=self.hard_fail,
-            id=self.id,
             includes_pattern=self.includes_pattern,
             key=self.key,
             list_remote_folder_items=self.list_remote_folder_items,
@@ -407,7 +395,6 @@ def get_remote_nix_repository(key: Optional[_builtins.str] = None,
         enable_cookie_management=pulumi.get(__ret__, 'enable_cookie_management'),
         excludes_pattern=pulumi.get(__ret__, 'excludes_pattern'),
         hard_fail=pulumi.get(__ret__, 'hard_fail'),
-        id=pulumi.get(__ret__, 'id'),
         includes_pattern=pulumi.get(__ret__, 'includes_pattern'),
         key=pulumi.get(__ret__, 'key'),
         list_remote_folder_items=pulumi.get(__ret__, 'list_remote_folder_items'),
@@ -466,7 +453,6 @@ def get_remote_nix_repository_output(key: pulumi.Input[Optional[_builtins.str]] 
         enable_cookie_management=pulumi.get(__response__, 'enable_cookie_management'),
         excludes_pattern=pulumi.get(__response__, 'excludes_pattern'),
         hard_fail=pulumi.get(__response__, 'hard_fail'),
-        id=pulumi.get(__response__, 'id'),
         includes_pattern=pulumi.get(__response__, 'includes_pattern'),
         key=pulumi.get(__response__, 'key'),
         list_remote_folder_items=pulumi.get(__response__, 'list_remote_folder_items'),

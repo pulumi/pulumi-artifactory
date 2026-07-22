@@ -59,16 +59,14 @@ type LookupVirtualHexRepositoryResult struct {
 	Description     string `pulumi:"description"`
 	ExcludesPattern string `pulumi:"excludesPattern"`
 	// Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
-	HexPrimaryKeypairRef string `pulumi:"hexPrimaryKeypairRef"`
-	// The provider-assigned unique ID for this managed resource.
-	Id                  string   `pulumi:"id"`
-	IncludesPattern     string   `pulumi:"includesPattern"`
-	Key                 string   `pulumi:"key"`
-	Notes               string   `pulumi:"notes"`
-	PackageType         string   `pulumi:"packageType"`
-	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	ProjectKey          string   `pulumi:"projectKey"`
-	RepoLayoutRef       string   `pulumi:"repoLayoutRef"`
+	HexPrimaryKeypairRef string   `pulumi:"hexPrimaryKeypairRef"`
+	IncludesPattern      string   `pulumi:"includesPattern"`
+	Key                  string   `pulumi:"key"`
+	Notes                string   `pulumi:"notes"`
+	PackageType          string   `pulumi:"packageType"`
+	ProjectEnvironments  []string `pulumi:"projectEnvironments"`
+	ProjectKey           string   `pulumi:"projectKey"`
+	RepoLayoutRef        string   `pulumi:"repoLayoutRef"`
 }
 
 func LookupVirtualHexRepositoryOutput(ctx *pulumi.Context, args LookupVirtualHexRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualHexRepositoryResultOutput {
@@ -116,11 +114,6 @@ func (o LookupVirtualHexRepositoryResultOutput) ExcludesPattern() pulumi.StringO
 // Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
 func (o LookupVirtualHexRepositoryResultOutput) HexPrimaryKeypairRef() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualHexRepositoryResult) string { return v.HexPrimaryKeypairRef }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupVirtualHexRepositoryResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVirtualHexRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o LookupVirtualHexRepositoryResultOutput) IncludesPattern() pulumi.StringOutput {

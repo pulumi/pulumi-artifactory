@@ -213,10 +213,6 @@ namespace Pulumi.Artifactory
         /// </summary>
         public readonly string FolderPath;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// Include root path
         /// </summary>
         public readonly bool? IncludeRootPath;
@@ -249,8 +245,6 @@ namespace Pulumi.Artifactory
 
             string folderPath,
 
-            string id,
-
             bool? includeRootPath,
 
             bool? listFolders,
@@ -266,7 +260,6 @@ namespace Pulumi.Artifactory
             Depth = depth;
             Files = files;
             FolderPath = folderPath;
-            Id = id;
             IncludeRootPath = includeRootPath;
             ListFolders = listFolders;
             MetadataTimestamps = metadataTimestamps;

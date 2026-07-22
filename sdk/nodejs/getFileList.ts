@@ -93,10 +93,6 @@ export interface GetFileListResult {
      */
     readonly folderPath: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * Include root path
      */
     readonly includeRootPath?: boolean;

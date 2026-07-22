@@ -56,19 +56,17 @@ type LookupRemoteNixRepositoryArgs struct {
 
 // A collection of values returned by getRemoteNixRepository.
 type LookupRemoteNixRepositoryResult struct {
-	AllowAnyHostAuth          bool   `pulumi:"allowAnyHostAuth"`
-	AssumedOfflinePeriodSecs  int    `pulumi:"assumedOfflinePeriodSecs"`
-	BlockMismatchingMimeTypes bool   `pulumi:"blockMismatchingMimeTypes"`
-	BypassHeadRequests        bool   `pulumi:"bypassHeadRequests"`
-	ClientTlsCertificate      string `pulumi:"clientTlsCertificate"`
-	Description               string `pulumi:"description"`
-	DisableProxy              bool   `pulumi:"disableProxy"`
-	DisableUrlNormalization   bool   `pulumi:"disableUrlNormalization"`
-	EnableCookieManagement    bool   `pulumi:"enableCookieManagement"`
-	ExcludesPattern           string `pulumi:"excludesPattern"`
-	HardFail                  bool   `pulumi:"hardFail"`
-	// The provider-assigned unique ID for this managed resource.
-	Id                                string   `pulumi:"id"`
+	AllowAnyHostAuth                  bool     `pulumi:"allowAnyHostAuth"`
+	AssumedOfflinePeriodSecs          int      `pulumi:"assumedOfflinePeriodSecs"`
+	BlockMismatchingMimeTypes         bool     `pulumi:"blockMismatchingMimeTypes"`
+	BypassHeadRequests                bool     `pulumi:"bypassHeadRequests"`
+	ClientTlsCertificate              string   `pulumi:"clientTlsCertificate"`
+	Description                       string   `pulumi:"description"`
+	DisableProxy                      bool     `pulumi:"disableProxy"`
+	DisableUrlNormalization           bool     `pulumi:"disableUrlNormalization"`
+	EnableCookieManagement            bool     `pulumi:"enableCookieManagement"`
+	ExcludesPattern                   string   `pulumi:"excludesPattern"`
+	HardFail                          bool     `pulumi:"hardFail"`
 	IncludesPattern                   string   `pulumi:"includesPattern"`
 	Key                               string   `pulumi:"key"`
 	ListRemoteFolderItems             bool     `pulumi:"listRemoteFolderItems"`
@@ -172,11 +170,6 @@ func (o LookupRemoteNixRepositoryResultOutput) ExcludesPattern() pulumi.StringOu
 
 func (o LookupRemoteNixRepositoryResultOutput) HardFail() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupRemoteNixRepositoryResult) bool { return v.HardFail }).(pulumi.BoolOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupRemoteNixRepositoryResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRemoteNixRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o LookupRemoteNixRepositoryResultOutput) IncludesPattern() pulumi.StringOutput {

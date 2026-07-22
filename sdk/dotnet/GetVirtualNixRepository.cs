@@ -119,10 +119,6 @@ namespace Pulumi.Artifactory
     {
         public readonly string Description;
         public readonly string ExcludesPattern;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string IncludesPattern;
         public readonly string Key;
         public readonly string Notes;
@@ -136,8 +132,6 @@ namespace Pulumi.Artifactory
             string description,
 
             string excludesPattern,
-
-            string id,
 
             string includesPattern,
 
@@ -155,7 +149,6 @@ namespace Pulumi.Artifactory
         {
             Description = description;
             ExcludesPattern = excludesPattern;
-            Id = id;
             IncludesPattern = includesPattern;
             Key = key;
             Notes = notes;
