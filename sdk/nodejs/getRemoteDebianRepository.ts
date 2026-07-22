@@ -32,6 +32,7 @@ export function getRemoteDebianRepository(args: GetRemoteDebianRepositoryArgs, o
         "cdnRedirect": args.cdnRedirect,
         "clientTlsCertificate": args.clientTlsCertificate,
         "contentSynchronisation": args.contentSynchronisation,
+        "curated": args.curated,
         "description": args.description,
         "disableProxy": args.disableProxy,
         "disableUrlNormalization": args.disableUrlNormalization,
@@ -48,6 +49,7 @@ export function getRemoteDebianRepository(args: GetRemoteDebianRepositoryArgs, o
         "missedCachePeriodSeconds": args.missedCachePeriodSeconds,
         "notes": args.notes,
         "offline": args.offline,
+        "passThrough": args.passThrough,
         "password": args.password,
         "priorityResolution": args.priorityResolution,
         "projectEnvironments": args.projectEnvironments,
@@ -82,6 +84,7 @@ export interface GetRemoteDebianRepositoryArgs {
     cdnRedirect?: boolean;
     clientTlsCertificate?: string;
     contentSynchronisation?: inputs.GetRemoteDebianRepositoryContentSynchronisation;
+    curated?: boolean;
     description?: string;
     disableProxy?: boolean;
     disableUrlNormalization?: boolean;
@@ -101,6 +104,7 @@ export interface GetRemoteDebianRepositoryArgs {
     missedCachePeriodSeconds?: number;
     notes?: string;
     offline?: boolean;
+    passThrough?: boolean;
     password?: string;
     priorityResolution?: boolean;
     projectEnvironments?: string[];
@@ -134,6 +138,7 @@ export interface GetRemoteDebianRepositoryResult {
     readonly cdnRedirect?: boolean;
     readonly clientTlsCertificate: string;
     readonly contentSynchronisation: outputs.GetRemoteDebianRepositoryContentSynchronisation;
+    readonly curated?: boolean;
     readonly description?: string;
     readonly disableProxy?: boolean;
     readonly disableUrlNormalization?: boolean;
@@ -155,6 +160,7 @@ export interface GetRemoteDebianRepositoryResult {
     readonly notes?: string;
     readonly offline?: boolean;
     readonly packageType: string;
+    readonly passThrough?: boolean;
     readonly password?: string;
     readonly priorityResolution?: boolean;
     readonly projectEnvironments: string[];
@@ -200,6 +206,7 @@ export function getRemoteDebianRepositoryOutput(args: GetRemoteDebianRepositoryO
         "cdnRedirect": args.cdnRedirect,
         "clientTlsCertificate": args.clientTlsCertificate,
         "contentSynchronisation": args.contentSynchronisation,
+        "curated": args.curated,
         "description": args.description,
         "disableProxy": args.disableProxy,
         "disableUrlNormalization": args.disableUrlNormalization,
@@ -216,6 +223,7 @@ export function getRemoteDebianRepositoryOutput(args: GetRemoteDebianRepositoryO
         "missedCachePeriodSeconds": args.missedCachePeriodSeconds,
         "notes": args.notes,
         "offline": args.offline,
+        "passThrough": args.passThrough,
         "password": args.password,
         "priorityResolution": args.priorityResolution,
         "projectEnvironments": args.projectEnvironments,
@@ -250,6 +258,7 @@ export interface GetRemoteDebianRepositoryOutputArgs {
     cdnRedirect?: pulumi.Input<boolean | undefined>;
     clientTlsCertificate?: pulumi.Input<string | undefined>;
     contentSynchronisation?: pulumi.Input<inputs.GetRemoteDebianRepositoryContentSynchronisationArgs | undefined>;
+    curated?: pulumi.Input<boolean | undefined>;
     description?: pulumi.Input<string | undefined>;
     disableProxy?: pulumi.Input<boolean | undefined>;
     disableUrlNormalization?: pulumi.Input<boolean | undefined>;
@@ -269,6 +278,7 @@ export interface GetRemoteDebianRepositoryOutputArgs {
     missedCachePeriodSeconds?: pulumi.Input<number | undefined>;
     notes?: pulumi.Input<string | undefined>;
     offline?: pulumi.Input<boolean | undefined>;
+    passThrough?: pulumi.Input<boolean | undefined>;
     password?: pulumi.Input<string | undefined>;
     priorityResolution?: pulumi.Input<boolean | undefined>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;

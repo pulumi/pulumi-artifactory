@@ -17,8 +17,10 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const my_remote_debian = new artifactory.RemoteDebianRepository("my-remote-debian", {
- *     key: "my-remote-Debian",
+ *     key: "my-remote-debian",
  *     url: "http://archive.ubuntu.com/ubuntu/",
+ *     curated: true,
+ *     passThrough: false,
  * });
  * ```
  *
@@ -92,6 +94,10 @@ export class RemoteDebianRepository extends pulumi.CustomResource {
     declare public readonly clientTlsCertificate: pulumi.Output<string>;
     declare public readonly contentSynchronisation: pulumi.Output<outputs.RemoteDebianRepositoryContentSynchronisation | undefined>;
     /**
+     * Enable repository to be protected by the Curation service.
+     */
+    declare public readonly curated: pulumi.Output<boolean>;
+    /**
      * Public description.
      */
     declare public readonly description: pulumi.Output<string>;
@@ -156,6 +162,10 @@ export class RemoteDebianRepository extends pulumi.CustomResource {
      * If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
      */
     declare public readonly offline: pulumi.Output<boolean>;
+    /**
+     * Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+     */
+    declare public readonly passThrough: pulumi.Output<boolean>;
     declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
@@ -178,6 +188,10 @@ export class RemoteDebianRepository extends pulumi.CustomResource {
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     declare public readonly projectKey: pulumi.Output<string>;
+    /**
+     * When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+     */
+    declare public readonly propagateQueryParams: pulumi.Output<boolean>;
     /**
      * List of property set name
      */
@@ -202,6 +216,10 @@ export class RemoteDebianRepository extends pulumi.CustomResource {
      * Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
      */
     declare public readonly retrievalCachePeriodSeconds: pulumi.Output<number>;
+    /**
+     * When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+     */
+    declare public readonly retrieveSha256FromServer: pulumi.Output<boolean>;
     /**
      * @deprecated No longer supported
      */
@@ -254,6 +272,7 @@ export class RemoteDebianRepository extends pulumi.CustomResource {
             resourceInputs["cdnRedirect"] = state?.cdnRedirect;
             resourceInputs["clientTlsCertificate"] = state?.clientTlsCertificate;
             resourceInputs["contentSynchronisation"] = state?.contentSynchronisation;
+            resourceInputs["curated"] = state?.curated;
             resourceInputs["description"] = state?.description;
             resourceInputs["disableProxy"] = state?.disableProxy;
             resourceInputs["disableUrlNormalization"] = state?.disableUrlNormalization;
@@ -270,18 +289,21 @@ export class RemoteDebianRepository extends pulumi.CustomResource {
             resourceInputs["missedCachePeriodSeconds"] = state?.missedCachePeriodSeconds;
             resourceInputs["notes"] = state?.notes;
             resourceInputs["offline"] = state?.offline;
+            resourceInputs["passThrough"] = state?.passThrough;
             resourceInputs["password"] = state?.password;
             resourceInputs["passwordWo"] = state?.passwordWo;
             resourceInputs["passwordWoVersion"] = state?.passwordWoVersion;
             resourceInputs["priorityResolution"] = state?.priorityResolution;
             resourceInputs["projectEnvironments"] = state?.projectEnvironments;
             resourceInputs["projectKey"] = state?.projectKey;
+            resourceInputs["propagateQueryParams"] = state?.propagateQueryParams;
             resourceInputs["propertySets"] = state?.propertySets;
             resourceInputs["proxy"] = state?.proxy;
             resourceInputs["queryParams"] = state?.queryParams;
             resourceInputs["remoteRepoLayoutRef"] = state?.remoteRepoLayoutRef;
             resourceInputs["repoLayoutRef"] = state?.repoLayoutRef;
             resourceInputs["retrievalCachePeriodSeconds"] = state?.retrievalCachePeriodSeconds;
+            resourceInputs["retrieveSha256FromServer"] = state?.retrieveSha256FromServer;
             resourceInputs["shareConfiguration"] = state?.shareConfiguration;
             resourceInputs["socketTimeoutMillis"] = state?.socketTimeoutMillis;
             resourceInputs["storeArtifactsLocally"] = state?.storeArtifactsLocally;
@@ -307,6 +329,7 @@ export class RemoteDebianRepository extends pulumi.CustomResource {
             resourceInputs["cdnRedirect"] = args?.cdnRedirect;
             resourceInputs["clientTlsCertificate"] = args?.clientTlsCertificate;
             resourceInputs["contentSynchronisation"] = args?.contentSynchronisation;
+            resourceInputs["curated"] = args?.curated;
             resourceInputs["description"] = args?.description;
             resourceInputs["disableProxy"] = args?.disableProxy;
             resourceInputs["disableUrlNormalization"] = args?.disableUrlNormalization;
@@ -323,18 +346,21 @@ export class RemoteDebianRepository extends pulumi.CustomResource {
             resourceInputs["missedCachePeriodSeconds"] = args?.missedCachePeriodSeconds;
             resourceInputs["notes"] = args?.notes;
             resourceInputs["offline"] = args?.offline;
+            resourceInputs["passThrough"] = args?.passThrough;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["passwordWo"] = args?.passwordWo ? pulumi.secret(args.passwordWo) : undefined;
             resourceInputs["passwordWoVersion"] = args?.passwordWoVersion;
             resourceInputs["priorityResolution"] = args?.priorityResolution;
             resourceInputs["projectEnvironments"] = args?.projectEnvironments;
             resourceInputs["projectKey"] = args?.projectKey;
+            resourceInputs["propagateQueryParams"] = args?.propagateQueryParams;
             resourceInputs["propertySets"] = args?.propertySets;
             resourceInputs["proxy"] = args?.proxy;
             resourceInputs["queryParams"] = args?.queryParams;
             resourceInputs["remoteRepoLayoutRef"] = args?.remoteRepoLayoutRef;
             resourceInputs["repoLayoutRef"] = args?.repoLayoutRef;
             resourceInputs["retrievalCachePeriodSeconds"] = args?.retrievalCachePeriodSeconds;
+            resourceInputs["retrieveSha256FromServer"] = args?.retrieveSha256FromServer;
             resourceInputs["shareConfiguration"] = args?.shareConfiguration;
             resourceInputs["socketTimeoutMillis"] = args?.socketTimeoutMillis;
             resourceInputs["storeArtifactsLocally"] = args?.storeArtifactsLocally;
@@ -389,6 +415,10 @@ export interface RemoteDebianRepositoryState {
      */
     clientTlsCertificate?: pulumi.Input<string | undefined>;
     contentSynchronisation?: pulumi.Input<inputs.RemoteDebianRepositoryContentSynchronisation | undefined>;
+    /**
+     * Enable repository to be protected by the Curation service.
+     */
+    curated?: pulumi.Input<boolean | undefined>;
     /**
      * Public description.
      */
@@ -454,6 +484,10 @@ export interface RemoteDebianRepositoryState {
      * If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
      */
     offline?: pulumi.Input<boolean | undefined>;
+    /**
+     * Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+     */
+    passThrough?: pulumi.Input<boolean | undefined>;
     password?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
@@ -476,6 +510,10 @@ export interface RemoteDebianRepositoryState {
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string | undefined>;
+    /**
+     * When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+     */
+    propagateQueryParams?: pulumi.Input<boolean | undefined>;
     /**
      * List of property set name
      */
@@ -500,6 +538,10 @@ export interface RemoteDebianRepositoryState {
      * Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number | undefined>;
+    /**
+     * When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+     */
+    retrieveSha256FromServer?: pulumi.Input<boolean | undefined>;
     /**
      * @deprecated No longer supported
      */
@@ -570,6 +612,10 @@ export interface RemoteDebianRepositoryArgs {
     clientTlsCertificate?: pulumi.Input<string | undefined>;
     contentSynchronisation?: pulumi.Input<inputs.RemoteDebianRepositoryContentSynchronisation | undefined>;
     /**
+     * Enable repository to be protected by the Curation service.
+     */
+    curated?: pulumi.Input<boolean | undefined>;
+    /**
      * Public description.
      */
     description?: pulumi.Input<string | undefined>;
@@ -634,6 +680,10 @@ export interface RemoteDebianRepositoryArgs {
      * If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
      */
     offline?: pulumi.Input<boolean | undefined>;
+    /**
+     * Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+     */
+    passThrough?: pulumi.Input<boolean | undefined>;
     password?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
@@ -656,6 +706,10 @@ export interface RemoteDebianRepositoryArgs {
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string | undefined>;
+    /**
+     * When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+     */
+    propagateQueryParams?: pulumi.Input<boolean | undefined>;
     /**
      * List of property set name
      */
@@ -680,6 +734,10 @@ export interface RemoteDebianRepositoryArgs {
      * Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number | undefined>;
+    /**
+     * When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+     */
+    retrieveSha256FromServer?: pulumi.Input<boolean | undefined>;
     /**
      * @deprecated No longer supported
      */

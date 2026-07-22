@@ -25,6 +25,7 @@ public final class GetRemoteCondaRepositoryResult {
     private @Nullable Boolean cdnRedirect;
     private String clientTlsCertificate;
     private GetRemoteCondaRepositoryContentSynchronisation contentSynchronisation;
+    private @Nullable Boolean curated;
     private @Nullable String description;
     private @Nullable Boolean disableProxy;
     private @Nullable Boolean disableUrlNormalization;
@@ -47,6 +48,7 @@ public final class GetRemoteCondaRepositoryResult {
     private @Nullable String notes;
     private @Nullable Boolean offline;
     private String packageType;
+    private @Nullable Boolean passThrough;
     private @Nullable String password;
     private @Nullable Boolean priorityResolution;
     private List<String> projectEnvironments;
@@ -93,6 +95,9 @@ public final class GetRemoteCondaRepositoryResult {
     }
     public GetRemoteCondaRepositoryContentSynchronisation contentSynchronisation() {
         return this.contentSynchronisation;
+    }
+    public Optional<Boolean> curated() {
+        return Optional.ofNullable(this.curated);
     }
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
@@ -151,6 +156,9 @@ public final class GetRemoteCondaRepositoryResult {
     }
     public String packageType() {
         return this.packageType;
+    }
+    public Optional<Boolean> passThrough() {
+        return Optional.ofNullable(this.passThrough);
     }
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
@@ -225,6 +233,7 @@ public final class GetRemoteCondaRepositoryResult {
         private @Nullable Boolean cdnRedirect;
         private String clientTlsCertificate;
         private GetRemoteCondaRepositoryContentSynchronisation contentSynchronisation;
+        private @Nullable Boolean curated;
         private @Nullable String description;
         private @Nullable Boolean disableProxy;
         private @Nullable Boolean disableUrlNormalization;
@@ -243,6 +252,7 @@ public final class GetRemoteCondaRepositoryResult {
         private @Nullable String notes;
         private @Nullable Boolean offline;
         private String packageType;
+        private @Nullable Boolean passThrough;
         private @Nullable String password;
         private @Nullable Boolean priorityResolution;
         private List<String> projectEnvironments;
@@ -273,6 +283,7 @@ public final class GetRemoteCondaRepositoryResult {
     	      this.cdnRedirect = defaults.cdnRedirect;
     	      this.clientTlsCertificate = defaults.clientTlsCertificate;
     	      this.contentSynchronisation = defaults.contentSynchronisation;
+    	      this.curated = defaults.curated;
     	      this.description = defaults.description;
     	      this.disableProxy = defaults.disableProxy;
     	      this.disableUrlNormalization = defaults.disableUrlNormalization;
@@ -291,6 +302,7 @@ public final class GetRemoteCondaRepositoryResult {
     	      this.notes = defaults.notes;
     	      this.offline = defaults.offline;
     	      this.packageType = defaults.packageType;
+    	      this.passThrough = defaults.passThrough;
     	      this.password = defaults.password;
     	      this.priorityResolution = defaults.priorityResolution;
     	      this.projectEnvironments = defaults.projectEnvironments;
@@ -367,6 +379,12 @@ public final class GetRemoteCondaRepositoryResult {
               throw new MissingRequiredPropertyException("GetRemoteCondaRepositoryResult", "contentSynchronisation");
             }
             this.contentSynchronisation = contentSynchronisation;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder curated(@Nullable Boolean curated) {
+
+            this.curated = curated;
             return this;
         }
         @CustomType.Setter
@@ -481,6 +499,12 @@ public final class GetRemoteCondaRepositoryResult {
               throw new MissingRequiredPropertyException("GetRemoteCondaRepositoryResult", "packageType");
             }
             this.packageType = packageType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder passThrough(@Nullable Boolean passThrough) {
+
+            this.passThrough = passThrough;
             return this;
         }
         @CustomType.Setter
@@ -612,6 +636,7 @@ public final class GetRemoteCondaRepositoryResult {
             _resultValue.cdnRedirect = cdnRedirect;
             _resultValue.clientTlsCertificate = clientTlsCertificate;
             _resultValue.contentSynchronisation = contentSynchronisation;
+            _resultValue.curated = curated;
             _resultValue.description = description;
             _resultValue.disableProxy = disableProxy;
             _resultValue.disableUrlNormalization = disableUrlNormalization;
@@ -630,6 +655,7 @@ public final class GetRemoteCondaRepositoryResult {
             _resultValue.notes = notes;
             _resultValue.offline = offline;
             _resultValue.packageType = packageType;
+            _resultValue.passThrough = passThrough;
             _resultValue.password = password;
             _resultValue.priorityResolution = priorityResolution;
             _resultValue.projectEnvironments = projectEnvironments;

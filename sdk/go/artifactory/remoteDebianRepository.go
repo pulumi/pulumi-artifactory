@@ -30,8 +30,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteDebianRepository(ctx, "my-remote-debian", &artifactory.RemoteDebianRepositoryArgs{
-//				Key: pulumi.String("my-remote-Debian"),
-//				Url: pulumi.String("http://archive.ubuntu.com/ubuntu/"),
+//				Key:         pulumi.String("my-remote-debian"),
+//				Url:         pulumi.String("http://archive.ubuntu.com/ubuntu/"),
+//				Curated:     pulumi.Bool(true),
+//				PassThrough: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
@@ -69,6 +71,8 @@ type RemoteDebianRepository struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringOutput                                   `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemoteDebianRepositoryContentSynchronisationPtrOutput `pulumi:"contentSynchronisation"`
+	// Enable repository to be protected by the Curation service.
+	Curated pulumi.BoolOutput `pulumi:"curated"`
 	// Public description.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
@@ -101,8 +105,10 @@ type RemoteDebianRepository struct {
 	// Internal description.
 	Notes pulumi.StringOutput `pulumi:"notes"`
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline  pulumi.BoolOutput      `pulumi:"offline"`
-	Password pulumi.StringPtrOutput `pulumi:"password"`
+	Offline pulumi.BoolOutput `pulumi:"offline"`
+	// Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+	PassThrough pulumi.BoolOutput      `pulumi:"passThrough"`
+	Password    pulumi.StringPtrOutput `pulumi:"password"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
 	PasswordWo pulumi.StringPtrOutput `pulumi:"passwordWo"`
@@ -114,6 +120,8 @@ type RemoteDebianRepository struct {
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringOutput `pulumi:"projectKey"`
+	// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+	PropagateQueryParams pulumi.BoolOutput `pulumi:"propagateQueryParams"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
 	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
@@ -126,6 +134,8 @@ type RemoteDebianRepository struct {
 	RepoLayoutRef pulumi.StringOutput `pulumi:"repoLayoutRef"`
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntOutput `pulumi:"retrievalCachePeriodSeconds"`
+	// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+	RetrieveSha256FromServer pulumi.BoolOutput `pulumi:"retrieveSha256FromServer"`
 	// Deprecated: No longer supported
 	ShareConfiguration pulumi.BoolOutput `pulumi:"shareConfiguration"`
 	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
@@ -208,6 +218,8 @@ type remoteDebianRepositoryState struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   *string                                       `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteDebianRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	// Enable repository to be protected by the Curation service.
+	Curated *bool `pulumi:"curated"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
@@ -240,8 +252,10 @@ type remoteDebianRepositoryState struct {
 	// Internal description.
 	Notes *string `pulumi:"notes"`
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline  *bool   `pulumi:"offline"`
-	Password *string `pulumi:"password"`
+	Offline *bool `pulumi:"offline"`
+	// Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+	PassThrough *bool   `pulumi:"passThrough"`
+	Password    *string `pulumi:"password"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
 	PasswordWo *string `pulumi:"passwordWo"`
@@ -253,6 +267,8 @@ type remoteDebianRepositoryState struct {
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
+	// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+	PropagateQueryParams *bool `pulumi:"propagateQueryParams"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
 	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
@@ -265,6 +281,8 @@ type remoteDebianRepositoryState struct {
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
+	// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+	RetrieveSha256FromServer *bool `pulumi:"retrieveSha256FromServer"`
 	// Deprecated: No longer supported
 	ShareConfiguration *bool `pulumi:"shareConfiguration"`
 	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
@@ -301,6 +319,8 @@ type RemoteDebianRepositoryState struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteDebianRepositoryContentSynchronisationPtrInput
+	// Enable repository to be protected by the Curation service.
+	Curated pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
@@ -333,8 +353,10 @@ type RemoteDebianRepositoryState struct {
 	// Internal description.
 	Notes pulumi.StringPtrInput
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline  pulumi.BoolPtrInput
-	Password pulumi.StringPtrInput
+	Offline pulumi.BoolPtrInput
+	// Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+	PassThrough pulumi.BoolPtrInput
+	Password    pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
 	PasswordWo pulumi.StringPtrInput
@@ -346,6 +368,8 @@ type RemoteDebianRepositoryState struct {
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
+	// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+	PropagateQueryParams pulumi.BoolPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
 	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
@@ -358,6 +382,8 @@ type RemoteDebianRepositoryState struct {
 	RepoLayoutRef pulumi.StringPtrInput
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
+	// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+	RetrieveSha256FromServer pulumi.BoolPtrInput
 	// Deprecated: No longer supported
 	ShareConfiguration pulumi.BoolPtrInput
 	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
@@ -398,6 +424,8 @@ type remoteDebianRepositoryArgs struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   *string                                       `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteDebianRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	// Enable repository to be protected by the Curation service.
+	Curated *bool `pulumi:"curated"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
@@ -430,8 +458,10 @@ type remoteDebianRepositoryArgs struct {
 	// Internal description.
 	Notes *string `pulumi:"notes"`
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline  *bool   `pulumi:"offline"`
-	Password *string `pulumi:"password"`
+	Offline *bool `pulumi:"offline"`
+	// Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+	PassThrough *bool   `pulumi:"passThrough"`
+	Password    *string `pulumi:"password"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
 	PasswordWo *string `pulumi:"passwordWo"`
@@ -443,6 +473,8 @@ type remoteDebianRepositoryArgs struct {
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
+	// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+	PropagateQueryParams *bool `pulumi:"propagateQueryParams"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
 	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
@@ -455,6 +487,8 @@ type remoteDebianRepositoryArgs struct {
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
+	// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+	RetrieveSha256FromServer *bool `pulumi:"retrieveSha256FromServer"`
 	// Deprecated: No longer supported
 	ShareConfiguration *bool `pulumi:"shareConfiguration"`
 	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
@@ -492,6 +526,8 @@ type RemoteDebianRepositoryArgs struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteDebianRepositoryContentSynchronisationPtrInput
+	// Enable repository to be protected by the Curation service.
+	Curated pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
@@ -524,8 +560,10 @@ type RemoteDebianRepositoryArgs struct {
 	// Internal description.
 	Notes pulumi.StringPtrInput
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline  pulumi.BoolPtrInput
-	Password pulumi.StringPtrInput
+	Offline pulumi.BoolPtrInput
+	// Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+	PassThrough pulumi.BoolPtrInput
+	Password    pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `passwordWoVersion` to signal when the secret has changed so it is re-sent to Artifactory.
 	PasswordWo pulumi.StringPtrInput
@@ -537,6 +575,8 @@ type RemoteDebianRepositoryArgs struct {
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
+	// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+	PropagateQueryParams pulumi.BoolPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
 	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
@@ -549,6 +589,8 @@ type RemoteDebianRepositoryArgs struct {
 	RepoLayoutRef pulumi.StringPtrInput
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
+	// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+	RetrieveSha256FromServer pulumi.BoolPtrInput
 	// Deprecated: No longer supported
 	ShareConfiguration pulumi.BoolPtrInput
 	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
@@ -700,6 +742,11 @@ func (o RemoteDebianRepositoryOutput) ContentSynchronisation() RemoteDebianRepos
 	}).(RemoteDebianRepositoryContentSynchronisationPtrOutput)
 }
 
+// Enable repository to be protected by the Curation service.
+func (o RemoteDebianRepositoryOutput) Curated() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDebianRepository) pulumi.BoolOutput { return v.Curated }).(pulumi.BoolOutput)
+}
+
 // Public description.
 func (o RemoteDebianRepositoryOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteDebianRepository) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
@@ -781,6 +828,11 @@ func (o RemoteDebianRepositoryOutput) Offline() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RemoteDebianRepository) pulumi.BoolOutput { return v.Offline }).(pulumi.BoolOutput)
 }
 
+// Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+func (o RemoteDebianRepositoryOutput) PassThrough() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDebianRepository) pulumi.BoolOutput { return v.PassThrough }).(pulumi.BoolOutput)
+}
+
 func (o RemoteDebianRepositoryOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteDebianRepository) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -811,6 +863,11 @@ func (o RemoteDebianRepositoryOutput) ProjectKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteDebianRepository) pulumi.StringOutput { return v.ProjectKey }).(pulumi.StringOutput)
 }
 
+// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+func (o RemoteDebianRepositoryOutput) PropagateQueryParams() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDebianRepository) pulumi.BoolOutput { return v.PropagateQueryParams }).(pulumi.BoolOutput)
+}
+
 // List of property set name
 func (o RemoteDebianRepositoryOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RemoteDebianRepository) pulumi.StringArrayOutput { return v.PropertySets }).(pulumi.StringArrayOutput)
@@ -839,6 +896,11 @@ func (o RemoteDebianRepositoryOutput) RepoLayoutRef() pulumi.StringOutput {
 // Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
 func (o RemoteDebianRepositoryOutput) RetrievalCachePeriodSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *RemoteDebianRepository) pulumi.IntOutput { return v.RetrievalCachePeriodSeconds }).(pulumi.IntOutput)
+}
+
+// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+func (o RemoteDebianRepositoryOutput) RetrieveSha256FromServer() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDebianRepository) pulumi.BoolOutput { return v.RetrieveSha256FromServer }).(pulumi.BoolOutput)
 }
 
 // Deprecated: No longer supported

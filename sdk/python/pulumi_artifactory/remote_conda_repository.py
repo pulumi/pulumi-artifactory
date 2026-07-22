@@ -32,6 +32,7 @@ class RemoteCondaRepositoryArgs:
                  cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
                  content_synchronisation: pulumi.Input[Optional['RemoteCondaRepositoryContentSynchronisationArgs']] = None,
+                 curated: pulumi.Input[Optional[_builtins.bool]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -47,18 +48,21 @@ class RemoteCondaRepositoryArgs:
                  missed_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  offline: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pass_through: pulumi.Input[Optional[_builtins.bool]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  password_wo: pulumi.Input[Optional[_builtins.str]] = None,
                  password_wo_version: pulumi.Input[Optional[_builtins.str]] = None,
                  priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
                  project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 propagate_query_params: pulumi.Input[Optional[_builtins.bool]] = None,
                  property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  proxy: pulumi.Input[Optional[_builtins.str]] = None,
                  query_params: pulumi.Input[Optional[_builtins.str]] = None,
                  remote_repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
                  repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
                  retrieval_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 retrieve_sha256_from_server: pulumi.Input[Optional[_builtins.bool]] = None,
                  share_configuration: pulumi.Input[Optional[_builtins.bool]] = None,
                  socket_timeout_millis: pulumi.Input[Optional[_builtins.int]] = None,
                  store_artifacts_locally: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -81,6 +85,7 @@ class RemoteCondaRepositoryArgs:
         :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
+        :param pulumi.Input[_builtins.bool] curated: Enable repository to be protected by the Curation service.
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
@@ -96,18 +101,21 @@ class RemoteCondaRepositoryArgs:
         :param pulumi.Input[_builtins.int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
+        :param pulumi.Input[_builtins.bool] pass_through: Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
         :param pulumi.Input[_builtins.str] password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `password_wo_version` to signal when the secret has changed so it is re-sent to Artifactory.
         :param pulumi.Input[_builtins.str] password_wo_version: A version identifier for `password_wo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `password_wo` value to Artifactory. Only meaningful together with `password_wo`.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[_builtins.bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[_builtins.str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[_builtins.str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[_builtins.int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
+        :param pulumi.Input[_builtins.bool] retrieve_sha256_from_server: When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
         :param pulumi.Input[_builtins.int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
         :param pulumi.Input[_builtins.bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
         :param pulumi.Input[_builtins.bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
@@ -134,6 +142,8 @@ class RemoteCondaRepositoryArgs:
             pulumi.set(__self__, "client_tls_certificate", client_tls_certificate)
         if content_synchronisation is not None:
             pulumi.set(__self__, "content_synchronisation", content_synchronisation)
+        if curated is not None:
+            pulumi.set(__self__, "curated", curated)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if disable_proxy is not None:
@@ -164,6 +174,8 @@ class RemoteCondaRepositoryArgs:
             pulumi.set(__self__, "notes", notes)
         if offline is not None:
             pulumi.set(__self__, "offline", offline)
+        if pass_through is not None:
+            pulumi.set(__self__, "pass_through", pass_through)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if password_wo is not None:
@@ -176,6 +188,8 @@ class RemoteCondaRepositoryArgs:
             pulumi.set(__self__, "project_environments", project_environments)
         if project_key is not None:
             pulumi.set(__self__, "project_key", project_key)
+        if propagate_query_params is not None:
+            pulumi.set(__self__, "propagate_query_params", propagate_query_params)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if proxy is not None:
@@ -188,6 +202,8 @@ class RemoteCondaRepositoryArgs:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if retrieval_cache_period_seconds is not None:
             pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
+        if retrieve_sha256_from_server is not None:
+            pulumi.set(__self__, "retrieve_sha256_from_server", retrieve_sha256_from_server)
         if share_configuration is not None:
             warnings.warn("""No longer supported""", DeprecationWarning)
             pulumi.log.warn("""share_configuration is deprecated: No longer supported""")
@@ -336,6 +352,18 @@ class RemoteCondaRepositoryArgs:
     @content_synchronisation.setter
     def content_synchronisation(self, value: pulumi.Input[Optional['RemoteCondaRepositoryContentSynchronisationArgs']]):
         pulumi.set(self, "content_synchronisation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def curated(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enable repository to be protected by the Curation service.
+        """
+        return pulumi.get(self, "curated")
+
+    @curated.setter
+    def curated(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "curated", value)
 
     @_builtins.property
     @pulumi.getter
@@ -518,6 +546,18 @@ class RemoteCondaRepositoryArgs:
         pulumi.set(self, "offline", value)
 
     @_builtins.property
+    @pulumi.getter(name="passThrough")
+    def pass_through(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+        """
+        return pulumi.get(self, "pass_through")
+
+    @pass_through.setter
+    def pass_through(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "pass_through", value)
+
+    @_builtins.property
     @pulumi.getter
     def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "password")
@@ -586,6 +626,18 @@ class RemoteCondaRepositoryArgs:
     @project_key.setter
     def project_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propagateQueryParams")
+    def propagate_query_params(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+        """
+        return pulumi.get(self, "propagate_query_params")
+
+    @propagate_query_params.setter
+    def propagate_query_params(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "propagate_query_params", value)
 
     @_builtins.property
     @pulumi.getter(name="propertySets")
@@ -658,6 +710,18 @@ class RemoteCondaRepositoryArgs:
     @retrieval_cache_period_seconds.setter
     def retrieval_cache_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retrieval_cache_period_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retrieveSha256FromServer")
+    def retrieve_sha256_from_server(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+        """
+        return pulumi.get(self, "retrieve_sha256_from_server")
+
+    @retrieve_sha256_from_server.setter
+    def retrieve_sha256_from_server(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "retrieve_sha256_from_server", value)
 
     @_builtins.property
     @pulumi.getter(name="shareConfiguration")
@@ -751,6 +815,7 @@ class _RemoteCondaRepositoryState:
                  cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
                  content_synchronisation: pulumi.Input[Optional['RemoteCondaRepositoryContentSynchronisationArgs']] = None,
+                 curated: pulumi.Input[Optional[_builtins.bool]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -767,18 +832,21 @@ class _RemoteCondaRepositoryState:
                  missed_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  offline: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pass_through: pulumi.Input[Optional[_builtins.bool]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  password_wo: pulumi.Input[Optional[_builtins.str]] = None,
                  password_wo_version: pulumi.Input[Optional[_builtins.str]] = None,
                  priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
                  project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 propagate_query_params: pulumi.Input[Optional[_builtins.bool]] = None,
                  property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  proxy: pulumi.Input[Optional[_builtins.str]] = None,
                  query_params: pulumi.Input[Optional[_builtins.str]] = None,
                  remote_repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
                  repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
                  retrieval_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 retrieve_sha256_from_server: pulumi.Input[Optional[_builtins.bool]] = None,
                  share_configuration: pulumi.Input[Optional[_builtins.bool]] = None,
                  socket_timeout_millis: pulumi.Input[Optional[_builtins.int]] = None,
                  store_artifacts_locally: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -799,6 +867,7 @@ class _RemoteCondaRepositoryState:
         :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
+        :param pulumi.Input[_builtins.bool] curated: Enable repository to be protected by the Curation service.
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
@@ -816,18 +885,21 @@ class _RemoteCondaRepositoryState:
         :param pulumi.Input[_builtins.int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
+        :param pulumi.Input[_builtins.bool] pass_through: Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
         :param pulumi.Input[_builtins.str] password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `password_wo_version` to signal when the secret has changed so it is re-sent to Artifactory.
         :param pulumi.Input[_builtins.str] password_wo_version: A version identifier for `password_wo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `password_wo` value to Artifactory. Only meaningful together with `password_wo`.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[_builtins.bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[_builtins.str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[_builtins.str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[_builtins.int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
+        :param pulumi.Input[_builtins.bool] retrieve_sha256_from_server: When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
         :param pulumi.Input[_builtins.int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
         :param pulumi.Input[_builtins.bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
         :param pulumi.Input[_builtins.bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
@@ -853,6 +925,8 @@ class _RemoteCondaRepositoryState:
             pulumi.set(__self__, "client_tls_certificate", client_tls_certificate)
         if content_synchronisation is not None:
             pulumi.set(__self__, "content_synchronisation", content_synchronisation)
+        if curated is not None:
+            pulumi.set(__self__, "curated", curated)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if disable_proxy is not None:
@@ -885,6 +959,8 @@ class _RemoteCondaRepositoryState:
             pulumi.set(__self__, "notes", notes)
         if offline is not None:
             pulumi.set(__self__, "offline", offline)
+        if pass_through is not None:
+            pulumi.set(__self__, "pass_through", pass_through)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if password_wo is not None:
@@ -897,6 +973,8 @@ class _RemoteCondaRepositoryState:
             pulumi.set(__self__, "project_environments", project_environments)
         if project_key is not None:
             pulumi.set(__self__, "project_key", project_key)
+        if propagate_query_params is not None:
+            pulumi.set(__self__, "propagate_query_params", propagate_query_params)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if proxy is not None:
@@ -909,6 +987,8 @@ class _RemoteCondaRepositoryState:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if retrieval_cache_period_seconds is not None:
             pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
+        if retrieve_sha256_from_server is not None:
+            pulumi.set(__self__, "retrieve_sha256_from_server", retrieve_sha256_from_server)
         if share_configuration is not None:
             warnings.warn("""No longer supported""", DeprecationWarning)
             pulumi.log.warn("""share_configuration is deprecated: No longer supported""")
@@ -1034,6 +1114,18 @@ class _RemoteCondaRepositoryState:
     @content_synchronisation.setter
     def content_synchronisation(self, value: pulumi.Input[Optional['RemoteCondaRepositoryContentSynchronisationArgs']]):
         pulumi.set(self, "content_synchronisation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def curated(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enable repository to be protected by the Curation service.
+        """
+        return pulumi.get(self, "curated")
+
+    @curated.setter
+    def curated(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "curated", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1229,6 +1321,18 @@ class _RemoteCondaRepositoryState:
         pulumi.set(self, "offline", value)
 
     @_builtins.property
+    @pulumi.getter(name="passThrough")
+    def pass_through(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+        """
+        return pulumi.get(self, "pass_through")
+
+    @pass_through.setter
+    def pass_through(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "pass_through", value)
+
+    @_builtins.property
     @pulumi.getter
     def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "password")
@@ -1297,6 +1401,18 @@ class _RemoteCondaRepositoryState:
     @project_key.setter
     def project_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propagateQueryParams")
+    def propagate_query_params(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+        """
+        return pulumi.get(self, "propagate_query_params")
+
+    @propagate_query_params.setter
+    def propagate_query_params(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "propagate_query_params", value)
 
     @_builtins.property
     @pulumi.getter(name="propertySets")
@@ -1369,6 +1485,18 @@ class _RemoteCondaRepositoryState:
     @retrieval_cache_period_seconds.setter
     def retrieval_cache_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retrieval_cache_period_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retrieveSha256FromServer")
+    def retrieve_sha256_from_server(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+        """
+        return pulumi.get(self, "retrieve_sha256_from_server")
+
+    @retrieve_sha256_from_server.setter
+    def retrieve_sha256_from_server(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "retrieve_sha256_from_server", value)
 
     @_builtins.property
     @pulumi.getter(name="shareConfiguration")
@@ -1477,6 +1605,7 @@ class RemoteCondaRepository(pulumi.CustomResource):
                  cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
                  content_synchronisation: pulumi.Input[Optional[Union['RemoteCondaRepositoryContentSynchronisationArgs', 'RemoteCondaRepositoryContentSynchronisationArgsDict']]] = None,
+                 curated: pulumi.Input[Optional[_builtins.bool]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1493,18 +1622,21 @@ class RemoteCondaRepository(pulumi.CustomResource):
                  missed_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  offline: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pass_through: pulumi.Input[Optional[_builtins.bool]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  password_wo: pulumi.Input[Optional[_builtins.str]] = None,
                  password_wo_version: pulumi.Input[Optional[_builtins.str]] = None,
                  priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
                  project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 propagate_query_params: pulumi.Input[Optional[_builtins.bool]] = None,
                  property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  proxy: pulumi.Input[Optional[_builtins.str]] = None,
                  query_params: pulumi.Input[Optional[_builtins.str]] = None,
                  remote_repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
                  repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
                  retrieval_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 retrieve_sha256_from_server: pulumi.Input[Optional[_builtins.bool]] = None,
                  share_configuration: pulumi.Input[Optional[_builtins.bool]] = None,
                  socket_timeout_millis: pulumi.Input[Optional[_builtins.int]] = None,
                  store_artifacts_locally: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1526,7 +1658,9 @@ class RemoteCondaRepository(pulumi.CustomResource):
 
         my_remote_conda = artifactory.RemoteCondaRepository("my-remote-conda",
             key="my-remote-conda",
-            url="https://repo.anaconda.com/pkgs/main")
+            url="https://repo.anaconda.com/pkgs/main",
+            curated=True,
+            pass_through=False)
         ```
 
         ## Import
@@ -1548,6 +1682,7 @@ class RemoteCondaRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
+        :param pulumi.Input[_builtins.bool] curated: Enable repository to be protected by the Curation service.
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
@@ -1565,18 +1700,21 @@ class RemoteCondaRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
+        :param pulumi.Input[_builtins.bool] pass_through: Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
         :param pulumi.Input[_builtins.str] password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `password_wo_version` to signal when the secret has changed so it is re-sent to Artifactory.
         :param pulumi.Input[_builtins.str] password_wo_version: A version identifier for `password_wo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `password_wo` value to Artifactory. Only meaningful together with `password_wo`.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[_builtins.bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[_builtins.str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[_builtins.str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[_builtins.int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
+        :param pulumi.Input[_builtins.bool] retrieve_sha256_from_server: When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
         :param pulumi.Input[_builtins.int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
         :param pulumi.Input[_builtins.bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
         :param pulumi.Input[_builtins.bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
@@ -1602,7 +1740,9 @@ class RemoteCondaRepository(pulumi.CustomResource):
 
         my_remote_conda = artifactory.RemoteCondaRepository("my-remote-conda",
             key="my-remote-conda",
-            url="https://repo.anaconda.com/pkgs/main")
+            url="https://repo.anaconda.com/pkgs/main",
+            curated=True,
+            pass_through=False)
         ```
 
         ## Import
@@ -1637,6 +1777,7 @@ class RemoteCondaRepository(pulumi.CustomResource):
                  cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
                  content_synchronisation: pulumi.Input[Optional[Union['RemoteCondaRepositoryContentSynchronisationArgs', 'RemoteCondaRepositoryContentSynchronisationArgsDict']]] = None,
+                 curated: pulumi.Input[Optional[_builtins.bool]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1653,18 +1794,21 @@ class RemoteCondaRepository(pulumi.CustomResource):
                  missed_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  offline: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pass_through: pulumi.Input[Optional[_builtins.bool]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  password_wo: pulumi.Input[Optional[_builtins.str]] = None,
                  password_wo_version: pulumi.Input[Optional[_builtins.str]] = None,
                  priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
                  project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  project_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 propagate_query_params: pulumi.Input[Optional[_builtins.bool]] = None,
                  property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  proxy: pulumi.Input[Optional[_builtins.str]] = None,
                  query_params: pulumi.Input[Optional[_builtins.str]] = None,
                  remote_repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
                  repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
                  retrieval_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 retrieve_sha256_from_server: pulumi.Input[Optional[_builtins.bool]] = None,
                  share_configuration: pulumi.Input[Optional[_builtins.bool]] = None,
                  socket_timeout_millis: pulumi.Input[Optional[_builtins.int]] = None,
                  store_artifacts_locally: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1691,6 +1835,7 @@ class RemoteCondaRepository(pulumi.CustomResource):
             __props__.__dict__["cdn_redirect"] = cdn_redirect
             __props__.__dict__["client_tls_certificate"] = client_tls_certificate
             __props__.__dict__["content_synchronisation"] = content_synchronisation
+            __props__.__dict__["curated"] = curated
             __props__.__dict__["description"] = description
             __props__.__dict__["disable_proxy"] = disable_proxy
             __props__.__dict__["disable_url_normalization"] = disable_url_normalization
@@ -1709,18 +1854,21 @@ class RemoteCondaRepository(pulumi.CustomResource):
             __props__.__dict__["missed_cache_period_seconds"] = missed_cache_period_seconds
             __props__.__dict__["notes"] = notes
             __props__.__dict__["offline"] = offline
+            __props__.__dict__["pass_through"] = pass_through
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["password_wo"] = None if password_wo is None else pulumi.Output.secret(password_wo)
             __props__.__dict__["password_wo_version"] = password_wo_version
             __props__.__dict__["priority_resolution"] = priority_resolution
             __props__.__dict__["project_environments"] = project_environments
             __props__.__dict__["project_key"] = project_key
+            __props__.__dict__["propagate_query_params"] = propagate_query_params
             __props__.__dict__["property_sets"] = property_sets
             __props__.__dict__["proxy"] = proxy
             __props__.__dict__["query_params"] = query_params
             __props__.__dict__["remote_repo_layout_ref"] = remote_repo_layout_ref
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
             __props__.__dict__["retrieval_cache_period_seconds"] = retrieval_cache_period_seconds
+            __props__.__dict__["retrieve_sha256_from_server"] = retrieve_sha256_from_server
             __props__.__dict__["share_configuration"] = share_configuration
             __props__.__dict__["socket_timeout_millis"] = socket_timeout_millis
             __props__.__dict__["store_artifacts_locally"] = store_artifacts_locally
@@ -1752,6 +1900,7 @@ class RemoteCondaRepository(pulumi.CustomResource):
             cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
             client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
             content_synchronisation: pulumi.Input[Optional[Union['RemoteCondaRepositoryContentSynchronisationArgs', 'RemoteCondaRepositoryContentSynchronisationArgsDict']]] = None,
+            curated: pulumi.Input[Optional[_builtins.bool]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
             disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1768,18 +1917,21 @@ class RemoteCondaRepository(pulumi.CustomResource):
             missed_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             notes: pulumi.Input[Optional[_builtins.str]] = None,
             offline: pulumi.Input[Optional[_builtins.bool]] = None,
+            pass_through: pulumi.Input[Optional[_builtins.bool]] = None,
             password: pulumi.Input[Optional[_builtins.str]] = None,
             password_wo: pulumi.Input[Optional[_builtins.str]] = None,
             password_wo_version: pulumi.Input[Optional[_builtins.str]] = None,
             priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
             project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             project_key: pulumi.Input[Optional[_builtins.str]] = None,
+            propagate_query_params: pulumi.Input[Optional[_builtins.bool]] = None,
             property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             proxy: pulumi.Input[Optional[_builtins.str]] = None,
             query_params: pulumi.Input[Optional[_builtins.str]] = None,
             remote_repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
             repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
             retrieval_cache_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            retrieve_sha256_from_server: pulumi.Input[Optional[_builtins.bool]] = None,
             share_configuration: pulumi.Input[Optional[_builtins.bool]] = None,
             socket_timeout_millis: pulumi.Input[Optional[_builtins.int]] = None,
             store_artifacts_locally: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1804,6 +1956,7 @@ class RemoteCondaRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
+        :param pulumi.Input[_builtins.bool] curated: Enable repository to be protected by the Curation service.
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
@@ -1821,18 +1974,21 @@ class RemoteCondaRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
+        :param pulumi.Input[_builtins.bool] pass_through: Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
         :param pulumi.Input[_builtins.str] password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only equivalent of `password`. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with `password`. Because write-only values are not tracked in state, use `password_wo_version` to signal when the secret has changed so it is re-sent to Artifactory.
         :param pulumi.Input[_builtins.str] password_wo_version: A version identifier for `password_wo`. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current `password_wo` value to Artifactory. Only meaningful together with `password_wo`.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[_builtins.bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[_builtins.str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[_builtins.str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[_builtins.int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
+        :param pulumi.Input[_builtins.bool] retrieve_sha256_from_server: When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
         :param pulumi.Input[_builtins.int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
         :param pulumi.Input[_builtins.bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
         :param pulumi.Input[_builtins.bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
@@ -1853,6 +2009,7 @@ class RemoteCondaRepository(pulumi.CustomResource):
         __props__.__dict__["cdn_redirect"] = cdn_redirect
         __props__.__dict__["client_tls_certificate"] = client_tls_certificate
         __props__.__dict__["content_synchronisation"] = content_synchronisation
+        __props__.__dict__["curated"] = curated
         __props__.__dict__["description"] = description
         __props__.__dict__["disable_proxy"] = disable_proxy
         __props__.__dict__["disable_url_normalization"] = disable_url_normalization
@@ -1869,18 +2026,21 @@ class RemoteCondaRepository(pulumi.CustomResource):
         __props__.__dict__["missed_cache_period_seconds"] = missed_cache_period_seconds
         __props__.__dict__["notes"] = notes
         __props__.__dict__["offline"] = offline
+        __props__.__dict__["pass_through"] = pass_through
         __props__.__dict__["password"] = password
         __props__.__dict__["password_wo"] = password_wo
         __props__.__dict__["password_wo_version"] = password_wo_version
         __props__.__dict__["priority_resolution"] = priority_resolution
         __props__.__dict__["project_environments"] = project_environments
         __props__.__dict__["project_key"] = project_key
+        __props__.__dict__["propagate_query_params"] = propagate_query_params
         __props__.__dict__["property_sets"] = property_sets
         __props__.__dict__["proxy"] = proxy
         __props__.__dict__["query_params"] = query_params
         __props__.__dict__["remote_repo_layout_ref"] = remote_repo_layout_ref
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
         __props__.__dict__["retrieval_cache_period_seconds"] = retrieval_cache_period_seconds
+        __props__.__dict__["retrieve_sha256_from_server"] = retrieve_sha256_from_server
         __props__.__dict__["share_configuration"] = share_configuration
         __props__.__dict__["socket_timeout_millis"] = socket_timeout_millis
         __props__.__dict__["store_artifacts_locally"] = store_artifacts_locally
@@ -1960,6 +2120,14 @@ class RemoteCondaRepository(pulumi.CustomResource):
     @pulumi.getter(name="contentSynchronisation")
     def content_synchronisation(self) -> pulumi.Output[Optional['outputs.RemoteCondaRepositoryContentSynchronisation']]:
         return pulumi.get(self, "content_synchronisation")
+
+    @_builtins.property
+    @pulumi.getter
+    def curated(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Enable repository to be protected by the Curation service.
+        """
+        return pulumi.get(self, "curated")
 
     @_builtins.property
     @pulumi.getter
@@ -2091,6 +2259,14 @@ class RemoteCondaRepository(pulumi.CustomResource):
         return pulumi.get(self, "offline")
 
     @_builtins.property
+    @pulumi.getter(name="passThrough")
+    def pass_through(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process.
+        """
+        return pulumi.get(self, "pass_through")
+
+    @_builtins.property
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[_builtins.str]]:
         return pulumi.get(self, "password")
@@ -2135,6 +2311,14 @@ class RemoteCondaRepository(pulumi.CustomResource):
         Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
+
+    @_builtins.property
+    @pulumi.getter(name="propagateQueryParams")
+    def propagate_query_params(self) -> pulumi.Output[_builtins.bool]:
+        """
+        When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+        """
+        return pulumi.get(self, "propagate_query_params")
 
     @_builtins.property
     @pulumi.getter(name="propertySets")
@@ -2183,6 +2367,14 @@ class RemoteCondaRepository(pulumi.CustomResource):
         Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
         """
         return pulumi.get(self, "retrieval_cache_period_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="retrieveSha256FromServer")
+    def retrieve_sha256_from_server(self) -> pulumi.Output[_builtins.bool]:
+        """
+        When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+        """
+        return pulumi.get(self, "retrieve_sha256_from_server")
 
     @_builtins.property
     @pulumi.getter(name="shareConfiguration")

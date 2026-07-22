@@ -59,6 +59,7 @@ type LookupRemoteDebianRepositoryArgs struct {
 	CdnRedirect               *bool                                            `pulumi:"cdnRedirect"`
 	ClientTlsCertificate      *string                                          `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation    *GetRemoteDebianRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Curated                   *bool                                            `pulumi:"curated"`
 	Description               *string                                          `pulumi:"description"`
 	DisableProxy              *bool                                            `pulumi:"disableProxy"`
 	DisableUrlNormalization   *bool                                            `pulumi:"disableUrlNormalization"`
@@ -76,6 +77,7 @@ type LookupRemoteDebianRepositoryArgs struct {
 	MissedCachePeriodSeconds          *int     `pulumi:"missedCachePeriodSeconds"`
 	Notes                             *string  `pulumi:"notes"`
 	Offline                           *bool    `pulumi:"offline"`
+	PassThrough                       *bool    `pulumi:"passThrough"`
 	Password                          *string  `pulumi:"password"`
 	PriorityResolution                *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments               []string `pulumi:"projectEnvironments"`
@@ -107,6 +109,7 @@ type LookupRemoteDebianRepositoryResult struct {
 	CdnRedirect               *bool                                           `pulumi:"cdnRedirect"`
 	ClientTlsCertificate      string                                          `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation    GetRemoteDebianRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Curated                   *bool                                           `pulumi:"curated"`
 	Description               *string                                         `pulumi:"description"`
 	DisableProxy              *bool                                           `pulumi:"disableProxy"`
 	DisableUrlNormalization   *bool                                           `pulumi:"disableUrlNormalization"`
@@ -126,6 +129,7 @@ type LookupRemoteDebianRepositoryResult struct {
 	Notes                             *string  `pulumi:"notes"`
 	Offline                           *bool    `pulumi:"offline"`
 	PackageType                       string   `pulumi:"packageType"`
+	PassThrough                       *bool    `pulumi:"passThrough"`
 	Password                          *string  `pulumi:"password"`
 	PriorityResolution                *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments               []string `pulumi:"projectEnvironments"`
@@ -166,6 +170,7 @@ type LookupRemoteDebianRepositoryOutputArgs struct {
 	CdnRedirect               pulumi.BoolPtrInput                                     `pulumi:"cdnRedirect"`
 	ClientTlsCertificate      pulumi.StringPtrInput                                   `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation    GetRemoteDebianRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
+	Curated                   pulumi.BoolPtrInput                                     `pulumi:"curated"`
 	Description               pulumi.StringPtrInput                                   `pulumi:"description"`
 	DisableProxy              pulumi.BoolPtrInput                                     `pulumi:"disableProxy"`
 	DisableUrlNormalization   pulumi.BoolPtrInput                                     `pulumi:"disableUrlNormalization"`
@@ -183,6 +188,7 @@ type LookupRemoteDebianRepositoryOutputArgs struct {
 	MissedCachePeriodSeconds          pulumi.IntPtrInput      `pulumi:"missedCachePeriodSeconds"`
 	Notes                             pulumi.StringPtrInput   `pulumi:"notes"`
 	Offline                           pulumi.BoolPtrInput     `pulumi:"offline"`
+	PassThrough                       pulumi.BoolPtrInput     `pulumi:"passThrough"`
 	Password                          pulumi.StringPtrInput   `pulumi:"password"`
 	PriorityResolution                pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
 	ProjectEnvironments               pulumi.StringArrayInput `pulumi:"projectEnvironments"`
@@ -260,6 +266,10 @@ func (o LookupRemoteDebianRepositoryResultOutput) ContentSynchronisation() GetRe
 	}).(GetRemoteDebianRepositoryContentSynchronisationOutput)
 }
 
+func (o LookupRemoteDebianRepositoryResultOutput) Curated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteDebianRepositoryResult) *bool { return v.Curated }).(pulumi.BoolPtrOutput)
+}
+
 func (o LookupRemoteDebianRepositoryResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemoteDebianRepositoryResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -331,6 +341,10 @@ func (o LookupRemoteDebianRepositoryResultOutput) Offline() pulumi.BoolPtrOutput
 
 func (o LookupRemoteDebianRepositoryResultOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRemoteDebianRepositoryResult) string { return v.PackageType }).(pulumi.StringOutput)
+}
+
+func (o LookupRemoteDebianRepositoryResultOutput) PassThrough() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteDebianRepositoryResult) *bool { return v.PassThrough }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteDebianRepositoryResultOutput) Password() pulumi.StringPtrOutput {

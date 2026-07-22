@@ -28,7 +28,7 @@ class GetRemoteCondaRepositoryResult:
     """
     A collection of values returned by getRemoteCondaRepository.
     """
-    def __init__(__self__, allow_any_host_auth=None, archive_browsing_enabled=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, description=None, disable_proxy=None, disable_url_normalization=None, download_direct=None, enable_cookie_management=None, excludes_pattern=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, xray_index=None):
+    def __init__(__self__, allow_any_host_auth=None, archive_browsing_enabled=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, curated=None, description=None, disable_proxy=None, disable_url_normalization=None, download_direct=None, enable_cookie_management=None, excludes_pattern=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, pass_through=None, password=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, xray_index=None):
         if allow_any_host_auth and not isinstance(allow_any_host_auth, bool):
             raise TypeError("Expected argument 'allow_any_host_auth' to be a bool")
         pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
@@ -56,6 +56,9 @@ class GetRemoteCondaRepositoryResult:
         if content_synchronisation and not isinstance(content_synchronisation, dict):
             raise TypeError("Expected argument 'content_synchronisation' to be a dict")
         pulumi.set(__self__, "content_synchronisation", content_synchronisation)
+        if curated and not isinstance(curated, bool):
+            raise TypeError("Expected argument 'curated' to be a bool")
+        pulumi.set(__self__, "curated", curated)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -110,6 +113,9 @@ class GetRemoteCondaRepositoryResult:
         if package_type and not isinstance(package_type, str):
             raise TypeError("Expected argument 'package_type' to be a str")
         pulumi.set(__self__, "package_type", package_type)
+        if pass_through and not isinstance(pass_through, bool):
+            raise TypeError("Expected argument 'pass_through' to be a bool")
+        pulumi.set(__self__, "pass_through", pass_through)
         if password and not isinstance(password, str):
             raise TypeError("Expected argument 'password' to be a str")
         pulumi.set(__self__, "password", password)
@@ -212,6 +218,11 @@ class GetRemoteCondaRepositoryResult:
 
     @_builtins.property
     @pulumi.getter
+    def curated(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "curated")
+
+    @_builtins.property
+    @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "description")
 
@@ -302,6 +313,11 @@ class GetRemoteCondaRepositoryResult:
     @pulumi.getter(name="packageType")
     def package_type(self) -> _builtins.str:
         return pulumi.get(self, "package_type")
+
+    @_builtins.property
+    @pulumi.getter(name="passThrough")
+    def pass_through(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "pass_through")
 
     @_builtins.property
     @pulumi.getter
@@ -409,6 +425,7 @@ class AwaitableGetRemoteCondaRepositoryResult(GetRemoteCondaRepositoryResult):
             cdn_redirect=self.cdn_redirect,
             client_tls_certificate=self.client_tls_certificate,
             content_synchronisation=self.content_synchronisation,
+            curated=self.curated,
             description=self.description,
             disable_proxy=self.disable_proxy,
             disable_url_normalization=self.disable_url_normalization,
@@ -427,6 +444,7 @@ class AwaitableGetRemoteCondaRepositoryResult(GetRemoteCondaRepositoryResult):
             notes=self.notes,
             offline=self.offline,
             package_type=self.package_type,
+            pass_through=self.pass_through,
             password=self.password,
             priority_resolution=self.priority_resolution,
             project_environments=self.project_environments,
@@ -456,6 +474,7 @@ def get_remote_conda_repository(allow_any_host_auth: Optional[_builtins.bool] = 
                                 cdn_redirect: Optional[_builtins.bool] = None,
                                 client_tls_certificate: Optional[_builtins.str] = None,
                                 content_synchronisation: Optional[Union['GetRemoteCondaRepositoryContentSynchronisationArgs', 'GetRemoteCondaRepositoryContentSynchronisationArgsDict']] = None,
+                                curated: Optional[_builtins.bool] = None,
                                 description: Optional[_builtins.str] = None,
                                 disable_proxy: Optional[_builtins.bool] = None,
                                 disable_url_normalization: Optional[_builtins.bool] = None,
@@ -472,6 +491,7 @@ def get_remote_conda_repository(allow_any_host_auth: Optional[_builtins.bool] = 
                                 missed_cache_period_seconds: Optional[_builtins.int] = None,
                                 notes: Optional[_builtins.str] = None,
                                 offline: Optional[_builtins.bool] = None,
+                                pass_through: Optional[_builtins.bool] = None,
                                 password: Optional[_builtins.str] = None,
                                 priority_resolution: Optional[_builtins.bool] = None,
                                 project_environments: Optional[Sequence[_builtins.str]] = None,
@@ -516,6 +536,7 @@ def get_remote_conda_repository(allow_any_host_auth: Optional[_builtins.bool] = 
     __args__['cdnRedirect'] = cdn_redirect
     __args__['clientTlsCertificate'] = client_tls_certificate
     __args__['contentSynchronisation'] = content_synchronisation
+    __args__['curated'] = curated
     __args__['description'] = description
     __args__['disableProxy'] = disable_proxy
     __args__['disableUrlNormalization'] = disable_url_normalization
@@ -532,6 +553,7 @@ def get_remote_conda_repository(allow_any_host_auth: Optional[_builtins.bool] = 
     __args__['missedCachePeriodSeconds'] = missed_cache_period_seconds
     __args__['notes'] = notes
     __args__['offline'] = offline
+    __args__['passThrough'] = pass_through
     __args__['password'] = password
     __args__['priorityResolution'] = priority_resolution
     __args__['projectEnvironments'] = project_environments
@@ -563,6 +585,7 @@ def get_remote_conda_repository(allow_any_host_auth: Optional[_builtins.bool] = 
         cdn_redirect=pulumi.get(__ret__, 'cdn_redirect'),
         client_tls_certificate=pulumi.get(__ret__, 'client_tls_certificate'),
         content_synchronisation=pulumi.get(__ret__, 'content_synchronisation'),
+        curated=pulumi.get(__ret__, 'curated'),
         description=pulumi.get(__ret__, 'description'),
         disable_proxy=pulumi.get(__ret__, 'disable_proxy'),
         disable_url_normalization=pulumi.get(__ret__, 'disable_url_normalization'),
@@ -581,6 +604,7 @@ def get_remote_conda_repository(allow_any_host_auth: Optional[_builtins.bool] = 
         notes=pulumi.get(__ret__, 'notes'),
         offline=pulumi.get(__ret__, 'offline'),
         package_type=pulumi.get(__ret__, 'package_type'),
+        pass_through=pulumi.get(__ret__, 'pass_through'),
         password=pulumi.get(__ret__, 'password'),
         priority_resolution=pulumi.get(__ret__, 'priority_resolution'),
         project_environments=pulumi.get(__ret__, 'project_environments'),
@@ -608,6 +632,7 @@ def get_remote_conda_repository_output(allow_any_host_auth: pulumi.Input[Optiona
                                        cdn_redirect: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                        client_tls_certificate: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        content_synchronisation: pulumi.Input[Optional[Optional[Union['GetRemoteCondaRepositoryContentSynchronisationArgs', 'GetRemoteCondaRepositoryContentSynchronisationArgsDict']]]] = None,
+                                       curated: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                        description: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        disable_proxy: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                        disable_url_normalization: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
@@ -624,6 +649,7 @@ def get_remote_conda_repository_output(allow_any_host_auth: pulumi.Input[Optiona
                                        missed_cache_period_seconds: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                                        notes: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        offline: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                       pass_through: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                        password: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        priority_resolution: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                        project_environments: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
@@ -668,6 +694,7 @@ def get_remote_conda_repository_output(allow_any_host_auth: pulumi.Input[Optiona
     __args__['cdnRedirect'] = cdn_redirect
     __args__['clientTlsCertificate'] = client_tls_certificate
     __args__['contentSynchronisation'] = content_synchronisation
+    __args__['curated'] = curated
     __args__['description'] = description
     __args__['disableProxy'] = disable_proxy
     __args__['disableUrlNormalization'] = disable_url_normalization
@@ -684,6 +711,7 @@ def get_remote_conda_repository_output(allow_any_host_auth: pulumi.Input[Optiona
     __args__['missedCachePeriodSeconds'] = missed_cache_period_seconds
     __args__['notes'] = notes
     __args__['offline'] = offline
+    __args__['passThrough'] = pass_through
     __args__['password'] = password
     __args__['priorityResolution'] = priority_resolution
     __args__['projectEnvironments'] = project_environments
@@ -714,6 +742,7 @@ def get_remote_conda_repository_output(allow_any_host_auth: pulumi.Input[Optiona
         cdn_redirect=pulumi.get(__response__, 'cdn_redirect'),
         client_tls_certificate=pulumi.get(__response__, 'client_tls_certificate'),
         content_synchronisation=pulumi.get(__response__, 'content_synchronisation'),
+        curated=pulumi.get(__response__, 'curated'),
         description=pulumi.get(__response__, 'description'),
         disable_proxy=pulumi.get(__response__, 'disable_proxy'),
         disable_url_normalization=pulumi.get(__response__, 'disable_url_normalization'),
@@ -732,6 +761,7 @@ def get_remote_conda_repository_output(allow_any_host_auth: pulumi.Input[Optiona
         notes=pulumi.get(__response__, 'notes'),
         offline=pulumi.get(__response__, 'offline'),
         package_type=pulumi.get(__response__, 'package_type'),
+        pass_through=pulumi.get(__response__, 'pass_through'),
         password=pulumi.get(__response__, 'password'),
         priority_resolution=pulumi.get(__response__, 'priority_resolution'),
         project_environments=pulumi.get(__response__, 'project_environments'),

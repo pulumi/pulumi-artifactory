@@ -114,6 +114,9 @@ namespace Pulumi.Artifactory
         [Input("contentSynchronisation")]
         public Inputs.GetRemoteCondaRepositoryContentSynchronisationArgs? ContentSynchronisation { get; set; }
 
+        [Input("curated")]
+        public bool? Curated { get; set; }
+
         [Input("description")]
         public string? Description { get; set; }
 
@@ -164,6 +167,9 @@ namespace Pulumi.Artifactory
 
         [Input("offline")]
         public bool? Offline { get; set; }
+
+        [Input("passThrough")]
+        public bool? PassThrough { get; set; }
 
         [Input("password")]
         private string? _password;
@@ -269,6 +275,9 @@ namespace Pulumi.Artifactory
         [Input("contentSynchronisation")]
         public Input<Inputs.GetRemoteCondaRepositoryContentSynchronisationInputArgs>? ContentSynchronisation { get; set; }
 
+        [Input("curated")]
+        public Input<bool>? Curated { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -319,6 +328,9 @@ namespace Pulumi.Artifactory
 
         [Input("offline")]
         public Input<bool>? Offline { get; set; }
+
+        [Input("passThrough")]
+        public Input<bool>? PassThrough { get; set; }
 
         [Input("password")]
         private Input<string>? _password;
@@ -412,6 +424,7 @@ namespace Pulumi.Artifactory
         public readonly bool? CdnRedirect;
         public readonly string ClientTlsCertificate;
         public readonly Outputs.GetRemoteCondaRepositoryContentSynchronisationResult ContentSynchronisation;
+        public readonly bool? Curated;
         public readonly string? Description;
         public readonly bool? DisableProxy;
         public readonly bool? DisableUrlNormalization;
@@ -433,6 +446,7 @@ namespace Pulumi.Artifactory
         public readonly string? Notes;
         public readonly bool? Offline;
         public readonly string PackageType;
+        public readonly bool? PassThrough;
         public readonly string? Password;
         public readonly bool? PriorityResolution;
         public readonly ImmutableArray<string> ProjectEnvironments;
@@ -472,6 +486,8 @@ namespace Pulumi.Artifactory
 
             Outputs.GetRemoteCondaRepositoryContentSynchronisationResult contentSynchronisation,
 
+            bool? curated,
+
             string? description,
 
             bool? disableProxy,
@@ -507,6 +523,8 @@ namespace Pulumi.Artifactory
             bool? offline,
 
             string packageType,
+
+            bool? passThrough,
 
             string? password,
 
@@ -553,6 +571,7 @@ namespace Pulumi.Artifactory
             CdnRedirect = cdnRedirect;
             ClientTlsCertificate = clientTlsCertificate;
             ContentSynchronisation = contentSynchronisation;
+            Curated = curated;
             Description = description;
             DisableProxy = disableProxy;
             DisableUrlNormalization = disableUrlNormalization;
@@ -571,6 +590,7 @@ namespace Pulumi.Artifactory
             Notes = notes;
             Offline = offline;
             PackageType = packageType;
+            PassThrough = passThrough;
             Password = password;
             PriorityResolution = priorityResolution;
             ProjectEnvironments = projectEnvironments;

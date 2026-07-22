@@ -83,6 +83,13 @@ public final class GetRemoteCondaRepositoryArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.contentSynchronisation);
     }
 
+    @Import(name="curated")
+    private @Nullable Output<Boolean> curated;
+
+    public Optional<Output<Boolean>> curated() {
+        return Optional.ofNullable(this.curated);
+    }
+
     @Import(name="description")
     private @Nullable Output<String> description;
 
@@ -201,6 +208,13 @@ public final class GetRemoteCondaRepositoryArgs extends com.pulumi.resources.Inv
 
     public Optional<Output<Boolean>> offline() {
         return Optional.ofNullable(this.offline);
+    }
+
+    @Import(name="passThrough")
+    private @Nullable Output<Boolean> passThrough;
+
+    public Optional<Output<Boolean>> passThrough() {
+        return Optional.ofNullable(this.passThrough);
     }
 
     @Import(name="password")
@@ -341,6 +355,7 @@ public final class GetRemoteCondaRepositoryArgs extends com.pulumi.resources.Inv
         this.cdnRedirect = $.cdnRedirect;
         this.clientTlsCertificate = $.clientTlsCertificate;
         this.contentSynchronisation = $.contentSynchronisation;
+        this.curated = $.curated;
         this.description = $.description;
         this.disableProxy = $.disableProxy;
         this.disableUrlNormalization = $.disableUrlNormalization;
@@ -357,6 +372,7 @@ public final class GetRemoteCondaRepositoryArgs extends com.pulumi.resources.Inv
         this.missedCachePeriodSeconds = $.missedCachePeriodSeconds;
         this.notes = $.notes;
         this.offline = $.offline;
+        this.passThrough = $.passThrough;
         this.password = $.password;
         this.priorityResolution = $.priorityResolution;
         this.projectEnvironments = $.projectEnvironments;
@@ -474,6 +490,15 @@ public final class GetRemoteCondaRepositoryArgs extends com.pulumi.resources.Inv
 
         public Builder contentSynchronisation(GetRemoteCondaRepositoryContentSynchronisationArgs contentSynchronisation) {
             return contentSynchronisation(Output.of(contentSynchronisation));
+        }
+
+        public Builder curated(@Nullable Output<Boolean> curated) {
+            $.curated = curated;
+            return this;
+        }
+
+        public Builder curated(Boolean curated) {
+            return curated(Output.of(curated));
         }
 
         public Builder description(@Nullable Output<String> description) {
@@ -630,6 +655,15 @@ public final class GetRemoteCondaRepositoryArgs extends com.pulumi.resources.Inv
 
         public Builder offline(Boolean offline) {
             return offline(Output.of(offline));
+        }
+
+        public Builder passThrough(@Nullable Output<Boolean> passThrough) {
+            $.passThrough = passThrough;
+            return this;
+        }
+
+        public Builder passThrough(Boolean passThrough) {
+            return passThrough(Output.of(passThrough));
         }
 
         public Builder password(@Nullable Output<String> password) {
