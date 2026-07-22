@@ -27,7 +27,7 @@ class GetFileListResult:
     """
     A collection of values returned by getFileList.
     """
-    def __init__(__self__, created=None, deep_listing=None, depth=None, files=None, folder_path=None, id=None, include_root_path=None, list_folders=None, metadata_timestamps=None, repository_key=None, uri=None):
+    def __init__(__self__, created=None, deep_listing=None, depth=None, files=None, folder_path=None, include_root_path=None, list_folders=None, metadata_timestamps=None, repository_key=None, uri=None):
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
@@ -43,9 +43,6 @@ class GetFileListResult:
         if folder_path and not isinstance(folder_path, str):
             raise TypeError("Expected argument 'folder_path' to be a str")
         pulumi.set(__self__, "folder_path", folder_path)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if include_root_path and not isinstance(include_root_path, bool):
             raise TypeError("Expected argument 'include_root_path' to be a bool")
         pulumi.set(__self__, "include_root_path", include_root_path)
@@ -103,14 +100,6 @@ class GetFileListResult:
         return pulumi.get(self, "folder_path")
 
     @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
     @pulumi.getter(name="includeRootPath")
     def include_root_path(self) -> Optional[_builtins.bool]:
         """
@@ -162,7 +151,6 @@ class AwaitableGetFileListResult(GetFileListResult):
             depth=self.depth,
             files=self.files,
             folder_path=self.folder_path,
-            id=self.id,
             include_root_path=self.include_root_path,
             list_folders=self.list_folders,
             metadata_timestamps=self.metadata_timestamps,
@@ -217,7 +205,6 @@ def get_file_list(deep_listing: Optional[_builtins.bool] = None,
         depth=pulumi.get(__ret__, 'depth'),
         files=pulumi.get(__ret__, 'files'),
         folder_path=pulumi.get(__ret__, 'folder_path'),
-        id=pulumi.get(__ret__, 'id'),
         include_root_path=pulumi.get(__ret__, 'include_root_path'),
         list_folders=pulumi.get(__ret__, 'list_folders'),
         metadata_timestamps=pulumi.get(__ret__, 'metadata_timestamps'),
@@ -269,7 +256,6 @@ def get_file_list_output(deep_listing: pulumi.Input[Optional[Optional[_builtins.
         depth=pulumi.get(__response__, 'depth'),
         files=pulumi.get(__response__, 'files'),
         folder_path=pulumi.get(__response__, 'folder_path'),
-        id=pulumi.get(__response__, 'id'),
         include_root_path=pulumi.get(__response__, 'include_root_path'),
         list_folders=pulumi.get(__response__, 'list_folders'),
         metadata_timestamps=pulumi.get(__response__, 'metadata_timestamps'),

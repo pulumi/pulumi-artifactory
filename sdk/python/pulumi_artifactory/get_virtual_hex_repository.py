@@ -26,7 +26,7 @@ class GetVirtualHexRepositoryResult:
     """
     A collection of values returned by getVirtualHexRepository.
     """
-    def __init__(__self__, description=None, excludes_pattern=None, hex_primary_keypair_ref=None, id=None, includes_pattern=None, key=None, notes=None, package_type=None, project_environments=None, project_key=None, repo_layout_ref=None):
+    def __init__(__self__, description=None, excludes_pattern=None, hex_primary_keypair_ref=None, includes_pattern=None, key=None, notes=None, package_type=None, project_environments=None, project_key=None, repo_layout_ref=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -36,9 +36,6 @@ class GetVirtualHexRepositoryResult:
         if hex_primary_keypair_ref and not isinstance(hex_primary_keypair_ref, str):
             raise TypeError("Expected argument 'hex_primary_keypair_ref' to be a str")
         pulumi.set(__self__, "hex_primary_keypair_ref", hex_primary_keypair_ref)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if includes_pattern and not isinstance(includes_pattern, str):
             raise TypeError("Expected argument 'includes_pattern' to be a str")
         pulumi.set(__self__, "includes_pattern", includes_pattern)
@@ -78,14 +75,6 @@ class GetVirtualHexRepositoryResult:
         Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
         """
         return pulumi.get(self, "hex_primary_keypair_ref")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="includesPattern")
@@ -132,7 +121,6 @@ class AwaitableGetVirtualHexRepositoryResult(GetVirtualHexRepositoryResult):
             description=self.description,
             excludes_pattern=self.excludes_pattern,
             hex_primary_keypair_ref=self.hex_primary_keypair_ref,
-            id=self.id,
             includes_pattern=self.includes_pattern,
             key=self.key,
             notes=self.notes,
@@ -168,7 +156,6 @@ def get_virtual_hex_repository(key: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         excludes_pattern=pulumi.get(__ret__, 'excludes_pattern'),
         hex_primary_keypair_ref=pulumi.get(__ret__, 'hex_primary_keypair_ref'),
-        id=pulumi.get(__ret__, 'id'),
         includes_pattern=pulumi.get(__ret__, 'includes_pattern'),
         key=pulumi.get(__ret__, 'key'),
         notes=pulumi.get(__ret__, 'notes'),
@@ -201,7 +188,6 @@ def get_virtual_hex_repository_output(key: pulumi.Input[Optional[_builtins.str]]
         description=pulumi.get(__response__, 'description'),
         excludes_pattern=pulumi.get(__response__, 'excludes_pattern'),
         hex_primary_keypair_ref=pulumi.get(__response__, 'hex_primary_keypair_ref'),
-        id=pulumi.get(__response__, 'id'),
         includes_pattern=pulumi.get(__response__, 'includes_pattern'),
         key=pulumi.get(__response__, 'key'),
         notes=pulumi.get(__response__, 'notes'),

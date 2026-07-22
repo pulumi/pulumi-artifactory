@@ -68,9 +68,7 @@ type LookupRemoteHexRepositoryResult struct {
 	ExcludesPattern           string `pulumi:"excludesPattern"`
 	HardFail                  bool   `pulumi:"hardFail"`
 	// Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
-	HexPrimaryKeypairRef string `pulumi:"hexPrimaryKeypairRef"`
-	// The provider-assigned unique ID for this managed resource.
-	Id                               string   `pulumi:"id"`
+	HexPrimaryKeypairRef             string   `pulumi:"hexPrimaryKeypairRef"`
 	IncludesPattern                  string   `pulumi:"includesPattern"`
 	Key                              string   `pulumi:"key"`
 	ListRemoteFolderItems            bool     `pulumi:"listRemoteFolderItems"`
@@ -182,11 +180,6 @@ func (o LookupRemoteHexRepositoryResultOutput) HardFail() pulumi.BoolOutput {
 // Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
 func (o LookupRemoteHexRepositoryResultOutput) HexPrimaryKeypairRef() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRemoteHexRepositoryResult) string { return v.HexPrimaryKeypairRef }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupRemoteHexRepositoryResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRemoteHexRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o LookupRemoteHexRepositoryResultOutput) IncludesPattern() pulumi.StringOutput {

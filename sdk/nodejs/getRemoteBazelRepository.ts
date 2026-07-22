@@ -50,10 +50,6 @@ export interface GetRemoteBazelRepositoryResult {
     readonly enableCookieManagement: boolean;
     readonly excludesPattern: string;
     readonly hardFail: boolean;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly includesPattern: string;
     readonly key: string;
     readonly listRemoteFolderItems: boolean;

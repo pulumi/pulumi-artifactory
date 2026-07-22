@@ -27,10 +27,7 @@ class GetRepositoriesResult:
     """
     A collection of values returned by getRepositories.
     """
-    def __init__(__self__, id=None, package_type=None, project_key=None, repos=None, repository_type=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, package_type=None, project_key=None, repos=None, repository_type=None):
         if package_type and not isinstance(package_type, str):
             raise TypeError("Expected argument 'package_type' to be a str")
         pulumi.set(__self__, "package_type", package_type)
@@ -43,14 +40,6 @@ class GetRepositoriesResult:
         if repository_type and not isinstance(repository_type, str):
             raise TypeError("Expected argument 'repository_type' to be a str")
         pulumi.set(__self__, "repository_type", repository_type)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="packageType")
@@ -91,7 +80,6 @@ class AwaitableGetRepositoriesResult(GetRepositoriesResult):
         if False:
             yield self
         return GetRepositoriesResult(
-            id=self.id,
             package_type=self.package_type,
             project_key=self.project_key,
             repos=self.repos,
@@ -128,7 +116,6 @@ def get_repositories(package_type: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('artifactory:index/getRepositories:getRepositories', __args__, opts=opts, typ=GetRepositoriesResult).value
 
     return AwaitableGetRepositoriesResult(
-        id=pulumi.get(__ret__, 'id'),
         package_type=pulumi.get(__ret__, 'package_type'),
         project_key=pulumi.get(__ret__, 'project_key'),
         repos=pulumi.get(__ret__, 'repos'),
@@ -162,7 +149,6 @@ def get_repositories_output(package_type: pulumi.Input[Optional[Optional[_builti
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getRepositories:getRepositories', __args__, opts=opts, typ=GetRepositoriesResult)
     return __ret__.apply(lambda __response__: GetRepositoriesResult(
-        id=pulumi.get(__response__, 'id'),
         package_type=pulumi.get(__response__, 'package_type'),
         project_key=pulumi.get(__response__, 'project_key'),
         repos=pulumi.get(__response__, 'repos'),

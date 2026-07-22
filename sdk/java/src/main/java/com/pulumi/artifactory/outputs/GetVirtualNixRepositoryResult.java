@@ -13,11 +13,6 @@ import java.util.Objects;
 public final class GetVirtualNixRepositoryResult {
     private String description;
     private String excludesPattern;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String includesPattern;
     private String key;
     private String notes;
@@ -32,13 +27,6 @@ public final class GetVirtualNixRepositoryResult {
     }
     public String excludesPattern() {
         return this.excludesPattern;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String includesPattern() {
         return this.includesPattern;
@@ -73,7 +61,6 @@ public final class GetVirtualNixRepositoryResult {
     public static final class Builder {
         private String description;
         private String excludesPattern;
-        private String id;
         private String includesPattern;
         private String key;
         private String notes;
@@ -86,7 +73,6 @@ public final class GetVirtualNixRepositoryResult {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
     	      this.excludesPattern = defaults.excludesPattern;
-    	      this.id = defaults.id;
     	      this.includesPattern = defaults.includesPattern;
     	      this.key = defaults.key;
     	      this.notes = defaults.notes;
@@ -110,14 +96,6 @@ public final class GetVirtualNixRepositoryResult {
               throw new MissingRequiredPropertyException("GetVirtualNixRepositoryResult", "excludesPattern");
             }
             this.excludesPattern = excludesPattern;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetVirtualNixRepositoryResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -183,7 +161,6 @@ public final class GetVirtualNixRepositoryResult {
             final var _resultValue = new GetVirtualNixRepositoryResult();
             _resultValue.description = description;
             _resultValue.excludesPattern = excludesPattern;
-            _resultValue.id = id;
             _resultValue.includesPattern = includesPattern;
             _resultValue.key = key;
             _resultValue.notes = notes;

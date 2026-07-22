@@ -41,10 +41,6 @@ export interface GetVirtualNixRepositoryArgs {
 export interface GetVirtualNixRepositoryResult {
     readonly description: string;
     readonly excludesPattern: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly includesPattern: string;
     readonly key: string;
     readonly notes: string;

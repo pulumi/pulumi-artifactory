@@ -56,24 +56,22 @@ type LookupLocalNixRepositoryArgs struct {
 
 // A collection of values returned by getLocalNixRepository.
 type LookupLocalNixRepositoryResult struct {
-	ArchiveBrowsingEnabled bool   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut             bool   `pulumi:"blackedOut"`
-	CdnRedirect            bool   `pulumi:"cdnRedirect"`
-	Description            string `pulumi:"description"`
-	DownloadDirect         bool   `pulumi:"downloadDirect"`
-	ExcludesPattern        string `pulumi:"excludesPattern"`
-	// The provider-assigned unique ID for this managed resource.
-	Id                  string   `pulumi:"id"`
-	IncludesPattern     string   `pulumi:"includesPattern"`
-	Key                 string   `pulumi:"key"`
-	Notes               string   `pulumi:"notes"`
-	PackageType         string   `pulumi:"packageType"`
-	PriorityResolution  bool     `pulumi:"priorityResolution"`
-	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	ProjectKey          string   `pulumi:"projectKey"`
-	PropertySets        []string `pulumi:"propertySets"`
-	RepoLayoutRef       string   `pulumi:"repoLayoutRef"`
-	XrayIndex           bool     `pulumi:"xrayIndex"`
+	ArchiveBrowsingEnabled bool     `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut             bool     `pulumi:"blackedOut"`
+	CdnRedirect            bool     `pulumi:"cdnRedirect"`
+	Description            string   `pulumi:"description"`
+	DownloadDirect         bool     `pulumi:"downloadDirect"`
+	ExcludesPattern        string   `pulumi:"excludesPattern"`
+	IncludesPattern        string   `pulumi:"includesPattern"`
+	Key                    string   `pulumi:"key"`
+	Notes                  string   `pulumi:"notes"`
+	PackageType            string   `pulumi:"packageType"`
+	PriorityResolution     bool     `pulumi:"priorityResolution"`
+	ProjectEnvironments    []string `pulumi:"projectEnvironments"`
+	ProjectKey             string   `pulumi:"projectKey"`
+	PropertySets           []string `pulumi:"propertySets"`
+	RepoLayoutRef          string   `pulumi:"repoLayoutRef"`
+	XrayIndex              bool     `pulumi:"xrayIndex"`
 }
 
 func LookupLocalNixRepositoryOutput(ctx *pulumi.Context, args LookupLocalNixRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalNixRepositoryResultOutput {
@@ -132,11 +130,6 @@ func (o LookupLocalNixRepositoryResultOutput) DownloadDirect() pulumi.BoolOutput
 
 func (o LookupLocalNixRepositoryResultOutput) ExcludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalNixRepositoryResult) string { return v.ExcludesPattern }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupLocalNixRepositoryResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLocalNixRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o LookupLocalNixRepositoryResultOutput) IncludesPattern() pulumi.StringOutput {

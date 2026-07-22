@@ -26,16 +26,13 @@ class GetVirtualNixRepositoryResult:
     """
     A collection of values returned by getVirtualNixRepository.
     """
-    def __init__(__self__, description=None, excludes_pattern=None, id=None, includes_pattern=None, key=None, notes=None, package_type=None, project_environments=None, project_key=None, repo_layout_ref=None):
+    def __init__(__self__, description=None, excludes_pattern=None, includes_pattern=None, key=None, notes=None, package_type=None, project_environments=None, project_key=None, repo_layout_ref=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
         if excludes_pattern and not isinstance(excludes_pattern, str):
             raise TypeError("Expected argument 'excludes_pattern' to be a str")
         pulumi.set(__self__, "excludes_pattern", excludes_pattern)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if includes_pattern and not isinstance(includes_pattern, str):
             raise TypeError("Expected argument 'includes_pattern' to be a str")
         pulumi.set(__self__, "includes_pattern", includes_pattern)
@@ -67,14 +64,6 @@ class GetVirtualNixRepositoryResult:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> _builtins.str:
         return pulumi.get(self, "excludes_pattern")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="includesPattern")
@@ -120,7 +109,6 @@ class AwaitableGetVirtualNixRepositoryResult(GetVirtualNixRepositoryResult):
         return GetVirtualNixRepositoryResult(
             description=self.description,
             excludes_pattern=self.excludes_pattern,
-            id=self.id,
             includes_pattern=self.includes_pattern,
             key=self.key,
             notes=self.notes,
@@ -155,7 +143,6 @@ def get_virtual_nix_repository(key: Optional[_builtins.str] = None,
     return AwaitableGetVirtualNixRepositoryResult(
         description=pulumi.get(__ret__, 'description'),
         excludes_pattern=pulumi.get(__ret__, 'excludes_pattern'),
-        id=pulumi.get(__ret__, 'id'),
         includes_pattern=pulumi.get(__ret__, 'includes_pattern'),
         key=pulumi.get(__ret__, 'key'),
         notes=pulumi.get(__ret__, 'notes'),
@@ -187,7 +174,6 @@ def get_virtual_nix_repository_output(key: pulumi.Input[Optional[_builtins.str]]
     return __ret__.apply(lambda __response__: GetVirtualNixRepositoryResult(
         description=pulumi.get(__response__, 'description'),
         excludes_pattern=pulumi.get(__response__, 'excludes_pattern'),
-        id=pulumi.get(__response__, 'id'),
         includes_pattern=pulumi.get(__response__, 'includes_pattern'),
         key=pulumi.get(__response__, 'key'),
         notes=pulumi.get(__response__, 'notes'),

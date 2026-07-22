@@ -26,7 +26,7 @@ class GetLocalHexRepositoryResult:
     """
     A collection of values returned by getLocalHexRepository.
     """
-    def __init__(__self__, archive_browsing_enabled=None, blacked_out=None, cdn_redirect=None, description=None, download_direct=None, excludes_pattern=None, hex_primary_keypair_ref=None, id=None, includes_pattern=None, key=None, notes=None, package_type=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, repo_layout_ref=None, xray_index=None):
+    def __init__(__self__, archive_browsing_enabled=None, blacked_out=None, cdn_redirect=None, description=None, download_direct=None, excludes_pattern=None, hex_primary_keypair_ref=None, includes_pattern=None, key=None, notes=None, package_type=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, repo_layout_ref=None, xray_index=None):
         if archive_browsing_enabled and not isinstance(archive_browsing_enabled, bool):
             raise TypeError("Expected argument 'archive_browsing_enabled' to be a bool")
         pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
@@ -48,9 +48,6 @@ class GetLocalHexRepositoryResult:
         if hex_primary_keypair_ref and not isinstance(hex_primary_keypair_ref, str):
             raise TypeError("Expected argument 'hex_primary_keypair_ref' to be a str")
         pulumi.set(__self__, "hex_primary_keypair_ref", hex_primary_keypair_ref)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if includes_pattern and not isinstance(includes_pattern, str):
             raise TypeError("Expected argument 'includes_pattern' to be a str")
         pulumi.set(__self__, "includes_pattern", includes_pattern)
@@ -121,14 +118,6 @@ class GetLocalHexRepositoryResult:
         return pulumi.get(self, "hex_primary_keypair_ref")
 
     @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> _builtins.str:
         return pulumi.get(self, "includes_pattern")
@@ -192,7 +181,6 @@ class AwaitableGetLocalHexRepositoryResult(GetLocalHexRepositoryResult):
             download_direct=self.download_direct,
             excludes_pattern=self.excludes_pattern,
             hex_primary_keypair_ref=self.hex_primary_keypair_ref,
-            id=self.id,
             includes_pattern=self.includes_pattern,
             key=self.key,
             notes=self.notes,
@@ -235,7 +223,6 @@ def get_local_hex_repository(key: Optional[_builtins.str] = None,
         download_direct=pulumi.get(__ret__, 'download_direct'),
         excludes_pattern=pulumi.get(__ret__, 'excludes_pattern'),
         hex_primary_keypair_ref=pulumi.get(__ret__, 'hex_primary_keypair_ref'),
-        id=pulumi.get(__ret__, 'id'),
         includes_pattern=pulumi.get(__ret__, 'includes_pattern'),
         key=pulumi.get(__ret__, 'key'),
         notes=pulumi.get(__ret__, 'notes'),
@@ -275,7 +262,6 @@ def get_local_hex_repository_output(key: pulumi.Input[Optional[_builtins.str]] =
         download_direct=pulumi.get(__response__, 'download_direct'),
         excludes_pattern=pulumi.get(__response__, 'excludes_pattern'),
         hex_primary_keypair_ref=pulumi.get(__response__, 'hex_primary_keypair_ref'),
-        id=pulumi.get(__response__, 'id'),
         includes_pattern=pulumi.get(__response__, 'includes_pattern'),
         key=pulumi.get(__response__, 'key'),
         notes=pulumi.get(__response__, 'notes'),

@@ -56,19 +56,17 @@ type LookupRemoteBazelRepositoryArgs struct {
 
 // A collection of values returned by getRemoteBazelRepository.
 type LookupRemoteBazelRepositoryResult struct {
-	AllowAnyHostAuth          bool   `pulumi:"allowAnyHostAuth"`
-	AssumedOfflinePeriodSecs  int    `pulumi:"assumedOfflinePeriodSecs"`
-	BlockMismatchingMimeTypes bool   `pulumi:"blockMismatchingMimeTypes"`
-	BypassHeadRequests        bool   `pulumi:"bypassHeadRequests"`
-	ClientTlsCertificate      string `pulumi:"clientTlsCertificate"`
-	Description               string `pulumi:"description"`
-	DisableProxy              bool   `pulumi:"disableProxy"`
-	DisableUrlNormalization   bool   `pulumi:"disableUrlNormalization"`
-	EnableCookieManagement    bool   `pulumi:"enableCookieManagement"`
-	ExcludesPattern           string `pulumi:"excludesPattern"`
-	HardFail                  bool   `pulumi:"hardFail"`
-	// The provider-assigned unique ID for this managed resource.
-	Id                                string   `pulumi:"id"`
+	AllowAnyHostAuth                  bool     `pulumi:"allowAnyHostAuth"`
+	AssumedOfflinePeriodSecs          int      `pulumi:"assumedOfflinePeriodSecs"`
+	BlockMismatchingMimeTypes         bool     `pulumi:"blockMismatchingMimeTypes"`
+	BypassHeadRequests                bool     `pulumi:"bypassHeadRequests"`
+	ClientTlsCertificate              string   `pulumi:"clientTlsCertificate"`
+	Description                       string   `pulumi:"description"`
+	DisableProxy                      bool     `pulumi:"disableProxy"`
+	DisableUrlNormalization           bool     `pulumi:"disableUrlNormalization"`
+	EnableCookieManagement            bool     `pulumi:"enableCookieManagement"`
+	ExcludesPattern                   string   `pulumi:"excludesPattern"`
+	HardFail                          bool     `pulumi:"hardFail"`
 	IncludesPattern                   string   `pulumi:"includesPattern"`
 	Key                               string   `pulumi:"key"`
 	ListRemoteFolderItems             bool     `pulumi:"listRemoteFolderItems"`
@@ -172,11 +170,6 @@ func (o LookupRemoteBazelRepositoryResultOutput) ExcludesPattern() pulumi.String
 
 func (o LookupRemoteBazelRepositoryResultOutput) HardFail() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupRemoteBazelRepositoryResult) bool { return v.HardFail }).(pulumi.BoolOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupRemoteBazelRepositoryResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRemoteBazelRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o LookupRemoteBazelRepositoryResultOutput) IncludesPattern() pulumi.StringOutput {

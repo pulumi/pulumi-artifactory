@@ -45,10 +45,6 @@ export interface GetVirtualHexRepositoryResult {
      * Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
      */
     readonly hexPrimaryKeypairRef: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly includesPattern: string;
     readonly key: string;
     readonly notes: string;

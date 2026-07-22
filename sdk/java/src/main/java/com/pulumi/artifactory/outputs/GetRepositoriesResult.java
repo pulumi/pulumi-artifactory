@@ -15,11 +15,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetRepositoriesResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
      * 
      */
@@ -41,13 +36,6 @@ public final class GetRepositoriesResult {
     private @Nullable String repositoryType;
 
     private GetRepositoriesResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     /**
      * @return Filter for repositories of a specific package type. Allowed values are: alpine, bower, cargo, chef, cocoapods, composer, conan, conda, cran, debian, docker, gems, generic, gitlfs, go, gradle, helm, huggingfaceml, ivy, maven, npm, nuget, opkg, p2, pub, puppet, pypi, rpm, sbt, swift,  terraform, terraformbackend, vagrant, yum
      * 
@@ -86,7 +74,6 @@ public final class GetRepositoriesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private @Nullable String packageType;
         private @Nullable String projectKey;
         private List<GetRepositoriesRepo> repos;
@@ -94,21 +81,12 @@ public final class GetRepositoriesResult {
         public Builder() {}
         public Builder(GetRepositoriesResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.packageType = defaults.packageType;
     	      this.projectKey = defaults.projectKey;
     	      this.repos = defaults.repos;
     	      this.repositoryType = defaults.repositoryType;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetRepositoriesResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder packageType(@Nullable String packageType) {
 
@@ -140,7 +118,6 @@ public final class GetRepositoriesResult {
         }
         public GetRepositoriesResult build() {
             final var _resultValue = new GetRepositoriesResult();
-            _resultValue.id = id;
             _resultValue.packageType = packageType;
             _resultValue.projectKey = projectKey;
             _resultValue.repos = repos;
