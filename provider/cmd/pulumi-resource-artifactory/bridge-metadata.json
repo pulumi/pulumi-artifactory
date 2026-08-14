@@ -2050,6 +2050,27 @@
                     }
                 }
             },
+            "artifactory_remote_aieditorextensions_repository": {
+                "current": "artifactory:index/remoteAieditorextensionsRepository:RemoteAieditorextensionsRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "content_synchronisation": {
+                        "maxItemsOne": true
+                    },
+                    "custom_http_headers": {
+                        "maxItemsOne": false
+                    },
+                    "external_dependencies_patterns": {
+                        "maxItemsOne": false
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_remote_alpine_repository": {
                 "current": "artifactory:index/remoteAlpineRepository:RemoteAlpineRepository",
                 "majorVersion": 8,
@@ -4322,6 +4343,18 @@
                     }
                 }
             },
+            "artifactory_remote_aieditorextensions_repository": {
+                "current": "artifactory:index/getRemoteAieditorextensionsRepository:getRemoteAieditorextensionsRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "external_dependencies_patterns": {
+                        "maxItemsOne": false
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_remote_alpine_repository": {
                 "current": "artifactory:index/getRemoteAlpineRepository:getRemoteAlpineRepository",
                 "majorVersion": 8,
@@ -5470,6 +5503,7 @@
             "artifactory_release_bundle_v2_promotion_webhook": {},
             "artifactory_release_bundle_v2_webhook": {},
             "artifactory_release_bundle_webhook": {},
+            "artifactory_remote_aieditorextensions_repository": {},
             "artifactory_remote_alpine_repository": {},
             "artifactory_remote_ansible_repository": {},
             "artifactory_remote_bazel_repository": {},
@@ -5831,6 +5865,9 @@
             "artifactory_release_bundle_webhook": [
                 "key"
             ],
+            "artifactory_remote_aieditorextensions_repository": [
+                "key"
+            ],
             "artifactory_remote_alpine_repository": [
                 "key"
             ],
@@ -6186,6 +6223,7 @@
             "artifactory:index/releaseBundleV2PromotionWebhook:ReleaseBundleV2PromotionWebhook": 1,
             "artifactory:index/releaseBundleV2Webhook:ReleaseBundleV2Webhook": 1,
             "artifactory:index/releaseBundleWebhook:ReleaseBundleWebhook": 1,
+            "artifactory:index/remoteAieditorextensionsRepository:RemoteAieditorextensionsRepository": 1,
             "artifactory:index/remoteAlpineRepository:RemoteAlpineRepository": 1,
             "artifactory:index/remoteAnsibleRepository:RemoteAnsibleRepository": 1,
             "artifactory:index/remoteBazelRepository:RemoteBazelRepository": 1,
@@ -6348,6 +6386,7 @@
             "artifactory:index/getLocalTerraformbackendRepository:getLocalTerraformbackendRepository": 0,
             "artifactory:index/getLocalVagrantRepository:getLocalVagrantRepository": 0,
             "artifactory:index/getPermissionTarget:getPermissionTarget": 0,
+            "artifactory:index/getRemoteAieditorextensionsRepository:getRemoteAieditorextensionsRepository": 1,
             "artifactory:index/getRemoteAlpineRepository:getRemoteAlpineRepository": 0,
             "artifactory:index/getRemoteAnsibleRepository:getRemoteAnsibleRepository": 0,
             "artifactory:index/getRemoteBazelRepository:getRemoteBazelRepository": 1,

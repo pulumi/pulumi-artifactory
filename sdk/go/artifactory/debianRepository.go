@@ -74,15 +74,11 @@ import (
 //				return err
 //			}
 //			_, err = artifactory.NewDebianRepository(ctx, "my-debian-repo", &artifactory.DebianRepositoryArgs{
-//				Key:                 pulumi.String("my-debian-repo"),
-//				PrimaryKeypairRef:   some_keypairGPG1.PairName,
-//				SecondaryKeypairRef: some_keypairGPG2.PairName,
-//				IndexCompressionFormats: pulumi.StringArray{
-//					pulumi.String("bz2"),
-//					pulumi.String("lzma"),
-//					pulumi.String("xz"),
-//				},
-//				TrivialLayout: pulumi.Bool(true),
+//				Key:                     pulumi.String("my-debian-repo"),
+//				PrimaryKeypairRef:       some_keypairGPG1.PairName,
+//				SecondaryKeypairRef:     some_keypairGPG2.PairName,
+//				IndexCompressionFormats: pulumi.StringArray{},
+//				TrivialLayout:           pulumi.Bool(true),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				some_keypairGPG1,
 //				some_keypairGPG2,
@@ -122,8 +118,8 @@ type DebianRepository struct {
 	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-	// and XZ (.xz extension).
+	// The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+	// and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `indexCompressionFormats = ["bz2", "lzma", "xz"]`. Default is empty.
 	IndexCompressionFormats pulumi.StringArrayOutput `pulumi:"indexCompressionFormats"`
 	// the identity key of the repo.
 	Key pulumi.StringOutput `pulumi:"key"`
@@ -203,8 +199,8 @@ type debianRepositoryState struct {
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-	// and XZ (.xz extension).
+	// The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+	// and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `indexCompressionFormats = ["bz2", "lzma", "xz"]`. Default is empty.
 	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
 	// the identity key of the repo.
 	Key *string `pulumi:"key"`
@@ -252,8 +248,8 @@ type DebianRepositoryState struct {
 	ExcludesPattern pulumi.StringPtrInput
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
-	// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-	// and XZ (.xz extension).
+	// The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+	// and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `indexCompressionFormats = ["bz2", "lzma", "xz"]`. Default is empty.
 	IndexCompressionFormats pulumi.StringArrayInput
 	// the identity key of the repo.
 	Key pulumi.StringPtrInput
@@ -305,8 +301,8 @@ type debianRepositoryArgs struct {
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-	// and XZ (.xz extension).
+	// The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+	// and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `indexCompressionFormats = ["bz2", "lzma", "xz"]`. Default is empty.
 	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
 	// the identity key of the repo.
 	Key string `pulumi:"key"`
@@ -355,8 +351,8 @@ type DebianRepositoryArgs struct {
 	ExcludesPattern pulumi.StringPtrInput
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
-	// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-	// and XZ (.xz extension).
+	// The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+	// and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `indexCompressionFormats = ["bz2", "lzma", "xz"]`. Default is empty.
 	IndexCompressionFormats pulumi.StringArrayInput
 	// the identity key of the repo.
 	Key pulumi.StringInput
@@ -514,8 +510,8 @@ func (o DebianRepositoryOutput) IncludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *DebianRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }
 
-// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-// and XZ (.xz extension).
+// The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+// and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `indexCompressionFormats = ["bz2", "lzma", "xz"]`. Default is empty.
 func (o DebianRepositoryOutput) IndexCompressionFormats() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DebianRepository) pulumi.StringArrayOutput { return v.IndexCompressionFormats }).(pulumi.StringArrayOutput)
 }

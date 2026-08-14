@@ -140,16 +140,16 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-     * and XZ (.xz extension).
+     * The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+     * and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `indexCompressionFormats = [&#34;bz2&#34;, &#34;lzma&#34;, &#34;xz&#34;]`. Default is empty.
      * 
      */
     @Import(name="indexCompressionFormats")
     private @Nullable Output<List<String>> indexCompressionFormats;
 
     /**
-     * @return The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-     * and XZ (.xz extension).
+     * @return The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+     * and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `indexCompressionFormats = [&#34;bz2&#34;, &#34;lzma&#34;, &#34;xz&#34;]`. Default is empty.
      * 
      */
     public Optional<Output<List<String>>> indexCompressionFormats() {
@@ -543,8 +543,8 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param indexCompressionFormats The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-         * and XZ (.xz extension).
+         * @param indexCompressionFormats The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+         * and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `indexCompressionFormats = [&#34;bz2&#34;, &#34;lzma&#34;, &#34;xz&#34;]`. Default is empty.
          * 
          * @return builder
          * 
@@ -555,8 +555,8 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param indexCompressionFormats The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-         * and XZ (.xz extension).
+         * @param indexCompressionFormats The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+         * and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `indexCompressionFormats = [&#34;bz2&#34;, &#34;lzma&#34;, &#34;xz&#34;]`. Default is empty.
          * 
          * @return builder
          * 
@@ -566,8 +566,8 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param indexCompressionFormats The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-         * and XZ (.xz extension).
+         * @param indexCompressionFormats The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+         * and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `indexCompressionFormats = [&#34;bz2&#34;, &#34;lzma&#34;, &#34;xz&#34;]`. Default is empty.
          * 
          * @return builder
          * 
