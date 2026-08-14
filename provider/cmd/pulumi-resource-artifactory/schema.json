@@ -3349,6 +3349,68 @@
                 "url"
             ]
         },
+        "artifactory:index/RemoteAieditorextensionsRepositoryContentSynchronisation:RemoteAieditorextensionsRepositoryContentSynchronisation": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.\n"
+                },
+                "propertiesEnabled": {
+                    "type": "boolean",
+                    "description": "If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.\n"
+                },
+                "sourceOriginAbsenceDetection": {
+                    "type": "boolean",
+                    "description": "If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'\n"
+                },
+                "statisticsEnabled": {
+                    "type": "boolean",
+                    "description": "If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "propertiesEnabled",
+                        "sourceOriginAbsenceDetection",
+                        "statisticsEnabled"
+                    ]
+                }
+            }
+        },
+        "artifactory:index/RemoteAieditorextensionsRepositoryCustomHttpHeader:RemoteAieditorextensionsRepositoryCustomHttpHeader": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Header name. Artifactory stores header names lower-cased.\n"
+                },
+                "sensitive": {
+                    "type": "boolean",
+                    "description": "When \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e, Artifactory encrypts the value server-side. Default value is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\nconst my_remote_aieditorextensions_curated = new artifactory.RemoteAieditorextensionsRepository(\"my-remote-aieditorextensions-curated\", {\n    key: \"my-remote-aieditorextensions-curated\",\n    url: \"https://marketplace.visualstudio.com/_apis/public/gallery\",\n    curated: true,\n    passThrough: false,\n    customHttpHeaders: [{\n        name: \"x-api-key\",\n        value: \"my-gallery-token\",\n        sensitive: true,\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nmy_remote_aieditorextensions_curated = artifactory.RemoteAieditorextensionsRepository(\"my-remote-aieditorextensions-curated\",\n    key=\"my-remote-aieditorextensions-curated\",\n    url=\"https://marketplace.visualstudio.com/_apis/public/gallery\",\n    curated=True,\n    pass_through=False,\n    custom_http_headers=[{\n        \"name\": \"x-api-key\",\n        \"value\": \"my-gallery-token\",\n        \"sensitive\": True,\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_remote_aieditorextensions_curated = new Artifactory.RemoteAieditorextensionsRepository(\"my-remote-aieditorextensions-curated\", new()\n    {\n        Key = \"my-remote-aieditorextensions-curated\",\n        Url = \"https://marketplace.visualstudio.com/_apis/public/gallery\",\n        Curated = true,\n        PassThrough = false,\n        CustomHttpHeaders = new[]\n        {\n            new Artifactory.Inputs.RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs\n            {\n                Name = \"x-api-key\",\n                Value = \"my-gallery-token\",\n                Sensitive = true,\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewRemoteAieditorextensionsRepository(ctx, \"my-remote-aieditorextensions-curated\", \u0026artifactory.RemoteAieditorextensionsRepositoryArgs{\n\t\t\tKey:         pulumi.String(\"my-remote-aieditorextensions-curated\"),\n\t\t\tUrl:         pulumi.String(\"https://marketplace.visualstudio.com/_apis/public/gallery\"),\n\t\t\tCurated:     pulumi.Bool(true),\n\t\t\tPassThrough: pulumi.Bool(false),\n\t\t\tCustomHttpHeaders: artifactory.RemoteAieditorextensionsRepositoryCustomHttpHeaderArray{\n\t\t\t\t\u0026artifactory.RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs{\n\t\t\t\t\tName:      pulumi.String(\"x-api-key\"),\n\t\t\t\t\tValue:     pulumi.String(\"my-gallery-token\"),\n\t\t\t\t\tSensitive: pulumi.Bool(true),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    artifactory = {\n      source = \"pulumi/artifactory\"\n    }\n  }\n}\n\nresource \"artifactory_remoteaieditorextensionsrepository\" \"my-remote-aieditorextensions-curated\" {\n  key          = \"my-remote-aieditorextensions-curated\"\n  url          = \"https://marketplace.visualstudio.com/_apis/public/gallery\"\n  curated      = true\n  pass_through = false\n  custom_http_headers {\n    name      = \"x-api-key\"\n    value     = \"my-gallery-token\"\n    sensitive = true\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.RemoteAieditorextensionsRepository;\nimport com.pulumi.artifactory.RemoteAieditorextensionsRepositoryArgs;\nimport com.pulumi.artifactory.inputs.RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_remote_aieditorextensions_curated = new RemoteAieditorextensionsRepository(\"my-remote-aieditorextensions-curated\", RemoteAieditorextensionsRepositoryArgs.builder()\n            .key(\"my-remote-aieditorextensions-curated\")\n            .url(\"https://marketplace.visualstudio.com/_apis/public/gallery\")\n            .curated(true)\n            .passThrough(false)\n            .customHttpHeaders(RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs.builder()\n                .name(\"x-api-key\")\n                .value(\"my-gallery-token\")\n                .sensitive(true)\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  my-remote-aieditorextensions-curated:\n    type: artifactory:RemoteAieditorextensionsRepository\n    properties:\n      key: my-remote-aieditorextensions-curated\n      url: https://marketplace.visualstudio.com/_apis/public/gallery\n      curated: true\n      passThrough: false\n      customHttpHeaders:\n        - name: x-api-key\n          value: my-gallery-token\n          sensitive: true\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\nThe default \u003cspan pulumi-lang-nodejs=\"`repoLayoutRef`\" pulumi-lang-dotnet=\"`RepoLayoutRef`\" pulumi-lang-go=\"`repoLayoutRef`\" pulumi-lang-python=\"`repo_layout_ref`\" pulumi-lang-yaml=\"`repoLayoutRef`\" pulumi-lang-java=\"`repoLayoutRef`\" pulumi-lang-hcl=\"`repo_layout_ref`\"\u003e`repoLayoutRef`\u003c/span\u003e for this package type is `simple-default`, and \u003cspan pulumi-lang-nodejs=\"`listRemoteFolderItems`\" pulumi-lang-dotnet=\"`ListRemoteFolderItems`\" pulumi-lang-go=\"`listRemoteFolderItems`\" pulumi-lang-python=\"`list_remote_folder_items`\" pulumi-lang-yaml=\"`listRemoteFolderItems`\" pulumi-lang-java=\"`listRemoteFolderItems`\" pulumi-lang-hcl=\"`list_remote_folder_items`\"\u003e`listRemoteFolderItems`\u003c/span\u003e defaults to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n\n\u003e Setting `enabled = true` inside the shared \u003cspan pulumi-lang-nodejs=\"`contentSynchronisation`\" pulumi-lang-dotnet=\"`ContentSynchronisation`\" pulumi-lang-go=\"`contentSynchronisation`\" pulumi-lang-python=\"`content_synchronisation`\" pulumi-lang-yaml=\"`contentSynchronisation`\" pulumi-lang-java=\"`contentSynchronisation`\" pulumi-lang-hcl=\"`content_synchronisation`\"\u003e`contentSynchronisation`\u003c/span\u003e block has no effect: Artifactory stores it as \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e regardless of what is sent, which leaves a perpetual diff in the plan. The nested \u003cspan pulumi-lang-nodejs=\"`statisticsEnabled`\" pulumi-lang-dotnet=\"`StatisticsEnabled`\" pulumi-lang-go=\"`statisticsEnabled`\" pulumi-lang-python=\"`statistics_enabled`\" pulumi-lang-yaml=\"`statisticsEnabled`\" pulumi-lang-java=\"`statisticsEnabled`\" pulumi-lang-hcl=\"`statistics_enabled`\"\u003e`statisticsEnabled`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`propertiesEnabled`\" pulumi-lang-dotnet=\"`PropertiesEnabled`\" pulumi-lang-go=\"`propertiesEnabled`\" pulumi-lang-python=\"`properties_enabled`\" pulumi-lang-yaml=\"`propertiesEnabled`\" pulumi-lang-java=\"`propertiesEnabled`\" pulumi-lang-hcl=\"`properties_enabled`\"\u003e`propertiesEnabled`\u003c/span\u003e, and \u003cspan pulumi-lang-nodejs=\"`sourceOriginAbsenceDetection`\" pulumi-lang-dotnet=\"`SourceOriginAbsenceDetection`\" pulumi-lang-go=\"`sourceOriginAbsenceDetection`\" pulumi-lang-python=\"`source_origin_absence_detection`\" pulumi-lang-yaml=\"`sourceOriginAbsenceDetection`\" pulumi-lang-java=\"`sourceOriginAbsenceDetection`\" pulumi-lang-hcl=\"`source_origin_absence_detection`\"\u003e`sourceOriginAbsenceDetection`\u003c/span\u003e flags do persist. This applies to non-smart remote repositories (those not proxying another Artifactory instance), which includes this package type.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Header value.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "name",
+                        "sensitive",
+                        "value"
+                    ]
+                }
+            }
+        },
         "artifactory:index/RemoteAlpineRepositoryContentSynchronisation:RemoteAlpineRepositoryContentSynchronisation": {
             "properties": {
                 "enabled": {
@@ -8677,7 +8739,7 @@
             }
         },
         "artifactory:index/debianRepository:DebianRepository": {
-            "description": "Creates a local Debian repository and allows for the creation of a GPG key.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\nimport * as std from \"@pulumi/std\";\n\nconst some_keypairGPG1 = new artifactory.Keypair(\"some-keypairGPG1\", {\n    pairName: `some-keypair${randid.id}`,\n    pairType: \"GPG\",\n    alias: \"foo-alias1\",\n    privateKey: std.file({\n        input: \"samples/gpg.priv\",\n    }).then(invoke =\u003e invoke.result),\n    publicKey: std.file({\n        input: \"samples/gpg.pub\",\n    }).then(invoke =\u003e invoke.result),\n});\nconst some_keypairGPG2 = new artifactory.Keypair(\"some-keypairGPG2\", {\n    pairName: `some-keypair4${randid.id}`,\n    pairType: \"GPG\",\n    alias: \"foo-alias2\",\n    privateKey: std.file({\n        input: \"samples/gpg.priv\",\n    }).then(invoke =\u003e invoke.result),\n    publicKey: std.file({\n        input: \"samples/gpg.pub\",\n    }).then(invoke =\u003e invoke.result),\n});\nconst my_debian_repo = new artifactory.DebianRepository(\"my-debian-repo\", {\n    key: \"my-debian-repo\",\n    primaryKeypairRef: some_keypairGPG1.pairName,\n    secondaryKeypairRef: some_keypairGPG2.pairName,\n    indexCompressionFormats: [\n        \"bz2\",\n        \"lzma\",\n        \"xz\",\n    ],\n    trivialLayout: true,\n}, {\n    dependsOn: [\n        some_keypairGPG1,\n        some_keypairGPG2,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\nimport pulumi_std as std\n\nsome_keypair_gpg1 = artifactory.Keypair(\"some-keypairGPG1\",\n    pair_name=f\"some-keypair{randid['id']}\",\n    pair_type=\"GPG\",\n    alias=\"foo-alias1\",\n    private_key=std.file(input=\"samples/gpg.priv\").result,\n    public_key=std.file(input=\"samples/gpg.pub\").result)\nsome_keypair_gpg2 = artifactory.Keypair(\"some-keypairGPG2\",\n    pair_name=f\"some-keypair4{randid['id']}\",\n    pair_type=\"GPG\",\n    alias=\"foo-alias2\",\n    private_key=std.file(input=\"samples/gpg.priv\").result,\n    public_key=std.file(input=\"samples/gpg.pub\").result)\nmy_debian_repo = artifactory.DebianRepository(\"my-debian-repo\",\n    key=\"my-debian-repo\",\n    primary_keypair_ref=some_keypair_gpg1.pair_name,\n    secondary_keypair_ref=some_keypair_gpg2.pair_name,\n    index_compression_formats=[\n        \"bz2\",\n        \"lzma\",\n        \"xz\",\n    ],\n    trivial_layout=True,\n    opts = pulumi.ResourceOptions(depends_on=[\n            some_keypair_gpg1,\n            some_keypair_gpg2,\n        ]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\nusing Std = Pulumi.Std;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var some_keypairGPG1 = new Artifactory.Keypair(\"some-keypairGPG1\", new()\n    {\n        PairName = $\"some-keypair{randid.Id}\",\n        PairType = \"GPG\",\n        Alias = \"foo-alias1\",\n        PrivateKey = Std.File.Invoke(new()\n        {\n            Input = \"samples/gpg.priv\",\n        }).Apply(invoke =\u003e invoke.Result),\n        PublicKey = Std.File.Invoke(new()\n        {\n            Input = \"samples/gpg.pub\",\n        }).Apply(invoke =\u003e invoke.Result),\n    });\n\n    var some_keypairGPG2 = new Artifactory.Keypair(\"some-keypairGPG2\", new()\n    {\n        PairName = $\"some-keypair4{randid.Id}\",\n        PairType = \"GPG\",\n        Alias = \"foo-alias2\",\n        PrivateKey = Std.File.Invoke(new()\n        {\n            Input = \"samples/gpg.priv\",\n        }).Apply(invoke =\u003e invoke.Result),\n        PublicKey = Std.File.Invoke(new()\n        {\n            Input = \"samples/gpg.pub\",\n        }).Apply(invoke =\u003e invoke.Result),\n    });\n\n    var my_debian_repo = new Artifactory.DebianRepository(\"my-debian-repo\", new()\n    {\n        Key = \"my-debian-repo\",\n        PrimaryKeypairRef = some_keypairGPG1.PairName,\n        SecondaryKeypairRef = some_keypairGPG2.PairName,\n        IndexCompressionFormats = new[]\n        {\n            \"bz2\",\n            \"lzma\",\n            \"xz\",\n        },\n        TrivialLayout = true,\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            some_keypairGPG1,\n            some_keypairGPG2,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory\"\n\t\"github.com/pulumi/pulumi-std/sdk/go/std\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tinvokeFile, err := std.File(ctx, \u0026std.FileArgs{\n\t\t\tInput: \"samples/gpg.priv\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tinvokeFile1, err := std.File(ctx, \u0026std.FileArgs{\n\t\t\tInput: \"samples/gpg.pub\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tsome_keypairGPG1, err := artifactory.NewKeypair(ctx, \"some-keypairGPG1\", \u0026artifactory.KeypairArgs{\n\t\t\tPairName:   pulumi.Sprintf(\"some-keypair%v\", randid.Id),\n\t\t\tPairType:   pulumi.String(\"GPG\"),\n\t\t\tAlias:      pulumi.String(\"foo-alias1\"),\n\t\t\tPrivateKey: pulumi.String(invokeFile.Result),\n\t\t\tPublicKey:  pulumi.String(invokeFile1.Result),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tinvokeFile2, err := std.File(ctx, \u0026std.FileArgs{\n\t\t\tInput: \"samples/gpg.priv\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tinvokeFile3, err := std.File(ctx, \u0026std.FileArgs{\n\t\t\tInput: \"samples/gpg.pub\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tsome_keypairGPG2, err := artifactory.NewKeypair(ctx, \"some-keypairGPG2\", \u0026artifactory.KeypairArgs{\n\t\t\tPairName:   pulumi.Sprintf(\"some-keypair4%v\", randid.Id),\n\t\t\tPairType:   pulumi.String(\"GPG\"),\n\t\t\tAlias:      pulumi.String(\"foo-alias2\"),\n\t\t\tPrivateKey: pulumi.String(invokeFile2.Result),\n\t\t\tPublicKey:  pulumi.String(invokeFile3.Result),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewDebianRepository(ctx, \"my-debian-repo\", \u0026artifactory.DebianRepositoryArgs{\n\t\t\tKey:                 pulumi.String(\"my-debian-repo\"),\n\t\t\tPrimaryKeypairRef:   some_keypairGPG1.PairName,\n\t\t\tSecondaryKeypairRef: some_keypairGPG2.PairName,\n\t\t\tIndexCompressionFormats: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"bz2\"),\n\t\t\t\tpulumi.String(\"lzma\"),\n\t\t\t\tpulumi.String(\"xz\"),\n\t\t\t},\n\t\t\tTrivialLayout: pulumi.Bool(true),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tsome_keypairGPG1,\n\t\t\tsome_keypairGPG2,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    artifactory = {\n      source = \"pulumi/artifactory\"\n    }\n    std = {\n      source = \"pulumi/std\"\n    }\n  }\n}\n\nresource \"artifactory_keypair\" \"some-keypairGPG1\" {\n  pair_name   =\"some-keypair${randid.id}\"\n  pair_type   = \"GPG\"\n  alias       = \"foo-alias1\"\n  private_key = file(\"samples/gpg.priv\")\n  public_key  = file(\"samples/gpg.pub\")\n}\nresource \"artifactory_keypair\" \"some-keypairGPG2\" {\n  pair_name   =\"some-keypair4${randid.id}\"\n  pair_type   = \"GPG\"\n  alias       = \"foo-alias2\"\n  private_key = file(\"samples/gpg.priv\")\n  public_key  = file(\"samples/gpg.pub\")\n}\nresource \"artifactory_debianrepository\" \"my-debian-repo\" {\n  depends_on                = [artifactory_keypair.some-keypairGPG1, artifactory_keypair.some-keypairGPG2]\n  key                       = \"my-debian-repo\"\n  primary_keypair_ref       = artifactory_keypair.some-keypairGPG1.pair_name\n  secondary_keypair_ref     = artifactory_keypair.some-keypairGPG2.pair_name\n  index_compression_formats = [\"bz2\", \"lzma\", \"xz\"]\n  trivial_layout            = true\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.Keypair;\nimport com.pulumi.artifactory.KeypairArgs;\nimport com.pulumi.std.StdFunctions;\nimport com.pulumi.std.inputs.FileArgs;\nimport com.pulumi.artifactory.DebianRepository;\nimport com.pulumi.artifactory.DebianRepositoryArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var some_keypairGPG1 = new Keypair(\"some-keypairGPG1\", KeypairArgs.builder()\n            .pairName(String.format(\"some-keypair%s\", randid.id()))\n            .pairType(\"GPG\")\n            .alias(\"foo-alias1\")\n            .privateKey(StdFunctions.file(FileArgs.builder()\n                .input(\"samples/gpg.priv\")\n                .build()).result())\n            .publicKey(StdFunctions.file(FileArgs.builder()\n                .input(\"samples/gpg.pub\")\n                .build()).result())\n            .build());\n\n        var some_keypairGPG2 = new Keypair(\"some-keypairGPG2\", KeypairArgs.builder()\n            .pairName(String.format(\"some-keypair4%s\", randid.id()))\n            .pairType(\"GPG\")\n            .alias(\"foo-alias2\")\n            .privateKey(StdFunctions.file(FileArgs.builder()\n                .input(\"samples/gpg.priv\")\n                .build()).result())\n            .publicKey(StdFunctions.file(FileArgs.builder()\n                .input(\"samples/gpg.pub\")\n                .build()).result())\n            .build());\n\n        var my_debian_repo = new DebianRepository(\"my-debian-repo\", DebianRepositoryArgs.builder()\n            .key(\"my-debian-repo\")\n            .primaryKeypairRef(some_keypairGPG1.pairName())\n            .secondaryKeypairRef(some_keypairGPG2.pairName())\n            .indexCompressionFormats(            \n                \"bz2\",\n                \"lzma\",\n                \"xz\")\n            .trivialLayout(true)\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(                \n                    some_keypairGPG1,\n                    some_keypairGPG2)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  some-keypairGPG1:\n    type: artifactory:Keypair\n    properties:\n      pairName: some-keypair${randid.id}\n      pairType: GPG\n      alias: foo-alias1\n      privateKey:\n        fn::invoke:\n          function: std:file\n          arguments:\n            input: samples/gpg.priv\n          return: result\n      publicKey:\n        fn::invoke:\n          function: std:file\n          arguments:\n            input: samples/gpg.pub\n          return: result\n  some-keypairGPG2:\n    type: artifactory:Keypair\n    properties:\n      pairName: some-keypair4${randid.id}\n      pairType: GPG\n      alias: foo-alias2\n      privateKey:\n        fn::invoke:\n          function: std:file\n          arguments:\n            input: samples/gpg.priv\n          return: result\n      publicKey:\n        fn::invoke:\n          function: std:file\n          arguments:\n            input: samples/gpg.pub\n          return: result\n  my-debian-repo:\n    type: artifactory:DebianRepository\n    properties:\n      key: my-debian-repo\n      primaryKeypairRef: ${[\"some-keypairGPG1\"].pairName}\n      secondaryKeypairRef: ${[\"some-keypairGPG2\"].pairName}\n      indexCompressionFormats:\n        - bz2\n        - lzma\n        - xz\n      trivialLayout: true\n    options:\n      dependsOn:\n        - ${[\"some-keypairGPG1\"]}\n        - ${[\"some-keypairGPG2\"]}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nLocal repositories can be imported using their name, e.g.\n```sh\n$ pulumi import artifactory:index/debianRepository:DebianRepository my-debian-repo my-debian-repo\n```\n\n",
+            "description": "Creates a local Debian repository and allows for the creation of a GPG key.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\nimport * as std from \"@pulumi/std\";\n\nconst some_keypairGPG1 = new artifactory.Keypair(\"some-keypairGPG1\", {\n    pairName: `some-keypair${randid.id}`,\n    pairType: \"GPG\",\n    alias: \"foo-alias1\",\n    privateKey: std.file({\n        input: \"samples/gpg.priv\",\n    }).then(invoke =\u003e invoke.result),\n    publicKey: std.file({\n        input: \"samples/gpg.pub\",\n    }).then(invoke =\u003e invoke.result),\n});\nconst some_keypairGPG2 = new artifactory.Keypair(\"some-keypairGPG2\", {\n    pairName: `some-keypair4${randid.id}`,\n    pairType: \"GPG\",\n    alias: \"foo-alias2\",\n    privateKey: std.file({\n        input: \"samples/gpg.priv\",\n    }).then(invoke =\u003e invoke.result),\n    publicKey: std.file({\n        input: \"samples/gpg.pub\",\n    }).then(invoke =\u003e invoke.result),\n});\nconst my_debian_repo = new artifactory.DebianRepository(\"my-debian-repo\", {\n    key: \"my-debian-repo\",\n    primaryKeypairRef: some_keypairGPG1.pairName,\n    secondaryKeypairRef: some_keypairGPG2.pairName,\n    indexCompressionFormats: [],\n    trivialLayout: true,\n}, {\n    dependsOn: [\n        some_keypairGPG1,\n        some_keypairGPG2,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\nimport pulumi_std as std\n\nsome_keypair_gpg1 = artifactory.Keypair(\"some-keypairGPG1\",\n    pair_name=f\"some-keypair{randid['id']}\",\n    pair_type=\"GPG\",\n    alias=\"foo-alias1\",\n    private_key=std.file(input=\"samples/gpg.priv\").result,\n    public_key=std.file(input=\"samples/gpg.pub\").result)\nsome_keypair_gpg2 = artifactory.Keypair(\"some-keypairGPG2\",\n    pair_name=f\"some-keypair4{randid['id']}\",\n    pair_type=\"GPG\",\n    alias=\"foo-alias2\",\n    private_key=std.file(input=\"samples/gpg.priv\").result,\n    public_key=std.file(input=\"samples/gpg.pub\").result)\nmy_debian_repo = artifactory.DebianRepository(\"my-debian-repo\",\n    key=\"my-debian-repo\",\n    primary_keypair_ref=some_keypair_gpg1.pair_name,\n    secondary_keypair_ref=some_keypair_gpg2.pair_name,\n    index_compression_formats=[],\n    trivial_layout=True,\n    opts = pulumi.ResourceOptions(depends_on=[\n            some_keypair_gpg1,\n            some_keypair_gpg2,\n        ]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\nusing Std = Pulumi.Std;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var some_keypairGPG1 = new Artifactory.Keypair(\"some-keypairGPG1\", new()\n    {\n        PairName = $\"some-keypair{randid.Id}\",\n        PairType = \"GPG\",\n        Alias = \"foo-alias1\",\n        PrivateKey = Std.File.Invoke(new()\n        {\n            Input = \"samples/gpg.priv\",\n        }).Apply(invoke =\u003e invoke.Result),\n        PublicKey = Std.File.Invoke(new()\n        {\n            Input = \"samples/gpg.pub\",\n        }).Apply(invoke =\u003e invoke.Result),\n    });\n\n    var some_keypairGPG2 = new Artifactory.Keypair(\"some-keypairGPG2\", new()\n    {\n        PairName = $\"some-keypair4{randid.Id}\",\n        PairType = \"GPG\",\n        Alias = \"foo-alias2\",\n        PrivateKey = Std.File.Invoke(new()\n        {\n            Input = \"samples/gpg.priv\",\n        }).Apply(invoke =\u003e invoke.Result),\n        PublicKey = Std.File.Invoke(new()\n        {\n            Input = \"samples/gpg.pub\",\n        }).Apply(invoke =\u003e invoke.Result),\n    });\n\n    var my_debian_repo = new Artifactory.DebianRepository(\"my-debian-repo\", new()\n    {\n        Key = \"my-debian-repo\",\n        PrimaryKeypairRef = some_keypairGPG1.PairName,\n        SecondaryKeypairRef = some_keypairGPG2.PairName,\n        IndexCompressionFormats = new[] {},\n        TrivialLayout = true,\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            some_keypairGPG1,\n            some_keypairGPG2,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory\"\n\t\"github.com/pulumi/pulumi-std/sdk/go/std\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tinvokeFile, err := std.File(ctx, \u0026std.FileArgs{\n\t\t\tInput: \"samples/gpg.priv\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tinvokeFile1, err := std.File(ctx, \u0026std.FileArgs{\n\t\t\tInput: \"samples/gpg.pub\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tsome_keypairGPG1, err := artifactory.NewKeypair(ctx, \"some-keypairGPG1\", \u0026artifactory.KeypairArgs{\n\t\t\tPairName:   pulumi.Sprintf(\"some-keypair%v\", randid.Id),\n\t\t\tPairType:   pulumi.String(\"GPG\"),\n\t\t\tAlias:      pulumi.String(\"foo-alias1\"),\n\t\t\tPrivateKey: pulumi.String(invokeFile.Result),\n\t\t\tPublicKey:  pulumi.String(invokeFile1.Result),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tinvokeFile2, err := std.File(ctx, \u0026std.FileArgs{\n\t\t\tInput: \"samples/gpg.priv\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tinvokeFile3, err := std.File(ctx, \u0026std.FileArgs{\n\t\t\tInput: \"samples/gpg.pub\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tsome_keypairGPG2, err := artifactory.NewKeypair(ctx, \"some-keypairGPG2\", \u0026artifactory.KeypairArgs{\n\t\t\tPairName:   pulumi.Sprintf(\"some-keypair4%v\", randid.Id),\n\t\t\tPairType:   pulumi.String(\"GPG\"),\n\t\t\tAlias:      pulumi.String(\"foo-alias2\"),\n\t\t\tPrivateKey: pulumi.String(invokeFile2.Result),\n\t\t\tPublicKey:  pulumi.String(invokeFile3.Result),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewDebianRepository(ctx, \"my-debian-repo\", \u0026artifactory.DebianRepositoryArgs{\n\t\t\tKey:                     pulumi.String(\"my-debian-repo\"),\n\t\t\tPrimaryKeypairRef:       some_keypairGPG1.PairName,\n\t\t\tSecondaryKeypairRef:     some_keypairGPG2.PairName,\n\t\t\tIndexCompressionFormats: pulumi.StringArray{},\n\t\t\tTrivialLayout:           pulumi.Bool(true),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tsome_keypairGPG1,\n\t\t\tsome_keypairGPG2,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    artifactory = {\n      source = \"pulumi/artifactory\"\n    }\n    std = {\n      source = \"pulumi/std\"\n    }\n  }\n}\n\nresource \"artifactory_keypair\" \"some-keypairGPG1\" {\n  pair_name   =\"some-keypair${randid.id}\"\n  pair_type   = \"GPG\"\n  alias       = \"foo-alias1\"\n  private_key = file(\"samples/gpg.priv\")\n  public_key  = file(\"samples/gpg.pub\")\n}\nresource \"artifactory_keypair\" \"some-keypairGPG2\" {\n  pair_name   =\"some-keypair4${randid.id}\"\n  pair_type   = \"GPG\"\n  alias       = \"foo-alias2\"\n  private_key = file(\"samples/gpg.priv\")\n  public_key  = file(\"samples/gpg.pub\")\n}\nresource \"artifactory_debianrepository\" \"my-debian-repo\" {\n  depends_on                = [artifactory_keypair.some-keypairGPG1, artifactory_keypair.some-keypairGPG2]\n  key                       = \"my-debian-repo\"\n  primary_keypair_ref       = artifactory_keypair.some-keypairGPG1.pair_name\n  secondary_keypair_ref     = artifactory_keypair.some-keypairGPG2.pair_name\n  index_compression_formats = []\n  trivial_layout            = true\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.Keypair;\nimport com.pulumi.artifactory.KeypairArgs;\nimport com.pulumi.std.StdFunctions;\nimport com.pulumi.std.inputs.FileArgs;\nimport com.pulumi.artifactory.DebianRepository;\nimport com.pulumi.artifactory.DebianRepositoryArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var some_keypairGPG1 = new Keypair(\"some-keypairGPG1\", KeypairArgs.builder()\n            .pairName(String.format(\"some-keypair%s\", randid.id()))\n            .pairType(\"GPG\")\n            .alias(\"foo-alias1\")\n            .privateKey(StdFunctions.file(FileArgs.builder()\n                .input(\"samples/gpg.priv\")\n                .build()).result())\n            .publicKey(StdFunctions.file(FileArgs.builder()\n                .input(\"samples/gpg.pub\")\n                .build()).result())\n            .build());\n\n        var some_keypairGPG2 = new Keypair(\"some-keypairGPG2\", KeypairArgs.builder()\n            .pairName(String.format(\"some-keypair4%s\", randid.id()))\n            .pairType(\"GPG\")\n            .alias(\"foo-alias2\")\n            .privateKey(StdFunctions.file(FileArgs.builder()\n                .input(\"samples/gpg.priv\")\n                .build()).result())\n            .publicKey(StdFunctions.file(FileArgs.builder()\n                .input(\"samples/gpg.pub\")\n                .build()).result())\n            .build());\n\n        var my_debian_repo = new DebianRepository(\"my-debian-repo\", DebianRepositoryArgs.builder()\n            .key(\"my-debian-repo\")\n            .primaryKeypairRef(some_keypairGPG1.pairName())\n            .secondaryKeypairRef(some_keypairGPG2.pairName())\n            .indexCompressionFormats()\n            .trivialLayout(true)\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(                \n                    some_keypairGPG1,\n                    some_keypairGPG2)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  some-keypairGPG1:\n    type: artifactory:Keypair\n    properties:\n      pairName: some-keypair${randid.id}\n      pairType: GPG\n      alias: foo-alias1\n      privateKey:\n        fn::invoke:\n          function: std:file\n          arguments:\n            input: samples/gpg.priv\n          return: result\n      publicKey:\n        fn::invoke:\n          function: std:file\n          arguments:\n            input: samples/gpg.pub\n          return: result\n  some-keypairGPG2:\n    type: artifactory:Keypair\n    properties:\n      pairName: some-keypair4${randid.id}\n      pairType: GPG\n      alias: foo-alias2\n      privateKey:\n        fn::invoke:\n          function: std:file\n          arguments:\n            input: samples/gpg.priv\n          return: result\n      publicKey:\n        fn::invoke:\n          function: std:file\n          arguments:\n            input: samples/gpg.pub\n          return: result\n  my-debian-repo:\n    type: artifactory:DebianRepository\n    properties:\n      key: my-debian-repo\n      primaryKeypairRef: ${[\"some-keypairGPG1\"].pairName}\n      secondaryKeypairRef: ${[\"some-keypairGPG2\"].pairName}\n      indexCompressionFormats: []\n      trivialLayout: true\n    options:\n      dependsOn:\n        - ${[\"some-keypairGPG1\"]}\n        - ${[\"some-keypairGPG2\"]}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nLocal repositories can be imported using their name, e.g.\n```sh\n$ pulumi import artifactory:index/debianRepository:DebianRepository my-debian-repo my-debian-repo\n```\n\n",
             "properties": {
                 "archiveBrowsingEnabled": {
                     "type": "boolean",
@@ -8716,7 +8778,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)\nand XZ (.xz extension).\n"
+                    "description": "The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)\nand XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. \u003cspan pulumi-lang-nodejs=\"`indexCompressionFormats \" pulumi-lang-dotnet=\"`IndexCompressionFormats \" pulumi-lang-go=\"`indexCompressionFormats \" pulumi-lang-python=\"`index_compression_formats \" pulumi-lang-yaml=\"`indexCompressionFormats \" pulumi-lang-java=\"`indexCompressionFormats \" pulumi-lang-hcl=\"`index_compression_formats \"\u003e`indexCompressionFormats \u003c/span\u003e= [\"bz2\", \"lzma\", \"xz\"]`. Default is empty.\n"
                 },
                 "key": {
                     "type": "string",
@@ -8828,7 +8890,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)\nand XZ (.xz extension).\n"
+                    "description": "The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)\nand XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. \u003cspan pulumi-lang-nodejs=\"`indexCompressionFormats \" pulumi-lang-dotnet=\"`IndexCompressionFormats \" pulumi-lang-go=\"`indexCompressionFormats \" pulumi-lang-python=\"`index_compression_formats \" pulumi-lang-yaml=\"`indexCompressionFormats \" pulumi-lang-java=\"`indexCompressionFormats \" pulumi-lang-hcl=\"`index_compression_formats \"\u003e`indexCompressionFormats \u003c/span\u003e= [\"bz2\", \"lzma\", \"xz\"]`. Default is empty.\n"
                 },
                 "key": {
                     "type": "string",
@@ -8924,7 +8986,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)\nand XZ (.xz extension).\n"
+                        "description": "The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)\nand XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. \u003cspan pulumi-lang-nodejs=\"`indexCompressionFormats \" pulumi-lang-dotnet=\"`IndexCompressionFormats \" pulumi-lang-go=\"`indexCompressionFormats \" pulumi-lang-python=\"`index_compression_formats \" pulumi-lang-yaml=\"`indexCompressionFormats \" pulumi-lang-java=\"`indexCompressionFormats \" pulumi-lang-hcl=\"`index_compression_formats \"\u003e`indexCompressionFormats \u003c/span\u003e= [\"bz2\", \"lzma\", \"xz\"]`. Default is empty.\n"
                     },
                     "key": {
                         "type": "string",
@@ -34551,6 +34613,737 @@
                     "key": {
                         "type": "string",
                         "description": "The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "artifactory:index/remoteAieditorextensionsRepository:RemoteAieditorextensionsRepository": {
+            "description": "Creates a remote AI-Editor Extensions repository that proxies and caches editor extensions from a VS Code compatible marketplace gallery, such as `https://marketplace.visualstudio.com/_apis/public/gallery`. This package type is modeled on VS Code marketplace extensions.\n\n\u003e AI-Editor Extensions repositories are supported as **remote** repositories only, so the provider exposes no \u003cspan pulumi-lang-nodejs=\"`artifactoryLocalAieditorextensionsRepository`\" pulumi-lang-dotnet=\"`ArtifactoryLocalAieditorextensionsRepository`\" pulumi-lang-go=\"`artifactoryLocalAieditorextensionsRepository`\" pulumi-lang-python=\"`artifactory_local_aieditorextensions_repository`\" pulumi-lang-yaml=\"`artifactoryLocalAieditorextensionsRepository`\" pulumi-lang-java=\"`artifactoryLocalAieditorextensionsRepository`\" pulumi-lang-hcl=\"`artifactory_local_aieditorextensions_repository`\"\u003e`artifactoryLocalAieditorextensionsRepository`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`artifactoryVirtualAieditorextensionsRepository`\" pulumi-lang-dotnet=\"`ArtifactoryVirtualAieditorextensionsRepository`\" pulumi-lang-go=\"`artifactoryVirtualAieditorextensionsRepository`\" pulumi-lang-python=\"`artifactory_virtual_aieditorextensions_repository`\" pulumi-lang-yaml=\"`artifactoryVirtualAieditorextensionsRepository`\" pulumi-lang-java=\"`artifactoryVirtualAieditorextensionsRepository`\" pulumi-lang-hcl=\"`artifactory_virtual_aieditorextensions_repository`\"\u003e`artifactoryVirtualAieditorextensionsRepository`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`artifactoryFederatedAieditorextensionsRepository`\" pulumi-lang-dotnet=\"`ArtifactoryFederatedAieditorextensionsRepository`\" pulumi-lang-go=\"`artifactoryFederatedAieditorextensionsRepository`\" pulumi-lang-python=\"`artifactory_federated_aieditorextensions_repository`\" pulumi-lang-yaml=\"`artifactoryFederatedAieditorextensionsRepository`\" pulumi-lang-java=\"`artifactoryFederatedAieditorextensionsRepository`\" pulumi-lang-hcl=\"`artifactory_federated_aieditorextensions_repository`\"\u003e`artifactoryFederatedAieditorextensionsRepository`\u003c/span\u003e resource.\n\n\u003e \u003cspan pulumi-lang-nodejs=\"`url`\" pulumi-lang-dotnet=\"`Url`\" pulumi-lang-go=\"`url`\" pulumi-lang-python=\"`url`\" pulumi-lang-yaml=\"`url`\" pulumi-lang-java=\"`url`\" pulumi-lang-hcl=\"`url`\"\u003e`url`\u003c/span\u003e is required. Unlike some package types, Artifactory does not fall back to a default gallery URL for AI-Editor Extensions, so it must be set on every repository. Ex: Use `https://marketplace.visualstudio.com/_apis/public/gallery` for the VS Code marketplace.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\nconst my_remote_aieditorextensions = new artifactory.RemoteAieditorextensionsRepository(\"my-remote-aieditorextensions\", {\n    key: \"my-remote-aieditorextensions\",\n    url: \"https://marketplace.visualstudio.com/_apis/public/gallery\",\n    description: \"AI-Editor (VS Code) extensions proxy\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nmy_remote_aieditorextensions = artifactory.RemoteAieditorextensionsRepository(\"my-remote-aieditorextensions\",\n    key=\"my-remote-aieditorextensions\",\n    url=\"https://marketplace.visualstudio.com/_apis/public/gallery\",\n    description=\"AI-Editor (VS Code) extensions proxy\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_remote_aieditorextensions = new Artifactory.RemoteAieditorextensionsRepository(\"my-remote-aieditorextensions\", new()\n    {\n        Key = \"my-remote-aieditorextensions\",\n        Url = \"https://marketplace.visualstudio.com/_apis/public/gallery\",\n        Description = \"AI-Editor (VS Code) extensions proxy\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewRemoteAieditorextensionsRepository(ctx, \"my-remote-aieditorextensions\", \u0026artifactory.RemoteAieditorextensionsRepositoryArgs{\n\t\t\tKey:         pulumi.String(\"my-remote-aieditorextensions\"),\n\t\t\tUrl:         pulumi.String(\"https://marketplace.visualstudio.com/_apis/public/gallery\"),\n\t\t\tDescription: pulumi.String(\"AI-Editor (VS Code) extensions proxy\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    artifactory = {\n      source = \"pulumi/artifactory\"\n    }\n  }\n}\n\nresource \"artifactory_remoteaieditorextensionsrepository\" \"my-remote-aieditorextensions\" {\n  key         = \"my-remote-aieditorextensions\"\n  url         = \"https://marketplace.visualstudio.com/_apis/public/gallery\"\n  description = \"AI-Editor (VS Code) extensions proxy\"\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.RemoteAieditorextensionsRepository;\nimport com.pulumi.artifactory.RemoteAieditorextensionsRepositoryArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_remote_aieditorextensions = new RemoteAieditorextensionsRepository(\"my-remote-aieditorextensions\", RemoteAieditorextensionsRepositoryArgs.builder()\n            .key(\"my-remote-aieditorextensions\")\n            .url(\"https://marketplace.visualstudio.com/_apis/public/gallery\")\n            .description(\"AI-Editor (VS Code) extensions proxy\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  my-remote-aieditorextensions:\n    type: artifactory:RemoteAieditorextensionsRepository\n    properties:\n      key: my-remote-aieditorextensions\n      url: https://marketplace.visualstudio.com/_apis/public/gallery\n      description: AI-Editor (VS Code) extensions proxy\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\nExtension payloads are served from a CDN separate from the gallery host, so external dependency resolution is enabled by default for this package type. Override the patterns if your gallery serves payloads from a different host:\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\nconst my_remote_aieditorextensions_custom = new artifactory.RemoteAieditorextensionsRepository(\"my-remote-aieditorextensions-custom\", {\n    key: \"my-remote-aieditorextensions-custom\",\n    url: \"https://marketplace.visualstudio.com/_apis/public/gallery\",\n    externalDependenciesEnabled: true,\n    externalDependenciesPatterns: [\n        \"**/**vsassets.io/**\",\n        \"**/**gallerycdn.vsassets.io/**\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nmy_remote_aieditorextensions_custom = artifactory.RemoteAieditorextensionsRepository(\"my-remote-aieditorextensions-custom\",\n    key=\"my-remote-aieditorextensions-custom\",\n    url=\"https://marketplace.visualstudio.com/_apis/public/gallery\",\n    external_dependencies_enabled=True,\n    external_dependencies_patterns=[\n        \"**/**vsassets.io/**\",\n        \"**/**gallerycdn.vsassets.io/**\",\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_remote_aieditorextensions_custom = new Artifactory.RemoteAieditorextensionsRepository(\"my-remote-aieditorextensions-custom\", new()\n    {\n        Key = \"my-remote-aieditorextensions-custom\",\n        Url = \"https://marketplace.visualstudio.com/_apis/public/gallery\",\n        ExternalDependenciesEnabled = true,\n        ExternalDependenciesPatterns = new[]\n        {\n            \"**/**vsassets.io/**\",\n            \"**/**gallerycdn.vsassets.io/**\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewRemoteAieditorextensionsRepository(ctx, \"my-remote-aieditorextensions-custom\", \u0026artifactory.RemoteAieditorextensionsRepositoryArgs{\n\t\t\tKey:                         pulumi.String(\"my-remote-aieditorextensions-custom\"),\n\t\t\tUrl:                         pulumi.String(\"https://marketplace.visualstudio.com/_apis/public/gallery\"),\n\t\t\tExternalDependenciesEnabled: pulumi.Bool(true),\n\t\t\tExternalDependenciesPatterns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"**/**vsassets.io/**\"),\n\t\t\t\tpulumi.String(\"**/**gallerycdn.vsassets.io/**\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    artifactory = {\n      source = \"pulumi/artifactory\"\n    }\n  }\n}\n\nresource \"artifactory_remoteaieditorextensionsrepository\" \"my-remote-aieditorextensions-custom\" {\n  key                            = \"my-remote-aieditorextensions-custom\"\n  url                            = \"https://marketplace.visualstudio.com/_apis/public/gallery\"\n  external_dependencies_enabled  = true\n  external_dependencies_patterns = [\"**/**vsassets.io/**\", \"**/**gallerycdn.vsassets.io/**\"]\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.RemoteAieditorextensionsRepository;\nimport com.pulumi.artifactory.RemoteAieditorextensionsRepositoryArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_remote_aieditorextensions_custom = new RemoteAieditorextensionsRepository(\"my-remote-aieditorextensions-custom\", RemoteAieditorextensionsRepositoryArgs.builder()\n            .key(\"my-remote-aieditorextensions-custom\")\n            .url(\"https://marketplace.visualstudio.com/_apis/public/gallery\")\n            .externalDependenciesEnabled(true)\n            .externalDependenciesPatterns(            \n                \"**/**vsassets.io/**\",\n                \"**/**gallerycdn.vsassets.io/**\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  my-remote-aieditorextensions-custom:\n    type: artifactory:RemoteAieditorextensionsRepository\n    properties:\n      key: my-remote-aieditorextensions-custom\n      url: https://marketplace.visualstudio.com/_apis/public/gallery\n      externalDependenciesEnabled: true\n      externalDependenciesPatterns:\n        - '**/**vsassets.io/**'\n        - '**/**gallerycdn.vsassets.io/**'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nRemote repositories can be imported using their name, e.g.\n```sh\n$ pulumi import artifactory:index/remoteAieditorextensionsRepository:RemoteAieditorextensionsRepository my-remote-aieditorextensions my-remote-aieditorextensions\n```\n\n",
+            "properties": {
+                "allowAnyHostAuth": {
+                    "type": "boolean",
+                    "description": "'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host."
+                },
+                "archiveBrowsingEnabled": {
+                    "type": "boolean",
+                    "description": "When set, you may view content such as HTML or Javadoc files directly from Artifactory.\nThis may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks)."
+                },
+                "assumedOfflinePeriodSecs": {
+                    "type": "integer",
+                    "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline."
+                },
+                "blackedOut": {
+                    "type": "boolean",
+                    "description": "(A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution."
+                },
+                "blockMismatchingMimeTypes": {
+                    "type": "boolean",
+                    "description": "If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'."
+                },
+                "bypassHeadRequests": {
+                    "type": "boolean",
+                    "description": "Artifactory always enables this setting for AI-Editor Extensions repositories, rather than \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e as on other remote repository types, and rejects any request that tries to change it. It is therefore exposed as a read-only attribute that always reports \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e and cannot be set in configuration (setting it — even to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e — produces a \"read-only attribute\" error).\n"
+                },
+                "cdnRedirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'"
+                },
+                "clientTlsCertificate": {
+                    "type": "string",
+                    "description": "Client TLS certificate name."
+                },
+                "contentSynchronisation": {
+                    "$ref": "#/types/artifactory:index/RemoteAieditorextensionsRepositoryContentSynchronisation:RemoteAieditorextensionsRepositoryContentSynchronisation"
+                },
+                "curated": {
+                    "type": "boolean",
+                    "description": "Enable repository to be protected by the Curation service. Default value is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                },
+                "customHttpHeaders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/artifactory:index/RemoteAieditorextensionsRepositoryCustomHttpHeader:RemoteAieditorextensionsRepositoryCustomHttpHeader"
+                    },
+                    "description": "Up to 5 custom HTTP headers sent on every outbound request to the remote URL. Requires Artifactory 7.146.0 or later. Header values are write-only: they are masked in plan output and never read back from Artifactory, so `pulumi import` cannot recover them. To remove all headers, remove the attribute. Each entry supports:\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Public description."
+                },
+                "disableProxy": {
+                    "type": "boolean",
+                    "description": "When set to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7."
+                },
+                "disableUrlNormalization": {
+                    "type": "boolean",
+                    "description": "Whether to disable URL normalization. Default is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e."
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'."
+                },
+                "enableCookieManagement": {
+                    "type": "boolean",
+                    "description": "Enables cookie management if the remote repository uses cookies to manage client state."
+                },
+                "enableTokenAuthentication": {
+                    "type": "boolean",
+                    "description": "Enable token (Bearer) based authentication. Default value is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e. Note this differs from the Docker and OCI remote repository resources, which default it to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e; \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e matches the Artifactory default for this package type.\n"
+                },
+                "excludesPattern": {
+                    "type": "string",
+                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded."
+                },
+                "externalDependenciesEnabled": {
+                    "type": "boolean",
+                    "description": "When set, Artifactory can resolve extension dependencies from the external sources matching \u003cspan pulumi-lang-nodejs=\"`externalDependenciesPatterns`\" pulumi-lang-dotnet=\"`ExternalDependenciesPatterns`\" pulumi-lang-go=\"`externalDependenciesPatterns`\" pulumi-lang-python=\"`external_dependencies_patterns`\" pulumi-lang-yaml=\"`externalDependenciesPatterns`\" pulumi-lang-java=\"`externalDependenciesPatterns`\" pulumi-lang-hcl=\"`external_dependencies_patterns`\"\u003e`externalDependenciesPatterns`\u003c/span\u003e. Unlike other remote repository types, this defaults to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e for AI-Editor Extensions because extension payloads are hosted on a CDN separate from the gallery URL.\n"
+                },
+                "externalDependenciesPatterns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An allow list of Ant-style path patterns that determine which remote hosts external extension dependencies may be downloaded from. Only takes effect when \u003cspan pulumi-lang-nodejs=\"`externalDependenciesEnabled`\" pulumi-lang-dotnet=\"`ExternalDependenciesEnabled`\" pulumi-lang-go=\"`externalDependenciesEnabled`\" pulumi-lang-python=\"`external_dependencies_enabled`\" pulumi-lang-yaml=\"`externalDependenciesEnabled`\" pulumi-lang-java=\"`externalDependenciesEnabled`\" pulumi-lang-hcl=\"`external_dependencies_enabled`\"\u003e`externalDependenciesEnabled`\u003c/span\u003e is \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e, but Artifactory stores the patterns either way, so they may be set while it is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e. Default value is `[\"**/**vsassets.io/**\"]`. An empty list is not accepted — the provider requires at least one pattern.\n"
+                },
+                "hardFail": {
+                    "type": "boolean",
+                    "description": "When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository."
+                },
+                "includesPattern": {
+                    "type": "string",
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`)."
+                },
+                "key": {
+                    "type": "string",
+                    "description": "A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.\n"
+                },
+                "listRemoteFolderItems": {
+                    "type": "boolean",
+                    "description": "Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI."
+                },
+                "localAddress": {
+                    "type": "string",
+                    "description": "The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces."
+                },
+                "metadataRetrievalTimeoutSecs": {
+                    "type": "integer",
+                    "description": "Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request."
+                },
+                "mismatchingMimeTypesOverrideList": {
+                    "type": "string",
+                    "description": "The set of mime types that should override the\u003cspan pulumi-lang-nodejs=\" blockMismatchingMimeTypes \" pulumi-lang-dotnet=\" BlockMismatchingMimeTypes \" pulumi-lang-go=\" blockMismatchingMimeTypes \" pulumi-lang-python=\" block_mismatching_mime_types \" pulumi-lang-yaml=\" blockMismatchingMimeTypes \" pulumi-lang-java=\" blockMismatchingMimeTypes \" pulumi-lang-hcl=\" block_mismatching_mime_types \"\u003e blockMismatchingMimeTypes \u003c/span\u003esetting. Eg: 'application/json,application/xml'. Default value is empty."
+                },
+                "missedCachePeriodSeconds": {
+                    "type": "integer",
+                    "description": "Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching."
+                },
+                "notes": {
+                    "type": "string",
+                    "description": "Internal description."
+                },
+                "offline": {
+                    "type": "boolean",
+                    "description": "If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved."
+                },
+                "passThrough": {
+                    "type": "boolean",
+                    "description": "Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process. Default value is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                },
+                "password": {
+                    "type": "string",
+                    "secret": true
+                },
+                "passwordWo": {
+                    "type": "string",
+                    "description": "**NOTE:** This field is write-only and its value will not be updated in state as part of read operations.\nWrite-only equivalent of \u003cspan pulumi-lang-nodejs=\"`password`\" pulumi-lang-dotnet=\"`Password`\" pulumi-lang-go=\"`password`\" pulumi-lang-python=\"`password`\" pulumi-lang-yaml=\"`password`\" pulumi-lang-java=\"`password`\" pulumi-lang-hcl=\"`password`\"\u003e`password`\u003c/span\u003e. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with \u003cspan pulumi-lang-nodejs=\"`password`\" pulumi-lang-dotnet=\"`Password`\" pulumi-lang-go=\"`password`\" pulumi-lang-python=\"`password`\" pulumi-lang-yaml=\"`password`\" pulumi-lang-java=\"`password`\" pulumi-lang-hcl=\"`password`\"\u003e`password`\u003c/span\u003e. Because write-only values are not tracked in state, use \u003cspan pulumi-lang-nodejs=\"`passwordWoVersion`\" pulumi-lang-dotnet=\"`PasswordWoVersion`\" pulumi-lang-go=\"`passwordWoVersion`\" pulumi-lang-python=\"`password_wo_version`\" pulumi-lang-yaml=\"`passwordWoVersion`\" pulumi-lang-java=\"`passwordWoVersion`\" pulumi-lang-hcl=\"`password_wo_version`\"\u003e`passwordWoVersion`\u003c/span\u003e to signal when the secret has changed so it is re-sent to Artifactory.",
+                    "secret": true
+                },
+                "passwordWoVersion": {
+                    "type": "string",
+                    "description": "A version identifier for \u003cspan pulumi-lang-nodejs=\"`passwordWo`\" pulumi-lang-dotnet=\"`PasswordWo`\" pulumi-lang-go=\"`passwordWo`\" pulumi-lang-python=\"`password_wo`\" pulumi-lang-yaml=\"`passwordWo`\" pulumi-lang-java=\"`passwordWo`\" pulumi-lang-hcl=\"`password_wo`\"\u003e`passwordWo`\u003c/span\u003e. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current \u003cspan pulumi-lang-nodejs=\"`passwordWo`\" pulumi-lang-dotnet=\"`PasswordWo`\" pulumi-lang-go=\"`passwordWo`\" pulumi-lang-python=\"`password_wo`\" pulumi-lang-yaml=\"`passwordWo`\" pulumi-lang-java=\"`passwordWo`\" pulumi-lang-hcl=\"`password_wo`\"\u003e`passwordWo`\u003c/span\u003e value to Artifactory. Only meaningful together with \u003cspan pulumi-lang-nodejs=\"`passwordWo`\" pulumi-lang-dotnet=\"`PasswordWo`\" pulumi-lang-go=\"`passwordWo`\" pulumi-lang-python=\"`password_wo`\" pulumi-lang-yaml=\"`passwordWo`\" pulumi-lang-java=\"`passwordWo`\" pulumi-lang-hcl=\"`password_wo`\"\u003e`passwordWo`\u003c/span\u003e."
+                },
+                "priorityResolution": {
+                    "type": "boolean",
+                    "description": "Setting repositories with priority will cause metadata to be merged only from repositories set with this field"
+                },
+                "projectEnvironments": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update."
+                },
+                "projectKey": {
+                    "type": "string",
+                    "description": "Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash."
+                },
+                "propagateQueryParams": {
+                    "type": "boolean",
+                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository. Default value is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                },
+                "propertySets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of property set name"
+                },
+                "proxy": {
+                    "type": "string",
+                    "description": "Proxy key from Artifactory Proxies settings. Can't be set if \u003cspan pulumi-lang-nodejs=\"`disableProxy \" pulumi-lang-dotnet=\"`DisableProxy \" pulumi-lang-go=\"`disableProxy \" pulumi-lang-python=\"`disable_proxy \" pulumi-lang-yaml=\"`disableProxy \" pulumi-lang-java=\"`disableProxy \" pulumi-lang-hcl=\"`disable_proxy \"\u003e`disableProxy \u003c/span\u003e= true`."
+                },
+                "queryParams": {
+                    "type": "string",
+                    "description": "Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1\u0026param2=val2\u0026param3=val3`"
+                },
+                "remoteRepoLayoutRef": {
+                    "type": "string",
+                    "description": "Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value."
+                },
+                "repoLayoutRef": {
+                    "type": "string",
+                    "description": "Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly."
+                },
+                "retrievalCachePeriodSeconds": {
+                    "type": "integer",
+                    "description": "Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching."
+                },
+                "retrieveSha256FromServer": {
+                    "type": "boolean",
+                    "description": "When set to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo. Default value is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                },
+                "shareConfiguration": {
+                    "type": "boolean",
+                    "deprecationMessage": "No longer supported"
+                },
+                "socketTimeoutMillis": {
+                    "type": "integer",
+                    "description": "Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure."
+                },
+                "storeArtifactsLocally": {
+                    "type": "boolean",
+                    "description": "When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers."
+                },
+                "synchronizeProperties": {
+                    "type": "boolean",
+                    "description": "When set, remote artifacts are fetched along with their properties."
+                },
+                "unusedArtifactsCleanupPeriodHours": {
+                    "type": "integer",
+                    "description": "Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled."
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The URL of the marketplace gallery to proxy. Example: for the VS Code marketplace, use `https://marketplace.visualstudio.com/_apis/public/gallery`. Artifactory applies no default URL for this package type, so this attribute must always be set; omitting it fails with `No URL defined for remote repository`.\n"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "xrayIndex": {
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings."
+                }
+            },
+            "required": [
+                "allowAnyHostAuth",
+                "archiveBrowsingEnabled",
+                "assumedOfflinePeriodSecs",
+                "blackedOut",
+                "blockMismatchingMimeTypes",
+                "bypassHeadRequests",
+                "cdnRedirect",
+                "clientTlsCertificate",
+                "curated",
+                "description",
+                "disableProxy",
+                "disableUrlNormalization",
+                "downloadDirect",
+                "enableCookieManagement",
+                "enableTokenAuthentication",
+                "excludesPattern",
+                "externalDependenciesEnabled",
+                "externalDependenciesPatterns",
+                "hardFail",
+                "includesPattern",
+                "key",
+                "listRemoteFolderItems",
+                "localAddress",
+                "metadataRetrievalTimeoutSecs",
+                "mismatchingMimeTypesOverrideList",
+                "missedCachePeriodSeconds",
+                "notes",
+                "offline",
+                "passThrough",
+                "priorityResolution",
+                "projectEnvironments",
+                "projectKey",
+                "propagateQueryParams",
+                "proxy",
+                "queryParams",
+                "remoteRepoLayoutRef",
+                "repoLayoutRef",
+                "retrievalCachePeriodSeconds",
+                "retrieveSha256FromServer",
+                "shareConfiguration",
+                "socketTimeoutMillis",
+                "storeArtifactsLocally",
+                "synchronizeProperties",
+                "unusedArtifactsCleanupPeriodHours",
+                "url",
+                "username",
+                "xrayIndex"
+            ],
+            "inputProperties": {
+                "allowAnyHostAuth": {
+                    "type": "boolean",
+                    "description": "'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host."
+                },
+                "archiveBrowsingEnabled": {
+                    "type": "boolean",
+                    "description": "When set, you may view content such as HTML or Javadoc files directly from Artifactory.\nThis may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks)."
+                },
+                "assumedOfflinePeriodSecs": {
+                    "type": "integer",
+                    "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline."
+                },
+                "blackedOut": {
+                    "type": "boolean",
+                    "description": "(A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution."
+                },
+                "blockMismatchingMimeTypes": {
+                    "type": "boolean",
+                    "description": "If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'."
+                },
+                "cdnRedirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'"
+                },
+                "clientTlsCertificate": {
+                    "type": "string",
+                    "description": "Client TLS certificate name."
+                },
+                "contentSynchronisation": {
+                    "$ref": "#/types/artifactory:index/RemoteAieditorextensionsRepositoryContentSynchronisation:RemoteAieditorextensionsRepositoryContentSynchronisation"
+                },
+                "curated": {
+                    "type": "boolean",
+                    "description": "Enable repository to be protected by the Curation service. Default value is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                },
+                "customHttpHeaders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/artifactory:index/RemoteAieditorextensionsRepositoryCustomHttpHeader:RemoteAieditorextensionsRepositoryCustomHttpHeader"
+                    },
+                    "description": "Up to 5 custom HTTP headers sent on every outbound request to the remote URL. Requires Artifactory 7.146.0 or later. Header values are write-only: they are masked in plan output and never read back from Artifactory, so `pulumi import` cannot recover them. To remove all headers, remove the attribute. Each entry supports:\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Public description."
+                },
+                "disableProxy": {
+                    "type": "boolean",
+                    "description": "When set to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7."
+                },
+                "disableUrlNormalization": {
+                    "type": "boolean",
+                    "description": "Whether to disable URL normalization. Default is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e."
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'."
+                },
+                "enableCookieManagement": {
+                    "type": "boolean",
+                    "description": "Enables cookie management if the remote repository uses cookies to manage client state."
+                },
+                "enableTokenAuthentication": {
+                    "type": "boolean",
+                    "description": "Enable token (Bearer) based authentication. Default value is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e. Note this differs from the Docker and OCI remote repository resources, which default it to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e; \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e matches the Artifactory default for this package type.\n"
+                },
+                "excludesPattern": {
+                    "type": "string",
+                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded."
+                },
+                "externalDependenciesEnabled": {
+                    "type": "boolean",
+                    "description": "When set, Artifactory can resolve extension dependencies from the external sources matching \u003cspan pulumi-lang-nodejs=\"`externalDependenciesPatterns`\" pulumi-lang-dotnet=\"`ExternalDependenciesPatterns`\" pulumi-lang-go=\"`externalDependenciesPatterns`\" pulumi-lang-python=\"`external_dependencies_patterns`\" pulumi-lang-yaml=\"`externalDependenciesPatterns`\" pulumi-lang-java=\"`externalDependenciesPatterns`\" pulumi-lang-hcl=\"`external_dependencies_patterns`\"\u003e`externalDependenciesPatterns`\u003c/span\u003e. Unlike other remote repository types, this defaults to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e for AI-Editor Extensions because extension payloads are hosted on a CDN separate from the gallery URL.\n"
+                },
+                "externalDependenciesPatterns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An allow list of Ant-style path patterns that determine which remote hosts external extension dependencies may be downloaded from. Only takes effect when \u003cspan pulumi-lang-nodejs=\"`externalDependenciesEnabled`\" pulumi-lang-dotnet=\"`ExternalDependenciesEnabled`\" pulumi-lang-go=\"`externalDependenciesEnabled`\" pulumi-lang-python=\"`external_dependencies_enabled`\" pulumi-lang-yaml=\"`externalDependenciesEnabled`\" pulumi-lang-java=\"`externalDependenciesEnabled`\" pulumi-lang-hcl=\"`external_dependencies_enabled`\"\u003e`externalDependenciesEnabled`\u003c/span\u003e is \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e, but Artifactory stores the patterns either way, so they may be set while it is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e. Default value is `[\"**/**vsassets.io/**\"]`. An empty list is not accepted — the provider requires at least one pattern.\n"
+                },
+                "hardFail": {
+                    "type": "boolean",
+                    "description": "When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository."
+                },
+                "includesPattern": {
+                    "type": "string",
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`)."
+                },
+                "key": {
+                    "type": "string",
+                    "description": "A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.\n"
+                },
+                "listRemoteFolderItems": {
+                    "type": "boolean",
+                    "description": "Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI."
+                },
+                "localAddress": {
+                    "type": "string",
+                    "description": "The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces."
+                },
+                "metadataRetrievalTimeoutSecs": {
+                    "type": "integer",
+                    "description": "Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request."
+                },
+                "mismatchingMimeTypesOverrideList": {
+                    "type": "string",
+                    "description": "The set of mime types that should override the\u003cspan pulumi-lang-nodejs=\" blockMismatchingMimeTypes \" pulumi-lang-dotnet=\" BlockMismatchingMimeTypes \" pulumi-lang-go=\" blockMismatchingMimeTypes \" pulumi-lang-python=\" block_mismatching_mime_types \" pulumi-lang-yaml=\" blockMismatchingMimeTypes \" pulumi-lang-java=\" blockMismatchingMimeTypes \" pulumi-lang-hcl=\" block_mismatching_mime_types \"\u003e blockMismatchingMimeTypes \u003c/span\u003esetting. Eg: 'application/json,application/xml'. Default value is empty."
+                },
+                "missedCachePeriodSeconds": {
+                    "type": "integer",
+                    "description": "Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching."
+                },
+                "notes": {
+                    "type": "string",
+                    "description": "Internal description."
+                },
+                "offline": {
+                    "type": "boolean",
+                    "description": "If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved."
+                },
+                "passThrough": {
+                    "type": "boolean",
+                    "description": "Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process. Default value is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                },
+                "password": {
+                    "type": "string",
+                    "secret": true
+                },
+                "passwordWo": {
+                    "type": "string",
+                    "description": "**NOTE:** This field is write-only and its value will not be updated in state as part of read operations.\nWrite-only equivalent of \u003cspan pulumi-lang-nodejs=\"`password`\" pulumi-lang-dotnet=\"`Password`\" pulumi-lang-go=\"`password`\" pulumi-lang-python=\"`password`\" pulumi-lang-yaml=\"`password`\" pulumi-lang-java=\"`password`\" pulumi-lang-hcl=\"`password`\"\u003e`password`\u003c/span\u003e. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with \u003cspan pulumi-lang-nodejs=\"`password`\" pulumi-lang-dotnet=\"`Password`\" pulumi-lang-go=\"`password`\" pulumi-lang-python=\"`password`\" pulumi-lang-yaml=\"`password`\" pulumi-lang-java=\"`password`\" pulumi-lang-hcl=\"`password`\"\u003e`password`\u003c/span\u003e. Because write-only values are not tracked in state, use \u003cspan pulumi-lang-nodejs=\"`passwordWoVersion`\" pulumi-lang-dotnet=\"`PasswordWoVersion`\" pulumi-lang-go=\"`passwordWoVersion`\" pulumi-lang-python=\"`password_wo_version`\" pulumi-lang-yaml=\"`passwordWoVersion`\" pulumi-lang-java=\"`passwordWoVersion`\" pulumi-lang-hcl=\"`password_wo_version`\"\u003e`passwordWoVersion`\u003c/span\u003e to signal when the secret has changed so it is re-sent to Artifactory.",
+                    "secret": true
+                },
+                "passwordWoVersion": {
+                    "type": "string",
+                    "description": "A version identifier for \u003cspan pulumi-lang-nodejs=\"`passwordWo`\" pulumi-lang-dotnet=\"`PasswordWo`\" pulumi-lang-go=\"`passwordWo`\" pulumi-lang-python=\"`password_wo`\" pulumi-lang-yaml=\"`passwordWo`\" pulumi-lang-java=\"`passwordWo`\" pulumi-lang-hcl=\"`password_wo`\"\u003e`passwordWo`\u003c/span\u003e. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current \u003cspan pulumi-lang-nodejs=\"`passwordWo`\" pulumi-lang-dotnet=\"`PasswordWo`\" pulumi-lang-go=\"`passwordWo`\" pulumi-lang-python=\"`password_wo`\" pulumi-lang-yaml=\"`passwordWo`\" pulumi-lang-java=\"`passwordWo`\" pulumi-lang-hcl=\"`password_wo`\"\u003e`passwordWo`\u003c/span\u003e value to Artifactory. Only meaningful together with \u003cspan pulumi-lang-nodejs=\"`passwordWo`\" pulumi-lang-dotnet=\"`PasswordWo`\" pulumi-lang-go=\"`passwordWo`\" pulumi-lang-python=\"`password_wo`\" pulumi-lang-yaml=\"`passwordWo`\" pulumi-lang-java=\"`passwordWo`\" pulumi-lang-hcl=\"`password_wo`\"\u003e`passwordWo`\u003c/span\u003e."
+                },
+                "priorityResolution": {
+                    "type": "boolean",
+                    "description": "Setting repositories with priority will cause metadata to be merged only from repositories set with this field"
+                },
+                "projectEnvironments": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update."
+                },
+                "projectKey": {
+                    "type": "string",
+                    "description": "Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash."
+                },
+                "propagateQueryParams": {
+                    "type": "boolean",
+                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository. Default value is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                },
+                "propertySets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of property set name"
+                },
+                "proxy": {
+                    "type": "string",
+                    "description": "Proxy key from Artifactory Proxies settings. Can't be set if \u003cspan pulumi-lang-nodejs=\"`disableProxy \" pulumi-lang-dotnet=\"`DisableProxy \" pulumi-lang-go=\"`disableProxy \" pulumi-lang-python=\"`disable_proxy \" pulumi-lang-yaml=\"`disableProxy \" pulumi-lang-java=\"`disableProxy \" pulumi-lang-hcl=\"`disable_proxy \"\u003e`disableProxy \u003c/span\u003e= true`."
+                },
+                "queryParams": {
+                    "type": "string",
+                    "description": "Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1\u0026param2=val2\u0026param3=val3`"
+                },
+                "remoteRepoLayoutRef": {
+                    "type": "string",
+                    "description": "Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value."
+                },
+                "repoLayoutRef": {
+                    "type": "string",
+                    "description": "Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly."
+                },
+                "retrievalCachePeriodSeconds": {
+                    "type": "integer",
+                    "description": "Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching."
+                },
+                "retrieveSha256FromServer": {
+                    "type": "boolean",
+                    "description": "When set to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo. Default value is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                },
+                "shareConfiguration": {
+                    "type": "boolean",
+                    "deprecationMessage": "No longer supported"
+                },
+                "socketTimeoutMillis": {
+                    "type": "integer",
+                    "description": "Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure."
+                },
+                "storeArtifactsLocally": {
+                    "type": "boolean",
+                    "description": "When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers."
+                },
+                "synchronizeProperties": {
+                    "type": "boolean",
+                    "description": "When set, remote artifacts are fetched along with their properties."
+                },
+                "unusedArtifactsCleanupPeriodHours": {
+                    "type": "integer",
+                    "description": "Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled."
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The URL of the marketplace gallery to proxy. Example: for the VS Code marketplace, use `https://marketplace.visualstudio.com/_apis/public/gallery`. Artifactory applies no default URL for this package type, so this attribute must always be set; omitting it fails with `No URL defined for remote repository`.\n"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "xrayIndex": {
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings."
+                }
+            },
+            "requiredInputs": [
+                "key",
+                "url"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RemoteAieditorextensionsRepository resources.\n",
+                "properties": {
+                    "allowAnyHostAuth": {
+                        "type": "boolean",
+                        "description": "'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host."
+                    },
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean",
+                        "description": "When set, you may view content such as HTML or Javadoc files directly from Artifactory.\nThis may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks)."
+                    },
+                    "assumedOfflinePeriodSecs": {
+                        "type": "integer",
+                        "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline."
+                    },
+                    "blackedOut": {
+                        "type": "boolean",
+                        "description": "(A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution."
+                    },
+                    "blockMismatchingMimeTypes": {
+                        "type": "boolean",
+                        "description": "If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'."
+                    },
+                    "bypassHeadRequests": {
+                        "type": "boolean",
+                        "description": "Artifactory always enables this setting for AI-Editor Extensions repositories, rather than \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e as on other remote repository types, and rejects any request that tries to change it. It is therefore exposed as a read-only attribute that always reports \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e and cannot be set in configuration (setting it — even to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e — produces a \"read-only attribute\" error).\n"
+                    },
+                    "cdnRedirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'"
+                    },
+                    "clientTlsCertificate": {
+                        "type": "string",
+                        "description": "Client TLS certificate name."
+                    },
+                    "contentSynchronisation": {
+                        "$ref": "#/types/artifactory:index/RemoteAieditorextensionsRepositoryContentSynchronisation:RemoteAieditorextensionsRepositoryContentSynchronisation"
+                    },
+                    "curated": {
+                        "type": "boolean",
+                        "description": "Enable repository to be protected by the Curation service. Default value is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                    },
+                    "customHttpHeaders": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/artifactory:index/RemoteAieditorextensionsRepositoryCustomHttpHeader:RemoteAieditorextensionsRepositoryCustomHttpHeader"
+                        },
+                        "description": "Up to 5 custom HTTP headers sent on every outbound request to the remote URL. Requires Artifactory 7.146.0 or later. Header values are write-only: they are masked in plan output and never read back from Artifactory, so `pulumi import` cannot recover them. To remove all headers, remove the attribute. Each entry supports:\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Public description."
+                    },
+                    "disableProxy": {
+                        "type": "boolean",
+                        "description": "When set to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7."
+                    },
+                    "disableUrlNormalization": {
+                        "type": "boolean",
+                        "description": "Whether to disable URL normalization. Default is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e."
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'."
+                    },
+                    "enableCookieManagement": {
+                        "type": "boolean",
+                        "description": "Enables cookie management if the remote repository uses cookies to manage client state."
+                    },
+                    "enableTokenAuthentication": {
+                        "type": "boolean",
+                        "description": "Enable token (Bearer) based authentication. Default value is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e. Note this differs from the Docker and OCI remote repository resources, which default it to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e; \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e matches the Artifactory default for this package type.\n"
+                    },
+                    "excludesPattern": {
+                        "type": "string",
+                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded."
+                    },
+                    "externalDependenciesEnabled": {
+                        "type": "boolean",
+                        "description": "When set, Artifactory can resolve extension dependencies from the external sources matching \u003cspan pulumi-lang-nodejs=\"`externalDependenciesPatterns`\" pulumi-lang-dotnet=\"`ExternalDependenciesPatterns`\" pulumi-lang-go=\"`externalDependenciesPatterns`\" pulumi-lang-python=\"`external_dependencies_patterns`\" pulumi-lang-yaml=\"`externalDependenciesPatterns`\" pulumi-lang-java=\"`externalDependenciesPatterns`\" pulumi-lang-hcl=\"`external_dependencies_patterns`\"\u003e`externalDependenciesPatterns`\u003c/span\u003e. Unlike other remote repository types, this defaults to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e for AI-Editor Extensions because extension payloads are hosted on a CDN separate from the gallery URL.\n"
+                    },
+                    "externalDependenciesPatterns": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "An allow list of Ant-style path patterns that determine which remote hosts external extension dependencies may be downloaded from. Only takes effect when \u003cspan pulumi-lang-nodejs=\"`externalDependenciesEnabled`\" pulumi-lang-dotnet=\"`ExternalDependenciesEnabled`\" pulumi-lang-go=\"`externalDependenciesEnabled`\" pulumi-lang-python=\"`external_dependencies_enabled`\" pulumi-lang-yaml=\"`externalDependenciesEnabled`\" pulumi-lang-java=\"`externalDependenciesEnabled`\" pulumi-lang-hcl=\"`external_dependencies_enabled`\"\u003e`externalDependenciesEnabled`\u003c/span\u003e is \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e, but Artifactory stores the patterns either way, so they may be set while it is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e. Default value is `[\"**/**vsassets.io/**\"]`. An empty list is not accepted — the provider requires at least one pattern.\n"
+                    },
+                    "hardFail": {
+                        "type": "boolean",
+                        "description": "When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository."
+                    },
+                    "includesPattern": {
+                        "type": "string",
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`)."
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.\n"
+                    },
+                    "listRemoteFolderItems": {
+                        "type": "boolean",
+                        "description": "Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI."
+                    },
+                    "localAddress": {
+                        "type": "string",
+                        "description": "The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces."
+                    },
+                    "metadataRetrievalTimeoutSecs": {
+                        "type": "integer",
+                        "description": "Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request."
+                    },
+                    "mismatchingMimeTypesOverrideList": {
+                        "type": "string",
+                        "description": "The set of mime types that should override the\u003cspan pulumi-lang-nodejs=\" blockMismatchingMimeTypes \" pulumi-lang-dotnet=\" BlockMismatchingMimeTypes \" pulumi-lang-go=\" blockMismatchingMimeTypes \" pulumi-lang-python=\" block_mismatching_mime_types \" pulumi-lang-yaml=\" blockMismatchingMimeTypes \" pulumi-lang-java=\" blockMismatchingMimeTypes \" pulumi-lang-hcl=\" block_mismatching_mime_types \"\u003e blockMismatchingMimeTypes \u003c/span\u003esetting. Eg: 'application/json,application/xml'. Default value is empty."
+                    },
+                    "missedCachePeriodSeconds": {
+                        "type": "integer",
+                        "description": "Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching."
+                    },
+                    "notes": {
+                        "type": "string",
+                        "description": "Internal description."
+                    },
+                    "offline": {
+                        "type": "boolean",
+                        "description": "If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved."
+                    },
+                    "passThrough": {
+                        "type": "boolean",
+                        "description": "Enable Pass-through for Curation Audit. When enabled, allows artifacts to pass through the Curation audit process. Default value is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                    },
+                    "password": {
+                        "type": "string",
+                        "secret": true
+                    },
+                    "passwordWo": {
+                        "type": "string",
+                        "description": "**NOTE:** This field is write-only and its value will not be updated in state as part of read operations.\nWrite-only equivalent of \u003cspan pulumi-lang-nodejs=\"`password`\" pulumi-lang-dotnet=\"`Password`\" pulumi-lang-go=\"`password`\" pulumi-lang-python=\"`password`\" pulumi-lang-yaml=\"`password`\" pulumi-lang-java=\"`password`\" pulumi-lang-hcl=\"`password`\"\u003e`password`\u003c/span\u003e. The value is used to authenticate against the remote registry but is **never stored in Terraform state or plan**. Requires Terraform 1.11 or later. Conflicts with \u003cspan pulumi-lang-nodejs=\"`password`\" pulumi-lang-dotnet=\"`Password`\" pulumi-lang-go=\"`password`\" pulumi-lang-python=\"`password`\" pulumi-lang-yaml=\"`password`\" pulumi-lang-java=\"`password`\" pulumi-lang-hcl=\"`password`\"\u003e`password`\u003c/span\u003e. Because write-only values are not tracked in state, use \u003cspan pulumi-lang-nodejs=\"`passwordWoVersion`\" pulumi-lang-dotnet=\"`PasswordWoVersion`\" pulumi-lang-go=\"`passwordWoVersion`\" pulumi-lang-python=\"`password_wo_version`\" pulumi-lang-yaml=\"`passwordWoVersion`\" pulumi-lang-java=\"`passwordWoVersion`\" pulumi-lang-hcl=\"`password_wo_version`\"\u003e`passwordWoVersion`\u003c/span\u003e to signal when the secret has changed so it is re-sent to Artifactory.",
+                        "secret": true
+                    },
+                    "passwordWoVersion": {
+                        "type": "string",
+                        "description": "A version identifier for \u003cspan pulumi-lang-nodejs=\"`passwordWo`\" pulumi-lang-dotnet=\"`PasswordWo`\" pulumi-lang-go=\"`passwordWo`\" pulumi-lang-python=\"`password_wo`\" pulumi-lang-yaml=\"`passwordWo`\" pulumi-lang-java=\"`passwordWo`\" pulumi-lang-hcl=\"`password_wo`\"\u003e`passwordWo`\u003c/span\u003e. Change this value (for example, after rotating the secret) to trigger an update that re-sends the current \u003cspan pulumi-lang-nodejs=\"`passwordWo`\" pulumi-lang-dotnet=\"`PasswordWo`\" pulumi-lang-go=\"`passwordWo`\" pulumi-lang-python=\"`password_wo`\" pulumi-lang-yaml=\"`passwordWo`\" pulumi-lang-java=\"`passwordWo`\" pulumi-lang-hcl=\"`password_wo`\"\u003e`passwordWo`\u003c/span\u003e value to Artifactory. Only meaningful together with \u003cspan pulumi-lang-nodejs=\"`passwordWo`\" pulumi-lang-dotnet=\"`PasswordWo`\" pulumi-lang-go=\"`passwordWo`\" pulumi-lang-python=\"`password_wo`\" pulumi-lang-yaml=\"`passwordWo`\" pulumi-lang-java=\"`passwordWo`\" pulumi-lang-hcl=\"`password_wo`\"\u003e`passwordWo`\u003c/span\u003e."
+                    },
+                    "priorityResolution": {
+                        "type": "boolean",
+                        "description": "Setting repositories with priority will cause metadata to be merged only from repositories set with this field"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update."
+                    },
+                    "projectKey": {
+                        "type": "string",
+                        "description": "Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash."
+                    },
+                    "propagateQueryParams": {
+                        "type": "boolean",
+                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository. Default value is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of property set name"
+                    },
+                    "proxy": {
+                        "type": "string",
+                        "description": "Proxy key from Artifactory Proxies settings. Can't be set if \u003cspan pulumi-lang-nodejs=\"`disableProxy \" pulumi-lang-dotnet=\"`DisableProxy \" pulumi-lang-go=\"`disableProxy \" pulumi-lang-python=\"`disable_proxy \" pulumi-lang-yaml=\"`disableProxy \" pulumi-lang-java=\"`disableProxy \" pulumi-lang-hcl=\"`disable_proxy \"\u003e`disableProxy \u003c/span\u003e= true`."
+                    },
+                    "queryParams": {
+                        "type": "string",
+                        "description": "Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1\u0026param2=val2\u0026param3=val3`"
+                    },
+                    "remoteRepoLayoutRef": {
+                        "type": "string",
+                        "description": "Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value."
+                    },
+                    "repoLayoutRef": {
+                        "type": "string",
+                        "description": "Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly."
+                    },
+                    "retrievalCachePeriodSeconds": {
+                        "type": "integer",
+                        "description": "Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching."
+                    },
+                    "retrieveSha256FromServer": {
+                        "type": "boolean",
+                        "description": "When set to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo. Default value is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                    },
+                    "shareConfiguration": {
+                        "type": "boolean",
+                        "deprecationMessage": "No longer supported"
+                    },
+                    "socketTimeoutMillis": {
+                        "type": "integer",
+                        "description": "Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure."
+                    },
+                    "storeArtifactsLocally": {
+                        "type": "boolean",
+                        "description": "When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers."
+                    },
+                    "synchronizeProperties": {
+                        "type": "boolean",
+                        "description": "When set, remote artifacts are fetched along with their properties."
+                    },
+                    "unusedArtifactsCleanupPeriodHours": {
+                        "type": "integer",
+                        "description": "Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled."
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The URL of the marketplace gallery to proxy. Example: for the VS Code marketplace, use `https://marketplace.visualstudio.com/_apis/public/gallery`. Artifactory applies no default URL for this package type, so this attribute must always be set; omitting it fails with `No URL defined for remote repository`.\n"
+                    },
+                    "username": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings."
                     }
                 },
                 "type": "object"
@@ -79435,6 +80228,216 @@
                 "required": [
                     "name",
                     "id"
+                ],
+                "type": "object"
+            }
+        },
+        "artifactory:index/getRemoteAieditorextensionsRepository:getRemoteAieditorextensionsRepository": {
+            "description": "Retrieves configuration for a remote AI-Editor Extensions repository.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\nconst example = artifactory.getRemoteAieditorextensionsRepository({\n    key: \"my-remote-aieditorextensions\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nexample = artifactory.get_remote_aieditorextensions_repository(key=\"my-remote-aieditorextensions\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Artifactory.GetRemoteAieditorextensionsRepository.Invoke(new()\n    {\n        Key = \"my-remote-aieditorextensions\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.GetRemoteAieditorextensionsRepository(ctx, \u0026artifactory.LookupRemoteAieditorextensionsRepositoryArgs{\n\t\t\tKey: \"my-remote-aieditorextensions\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    artifactory = {\n      source = \"pulumi/artifactory\"\n    }\n  }\n}\n\ndata \"artifactory_getremoteaieditorextensionsrepository\" \"example\" {\n  key = \"my-remote-aieditorextensions\"\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.ArtifactoryFunctions;\nimport com.pulumi.artifactory.inputs.GetRemoteAieditorextensionsRepositoryArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = ArtifactoryFunctions.getRemoteAieditorextensionsRepository(GetRemoteAieditorextensionsRepositoryArgs.builder()\n            .key(\"my-remote-aieditorextensions\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: artifactory:getRemoteAieditorextensionsRepository\n      arguments:\n        key: my-remote-aieditorextensions\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getRemoteAieditorextensionsRepository.\n",
+                "properties": {
+                    "key": {
+                        "type": "string",
+                        "description": "Repository key.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRemoteAieditorextensionsRepository.\n",
+                "properties": {
+                    "allowAnyHostAuth": {
+                        "type": "boolean"
+                    },
+                    "assumedOfflinePeriodSecs": {
+                        "type": "integer"
+                    },
+                    "blockMismatchingMimeTypes": {
+                        "type": "boolean"
+                    },
+                    "bypassHeadRequests": {
+                        "type": "boolean"
+                    },
+                    "clientTlsCertificate": {
+                        "type": "string"
+                    },
+                    "curated": {
+                        "description": "Whether the repository is protected by the Curation service.\n",
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "disableProxy": {
+                        "type": "boolean"
+                    },
+                    "disableUrlNormalization": {
+                        "type": "boolean"
+                    },
+                    "enableCookieManagement": {
+                        "type": "boolean"
+                    },
+                    "enableTokenAuthentication": {
+                        "description": "Whether token (Bearer) based authentication is enabled.\n",
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "externalDependenciesEnabled": {
+                        "description": "When set, Artifactory can resolve extension dependencies from the external sources matching \u003cspan pulumi-lang-nodejs=\"`externalDependenciesPatterns`\" pulumi-lang-dotnet=\"`ExternalDependenciesPatterns`\" pulumi-lang-go=\"`externalDependenciesPatterns`\" pulumi-lang-python=\"`external_dependencies_patterns`\" pulumi-lang-yaml=\"`externalDependenciesPatterns`\" pulumi-lang-java=\"`externalDependenciesPatterns`\" pulumi-lang-hcl=\"`external_dependencies_patterns`\"\u003e`externalDependenciesPatterns`\u003c/span\u003e.\n",
+                        "type": "boolean"
+                    },
+                    "externalDependenciesPatterns": {
+                        "description": "An allow list of Ant-style path patterns that determine which remote hosts external extension dependencies may be downloaded from.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "hardFail": {
+                        "type": "boolean"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "listRemoteFolderItems": {
+                        "type": "boolean"
+                    },
+                    "localAddress": {
+                        "type": "string"
+                    },
+                    "metadataRetrievalTimeoutSecs": {
+                        "type": "integer"
+                    },
+                    "mismatchingMimeTypesOverrideList": {
+                        "type": "string"
+                    },
+                    "missedCachePeriodSeconds": {
+                        "type": "integer"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "offline": {
+                        "type": "boolean"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "passThrough": {
+                        "description": "Whether Pass-through for Curation Audit is enabled.\n",
+                        "type": "boolean"
+                    },
+                    "password": {
+                        "secret": true,
+                        "type": "string"
+                    },
+                    "projectEnvironments": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propagateQueryParams": {
+                        "description": "Whether query params included in the request to Artifactory are passed on to the remote repository.\n",
+                        "type": "boolean"
+                    },
+                    "proxy": {
+                        "type": "string"
+                    },
+                    "queryParams": {
+                        "type": "string"
+                    },
+                    "remoteRepoLayoutRef": {
+                        "type": "string"
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "retrievalCachePeriodSeconds": {
+                        "type": "integer"
+                    },
+                    "retrieveSha256FromServer": {
+                        "description": "Whether Artifactory retrieves the SHA256 from the remote server when it is not cached in the remote repo.\n",
+                        "type": "boolean"
+                    },
+                    "shareConfiguration": {
+                        "type": "boolean"
+                    },
+                    "socketTimeoutMillis": {
+                        "type": "integer"
+                    },
+                    "storeArtifactsLocally": {
+                        "type": "boolean"
+                    },
+                    "synchronizeProperties": {
+                        "type": "boolean"
+                    },
+                    "unusedArtifactsCleanupPeriodHours": {
+                        "type": "integer"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "allowAnyHostAuth",
+                    "assumedOfflinePeriodSecs",
+                    "blockMismatchingMimeTypes",
+                    "bypassHeadRequests",
+                    "clientTlsCertificate",
+                    "curated",
+                    "description",
+                    "disableProxy",
+                    "disableUrlNormalization",
+                    "enableCookieManagement",
+                    "enableTokenAuthentication",
+                    "excludesPattern",
+                    "externalDependenciesEnabled",
+                    "externalDependenciesPatterns",
+                    "hardFail",
+                    "includesPattern",
+                    "key",
+                    "listRemoteFolderItems",
+                    "localAddress",
+                    "metadataRetrievalTimeoutSecs",
+                    "mismatchingMimeTypesOverrideList",
+                    "missedCachePeriodSeconds",
+                    "notes",
+                    "offline",
+                    "packageType",
+                    "passThrough",
+                    "password",
+                    "projectEnvironments",
+                    "projectKey",
+                    "propagateQueryParams",
+                    "proxy",
+                    "queryParams",
+                    "remoteRepoLayoutRef",
+                    "repoLayoutRef",
+                    "retrievalCachePeriodSeconds",
+                    "retrieveSha256FromServer",
+                    "shareConfiguration",
+                    "socketTimeoutMillis",
+                    "storeArtifactsLocally",
+                    "synchronizeProperties",
+                    "unusedArtifactsCleanupPeriodHours",
+                    "url",
+                    "username"
                 ],
                 "type": "object"
             }
