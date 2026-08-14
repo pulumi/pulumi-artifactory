@@ -15932,6 +15932,425 @@ func (o ReleaseBundleWebhookHandlerArrayOutput) Index(i pulumi.IntInput) Release
 	}).(ReleaseBundleWebhookHandlerOutput)
 }
 
+type RemoteAieditorextensionsRepositoryContentSynchronisation struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+}
+
+// RemoteAieditorextensionsRepositoryContentSynchronisationInput is an input type that accepts RemoteAieditorextensionsRepositoryContentSynchronisationArgs and RemoteAieditorextensionsRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `RemoteAieditorextensionsRepositoryContentSynchronisationInput` via:
+//
+//	RemoteAieditorextensionsRepositoryContentSynchronisationArgs{...}
+type RemoteAieditorextensionsRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToRemoteAieditorextensionsRepositoryContentSynchronisationOutput() RemoteAieditorextensionsRepositoryContentSynchronisationOutput
+	ToRemoteAieditorextensionsRepositoryContentSynchronisationOutputWithContext(context.Context) RemoteAieditorextensionsRepositoryContentSynchronisationOutput
+}
+
+type RemoteAieditorextensionsRepositoryContentSynchronisationArgs struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (RemoteAieditorextensionsRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteAieditorextensionsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i RemoteAieditorextensionsRepositoryContentSynchronisationArgs) ToRemoteAieditorextensionsRepositoryContentSynchronisationOutput() RemoteAieditorextensionsRepositoryContentSynchronisationOutput {
+	return i.ToRemoteAieditorextensionsRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i RemoteAieditorextensionsRepositoryContentSynchronisationArgs) ToRemoteAieditorextensionsRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteAieditorextensionsRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteAieditorextensionsRepositoryContentSynchronisationOutput)
+}
+
+func (i RemoteAieditorextensionsRepositoryContentSynchronisationArgs) ToRemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput() RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteAieditorextensionsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i RemoteAieditorextensionsRepositoryContentSynchronisationArgs) ToRemoteAieditorextensionsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteAieditorextensionsRepositoryContentSynchronisationOutput).ToRemoteAieditorextensionsRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// RemoteAieditorextensionsRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteAieditorextensionsRepositoryContentSynchronisationArgs, RemoteAieditorextensionsRepositoryContentSynchronisationPtr and RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `RemoteAieditorextensionsRepositoryContentSynchronisationPtrInput` via:
+//
+//	        RemoteAieditorextensionsRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RemoteAieditorextensionsRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToRemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput() RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput
+	ToRemoteAieditorextensionsRepositoryContentSynchronisationPtrOutputWithContext(context.Context) RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput
+}
+
+type remoteAieditorextensionsRepositoryContentSynchronisationPtrType RemoteAieditorextensionsRepositoryContentSynchronisationArgs
+
+func RemoteAieditorextensionsRepositoryContentSynchronisationPtr(v *RemoteAieditorextensionsRepositoryContentSynchronisationArgs) RemoteAieditorextensionsRepositoryContentSynchronisationPtrInput {
+	return (*remoteAieditorextensionsRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*remoteAieditorextensionsRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteAieditorextensionsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *remoteAieditorextensionsRepositoryContentSynchronisationPtrType) ToRemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput() RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteAieditorextensionsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *remoteAieditorextensionsRepositoryContentSynchronisationPtrType) ToRemoteAieditorextensionsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput)
+}
+
+type RemoteAieditorextensionsRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (RemoteAieditorextensionsRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteAieditorextensionsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteAieditorextensionsRepositoryContentSynchronisationOutput) ToRemoteAieditorextensionsRepositoryContentSynchronisationOutput() RemoteAieditorextensionsRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteAieditorextensionsRepositoryContentSynchronisationOutput) ToRemoteAieditorextensionsRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteAieditorextensionsRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteAieditorextensionsRepositoryContentSynchronisationOutput) ToRemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput() RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput {
+	return o.ToRemoteAieditorextensionsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o RemoteAieditorextensionsRepositoryContentSynchronisationOutput) ToRemoteAieditorextensionsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemoteAieditorextensionsRepositoryContentSynchronisation) *RemoteAieditorextensionsRepositoryContentSynchronisation {
+		return &v
+	}).(RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o RemoteAieditorextensionsRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteAieditorextensionsRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o RemoteAieditorextensionsRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteAieditorextensionsRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o RemoteAieditorextensionsRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteAieditorextensionsRepositoryContentSynchronisation) *bool {
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o RemoteAieditorextensionsRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteAieditorextensionsRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteAieditorextensionsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput) ToRemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput() RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput) ToRemoteAieditorextensionsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput) Elem() RemoteAieditorextensionsRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *RemoteAieditorextensionsRepositoryContentSynchronisation) RemoteAieditorextensionsRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret RemoteAieditorextensionsRepositoryContentSynchronisation
+		return ret
+	}).(RemoteAieditorextensionsRepositoryContentSynchronisationOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteAieditorextensionsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteAieditorextensionsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteAieditorextensionsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteAieditorextensionsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type RemoteAieditorextensionsRepositoryCustomHttpHeader struct {
+	// Header name. Artifactory stores header names lower-cased.
+	Name string `pulumi:"name"`
+	// When `true`, Artifactory encrypts the value server-side. Default value is `false`.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := artifactory.NewRemoteAieditorextensionsRepository(ctx, "my-remote-aieditorextensions-curated", &artifactory.RemoteAieditorextensionsRepositoryArgs{
+	// 			Key:         pulumi.String("my-remote-aieditorextensions-curated"),
+	// 			Url:         pulumi.String("https://marketplace.visualstudio.com/_apis/public/gallery"),
+	// 			Curated:     pulumi.Bool(true),
+	// 			PassThrough: pulumi.Bool(false),
+	// 			CustomHttpHeaders: artifactory.RemoteAieditorextensionsRepositoryCustomHttpHeaderArray{
+	// 				&artifactory.RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs{
+	// 					Name:      pulumi.String("x-api-key"),
+	// 					Value:     pulumi.String("my-gallery-token"),
+	// 					Sensitive: pulumi.Bool(true),
+	// 				},
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	//
+	// The default `repoLayoutRef` for this package type is `simple-default`, and `listRemoteFolderItems` defaults to `false`.
+	//
+	// > Setting `enabled = true` inside the shared `contentSynchronisation` block has no effect: Artifactory stores it as `false` regardless of what is sent, which leaves a perpetual diff in the plan. The nested `statisticsEnabled`, `propertiesEnabled`, and `sourceOriginAbsenceDetection` flags do persist. This applies to non-smart remote repositories (those not proxying another Artifactory instance), which includes this package type.
+	Sensitive *bool `pulumi:"sensitive"`
+	// Header value.
+	Value string `pulumi:"value"`
+}
+
+// RemoteAieditorextensionsRepositoryCustomHttpHeaderInput is an input type that accepts RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs and RemoteAieditorextensionsRepositoryCustomHttpHeaderOutput values.
+// You can construct a concrete instance of `RemoteAieditorextensionsRepositoryCustomHttpHeaderInput` via:
+//
+//	RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs{...}
+type RemoteAieditorextensionsRepositoryCustomHttpHeaderInput interface {
+	pulumi.Input
+
+	ToRemoteAieditorextensionsRepositoryCustomHttpHeaderOutput() RemoteAieditorextensionsRepositoryCustomHttpHeaderOutput
+	ToRemoteAieditorextensionsRepositoryCustomHttpHeaderOutputWithContext(context.Context) RemoteAieditorextensionsRepositoryCustomHttpHeaderOutput
+}
+
+type RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs struct {
+	// Header name. Artifactory stores header names lower-cased.
+	Name pulumi.StringInput `pulumi:"name"`
+	// When `true`, Artifactory encrypts the value server-side. Default value is `false`.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := artifactory.NewRemoteAieditorextensionsRepository(ctx, "my-remote-aieditorextensions-curated", &artifactory.RemoteAieditorextensionsRepositoryArgs{
+	// 			Key:         pulumi.String("my-remote-aieditorextensions-curated"),
+	// 			Url:         pulumi.String("https://marketplace.visualstudio.com/_apis/public/gallery"),
+	// 			Curated:     pulumi.Bool(true),
+	// 			PassThrough: pulumi.Bool(false),
+	// 			CustomHttpHeaders: artifactory.RemoteAieditorextensionsRepositoryCustomHttpHeaderArray{
+	// 				&artifactory.RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs{
+	// 					Name:      pulumi.String("x-api-key"),
+	// 					Value:     pulumi.String("my-gallery-token"),
+	// 					Sensitive: pulumi.Bool(true),
+	// 				},
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	//
+	// The default `repoLayoutRef` for this package type is `simple-default`, and `listRemoteFolderItems` defaults to `false`.
+	//
+	// > Setting `enabled = true` inside the shared `contentSynchronisation` block has no effect: Artifactory stores it as `false` regardless of what is sent, which leaves a perpetual diff in the plan. The nested `statisticsEnabled`, `propertiesEnabled`, and `sourceOriginAbsenceDetection` flags do persist. This applies to non-smart remote repositories (those not proxying another Artifactory instance), which includes this package type.
+	Sensitive pulumi.BoolPtrInput `pulumi:"sensitive"`
+	// Header value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteAieditorextensionsRepositoryCustomHttpHeader)(nil)).Elem()
+}
+
+func (i RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs) ToRemoteAieditorextensionsRepositoryCustomHttpHeaderOutput() RemoteAieditorextensionsRepositoryCustomHttpHeaderOutput {
+	return i.ToRemoteAieditorextensionsRepositoryCustomHttpHeaderOutputWithContext(context.Background())
+}
+
+func (i RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs) ToRemoteAieditorextensionsRepositoryCustomHttpHeaderOutputWithContext(ctx context.Context) RemoteAieditorextensionsRepositoryCustomHttpHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteAieditorextensionsRepositoryCustomHttpHeaderOutput)
+}
+
+// RemoteAieditorextensionsRepositoryCustomHttpHeaderArrayInput is an input type that accepts RemoteAieditorextensionsRepositoryCustomHttpHeaderArray and RemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutput values.
+// You can construct a concrete instance of `RemoteAieditorextensionsRepositoryCustomHttpHeaderArrayInput` via:
+//
+//	RemoteAieditorextensionsRepositoryCustomHttpHeaderArray{ RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs{...} }
+type RemoteAieditorextensionsRepositoryCustomHttpHeaderArrayInput interface {
+	pulumi.Input
+
+	ToRemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutput() RemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutput
+	ToRemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutputWithContext(context.Context) RemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutput
+}
+
+type RemoteAieditorextensionsRepositoryCustomHttpHeaderArray []RemoteAieditorextensionsRepositoryCustomHttpHeaderInput
+
+func (RemoteAieditorextensionsRepositoryCustomHttpHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RemoteAieditorextensionsRepositoryCustomHttpHeader)(nil)).Elem()
+}
+
+func (i RemoteAieditorextensionsRepositoryCustomHttpHeaderArray) ToRemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutput() RemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutput {
+	return i.ToRemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i RemoteAieditorextensionsRepositoryCustomHttpHeaderArray) ToRemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutputWithContext(ctx context.Context) RemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutput)
+}
+
+type RemoteAieditorextensionsRepositoryCustomHttpHeaderOutput struct{ *pulumi.OutputState }
+
+func (RemoteAieditorextensionsRepositoryCustomHttpHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteAieditorextensionsRepositoryCustomHttpHeader)(nil)).Elem()
+}
+
+func (o RemoteAieditorextensionsRepositoryCustomHttpHeaderOutput) ToRemoteAieditorextensionsRepositoryCustomHttpHeaderOutput() RemoteAieditorextensionsRepositoryCustomHttpHeaderOutput {
+	return o
+}
+
+func (o RemoteAieditorextensionsRepositoryCustomHttpHeaderOutput) ToRemoteAieditorextensionsRepositoryCustomHttpHeaderOutputWithContext(ctx context.Context) RemoteAieditorextensionsRepositoryCustomHttpHeaderOutput {
+	return o
+}
+
+// Header name. Artifactory stores header names lower-cased.
+func (o RemoteAieditorextensionsRepositoryCustomHttpHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RemoteAieditorextensionsRepositoryCustomHttpHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// When `true`, Artifactory encrypts the value server-side. Default value is `false`.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteAieditorextensionsRepository(ctx, "my-remote-aieditorextensions-curated", &artifactory.RemoteAieditorextensionsRepositoryArgs{
+//				Key:         pulumi.String("my-remote-aieditorextensions-curated"),
+//				Url:         pulumi.String("https://marketplace.visualstudio.com/_apis/public/gallery"),
+//				Curated:     pulumi.Bool(true),
+//				PassThrough: pulumi.Bool(false),
+//				CustomHttpHeaders: artifactory.RemoteAieditorextensionsRepositoryCustomHttpHeaderArray{
+//					&artifactory.RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs{
+//						Name:      pulumi.String("x-api-key"),
+//						Value:     pulumi.String("my-gallery-token"),
+//						Sensitive: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// The default `repoLayoutRef` for this package type is `simple-default`, and `listRemoteFolderItems` defaults to `false`.
+//
+// > Setting `enabled = true` inside the shared `contentSynchronisation` block has no effect: Artifactory stores it as `false` regardless of what is sent, which leaves a perpetual diff in the plan. The nested `statisticsEnabled`, `propertiesEnabled`, and `sourceOriginAbsenceDetection` flags do persist. This applies to non-smart remote repositories (those not proxying another Artifactory instance), which includes this package type.
+func (o RemoteAieditorextensionsRepositoryCustomHttpHeaderOutput) Sensitive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteAieditorextensionsRepositoryCustomHttpHeader) *bool { return v.Sensitive }).(pulumi.BoolPtrOutput)
+}
+
+// Header value.
+func (o RemoteAieditorextensionsRepositoryCustomHttpHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RemoteAieditorextensionsRepositoryCustomHttpHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (RemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RemoteAieditorextensionsRepositoryCustomHttpHeader)(nil)).Elem()
+}
+
+func (o RemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutput) ToRemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutput() RemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutput {
+	return o
+}
+
+func (o RemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutput) ToRemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutputWithContext(ctx context.Context) RemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutput {
+	return o
+}
+
+func (o RemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutput) Index(i pulumi.IntInput) RemoteAieditorextensionsRepositoryCustomHttpHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RemoteAieditorextensionsRepositoryCustomHttpHeader {
+		return vs[0].([]RemoteAieditorextensionsRepositoryCustomHttpHeader)[vs[1].(int)]
+	}).(RemoteAieditorextensionsRepositoryCustomHttpHeaderOutput)
+}
+
 type RemoteAlpineRepositoryContentSynchronisation struct {
 	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 	Enabled *bool `pulumi:"enabled"`
@@ -37587,6 +38006,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleWebhookCriteriaPtrInput)(nil)).Elem(), ReleaseBundleWebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleWebhookHandlerInput)(nil)).Elem(), ReleaseBundleWebhookHandlerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleWebhookHandlerArrayInput)(nil)).Elem(), ReleaseBundleWebhookHandlerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteAieditorextensionsRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteAieditorextensionsRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteAieditorextensionsRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteAieditorextensionsRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteAieditorextensionsRepositoryCustomHttpHeaderInput)(nil)).Elem(), RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteAieditorextensionsRepositoryCustomHttpHeaderArrayInput)(nil)).Elem(), RemoteAieditorextensionsRepositoryCustomHttpHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteAlpineRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteAlpineRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteAlpineRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteAlpineRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteAnsibleRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteAnsibleRepositoryContentSynchronisationArgs{})
@@ -38058,6 +38481,10 @@ func init() {
 	pulumi.RegisterOutputType(ReleaseBundleWebhookCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(ReleaseBundleWebhookHandlerOutput{})
 	pulumi.RegisterOutputType(ReleaseBundleWebhookHandlerArrayOutput{})
+	pulumi.RegisterOutputType(RemoteAieditorextensionsRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(RemoteAieditorextensionsRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(RemoteAieditorextensionsRepositoryCustomHttpHeaderOutput{})
+	pulumi.RegisterOutputType(RemoteAieditorextensionsRepositoryCustomHttpHeaderArrayOutput{})
 	pulumi.RegisterOutputType(RemoteAlpineRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteAlpineRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteAnsibleRepositoryContentSynchronisationOutput{})

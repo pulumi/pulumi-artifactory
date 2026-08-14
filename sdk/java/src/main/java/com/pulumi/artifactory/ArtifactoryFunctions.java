@@ -164,6 +164,8 @@ import com.pulumi.artifactory.inputs.GetLocalVagrantRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetLocalVagrantRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetPermissionTargetArgs;
 import com.pulumi.artifactory.inputs.GetPermissionTargetPlainArgs;
+import com.pulumi.artifactory.inputs.GetRemoteAieditorextensionsRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetRemoteAieditorextensionsRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteAlpineRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteAlpineRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteAnsibleRepositoryArgs;
@@ -386,6 +388,7 @@ import com.pulumi.artifactory.outputs.GetLocalTerraformProviderRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalTerraformbackendRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalVagrantRepositoryResult;
 import com.pulumi.artifactory.outputs.GetPermissionTargetResult;
+import com.pulumi.artifactory.outputs.GetRemoteAieditorextensionsRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteAlpineRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteAnsibleRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteBazelRepositoryResult;
@@ -16194,6 +16197,206 @@ public final class ArtifactoryFunctions {
      */
     public static CompletableFuture<GetPermissionTargetResult> getPermissionTargetPlain(GetPermissionTargetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getPermissionTarget:getPermissionTarget", TypeShape.of(GetPermissionTargetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves configuration for a remote AI-Editor Extensions repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteAieditorextensionsRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getRemoteAieditorextensionsRepository(GetRemoteAieditorextensionsRepositoryArgs.builder()
+     *             .key("my-remote-aieditorextensions")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRemoteAieditorextensionsRepositoryResult> getRemoteAieditorextensionsRepository(GetRemoteAieditorextensionsRepositoryArgs args) {
+        return getRemoteAieditorextensionsRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves configuration for a remote AI-Editor Extensions repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteAieditorextensionsRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getRemoteAieditorextensionsRepository(GetRemoteAieditorextensionsRepositoryArgs.builder()
+     *             .key("my-remote-aieditorextensions")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRemoteAieditorextensionsRepositoryResult> getRemoteAieditorextensionsRepositoryPlain(GetRemoteAieditorextensionsRepositoryPlainArgs args) {
+        return getRemoteAieditorextensionsRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves configuration for a remote AI-Editor Extensions repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteAieditorextensionsRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getRemoteAieditorextensionsRepository(GetRemoteAieditorextensionsRepositoryArgs.builder()
+     *             .key("my-remote-aieditorextensions")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRemoteAieditorextensionsRepositoryResult> getRemoteAieditorextensionsRepository(GetRemoteAieditorextensionsRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getRemoteAieditorextensionsRepository:getRemoteAieditorextensionsRepository", TypeShape.of(GetRemoteAieditorextensionsRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves configuration for a remote AI-Editor Extensions repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteAieditorextensionsRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getRemoteAieditorextensionsRepository(GetRemoteAieditorextensionsRepositoryArgs.builder()
+     *             .key("my-remote-aieditorextensions")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRemoteAieditorextensionsRepositoryResult> getRemoteAieditorextensionsRepository(GetRemoteAieditorextensionsRepositoryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getRemoteAieditorextensionsRepository:getRemoteAieditorextensionsRepository", TypeShape.of(GetRemoteAieditorextensionsRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves configuration for a remote AI-Editor Extensions repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteAieditorextensionsRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ArtifactoryFunctions.getRemoteAieditorextensionsRepository(GetRemoteAieditorextensionsRepositoryArgs.builder()
+     *             .key("my-remote-aieditorextensions")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRemoteAieditorextensionsRepositoryResult> getRemoteAieditorextensionsRepositoryPlain(GetRemoteAieditorextensionsRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getRemoteAieditorextensionsRepository:getRemoteAieditorextensionsRepository", TypeShape.of(GetRemoteAieditorextensionsRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves a remote Alpine repository.

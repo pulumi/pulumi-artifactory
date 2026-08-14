@@ -58,12 +58,7 @@ namespace Pulumi.Artifactory
     ///         Key = "my-debian-repo",
     ///         PrimaryKeypairRef = some_keypairGPG1.PairName,
     ///         SecondaryKeypairRef = some_keypairGPG2.PairName,
-    ///         IndexCompressionFormats = new[]
-    ///         {
-    ///             "bz2",
-    ///             "lzma",
-    ///             "xz",
-    ///         },
+    ///         IndexCompressionFormats = new[] {},
     ///         TrivialLayout = true,
     ///     }, new CustomResourceOptions
     ///     {
@@ -137,8 +132,8 @@ namespace Pulumi.Artifactory
         public Output<string> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-        /// and XZ (.xz extension).
+        /// The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+        /// and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `IndexCompressionFormats = ["bz2", "lzma", "xz"]`. Default is empty.
         /// </summary>
         [Output("indexCompressionFormats")]
         public Output<ImmutableArray<string>> IndexCompressionFormats { get; private set; } = null!;
@@ -312,8 +307,8 @@ namespace Pulumi.Artifactory
         private InputList<string>? _indexCompressionFormats;
 
         /// <summary>
-        /// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-        /// and XZ (.xz extension).
+        /// The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+        /// and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `IndexCompressionFormats = ["bz2", "lzma", "xz"]`. Default is empty.
         /// </summary>
         public InputList<string> IndexCompressionFormats
         {
@@ -464,8 +459,8 @@ namespace Pulumi.Artifactory
         private InputList<string>? _indexCompressionFormats;
 
         /// <summary>
-        /// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-        /// and XZ (.xz extension).
+        /// The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+        /// and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `IndexCompressionFormats = ["bz2", "lzma", "xz"]`. Default is empty.
         /// </summary>
         public InputList<string> IndexCompressionFormats
         {

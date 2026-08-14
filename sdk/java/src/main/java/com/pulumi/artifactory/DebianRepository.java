@@ -76,10 +76,7 @@ import javax.annotation.Nullable;
  *             .key("my-debian-repo")
  *             .primaryKeypairRef(some_keypairGPG1.pairName())
  *             .secondaryKeypairRef(some_keypairGPG2.pairName())
- *             .indexCompressionFormats(            
- *                 "bz2",
- *                 "lzma",
- *                 "xz")
+ *             .indexCompressionFormats()
  *             .trivialLayout(true)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
@@ -217,16 +214,16 @@ public class DebianRepository extends com.pulumi.resources.CustomResource {
         return this.includesPattern;
     }
     /**
-     * The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-     * and XZ (.xz extension).
+     * The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+     * and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `indexCompressionFormats = [&#34;bz2&#34;, &#34;lzma&#34;, &#34;xz&#34;]`. Default is empty.
      * 
      */
     @Export(name="indexCompressionFormats", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> indexCompressionFormats;
 
     /**
-     * @return The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-     * and XZ (.xz extension).
+     * @return The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+     * and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `indexCompressionFormats = [&#34;bz2&#34;, &#34;lzma&#34;, &#34;xz&#34;]`. Default is empty.
      * 
      */
     public Output<List<String>> indexCompressionFormats() {

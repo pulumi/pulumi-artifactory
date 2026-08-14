@@ -285,6 +285,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ReleaseBundleV2Webhook{}
 	case "artifactory:index/releaseBundleWebhook:ReleaseBundleWebhook":
 		r = &ReleaseBundleWebhook{}
+	case "artifactory:index/remoteAieditorextensionsRepository:RemoteAieditorextensionsRepository":
+		r = &RemoteAieditorextensionsRepository{}
 	case "artifactory:index/remoteAlpineRepository:RemoteAlpineRepository":
 		r = &RemoteAlpineRepository{}
 	case "artifactory:index/remoteAnsibleRepository:RemoteAnsibleRepository":
@@ -1134,6 +1136,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/releaseBundleWebhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/remoteAieditorextensionsRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

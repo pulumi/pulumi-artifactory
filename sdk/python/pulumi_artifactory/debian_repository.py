@@ -52,8 +52,8 @@ class DebianRepositoryArgs:
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] index_compression_formats: The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-               and XZ (.xz extension).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] index_compression_formats: The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+               and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `index_compression_formats = ["bz2", "lzma", "xz"]`. Default is empty.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.str] primary_keypair_ref: The primary RSA key to be used to sign packages.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -222,8 +222,8 @@ class DebianRepositoryArgs:
     @pulumi.getter(name="indexCompressionFormats")
     def index_compression_formats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-        and XZ (.xz extension).
+        The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+        and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `index_compression_formats = ["bz2", "lzma", "xz"]`. Default is empty.
         """
         return pulumi.get(self, "index_compression_formats")
 
@@ -391,8 +391,8 @@ class _DebianRepositoryState:
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] index_compression_formats: The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-               and XZ (.xz extension).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] index_compression_formats: The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+               and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `index_compression_formats = ["bz2", "lzma", "xz"]`. Default is empty.
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.str] primary_keypair_ref: The primary RSA key to be used to sign packages.
@@ -551,8 +551,8 @@ class _DebianRepositoryState:
     @pulumi.getter(name="indexCompressionFormats")
     def index_compression_formats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-        and XZ (.xz extension).
+        The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+        and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `index_compression_formats = ["bz2", "lzma", "xz"]`. Default is empty.
         """
         return pulumi.get(self, "index_compression_formats")
 
@@ -750,11 +750,7 @@ class DebianRepository(pulumi.CustomResource):
             key="my-debian-repo",
             primary_keypair_ref=some_keypair_gpg1.pair_name,
             secondary_keypair_ref=some_keypair_gpg2.pair_name,
-            index_compression_formats=[
-                "bz2",
-                "lzma",
-                "xz",
-            ],
+            index_compression_formats=[],
             trivial_layout=True,
             opts = pulumi.ResourceOptions(depends_on=[
                     some_keypair_gpg1,
@@ -781,8 +777,8 @@ class DebianRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] index_compression_formats: The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-               and XZ (.xz extension).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] index_compression_formats: The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+               and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `index_compression_formats = ["bz2", "lzma", "xz"]`. Default is empty.
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.str] primary_keypair_ref: The primary RSA key to be used to sign packages.
@@ -831,11 +827,7 @@ class DebianRepository(pulumi.CustomResource):
             key="my-debian-repo",
             primary_keypair_ref=some_keypair_gpg1.pair_name,
             secondary_keypair_ref=some_keypair_gpg2.pair_name,
-            index_compression_formats=[
-                "bz2",
-                "lzma",
-                "xz",
-            ],
+            index_compression_formats=[],
             trivial_layout=True,
             opts = pulumi.ResourceOptions(depends_on=[
                     some_keypair_gpg1,
@@ -963,8 +955,8 @@ class DebianRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] index_compression_formats: The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-               and XZ (.xz extension).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] index_compression_formats: The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+               and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `index_compression_formats = ["bz2", "lzma", "xz"]`. Default is empty.
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.str] primary_keypair_ref: The primary RSA key to be used to sign packages.
@@ -1076,8 +1068,8 @@ class DebianRepository(pulumi.CustomResource):
     @pulumi.getter(name="indexCompressionFormats")
     def index_compression_formats(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-        and XZ (.xz extension).
+        The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+        and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `index_compression_formats = ["bz2", "lzma", "xz"]`. Default is empty.
         """
         return pulumi.get(self, "index_compression_formats")
 

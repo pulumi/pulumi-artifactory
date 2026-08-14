@@ -730,6 +730,11 @@ export const getPermissionTarget: typeof import("./getPermissionTarget").getPerm
 export const getPermissionTargetOutput: typeof import("./getPermissionTarget").getPermissionTargetOutput = null as any;
 utilities.lazyLoad(exports, ["getPermissionTarget","getPermissionTargetOutput"], () => require("./getPermissionTarget"));
 
+export { GetRemoteAieditorextensionsRepositoryArgs, GetRemoteAieditorextensionsRepositoryResult, GetRemoteAieditorextensionsRepositoryOutputArgs } from "./getRemoteAieditorextensionsRepository";
+export const getRemoteAieditorextensionsRepository: typeof import("./getRemoteAieditorextensionsRepository").getRemoteAieditorextensionsRepository = null as any;
+export const getRemoteAieditorextensionsRepositoryOutput: typeof import("./getRemoteAieditorextensionsRepository").getRemoteAieditorextensionsRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteAieditorextensionsRepository","getRemoteAieditorextensionsRepositoryOutput"], () => require("./getRemoteAieditorextensionsRepository"));
+
 export { GetRemoteAlpineRepositoryArgs, GetRemoteAlpineRepositoryResult, GetRemoteAlpineRepositoryOutputArgs } from "./getRemoteAlpineRepository";
 export const getRemoteAlpineRepository: typeof import("./getRemoteAlpineRepository").getRemoteAlpineRepository = null as any;
 export const getRemoteAlpineRepositoryOutput: typeof import("./getRemoteAlpineRepository").getRemoteAlpineRepositoryOutput = null as any;
@@ -1423,6 +1428,11 @@ export type ReleaseBundleWebhook = import("./releaseBundleWebhook").ReleaseBundl
 export const ReleaseBundleWebhook: typeof import("./releaseBundleWebhook").ReleaseBundleWebhook = null as any;
 utilities.lazyLoad(exports, ["ReleaseBundleWebhook"], () => require("./releaseBundleWebhook"));
 
+export { RemoteAieditorextensionsRepositoryArgs, RemoteAieditorextensionsRepositoryState } from "./remoteAieditorextensionsRepository";
+export type RemoteAieditorextensionsRepository = import("./remoteAieditorextensionsRepository").RemoteAieditorextensionsRepository;
+export const RemoteAieditorextensionsRepository: typeof import("./remoteAieditorextensionsRepository").RemoteAieditorextensionsRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteAieditorextensionsRepository"], () => require("./remoteAieditorextensionsRepository"));
+
 export { RemoteAlpineRepositoryArgs, RemoteAlpineRepositoryState } from "./remoteAlpineRepository";
 export type RemoteAlpineRepository = import("./remoteAlpineRepository").RemoteAlpineRepository;
 export const RemoteAlpineRepository: typeof import("./remoteAlpineRepository").RemoteAlpineRepository = null as any;
@@ -2101,6 +2111,8 @@ const _module = {
                 return new ReleaseBundleV2Webhook(name, <any>undefined, { urn })
             case "artifactory:index/releaseBundleWebhook:ReleaseBundleWebhook":
                 return new ReleaseBundleWebhook(name, <any>undefined, { urn })
+            case "artifactory:index/remoteAieditorextensionsRepository:RemoteAieditorextensionsRepository":
+                return new RemoteAieditorextensionsRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteAlpineRepository:RemoteAlpineRepository":
                 return new RemoteAlpineRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteAnsibleRepository:RemoteAnsibleRepository":
@@ -2398,6 +2410,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2Promo
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2PromotionWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2Webhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleWebhook", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteAieditorextensionsRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteAlpineRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteAnsibleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteBazelRepository", _module)

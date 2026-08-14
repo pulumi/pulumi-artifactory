@@ -40,11 +40,7 @@ import * as utilities from "./utilities";
  *     key: "my-debian-repo",
  *     primaryKeypairRef: some_keypairGPG1.pairName,
  *     secondaryKeypairRef: some_keypairGPG2.pairName,
- *     indexCompressionFormats: [
- *         "bz2",
- *         "lzma",
- *         "xz",
- *     ],
+ *     indexCompressionFormats: [],
  *     trivialLayout: true,
  * }, {
  *     dependsOn: [
@@ -123,8 +119,8 @@ export class DebianRepository extends pulumi.CustomResource {
      */
     declare public readonly includesPattern: pulumi.Output<string>;
     /**
-     * The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-     * and XZ (.xz extension).
+     * The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+     * and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `indexCompressionFormats = ["bz2", "lzma", "xz"]`. Default is empty.
      */
     declare public readonly indexCompressionFormats: pulumi.Output<string[]>;
     /**
@@ -278,8 +274,8 @@ export interface DebianRepositoryState {
      */
     includesPattern?: pulumi.Input<string | undefined>;
     /**
-     * The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-     * and XZ (.xz extension).
+     * The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+     * and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `indexCompressionFormats = ["bz2", "lzma", "xz"]`. Default is empty.
      */
     indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -370,8 +366,8 @@ export interface DebianRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string | undefined>;
     /**
-     * The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-     * and XZ (.xz extension).
+     * The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
+     * and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `indexCompressionFormats = ["bz2", "lzma", "xz"]`. Default is empty.
      */
     indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

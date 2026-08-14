@@ -4845,6 +4845,61 @@ export interface ReleaseBundleWebhookHandler {
     useSecretForSigning?: pulumi.Input<boolean | undefined>;
 }
 
+export interface RemoteAieditorextensionsRepositoryContentSynchronisation {
+    /**
+     * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+     */
+    enabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+     */
+    propertiesEnabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+     */
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean | undefined>;
+    /**
+     * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+     */
+    statisticsEnabled?: pulumi.Input<boolean | undefined>;
+}
+
+export interface RemoteAieditorextensionsRepositoryCustomHttpHeader {
+    /**
+     * Header name. Artifactory stores header names lower-cased.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * When `true`, Artifactory encrypts the value server-side. Default value is `false`.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as artifactory from "@pulumi/artifactory";
+     *
+     * const my_remote_aieditorextensions_curated = new artifactory.RemoteAieditorextensionsRepository("my-remote-aieditorextensions-curated", {
+     *     key: "my-remote-aieditorextensions-curated",
+     *     url: "https://marketplace.visualstudio.com/_apis/public/gallery",
+     *     curated: true,
+     *     passThrough: false,
+     *     customHttpHeaders: [{
+     *         name: "x-api-key",
+     *         value: "my-gallery-token",
+     *         sensitive: true,
+     *     }],
+     * });
+     * ```
+     *
+     * The default `repoLayoutRef` for this package type is `simple-default`, and `listRemoteFolderItems` defaults to `false`.
+     *
+     * > Setting `enabled = true` inside the shared `contentSynchronisation` block has no effect: Artifactory stores it as `false` regardless of what is sent, which leaves a perpetual diff in the plan. The nested `statisticsEnabled`, `propertiesEnabled`, and `sourceOriginAbsenceDetection` flags do persist. This applies to non-smart remote repositories (those not proxying another Artifactory instance), which includes this package type.
+     */
+    sensitive?: pulumi.Input<boolean | undefined>;
+    /**
+     * Header value.
+     */
+    value: pulumi.Input<string>;
+}
+
 export interface RemoteAlpineRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.

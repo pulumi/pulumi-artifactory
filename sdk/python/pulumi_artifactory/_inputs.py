@@ -225,6 +225,10 @@ __all__ = [
     'ReleaseBundleWebhookCriteriaArgsDict',
     'ReleaseBundleWebhookHandlerArgs',
     'ReleaseBundleWebhookHandlerArgsDict',
+    'RemoteAieditorextensionsRepositoryContentSynchronisationArgs',
+    'RemoteAieditorextensionsRepositoryContentSynchronisationArgsDict',
+    'RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs',
+    'RemoteAieditorextensionsRepositoryCustomHttpHeaderArgsDict',
     'RemoteAlpineRepositoryContentSynchronisationArgs',
     'RemoteAlpineRepositoryContentSynchronisationArgsDict',
     'RemoteAnsibleRepositoryContentSynchronisationArgs',
@@ -10301,6 +10305,222 @@ class ReleaseBundleWebhookHandlerArgs:
     @use_secret_for_signing.setter
     def use_secret_for_signing(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_secret_for_signing", value)
+
+
+class RemoteAieditorextensionsRepositoryContentSynchronisationArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+    """
+    properties_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+    """
+    source_origin_absence_detection: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+    """
+    statistics_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+    """
+
+@pulumi.input_type
+class RemoteAieditorextensionsRepositoryContentSynchronisationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 properties_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source_origin_absence_detection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 statistics_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        :param pulumi.Input[_builtins.bool] properties_enabled: If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        :param pulumi.Input[_builtins.bool] source_origin_absence_detection: If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        :param pulumi.Input[_builtins.bool] statistics_enabled: If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        return pulumi.get(self, "properties_enabled")
+
+    @properties_enabled.setter
+    def properties_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "properties_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @source_origin_absence_detection.setter
+    def source_origin_absence_detection(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "source_origin_absence_detection", value)
+
+    @_builtins.property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+        return pulumi.get(self, "statistics_enabled")
+
+    @statistics_enabled.setter
+    def statistics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "statistics_enabled", value)
+
+
+class RemoteAieditorextensionsRepositoryCustomHttpHeaderArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Header name. Artifactory stores header names lower-cased.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Header value.
+    """
+    sensitive: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When `true`, Artifactory encrypts the value server-side. Default value is `false`.
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    my_remote_aieditorextensions_curated = artifactory.RemoteAieditorextensionsRepository("my-remote-aieditorextensions-curated",
+        key="my-remote-aieditorextensions-curated",
+        url="https://marketplace.visualstudio.com/_apis/public/gallery",
+        curated=True,
+        pass_through=False,
+        custom_http_headers=[{
+            "name": "x-api-key",
+            "value": "my-gallery-token",
+            "sensitive": True,
+        }])
+    ```
+
+    The default `repo_layout_ref` for this package type is `simple-default`, and `list_remote_folder_items` defaults to `false`.
+
+    > Setting `enabled = true` inside the shared `content_synchronisation` block has no effect: Artifactory stores it as `false` regardless of what is sent, which leaves a perpetual diff in the plan. The nested `statistics_enabled`, `properties_enabled`, and `source_origin_absence_detection` flags do persist. This applies to non-smart remote repositories (those not proxying another Artifactory instance), which includes this package type.
+    """
+
+@pulumi.input_type
+class RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str],
+                 sensitive: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Header name. Artifactory stores header names lower-cased.
+        :param pulumi.Input[_builtins.str] value: Header value.
+        :param pulumi.Input[_builtins.bool] sensitive: When `true`, Artifactory encrypts the value server-side. Default value is `false`.
+               
+               ```python
+               import pulumi
+               import pulumi_artifactory as artifactory
+               
+               my_remote_aieditorextensions_curated = artifactory.RemoteAieditorextensionsRepository("my-remote-aieditorextensions-curated",
+                   key="my-remote-aieditorextensions-curated",
+                   url="https://marketplace.visualstudio.com/_apis/public/gallery",
+                   curated=True,
+                   pass_through=False,
+                   custom_http_headers=[{
+                       "name": "x-api-key",
+                       "value": "my-gallery-token",
+                       "sensitive": True,
+                   }])
+               ```
+               
+               The default `repo_layout_ref` for this package type is `simple-default`, and `list_remote_folder_items` defaults to `false`.
+               
+               > Setting `enabled = true` inside the shared `content_synchronisation` block has no effect: Artifactory stores it as `false` regardless of what is sent, which leaves a perpetual diff in the plan. The nested `statistics_enabled`, `properties_enabled`, and `source_origin_absence_detection` flags do persist. This applies to non-smart remote repositories (those not proxying another Artifactory instance), which includes this package type.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if sensitive is not None:
+            pulumi.set(__self__, "sensitive", sensitive)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Header name. Artifactory stores header names lower-cased.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        Header value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def sensitive(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When `true`, Artifactory encrypts the value server-side. Default value is `false`.
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_remote_aieditorextensions_curated = artifactory.RemoteAieditorextensionsRepository("my-remote-aieditorextensions-curated",
+            key="my-remote-aieditorextensions-curated",
+            url="https://marketplace.visualstudio.com/_apis/public/gallery",
+            curated=True,
+            pass_through=False,
+            custom_http_headers=[{
+                "name": "x-api-key",
+                "value": "my-gallery-token",
+                "sensitive": True,
+            }])
+        ```
+
+        The default `repo_layout_ref` for this package type is `simple-default`, and `list_remote_folder_items` defaults to `false`.
+
+        > Setting `enabled = true` inside the shared `content_synchronisation` block has no effect: Artifactory stores it as `false` regardless of what is sent, which leaves a perpetual diff in the plan. The nested `statistics_enabled`, `properties_enabled`, and `source_origin_absence_detection` flags do persist. This applies to non-smart remote repositories (those not proxying another Artifactory instance), which includes this package type.
+        """
+        return pulumi.get(self, "sensitive")
+
+    @sensitive.setter
+    def sensitive(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "sensitive", value)
 
 
 class RemoteAlpineRepositoryContentSynchronisationArgsDict(TypedDict):
