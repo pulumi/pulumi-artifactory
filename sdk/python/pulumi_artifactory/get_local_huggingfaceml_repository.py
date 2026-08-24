@@ -124,7 +124,7 @@ class GetLocalHuggingfacemlRepositoryResult:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[_builtins.str]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -140,7 +140,7 @@ class GetLocalHuggingfacemlRepositoryResult:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[_builtins.str]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -265,8 +265,8 @@ def get_local_huggingfaceml_repository(archive_browsing_enabled: Optional[_built
     :param _builtins.bool cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
     :param _builtins.str description: Public description.
     :param _builtins.bool download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
-    :param _builtins.str excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no artifacts are excluded.
-    :param _builtins.str includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+    :param _builtins.str excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
+    :param _builtins.str includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
     :param _builtins.str key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen characters. It cannot begin with a number or contain spaces or special characters.
     :param _builtins.str notes: Internal description.
     :param _builtins.bool priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -339,8 +339,8 @@ def get_local_huggingfaceml_repository_output(archive_browsing_enabled: pulumi.I
     :param _builtins.bool cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
     :param _builtins.str description: Public description.
     :param _builtins.bool download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
-    :param _builtins.str excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no artifacts are excluded.
-    :param _builtins.str includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+    :param _builtins.str excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
+    :param _builtins.str includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
     :param _builtins.str key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen characters. It cannot begin with a number or contain spaces or special characters.
     :param _builtins.str notes: Internal description.
     :param _builtins.bool priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
