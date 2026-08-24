@@ -113,11 +113,11 @@ type VirtualHexRepository struct {
 	DefaultDeploymentRepo pulumi.StringOutput `pulumi:"defaultDeploymentRepo"`
 	// Public description.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
 	// Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
 	HexPrimaryKeypairRef pulumi.StringOutput `pulumi:"hexPrimaryKeypairRef"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
@@ -177,11 +177,11 @@ type virtualHexRepositoryState struct {
 	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
 	// Public description.
 	Description *string `pulumi:"description"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
 	HexPrimaryKeypairRef *string `pulumi:"hexPrimaryKeypairRef"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
@@ -206,11 +206,11 @@ type VirtualHexRepositoryState struct {
 	DefaultDeploymentRepo pulumi.StringPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
 	HexPrimaryKeypairRef pulumi.StringPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
@@ -239,11 +239,11 @@ type virtualHexRepositoryArgs struct {
 	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
 	// Public description.
 	Description *string `pulumi:"description"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
 	HexPrimaryKeypairRef string `pulumi:"hexPrimaryKeypairRef"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
@@ -269,11 +269,11 @@ type VirtualHexRepositoryArgs struct {
 	DefaultDeploymentRepo pulumi.StringPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
 	HexPrimaryKeypairRef pulumi.StringInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
@@ -395,7 +395,7 @@ func (o VirtualHexRepositoryOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualHexRepository) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 func (o VirtualHexRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualHexRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
 }
@@ -405,7 +405,7 @@ func (o VirtualHexRepositoryOutput) HexPrimaryKeypairRef() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualHexRepository) pulumi.StringOutput { return v.HexPrimaryKeypairRef }).(pulumi.StringOutput)
 }
 
-// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 func (o VirtualHexRepositoryOutput) IncludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualHexRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }

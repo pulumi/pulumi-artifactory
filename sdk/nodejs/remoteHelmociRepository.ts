@@ -121,7 +121,7 @@ export class RemoteHelmociRepository extends pulumi.CustomResource {
      */
     declare public readonly enableTokenAuthentication: pulumi.Output<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
+     * Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
      */
     declare public readonly excludesPattern: pulumi.Output<string>;
     /**
@@ -137,7 +137,7 @@ export class RemoteHelmociRepository extends pulumi.CustomResource {
      */
     declare public readonly hardFail: pulumi.Output<boolean>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     declare public readonly includesPattern: pulumi.Output<string>;
     /**
@@ -442,7 +442,7 @@ export interface RemoteHelmociRepositoryState {
      */
     enableTokenAuthentication?: pulumi.Input<boolean | undefined>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
+     * Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string | undefined>;
     /**
@@ -458,7 +458,7 @@ export interface RemoteHelmociRepositoryState {
      */
     hardFail?: pulumi.Input<boolean | undefined>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string | undefined>;
     /**
@@ -637,7 +637,7 @@ export interface RemoteHelmociRepositoryArgs {
      */
     enableTokenAuthentication?: pulumi.Input<boolean | undefined>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
+     * Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string | undefined>;
     /**
@@ -653,7 +653,7 @@ export interface RemoteHelmociRepositoryArgs {
      */
     hardFail?: pulumi.Input<boolean | undefined>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string | undefined>;
     /**
