@@ -75,12 +75,8 @@ type LookupLocalNixRepositoryResult struct {
 }
 
 func LookupLocalNixRepositoryOutput(ctx *pulumi.Context, args LookupLocalNixRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalNixRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalNixRepositoryResultOutput, error) {
-			args := v.(LookupLocalNixRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalNixRepository:getLocalNixRepository", args, LookupLocalNixRepositoryResultOutput{}, options).(LookupLocalNixRepositoryResultOutput), nil
-		}).(LookupLocalNixRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalNixRepository:getLocalNixRepository", args, LookupLocalNixRepositoryResultOutput{}, options).(LookupLocalNixRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalNixRepository.

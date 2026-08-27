@@ -127,12 +127,8 @@ type LookupLocalRpmRepositoryResult struct {
 }
 
 func LookupLocalRpmRepositoryOutput(ctx *pulumi.Context, args LookupLocalRpmRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalRpmRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalRpmRepositoryResultOutput, error) {
-			args := v.(LookupLocalRpmRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalRpmRepository:getLocalRpmRepository", args, LookupLocalRpmRepositoryResultOutput{}, options).(LookupLocalRpmRepositoryResultOutput), nil
-		}).(LookupLocalRpmRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalRpmRepository:getLocalRpmRepository", args, LookupLocalRpmRepositoryResultOutput{}, options).(LookupLocalRpmRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalRpmRepository.

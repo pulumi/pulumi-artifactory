@@ -92,12 +92,8 @@ type LookupLocalCranRepositoryResult struct {
 }
 
 func LookupLocalCranRepositoryOutput(ctx *pulumi.Context, args LookupLocalCranRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalCranRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalCranRepositoryResultOutput, error) {
-			args := v.(LookupLocalCranRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalCranRepository:getLocalCranRepository", args, LookupLocalCranRepositoryResultOutput{}, options).(LookupLocalCranRepositoryResultOutput), nil
-		}).(LookupLocalCranRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalCranRepository:getLocalCranRepository", args, LookupLocalCranRepositoryResultOutput{}, options).(LookupLocalCranRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalCranRepository.

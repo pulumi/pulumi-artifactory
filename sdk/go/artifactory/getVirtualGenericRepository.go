@@ -83,12 +83,8 @@ type LookupVirtualGenericRepositoryResult struct {
 }
 
 func LookupVirtualGenericRepositoryOutput(ctx *pulumi.Context, args LookupVirtualGenericRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualGenericRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualGenericRepositoryResultOutput, error) {
-			args := v.(LookupVirtualGenericRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualGenericRepository:getVirtualGenericRepository", args, LookupVirtualGenericRepositoryResultOutput{}, options).(LookupVirtualGenericRepositoryResultOutput), nil
-		}).(LookupVirtualGenericRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualGenericRepository:getVirtualGenericRepository", args, LookupVirtualGenericRepositoryResultOutput{}, options).(LookupVirtualGenericRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualGenericRepository.

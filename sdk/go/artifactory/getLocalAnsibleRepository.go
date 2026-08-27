@@ -95,12 +95,8 @@ type LookupLocalAnsibleRepositoryResult struct {
 }
 
 func LookupLocalAnsibleRepositoryOutput(ctx *pulumi.Context, args LookupLocalAnsibleRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalAnsibleRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalAnsibleRepositoryResultOutput, error) {
-			args := v.(LookupLocalAnsibleRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalAnsibleRepository:getLocalAnsibleRepository", args, LookupLocalAnsibleRepositoryResultOutput{}, options).(LookupLocalAnsibleRepositoryResultOutput), nil
-		}).(LookupLocalAnsibleRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalAnsibleRepository:getLocalAnsibleRepository", args, LookupLocalAnsibleRepositoryResultOutput{}, options).(LookupLocalAnsibleRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalAnsibleRepository.

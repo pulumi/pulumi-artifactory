@@ -113,12 +113,8 @@ type GetLocalDockerV2RepositoryResult struct {
 }
 
 func GetLocalDockerV2RepositoryOutput(ctx *pulumi.Context, args GetLocalDockerV2RepositoryOutputArgs, opts ...pulumi.InvokeOption) GetLocalDockerV2RepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLocalDockerV2RepositoryResultOutput, error) {
-			args := v.(GetLocalDockerV2RepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalDockerV2Repository:getLocalDockerV2Repository", args, GetLocalDockerV2RepositoryResultOutput{}, options).(GetLocalDockerV2RepositoryResultOutput), nil
-		}).(GetLocalDockerV2RepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalDockerV2Repository:getLocalDockerV2Repository", args, GetLocalDockerV2RepositoryResultOutput{}, options).(GetLocalDockerV2RepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalDockerV2Repository.

@@ -111,12 +111,8 @@ type LookupFederatedVagrantRepositoryResult struct {
 }
 
 func LookupFederatedVagrantRepositoryOutput(ctx *pulumi.Context, args LookupFederatedVagrantRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedVagrantRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedVagrantRepositoryResultOutput, error) {
-			args := v.(LookupFederatedVagrantRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedVagrantRepository:getFederatedVagrantRepository", args, LookupFederatedVagrantRepositoryResultOutput{}, options).(LookupFederatedVagrantRepositoryResultOutput), nil
-		}).(LookupFederatedVagrantRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedVagrantRepository:getFederatedVagrantRepository", args, LookupFederatedVagrantRepositoryResultOutput{}, options).(LookupFederatedVagrantRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedVagrantRepository.

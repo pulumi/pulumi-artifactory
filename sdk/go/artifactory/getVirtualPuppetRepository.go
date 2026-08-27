@@ -83,12 +83,8 @@ type LookupVirtualPuppetRepositoryResult struct {
 }
 
 func LookupVirtualPuppetRepositoryOutput(ctx *pulumi.Context, args LookupVirtualPuppetRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualPuppetRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualPuppetRepositoryResultOutput, error) {
-			args := v.(LookupVirtualPuppetRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualPuppetRepository:getVirtualPuppetRepository", args, LookupVirtualPuppetRepositoryResultOutput{}, options).(LookupVirtualPuppetRepositoryResultOutput), nil
-		}).(LookupVirtualPuppetRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualPuppetRepository:getVirtualPuppetRepository", args, LookupVirtualPuppetRepositoryResultOutput{}, options).(LookupVirtualPuppetRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualPuppetRepository.

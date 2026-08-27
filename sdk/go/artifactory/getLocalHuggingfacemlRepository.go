@@ -96,12 +96,8 @@ type LookupLocalHuggingfacemlRepositoryResult struct {
 }
 
 func LookupLocalHuggingfacemlRepositoryOutput(ctx *pulumi.Context, args LookupLocalHuggingfacemlRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalHuggingfacemlRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalHuggingfacemlRepositoryResultOutput, error) {
-			args := v.(LookupLocalHuggingfacemlRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalHuggingfacemlRepository:getLocalHuggingfacemlRepository", args, LookupLocalHuggingfacemlRepositoryResultOutput{}, options).(LookupLocalHuggingfacemlRepositoryResultOutput), nil
-		}).(LookupLocalHuggingfacemlRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalHuggingfacemlRepository:getLocalHuggingfacemlRepository", args, LookupLocalHuggingfacemlRepositoryResultOutput{}, options).(LookupLocalHuggingfacemlRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalHuggingfacemlRepository.

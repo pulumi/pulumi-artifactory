@@ -111,12 +111,8 @@ type LookupFederatedHelmRepositoryResult struct {
 }
 
 func LookupFederatedHelmRepositoryOutput(ctx *pulumi.Context, args LookupFederatedHelmRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedHelmRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedHelmRepositoryResultOutput, error) {
-			args := v.(LookupFederatedHelmRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedHelmRepository:getFederatedHelmRepository", args, LookupFederatedHelmRepositoryResultOutput{}, options).(LookupFederatedHelmRepositoryResultOutput), nil
-		}).(LookupFederatedHelmRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedHelmRepository:getFederatedHelmRepository", args, LookupFederatedHelmRepositoryResultOutput{}, options).(LookupFederatedHelmRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedHelmRepository.

@@ -111,12 +111,8 @@ type GetFederatedGitlfsRepositoryResult struct {
 }
 
 func GetFederatedGitlfsRepositoryOutput(ctx *pulumi.Context, args GetFederatedGitlfsRepositoryOutputArgs, opts ...pulumi.InvokeOption) GetFederatedGitlfsRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetFederatedGitlfsRepositoryResultOutput, error) {
-			args := v.(GetFederatedGitlfsRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedGitlfsRepository:getFederatedGitlfsRepository", args, GetFederatedGitlfsRepositoryResultOutput{}, options).(GetFederatedGitlfsRepositoryResultOutput), nil
-		}).(GetFederatedGitlfsRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedGitlfsRepository:getFederatedGitlfsRepository", args, GetFederatedGitlfsRepositoryResultOutput{}, options).(GetFederatedGitlfsRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedGitlfsRepository.

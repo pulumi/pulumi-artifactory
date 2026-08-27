@@ -78,12 +78,8 @@ type LookupFederatedDockerRepositoryResult struct {
 }
 
 func LookupFederatedDockerRepositoryOutput(ctx *pulumi.Context, args LookupFederatedDockerRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedDockerRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedDockerRepositoryResultOutput, error) {
-			args := v.(LookupFederatedDockerRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedDockerRepository:getFederatedDockerRepository", args, LookupFederatedDockerRepositoryResultOutput{}, options).(LookupFederatedDockerRepositoryResultOutput), nil
-		}).(LookupFederatedDockerRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedDockerRepository:getFederatedDockerRepository", args, LookupFederatedDockerRepositoryResultOutput{}, options).(LookupFederatedDockerRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedDockerRepository.

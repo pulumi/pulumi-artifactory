@@ -111,12 +111,8 @@ type LookupFederatedGenericRepositoryResult struct {
 }
 
 func LookupFederatedGenericRepositoryOutput(ctx *pulumi.Context, args LookupFederatedGenericRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedGenericRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedGenericRepositoryResultOutput, error) {
-			args := v.(LookupFederatedGenericRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedGenericRepository:getFederatedGenericRepository", args, LookupFederatedGenericRepositoryResultOutput{}, options).(LookupFederatedGenericRepositoryResultOutput), nil
-		}).(LookupFederatedGenericRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedGenericRepository:getFederatedGenericRepository", args, LookupFederatedGenericRepositoryResultOutput{}, options).(LookupFederatedGenericRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedGenericRepository.

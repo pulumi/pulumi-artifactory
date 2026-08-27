@@ -99,12 +99,8 @@ type LookupLocalOciRepositoryResult struct {
 }
 
 func LookupLocalOciRepositoryOutput(ctx *pulumi.Context, args LookupLocalOciRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalOciRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalOciRepositoryResultOutput, error) {
-			args := v.(LookupLocalOciRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalOciRepository:getLocalOciRepository", args, LookupLocalOciRepositoryResultOutput{}, options).(LookupLocalOciRepositoryResultOutput), nil
-		}).(LookupLocalOciRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalOciRepository:getLocalOciRepository", args, LookupLocalOciRepositoryResultOutput{}, options).(LookupLocalOciRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalOciRepository.

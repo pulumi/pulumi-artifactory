@@ -87,12 +87,8 @@ type LookupVirtualDockerRepositoryResult struct {
 }
 
 func LookupVirtualDockerRepositoryOutput(ctx *pulumi.Context, args LookupVirtualDockerRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualDockerRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualDockerRepositoryResultOutput, error) {
-			args := v.(LookupVirtualDockerRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualDockerRepository:getVirtualDockerRepository", args, LookupVirtualDockerRepositoryResultOutput{}, options).(LookupVirtualDockerRepositoryResultOutput), nil
-		}).(LookupVirtualDockerRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualDockerRepository:getVirtualDockerRepository", args, LookupVirtualDockerRepositoryResultOutput{}, options).(LookupVirtualDockerRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualDockerRepository.

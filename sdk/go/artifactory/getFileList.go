@@ -92,12 +92,8 @@ type GetFileListResult struct {
 }
 
 func GetFileListOutput(ctx *pulumi.Context, args GetFileListOutputArgs, opts ...pulumi.InvokeOption) GetFileListResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetFileListResultOutput, error) {
-			args := v.(GetFileListArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFileList:getFileList", args, GetFileListResultOutput{}, options).(GetFileListResultOutput), nil
-		}).(GetFileListResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFileList:getFileList", args, GetFileListResultOutput{}, options).(GetFileListResultOutput)
 }
 
 // A collection of arguments for invoking getFileList.

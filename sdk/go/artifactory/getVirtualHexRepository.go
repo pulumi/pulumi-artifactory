@@ -70,12 +70,8 @@ type LookupVirtualHexRepositoryResult struct {
 }
 
 func LookupVirtualHexRepositoryOutput(ctx *pulumi.Context, args LookupVirtualHexRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualHexRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualHexRepositoryResultOutput, error) {
-			args := v.(LookupVirtualHexRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualHexRepository:getVirtualHexRepository", args, LookupVirtualHexRepositoryResultOutput{}, options).(LookupVirtualHexRepositoryResultOutput), nil
-		}).(LookupVirtualHexRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualHexRepository:getVirtualHexRepository", args, LookupVirtualHexRepositoryResultOutput{}, options).(LookupVirtualHexRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualHexRepository.

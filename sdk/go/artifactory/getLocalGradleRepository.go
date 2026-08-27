@@ -130,12 +130,8 @@ type LookupLocalGradleRepositoryResult struct {
 }
 
 func LookupLocalGradleRepositoryOutput(ctx *pulumi.Context, args LookupLocalGradleRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalGradleRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalGradleRepositoryResultOutput, error) {
-			args := v.(LookupLocalGradleRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalGradleRepository:getLocalGradleRepository", args, LookupLocalGradleRepositoryResultOutput{}, options).(LookupLocalGradleRepositoryResultOutput), nil
-		}).(LookupLocalGradleRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalGradleRepository:getLocalGradleRepository", args, LookupLocalGradleRepositoryResultOutput{}, options).(LookupLocalGradleRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalGradleRepository.

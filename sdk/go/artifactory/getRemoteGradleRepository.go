@@ -177,12 +177,8 @@ type LookupRemoteGradleRepositoryResult struct {
 }
 
 func LookupRemoteGradleRepositoryOutput(ctx *pulumi.Context, args LookupRemoteGradleRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteGradleRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteGradleRepositoryResultOutput, error) {
-			args := v.(LookupRemoteGradleRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteGradleRepository:getRemoteGradleRepository", args, LookupRemoteGradleRepositoryResultOutput{}, options).(LookupRemoteGradleRepositoryResultOutput), nil
-		}).(LookupRemoteGradleRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteGradleRepository:getRemoteGradleRepository", args, LookupRemoteGradleRepositoryResultOutput{}, options).(LookupRemoteGradleRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteGradleRepository.

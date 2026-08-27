@@ -100,12 +100,8 @@ type LookupRemoteHexRepositoryResult struct {
 }
 
 func LookupRemoteHexRepositoryOutput(ctx *pulumi.Context, args LookupRemoteHexRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteHexRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteHexRepositoryResultOutput, error) {
-			args := v.(LookupRemoteHexRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteHexRepository:getRemoteHexRepository", args, LookupRemoteHexRepositoryResultOutput{}, options).(LookupRemoteHexRepositoryResultOutput), nil
-		}).(LookupRemoteHexRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteHexRepository:getRemoteHexRepository", args, LookupRemoteHexRepositoryResultOutput{}, options).(LookupRemoteHexRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteHexRepository.

@@ -159,12 +159,8 @@ type LookupRemoteHelmRepositoryResult struct {
 }
 
 func LookupRemoteHelmRepositoryOutput(ctx *pulumi.Context, args LookupRemoteHelmRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteHelmRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteHelmRepositoryResultOutput, error) {
-			args := v.(LookupRemoteHelmRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteHelmRepository:getRemoteHelmRepository", args, LookupRemoteHelmRepositoryResultOutput{}, options).(LookupRemoteHelmRepositoryResultOutput), nil
-		}).(LookupRemoteHelmRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteHelmRepository:getRemoteHelmRepository", args, LookupRemoteHelmRepositoryResultOutput{}, options).(LookupRemoteHelmRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteHelmRepository.

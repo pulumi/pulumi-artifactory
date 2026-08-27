@@ -147,12 +147,8 @@ type LookupRemoteAnsibleRepositoryResult struct {
 }
 
 func LookupRemoteAnsibleRepositoryOutput(ctx *pulumi.Context, args LookupRemoteAnsibleRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteAnsibleRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteAnsibleRepositoryResultOutput, error) {
-			args := v.(LookupRemoteAnsibleRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteAnsibleRepository:getRemoteAnsibleRepository", args, LookupRemoteAnsibleRepositoryResultOutput{}, options).(LookupRemoteAnsibleRepositoryResultOutput), nil
-		}).(LookupRemoteAnsibleRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteAnsibleRepository:getRemoteAnsibleRepository", args, LookupRemoteAnsibleRepositoryResultOutput{}, options).(LookupRemoteAnsibleRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteAnsibleRepository.

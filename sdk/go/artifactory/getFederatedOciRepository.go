@@ -115,12 +115,8 @@ type LookupFederatedOciRepositoryResult struct {
 }
 
 func LookupFederatedOciRepositoryOutput(ctx *pulumi.Context, args LookupFederatedOciRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedOciRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedOciRepositoryResultOutput, error) {
-			args := v.(LookupFederatedOciRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedOciRepository:getFederatedOciRepository", args, LookupFederatedOciRepositoryResultOutput{}, options).(LookupFederatedOciRepositoryResultOutput), nil
-		}).(LookupFederatedOciRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedOciRepository:getFederatedOciRepository", args, LookupFederatedOciRepositoryResultOutput{}, options).(LookupFederatedOciRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedOciRepository.

@@ -123,12 +123,8 @@ type LookupFederatedMavenRepositoryResult struct {
 }
 
 func LookupFederatedMavenRepositoryOutput(ctx *pulumi.Context, args LookupFederatedMavenRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedMavenRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedMavenRepositoryResultOutput, error) {
-			args := v.(LookupFederatedMavenRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedMavenRepository:getFederatedMavenRepository", args, LookupFederatedMavenRepositoryResultOutput{}, options).(LookupFederatedMavenRepositoryResultOutput), nil
-		}).(LookupFederatedMavenRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedMavenRepository:getFederatedMavenRepository", args, LookupFederatedMavenRepositoryResultOutput{}, options).(LookupFederatedMavenRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedMavenRepository.

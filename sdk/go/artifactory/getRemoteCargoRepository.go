@@ -159,12 +159,8 @@ type LookupRemoteCargoRepositoryResult struct {
 }
 
 func LookupRemoteCargoRepositoryOutput(ctx *pulumi.Context, args LookupRemoteCargoRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteCargoRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteCargoRepositoryResultOutput, error) {
-			args := v.(LookupRemoteCargoRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteCargoRepository:getRemoteCargoRepository", args, LookupRemoteCargoRepositoryResultOutput{}, options).(LookupRemoteCargoRepositoryResultOutput), nil
-		}).(LookupRemoteCargoRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteCargoRepository:getRemoteCargoRepository", args, LookupRemoteCargoRepositoryResultOutput{}, options).(LookupRemoteCargoRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteCargoRepository.

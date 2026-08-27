@@ -87,12 +87,8 @@ type LookupVirtualChefRepositoryResult struct {
 }
 
 func LookupVirtualChefRepositoryOutput(ctx *pulumi.Context, args LookupVirtualChefRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualChefRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualChefRepositoryResultOutput, error) {
-			args := v.(LookupVirtualChefRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualChefRepository:getVirtualChefRepository", args, LookupVirtualChefRepositoryResultOutput{}, options).(LookupVirtualChefRepositoryResultOutput), nil
-		}).(LookupVirtualChefRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualChefRepository:getVirtualChefRepository", args, LookupVirtualChefRepositoryResultOutput{}, options).(LookupVirtualChefRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualChefRepository.

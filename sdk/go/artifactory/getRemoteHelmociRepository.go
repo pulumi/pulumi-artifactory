@@ -161,12 +161,8 @@ type LookupRemoteHelmociRepositoryResult struct {
 }
 
 func LookupRemoteHelmociRepositoryOutput(ctx *pulumi.Context, args LookupRemoteHelmociRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteHelmociRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteHelmociRepositoryResultOutput, error) {
-			args := v.(LookupRemoteHelmociRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteHelmociRepository:getRemoteHelmociRepository", args, LookupRemoteHelmociRepositoryResultOutput{}, options).(LookupRemoteHelmociRepositoryResultOutput), nil
-		}).(LookupRemoteHelmociRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteHelmociRepository:getRemoteHelmociRepository", args, LookupRemoteHelmociRepositoryResultOutput{}, options).(LookupRemoteHelmociRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteHelmociRepository.

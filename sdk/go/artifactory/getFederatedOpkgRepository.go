@@ -111,12 +111,8 @@ type LookupFederatedOpkgRepositoryResult struct {
 }
 
 func LookupFederatedOpkgRepositoryOutput(ctx *pulumi.Context, args LookupFederatedOpkgRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedOpkgRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedOpkgRepositoryResultOutput, error) {
-			args := v.(LookupFederatedOpkgRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedOpkgRepository:getFederatedOpkgRepository", args, LookupFederatedOpkgRepositoryResultOutput{}, options).(LookupFederatedOpkgRepositoryResultOutput), nil
-		}).(LookupFederatedOpkgRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedOpkgRepository:getFederatedOpkgRepository", args, LookupFederatedOpkgRepositoryResultOutput{}, options).(LookupFederatedOpkgRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedOpkgRepository.

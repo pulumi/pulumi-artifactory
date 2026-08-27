@@ -159,12 +159,8 @@ type LookupRemoteVcsRepositoryResult struct {
 }
 
 func LookupRemoteVcsRepositoryOutput(ctx *pulumi.Context, args LookupRemoteVcsRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteVcsRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteVcsRepositoryResultOutput, error) {
-			args := v.(LookupRemoteVcsRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteVcsRepository:getRemoteVcsRepository", args, LookupRemoteVcsRepositoryResultOutput{}, options).(LookupRemoteVcsRepositoryResultOutput), nil
-		}).(LookupRemoteVcsRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteVcsRepository:getRemoteVcsRepository", args, LookupRemoteVcsRepositoryResultOutput{}, options).(LookupRemoteVcsRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteVcsRepository.

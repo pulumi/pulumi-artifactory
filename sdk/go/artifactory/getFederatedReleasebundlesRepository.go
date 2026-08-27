@@ -71,12 +71,8 @@ type LookupFederatedReleasebundlesRepositoryResult struct {
 }
 
 func LookupFederatedReleasebundlesRepositoryOutput(ctx *pulumi.Context, args LookupFederatedReleasebundlesRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedReleasebundlesRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedReleasebundlesRepositoryResultOutput, error) {
-			args := v.(LookupFederatedReleasebundlesRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedReleasebundlesRepository:getFederatedReleasebundlesRepository", args, LookupFederatedReleasebundlesRepositoryResultOutput{}, options).(LookupFederatedReleasebundlesRepositoryResultOutput), nil
-		}).(LookupFederatedReleasebundlesRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedReleasebundlesRepository:getFederatedReleasebundlesRepository", args, LookupFederatedReleasebundlesRepositoryResultOutput{}, options).(LookupFederatedReleasebundlesRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedReleasebundlesRepository.

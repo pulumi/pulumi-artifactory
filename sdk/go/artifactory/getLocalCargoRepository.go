@@ -107,12 +107,8 @@ type LookupLocalCargoRepositoryResult struct {
 }
 
 func LookupLocalCargoRepositoryOutput(ctx *pulumi.Context, args LookupLocalCargoRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalCargoRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalCargoRepositoryResultOutput, error) {
-			args := v.(LookupLocalCargoRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalCargoRepository:getLocalCargoRepository", args, LookupLocalCargoRepositoryResultOutput{}, options).(LookupLocalCargoRepositoryResultOutput), nil
-		}).(LookupLocalCargoRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalCargoRepository:getLocalCargoRepository", args, LookupLocalCargoRepositoryResultOutput{}, options).(LookupLocalCargoRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalCargoRepository.

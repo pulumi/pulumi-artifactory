@@ -111,12 +111,8 @@ type LookupFederatedTerraformModuleRepositoryResult struct {
 }
 
 func LookupFederatedTerraformModuleRepositoryOutput(ctx *pulumi.Context, args LookupFederatedTerraformModuleRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedTerraformModuleRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedTerraformModuleRepositoryResultOutput, error) {
-			args := v.(LookupFederatedTerraformModuleRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedTerraformModuleRepository:getFederatedTerraformModuleRepository", args, LookupFederatedTerraformModuleRepositoryResultOutput{}, options).(LookupFederatedTerraformModuleRepositoryResultOutput), nil
-		}).(LookupFederatedTerraformModuleRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedTerraformModuleRepository:getFederatedTerraformModuleRepository", args, LookupFederatedTerraformModuleRepositoryResultOutput{}, options).(LookupFederatedTerraformModuleRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedTerraformModuleRepository.

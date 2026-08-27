@@ -171,12 +171,8 @@ type LookupRemoteDockerRepositoryResult struct {
 }
 
 func LookupRemoteDockerRepositoryOutput(ctx *pulumi.Context, args LookupRemoteDockerRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteDockerRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteDockerRepositoryResultOutput, error) {
-			args := v.(LookupRemoteDockerRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteDockerRepository:getRemoteDockerRepository", args, LookupRemoteDockerRepositoryResultOutput{}, options).(LookupRemoteDockerRepositoryResultOutput), nil
-		}).(LookupRemoteDockerRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteDockerRepository:getRemoteDockerRepository", args, LookupRemoteDockerRepositoryResultOutput{}, options).(LookupRemoteDockerRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteDockerRepository.

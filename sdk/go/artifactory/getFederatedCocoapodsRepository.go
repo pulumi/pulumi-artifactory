@@ -111,12 +111,8 @@ type LookupFederatedCocoapodsRepositoryResult struct {
 }
 
 func LookupFederatedCocoapodsRepositoryOutput(ctx *pulumi.Context, args LookupFederatedCocoapodsRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedCocoapodsRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedCocoapodsRepositoryResultOutput, error) {
-			args := v.(LookupFederatedCocoapodsRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedCocoapodsRepository:getFederatedCocoapodsRepository", args, LookupFederatedCocoapodsRepositoryResultOutput{}, options).(LookupFederatedCocoapodsRepositoryResultOutput), nil
-		}).(LookupFederatedCocoapodsRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedCocoapodsRepository:getFederatedCocoapodsRepository", args, LookupFederatedCocoapodsRepositoryResultOutput{}, options).(LookupFederatedCocoapodsRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedCocoapodsRepository.

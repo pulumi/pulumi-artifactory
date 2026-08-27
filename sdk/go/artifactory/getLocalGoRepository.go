@@ -92,12 +92,8 @@ type LookupLocalGoRepositoryResult struct {
 }
 
 func LookupLocalGoRepositoryOutput(ctx *pulumi.Context, args LookupLocalGoRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalGoRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalGoRepositoryResultOutput, error) {
-			args := v.(LookupLocalGoRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalGoRepository:getLocalGoRepository", args, LookupLocalGoRepositoryResultOutput{}, options).(LookupLocalGoRepositoryResultOutput), nil
-		}).(LookupLocalGoRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalGoRepository:getLocalGoRepository", args, LookupLocalGoRepositoryResultOutput{}, options).(LookupLocalGoRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalGoRepository.

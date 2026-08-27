@@ -93,12 +93,8 @@ type LookupVirtualConanRepositoryResult struct {
 }
 
 func LookupVirtualConanRepositoryOutput(ctx *pulumi.Context, args LookupVirtualConanRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualConanRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualConanRepositoryResultOutput, error) {
-			args := v.(LookupVirtualConanRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualConanRepository:getVirtualConanRepository", args, LookupVirtualConanRepositoryResultOutput{}, options).(LookupVirtualConanRepositoryResultOutput), nil
-		}).(LookupVirtualConanRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualConanRepository:getVirtualConanRepository", args, LookupVirtualConanRepositoryResultOutput{}, options).(LookupVirtualConanRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualConanRepository.

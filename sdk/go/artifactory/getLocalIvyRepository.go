@@ -130,12 +130,8 @@ type LookupLocalIvyRepositoryResult struct {
 }
 
 func LookupLocalIvyRepositoryOutput(ctx *pulumi.Context, args LookupLocalIvyRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalIvyRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalIvyRepositoryResultOutput, error) {
-			args := v.(LookupLocalIvyRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalIvyRepository:getLocalIvyRepository", args, LookupLocalIvyRepositoryResultOutput{}, options).(LookupLocalIvyRepositoryResultOutput), nil
-		}).(LookupLocalIvyRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalIvyRepository:getLocalIvyRepository", args, LookupLocalIvyRepositoryResultOutput{}, options).(LookupLocalIvyRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalIvyRepository.

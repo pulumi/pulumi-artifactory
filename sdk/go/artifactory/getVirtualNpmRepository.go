@@ -93,12 +93,8 @@ type LookupVirtualNpmRepositoryResult struct {
 }
 
 func LookupVirtualNpmRepositoryOutput(ctx *pulumi.Context, args LookupVirtualNpmRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualNpmRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualNpmRepositoryResultOutput, error) {
-			args := v.(LookupVirtualNpmRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualNpmRepository:getVirtualNpmRepository", args, LookupVirtualNpmRepositoryResultOutput{}, options).(LookupVirtualNpmRepositoryResultOutput), nil
-		}).(LookupVirtualNpmRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualNpmRepository:getVirtualNpmRepository", args, LookupVirtualNpmRepositoryResultOutput{}, options).(LookupVirtualNpmRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualNpmRepository.

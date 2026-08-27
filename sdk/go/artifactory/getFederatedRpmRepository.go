@@ -123,12 +123,8 @@ type LookupFederatedRpmRepositoryResult struct {
 }
 
 func LookupFederatedRpmRepositoryOutput(ctx *pulumi.Context, args LookupFederatedRpmRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedRpmRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedRpmRepositoryResultOutput, error) {
-			args := v.(LookupFederatedRpmRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedRpmRepository:getFederatedRpmRepository", args, LookupFederatedRpmRepositoryResultOutput{}, options).(LookupFederatedRpmRepositoryResultOutput), nil
-		}).(LookupFederatedRpmRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedRpmRepository:getFederatedRpmRepository", args, LookupFederatedRpmRepositoryResultOutput{}, options).(LookupFederatedRpmRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedRpmRepository.

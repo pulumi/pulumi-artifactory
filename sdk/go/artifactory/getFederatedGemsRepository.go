@@ -111,12 +111,8 @@ type LookupFederatedGemsRepositoryResult struct {
 }
 
 func LookupFederatedGemsRepositoryOutput(ctx *pulumi.Context, args LookupFederatedGemsRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedGemsRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedGemsRepositoryResultOutput, error) {
-			args := v.(LookupFederatedGemsRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedGemsRepository:getFederatedGemsRepository", args, LookupFederatedGemsRepositoryResultOutput{}, options).(LookupFederatedGemsRepositoryResultOutput), nil
-		}).(LookupFederatedGemsRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedGemsRepository:getFederatedGemsRepository", args, LookupFederatedGemsRepositoryResultOutput{}, options).(LookupFederatedGemsRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedGemsRepository.

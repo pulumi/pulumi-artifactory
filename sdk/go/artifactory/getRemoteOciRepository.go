@@ -163,12 +163,8 @@ type LookupRemoteOciRepositoryResult struct {
 }
 
 func LookupRemoteOciRepositoryOutput(ctx *pulumi.Context, args LookupRemoteOciRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteOciRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteOciRepositoryResultOutput, error) {
-			args := v.(LookupRemoteOciRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteOciRepository:getRemoteOciRepository", args, LookupRemoteOciRepositoryResultOutput{}, options).(LookupRemoteOciRepositoryResultOutput), nil
-		}).(LookupRemoteOciRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteOciRepository:getRemoteOciRepository", args, LookupRemoteOciRepositoryResultOutput{}, options).(LookupRemoteOciRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteOciRepository.

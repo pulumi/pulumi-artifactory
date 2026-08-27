@@ -95,12 +95,8 @@ type LookupRemoteNixRepositoryResult struct {
 }
 
 func LookupRemoteNixRepositoryOutput(ctx *pulumi.Context, args LookupRemoteNixRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteNixRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteNixRepositoryResultOutput, error) {
-			args := v.(LookupRemoteNixRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteNixRepository:getRemoteNixRepository", args, LookupRemoteNixRepositoryResultOutput{}, options).(LookupRemoteNixRepositoryResultOutput), nil
-		}).(LookupRemoteNixRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteNixRepository:getRemoteNixRepository", args, LookupRemoteNixRepositoryResultOutput{}, options).(LookupRemoteNixRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteNixRepository.

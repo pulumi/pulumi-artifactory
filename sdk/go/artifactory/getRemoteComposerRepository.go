@@ -159,12 +159,8 @@ type LookupRemoteComposerRepositoryResult struct {
 }
 
 func LookupRemoteComposerRepositoryOutput(ctx *pulumi.Context, args LookupRemoteComposerRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteComposerRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteComposerRepositoryResultOutput, error) {
-			args := v.(LookupRemoteComposerRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteComposerRepository:getRemoteComposerRepository", args, LookupRemoteComposerRepositoryResultOutput{}, options).(LookupRemoteComposerRepositoryResultOutput), nil
-		}).(LookupRemoteComposerRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteComposerRepository:getRemoteComposerRepository", args, LookupRemoteComposerRepositoryResultOutput{}, options).(LookupRemoteComposerRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteComposerRepository.
