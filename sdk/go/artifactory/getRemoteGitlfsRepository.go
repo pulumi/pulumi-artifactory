@@ -147,12 +147,8 @@ type LookupRemoteGitlfsRepositoryResult struct {
 }
 
 func LookupRemoteGitlfsRepositoryOutput(ctx *pulumi.Context, args LookupRemoteGitlfsRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteGitlfsRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteGitlfsRepositoryResultOutput, error) {
-			args := v.(LookupRemoteGitlfsRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteGitlfsRepository:getRemoteGitlfsRepository", args, LookupRemoteGitlfsRepositoryResultOutput{}, options).(LookupRemoteGitlfsRepositoryResultOutput), nil
-		}).(LookupRemoteGitlfsRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteGitlfsRepository:getRemoteGitlfsRepository", args, LookupRemoteGitlfsRepositoryResultOutput{}, options).(LookupRemoteGitlfsRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteGitlfsRepository.

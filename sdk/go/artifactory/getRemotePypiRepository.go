@@ -159,12 +159,8 @@ type LookupRemotePypiRepositoryResult struct {
 }
 
 func LookupRemotePypiRepositoryOutput(ctx *pulumi.Context, args LookupRemotePypiRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemotePypiRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemotePypiRepositoryResultOutput, error) {
-			args := v.(LookupRemotePypiRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemotePypiRepository:getRemotePypiRepository", args, LookupRemotePypiRepositoryResultOutput{}, options).(LookupRemotePypiRepositoryResultOutput), nil
-		}).(LookupRemotePypiRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemotePypiRepository:getRemotePypiRepository", args, LookupRemotePypiRepositoryResultOutput{}, options).(LookupRemotePypiRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemotePypiRepository.

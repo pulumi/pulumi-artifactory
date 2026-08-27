@@ -113,12 +113,8 @@ type GetLocalDebianRepositoryResult struct {
 }
 
 func GetLocalDebianRepositoryOutput(ctx *pulumi.Context, args GetLocalDebianRepositoryOutputArgs, opts ...pulumi.InvokeOption) GetLocalDebianRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLocalDebianRepositoryResultOutput, error) {
-			args := v.(GetLocalDebianRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalDebianRepository:getLocalDebianRepository", args, GetLocalDebianRepositoryResultOutput{}, options).(GetLocalDebianRepositoryResultOutput), nil
-		}).(GetLocalDebianRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalDebianRepository:getLocalDebianRepository", args, GetLocalDebianRepositoryResultOutput{}, options).(GetLocalDebianRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalDebianRepository.

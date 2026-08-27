@@ -111,12 +111,8 @@ type LookupFederatedBowerRepositoryResult struct {
 }
 
 func LookupFederatedBowerRepositoryOutput(ctx *pulumi.Context, args LookupFederatedBowerRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedBowerRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedBowerRepositoryResultOutput, error) {
-			args := v.(LookupFederatedBowerRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedBowerRepository:getFederatedBowerRepository", args, LookupFederatedBowerRepositoryResultOutput{}, options).(LookupFederatedBowerRepositoryResultOutput), nil
-		}).(LookupFederatedBowerRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedBowerRepository:getFederatedBowerRepository", args, LookupFederatedBowerRepositoryResultOutput{}, options).(LookupFederatedBowerRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedBowerRepository.

@@ -111,12 +111,8 @@ type LookupFederatedCranRepositoryResult struct {
 }
 
 func LookupFederatedCranRepositoryOutput(ctx *pulumi.Context, args LookupFederatedCranRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedCranRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedCranRepositoryResultOutput, error) {
-			args := v.(LookupFederatedCranRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedCranRepository:getFederatedCranRepository", args, LookupFederatedCranRepositoryResultOutput{}, options).(LookupFederatedCranRepositoryResultOutput), nil
-		}).(LookupFederatedCranRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedCranRepository:getFederatedCranRepository", args, LookupFederatedCranRepositoryResultOutput{}, options).(LookupFederatedCranRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedCranRepository.

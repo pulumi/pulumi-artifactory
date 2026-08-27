@@ -91,12 +91,8 @@ type LookupVirtualAlpineRepositoryResult struct {
 }
 
 func LookupVirtualAlpineRepositoryOutput(ctx *pulumi.Context, args LookupVirtualAlpineRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualAlpineRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualAlpineRepositoryResultOutput, error) {
-			args := v.(LookupVirtualAlpineRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualAlpineRepository:getVirtualAlpineRepository", args, LookupVirtualAlpineRepositoryResultOutput{}, options).(LookupVirtualAlpineRepositoryResultOutput), nil
-		}).(LookupVirtualAlpineRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualAlpineRepository:getVirtualAlpineRepository", args, LookupVirtualAlpineRepositoryResultOutput{}, options).(LookupVirtualAlpineRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualAlpineRepository.

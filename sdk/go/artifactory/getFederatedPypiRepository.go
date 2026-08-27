@@ -111,12 +111,8 @@ type LookupFederatedPypiRepositoryResult struct {
 }
 
 func LookupFederatedPypiRepositoryOutput(ctx *pulumi.Context, args LookupFederatedPypiRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedPypiRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedPypiRepositoryResultOutput, error) {
-			args := v.(LookupFederatedPypiRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedPypiRepository:getFederatedPypiRepository", args, LookupFederatedPypiRepositoryResultOutput{}, options).(LookupFederatedPypiRepositoryResultOutput), nil
-		}).(LookupFederatedPypiRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedPypiRepository:getFederatedPypiRepository", args, LookupFederatedPypiRepositoryResultOutput{}, options).(LookupFederatedPypiRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedPypiRepository.

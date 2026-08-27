@@ -177,12 +177,8 @@ type LookupRemoteSbtRepositoryResult struct {
 }
 
 func LookupRemoteSbtRepositoryOutput(ctx *pulumi.Context, args LookupRemoteSbtRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteSbtRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteSbtRepositoryResultOutput, error) {
-			args := v.(LookupRemoteSbtRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteSbtRepository:getRemoteSbtRepository", args, LookupRemoteSbtRepositoryResultOutput{}, options).(LookupRemoteSbtRepositoryResultOutput), nil
-		}).(LookupRemoteSbtRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteSbtRepository:getRemoteSbtRepository", args, LookupRemoteSbtRepositoryResultOutput{}, options).(LookupRemoteSbtRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteSbtRepository.

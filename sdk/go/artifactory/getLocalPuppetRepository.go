@@ -92,12 +92,8 @@ type LookupLocalPuppetRepositoryResult struct {
 }
 
 func LookupLocalPuppetRepositoryOutput(ctx *pulumi.Context, args LookupLocalPuppetRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalPuppetRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalPuppetRepositoryResultOutput, error) {
-			args := v.(LookupLocalPuppetRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalPuppetRepository:getLocalPuppetRepository", args, LookupLocalPuppetRepositoryResultOutput{}, options).(LookupLocalPuppetRepositoryResultOutput), nil
-		}).(LookupLocalPuppetRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalPuppetRepository:getLocalPuppetRepository", args, LookupLocalPuppetRepositoryResultOutput{}, options).(LookupLocalPuppetRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalPuppetRepository.

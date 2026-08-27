@@ -123,12 +123,8 @@ type LookupFederatedGradleRepositoryResult struct {
 }
 
 func LookupFederatedGradleRepositoryOutput(ctx *pulumi.Context, args LookupFederatedGradleRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedGradleRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedGradleRepositoryResultOutput, error) {
-			args := v.(LookupFederatedGradleRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedGradleRepository:getFederatedGradleRepository", args, LookupFederatedGradleRepositoryResultOutput{}, options).(LookupFederatedGradleRepositoryResultOutput), nil
-		}).(LookupFederatedGradleRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedGradleRepository:getFederatedGradleRepository", args, LookupFederatedGradleRepositoryResultOutput{}, options).(LookupFederatedGradleRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedGradleRepository.

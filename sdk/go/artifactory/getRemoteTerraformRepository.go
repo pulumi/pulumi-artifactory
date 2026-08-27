@@ -155,12 +155,8 @@ type LookupRemoteTerraformRepositoryResult struct {
 }
 
 func LookupRemoteTerraformRepositoryOutput(ctx *pulumi.Context, args LookupRemoteTerraformRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteTerraformRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteTerraformRepositoryResultOutput, error) {
-			args := v.(LookupRemoteTerraformRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteTerraformRepository:getRemoteTerraformRepository", args, LookupRemoteTerraformRepositoryResultOutput{}, options).(LookupRemoteTerraformRepositoryResultOutput), nil
-		}).(LookupRemoteTerraformRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteTerraformRepository:getRemoteTerraformRepository", args, LookupRemoteTerraformRepositoryResultOutput{}, options).(LookupRemoteTerraformRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteTerraformRepository.

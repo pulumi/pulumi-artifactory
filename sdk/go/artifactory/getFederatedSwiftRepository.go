@@ -111,12 +111,8 @@ type LookupFederatedSwiftRepositoryResult struct {
 }
 
 func LookupFederatedSwiftRepositoryOutput(ctx *pulumi.Context, args LookupFederatedSwiftRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedSwiftRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedSwiftRepositoryResultOutput, error) {
-			args := v.(LookupFederatedSwiftRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedSwiftRepository:getFederatedSwiftRepository", args, LookupFederatedSwiftRepositoryResultOutput{}, options).(LookupFederatedSwiftRepositoryResultOutput), nil
-		}).(LookupFederatedSwiftRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedSwiftRepository:getFederatedSwiftRepository", args, LookupFederatedSwiftRepositoryResultOutput{}, options).(LookupFederatedSwiftRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedSwiftRepository.

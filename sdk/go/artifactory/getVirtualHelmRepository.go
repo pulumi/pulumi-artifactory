@@ -91,12 +91,8 @@ type LookupVirtualHelmRepositoryResult struct {
 }
 
 func LookupVirtualHelmRepositoryOutput(ctx *pulumi.Context, args LookupVirtualHelmRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualHelmRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualHelmRepositoryResultOutput, error) {
-			args := v.(LookupVirtualHelmRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualHelmRepository:getVirtualHelmRepository", args, LookupVirtualHelmRepositoryResultOutput{}, options).(LookupVirtualHelmRepositoryResultOutput), nil
-		}).(LookupVirtualHelmRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualHelmRepository:getVirtualHelmRepository", args, LookupVirtualHelmRepositoryResultOutput{}, options).(LookupVirtualHelmRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualHelmRepository.

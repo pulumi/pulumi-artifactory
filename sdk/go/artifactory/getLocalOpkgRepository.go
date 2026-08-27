@@ -92,12 +92,8 @@ type LookupLocalOpkgRepositoryResult struct {
 }
 
 func LookupLocalOpkgRepositoryOutput(ctx *pulumi.Context, args LookupLocalOpkgRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalOpkgRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalOpkgRepositoryResultOutput, error) {
-			args := v.(LookupLocalOpkgRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalOpkgRepository:getLocalOpkgRepository", args, LookupLocalOpkgRepositoryResultOutput{}, options).(LookupLocalOpkgRepositoryResultOutput), nil
-		}).(LookupLocalOpkgRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalOpkgRepository:getLocalOpkgRepository", args, LookupLocalOpkgRepositoryResultOutput{}, options).(LookupLocalOpkgRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalOpkgRepository.

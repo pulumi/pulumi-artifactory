@@ -83,12 +83,8 @@ type LookupVirtualGitlfsRepositoryResult struct {
 }
 
 func LookupVirtualGitlfsRepositoryOutput(ctx *pulumi.Context, args LookupVirtualGitlfsRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualGitlfsRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualGitlfsRepositoryResultOutput, error) {
-			args := v.(LookupVirtualGitlfsRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualGitlfsRepository:getVirtualGitlfsRepository", args, LookupVirtualGitlfsRepositoryResultOutput{}, options).(LookupVirtualGitlfsRepositoryResultOutput), nil
-		}).(LookupVirtualGitlfsRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualGitlfsRepository:getVirtualGitlfsRepository", args, LookupVirtualGitlfsRepositoryResultOutput{}, options).(LookupVirtualGitlfsRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualGitlfsRepository.

@@ -99,12 +99,8 @@ type LookupVirtualIvyRepositoryResult struct {
 }
 
 func LookupVirtualIvyRepositoryOutput(ctx *pulumi.Context, args LookupVirtualIvyRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualIvyRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualIvyRepositoryResultOutput, error) {
-			args := v.(LookupVirtualIvyRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository", args, LookupVirtualIvyRepositoryResultOutput{}, options).(LookupVirtualIvyRepositoryResultOutput), nil
-		}).(LookupVirtualIvyRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository", args, LookupVirtualIvyRepositoryResultOutput{}, options).(LookupVirtualIvyRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualIvyRepository.

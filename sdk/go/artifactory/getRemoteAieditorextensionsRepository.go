@@ -109,12 +109,8 @@ type LookupRemoteAieditorextensionsRepositoryResult struct {
 }
 
 func LookupRemoteAieditorextensionsRepositoryOutput(ctx *pulumi.Context, args LookupRemoteAieditorextensionsRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteAieditorextensionsRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteAieditorextensionsRepositoryResultOutput, error) {
-			args := v.(LookupRemoteAieditorextensionsRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteAieditorextensionsRepository:getRemoteAieditorextensionsRepository", args, LookupRemoteAieditorextensionsRepositoryResultOutput{}, options).(LookupRemoteAieditorextensionsRepositoryResultOutput), nil
-		}).(LookupRemoteAieditorextensionsRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteAieditorextensionsRepository:getRemoteAieditorextensionsRepository", args, LookupRemoteAieditorextensionsRepositoryResultOutput{}, options).(LookupRemoteAieditorextensionsRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteAieditorextensionsRepository.

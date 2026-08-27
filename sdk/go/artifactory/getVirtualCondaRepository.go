@@ -87,12 +87,8 @@ type LookupVirtualCondaRepositoryResult struct {
 }
 
 func LookupVirtualCondaRepositoryOutput(ctx *pulumi.Context, args LookupVirtualCondaRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualCondaRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualCondaRepositoryResultOutput, error) {
-			args := v.(LookupVirtualCondaRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualCondaRepository:getVirtualCondaRepository", args, LookupVirtualCondaRepositoryResultOutput{}, options).(LookupVirtualCondaRepositoryResultOutput), nil
-		}).(LookupVirtualCondaRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualCondaRepository:getVirtualCondaRepository", args, LookupVirtualCondaRepositoryResultOutput{}, options).(LookupVirtualCondaRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualCondaRepository.

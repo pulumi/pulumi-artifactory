@@ -87,12 +87,8 @@ type LookupVirtualAnsibleRepositoryResult struct {
 }
 
 func LookupVirtualAnsibleRepositoryOutput(ctx *pulumi.Context, args LookupVirtualAnsibleRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualAnsibleRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualAnsibleRepositoryResultOutput, error) {
-			args := v.(LookupVirtualAnsibleRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualAnsibleRepository:getVirtualAnsibleRepository", args, LookupVirtualAnsibleRepositoryResultOutput{}, options).(LookupVirtualAnsibleRepositoryResultOutput), nil
-		}).(LookupVirtualAnsibleRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualAnsibleRepository:getVirtualAnsibleRepository", args, LookupVirtualAnsibleRepositoryResultOutput{}, options).(LookupVirtualAnsibleRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualAnsibleRepository.

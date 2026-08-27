@@ -151,12 +151,8 @@ type LookupRemoteCondaRepositoryResult struct {
 }
 
 func LookupRemoteCondaRepositoryOutput(ctx *pulumi.Context, args LookupRemoteCondaRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteCondaRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteCondaRepositoryResultOutput, error) {
-			args := v.(LookupRemoteCondaRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteCondaRepository:getRemoteCondaRepository", args, LookupRemoteCondaRepositoryResultOutput{}, options).(LookupRemoteCondaRepositoryResultOutput), nil
-		}).(LookupRemoteCondaRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteCondaRepository:getRemoteCondaRepository", args, LookupRemoteCondaRepositoryResultOutput{}, options).(LookupRemoteCondaRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteCondaRepository.

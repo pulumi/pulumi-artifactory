@@ -111,12 +111,8 @@ type LookupFederatedGoRepositoryResult struct {
 }
 
 func LookupFederatedGoRepositoryOutput(ctx *pulumi.Context, args LookupFederatedGoRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedGoRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedGoRepositoryResultOutput, error) {
-			args := v.(LookupFederatedGoRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedGoRepository:getFederatedGoRepository", args, LookupFederatedGoRepositoryResultOutput{}, options).(LookupFederatedGoRepositoryResultOutput), nil
-		}).(LookupFederatedGoRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedGoRepository:getFederatedGoRepository", args, LookupFederatedGoRepositoryResultOutput{}, options).(LookupFederatedGoRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedGoRepository.

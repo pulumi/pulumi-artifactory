@@ -92,12 +92,8 @@ type LookupLocalPypiRepositoryResult struct {
 }
 
 func LookupLocalPypiRepositoryOutput(ctx *pulumi.Context, args LookupLocalPypiRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalPypiRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalPypiRepositoryResultOutput, error) {
-			args := v.(LookupLocalPypiRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalPypiRepository:getLocalPypiRepository", args, LookupLocalPypiRepositoryResultOutput{}, options).(LookupLocalPypiRepositoryResultOutput), nil
-		}).(LookupLocalPypiRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalPypiRepository:getLocalPypiRepository", args, LookupLocalPypiRepositoryResultOutput{}, options).(LookupLocalPypiRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalPypiRepository.

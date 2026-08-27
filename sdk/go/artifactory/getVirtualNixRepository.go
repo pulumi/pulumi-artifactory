@@ -68,12 +68,8 @@ type LookupVirtualNixRepositoryResult struct {
 }
 
 func LookupVirtualNixRepositoryOutput(ctx *pulumi.Context, args LookupVirtualNixRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualNixRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualNixRepositoryResultOutput, error) {
-			args := v.(LookupVirtualNixRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualNixRepository:getVirtualNixRepository", args, LookupVirtualNixRepositoryResultOutput{}, options).(LookupVirtualNixRepositoryResultOutput), nil
-		}).(LookupVirtualNixRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualNixRepository:getVirtualNixRepository", args, LookupVirtualNixRepositoryResultOutput{}, options).(LookupVirtualNixRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualNixRepository.

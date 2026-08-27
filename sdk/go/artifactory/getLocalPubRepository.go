@@ -92,12 +92,8 @@ type LookupLocalPubRepositoryResult struct {
 }
 
 func LookupLocalPubRepositoryOutput(ctx *pulumi.Context, args LookupLocalPubRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalPubRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalPubRepositoryResultOutput, error) {
-			args := v.(LookupLocalPubRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalPubRepository:getLocalPubRepository", args, LookupLocalPubRepositoryResultOutput{}, options).(LookupLocalPubRepositoryResultOutput), nil
-		}).(LookupLocalPubRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalPubRepository:getLocalPubRepository", args, LookupLocalPubRepositoryResultOutput{}, options).(LookupLocalPubRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalPubRepository.

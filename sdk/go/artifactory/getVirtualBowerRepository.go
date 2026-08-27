@@ -95,12 +95,8 @@ type LookupVirtualBowerRepositoryResult struct {
 }
 
 func LookupVirtualBowerRepositoryOutput(ctx *pulumi.Context, args LookupVirtualBowerRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualBowerRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualBowerRepositoryResultOutput, error) {
-			args := v.(LookupVirtualBowerRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualBowerRepository:getVirtualBowerRepository", args, LookupVirtualBowerRepositoryResultOutput{}, options).(LookupVirtualBowerRepositoryResultOutput), nil
-		}).(LookupVirtualBowerRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualBowerRepository:getVirtualBowerRepository", args, LookupVirtualBowerRepositoryResultOutput{}, options).(LookupVirtualBowerRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualBowerRepository.

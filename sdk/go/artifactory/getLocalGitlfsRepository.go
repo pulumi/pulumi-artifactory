@@ -92,12 +92,8 @@ type GetLocalGitlfsRepositoryResult struct {
 }
 
 func GetLocalGitlfsRepositoryOutput(ctx *pulumi.Context, args GetLocalGitlfsRepositoryOutputArgs, opts ...pulumi.InvokeOption) GetLocalGitlfsRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLocalGitlfsRepositoryResultOutput, error) {
-			args := v.(GetLocalGitlfsRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalGitlfsRepository:getLocalGitlfsRepository", args, GetLocalGitlfsRepositoryResultOutput{}, options).(GetLocalGitlfsRepositoryResultOutput), nil
-		}).(GetLocalGitlfsRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalGitlfsRepository:getLocalGitlfsRepository", args, GetLocalGitlfsRepositoryResultOutput{}, options).(GetLocalGitlfsRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalGitlfsRepository.

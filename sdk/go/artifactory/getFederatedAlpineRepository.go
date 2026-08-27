@@ -115,12 +115,8 @@ type LookupFederatedAlpineRepositoryResult struct {
 }
 
 func LookupFederatedAlpineRepositoryOutput(ctx *pulumi.Context, args LookupFederatedAlpineRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedAlpineRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedAlpineRepositoryResultOutput, error) {
-			args := v.(LookupFederatedAlpineRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedAlpineRepository:getFederatedAlpineRepository", args, LookupFederatedAlpineRepositoryResultOutput{}, options).(LookupFederatedAlpineRepositoryResultOutput), nil
-		}).(LookupFederatedAlpineRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedAlpineRepository:getFederatedAlpineRepository", args, LookupFederatedAlpineRepositoryResultOutput{}, options).(LookupFederatedAlpineRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedAlpineRepository.

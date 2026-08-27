@@ -55,12 +55,8 @@ type LookupVirtualCocoapodsRepositoryResult struct {
 }
 
 func LookupVirtualCocoapodsRepositoryOutput(ctx *pulumi.Context, args LookupVirtualCocoapodsRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualCocoapodsRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualCocoapodsRepositoryResultOutput, error) {
-			args := v.(LookupVirtualCocoapodsRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualCocoapodsRepository:getVirtualCocoapodsRepository", args, LookupVirtualCocoapodsRepositoryResultOutput{}, options).(LookupVirtualCocoapodsRepositoryResultOutput), nil
-		}).(LookupVirtualCocoapodsRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualCocoapodsRepository:getVirtualCocoapodsRepository", args, LookupVirtualCocoapodsRepositoryResultOutput{}, options).(LookupVirtualCocoapodsRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualCocoapodsRepository.

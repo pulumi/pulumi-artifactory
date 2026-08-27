@@ -98,12 +98,8 @@ type LookupLocalConanRepositoryResult struct {
 }
 
 func LookupLocalConanRepositoryOutput(ctx *pulumi.Context, args LookupLocalConanRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalConanRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalConanRepositoryResultOutput, error) {
-			args := v.(LookupLocalConanRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalConanRepository:getLocalConanRepository", args, LookupLocalConanRepositoryResultOutput{}, options).(LookupLocalConanRepositoryResultOutput), nil
-		}).(LookupLocalConanRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalConanRepository:getLocalConanRepository", args, LookupLocalConanRepositoryResultOutput{}, options).(LookupLocalConanRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalConanRepository.

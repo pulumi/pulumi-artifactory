@@ -147,12 +147,8 @@ type LookupRemoteOpkgRepositoryResult struct {
 }
 
 func LookupRemoteOpkgRepositoryOutput(ctx *pulumi.Context, args LookupRemoteOpkgRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteOpkgRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteOpkgRepositoryResultOutput, error) {
-			args := v.(LookupRemoteOpkgRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteOpkgRepository:getRemoteOpkgRepository", args, LookupRemoteOpkgRepositoryResultOutput{}, options).(LookupRemoteOpkgRepositoryResultOutput), nil
-		}).(LookupRemoteOpkgRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteOpkgRepository:getRemoteOpkgRepository", args, LookupRemoteOpkgRepositoryResultOutput{}, options).(LookupRemoteOpkgRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteOpkgRepository.

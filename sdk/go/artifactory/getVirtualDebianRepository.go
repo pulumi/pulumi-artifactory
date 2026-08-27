@@ -103,12 +103,8 @@ type LookupVirtualDebianRepositoryResult struct {
 }
 
 func LookupVirtualDebianRepositoryOutput(ctx *pulumi.Context, args LookupVirtualDebianRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualDebianRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualDebianRepositoryResultOutput, error) {
-			args := v.(LookupVirtualDebianRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualDebianRepository:getVirtualDebianRepository", args, LookupVirtualDebianRepositoryResultOutput{}, options).(LookupVirtualDebianRepositoryResultOutput), nil
-		}).(LookupVirtualDebianRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualDebianRepository:getVirtualDebianRepository", args, LookupVirtualDebianRepositoryResultOutput{}, options).(LookupVirtualDebianRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualDebianRepository.

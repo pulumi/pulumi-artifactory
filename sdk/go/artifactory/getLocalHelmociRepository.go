@@ -99,12 +99,8 @@ type LookupLocalHelmociRepositoryResult struct {
 }
 
 func LookupLocalHelmociRepositoryOutput(ctx *pulumi.Context, args LookupLocalHelmociRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalHelmociRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalHelmociRepositoryResultOutput, error) {
-			args := v.(LookupLocalHelmociRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalHelmociRepository:getLocalHelmociRepository", args, LookupLocalHelmociRepositoryResultOutput{}, options).(LookupLocalHelmociRepositoryResultOutput), nil
-		}).(LookupLocalHelmociRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalHelmociRepository:getLocalHelmociRepository", args, LookupLocalHelmociRepositoryResultOutput{}, options).(LookupLocalHelmociRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalHelmociRepository.

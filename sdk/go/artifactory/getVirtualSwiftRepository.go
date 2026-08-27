@@ -83,12 +83,8 @@ type LookupVirtualSwiftRepositoryResult struct {
 }
 
 func LookupVirtualSwiftRepositoryOutput(ctx *pulumi.Context, args LookupVirtualSwiftRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualSwiftRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualSwiftRepositoryResultOutput, error) {
-			args := v.(LookupVirtualSwiftRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualSwiftRepository:getVirtualSwiftRepository", args, LookupVirtualSwiftRepositoryResultOutput{}, options).(LookupVirtualSwiftRepositoryResultOutput), nil
-		}).(LookupVirtualSwiftRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualSwiftRepository:getVirtualSwiftRepository", args, LookupVirtualSwiftRepositoryResultOutput{}, options).(LookupVirtualSwiftRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualSwiftRepository.

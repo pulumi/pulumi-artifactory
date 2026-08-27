@@ -96,12 +96,8 @@ type LookupLocalBowerRepositoryResult struct {
 }
 
 func LookupLocalBowerRepositoryOutput(ctx *pulumi.Context, args LookupLocalBowerRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalBowerRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalBowerRepositoryResultOutput, error) {
-			args := v.(LookupLocalBowerRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalBowerRepository:getLocalBowerRepository", args, LookupLocalBowerRepositoryResultOutput{}, options).(LookupLocalBowerRepositoryResultOutput), nil
-		}).(LookupLocalBowerRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalBowerRepository:getLocalBowerRepository", args, LookupLocalBowerRepositoryResultOutput{}, options).(LookupLocalBowerRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalBowerRepository.

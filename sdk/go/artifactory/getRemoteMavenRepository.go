@@ -183,12 +183,8 @@ type LookupRemoteMavenRepositoryResult struct {
 }
 
 func LookupRemoteMavenRepositoryOutput(ctx *pulumi.Context, args LookupRemoteMavenRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteMavenRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteMavenRepositoryResultOutput, error) {
-			args := v.(LookupRemoteMavenRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteMavenRepository:getRemoteMavenRepository", args, LookupRemoteMavenRepositoryResultOutput{}, options).(LookupRemoteMavenRepositoryResultOutput), nil
-		}).(LookupRemoteMavenRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteMavenRepository:getRemoteMavenRepository", args, LookupRemoteMavenRepositoryResultOutput{}, options).(LookupRemoteMavenRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteMavenRepository.

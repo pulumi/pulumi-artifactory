@@ -92,12 +92,8 @@ type LookupLocalGenericRepositoryResult struct {
 }
 
 func LookupLocalGenericRepositoryOutput(ctx *pulumi.Context, args LookupLocalGenericRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalGenericRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalGenericRepositoryResultOutput, error) {
-			args := v.(LookupLocalGenericRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalGenericRepository:getLocalGenericRepository", args, LookupLocalGenericRepositoryResultOutput{}, options).(LookupLocalGenericRepositoryResultOutput), nil
-		}).(LookupLocalGenericRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalGenericRepository:getLocalGenericRepository", args, LookupLocalGenericRepositoryResultOutput{}, options).(LookupLocalGenericRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalGenericRepository.

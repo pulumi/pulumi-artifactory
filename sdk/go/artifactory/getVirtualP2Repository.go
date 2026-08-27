@@ -83,12 +83,8 @@ type LookupVirtualP2RepositoryResult struct {
 }
 
 func LookupVirtualP2RepositoryOutput(ctx *pulumi.Context, args LookupVirtualP2RepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualP2RepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualP2RepositoryResultOutput, error) {
-			args := v.(LookupVirtualP2RepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualP2Repository:getVirtualP2Repository", args, LookupVirtualP2RepositoryResultOutput{}, options).(LookupVirtualP2RepositoryResultOutput), nil
-		}).(LookupVirtualP2RepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualP2Repository:getVirtualP2Repository", args, LookupVirtualP2RepositoryResultOutput{}, options).(LookupVirtualP2RepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualP2Repository.

@@ -93,12 +93,8 @@ type GetVirtualGoRepositoryResult struct {
 }
 
 func GetVirtualGoRepositoryOutput(ctx *pulumi.Context, args GetVirtualGoRepositoryOutputArgs, opts ...pulumi.InvokeOption) GetVirtualGoRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetVirtualGoRepositoryResultOutput, error) {
-			args := v.(GetVirtualGoRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualGoRepository:getVirtualGoRepository", args, GetVirtualGoRepositoryResultOutput{}, options).(GetVirtualGoRepositoryResultOutput), nil
-		}).(GetVirtualGoRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualGoRepository:getVirtualGoRepository", args, GetVirtualGoRepositoryResultOutput{}, options).(GetVirtualGoRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualGoRepository.

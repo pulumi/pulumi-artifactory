@@ -171,12 +171,8 @@ type LookupRemoteNugetRepositoryResult struct {
 }
 
 func LookupRemoteNugetRepositoryOutput(ctx *pulumi.Context, args LookupRemoteNugetRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteNugetRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteNugetRepositoryResultOutput, error) {
-			args := v.(LookupRemoteNugetRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteNugetRepository:getRemoteNugetRepository", args, LookupRemoteNugetRepositoryResultOutput{}, options).(LookupRemoteNugetRepositoryResultOutput), nil
-		}).(LookupRemoteNugetRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteNugetRepository:getRemoteNugetRepository", args, LookupRemoteNugetRepositoryResultOutput{}, options).(LookupRemoteNugetRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteNugetRepository.

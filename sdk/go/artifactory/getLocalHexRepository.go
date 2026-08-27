@@ -77,12 +77,8 @@ type LookupLocalHexRepositoryResult struct {
 }
 
 func LookupLocalHexRepositoryOutput(ctx *pulumi.Context, args LookupLocalHexRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalHexRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalHexRepositoryResultOutput, error) {
-			args := v.(LookupLocalHexRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalHexRepository:getLocalHexRepository", args, LookupLocalHexRepositoryResultOutput{}, options).(LookupLocalHexRepositoryResultOutput), nil
-		}).(LookupLocalHexRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalHexRepository:getLocalHexRepository", args, LookupLocalHexRepositoryResultOutput{}, options).(LookupLocalHexRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalHexRepository.

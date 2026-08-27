@@ -132,12 +132,8 @@ type LookupLocalMavenRepositoryResult struct {
 }
 
 func LookupLocalMavenRepositoryOutput(ctx *pulumi.Context, args LookupLocalMavenRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalMavenRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalMavenRepositoryResultOutput, error) {
-			args := v.(LookupLocalMavenRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalMavenRepository:getLocalMavenRepository", args, LookupLocalMavenRepositoryResultOutput{}, options).(LookupLocalMavenRepositoryResultOutput), nil
-		}).(LookupLocalMavenRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalMavenRepository:getLocalMavenRepository", args, LookupLocalMavenRepositoryResultOutput{}, options).(LookupLocalMavenRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalMavenRepository.

@@ -92,12 +92,8 @@ type LookupLocalComposerRepositoryResult struct {
 }
 
 func LookupLocalComposerRepositoryOutput(ctx *pulumi.Context, args LookupLocalComposerRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalComposerRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalComposerRepositoryResultOutput, error) {
-			args := v.(LookupLocalComposerRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalComposerRepository:getLocalComposerRepository", args, LookupLocalComposerRepositoryResultOutput{}, options).(LookupLocalComposerRepositoryResultOutput), nil
-		}).(LookupLocalComposerRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalComposerRepository:getLocalComposerRepository", args, LookupLocalComposerRepositoryResultOutput{}, options).(LookupLocalComposerRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalComposerRepository.

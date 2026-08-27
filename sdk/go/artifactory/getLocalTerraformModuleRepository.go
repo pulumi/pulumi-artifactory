@@ -92,12 +92,8 @@ type LookupLocalTerraformModuleRepositoryResult struct {
 }
 
 func LookupLocalTerraformModuleRepositoryOutput(ctx *pulumi.Context, args LookupLocalTerraformModuleRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalTerraformModuleRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalTerraformModuleRepositoryResultOutput, error) {
-			args := v.(LookupLocalTerraformModuleRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalTerraformModuleRepository:getLocalTerraformModuleRepository", args, LookupLocalTerraformModuleRepositoryResultOutput{}, options).(LookupLocalTerraformModuleRepositoryResultOutput), nil
-		}).(LookupLocalTerraformModuleRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalTerraformModuleRepository:getLocalTerraformModuleRepository", args, LookupLocalTerraformModuleRepositoryResultOutput{}, options).(LookupLocalTerraformModuleRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalTerraformModuleRepository.

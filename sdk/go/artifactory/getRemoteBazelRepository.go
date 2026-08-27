@@ -95,12 +95,8 @@ type LookupRemoteBazelRepositoryResult struct {
 }
 
 func LookupRemoteBazelRepositoryOutput(ctx *pulumi.Context, args LookupRemoteBazelRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteBazelRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteBazelRepositoryResultOutput, error) {
-			args := v.(LookupRemoteBazelRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteBazelRepository:getRemoteBazelRepository", args, LookupRemoteBazelRepositoryResultOutput{}, options).(LookupRemoteBazelRepositoryResultOutput), nil
-		}).(LookupRemoteBazelRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteBazelRepository:getRemoteBazelRepository", args, LookupRemoteBazelRepositoryResultOutput{}, options).(LookupRemoteBazelRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteBazelRepository.

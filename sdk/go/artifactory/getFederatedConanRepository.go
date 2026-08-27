@@ -113,12 +113,8 @@ type LookupFederatedConanRepositoryResult struct {
 }
 
 func LookupFederatedConanRepositoryOutput(ctx *pulumi.Context, args LookupFederatedConanRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedConanRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedConanRepositoryResultOutput, error) {
-			args := v.(LookupFederatedConanRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedConanRepository:getFederatedConanRepository", args, LookupFederatedConanRepositoryResultOutput{}, options).(LookupFederatedConanRepositoryResultOutput), nil
-		}).(LookupFederatedConanRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedConanRepository:getFederatedConanRepository", args, LookupFederatedConanRepositoryResultOutput{}, options).(LookupFederatedConanRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedConanRepository.

@@ -83,12 +83,8 @@ type LookupVirtualPypiRepositoryResult struct {
 }
 
 func LookupVirtualPypiRepositoryOutput(ctx *pulumi.Context, args LookupVirtualPypiRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualPypiRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualPypiRepositoryResultOutput, error) {
-			args := v.(LookupVirtualPypiRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualPypiRepository:getVirtualPypiRepository", args, LookupVirtualPypiRepositoryResultOutput{}, options).(LookupVirtualPypiRepositoryResultOutput), nil
-		}).(LookupVirtualPypiRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualPypiRepository:getVirtualPypiRepository", args, LookupVirtualPypiRepositoryResultOutput{}, options).(LookupVirtualPypiRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualPypiRepository.

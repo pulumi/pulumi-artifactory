@@ -177,12 +177,8 @@ type LookupRemoteIvyRepositoryResult struct {
 }
 
 func LookupRemoteIvyRepositoryOutput(ctx *pulumi.Context, args LookupRemoteIvyRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteIvyRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteIvyRepositoryResultOutput, error) {
-			args := v.(LookupRemoteIvyRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteIvyRepository:getRemoteIvyRepository", args, LookupRemoteIvyRepositoryResultOutput{}, options).(LookupRemoteIvyRepositoryResultOutput), nil
-		}).(LookupRemoteIvyRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteIvyRepository:getRemoteIvyRepository", args, LookupRemoteIvyRepositoryResultOutput{}, options).(LookupRemoteIvyRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteIvyRepository.

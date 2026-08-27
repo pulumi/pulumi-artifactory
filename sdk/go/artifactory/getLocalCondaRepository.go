@@ -92,12 +92,8 @@ type LookupLocalCondaRepositoryResult struct {
 }
 
 func LookupLocalCondaRepositoryOutput(ctx *pulumi.Context, args LookupLocalCondaRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalCondaRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalCondaRepositoryResultOutput, error) {
-			args := v.(LookupLocalCondaRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalCondaRepository:getLocalCondaRepository", args, LookupLocalCondaRepositoryResultOutput{}, options).(LookupLocalCondaRepositoryResultOutput), nil
-		}).(LookupLocalCondaRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalCondaRepository:getLocalCondaRepository", args, LookupLocalCondaRepositoryResultOutput{}, options).(LookupLocalCondaRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalCondaRepository.

@@ -147,12 +147,8 @@ type LookupRemoteChefRepositoryResult struct {
 }
 
 func LookupRemoteChefRepositoryOutput(ctx *pulumi.Context, args LookupRemoteChefRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteChefRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemoteChefRepositoryResultOutput, error) {
-			args := v.(LookupRemoteChefRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getRemoteChefRepository:getRemoteChefRepository", args, LookupRemoteChefRepositoryResultOutput{}, options).(LookupRemoteChefRepositoryResultOutput), nil
-		}).(LookupRemoteChefRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getRemoteChefRepository:getRemoteChefRepository", args, LookupRemoteChefRepositoryResultOutput{}, options).(LookupRemoteChefRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getRemoteChefRepository.

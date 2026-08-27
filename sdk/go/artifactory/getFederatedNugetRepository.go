@@ -115,12 +115,8 @@ type LookupFederatedNugetRepositoryResult struct {
 }
 
 func LookupFederatedNugetRepositoryOutput(ctx *pulumi.Context, args LookupFederatedNugetRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedNugetRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedNugetRepositoryResultOutput, error) {
-			args := v.(LookupFederatedNugetRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedNugetRepository:getFederatedNugetRepository", args, LookupFederatedNugetRepositoryResultOutput{}, options).(LookupFederatedNugetRepositoryResultOutput), nil
-		}).(LookupFederatedNugetRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedNugetRepository:getFederatedNugetRepository", args, LookupFederatedNugetRepositoryResultOutput{}, options).(LookupFederatedNugetRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedNugetRepository.

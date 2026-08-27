@@ -123,12 +123,8 @@ type LookupFederatedIvyRepositoryResult struct {
 }
 
 func LookupFederatedIvyRepositoryOutput(ctx *pulumi.Context, args LookupFederatedIvyRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedIvyRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedIvyRepositoryResultOutput, error) {
-			args := v.(LookupFederatedIvyRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedIvyRepository:getFederatedIvyRepository", args, LookupFederatedIvyRepositoryResultOutput{}, options).(LookupFederatedIvyRepositoryResultOutput), nil
-		}).(LookupFederatedIvyRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedIvyRepository:getFederatedIvyRepository", args, LookupFederatedIvyRepositoryResultOutput{}, options).(LookupFederatedIvyRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedIvyRepository.

@@ -123,12 +123,8 @@ type LookupFederatedSbtRepositoryResult struct {
 }
 
 func LookupFederatedSbtRepositoryOutput(ctx *pulumi.Context, args LookupFederatedSbtRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedSbtRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedSbtRepositoryResultOutput, error) {
-			args := v.(LookupFederatedSbtRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedSbtRepository:getFederatedSbtRepository", args, LookupFederatedSbtRepositoryResultOutput{}, options).(LookupFederatedSbtRepositoryResultOutput), nil
-		}).(LookupFederatedSbtRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedSbtRepository:getFederatedSbtRepository", args, LookupFederatedSbtRepositoryResultOutput{}, options).(LookupFederatedSbtRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedSbtRepository.

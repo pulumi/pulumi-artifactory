@@ -97,12 +97,8 @@ type GetLocalAlpineRepositoryResult struct {
 }
 
 func GetLocalAlpineRepositoryOutput(ctx *pulumi.Context, args GetLocalAlpineRepositoryOutputArgs, opts ...pulumi.InvokeOption) GetLocalAlpineRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLocalAlpineRepositoryResultOutput, error) {
-			args := v.(GetLocalAlpineRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalAlpineRepository:getLocalAlpineRepository", args, GetLocalAlpineRepositoryResultOutput{}, options).(GetLocalAlpineRepositoryResultOutput), nil
-		}).(GetLocalAlpineRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalAlpineRepository:getLocalAlpineRepository", args, GetLocalAlpineRepositoryResultOutput{}, options).(GetLocalAlpineRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalAlpineRepository.

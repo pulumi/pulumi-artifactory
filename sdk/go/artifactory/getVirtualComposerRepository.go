@@ -83,12 +83,8 @@ type LookupVirtualComposerRepositoryResult struct {
 }
 
 func LookupVirtualComposerRepositoryOutput(ctx *pulumi.Context, args LookupVirtualComposerRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualComposerRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualComposerRepositoryResultOutput, error) {
-			args := v.(LookupVirtualComposerRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getVirtualComposerRepository:getVirtualComposerRepository", args, LookupVirtualComposerRepositoryResultOutput{}, options).(LookupVirtualComposerRepositoryResultOutput), nil
-		}).(LookupVirtualComposerRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getVirtualComposerRepository:getVirtualComposerRepository", args, LookupVirtualComposerRepositoryResultOutput{}, options).(LookupVirtualComposerRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualComposerRepository.

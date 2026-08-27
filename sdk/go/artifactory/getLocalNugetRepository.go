@@ -105,12 +105,8 @@ type LookupLocalNugetRepositoryResult struct {
 }
 
 func LookupLocalNugetRepositoryOutput(ctx *pulumi.Context, args LookupLocalNugetRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalNugetRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalNugetRepositoryResultOutput, error) {
-			args := v.(LookupLocalNugetRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getLocalNugetRepository:getLocalNugetRepository", args, LookupLocalNugetRepositoryResultOutput{}, options).(LookupLocalNugetRepositoryResultOutput), nil
-		}).(LookupLocalNugetRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getLocalNugetRepository:getLocalNugetRepository", args, LookupLocalNugetRepositoryResultOutput{}, options).(LookupLocalNugetRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getLocalNugetRepository.

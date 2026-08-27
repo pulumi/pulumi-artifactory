@@ -111,12 +111,8 @@ type LookupFederatedCondaRepositoryResult struct {
 }
 
 func LookupFederatedCondaRepositoryOutput(ctx *pulumi.Context, args LookupFederatedCondaRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedCondaRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedCondaRepositoryResultOutput, error) {
-			args := v.(LookupFederatedCondaRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("artifactory:index/getFederatedCondaRepository:getFederatedCondaRepository", args, LookupFederatedCondaRepositoryResultOutput{}, options).(LookupFederatedCondaRepositoryResultOutput), nil
-		}).(LookupFederatedCondaRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("artifactory:index/getFederatedCondaRepository:getFederatedCondaRepository", args, LookupFederatedCondaRepositoryResultOutput{}, options).(LookupFederatedCondaRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedCondaRepository.
