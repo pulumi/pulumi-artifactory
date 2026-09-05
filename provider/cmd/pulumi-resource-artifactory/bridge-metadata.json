@@ -2428,6 +2428,21 @@
                     }
                 }
             },
+            "artifactory_remote_jetbrainsplugins_repository": {
+                "current": "artifactory:index/remoteJetbrainspluginsRepository:RemoteJetbrainspluginsRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "content_synchronisation": {
+                        "maxItemsOne": true
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_remote_maven_repository": {
                 "current": "artifactory:index/remoteMavenRepository:RemoteMavenRepository",
                 "majorVersion": 8,
@@ -4667,6 +4682,21 @@
                     }
                 }
             },
+            "artifactory_remote_jetbrainsplugins_repository": {
+                "current": "artifactory:index/getRemoteJetbrainspluginsRepository:getRemoteJetbrainspluginsRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "content_synchronisation": {
+                        "maxItemsOne": true
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_remote_maven_repository": {
                 "current": "artifactory:index/getRemoteMavenRepository:getRemoteMavenRepository",
                 "majorVersion": 8,
@@ -5527,6 +5557,7 @@
             "artifactory_remote_hex_repository": {},
             "artifactory_remote_huggingfaceml_repository": {},
             "artifactory_remote_ivy_repository": {},
+            "artifactory_remote_jetbrainsplugins_repository": {},
             "artifactory_remote_maven_repository": {},
             "artifactory_remote_nix_repository": {},
             "artifactory_remote_npm_repository": {},
@@ -5937,6 +5968,9 @@
             "artifactory_remote_ivy_repository": [
                 "key"
             ],
+            "artifactory_remote_jetbrainsplugins_repository": [
+                "key"
+            ],
             "artifactory_remote_maven_repository": [
                 "key"
             ],
@@ -6247,6 +6281,7 @@
             "artifactory:index/remoteHexRepository:RemoteHexRepository": 1,
             "artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository": 1,
             "artifactory:index/remoteIvyRepository:RemoteIvyRepository": 1,
+            "artifactory:index/remoteJetbrainspluginsRepository:RemoteJetbrainspluginsRepository": 1,
             "artifactory:index/remoteMavenRepository:RemoteMavenRepository": 1,
             "artifactory:index/remoteNixRepository:RemoteNixRepository": 1,
             "artifactory:index/remoteNpmRepository:RemoteNpmRepository": 1,
@@ -6408,6 +6443,7 @@
             "artifactory:index/getRemoteHelmociRepository:getRemoteHelmociRepository": 0,
             "artifactory:index/getRemoteHexRepository:getRemoteHexRepository": 1,
             "artifactory:index/getRemoteIvyRepository:getRemoteIvyRepository": 0,
+            "artifactory:index/getRemoteJetbrainspluginsRepository:getRemoteJetbrainspluginsRepository": 0,
             "artifactory:index/getRemoteMavenRepository:getRemoteMavenRepository": 0,
             "artifactory:index/getRemoteNixRepository:getRemoteNixRepository": 1,
             "artifactory:index/getRemoteNpmRepository:getRemoteNpmRepository": 0,
