@@ -34,14 +34,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// ## Create a new Artifactory scoped token for an existing user
+//			//## Create a new Artifactory scoped token for an existing user
 //			_, err := artifactory.NewScopedToken(ctx, "scoped_token", &artifactory.ScopedTokenArgs{
 //				Username: pulumi.String("existing-user"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			// ## Create a new Artifactory user and scoped token
+//			//## Create a new Artifactory user and scoped token
 //			newUser, err := artifactory.NewUser(ctx, "new_user", &artifactory.UserArgs{
 //				Name:  pulumi.String("new_user"),
 //				Email: pulumi.String("new_user@somewhere.com"),
@@ -58,7 +58,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// ## Creates a new token for groups
+//			//## Creates a new token for groups
 //			_, err = artifactory.NewScopedToken(ctx, "scoped_token_group", &artifactory.ScopedTokenArgs{
 //				Scopes: pulumi.StringArray{
 //					pulumi.String("applied-permissions/groups:readers"),
@@ -67,7 +67,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// ## Create token with expiry
+//			//## Create token with expiry
 //			_, err = artifactory.NewScopedToken(ctx, "scoped_token_no_expiry", &artifactory.ScopedTokenArgs{
 //				Username:  pulumi.String("existing-user"),
 //				ExpiresIn: pulumi.Int(7200),
@@ -75,7 +75,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// ## Creates a refreshable token
+//			//## Creates a refreshable token
 //			_, err = artifactory.NewScopedToken(ctx, "scoped_token_refreshable", &artifactory.ScopedTokenArgs{
 //				Username:    pulumi.String("existing-user"),
 //				Refreshable: pulumi.Bool(true),
@@ -83,7 +83,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// ## Creates an administrator token
+//			//## Creates an administrator token
 //			_, err = artifactory.NewScopedToken(ctx, "admin", &artifactory.ScopedTokenArgs{
 //				Username: pulumi.String("admin-user"),
 //				Scopes: pulumi.StringArray{
@@ -93,7 +93,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// ## Creates a token with an audience
+//			//## Creates a token with an audience
 //			_, err = artifactory.NewScopedToken(ctx, "audience", &artifactory.ScopedTokenArgs{
 //				Username: pulumi.String("admin-user"),
 //				Scopes: pulumi.StringArray{

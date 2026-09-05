@@ -46,8 +46,8 @@ class LocalHexRepositoryArgs:
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] notes: Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
                
                The meta-argument `lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
@@ -178,7 +178,7 @@ class LocalHexRepositoryArgs:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -190,7 +190,7 @@ class LocalHexRepositoryArgs:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -313,9 +313,9 @@ class _LocalHexRepositoryState:
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.str] hex_primary_keypair_ref: Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[_builtins.str] notes: Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
                
@@ -425,7 +425,7 @@ class _LocalHexRepositoryState:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -449,7 +449,7 @@ class _LocalHexRepositoryState:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -619,9 +619,9 @@ class LocalHexRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.str] hex_primary_keypair_ref: Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[_builtins.str] notes: Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
                
@@ -770,9 +770,9 @@ class LocalHexRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.str] hex_primary_keypair_ref: Select the RSA key pair to sign and encrypt content for secure communication between Artifactory and the Mix client.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[_builtins.str] notes: Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
                
@@ -851,7 +851,7 @@ class LocalHexRepository(pulumi.CustomResource):
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[_builtins.str]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -867,7 +867,7 @@ class LocalHexRepository(pulumi.CustomResource):
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[_builtins.str]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 

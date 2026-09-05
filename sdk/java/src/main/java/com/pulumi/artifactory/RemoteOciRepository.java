@@ -275,14 +275,14 @@ public class RemoteOciRepository extends com.pulumi.resources.CustomResource {
         return this.enableTokenAuthentication;
     }
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
+     * Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
      * 
      */
     @Export(name="excludesPattern", refs={String.class}, tree="[0]")
     private Output<String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
+     * @return Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
      * 
      */
     public Output<String> excludesPattern() {
@@ -331,14 +331,14 @@ public class RemoteOciRepository extends com.pulumi.resources.CustomResource {
         return this.hardFail;
     }
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output<String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * @return Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     public Output<String> includesPattern() {

@@ -173,6 +173,7 @@ from .get_remote_helm_repository import *
 from .get_remote_helmoci_repository import *
 from .get_remote_hex_repository import *
 from .get_remote_ivy_repository import *
+from .get_remote_jetbrainsplugins_repository import *
 from .get_remote_maven_repository import *
 from .get_remote_nix_repository import *
 from .get_remote_npm_repository import *
@@ -315,6 +316,7 @@ from .remote_helmoci_repository import *
 from .remote_hex_repository import *
 from .remote_huggingfaceml_repository import *
 from .remote_ivy_repository import *
+from .remote_jetbrainsplugins_repository import *
 from .remote_maven_repository import *
 from .remote_nix_repository import *
 from .remote_npm_repository import *
@@ -1631,6 +1633,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/remoteIvyRepository:RemoteIvyRepository": "RemoteIvyRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteJetbrainspluginsRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteJetbrainspluginsRepository:RemoteJetbrainspluginsRepository": "RemoteJetbrainspluginsRepository"
   }
  },
  {

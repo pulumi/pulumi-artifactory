@@ -50,8 +50,8 @@ class DebianRepositoryArgs:
         :param pulumi.Input[_builtins.bool] ddeb_supported: When set, enable indexing with debug symbols (.ddeb).
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] index_compression_formats: The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
                and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `index_compression_formats = ["bz2", "lzma", "xz"]`. Default is empty.
         :param pulumi.Input[_builtins.str] notes: Internal description.
@@ -198,7 +198,7 @@ class DebianRepositoryArgs:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -210,7 +210,7 @@ class DebianRepositoryArgs:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -389,8 +389,8 @@ class _DebianRepositoryState:
         :param pulumi.Input[_builtins.bool] ddeb_supported: When set, enable indexing with debug symbols (.ddeb).
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] index_compression_formats: The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
                and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `index_compression_formats = ["bz2", "lzma", "xz"]`. Default is empty.
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
@@ -527,7 +527,7 @@ class _DebianRepositoryState:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -539,7 +539,7 @@ class _DebianRepositoryState:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -775,8 +775,8 @@ class DebianRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] ddeb_supported: When set, enable indexing with debug symbols (.ddeb).
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] index_compression_formats: The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
                and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `index_compression_formats = ["bz2", "lzma", "xz"]`. Default is empty.
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
@@ -953,8 +953,8 @@ class DebianRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] ddeb_supported: When set, enable indexing with debug symbols (.ddeb).
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] index_compression_formats: The options are Bzip2 (.bz2 extension), LZMA (.lzma extension)
                and XZ (.xz extension). All three formats are supported, so you can use any combination of them, e.g. `index_compression_formats = ["bz2", "lzma", "xz"]`. Default is empty.
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
@@ -1052,7 +1052,7 @@ class DebianRepository(pulumi.CustomResource):
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[_builtins.str]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -1060,7 +1060,7 @@ class DebianRepository(pulumi.CustomResource):
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[_builtins.str]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 

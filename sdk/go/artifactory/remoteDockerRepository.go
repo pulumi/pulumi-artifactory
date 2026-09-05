@@ -94,7 +94,7 @@ type RemoteDockerRepository struct {
 	EnableCookieManagement pulumi.BoolOutput `pulumi:"enableCookieManagement"`
 	// Enable token (Bearer) based authentication.
 	EnableTokenAuthentication pulumi.BoolOutput `pulumi:"enableTokenAuthentication"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
 	// Also known as 'Foreign Layers Caching' on the UI.
 	ExternalDependenciesEnabled pulumi.BoolOutput `pulumi:"externalDependenciesEnabled"`
@@ -102,7 +102,7 @@ type RemoteDockerRepository struct {
 	ExternalDependenciesPatterns pulumi.StringArrayOutput `pulumi:"externalDependenciesPatterns"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail pulumi.BoolOutput `pulumi:"hardFail"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -249,7 +249,7 @@ type remoteDockerRepositoryState struct {
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
 	// Enable token (Bearer) based authentication.
 	EnableTokenAuthentication *bool `pulumi:"enableTokenAuthentication"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// Also known as 'Foreign Layers Caching' on the UI.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
@@ -257,7 +257,7 @@ type remoteDockerRepositoryState struct {
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -358,7 +358,7 @@ type RemoteDockerRepositoryState struct {
 	EnableCookieManagement pulumi.BoolPtrInput
 	// Enable token (Bearer) based authentication.
 	EnableTokenAuthentication pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// Also known as 'Foreign Layers Caching' on the UI.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
@@ -366,7 +366,7 @@ type RemoteDockerRepositoryState struct {
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail pulumi.BoolPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -471,7 +471,7 @@ type remoteDockerRepositoryArgs struct {
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
 	// Enable token (Bearer) based authentication.
 	EnableTokenAuthentication *bool `pulumi:"enableTokenAuthentication"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// Also known as 'Foreign Layers Caching' on the UI.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
@@ -479,7 +479,7 @@ type remoteDockerRepositoryArgs struct {
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -581,7 +581,7 @@ type RemoteDockerRepositoryArgs struct {
 	EnableCookieManagement pulumi.BoolPtrInput
 	// Enable token (Bearer) based authentication.
 	EnableTokenAuthentication pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// Also known as 'Foreign Layers Caching' on the UI.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
@@ -589,7 +589,7 @@ type RemoteDockerRepositoryArgs struct {
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail pulumi.BoolPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -829,7 +829,7 @@ func (o RemoteDockerRepositoryOutput) EnableTokenAuthentication() pulumi.BoolOut
 	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.EnableTokenAuthentication }).(pulumi.BoolOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 func (o RemoteDockerRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
 }
@@ -849,7 +849,7 @@ func (o RemoteDockerRepositoryOutput) HardFail() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.HardFail }).(pulumi.BoolOutput)
 }
 
-// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 func (o RemoteDockerRepositoryOutput) IncludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }

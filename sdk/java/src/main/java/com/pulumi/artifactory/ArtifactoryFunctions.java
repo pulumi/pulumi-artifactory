@@ -208,6 +208,8 @@ import com.pulumi.artifactory.inputs.GetRemoteHexRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteHexRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteIvyRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteIvyRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetRemoteJetbrainspluginsRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetRemoteJetbrainspluginsRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteMavenRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteMavenRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteNixRepositoryArgs;
@@ -410,6 +412,7 @@ import com.pulumi.artifactory.outputs.GetRemoteHelmRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteHelmociRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteHexRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteIvyRepositoryResult;
+import com.pulumi.artifactory.outputs.GetRemoteJetbrainspluginsRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteMavenRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteNixRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteNpmRepositoryResult;
@@ -20597,6 +20600,206 @@ public final class ArtifactoryFunctions {
      */
     public static CompletableFuture<GetRemoteIvyRepositoryResult> getRemoteIvyRepositoryPlain(GetRemoteIvyRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getRemoteIvyRepository:getRemoteIvyRepository", TypeShape.of(GetRemoteIvyRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a remote JetBrains Plugins repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteJetbrainspluginsRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var remote-jetbrainsplugins = ArtifactoryFunctions.getRemoteJetbrainspluginsRepository(GetRemoteJetbrainspluginsRepositoryArgs.builder()
+     *             .key("remote-jetbrainsplugins")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRemoteJetbrainspluginsRepositoryResult> getRemoteJetbrainspluginsRepository(GetRemoteJetbrainspluginsRepositoryArgs args) {
+        return getRemoteJetbrainspluginsRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a remote JetBrains Plugins repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteJetbrainspluginsRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var remote-jetbrainsplugins = ArtifactoryFunctions.getRemoteJetbrainspluginsRepository(GetRemoteJetbrainspluginsRepositoryArgs.builder()
+     *             .key("remote-jetbrainsplugins")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRemoteJetbrainspluginsRepositoryResult> getRemoteJetbrainspluginsRepositoryPlain(GetRemoteJetbrainspluginsRepositoryPlainArgs args) {
+        return getRemoteJetbrainspluginsRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a remote JetBrains Plugins repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteJetbrainspluginsRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var remote-jetbrainsplugins = ArtifactoryFunctions.getRemoteJetbrainspluginsRepository(GetRemoteJetbrainspluginsRepositoryArgs.builder()
+     *             .key("remote-jetbrainsplugins")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRemoteJetbrainspluginsRepositoryResult> getRemoteJetbrainspluginsRepository(GetRemoteJetbrainspluginsRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getRemoteJetbrainspluginsRepository:getRemoteJetbrainspluginsRepository", TypeShape.of(GetRemoteJetbrainspluginsRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a remote JetBrains Plugins repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteJetbrainspluginsRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var remote-jetbrainsplugins = ArtifactoryFunctions.getRemoteJetbrainspluginsRepository(GetRemoteJetbrainspluginsRepositoryArgs.builder()
+     *             .key("remote-jetbrainsplugins")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRemoteJetbrainspluginsRepositoryResult> getRemoteJetbrainspluginsRepository(GetRemoteJetbrainspluginsRepositoryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getRemoteJetbrainspluginsRepository:getRemoteJetbrainspluginsRepository", TypeShape.of(GetRemoteJetbrainspluginsRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a remote JetBrains Plugins repository.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteJetbrainspluginsRepositoryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var remote-jetbrainsplugins = ArtifactoryFunctions.getRemoteJetbrainspluginsRepository(GetRemoteJetbrainspluginsRepositoryArgs.builder()
+     *             .key("remote-jetbrainsplugins")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRemoteJetbrainspluginsRepositoryResult> getRemoteJetbrainspluginsRepositoryPlain(GetRemoteJetbrainspluginsRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getRemoteJetbrainspluginsRepository:getRemoteJetbrainspluginsRepository", TypeShape.of(GetRemoteJetbrainspluginsRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves a remote Maven repository.
