@@ -91,13 +91,13 @@ type RemoteCargoRepository struct {
 	EnableCookieManagement pulumi.BoolOutput `pulumi:"enableCookieManagement"`
 	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 	EnableSparseIndex pulumi.BoolOutput `pulumi:"enableSparseIndex"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
 	// This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
 	GitRegistryUrl pulumi.StringOutput `pulumi:"gitRegistryUrl"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail pulumi.BoolOutput `pulumi:"hardFail"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -236,13 +236,13 @@ type remoteCargoRepositoryState struct {
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
 	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 	EnableSparseIndex *bool `pulumi:"enableSparseIndex"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
 	GitRegistryUrl *string `pulumi:"gitRegistryUrl"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -335,13 +335,13 @@ type RemoteCargoRepositoryState struct {
 	EnableCookieManagement pulumi.BoolPtrInput
 	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 	EnableSparseIndex pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
 	GitRegistryUrl pulumi.StringPtrInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail pulumi.BoolPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -438,13 +438,13 @@ type remoteCargoRepositoryArgs struct {
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
 	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 	EnableSparseIndex *bool `pulumi:"enableSparseIndex"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
 	GitRegistryUrl *string `pulumi:"gitRegistryUrl"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -538,13 +538,13 @@ type RemoteCargoRepositoryArgs struct {
 	EnableCookieManagement pulumi.BoolPtrInput
 	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 	EnableSparseIndex pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
 	GitRegistryUrl pulumi.StringPtrInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail pulumi.BoolPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -773,7 +773,7 @@ func (o RemoteCargoRepositoryOutput) EnableSparseIndex() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.BoolOutput { return v.EnableSparseIndex }).(pulumi.BoolOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 func (o RemoteCargoRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
 }
@@ -788,7 +788,7 @@ func (o RemoteCargoRepositoryOutput) HardFail() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.BoolOutput { return v.HardFail }).(pulumi.BoolOutput)
 }
 
-// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 func (o RemoteCargoRepositoryOutput) IncludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }

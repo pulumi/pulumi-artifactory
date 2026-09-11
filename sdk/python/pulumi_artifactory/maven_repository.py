@@ -41,9 +41,9 @@ class MavenRepositoryArgs:
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] force_maven_authentication: Forces authentication when fetching from remote repos.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key_pair: The keypair used to sign artifacts
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.str] pom_repository_references_cleanup_policy: One of: `"discard_active_reference", "discard_any_reference", "nothing"`
@@ -133,7 +133,7 @@ class MavenRepositoryArgs:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -157,7 +157,7 @@ class MavenRepositoryArgs:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -274,9 +274,9 @@ class _MavenRepositoryState:
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] force_maven_authentication: Forces authentication when fetching from remote repos.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.str] key_pair: The keypair used to sign artifacts
@@ -358,7 +358,7 @@ class _MavenRepositoryState:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -382,7 +382,7 @@ class _MavenRepositoryState:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -564,9 +564,9 @@ class MavenRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] force_maven_authentication: Forces authentication when fetching from remote repos.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.str] key_pair: The keypair used to sign artifacts
@@ -714,9 +714,9 @@ class MavenRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] force_maven_authentication: Forces authentication when fetching from remote repos.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.str] key_pair: The keypair used to sign artifacts
@@ -776,7 +776,7 @@ class MavenRepository(pulumi.CustomResource):
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -792,7 +792,7 @@ class MavenRepository(pulumi.CustomResource):
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 

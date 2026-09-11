@@ -63,9 +63,9 @@ type LocalNixRepository struct {
 	Description pulumi.StringOutput `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolOutput `pulumi:"downloadDirect"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
 	// Repository key.
 	Key pulumi.StringOutput `pulumi:"key"`
@@ -129,9 +129,9 @@ type localNixRepositoryState struct {
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// Repository key.
 	Key *string `pulumi:"key"`
@@ -163,9 +163,9 @@ type LocalNixRepositoryState struct {
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// Repository key.
 	Key pulumi.StringPtrInput
@@ -201,9 +201,9 @@ type localNixRepositoryArgs struct {
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// Repository key.
 	Key string `pulumi:"key"`
@@ -236,9 +236,9 @@ type LocalNixRepositoryArgs struct {
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// Repository key.
 	Key pulumi.StringInput
@@ -371,12 +371,12 @@ func (o LocalNixRepositoryOutput) DownloadDirect() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocalNixRepository) pulumi.BoolOutput { return v.DownloadDirect }).(pulumi.BoolOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 func (o LocalNixRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalNixRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
 }
 
-// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 func (o LocalNixRepositoryOutput) IncludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalNixRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }
