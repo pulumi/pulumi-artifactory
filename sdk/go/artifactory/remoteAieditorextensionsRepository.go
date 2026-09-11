@@ -121,7 +121,7 @@ type RemoteAieditorextensionsRepository struct {
 	EnableCookieManagement pulumi.BoolOutput `pulumi:"enableCookieManagement"`
 	// Enable token (Bearer) based authentication. Default value is `false`. Note this differs from the Docker and OCI remote repository resources, which default it to `true`; `false` matches the Artifactory default for this package type.
 	EnableTokenAuthentication pulumi.BoolOutput `pulumi:"enableTokenAuthentication"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
 	// When set, Artifactory can resolve extension dependencies from the external sources matching `externalDependenciesPatterns`. Unlike other remote repository types, this defaults to `true` for AI-Editor Extensions because extension payloads are hosted on a CDN separate from the gallery URL.
 	ExternalDependenciesEnabled pulumi.BoolOutput `pulumi:"externalDependenciesEnabled"`
@@ -129,7 +129,7 @@ type RemoteAieditorextensionsRepository struct {
 	ExternalDependenciesPatterns pulumi.StringArrayOutput `pulumi:"externalDependenciesPatterns"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail pulumi.BoolOutput `pulumi:"hardFail"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
@@ -275,7 +275,7 @@ type remoteAieditorextensionsRepositoryState struct {
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
 	// Enable token (Bearer) based authentication. Default value is `false`. Note this differs from the Docker and OCI remote repository resources, which default it to `true`; `false` matches the Artifactory default for this package type.
 	EnableTokenAuthentication *bool `pulumi:"enableTokenAuthentication"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// When set, Artifactory can resolve extension dependencies from the external sources matching `externalDependenciesPatterns`. Unlike other remote repository types, this defaults to `true` for AI-Editor Extensions because extension payloads are hosted on a CDN separate from the gallery URL.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
@@ -283,7 +283,7 @@ type remoteAieditorextensionsRepositoryState struct {
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
@@ -383,7 +383,7 @@ type RemoteAieditorextensionsRepositoryState struct {
 	EnableCookieManagement pulumi.BoolPtrInput
 	// Enable token (Bearer) based authentication. Default value is `false`. Note this differs from the Docker and OCI remote repository resources, which default it to `true`; `false` matches the Artifactory default for this package type.
 	EnableTokenAuthentication pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// When set, Artifactory can resolve extension dependencies from the external sources matching `externalDependenciesPatterns`. Unlike other remote repository types, this defaults to `true` for AI-Editor Extensions because extension payloads are hosted on a CDN separate from the gallery URL.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
@@ -391,7 +391,7 @@ type RemoteAieditorextensionsRepositoryState struct {
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail pulumi.BoolPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
@@ -493,7 +493,7 @@ type remoteAieditorextensionsRepositoryArgs struct {
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
 	// Enable token (Bearer) based authentication. Default value is `false`. Note this differs from the Docker and OCI remote repository resources, which default it to `true`; `false` matches the Artifactory default for this package type.
 	EnableTokenAuthentication *bool `pulumi:"enableTokenAuthentication"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// When set, Artifactory can resolve extension dependencies from the external sources matching `externalDependenciesPatterns`. Unlike other remote repository types, this defaults to `true` for AI-Editor Extensions because extension payloads are hosted on a CDN separate from the gallery URL.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
@@ -501,7 +501,7 @@ type remoteAieditorextensionsRepositoryArgs struct {
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
@@ -600,7 +600,7 @@ type RemoteAieditorextensionsRepositoryArgs struct {
 	EnableCookieManagement pulumi.BoolPtrInput
 	// Enable token (Bearer) based authentication. Default value is `false`. Note this differs from the Docker and OCI remote repository resources, which default it to `true`; `false` matches the Artifactory default for this package type.
 	EnableTokenAuthentication pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// When set, Artifactory can resolve extension dependencies from the external sources matching `externalDependenciesPatterns`. Unlike other remote repository types, this defaults to `true` for AI-Editor Extensions because extension payloads are hosted on a CDN separate from the gallery URL.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
@@ -608,7 +608,7 @@ type RemoteAieditorextensionsRepositoryArgs struct {
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail pulumi.BoolPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
@@ -849,7 +849,7 @@ func (o RemoteAieditorextensionsRepositoryOutput) EnableTokenAuthentication() pu
 	return o.ApplyT(func(v *RemoteAieditorextensionsRepository) pulumi.BoolOutput { return v.EnableTokenAuthentication }).(pulumi.BoolOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 func (o RemoteAieditorextensionsRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteAieditorextensionsRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
 }
@@ -871,7 +871,7 @@ func (o RemoteAieditorextensionsRepositoryOutput) HardFail() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RemoteAieditorextensionsRepository) pulumi.BoolOutput { return v.HardFail }).(pulumi.BoolOutput)
 }
 
-// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 func (o RemoteAieditorextensionsRepositoryOutput) IncludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteAieditorextensionsRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }

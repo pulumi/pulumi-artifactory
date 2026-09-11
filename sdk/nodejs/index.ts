@@ -840,6 +840,11 @@ export const getRemoteIvyRepository: typeof import("./getRemoteIvyRepository").g
 export const getRemoteIvyRepositoryOutput: typeof import("./getRemoteIvyRepository").getRemoteIvyRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getRemoteIvyRepository","getRemoteIvyRepositoryOutput"], () => require("./getRemoteIvyRepository"));
 
+export { GetRemoteJetbrainspluginsRepositoryArgs, GetRemoteJetbrainspluginsRepositoryResult, GetRemoteJetbrainspluginsRepositoryOutputArgs } from "./getRemoteJetbrainspluginsRepository";
+export const getRemoteJetbrainspluginsRepository: typeof import("./getRemoteJetbrainspluginsRepository").getRemoteJetbrainspluginsRepository = null as any;
+export const getRemoteJetbrainspluginsRepositoryOutput: typeof import("./getRemoteJetbrainspluginsRepository").getRemoteJetbrainspluginsRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteJetbrainspluginsRepository","getRemoteJetbrainspluginsRepositoryOutput"], () => require("./getRemoteJetbrainspluginsRepository"));
+
 export { GetRemoteMavenRepositoryArgs, GetRemoteMavenRepositoryResult, GetRemoteMavenRepositoryOutputArgs } from "./getRemoteMavenRepository";
 export const getRemoteMavenRepository: typeof import("./getRemoteMavenRepository").getRemoteMavenRepository = null as any;
 export const getRemoteMavenRepositoryOutput: typeof import("./getRemoteMavenRepository").getRemoteMavenRepositoryOutput = null as any;
@@ -1548,6 +1553,11 @@ export type RemoteIvyRepository = import("./remoteIvyRepository").RemoteIvyRepos
 export const RemoteIvyRepository: typeof import("./remoteIvyRepository").RemoteIvyRepository = null as any;
 utilities.lazyLoad(exports, ["RemoteIvyRepository"], () => require("./remoteIvyRepository"));
 
+export { RemoteJetbrainspluginsRepositoryArgs, RemoteJetbrainspluginsRepositoryState } from "./remoteJetbrainspluginsRepository";
+export type RemoteJetbrainspluginsRepository = import("./remoteJetbrainspluginsRepository").RemoteJetbrainspluginsRepository;
+export const RemoteJetbrainspluginsRepository: typeof import("./remoteJetbrainspluginsRepository").RemoteJetbrainspluginsRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteJetbrainspluginsRepository"], () => require("./remoteJetbrainspluginsRepository"));
+
 export { RemoteMavenRepositoryArgs, RemoteMavenRepositoryState } from "./remoteMavenRepository";
 export type RemoteMavenRepository = import("./remoteMavenRepository").RemoteMavenRepository;
 export const RemoteMavenRepository: typeof import("./remoteMavenRepository").RemoteMavenRepository = null as any;
@@ -2159,6 +2169,8 @@ const _module = {
                 return new RemoteHuggingfacemlRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteIvyRepository:RemoteIvyRepository":
                 return new RemoteIvyRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteJetbrainspluginsRepository:RemoteJetbrainspluginsRepository":
+                return new RemoteJetbrainspluginsRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteMavenRepository:RemoteMavenRepository":
                 return new RemoteMavenRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteNixRepository:RemoteNixRepository":
@@ -2434,6 +2446,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/remoteHelmociReposit
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteHexRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteHuggingfacemlRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteIvyRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteJetbrainspluginsRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteMavenRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteNixRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteNpmRepository", _module)
