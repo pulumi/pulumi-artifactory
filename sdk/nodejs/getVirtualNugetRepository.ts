@@ -26,6 +26,7 @@ export function getVirtualNugetRepository(args: GetVirtualNugetRepositoryArgs, o
         "description": args.description,
         "excludesPattern": args.excludesPattern,
         "forceNugetAuthentication": args.forceNugetAuthentication,
+        "hideUnauthorizedResources": args.hideUnauthorizedResources,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "notes": args.notes,
@@ -48,6 +49,7 @@ export interface GetVirtualNugetRepositoryArgs {
      * (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
      */
     forceNugetAuthentication?: boolean;
+    hideUnauthorizedResources?: boolean;
     includesPattern?: string;
     /**
      * the identity key of the repo.
@@ -72,6 +74,7 @@ export interface GetVirtualNugetRepositoryResult {
      * (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
      */
     readonly forceNugetAuthentication?: boolean;
+    readonly hideUnauthorizedResources?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -107,6 +110,7 @@ export function getVirtualNugetRepositoryOutput(args: GetVirtualNugetRepositoryO
         "description": args.description,
         "excludesPattern": args.excludesPattern,
         "forceNugetAuthentication": args.forceNugetAuthentication,
+        "hideUnauthorizedResources": args.hideUnauthorizedResources,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "notes": args.notes,
@@ -129,6 +133,7 @@ export interface GetVirtualNugetRepositoryOutputArgs {
      * (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
      */
     forceNugetAuthentication?: pulumi.Input<boolean | undefined>;
+    hideUnauthorizedResources?: pulumi.Input<boolean | undefined>;
     includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.

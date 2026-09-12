@@ -105,6 +105,9 @@ namespace Pulumi.Artifactory
         [Input("forceNugetAuthentication")]
         public bool? ForceNugetAuthentication { get; set; }
 
+        [Input("hideUnauthorizedResources")]
+        public bool? HideUnauthorizedResources { get; set; }
+
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
@@ -165,6 +168,9 @@ namespace Pulumi.Artifactory
         [Input("forceNugetAuthentication")]
         public Input<bool>? ForceNugetAuthentication { get; set; }
 
+        [Input("hideUnauthorizedResources")]
+        public Input<bool>? HideUnauthorizedResources { get; set; }
+
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
@@ -217,6 +223,7 @@ namespace Pulumi.Artifactory
         /// (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `False`.
         /// </summary>
         public readonly bool? ForceNugetAuthentication;
+        public readonly bool? HideUnauthorizedResources;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -242,6 +249,8 @@ namespace Pulumi.Artifactory
 
             bool? forceNugetAuthentication,
 
+            bool? hideUnauthorizedResources,
+
             string id,
 
             string? includesPattern,
@@ -265,6 +274,7 @@ namespace Pulumi.Artifactory
             Description = description;
             ExcludesPattern = excludesPattern;
             ForceNugetAuthentication = forceNugetAuthentication;
+            HideUnauthorizedResources = hideUnauthorizedResources;
             Id = id;
             IncludesPattern = includesPattern;
             Key = key;

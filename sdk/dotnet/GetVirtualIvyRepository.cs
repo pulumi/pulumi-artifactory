@@ -102,6 +102,9 @@ namespace Pulumi.Artifactory
         [Input("forceMavenAuthentication")]
         public bool? ForceMavenAuthentication { get; set; }
 
+        [Input("hideUnauthorizedResources")]
+        public bool? HideUnauthorizedResources { get; set; }
+
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
@@ -174,6 +177,9 @@ namespace Pulumi.Artifactory
         [Input("forceMavenAuthentication")]
         public Input<bool>? ForceMavenAuthentication { get; set; }
 
+        [Input("hideUnauthorizedResources")]
+        public Input<bool>? HideUnauthorizedResources { get; set; }
+
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
@@ -238,6 +244,7 @@ namespace Pulumi.Artifactory
         public readonly string? Description;
         public readonly string? ExcludesPattern;
         public readonly bool ForceMavenAuthentication;
+        public readonly bool? HideUnauthorizedResources;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -274,6 +281,8 @@ namespace Pulumi.Artifactory
 
             bool forceMavenAuthentication,
 
+            bool? hideUnauthorizedResources,
+
             string id,
 
             string? includesPattern,
@@ -301,6 +310,7 @@ namespace Pulumi.Artifactory
             Description = description;
             ExcludesPattern = excludesPattern;
             ForceMavenAuthentication = forceMavenAuthentication;
+            HideUnauthorizedResources = hideUnauthorizedResources;
             Id = id;
             IncludesPattern = includesPattern;
             Key = key;

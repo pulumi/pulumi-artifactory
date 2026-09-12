@@ -118,6 +118,9 @@ namespace Pulumi.Artifactory
             set => _externalDependenciesPatterns = value;
         }
 
+        [Input("hideUnauthorizedResources")]
+        public bool? HideUnauthorizedResources { get; set; }
+
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
@@ -191,6 +194,9 @@ namespace Pulumi.Artifactory
             set => _externalDependenciesPatterns = value;
         }
 
+        [Input("hideUnauthorizedResources")]
+        public Input<bool>? HideUnauthorizedResources { get; set; }
+
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
@@ -248,6 +254,7 @@ namespace Pulumi.Artifactory
         /// (Optional) 'go-import' Allow List on the UI.
         /// </summary>
         public readonly ImmutableArray<string> ExternalDependenciesPatterns;
+        public readonly bool? HideUnauthorizedResources;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -275,6 +282,8 @@ namespace Pulumi.Artifactory
 
             ImmutableArray<string> externalDependenciesPatterns,
 
+            bool? hideUnauthorizedResources,
+
             string id,
 
             string? includesPattern,
@@ -299,6 +308,7 @@ namespace Pulumi.Artifactory
             ExcludesPattern = excludesPattern;
             ExternalDependenciesEnabled = externalDependenciesEnabled;
             ExternalDependenciesPatterns = externalDependenciesPatterns;
+            HideUnauthorizedResources = hideUnauthorizedResources;
             Id = id;
             IncludesPattern = includesPattern;
             Key = key;

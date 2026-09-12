@@ -56,6 +56,7 @@ type LookupVirtualDebianRepositoryArgs struct {
 	DefaultDeploymentRepo      *string `pulumi:"defaultDeploymentRepo"`
 	Description                *string `pulumi:"description"`
 	ExcludesPattern            *string `pulumi:"excludesPattern"`
+	HideUnauthorizedResources  *bool   `pulumi:"hideUnauthorizedResources"`
 	IncludesPattern            *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key   string  `pulumi:"key"`
@@ -82,6 +83,7 @@ type LookupVirtualDebianRepositoryResult struct {
 	DefaultDeploymentRepo      *string `pulumi:"defaultDeploymentRepo"`
 	Description                *string `pulumi:"description"`
 	ExcludesPattern            *string `pulumi:"excludesPattern"`
+	HideUnauthorizedResources  *bool   `pulumi:"hideUnauthorizedResources"`
 	// The provider-assigned unique ID for this managed resource.
 	Id              string  `pulumi:"id"`
 	IncludesPattern *string `pulumi:"includesPattern"`
@@ -115,6 +117,7 @@ type LookupVirtualDebianRepositoryOutputArgs struct {
 	DefaultDeploymentRepo      pulumi.StringPtrInput `pulumi:"defaultDeploymentRepo"`
 	Description                pulumi.StringPtrInput `pulumi:"description"`
 	ExcludesPattern            pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	HideUnauthorizedResources  pulumi.BoolPtrInput   `pulumi:"hideUnauthorizedResources"`
 	IncludesPattern            pulumi.StringPtrInput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key   pulumi.StringInput    `pulumi:"key"`
@@ -173,6 +176,10 @@ func (o LookupVirtualDebianRepositoryResultOutput) Description() pulumi.StringPt
 
 func (o LookupVirtualDebianRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVirtualDebianRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupVirtualDebianRepositoryResultOutput) HideUnauthorizedResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualDebianRepositoryResult) *bool { return v.HideUnauthorizedResources }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

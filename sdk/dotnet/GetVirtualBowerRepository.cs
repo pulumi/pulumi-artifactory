@@ -123,6 +123,9 @@ namespace Pulumi.Artifactory
         [Input("externalDependenciesRemoteRepo")]
         public string? ExternalDependenciesRemoteRepo { get; set; }
 
+        [Input("hideUnauthorizedResources")]
+        public bool? HideUnauthorizedResources { get; set; }
+
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
@@ -201,6 +204,9 @@ namespace Pulumi.Artifactory
         [Input("externalDependenciesRemoteRepo")]
         public Input<string>? ExternalDependenciesRemoteRepo { get; set; }
 
+        [Input("hideUnauthorizedResources")]
+        public Input<bool>? HideUnauthorizedResources { get; set; }
+
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
@@ -261,6 +267,7 @@ namespace Pulumi.Artifactory
         /// (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
         /// </summary>
         public readonly string? ExternalDependenciesRemoteRepo;
+        public readonly bool? HideUnauthorizedResources;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -290,6 +297,8 @@ namespace Pulumi.Artifactory
 
             string? externalDependenciesRemoteRepo,
 
+            bool? hideUnauthorizedResources,
+
             string id,
 
             string? includesPattern,
@@ -315,6 +324,7 @@ namespace Pulumi.Artifactory
             ExternalDependenciesEnabled = externalDependenciesEnabled;
             ExternalDependenciesPatterns = externalDependenciesPatterns;
             ExternalDependenciesRemoteRepo = externalDependenciesRemoteRepo;
+            HideUnauthorizedResources = hideUnauthorizedResources;
             Id = id;
             IncludesPattern = includesPattern;
             Key = key;

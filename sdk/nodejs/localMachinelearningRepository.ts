@@ -74,11 +74,11 @@ export class LocalMachinelearningRepository extends pulumi.CustomResource {
      */
     declare public readonly downloadDirect: pulumi.Output<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
+     * Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
      */
     declare public readonly excludesPattern: pulumi.Output<string>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     declare public readonly includesPattern: pulumi.Output<string>;
     /**
@@ -194,11 +194,11 @@ export interface LocalMachinelearningRepositoryState {
      */
     downloadDirect?: pulumi.Input<boolean | undefined>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
+     * Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string | undefined>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string | undefined>;
     /**
@@ -261,11 +261,11 @@ export interface LocalMachinelearningRepositoryArgs {
      */
     downloadDirect?: pulumi.Input<boolean | undefined>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
+     * Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string | undefined>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string | undefined>;
     /**

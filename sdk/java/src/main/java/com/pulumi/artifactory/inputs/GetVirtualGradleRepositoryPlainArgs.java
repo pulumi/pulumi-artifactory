@@ -52,6 +52,13 @@ public final class GetVirtualGradleRepositoryPlainArgs extends com.pulumi.resour
         return Optional.ofNullable(this.forceMavenAuthentication);
     }
 
+    @Import(name="hideUnauthorizedResources")
+    private @Nullable Boolean hideUnauthorizedResources;
+
+    public Optional<Boolean> hideUnauthorizedResources() {
+        return Optional.ofNullable(this.hideUnauthorizedResources);
+    }
+
     @Import(name="includesPattern")
     private @Nullable String includesPattern;
 
@@ -153,6 +160,7 @@ public final class GetVirtualGradleRepositoryPlainArgs extends com.pulumi.resour
         this.description = $.description;
         this.excludesPattern = $.excludesPattern;
         this.forceMavenAuthentication = $.forceMavenAuthentication;
+        this.hideUnauthorizedResources = $.hideUnauthorizedResources;
         this.includesPattern = $.includesPattern;
         this.key = $.key;
         this.keyPair = $.keyPair;
@@ -204,6 +212,11 @@ public final class GetVirtualGradleRepositoryPlainArgs extends com.pulumi.resour
 
         public Builder forceMavenAuthentication(@Nullable Boolean forceMavenAuthentication) {
             $.forceMavenAuthentication = forceMavenAuthentication;
+            return this;
+        }
+
+        public Builder hideUnauthorizedResources(@Nullable Boolean hideUnauthorizedResources) {
+            $.hideUnauthorizedResources = hideUnauthorizedResources;
             return this;
         }
 

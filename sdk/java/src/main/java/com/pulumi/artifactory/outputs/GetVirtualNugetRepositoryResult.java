@@ -23,6 +23,7 @@ public final class GetVirtualNugetRepositoryResult {
      * 
      */
     private @Nullable Boolean forceNugetAuthentication;
+    private @Nullable Boolean hideUnauthorizedResources;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -56,6 +57,9 @@ public final class GetVirtualNugetRepositoryResult {
      */
     public Optional<Boolean> forceNugetAuthentication() {
         return Optional.ofNullable(this.forceNugetAuthentication);
+    }
+    public Optional<Boolean> hideUnauthorizedResources() {
+        return Optional.ofNullable(this.hideUnauthorizedResources);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -103,6 +107,7 @@ public final class GetVirtualNugetRepositoryResult {
         private @Nullable String description;
         private @Nullable String excludesPattern;
         private @Nullable Boolean forceNugetAuthentication;
+        private @Nullable Boolean hideUnauthorizedResources;
         private String id;
         private @Nullable String includesPattern;
         private String key;
@@ -120,6 +125,7 @@ public final class GetVirtualNugetRepositoryResult {
     	      this.description = defaults.description;
     	      this.excludesPattern = defaults.excludesPattern;
     	      this.forceNugetAuthentication = defaults.forceNugetAuthentication;
+    	      this.hideUnauthorizedResources = defaults.hideUnauthorizedResources;
     	      this.id = defaults.id;
     	      this.includesPattern = defaults.includesPattern;
     	      this.key = defaults.key;
@@ -159,6 +165,12 @@ public final class GetVirtualNugetRepositoryResult {
         public Builder forceNugetAuthentication(@Nullable Boolean forceNugetAuthentication) {
 
             this.forceNugetAuthentication = forceNugetAuthentication;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hideUnauthorizedResources(@Nullable Boolean hideUnauthorizedResources) {
+
+            this.hideUnauthorizedResources = hideUnauthorizedResources;
             return this;
         }
         @CustomType.Setter
@@ -236,6 +248,7 @@ public final class GetVirtualNugetRepositoryResult {
             _resultValue.description = description;
             _resultValue.excludesPattern = excludesPattern;
             _resultValue.forceNugetAuthentication = forceNugetAuthentication;
+            _resultValue.hideUnauthorizedResources = hideUnauthorizedResources;
             _resultValue.id = id;
             _resultValue.includesPattern = includesPattern;
             _resultValue.key = key;

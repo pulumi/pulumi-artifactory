@@ -25,6 +25,7 @@ class VirtualDebianRepositoryArgs:
                  default_deployment_repo: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 hide_unauthorized_resources: pulumi.Input[Optional[_builtins.bool]] = None,
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  optional_index_compression_formats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -44,8 +45,9 @@ class VirtualDebianRepositoryArgs:
         :param pulumi.Input[_builtins.str] debian_default_architectures: Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.bool] hide_unauthorized_resources: When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] optional_index_compression_formats: Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
         :param pulumi.Input[_builtins.str] primary_keypair_ref: Primary keypair used to sign artifacts. Default is empty.
@@ -67,6 +69,8 @@ class VirtualDebianRepositoryArgs:
             pulumi.set(__self__, "description", description)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+        if hide_unauthorized_resources is not None:
+            pulumi.set(__self__, "hide_unauthorized_resources", hide_unauthorized_resources)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
         if notes is not None:
@@ -153,7 +157,7 @@ class VirtualDebianRepositoryArgs:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -162,10 +166,22 @@ class VirtualDebianRepositoryArgs:
         pulumi.set(self, "excludes_pattern", value)
 
     @_builtins.property
+    @pulumi.getter(name="hideUnauthorizedResources")
+    def hide_unauthorized_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        """
+        return pulumi.get(self, "hide_unauthorized_resources")
+
+    @hide_unauthorized_resources.setter
+    def hide_unauthorized_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "hide_unauthorized_resources", value)
+
+    @_builtins.property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -290,6 +306,7 @@ class _VirtualDebianRepositoryState:
                  default_deployment_repo: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 hide_unauthorized_resources: pulumi.Input[Optional[_builtins.bool]] = None,
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
@@ -309,8 +326,9 @@ class _VirtualDebianRepositoryState:
         :param pulumi.Input[_builtins.str] debian_default_architectures: Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.bool] hide_unauthorized_resources: When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.str] notes: Internal description.
@@ -333,6 +351,8 @@ class _VirtualDebianRepositoryState:
             pulumi.set(__self__, "description", description)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+        if hide_unauthorized_resources is not None:
+            pulumi.set(__self__, "hide_unauthorized_resources", hide_unauthorized_resources)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
         if key is not None:
@@ -410,7 +430,7 @@ class _VirtualDebianRepositoryState:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -419,10 +439,22 @@ class _VirtualDebianRepositoryState:
         pulumi.set(self, "excludes_pattern", value)
 
     @_builtins.property
+    @pulumi.getter(name="hideUnauthorizedResources")
+    def hide_unauthorized_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        """
+        return pulumi.get(self, "hide_unauthorized_resources")
+
+    @hide_unauthorized_resources.setter
+    def hide_unauthorized_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "hide_unauthorized_resources", value)
+
+    @_builtins.property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -572,6 +604,7 @@ class VirtualDebianRepository(pulumi.CustomResource):
                  default_deployment_repo: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 hide_unauthorized_resources: pulumi.Input[Optional[_builtins.bool]] = None,
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
@@ -623,8 +656,9 @@ class VirtualDebianRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] debian_default_architectures: Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.bool] hide_unauthorized_resources: When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.str] notes: Internal description.
@@ -696,6 +730,7 @@ class VirtualDebianRepository(pulumi.CustomResource):
                  default_deployment_repo: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 hide_unauthorized_resources: pulumi.Input[Optional[_builtins.bool]] = None,
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
@@ -721,6 +756,7 @@ class VirtualDebianRepository(pulumi.CustomResource):
             __props__.__dict__["default_deployment_repo"] = default_deployment_repo
             __props__.__dict__["description"] = description
             __props__.__dict__["excludes_pattern"] = excludes_pattern
+            __props__.__dict__["hide_unauthorized_resources"] = hide_unauthorized_resources
             __props__.__dict__["includes_pattern"] = includes_pattern
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
@@ -750,6 +786,7 @@ class VirtualDebianRepository(pulumi.CustomResource):
             default_deployment_repo: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            hide_unauthorized_resources: pulumi.Input[Optional[_builtins.bool]] = None,
             includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
             key: pulumi.Input[Optional[_builtins.str]] = None,
             notes: pulumi.Input[Optional[_builtins.str]] = None,
@@ -773,8 +810,9 @@ class VirtualDebianRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] debian_default_architectures: Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.bool] hide_unauthorized_resources: When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.str] notes: Internal description.
@@ -796,6 +834,7 @@ class VirtualDebianRepository(pulumi.CustomResource):
         __props__.__dict__["default_deployment_repo"] = default_deployment_repo
         __props__.__dict__["description"] = description
         __props__.__dict__["excludes_pattern"] = excludes_pattern
+        __props__.__dict__["hide_unauthorized_resources"] = hide_unauthorized_resources
         __props__.__dict__["includes_pattern"] = includes_pattern
         __props__.__dict__["key"] = key
         __props__.__dict__["notes"] = notes
@@ -846,15 +885,23 @@ class VirtualDebianRepository(pulumi.CustomResource):
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
+
+    @_builtins.property
+    @pulumi.getter(name="hideUnauthorizedResources")
+    def hide_unauthorized_resources(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        """
+        return pulumi.get(self, "hide_unauthorized_resources")
 
     @_builtins.property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 

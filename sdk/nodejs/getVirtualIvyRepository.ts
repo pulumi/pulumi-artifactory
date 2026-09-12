@@ -26,6 +26,7 @@ export function getVirtualIvyRepository(args: GetVirtualIvyRepositoryArgs, opts?
         "description": args.description,
         "excludesPattern": args.excludesPattern,
         "forceMavenAuthentication": args.forceMavenAuthentication,
+        "hideUnauthorizedResources": args.hideUnauthorizedResources,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "keyPair": args.keyPair,
@@ -47,6 +48,7 @@ export interface GetVirtualIvyRepositoryArgs {
     description?: string;
     excludesPattern?: string;
     forceMavenAuthentication?: boolean;
+    hideUnauthorizedResources?: boolean;
     includesPattern?: string;
     /**
      * the identity key of the repo.
@@ -79,6 +81,7 @@ export interface GetVirtualIvyRepositoryResult {
     readonly description?: string;
     readonly excludesPattern?: string;
     readonly forceMavenAuthentication: boolean;
+    readonly hideUnauthorizedResources?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -125,6 +128,7 @@ export function getVirtualIvyRepositoryOutput(args: GetVirtualIvyRepositoryOutpu
         "description": args.description,
         "excludesPattern": args.excludesPattern,
         "forceMavenAuthentication": args.forceMavenAuthentication,
+        "hideUnauthorizedResources": args.hideUnauthorizedResources,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "keyPair": args.keyPair,
@@ -146,6 +150,7 @@ export interface GetVirtualIvyRepositoryOutputArgs {
     description?: pulumi.Input<string | undefined>;
     excludesPattern?: pulumi.Input<string | undefined>;
     forceMavenAuthentication?: pulumi.Input<boolean | undefined>;
+    hideUnauthorizedResources?: pulumi.Input<boolean | undefined>;
     includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.

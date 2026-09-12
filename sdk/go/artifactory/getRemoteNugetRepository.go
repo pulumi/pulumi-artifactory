@@ -64,10 +64,11 @@ type LookupRemoteNugetRepositoryArgs struct {
 	DisableProxy              *bool                                           `pulumi:"disableProxy"`
 	DisableUrlNormalization   *bool                                           `pulumi:"disableUrlNormalization"`
 	// (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
-	DownloadContextPath    *string `pulumi:"downloadContextPath"`
-	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	EnableCookieManagement *bool   `pulumi:"enableCookieManagement"`
-	ExcludesPattern        *string `pulumi:"excludesPattern"`
+	DownloadContextPath       *string `pulumi:"downloadContextPath"`
+	DownloadDirect            *bool   `pulumi:"downloadDirect"`
+	EnableCookieManagement    *bool   `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication *bool   `pulumi:"enableTokenAuthentication"`
+	ExcludesPattern           *string `pulumi:"excludesPattern"`
 	// (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
 	FeedContextPath *string `pulumi:"feedContextPath"`
 	// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
@@ -124,10 +125,11 @@ type LookupRemoteNugetRepositoryResult struct {
 	DisableProxy              *bool                                          `pulumi:"disableProxy"`
 	DisableUrlNormalization   *bool                                          `pulumi:"disableUrlNormalization"`
 	// (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
-	DownloadContextPath    *string `pulumi:"downloadContextPath"`
-	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	EnableCookieManagement *bool   `pulumi:"enableCookieManagement"`
-	ExcludesPattern        *string `pulumi:"excludesPattern"`
+	DownloadContextPath       *string `pulumi:"downloadContextPath"`
+	DownloadDirect            *bool   `pulumi:"downloadDirect"`
+	EnableCookieManagement    *bool   `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication *bool   `pulumi:"enableTokenAuthentication"`
+	ExcludesPattern           *string `pulumi:"excludesPattern"`
 	// (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
 	FeedContextPath *string `pulumi:"feedContextPath"`
 	// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
@@ -191,10 +193,11 @@ type LookupRemoteNugetRepositoryOutputArgs struct {
 	DisableProxy              pulumi.BoolPtrInput                                    `pulumi:"disableProxy"`
 	DisableUrlNormalization   pulumi.BoolPtrInput                                    `pulumi:"disableUrlNormalization"`
 	// (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
-	DownloadContextPath    pulumi.StringPtrInput `pulumi:"downloadContextPath"`
-	DownloadDirect         pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
-	EnableCookieManagement pulumi.BoolPtrInput   `pulumi:"enableCookieManagement"`
-	ExcludesPattern        pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	DownloadContextPath       pulumi.StringPtrInput `pulumi:"downloadContextPath"`
+	DownloadDirect            pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
+	EnableCookieManagement    pulumi.BoolPtrInput   `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication pulumi.BoolPtrInput   `pulumi:"enableTokenAuthentication"`
+	ExcludesPattern           pulumi.StringPtrInput `pulumi:"excludesPattern"`
 	// (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
 	FeedContextPath pulumi.StringPtrInput `pulumi:"feedContextPath"`
 	// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
@@ -319,6 +322,10 @@ func (o LookupRemoteNugetRepositoryResultOutput) DownloadDirect() pulumi.BoolPtr
 
 func (o LookupRemoteNugetRepositoryResultOutput) EnableCookieManagement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteNugetRepositoryResult) *bool { return v.EnableCookieManagement }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupRemoteNugetRepositoryResultOutput) EnableTokenAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteNugetRepositoryResult) *bool { return v.EnableTokenAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteNugetRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {

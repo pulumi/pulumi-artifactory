@@ -26,6 +26,7 @@ export function getVirtualSbtRepository(args: GetVirtualSbtRepositoryArgs, opts?
         "description": args.description,
         "excludesPattern": args.excludesPattern,
         "forceMavenAuthentication": args.forceMavenAuthentication,
+        "hideUnauthorizedResources": args.hideUnauthorizedResources,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "keyPair": args.keyPair,
@@ -47,6 +48,7 @@ export interface GetVirtualSbtRepositoryArgs {
     description?: string;
     excludesPattern?: string;
     forceMavenAuthentication?: boolean;
+    hideUnauthorizedResources?: boolean;
     includesPattern?: string;
     /**
      * the identity key of the repo.
@@ -79,6 +81,7 @@ export interface GetVirtualSbtRepositoryResult {
     readonly description?: string;
     readonly excludesPattern?: string;
     readonly forceMavenAuthentication: boolean;
+    readonly hideUnauthorizedResources?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -125,6 +128,7 @@ export function getVirtualSbtRepositoryOutput(args: GetVirtualSbtRepositoryOutpu
         "description": args.description,
         "excludesPattern": args.excludesPattern,
         "forceMavenAuthentication": args.forceMavenAuthentication,
+        "hideUnauthorizedResources": args.hideUnauthorizedResources,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "keyPair": args.keyPair,
@@ -146,6 +150,7 @@ export interface GetVirtualSbtRepositoryOutputArgs {
     description?: pulumi.Input<string | undefined>;
     excludesPattern?: pulumi.Input<string | undefined>;
     forceMavenAuthentication?: pulumi.Input<boolean | undefined>;
+    hideUnauthorizedResources?: pulumi.Input<boolean | undefined>;
     includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.

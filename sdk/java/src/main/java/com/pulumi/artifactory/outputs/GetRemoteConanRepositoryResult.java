@@ -31,6 +31,7 @@ public final class GetRemoteConanRepositoryResult {
     private @Nullable Boolean disableUrlNormalization;
     private @Nullable Boolean downloadDirect;
     private @Nullable Boolean enableCookieManagement;
+    private @Nullable Boolean enableTokenAuthentication;
     private @Nullable String excludesPattern;
     /**
      * @return (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
@@ -118,6 +119,9 @@ public final class GetRemoteConanRepositoryResult {
     }
     public Optional<Boolean> enableCookieManagement() {
         return Optional.ofNullable(this.enableCookieManagement);
+    }
+    public Optional<Boolean> enableTokenAuthentication() {
+        return Optional.ofNullable(this.enableTokenAuthentication);
     }
     public Optional<String> excludesPattern() {
         return Optional.ofNullable(this.excludesPattern);
@@ -251,6 +255,7 @@ public final class GetRemoteConanRepositoryResult {
         private @Nullable Boolean disableUrlNormalization;
         private @Nullable Boolean downloadDirect;
         private @Nullable Boolean enableCookieManagement;
+        private @Nullable Boolean enableTokenAuthentication;
         private @Nullable String excludesPattern;
         private @Nullable Boolean forceConanAuthentication;
         private @Nullable Boolean hardFail;
@@ -302,6 +307,7 @@ public final class GetRemoteConanRepositoryResult {
     	      this.disableUrlNormalization = defaults.disableUrlNormalization;
     	      this.downloadDirect = defaults.downloadDirect;
     	      this.enableCookieManagement = defaults.enableCookieManagement;
+    	      this.enableTokenAuthentication = defaults.enableTokenAuthentication;
     	      this.excludesPattern = defaults.excludesPattern;
     	      this.forceConanAuthentication = defaults.forceConanAuthentication;
     	      this.hardFail = defaults.hardFail;
@@ -429,6 +435,12 @@ public final class GetRemoteConanRepositoryResult {
         public Builder enableCookieManagement(@Nullable Boolean enableCookieManagement) {
 
             this.enableCookieManagement = enableCookieManagement;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enableTokenAuthentication(@Nullable Boolean enableTokenAuthentication) {
+
+            this.enableTokenAuthentication = enableTokenAuthentication;
             return this;
         }
         @CustomType.Setter
@@ -662,6 +674,7 @@ public final class GetRemoteConanRepositoryResult {
             _resultValue.disableUrlNormalization = disableUrlNormalization;
             _resultValue.downloadDirect = downloadDirect;
             _resultValue.enableCookieManagement = enableCookieManagement;
+            _resultValue.enableTokenAuthentication = enableTokenAuthentication;
             _resultValue.excludesPattern = excludesPattern;
             _resultValue.forceConanAuthentication = forceConanAuthentication;
             _resultValue.hardFail = hardFail;

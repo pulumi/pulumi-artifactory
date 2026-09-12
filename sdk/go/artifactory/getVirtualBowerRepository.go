@@ -60,6 +60,7 @@ type LookupVirtualBowerRepositoryArgs struct {
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
 	ExternalDependenciesRemoteRepo *string `pulumi:"externalDependenciesRemoteRepo"`
+	HideUnauthorizedResources      *bool   `pulumi:"hideUnauthorizedResources"`
 	IncludesPattern                *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                 string   `pulumi:"key"`
@@ -82,6 +83,7 @@ type LookupVirtualBowerRepositoryResult struct {
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
 	ExternalDependenciesRemoteRepo *string `pulumi:"externalDependenciesRemoteRepo"`
+	HideUnauthorizedResources      *bool   `pulumi:"hideUnauthorizedResources"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                  string   `pulumi:"id"`
 	IncludesPattern     *string  `pulumi:"includesPattern"`
@@ -111,6 +113,7 @@ type LookupVirtualBowerRepositoryOutputArgs struct {
 	ExternalDependenciesPatterns pulumi.StringArrayInput `pulumi:"externalDependenciesPatterns"`
 	// (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
 	ExternalDependenciesRemoteRepo pulumi.StringPtrInput `pulumi:"externalDependenciesRemoteRepo"`
+	HideUnauthorizedResources      pulumi.BoolPtrInput   `pulumi:"hideUnauthorizedResources"`
 	IncludesPattern                pulumi.StringPtrInput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                 pulumi.StringInput      `pulumi:"key"`
@@ -171,6 +174,10 @@ func (o LookupVirtualBowerRepositoryResultOutput) ExternalDependenciesPatterns()
 // (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
 func (o LookupVirtualBowerRepositoryResultOutput) ExternalDependenciesRemoteRepo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVirtualBowerRepositoryResult) *string { return v.ExternalDependenciesRemoteRepo }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupVirtualBowerRepositoryResultOutput) HideUnauthorizedResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualBowerRepositoryResult) *bool { return v.HideUnauthorizedResources }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

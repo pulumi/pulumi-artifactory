@@ -65,6 +65,7 @@ type LookupRemoteMavenRepositoryArgs struct {
 	DisableUrlNormalization   *bool                                           `pulumi:"disableUrlNormalization"`
 	DownloadDirect            *bool                                           `pulumi:"downloadDirect"`
 	EnableCookieManagement    *bool                                           `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication *bool                                           `pulumi:"enableTokenAuthentication"`
 	ExcludesPattern           *string                                         `pulumi:"excludesPattern"`
 	// (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
 	FetchJarsEagerly *bool `pulumi:"fetchJarsEagerly"`
@@ -131,6 +132,7 @@ type LookupRemoteMavenRepositoryResult struct {
 	DisableUrlNormalization   *bool                                          `pulumi:"disableUrlNormalization"`
 	DownloadDirect            *bool                                          `pulumi:"downloadDirect"`
 	EnableCookieManagement    *bool                                          `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication *bool                                          `pulumi:"enableTokenAuthentication"`
 	ExcludesPattern           *string                                        `pulumi:"excludesPattern"`
 	// (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
 	FetchJarsEagerly *bool `pulumi:"fetchJarsEagerly"`
@@ -204,6 +206,7 @@ type LookupRemoteMavenRepositoryOutputArgs struct {
 	DisableUrlNormalization   pulumi.BoolPtrInput                                    `pulumi:"disableUrlNormalization"`
 	DownloadDirect            pulumi.BoolPtrInput                                    `pulumi:"downloadDirect"`
 	EnableCookieManagement    pulumi.BoolPtrInput                                    `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication pulumi.BoolPtrInput                                    `pulumi:"enableTokenAuthentication"`
 	ExcludesPattern           pulumi.StringPtrInput                                  `pulumi:"excludesPattern"`
 	// (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
 	FetchJarsEagerly pulumi.BoolPtrInput `pulumi:"fetchJarsEagerly"`
@@ -332,6 +335,10 @@ func (o LookupRemoteMavenRepositoryResultOutput) DownloadDirect() pulumi.BoolPtr
 
 func (o LookupRemoteMavenRepositoryResultOutput) EnableCookieManagement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteMavenRepositoryResult) *bool { return v.EnableCookieManagement }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupRemoteMavenRepositoryResultOutput) EnableTokenAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteMavenRepositoryResult) *bool { return v.EnableTokenAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteMavenRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {

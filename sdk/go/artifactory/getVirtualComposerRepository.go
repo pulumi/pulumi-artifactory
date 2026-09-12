@@ -54,6 +54,7 @@ type LookupVirtualComposerRepositoryArgs struct {
 	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
+	HideUnauthorizedResources                     *bool   `pulumi:"hideUnauthorizedResources"`
 	IncludesPattern                               *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                 string   `pulumi:"key"`
@@ -70,6 +71,7 @@ type LookupVirtualComposerRepositoryResult struct {
 	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
+	HideUnauthorizedResources                     *bool   `pulumi:"hideUnauthorizedResources"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                  string   `pulumi:"id"`
 	IncludesPattern     *string  `pulumi:"includesPattern"`
@@ -93,6 +95,7 @@ type LookupVirtualComposerRepositoryOutputArgs struct {
 	DefaultDeploymentRepo                         pulumi.StringPtrInput `pulumi:"defaultDeploymentRepo"`
 	Description                                   pulumi.StringPtrInput `pulumi:"description"`
 	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	HideUnauthorizedResources                     pulumi.BoolPtrInput   `pulumi:"hideUnauthorizedResources"`
 	IncludesPattern                               pulumi.StringPtrInput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                 pulumi.StringInput      `pulumi:"key"`
@@ -138,6 +141,10 @@ func (o LookupVirtualComposerRepositoryResultOutput) Description() pulumi.String
 
 func (o LookupVirtualComposerRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVirtualComposerRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupVirtualComposerRepositoryResultOutput) HideUnauthorizedResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualComposerRepositoryResult) *bool { return v.HideUnauthorizedResources }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

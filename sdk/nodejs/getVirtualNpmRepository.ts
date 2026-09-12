@@ -28,6 +28,7 @@ export function getVirtualNpmRepository(args: GetVirtualNpmRepositoryArgs, opts?
         "externalDependenciesEnabled": args.externalDependenciesEnabled,
         "externalDependenciesPatterns": args.externalDependenciesPatterns,
         "externalDependenciesRemoteRepo": args.externalDependenciesRemoteRepo,
+        "hideUnauthorizedResources": args.hideUnauthorizedResources,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "notes": args.notes,
@@ -50,6 +51,7 @@ export interface GetVirtualNpmRepositoryArgs {
     externalDependenciesEnabled?: boolean;
     externalDependenciesPatterns?: string[];
     externalDependenciesRemoteRepo?: string;
+    hideUnauthorizedResources?: boolean;
     includesPattern?: string;
     /**
      * the identity key of the repo.
@@ -77,6 +79,7 @@ export interface GetVirtualNpmRepositoryResult {
     readonly externalDependenciesEnabled?: boolean;
     readonly externalDependenciesPatterns?: string[];
     readonly externalDependenciesRemoteRepo?: string;
+    readonly hideUnauthorizedResources?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -118,6 +121,7 @@ export function getVirtualNpmRepositoryOutput(args: GetVirtualNpmRepositoryOutpu
         "externalDependenciesEnabled": args.externalDependenciesEnabled,
         "externalDependenciesPatterns": args.externalDependenciesPatterns,
         "externalDependenciesRemoteRepo": args.externalDependenciesRemoteRepo,
+        "hideUnauthorizedResources": args.hideUnauthorizedResources,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "notes": args.notes,
@@ -140,6 +144,7 @@ export interface GetVirtualNpmRepositoryOutputArgs {
     externalDependenciesEnabled?: pulumi.Input<boolean | undefined>;
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     externalDependenciesRemoteRepo?: pulumi.Input<string | undefined>;
+    hideUnauthorizedResources?: pulumi.Input<boolean | undefined>;
     includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.

@@ -23,6 +23,7 @@ public final class GetVirtualMavenRepositoryResult {
      * 
      */
     private Boolean forceMavenAuthentication;
+    private @Nullable Boolean hideUnauthorizedResources;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -62,6 +63,9 @@ public final class GetVirtualMavenRepositoryResult {
      */
     public Boolean forceMavenAuthentication() {
         return this.forceMavenAuthentication;
+    }
+    public Optional<Boolean> hideUnauthorizedResources() {
+        return Optional.ofNullable(this.hideUnauthorizedResources);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -119,6 +123,7 @@ public final class GetVirtualMavenRepositoryResult {
         private @Nullable String description;
         private @Nullable String excludesPattern;
         private Boolean forceMavenAuthentication;
+        private @Nullable Boolean hideUnauthorizedResources;
         private String id;
         private @Nullable String includesPattern;
         private String key;
@@ -138,6 +143,7 @@ public final class GetVirtualMavenRepositoryResult {
     	      this.description = defaults.description;
     	      this.excludesPattern = defaults.excludesPattern;
     	      this.forceMavenAuthentication = defaults.forceMavenAuthentication;
+    	      this.hideUnauthorizedResources = defaults.hideUnauthorizedResources;
     	      this.id = defaults.id;
     	      this.includesPattern = defaults.includesPattern;
     	      this.key = defaults.key;
@@ -181,6 +187,12 @@ public final class GetVirtualMavenRepositoryResult {
               throw new MissingRequiredPropertyException("GetVirtualMavenRepositoryResult", "forceMavenAuthentication");
             }
             this.forceMavenAuthentication = forceMavenAuthentication;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hideUnauthorizedResources(@Nullable Boolean hideUnauthorizedResources) {
+
+            this.hideUnauthorizedResources = hideUnauthorizedResources;
             return this;
         }
         @CustomType.Setter
@@ -272,6 +284,7 @@ public final class GetVirtualMavenRepositoryResult {
             _resultValue.description = description;
             _resultValue.excludesPattern = excludesPattern;
             _resultValue.forceMavenAuthentication = forceMavenAuthentication;
+            _resultValue.hideUnauthorizedResources = hideUnauthorizedResources;
             _resultValue.id = id;
             _resultValue.includesPattern = includesPattern;
             _resultValue.key = key;

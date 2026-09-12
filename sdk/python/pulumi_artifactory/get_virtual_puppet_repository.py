@@ -26,7 +26,7 @@ class GetVirtualPuppetRepositoryResult:
     """
     A collection of values returned by getVirtualPuppetRepository.
     """
-    def __init__(__self__, artifactory_requests_can_retrieve_remote_artifacts=None, default_deployment_repo=None, description=None, excludes_pattern=None, id=None, includes_pattern=None, key=None, notes=None, package_type=None, project_environments=None, project_key=None, repo_layout_ref=None, repositories=None):
+    def __init__(__self__, artifactory_requests_can_retrieve_remote_artifacts=None, default_deployment_repo=None, description=None, excludes_pattern=None, hide_unauthorized_resources=None, id=None, includes_pattern=None, key=None, notes=None, package_type=None, project_environments=None, project_key=None, repo_layout_ref=None, repositories=None):
         if artifactory_requests_can_retrieve_remote_artifacts and not isinstance(artifactory_requests_can_retrieve_remote_artifacts, bool):
             raise TypeError("Expected argument 'artifactory_requests_can_retrieve_remote_artifacts' to be a bool")
         pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
@@ -39,6 +39,9 @@ class GetVirtualPuppetRepositoryResult:
         if excludes_pattern and not isinstance(excludes_pattern, str):
             raise TypeError("Expected argument 'excludes_pattern' to be a str")
         pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+        if hide_unauthorized_resources and not isinstance(hide_unauthorized_resources, bool):
+            raise TypeError("Expected argument 'hide_unauthorized_resources' to be a bool")
+        pulumi.set(__self__, "hide_unauthorized_resources", hide_unauthorized_resources)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -86,6 +89,11 @@ class GetVirtualPuppetRepositoryResult:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "excludes_pattern")
+
+    @_builtins.property
+    @pulumi.getter(name="hideUnauthorizedResources")
+    def hide_unauthorized_resources(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "hide_unauthorized_resources")
 
     @_builtins.property
     @pulumi.getter
@@ -146,6 +154,7 @@ class AwaitableGetVirtualPuppetRepositoryResult(GetVirtualPuppetRepositoryResult
             default_deployment_repo=self.default_deployment_repo,
             description=self.description,
             excludes_pattern=self.excludes_pattern,
+            hide_unauthorized_resources=self.hide_unauthorized_resources,
             id=self.id,
             includes_pattern=self.includes_pattern,
             key=self.key,
@@ -161,6 +170,7 @@ def get_virtual_puppet_repository(artifactory_requests_can_retrieve_remote_artif
                                   default_deployment_repo: Optional[_builtins.str] = None,
                                   description: Optional[_builtins.str] = None,
                                   excludes_pattern: Optional[_builtins.str] = None,
+                                  hide_unauthorized_resources: Optional[_builtins.bool] = None,
                                   includes_pattern: Optional[_builtins.str] = None,
                                   key: Optional[_builtins.str] = None,
                                   notes: Optional[_builtins.str] = None,
@@ -189,6 +199,7 @@ def get_virtual_puppet_repository(artifactory_requests_can_retrieve_remote_artif
     __args__['defaultDeploymentRepo'] = default_deployment_repo
     __args__['description'] = description
     __args__['excludesPattern'] = excludes_pattern
+    __args__['hideUnauthorizedResources'] = hide_unauthorized_resources
     __args__['includesPattern'] = includes_pattern
     __args__['key'] = key
     __args__['notes'] = notes
@@ -204,6 +215,7 @@ def get_virtual_puppet_repository(artifactory_requests_can_retrieve_remote_artif
         default_deployment_repo=pulumi.get(__ret__, 'default_deployment_repo'),
         description=pulumi.get(__ret__, 'description'),
         excludes_pattern=pulumi.get(__ret__, 'excludes_pattern'),
+        hide_unauthorized_resources=pulumi.get(__ret__, 'hide_unauthorized_resources'),
         id=pulumi.get(__ret__, 'id'),
         includes_pattern=pulumi.get(__ret__, 'includes_pattern'),
         key=pulumi.get(__ret__, 'key'),
@@ -217,6 +229,7 @@ def get_virtual_puppet_repository_output(artifactory_requests_can_retrieve_remot
                                          default_deployment_repo: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                          description: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                          excludes_pattern: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         hide_unauthorized_resources: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                          includes_pattern: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                          key: pulumi.Input[Optional[_builtins.str]] = None,
                                          notes: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -245,6 +258,7 @@ def get_virtual_puppet_repository_output(artifactory_requests_can_retrieve_remot
     __args__['defaultDeploymentRepo'] = default_deployment_repo
     __args__['description'] = description
     __args__['excludesPattern'] = excludes_pattern
+    __args__['hideUnauthorizedResources'] = hide_unauthorized_resources
     __args__['includesPattern'] = includes_pattern
     __args__['key'] = key
     __args__['notes'] = notes
@@ -259,6 +273,7 @@ def get_virtual_puppet_repository_output(artifactory_requests_can_retrieve_remot
         default_deployment_repo=pulumi.get(__response__, 'default_deployment_repo'),
         description=pulumi.get(__response__, 'description'),
         excludes_pattern=pulumi.get(__response__, 'excludes_pattern'),
+        hide_unauthorized_resources=pulumi.get(__response__, 'hide_unauthorized_resources'),
         id=pulumi.get(__response__, 'id'),
         includes_pattern=pulumi.get(__response__, 'includes_pattern'),
         key=pulumi.get(__response__, 'key'),

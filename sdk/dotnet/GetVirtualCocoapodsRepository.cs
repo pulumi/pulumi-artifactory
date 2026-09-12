@@ -36,6 +36,9 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public string? ExcludesPattern { get; set; }
 
+        [Input("hideUnauthorizedResources")]
+        public bool? HideUnauthorizedResources { get; set; }
+
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
@@ -87,6 +90,9 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
+        [Input("hideUnauthorizedResources")]
+        public Input<bool>? HideUnauthorizedResources { get; set; }
+
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
@@ -132,6 +138,7 @@ namespace Pulumi.Artifactory
         public readonly string? DefaultDeploymentRepo;
         public readonly string? Description;
         public readonly string? ExcludesPattern;
+        public readonly bool? HideUnauthorizedResources;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -155,6 +162,8 @@ namespace Pulumi.Artifactory
 
             string? excludesPattern,
 
+            bool? hideUnauthorizedResources,
+
             string id,
 
             string? includesPattern,
@@ -177,6 +186,7 @@ namespace Pulumi.Artifactory
             DefaultDeploymentRepo = defaultDeploymentRepo;
             Description = description;
             ExcludesPattern = excludesPattern;
+            HideUnauthorizedResources = hideUnauthorizedResources;
             Id = id;
             IncludesPattern = includesPattern;
             Key = key;

@@ -118,6 +118,13 @@ public final class GetRemoteAnsibleRepositoryArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.enableCookieManagement);
     }
 
+    @Import(name="enableTokenAuthentication")
+    private @Nullable Output<Boolean> enableTokenAuthentication;
+
+    public Optional<Output<Boolean>> enableTokenAuthentication() {
+        return Optional.ofNullable(this.enableTokenAuthentication);
+    }
+
     @Import(name="excludesPattern")
     private @Nullable Output<String> excludesPattern;
 
@@ -346,6 +353,7 @@ public final class GetRemoteAnsibleRepositoryArgs extends com.pulumi.resources.I
         this.disableUrlNormalization = $.disableUrlNormalization;
         this.downloadDirect = $.downloadDirect;
         this.enableCookieManagement = $.enableCookieManagement;
+        this.enableTokenAuthentication = $.enableTokenAuthentication;
         this.excludesPattern = $.excludesPattern;
         this.hardFail = $.hardFail;
         this.includesPattern = $.includesPattern;
@@ -519,6 +527,15 @@ public final class GetRemoteAnsibleRepositoryArgs extends com.pulumi.resources.I
 
         public Builder enableCookieManagement(Boolean enableCookieManagement) {
             return enableCookieManagement(Output.of(enableCookieManagement));
+        }
+
+        public Builder enableTokenAuthentication(@Nullable Output<Boolean> enableTokenAuthentication) {
+            $.enableTokenAuthentication = enableTokenAuthentication;
+            return this;
+        }
+
+        public Builder enableTokenAuthentication(Boolean enableTokenAuthentication) {
+            return enableTokenAuthentication(Output.of(enableTokenAuthentication));
         }
 
         public Builder excludesPattern(@Nullable Output<String> excludesPattern) {

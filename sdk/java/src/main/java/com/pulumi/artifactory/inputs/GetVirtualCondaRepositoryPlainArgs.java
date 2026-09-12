@@ -46,6 +46,13 @@ public final class GetVirtualCondaRepositoryPlainArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.excludesPattern);
     }
 
+    @Import(name="hideUnauthorizedResources")
+    private @Nullable Boolean hideUnauthorizedResources;
+
+    public Optional<Boolean> hideUnauthorizedResources() {
+        return Optional.ofNullable(this.hideUnauthorizedResources);
+    }
+
     @Import(name="includesPattern")
     private @Nullable String includesPattern;
 
@@ -125,6 +132,7 @@ public final class GetVirtualCondaRepositoryPlainArgs extends com.pulumi.resourc
         this.defaultDeploymentRepo = $.defaultDeploymentRepo;
         this.description = $.description;
         this.excludesPattern = $.excludesPattern;
+        this.hideUnauthorizedResources = $.hideUnauthorizedResources;
         this.includesPattern = $.includesPattern;
         this.key = $.key;
         this.notes = $.notes;
@@ -170,6 +178,11 @@ public final class GetVirtualCondaRepositoryPlainArgs extends com.pulumi.resourc
 
         public Builder excludesPattern(@Nullable String excludesPattern) {
             $.excludesPattern = excludesPattern;
+            return this;
+        }
+
+        public Builder hideUnauthorizedResources(@Nullable Boolean hideUnauthorizedResources) {
+            $.hideUnauthorizedResources = hideUnauthorizedResources;
             return this;
         }
 
