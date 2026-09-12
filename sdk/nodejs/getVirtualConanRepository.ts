@@ -26,6 +26,7 @@ export function getVirtualConanRepository(args: GetVirtualConanRepositoryArgs, o
         "description": args.description,
         "excludesPattern": args.excludesPattern,
         "forceConanAuthentication": args.forceConanAuthentication,
+        "hideUnauthorizedResources": args.hideUnauthorizedResources,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "notes": args.notes,
@@ -50,6 +51,7 @@ export interface GetVirtualConanRepositoryArgs {
      * Default is `false`.
      */
     forceConanAuthentication?: boolean;
+    hideUnauthorizedResources?: boolean;
     includesPattern?: string;
     /**
      * the identity key of the repo.
@@ -79,6 +81,7 @@ export interface GetVirtualConanRepositoryResult {
      * Default is `false`.
      */
     readonly forceConanAuthentication?: boolean;
+    readonly hideUnauthorizedResources?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -118,6 +121,7 @@ export function getVirtualConanRepositoryOutput(args: GetVirtualConanRepositoryO
         "description": args.description,
         "excludesPattern": args.excludesPattern,
         "forceConanAuthentication": args.forceConanAuthentication,
+        "hideUnauthorizedResources": args.hideUnauthorizedResources,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "notes": args.notes,
@@ -142,6 +146,7 @@ export interface GetVirtualConanRepositoryOutputArgs {
      * Default is `false`.
      */
     forceConanAuthentication?: pulumi.Input<boolean | undefined>;
+    hideUnauthorizedResources?: pulumi.Input<boolean | undefined>;
     includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.

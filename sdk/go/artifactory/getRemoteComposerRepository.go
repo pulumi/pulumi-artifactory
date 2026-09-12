@@ -59,16 +59,17 @@ type LookupRemoteComposerRepositoryArgs struct {
 	CdnRedirect               *bool   `pulumi:"cdnRedirect"`
 	ClientTlsCertificate      *string `pulumi:"clientTlsCertificate"`
 	// (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
-	ComposerRegistryUrl     *string                                            `pulumi:"composerRegistryUrl"`
-	ContentSynchronisation  *GetRemoteComposerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
-	Description             *string                                            `pulumi:"description"`
-	DisableProxy            *bool                                              `pulumi:"disableProxy"`
-	DisableUrlNormalization *bool                                              `pulumi:"disableUrlNormalization"`
-	DownloadDirect          *bool                                              `pulumi:"downloadDirect"`
-	EnableCookieManagement  *bool                                              `pulumi:"enableCookieManagement"`
-	ExcludesPattern         *string                                            `pulumi:"excludesPattern"`
-	HardFail                *bool                                              `pulumi:"hardFail"`
-	IncludesPattern         *string                                            `pulumi:"includesPattern"`
+	ComposerRegistryUrl       *string                                            `pulumi:"composerRegistryUrl"`
+	ContentSynchronisation    *GetRemoteComposerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Description               *string                                            `pulumi:"description"`
+	DisableProxy              *bool                                              `pulumi:"disableProxy"`
+	DisableUrlNormalization   *bool                                              `pulumi:"disableUrlNormalization"`
+	DownloadDirect            *bool                                              `pulumi:"downloadDirect"`
+	EnableCookieManagement    *bool                                              `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication *bool                                              `pulumi:"enableTokenAuthentication"`
+	ExcludesPattern           *string                                            `pulumi:"excludesPattern"`
+	HardFail                  *bool                                              `pulumi:"hardFail"`
+	IncludesPattern           *string                                            `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                               string   `pulumi:"key"`
 	ListRemoteFolderItems             *bool    `pulumi:"listRemoteFolderItems"`
@@ -113,15 +114,16 @@ type LookupRemoteComposerRepositoryResult struct {
 	CdnRedirect               *bool  `pulumi:"cdnRedirect"`
 	ClientTlsCertificate      string `pulumi:"clientTlsCertificate"`
 	// (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
-	ComposerRegistryUrl     *string                                           `pulumi:"composerRegistryUrl"`
-	ContentSynchronisation  GetRemoteComposerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
-	Description             *string                                           `pulumi:"description"`
-	DisableProxy            *bool                                             `pulumi:"disableProxy"`
-	DisableUrlNormalization *bool                                             `pulumi:"disableUrlNormalization"`
-	DownloadDirect          *bool                                             `pulumi:"downloadDirect"`
-	EnableCookieManagement  *bool                                             `pulumi:"enableCookieManagement"`
-	ExcludesPattern         *string                                           `pulumi:"excludesPattern"`
-	HardFail                *bool                                             `pulumi:"hardFail"`
+	ComposerRegistryUrl       *string                                           `pulumi:"composerRegistryUrl"`
+	ContentSynchronisation    GetRemoteComposerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Description               *string                                           `pulumi:"description"`
+	DisableProxy              *bool                                             `pulumi:"disableProxy"`
+	DisableUrlNormalization   *bool                                             `pulumi:"disableUrlNormalization"`
+	DownloadDirect            *bool                                             `pulumi:"downloadDirect"`
+	EnableCookieManagement    *bool                                             `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication *bool                                             `pulumi:"enableTokenAuthentication"`
+	ExcludesPattern           *string                                           `pulumi:"excludesPattern"`
+	HardFail                  *bool                                             `pulumi:"hardFail"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                                string   `pulumi:"id"`
 	IncludesPattern                   *string  `pulumi:"includesPattern"`
@@ -174,16 +176,17 @@ type LookupRemoteComposerRepositoryOutputArgs struct {
 	CdnRedirect               pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
 	ClientTlsCertificate      pulumi.StringPtrInput `pulumi:"clientTlsCertificate"`
 	// (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
-	ComposerRegistryUrl     pulumi.StringPtrInput                                     `pulumi:"composerRegistryUrl"`
-	ContentSynchronisation  GetRemoteComposerRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
-	Description             pulumi.StringPtrInput                                     `pulumi:"description"`
-	DisableProxy            pulumi.BoolPtrInput                                       `pulumi:"disableProxy"`
-	DisableUrlNormalization pulumi.BoolPtrInput                                       `pulumi:"disableUrlNormalization"`
-	DownloadDirect          pulumi.BoolPtrInput                                       `pulumi:"downloadDirect"`
-	EnableCookieManagement  pulumi.BoolPtrInput                                       `pulumi:"enableCookieManagement"`
-	ExcludesPattern         pulumi.StringPtrInput                                     `pulumi:"excludesPattern"`
-	HardFail                pulumi.BoolPtrInput                                       `pulumi:"hardFail"`
-	IncludesPattern         pulumi.StringPtrInput                                     `pulumi:"includesPattern"`
+	ComposerRegistryUrl       pulumi.StringPtrInput                                     `pulumi:"composerRegistryUrl"`
+	ContentSynchronisation    GetRemoteComposerRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
+	Description               pulumi.StringPtrInput                                     `pulumi:"description"`
+	DisableProxy              pulumi.BoolPtrInput                                       `pulumi:"disableProxy"`
+	DisableUrlNormalization   pulumi.BoolPtrInput                                       `pulumi:"disableUrlNormalization"`
+	DownloadDirect            pulumi.BoolPtrInput                                       `pulumi:"downloadDirect"`
+	EnableCookieManagement    pulumi.BoolPtrInput                                       `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication pulumi.BoolPtrInput                                       `pulumi:"enableTokenAuthentication"`
+	ExcludesPattern           pulumi.StringPtrInput                                     `pulumi:"excludesPattern"`
+	HardFail                  pulumi.BoolPtrInput                                       `pulumi:"hardFail"`
+	IncludesPattern           pulumi.StringPtrInput                                     `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                               pulumi.StringInput      `pulumi:"key"`
 	ListRemoteFolderItems             pulumi.BoolPtrInput     `pulumi:"listRemoteFolderItems"`
@@ -297,6 +300,10 @@ func (o LookupRemoteComposerRepositoryResultOutput) DownloadDirect() pulumi.Bool
 
 func (o LookupRemoteComposerRepositoryResultOutput) EnableCookieManagement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteComposerRepositoryResult) *bool { return v.EnableCookieManagement }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupRemoteComposerRepositoryResultOutput) EnableTokenAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteComposerRepositoryResult) *bool { return v.EnableTokenAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteComposerRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {

@@ -28,6 +28,7 @@ export function getVirtualBowerRepository(args: GetVirtualBowerRepositoryArgs, o
         "externalDependenciesEnabled": args.externalDependenciesEnabled,
         "externalDependenciesPatterns": args.externalDependenciesPatterns,
         "externalDependenciesRemoteRepo": args.externalDependenciesRemoteRepo,
+        "hideUnauthorizedResources": args.hideUnauthorizedResources,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "notes": args.notes,
@@ -58,6 +59,7 @@ export interface GetVirtualBowerRepositoryArgs {
      * (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
      */
     externalDependenciesRemoteRepo?: string;
+    hideUnauthorizedResources?: boolean;
     includesPattern?: string;
     /**
      * the identity key of the repo.
@@ -90,6 +92,7 @@ export interface GetVirtualBowerRepositoryResult {
      * (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
      */
     readonly externalDependenciesRemoteRepo?: string;
+    readonly hideUnauthorizedResources?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -127,6 +130,7 @@ export function getVirtualBowerRepositoryOutput(args: GetVirtualBowerRepositoryO
         "externalDependenciesEnabled": args.externalDependenciesEnabled,
         "externalDependenciesPatterns": args.externalDependenciesPatterns,
         "externalDependenciesRemoteRepo": args.externalDependenciesRemoteRepo,
+        "hideUnauthorizedResources": args.hideUnauthorizedResources,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "notes": args.notes,
@@ -157,6 +161,7 @@ export interface GetVirtualBowerRepositoryOutputArgs {
      * (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
      */
     externalDependenciesRemoteRepo?: pulumi.Input<string | undefined>;
+    hideUnauthorizedResources?: pulumi.Input<boolean | undefined>;
     includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.

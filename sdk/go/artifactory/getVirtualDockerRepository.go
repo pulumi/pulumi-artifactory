@@ -54,6 +54,7 @@ type LookupVirtualDockerRepositoryArgs struct {
 	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
+	HideUnauthorizedResources                     *bool   `pulumi:"hideUnauthorizedResources"`
 	IncludesPattern                               *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                 string   `pulumi:"key"`
@@ -72,6 +73,7 @@ type LookupVirtualDockerRepositoryResult struct {
 	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
+	HideUnauthorizedResources                     *bool   `pulumi:"hideUnauthorizedResources"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                  string   `pulumi:"id"`
 	IncludesPattern     *string  `pulumi:"includesPattern"`
@@ -97,6 +99,7 @@ type LookupVirtualDockerRepositoryOutputArgs struct {
 	DefaultDeploymentRepo                         pulumi.StringPtrInput `pulumi:"defaultDeploymentRepo"`
 	Description                                   pulumi.StringPtrInput `pulumi:"description"`
 	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	HideUnauthorizedResources                     pulumi.BoolPtrInput   `pulumi:"hideUnauthorizedResources"`
 	IncludesPattern                               pulumi.StringPtrInput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                 pulumi.StringInput      `pulumi:"key"`
@@ -144,6 +147,10 @@ func (o LookupVirtualDockerRepositoryResultOutput) Description() pulumi.StringPt
 
 func (o LookupVirtualDockerRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVirtualDockerRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupVirtualDockerRepositoryResultOutput) HideUnauthorizedResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualDockerRepositoryResult) *bool { return v.HideUnauthorizedResources }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

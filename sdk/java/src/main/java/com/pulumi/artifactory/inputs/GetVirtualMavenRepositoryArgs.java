@@ -61,6 +61,13 @@ public final class GetVirtualMavenRepositoryArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.forceMavenAuthentication);
     }
 
+    @Import(name="hideUnauthorizedResources")
+    private @Nullable Output<Boolean> hideUnauthorizedResources;
+
+    public Optional<Output<Boolean>> hideUnauthorizedResources() {
+        return Optional.ofNullable(this.hideUnauthorizedResources);
+    }
+
     @Import(name="includesPattern")
     private @Nullable Output<String> includesPattern;
 
@@ -148,6 +155,7 @@ public final class GetVirtualMavenRepositoryArgs extends com.pulumi.resources.In
         this.description = $.description;
         this.excludesPattern = $.excludesPattern;
         this.forceMavenAuthentication = $.forceMavenAuthentication;
+        this.hideUnauthorizedResources = $.hideUnauthorizedResources;
         this.includesPattern = $.includesPattern;
         this.key = $.key;
         this.keyPair = $.keyPair;
@@ -232,6 +240,15 @@ public final class GetVirtualMavenRepositoryArgs extends com.pulumi.resources.In
          */
         public Builder forceMavenAuthentication(Boolean forceMavenAuthentication) {
             return forceMavenAuthentication(Output.of(forceMavenAuthentication));
+        }
+
+        public Builder hideUnauthorizedResources(@Nullable Output<Boolean> hideUnauthorizedResources) {
+            $.hideUnauthorizedResources = hideUnauthorizedResources;
+            return this;
+        }
+
+        public Builder hideUnauthorizedResources(Boolean hideUnauthorizedResources) {
+            return hideUnauthorizedResources(Output.of(hideUnauthorizedResources));
         }
 
         public Builder includesPattern(@Nullable Output<String> includesPattern) {

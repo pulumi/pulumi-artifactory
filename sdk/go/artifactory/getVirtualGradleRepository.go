@@ -55,6 +55,7 @@ type LookupVirtualGradleRepositoryArgs struct {
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
 	ForceMavenAuthentication                      *bool   `pulumi:"forceMavenAuthentication"`
+	HideUnauthorizedResources                     *bool   `pulumi:"hideUnauthorizedResources"`
 	IncludesPattern                               *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key string `pulumi:"key"`
@@ -79,6 +80,7 @@ type LookupVirtualGradleRepositoryResult struct {
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
 	ForceMavenAuthentication                      bool    `pulumi:"forceMavenAuthentication"`
+	HideUnauthorizedResources                     *bool   `pulumi:"hideUnauthorizedResources"`
 	// The provider-assigned unique ID for this managed resource.
 	Id              string  `pulumi:"id"`
 	IncludesPattern *string `pulumi:"includesPattern"`
@@ -110,6 +112,7 @@ type LookupVirtualGradleRepositoryOutputArgs struct {
 	Description                                   pulumi.StringPtrInput `pulumi:"description"`
 	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
 	ForceMavenAuthentication                      pulumi.BoolPtrInput   `pulumi:"forceMavenAuthentication"`
+	HideUnauthorizedResources                     pulumi.BoolPtrInput   `pulumi:"hideUnauthorizedResources"`
 	IncludesPattern                               pulumi.StringPtrInput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key pulumi.StringInput `pulumi:"key"`
@@ -166,6 +169,10 @@ func (o LookupVirtualGradleRepositoryResultOutput) ExcludesPattern() pulumi.Stri
 
 func (o LookupVirtualGradleRepositoryResultOutput) ForceMavenAuthentication() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVirtualGradleRepositoryResult) bool { return v.ForceMavenAuthentication }).(pulumi.BoolOutput)
+}
+
+func (o LookupVirtualGradleRepositoryResultOutput) HideUnauthorizedResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualGradleRepositoryResult) *bool { return v.HideUnauthorizedResources }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

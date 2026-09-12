@@ -78,6 +78,13 @@ public final class GetVirtualGoRepositoryArgs extends com.pulumi.resources.Invok
         return Optional.ofNullable(this.externalDependenciesPatterns);
     }
 
+    @Import(name="hideUnauthorizedResources")
+    private @Nullable Output<Boolean> hideUnauthorizedResources;
+
+    public Optional<Output<Boolean>> hideUnauthorizedResources() {
+        return Optional.ofNullable(this.hideUnauthorizedResources);
+    }
+
     @Import(name="includesPattern")
     private @Nullable Output<String> includesPattern;
 
@@ -144,6 +151,7 @@ public final class GetVirtualGoRepositoryArgs extends com.pulumi.resources.Invok
         this.excludesPattern = $.excludesPattern;
         this.externalDependenciesEnabled = $.externalDependenciesEnabled;
         this.externalDependenciesPatterns = $.externalDependenciesPatterns;
+        this.hideUnauthorizedResources = $.hideUnauthorizedResources;
         this.includesPattern = $.includesPattern;
         this.key = $.key;
         this.notes = $.notes;
@@ -259,6 +267,15 @@ public final class GetVirtualGoRepositoryArgs extends com.pulumi.resources.Invok
          */
         public Builder externalDependenciesPatterns(String... externalDependenciesPatterns) {
             return externalDependenciesPatterns(List.of(externalDependenciesPatterns));
+        }
+
+        public Builder hideUnauthorizedResources(@Nullable Output<Boolean> hideUnauthorizedResources) {
+            $.hideUnauthorizedResources = hideUnauthorizedResources;
+            return this;
+        }
+
+        public Builder hideUnauthorizedResources(Boolean hideUnauthorizedResources) {
+            return hideUnauthorizedResources(Output.of(hideUnauthorizedResources));
         }
 
         public Builder includesPattern(@Nullable Output<String> includesPattern) {

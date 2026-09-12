@@ -56,8 +56,9 @@ type LookupVirtualConanRepositoryArgs struct {
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
 	// Force basic authentication credentials in order to use this repository.
 	// Default is `false`.
-	ForceConanAuthentication *bool   `pulumi:"forceConanAuthentication"`
-	IncludesPattern          *string `pulumi:"includesPattern"`
+	ForceConanAuthentication  *bool   `pulumi:"forceConanAuthentication"`
+	HideUnauthorizedResources *bool   `pulumi:"hideUnauthorizedResources"`
+	IncludesPattern           *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                 string   `pulumi:"key"`
 	Notes               *string  `pulumi:"notes"`
@@ -77,7 +78,8 @@ type LookupVirtualConanRepositoryResult struct {
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
 	// Force basic authentication credentials in order to use this repository.
 	// Default is `false`.
-	ForceConanAuthentication *bool `pulumi:"forceConanAuthentication"`
+	ForceConanAuthentication  *bool `pulumi:"forceConanAuthentication"`
+	HideUnauthorizedResources *bool `pulumi:"hideUnauthorizedResources"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                  string   `pulumi:"id"`
 	IncludesPattern     *string  `pulumi:"includesPattern"`
@@ -105,8 +107,9 @@ type LookupVirtualConanRepositoryOutputArgs struct {
 	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
 	// Force basic authentication credentials in order to use this repository.
 	// Default is `false`.
-	ForceConanAuthentication pulumi.BoolPtrInput   `pulumi:"forceConanAuthentication"`
-	IncludesPattern          pulumi.StringPtrInput `pulumi:"includesPattern"`
+	ForceConanAuthentication  pulumi.BoolPtrInput   `pulumi:"forceConanAuthentication"`
+	HideUnauthorizedResources pulumi.BoolPtrInput   `pulumi:"hideUnauthorizedResources"`
+	IncludesPattern           pulumi.StringPtrInput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                 pulumi.StringInput      `pulumi:"key"`
 	Notes               pulumi.StringPtrInput   `pulumi:"notes"`
@@ -159,6 +162,10 @@ func (o LookupVirtualConanRepositoryResultOutput) ExcludesPattern() pulumi.Strin
 // Default is `false`.
 func (o LookupVirtualConanRepositoryResultOutput) ForceConanAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupVirtualConanRepositoryResult) *bool { return v.ForceConanAuthentication }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupVirtualConanRepositoryResultOutput) HideUnauthorizedResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualConanRepositoryResult) *bool { return v.HideUnauthorizedResources }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

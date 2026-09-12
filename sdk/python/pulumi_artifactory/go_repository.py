@@ -26,6 +26,7 @@ class GoRepositoryArgs:
                  excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  external_dependencies_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  external_dependencies_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 hide_unauthorized_resources: pulumi.Input[Optional[_builtins.bool]] = None,
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -40,11 +41,12 @@ class GoRepositoryArgs:
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
                When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_dependencies_patterns: 'go-import' Allow List on the UI.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.bool] hide_unauthorized_resources: When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_environments: Before Artifactory 7.53.1, up to 2 values (`DEV` and `PROD`) are allowed. From 7.53.1 to 7.107.1, only one value is allowed. From 7.107.1, multiple values are allowed.The attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -64,6 +66,8 @@ class GoRepositoryArgs:
             pulumi.set(__self__, "external_dependencies_enabled", external_dependencies_enabled)
         if external_dependencies_patterns is not None:
             pulumi.set(__self__, "external_dependencies_patterns", external_dependencies_patterns)
+        if hide_unauthorized_resources is not None:
+            pulumi.set(__self__, "hide_unauthorized_resources", hide_unauthorized_resources)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
         if notes is not None:
@@ -130,7 +134,7 @@ class GoRepositoryArgs:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -164,10 +168,22 @@ class GoRepositoryArgs:
         pulumi.set(self, "external_dependencies_patterns", value)
 
     @_builtins.property
+    @pulumi.getter(name="hideUnauthorizedResources")
+    def hide_unauthorized_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        """
+        return pulumi.get(self, "hide_unauthorized_resources")
+
+    @hide_unauthorized_resources.setter
+    def hide_unauthorized_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "hide_unauthorized_resources", value)
+
+    @_builtins.property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -245,6 +261,7 @@ class _GoRepositoryState:
                  excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  external_dependencies_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  external_dependencies_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 hide_unauthorized_resources: pulumi.Input[Optional[_builtins.bool]] = None,
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
@@ -259,11 +276,12 @@ class _GoRepositoryState:
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
                When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_dependencies_patterns: 'go-import' Allow List on the UI.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.bool] hide_unauthorized_resources: When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.str] notes: Internal description.
@@ -284,6 +302,8 @@ class _GoRepositoryState:
             pulumi.set(__self__, "external_dependencies_enabled", external_dependencies_enabled)
         if external_dependencies_patterns is not None:
             pulumi.set(__self__, "external_dependencies_patterns", external_dependencies_patterns)
+        if hide_unauthorized_resources is not None:
+            pulumi.set(__self__, "hide_unauthorized_resources", hide_unauthorized_resources)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
         if key is not None:
@@ -341,7 +361,7 @@ class _GoRepositoryState:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -375,10 +395,22 @@ class _GoRepositoryState:
         pulumi.set(self, "external_dependencies_patterns", value)
 
     @_builtins.property
+    @pulumi.getter(name="hideUnauthorizedResources")
+    def hide_unauthorized_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        """
+        return pulumi.get(self, "hide_unauthorized_resources")
+
+    @hide_unauthorized_resources.setter
+    def hide_unauthorized_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "hide_unauthorized_resources", value)
+
+    @_builtins.property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -481,6 +513,7 @@ class GoRepository(pulumi.CustomResource):
                  excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  external_dependencies_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  external_dependencies_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 hide_unauthorized_resources: pulumi.Input[Optional[_builtins.bool]] = None,
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
@@ -528,11 +561,12 @@ class GoRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
                When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_dependencies_patterns: 'go-import' Allow List on the UI.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.bool] hide_unauthorized_resources: When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.str] notes: Internal description.
@@ -602,6 +636,7 @@ class GoRepository(pulumi.CustomResource):
                  excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  external_dependencies_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  external_dependencies_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 hide_unauthorized_resources: pulumi.Input[Optional[_builtins.bool]] = None,
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
@@ -624,6 +659,7 @@ class GoRepository(pulumi.CustomResource):
             __props__.__dict__["excludes_pattern"] = excludes_pattern
             __props__.__dict__["external_dependencies_enabled"] = external_dependencies_enabled
             __props__.__dict__["external_dependencies_patterns"] = external_dependencies_patterns
+            __props__.__dict__["hide_unauthorized_resources"] = hide_unauthorized_resources
             __props__.__dict__["includes_pattern"] = includes_pattern
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
@@ -650,6 +686,7 @@ class GoRepository(pulumi.CustomResource):
             excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
             external_dependencies_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             external_dependencies_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            hide_unauthorized_resources: pulumi.Input[Optional[_builtins.bool]] = None,
             includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
             key: pulumi.Input[Optional[_builtins.str]] = None,
             notes: pulumi.Input[Optional[_builtins.str]] = None,
@@ -668,11 +705,12 @@ class GoRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
                When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_dependencies_patterns: 'go-import' Allow List on the UI.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.bool] hide_unauthorized_resources: When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.str] notes: Internal description.
@@ -691,6 +729,7 @@ class GoRepository(pulumi.CustomResource):
         __props__.__dict__["excludes_pattern"] = excludes_pattern
         __props__.__dict__["external_dependencies_enabled"] = external_dependencies_enabled
         __props__.__dict__["external_dependencies_patterns"] = external_dependencies_patterns
+        __props__.__dict__["hide_unauthorized_resources"] = hide_unauthorized_resources
         __props__.__dict__["includes_pattern"] = includes_pattern
         __props__.__dict__["key"] = key
         __props__.__dict__["notes"] = notes
@@ -729,7 +768,7 @@ class GoRepository(pulumi.CustomResource):
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -751,10 +790,18 @@ class GoRepository(pulumi.CustomResource):
         return pulumi.get(self, "external_dependencies_patterns")
 
     @_builtins.property
+    @pulumi.getter(name="hideUnauthorizedResources")
+    def hide_unauthorized_resources(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        """
+        return pulumi.get(self, "hide_unauthorized_resources")
+
+    @_builtins.property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 

@@ -56,6 +56,44 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Access token (Bearer) authentication
+ * 
+ * When the remote requires an access token, set `enableTokenAuthentication = true` and put the token in `password` (see common remote arguments):
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.RemoteGenericRepository;
+ * import com.pulumi.artifactory.RemoteGenericRepositoryArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var token_auth = new RemoteGenericRepository("token-auth", RemoteGenericRepositoryArgs.builder()
+ *             .key("token-auth-generic")
+ *             .url("https://remote.example.com/artifactory/generic-local/")
+ *             .password(remoteAccessToken)
+ *             .enableTokenAuthentication(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Custom HTTP headers
  * 
  * Use `customHttpHeaders` to send up to 5 static headers on every outbound request to the remote URL. A common use case is authenticating to Azure Blob Storage or packagecloud.io.
@@ -322,14 +360,28 @@ public class RemoteGenericRepository extends com.pulumi.resources.CustomResource
         return this.enableCookieManagement;
     }
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
+     * Enable token (Bearer) based authentication. When set, use an access token as `password` (username may be empty) so Artifactory authenticates to the remote with a Bearer token instead of Basic auth. Default is `false` for most package types; OCI, Helm OCI, and Hugging Face remotes default to `true`.
+     * 
+     */
+    @Export(name="enableTokenAuthentication", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> enableTokenAuthentication;
+
+    /**
+     * @return Enable token (Bearer) based authentication. When set, use an access token as `password` (username may be empty) so Artifactory authenticates to the remote with a Bearer token instead of Basic auth. Default is `false` for most package types; OCI, Helm OCI, and Hugging Face remotes default to `true`.
+     * 
+     */
+    public Output<Boolean> enableTokenAuthentication() {
+        return this.enableTokenAuthentication;
+    }
+    /**
+     * Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
      * 
      */
     @Export(name="excludesPattern", refs={String.class}, tree="[0]")
     private Output<String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
+     * @return Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
      * 
      */
     public Output<String> excludesPattern() {
@@ -350,14 +402,14 @@ public class RemoteGenericRepository extends com.pulumi.resources.CustomResource
         return this.hardFail;
     }
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output<String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * @return Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     public Output<String> includesPattern() {

@@ -20930,6 +20930,202 @@ func (o RemoteIvyRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+type RemoteJetbrainspluginsRepositoryContentSynchronisation struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+}
+
+// RemoteJetbrainspluginsRepositoryContentSynchronisationInput is an input type that accepts RemoteJetbrainspluginsRepositoryContentSynchronisationArgs and RemoteJetbrainspluginsRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `RemoteJetbrainspluginsRepositoryContentSynchronisationInput` via:
+//
+//	RemoteJetbrainspluginsRepositoryContentSynchronisationArgs{...}
+type RemoteJetbrainspluginsRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToRemoteJetbrainspluginsRepositoryContentSynchronisationOutput() RemoteJetbrainspluginsRepositoryContentSynchronisationOutput
+	ToRemoteJetbrainspluginsRepositoryContentSynchronisationOutputWithContext(context.Context) RemoteJetbrainspluginsRepositoryContentSynchronisationOutput
+}
+
+type RemoteJetbrainspluginsRepositoryContentSynchronisationArgs struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (RemoteJetbrainspluginsRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteJetbrainspluginsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i RemoteJetbrainspluginsRepositoryContentSynchronisationArgs) ToRemoteJetbrainspluginsRepositoryContentSynchronisationOutput() RemoteJetbrainspluginsRepositoryContentSynchronisationOutput {
+	return i.ToRemoteJetbrainspluginsRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i RemoteJetbrainspluginsRepositoryContentSynchronisationArgs) ToRemoteJetbrainspluginsRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteJetbrainspluginsRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteJetbrainspluginsRepositoryContentSynchronisationOutput)
+}
+
+func (i RemoteJetbrainspluginsRepositoryContentSynchronisationArgs) ToRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput() RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i RemoteJetbrainspluginsRepositoryContentSynchronisationArgs) ToRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteJetbrainspluginsRepositoryContentSynchronisationOutput).ToRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// RemoteJetbrainspluginsRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteJetbrainspluginsRepositoryContentSynchronisationArgs, RemoteJetbrainspluginsRepositoryContentSynchronisationPtr and RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `RemoteJetbrainspluginsRepositoryContentSynchronisationPtrInput` via:
+//
+//	        RemoteJetbrainspluginsRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RemoteJetbrainspluginsRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput() RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput
+	ToRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutputWithContext(context.Context) RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput
+}
+
+type remoteJetbrainspluginsRepositoryContentSynchronisationPtrType RemoteJetbrainspluginsRepositoryContentSynchronisationArgs
+
+func RemoteJetbrainspluginsRepositoryContentSynchronisationPtr(v *RemoteJetbrainspluginsRepositoryContentSynchronisationArgs) RemoteJetbrainspluginsRepositoryContentSynchronisationPtrInput {
+	return (*remoteJetbrainspluginsRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*remoteJetbrainspluginsRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteJetbrainspluginsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *remoteJetbrainspluginsRepositoryContentSynchronisationPtrType) ToRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput() RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *remoteJetbrainspluginsRepositoryContentSynchronisationPtrType) ToRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput)
+}
+
+type RemoteJetbrainspluginsRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (RemoteJetbrainspluginsRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteJetbrainspluginsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteJetbrainspluginsRepositoryContentSynchronisationOutput) ToRemoteJetbrainspluginsRepositoryContentSynchronisationOutput() RemoteJetbrainspluginsRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteJetbrainspluginsRepositoryContentSynchronisationOutput) ToRemoteJetbrainspluginsRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteJetbrainspluginsRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteJetbrainspluginsRepositoryContentSynchronisationOutput) ToRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput() RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput {
+	return o.ToRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o RemoteJetbrainspluginsRepositoryContentSynchronisationOutput) ToRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemoteJetbrainspluginsRepositoryContentSynchronisation) *RemoteJetbrainspluginsRepositoryContentSynchronisation {
+		return &v
+	}).(RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o RemoteJetbrainspluginsRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteJetbrainspluginsRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o RemoteJetbrainspluginsRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteJetbrainspluginsRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o RemoteJetbrainspluginsRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteJetbrainspluginsRepositoryContentSynchronisation) *bool {
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o RemoteJetbrainspluginsRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteJetbrainspluginsRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteJetbrainspluginsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput) ToRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput() RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput) ToRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput) Elem() RemoteJetbrainspluginsRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *RemoteJetbrainspluginsRepositoryContentSynchronisation) RemoteJetbrainspluginsRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret RemoteJetbrainspluginsRepositoryContentSynchronisation
+		return ret
+	}).(RemoteJetbrainspluginsRepositoryContentSynchronisationOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteJetbrainspluginsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteJetbrainspluginsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteJetbrainspluginsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteJetbrainspluginsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type RemoteMavenRepositoryContentSynchronisation struct {
 	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 	Enabled *bool `pulumi:"enabled"`
@@ -34959,6 +35155,202 @@ func (o GetRemoteIvyRepositoryContentSynchronisationPtrOutput) StatisticsEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
+type GetRemoteJetbrainspluginsRepositoryContentSynchronisation struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteJetbrainspluginsRepositoryContentSynchronisationInput is an input type that accepts GetRemoteJetbrainspluginsRepositoryContentSynchronisationArgs and GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteJetbrainspluginsRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteJetbrainspluginsRepositoryContentSynchronisationArgs{...}
+type GetRemoteJetbrainspluginsRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput() GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput
+	ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteJetbrainspluginsRepositoryContentSynchronisationArgs struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteJetbrainspluginsRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteJetbrainspluginsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteJetbrainspluginsRepositoryContentSynchronisationArgs) ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput() GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteJetbrainspluginsRepositoryContentSynchronisationArgs) ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteJetbrainspluginsRepositoryContentSynchronisationArgs) ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput() GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteJetbrainspluginsRepositoryContentSynchronisationArgs) ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput).ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteJetbrainspluginsRepositoryContentSynchronisationArgs, GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtr and GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteJetbrainspluginsRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput() GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteJetbrainspluginsRepositoryContentSynchronisationPtrType GetRemoteJetbrainspluginsRepositoryContentSynchronisationArgs
+
+func GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtr(v *GetRemoteJetbrainspluginsRepositoryContentSynchronisationArgs) GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteJetbrainspluginsRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteJetbrainspluginsRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteJetbrainspluginsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteJetbrainspluginsRepositoryContentSynchronisationPtrType) ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput() GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteJetbrainspluginsRepositoryContentSynchronisationPtrType) ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteJetbrainspluginsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput) ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput() GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput) ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput) ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput() GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput) ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteJetbrainspluginsRepositoryContentSynchronisation) *GetRemoteJetbrainspluginsRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteJetbrainspluginsRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteJetbrainspluginsRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteJetbrainspluginsRepositoryContentSynchronisation) *bool {
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteJetbrainspluginsRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteJetbrainspluginsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput) ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput() GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput) ToGetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteJetbrainspluginsRepositoryContentSynchronisation) GetRemoteJetbrainspluginsRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteJetbrainspluginsRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteJetbrainspluginsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteJetbrainspluginsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteJetbrainspluginsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteJetbrainspluginsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type GetRemoteMavenRepositoryContentSynchronisation struct {
 	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 	Enabled *bool `pulumi:"enabled"`
@@ -38058,6 +38450,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHuggingfacemlRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteHuggingfacemlRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteIvyRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteIvyRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteIvyRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteIvyRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteJetbrainspluginsRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteJetbrainspluginsRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteJetbrainspluginsRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteJetbrainspluginsRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteMavenRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteMavenRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteMavenRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteMavenRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteNixRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteNixRepositoryContentSynchronisationArgs{})
@@ -38241,6 +38635,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteHelmociRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteHelmociRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteIvyRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteIvyRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteIvyRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteIvyRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteJetbrainspluginsRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteJetbrainspluginsRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteJetbrainspluginsRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteMavenRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteMavenRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteMavenRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteMavenRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteNpmRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteNpmRepositoryContentSynchronisationArgs{})
@@ -38533,6 +38929,8 @@ func init() {
 	pulumi.RegisterOutputType(RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteIvyRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteIvyRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(RemoteJetbrainspluginsRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(RemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteMavenRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteMavenRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteNixRepositoryContentSynchronisationOutput{})
@@ -38716,6 +39114,8 @@ func init() {
 	pulumi.RegisterOutputType(GetRemoteHelmociRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(GetRemoteIvyRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(GetRemoteIvyRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteJetbrainspluginsRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteJetbrainspluginsRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(GetRemoteMavenRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(GetRemoteMavenRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(GetRemoteNpmRepositoryContentSynchronisationOutput{})

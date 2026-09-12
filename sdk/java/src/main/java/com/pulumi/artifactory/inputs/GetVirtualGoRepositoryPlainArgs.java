@@ -77,6 +77,13 @@ public final class GetVirtualGoRepositoryPlainArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.externalDependenciesPatterns);
     }
 
+    @Import(name="hideUnauthorizedResources")
+    private @Nullable Boolean hideUnauthorizedResources;
+
+    public Optional<Boolean> hideUnauthorizedResources() {
+        return Optional.ofNullable(this.hideUnauthorizedResources);
+    }
+
     @Import(name="includesPattern")
     private @Nullable String includesPattern;
 
@@ -143,6 +150,7 @@ public final class GetVirtualGoRepositoryPlainArgs extends com.pulumi.resources.
         this.excludesPattern = $.excludesPattern;
         this.externalDependenciesEnabled = $.externalDependenciesEnabled;
         this.externalDependenciesPatterns = $.externalDependenciesPatterns;
+        this.hideUnauthorizedResources = $.hideUnauthorizedResources;
         this.includesPattern = $.includesPattern;
         this.key = $.key;
         this.notes = $.notes;
@@ -221,6 +229,11 @@ public final class GetVirtualGoRepositoryPlainArgs extends com.pulumi.resources.
          */
         public Builder externalDependenciesPatterns(String... externalDependenciesPatterns) {
             return externalDependenciesPatterns(List.of(externalDependenciesPatterns));
+        }
+
+        public Builder hideUnauthorizedResources(@Nullable Boolean hideUnauthorizedResources) {
+            $.hideUnauthorizedResources = hideUnauthorizedResources;
+            return this;
         }
 
         public Builder includesPattern(@Nullable String includesPattern) {

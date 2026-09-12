@@ -124,6 +124,13 @@ public final class GetRemoteDebianRepositoryPlainArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.enableCookieManagement);
     }
 
+    @Import(name="enableTokenAuthentication")
+    private @Nullable Boolean enableTokenAuthentication;
+
+    public Optional<Boolean> enableTokenAuthentication() {
+        return Optional.ofNullable(this.enableTokenAuthentication);
+    }
+
     @Import(name="excludesPattern")
     private @Nullable String excludesPattern;
 
@@ -360,6 +367,7 @@ public final class GetRemoteDebianRepositoryPlainArgs extends com.pulumi.resourc
         this.disableUrlNormalization = $.disableUrlNormalization;
         this.downloadDirect = $.downloadDirect;
         this.enableCookieManagement = $.enableCookieManagement;
+        this.enableTokenAuthentication = $.enableTokenAuthentication;
         this.excludesPattern = $.excludesPattern;
         this.hardFail = $.hardFail;
         this.includesPattern = $.includesPattern;
@@ -482,6 +490,11 @@ public final class GetRemoteDebianRepositoryPlainArgs extends com.pulumi.resourc
 
         public Builder enableCookieManagement(@Nullable Boolean enableCookieManagement) {
             $.enableCookieManagement = enableCookieManagement;
+            return this;
+        }
+
+        public Builder enableTokenAuthentication(@Nullable Boolean enableTokenAuthentication) {
+            $.enableTokenAuthentication = enableTokenAuthentication;
             return this;
         }
 

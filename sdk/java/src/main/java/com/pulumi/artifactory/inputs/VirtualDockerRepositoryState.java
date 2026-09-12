@@ -63,14 +63,14 @@ public final class VirtualDockerRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
+     * Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
      * 
      */
     @Import(name="excludesPattern")
     private @Nullable Output<String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
+     * @return Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
      * 
      */
     public Optional<Output<String>> excludesPattern() {
@@ -78,14 +78,29 @@ public final class VirtualDockerRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+     * 
+     */
+    @Import(name="hideUnauthorizedResources")
+    private @Nullable Output<Boolean> hideUnauthorizedResources;
+
+    /**
+     * @return When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+     * 
+     */
+    public Optional<Output<Boolean>> hideUnauthorizedResources() {
+        return Optional.ofNullable(this.hideUnauthorizedResources);
+    }
+
+    /**
+     * Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     @Import(name="includesPattern")
     private @Nullable Output<String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * @return Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     public Optional<Output<String>> includesPattern() {
@@ -213,6 +228,7 @@ public final class VirtualDockerRepositoryState extends com.pulumi.resources.Res
         this.defaultDeploymentRepo = $.defaultDeploymentRepo;
         this.description = $.description;
         this.excludesPattern = $.excludesPattern;
+        this.hideUnauthorizedResources = $.hideUnauthorizedResources;
         this.includesPattern = $.includesPattern;
         this.key = $.key;
         this.notes = $.notes;
@@ -306,7 +322,7 @@ public final class VirtualDockerRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
+         * @param excludesPattern Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
          * 
          * @return builder
          * 
@@ -317,7 +333,7 @@ public final class VirtualDockerRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
+         * @param excludesPattern Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
          * 
          * @return builder
          * 
@@ -327,7 +343,28 @@ public final class VirtualDockerRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+         * @param hideUnauthorizedResources When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideUnauthorizedResources(@Nullable Output<Boolean> hideUnauthorizedResources) {
+            $.hideUnauthorizedResources = hideUnauthorizedResources;
+            return this;
+        }
+
+        /**
+         * @param hideUnauthorizedResources When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideUnauthorizedResources(Boolean hideUnauthorizedResources) {
+            return hideUnauthorizedResources(Output.of(hideUnauthorizedResources));
+        }
+
+        /**
+         * @param includesPattern Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
          * 
          * @return builder
          * 
@@ -338,7 +375,7 @@ public final class VirtualDockerRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+         * @param includesPattern Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
          * 
          * @return builder
          * 

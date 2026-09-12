@@ -90,6 +90,13 @@ public final class GetVirtualBowerRepositoryPlainArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.externalDependenciesRemoteRepo);
     }
 
+    @Import(name="hideUnauthorizedResources")
+    private @Nullable Boolean hideUnauthorizedResources;
+
+    public Optional<Boolean> hideUnauthorizedResources() {
+        return Optional.ofNullable(this.hideUnauthorizedResources);
+    }
+
     @Import(name="includesPattern")
     private @Nullable String includesPattern;
 
@@ -157,6 +164,7 @@ public final class GetVirtualBowerRepositoryPlainArgs extends com.pulumi.resourc
         this.externalDependenciesEnabled = $.externalDependenciesEnabled;
         this.externalDependenciesPatterns = $.externalDependenciesPatterns;
         this.externalDependenciesRemoteRepo = $.externalDependenciesRemoteRepo;
+        this.hideUnauthorizedResources = $.hideUnauthorizedResources;
         this.includesPattern = $.includesPattern;
         this.key = $.key;
         this.notes = $.notes;
@@ -244,6 +252,11 @@ public final class GetVirtualBowerRepositoryPlainArgs extends com.pulumi.resourc
          */
         public Builder externalDependenciesRemoteRepo(@Nullable String externalDependenciesRemoteRepo) {
             $.externalDependenciesRemoteRepo = externalDependenciesRemoteRepo;
+            return this;
+        }
+
+        public Builder hideUnauthorizedResources(@Nullable Boolean hideUnauthorizedResources) {
+            $.hideUnauthorizedResources = hideUnauthorizedResources;
             return this;
         }
 

@@ -64,6 +64,7 @@ type LookupRemoteHelmRepositoryArgs struct {
 	DisableUrlNormalization   *bool                                          `pulumi:"disableUrlNormalization"`
 	DownloadDirect            *bool                                          `pulumi:"downloadDirect"`
 	EnableCookieManagement    *bool                                          `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication *bool                                          `pulumi:"enableTokenAuthentication"`
 	ExcludesPattern           *string                                        `pulumi:"excludesPattern"`
 	// (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
@@ -118,6 +119,7 @@ type LookupRemoteHelmRepositoryResult struct {
 	DisableUrlNormalization   *bool                                         `pulumi:"disableUrlNormalization"`
 	DownloadDirect            *bool                                         `pulumi:"downloadDirect"`
 	EnableCookieManagement    *bool                                         `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication *bool                                         `pulumi:"enableTokenAuthentication"`
 	ExcludesPattern           *string                                       `pulumi:"excludesPattern"`
 	// (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
@@ -179,6 +181,7 @@ type LookupRemoteHelmRepositoryOutputArgs struct {
 	DisableUrlNormalization   pulumi.BoolPtrInput                                   `pulumi:"disableUrlNormalization"`
 	DownloadDirect            pulumi.BoolPtrInput                                   `pulumi:"downloadDirect"`
 	EnableCookieManagement    pulumi.BoolPtrInput                                   `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication pulumi.BoolPtrInput                                   `pulumi:"enableTokenAuthentication"`
 	ExcludesPattern           pulumi.StringPtrInput                                 `pulumi:"excludesPattern"`
 	// (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput `pulumi:"externalDependenciesEnabled"`
@@ -292,6 +295,10 @@ func (o LookupRemoteHelmRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrO
 
 func (o LookupRemoteHelmRepositoryResultOutput) EnableCookieManagement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteHelmRepositoryResult) *bool { return v.EnableCookieManagement }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupRemoteHelmRepositoryResultOutput) EnableTokenAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteHelmRepositoryResult) *bool { return v.EnableTokenAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteHelmRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {

@@ -147,6 +147,13 @@ public final class GetRemoteCargoRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.enableSparseIndex);
     }
 
+    @Import(name="enableTokenAuthentication")
+    private @Nullable Boolean enableTokenAuthentication;
+
+    public Optional<Boolean> enableTokenAuthentication() {
+        return Optional.ofNullable(this.enableTokenAuthentication);
+    }
+
     @Import(name="excludesPattern")
     private @Nullable String excludesPattern;
 
@@ -392,6 +399,7 @@ public final class GetRemoteCargoRepositoryPlainArgs extends com.pulumi.resource
         this.downloadDirect = $.downloadDirect;
         this.enableCookieManagement = $.enableCookieManagement;
         this.enableSparseIndex = $.enableSparseIndex;
+        this.enableTokenAuthentication = $.enableTokenAuthentication;
         this.excludesPattern = $.excludesPattern;
         this.gitRegistryUrl = $.gitRegistryUrl;
         this.hardFail = $.hardFail;
@@ -531,6 +539,11 @@ public final class GetRemoteCargoRepositoryPlainArgs extends com.pulumi.resource
          */
         public Builder enableSparseIndex(@Nullable Boolean enableSparseIndex) {
             $.enableSparseIndex = enableSparseIndex;
+            return this;
+        }
+
+        public Builder enableTokenAuthentication(@Nullable Boolean enableTokenAuthentication) {
+            $.enableTokenAuthentication = enableTokenAuthentication;
             return this;
         }
 

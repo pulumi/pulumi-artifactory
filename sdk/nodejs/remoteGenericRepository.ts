@@ -21,6 +21,22 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * ### Access token (Bearer) authentication
+ *
+ * When the remote requires an access token, set `enableTokenAuthentication = true` and put the token in `password` (see common remote arguments):
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const token_auth = new artifactory.RemoteGenericRepository("token-auth", {
+ *     key: "token-auth-generic",
+ *     url: "https://remote.example.com/artifactory/generic-local/",
+ *     password: remoteAccessToken,
+ *     enableTokenAuthentication: true,
+ * });
+ * ```
+ *
  * ### Custom HTTP headers
  *
  * Use `customHttpHeaders` to send up to 5 static headers on every outbound request to the remote URL. A common use case is authenticating to Azure Blob Storage or packagecloud.io.
@@ -144,7 +160,11 @@ export class RemoteGenericRepository extends pulumi.CustomResource {
      */
     declare public readonly enableCookieManagement: pulumi.Output<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
+     * Enable token (Bearer) based authentication. When set, use an access token as `password` (username may be empty) so Artifactory authenticates to the remote with a Bearer token instead of Basic auth. Default is `false` for most package types; OCI, Helm OCI, and Hugging Face remotes default to `true`.
+     */
+    declare public readonly enableTokenAuthentication: pulumi.Output<boolean>;
+    /**
+     * Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
      */
     declare public readonly excludesPattern: pulumi.Output<string>;
     /**
@@ -152,7 +172,7 @@ export class RemoteGenericRepository extends pulumi.CustomResource {
      */
     declare public readonly hardFail: pulumi.Output<boolean>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     declare public readonly includesPattern: pulumi.Output<string>;
     /**
@@ -300,6 +320,7 @@ export class RemoteGenericRepository extends pulumi.CustomResource {
             resourceInputs["disableUrlNormalization"] = state?.disableUrlNormalization;
             resourceInputs["downloadDirect"] = state?.downloadDirect;
             resourceInputs["enableCookieManagement"] = state?.enableCookieManagement;
+            resourceInputs["enableTokenAuthentication"] = state?.enableTokenAuthentication;
             resourceInputs["excludesPattern"] = state?.excludesPattern;
             resourceInputs["hardFail"] = state?.hardFail;
             resourceInputs["includesPattern"] = state?.includesPattern;
@@ -356,6 +377,7 @@ export class RemoteGenericRepository extends pulumi.CustomResource {
             resourceInputs["disableUrlNormalization"] = args?.disableUrlNormalization;
             resourceInputs["downloadDirect"] = args?.downloadDirect;
             resourceInputs["enableCookieManagement"] = args?.enableCookieManagement;
+            resourceInputs["enableTokenAuthentication"] = args?.enableTokenAuthentication;
             resourceInputs["excludesPattern"] = args?.excludesPattern;
             resourceInputs["hardFail"] = args?.hardFail;
             resourceInputs["includesPattern"] = args?.includesPattern;
@@ -460,7 +482,11 @@ export interface RemoteGenericRepositoryState {
      */
     enableCookieManagement?: pulumi.Input<boolean | undefined>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
+     * Enable token (Bearer) based authentication. When set, use an access token as `password` (username may be empty) so Artifactory authenticates to the remote with a Bearer token instead of Basic auth. Default is `false` for most package types; OCI, Helm OCI, and Hugging Face remotes default to `true`.
+     */
+    enableTokenAuthentication?: pulumi.Input<boolean | undefined>;
+    /**
+     * Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string | undefined>;
     /**
@@ -468,7 +494,7 @@ export interface RemoteGenericRepositoryState {
      */
     hardFail?: pulumi.Input<boolean | undefined>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string | undefined>;
     /**
@@ -652,7 +678,11 @@ export interface RemoteGenericRepositoryArgs {
      */
     enableCookieManagement?: pulumi.Input<boolean | undefined>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
+     * Enable token (Bearer) based authentication. When set, use an access token as `password` (username may be empty) so Artifactory authenticates to the remote with a Bearer token instead of Basic auth. Default is `false` for most package types; OCI, Helm OCI, and Hugging Face remotes default to `true`.
+     */
+    enableTokenAuthentication?: pulumi.Input<boolean | undefined>;
+    /**
+     * Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string | undefined>;
     /**
@@ -660,7 +690,7 @@ export interface RemoteGenericRepositoryArgs {
      */
     hardFail?: pulumi.Input<boolean | undefined>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string | undefined>;
     /**

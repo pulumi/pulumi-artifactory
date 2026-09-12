@@ -141,6 +141,9 @@ namespace Pulumi.Artifactory
         [Input("enableSparseIndex")]
         public bool? EnableSparseIndex { get; set; }
 
+        [Input("enableTokenAuthentication")]
+        public bool? EnableTokenAuthentication { get; set; }
+
         [Input("excludesPattern")]
         public string? ExcludesPattern { get; set; }
 
@@ -314,6 +317,9 @@ namespace Pulumi.Artifactory
         [Input("enableSparseIndex")]
         public Input<bool>? EnableSparseIndex { get; set; }
 
+        [Input("enableTokenAuthentication")]
+        public Input<bool>? EnableTokenAuthentication { get; set; }
+
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
@@ -461,6 +467,7 @@ namespace Pulumi.Artifactory
         /// (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `False`.
         /// </summary>
         public readonly bool? EnableSparseIndex;
+        public readonly bool? EnableTokenAuthentication;
         public readonly string? ExcludesPattern;
         /// <summary>
         /// (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
@@ -533,6 +540,8 @@ namespace Pulumi.Artifactory
             bool? enableCookieManagement,
 
             bool? enableSparseIndex,
+
+            bool? enableTokenAuthentication,
 
             string? excludesPattern,
 
@@ -614,6 +623,7 @@ namespace Pulumi.Artifactory
             DownloadDirect = downloadDirect;
             EnableCookieManagement = enableCookieManagement;
             EnableSparseIndex = enableSparseIndex;
+            EnableTokenAuthentication = enableTokenAuthentication;
             ExcludesPattern = excludesPattern;
             GitRegistryUrl = gitRegistryUrl;
             HardFail = hardFail;

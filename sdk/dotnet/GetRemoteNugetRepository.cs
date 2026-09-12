@@ -138,6 +138,9 @@ namespace Pulumi.Artifactory
         [Input("enableCookieManagement")]
         public bool? EnableCookieManagement { get; set; }
 
+        [Input("enableTokenAuthentication")]
+        public bool? EnableTokenAuthentication { get; set; }
+
         [Input("excludesPattern")]
         public string? ExcludesPattern { get; set; }
 
@@ -329,6 +332,9 @@ namespace Pulumi.Artifactory
         [Input("enableCookieManagement")]
         public Input<bool>? EnableCookieManagement { get; set; }
 
+        [Input("enableTokenAuthentication")]
+        public Input<bool>? EnableTokenAuthentication { get; set; }
+
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
@@ -494,6 +500,7 @@ namespace Pulumi.Artifactory
         public readonly string? DownloadContextPath;
         public readonly bool? DownloadDirect;
         public readonly bool? EnableCookieManagement;
+        public readonly bool? EnableTokenAuthentication;
         public readonly string? ExcludesPattern;
         /// <summary>
         /// (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
@@ -579,6 +586,8 @@ namespace Pulumi.Artifactory
             bool? downloadDirect,
 
             bool? enableCookieManagement,
+
+            bool? enableTokenAuthentication,
 
             string? excludesPattern,
 
@@ -668,6 +677,7 @@ namespace Pulumi.Artifactory
             DownloadContextPath = downloadContextPath;
             DownloadDirect = downloadDirect;
             EnableCookieManagement = enableCookieManagement;
+            EnableTokenAuthentication = enableTokenAuthentication;
             ExcludesPattern = excludesPattern;
             FeedContextPath = feedContextPath;
             ForceNugetAuthentication = forceNugetAuthentication;

@@ -37,6 +37,7 @@ export function getRemoteTerraformRepository(args: GetRemoteTerraformRepositoryA
         "disableUrlNormalization": args.disableUrlNormalization,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
+        "enableTokenAuthentication": args.enableTokenAuthentication,
         "excludesPattern": args.excludesPattern,
         "hardFail": args.hardFail,
         "includesPattern": args.includesPattern,
@@ -89,6 +90,7 @@ export interface GetRemoteTerraformRepositoryArgs {
     disableUrlNormalization?: boolean;
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
+    enableTokenAuthentication?: boolean;
     excludesPattern?: string;
     hardFail?: boolean;
     includesPattern?: string;
@@ -149,6 +151,7 @@ export interface GetRemoteTerraformRepositoryResult {
     readonly disableUrlNormalization?: boolean;
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
+    readonly enableTokenAuthentication?: boolean;
     readonly excludesPattern?: string;
     readonly hardFail?: boolean;
     /**
@@ -223,6 +226,7 @@ export function getRemoteTerraformRepositoryOutput(args: GetRemoteTerraformRepos
         "disableUrlNormalization": args.disableUrlNormalization,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
+        "enableTokenAuthentication": args.enableTokenAuthentication,
         "excludesPattern": args.excludesPattern,
         "hardFail": args.hardFail,
         "includesPattern": args.includesPattern,
@@ -275,6 +279,7 @@ export interface GetRemoteTerraformRepositoryOutputArgs {
     disableUrlNormalization?: pulumi.Input<boolean | undefined>;
     downloadDirect?: pulumi.Input<boolean | undefined>;
     enableCookieManagement?: pulumi.Input<boolean | undefined>;
+    enableTokenAuthentication?: pulumi.Input<boolean | undefined>;
     excludesPattern?: pulumi.Input<string | undefined>;
     hardFail?: pulumi.Input<boolean | undefined>;
     includesPattern?: pulumi.Input<string | undefined>;

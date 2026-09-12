@@ -57,6 +57,7 @@ type LookupVirtualNpmRepositoryArgs struct {
 	ExternalDependenciesEnabled                   *bool    `pulumi:"externalDependenciesEnabled"`
 	ExternalDependenciesPatterns                  []string `pulumi:"externalDependenciesPatterns"`
 	ExternalDependenciesRemoteRepo                *string  `pulumi:"externalDependenciesRemoteRepo"`
+	HideUnauthorizedResources                     *bool    `pulumi:"hideUnauthorizedResources"`
 	IncludesPattern                               *string  `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                 string   `pulumi:"key"`
@@ -78,6 +79,7 @@ type LookupVirtualNpmRepositoryResult struct {
 	ExternalDependenciesEnabled                   *bool    `pulumi:"externalDependenciesEnabled"`
 	ExternalDependenciesPatterns                  []string `pulumi:"externalDependenciesPatterns"`
 	ExternalDependenciesRemoteRepo                *string  `pulumi:"externalDependenciesRemoteRepo"`
+	HideUnauthorizedResources                     *bool    `pulumi:"hideUnauthorizedResources"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                  string   `pulumi:"id"`
 	IncludesPattern     *string  `pulumi:"includesPattern"`
@@ -106,6 +108,7 @@ type LookupVirtualNpmRepositoryOutputArgs struct {
 	ExternalDependenciesEnabled                   pulumi.BoolPtrInput     `pulumi:"externalDependenciesEnabled"`
 	ExternalDependenciesPatterns                  pulumi.StringArrayInput `pulumi:"externalDependenciesPatterns"`
 	ExternalDependenciesRemoteRepo                pulumi.StringPtrInput   `pulumi:"externalDependenciesRemoteRepo"`
+	HideUnauthorizedResources                     pulumi.BoolPtrInput     `pulumi:"hideUnauthorizedResources"`
 	IncludesPattern                               pulumi.StringPtrInput   `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                 pulumi.StringInput      `pulumi:"key"`
@@ -163,6 +166,10 @@ func (o LookupVirtualNpmRepositoryResultOutput) ExternalDependenciesPatterns() p
 
 func (o LookupVirtualNpmRepositoryResultOutput) ExternalDependenciesRemoteRepo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVirtualNpmRepositoryResult) *string { return v.ExternalDependenciesRemoteRepo }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupVirtualNpmRepositoryResultOutput) HideUnauthorizedResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNpmRepositoryResult) *bool { return v.HideUnauthorizedResources }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

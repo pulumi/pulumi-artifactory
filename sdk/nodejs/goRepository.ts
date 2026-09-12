@@ -79,7 +79,7 @@ export class GoRepository extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
+     * Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
      */
     declare public readonly excludesPattern: pulumi.Output<string | undefined>;
     /**
@@ -92,7 +92,11 @@ export class GoRepository extends pulumi.CustomResource {
      */
     declare public readonly externalDependenciesPatterns: pulumi.Output<string[] | undefined>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+     */
+    declare public readonly hideUnauthorizedResources: pulumi.Output<boolean | undefined>;
+    /**
+     * Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     declare public readonly includesPattern: pulumi.Output<string | undefined>;
     /**
@@ -141,6 +145,7 @@ export class GoRepository extends pulumi.CustomResource {
             resourceInputs["excludesPattern"] = state?.excludesPattern;
             resourceInputs["externalDependenciesEnabled"] = state?.externalDependenciesEnabled;
             resourceInputs["externalDependenciesPatterns"] = state?.externalDependenciesPatterns;
+            resourceInputs["hideUnauthorizedResources"] = state?.hideUnauthorizedResources;
             resourceInputs["includesPattern"] = state?.includesPattern;
             resourceInputs["key"] = state?.key;
             resourceInputs["notes"] = state?.notes;
@@ -160,6 +165,7 @@ export class GoRepository extends pulumi.CustomResource {
             resourceInputs["excludesPattern"] = args?.excludesPattern;
             resourceInputs["externalDependenciesEnabled"] = args?.externalDependenciesEnabled;
             resourceInputs["externalDependenciesPatterns"] = args?.externalDependenciesPatterns;
+            resourceInputs["hideUnauthorizedResources"] = args?.hideUnauthorizedResources;
             resourceInputs["includesPattern"] = args?.includesPattern;
             resourceInputs["key"] = args?.key;
             resourceInputs["notes"] = args?.notes;
@@ -191,7 +197,7 @@ export interface GoRepositoryState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
+     * Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string | undefined>;
     /**
@@ -204,7 +210,11 @@ export interface GoRepositoryState {
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+     */
+    hideUnauthorizedResources?: pulumi.Input<boolean | undefined>;
+    /**
+     * Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string | undefined>;
     /**
@@ -252,7 +262,7 @@ export interface GoRepositoryArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
+     * Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string | undefined>;
     /**
@@ -265,7 +275,11 @@ export interface GoRepositoryArgs {
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+     */
+    hideUnauthorizedResources?: pulumi.Input<boolean | undefined>;
+    /**
+     * Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string | undefined>;
     /**
