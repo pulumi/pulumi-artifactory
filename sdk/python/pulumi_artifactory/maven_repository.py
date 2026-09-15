@@ -25,6 +25,7 @@ class MavenRepositoryArgs:
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  force_maven_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hide_unauthorized_resources: pulumi.Input[Optional[_builtins.bool]] = None,
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  key_pair: pulumi.Input[Optional[_builtins.str]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
@@ -41,9 +42,10 @@ class MavenRepositoryArgs:
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] force_maven_authentication: Forces authentication when fetching from remote repos.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.bool] hide_unauthorized_resources: When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key_pair: The keypair used to sign artifacts
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.str] pom_repository_references_cleanup_policy: One of: `"discard_active_reference", "discard_any_reference", "nothing"`
@@ -63,6 +65,8 @@ class MavenRepositoryArgs:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if force_maven_authentication is not None:
             pulumi.set(__self__, "force_maven_authentication", force_maven_authentication)
+        if hide_unauthorized_resources is not None:
+            pulumi.set(__self__, "hide_unauthorized_resources", hide_unauthorized_resources)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
         if key_pair is not None:
@@ -133,7 +137,7 @@ class MavenRepositoryArgs:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -154,10 +158,22 @@ class MavenRepositoryArgs:
         pulumi.set(self, "force_maven_authentication", value)
 
     @_builtins.property
+    @pulumi.getter(name="hideUnauthorizedResources")
+    def hide_unauthorized_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        """
+        return pulumi.get(self, "hide_unauthorized_resources")
+
+    @hide_unauthorized_resources.setter
+    def hide_unauthorized_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "hide_unauthorized_resources", value)
+
+    @_builtins.property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -258,6 +274,7 @@ class _MavenRepositoryState:
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  force_maven_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hide_unauthorized_resources: pulumi.Input[Optional[_builtins.bool]] = None,
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  key_pair: pulumi.Input[Optional[_builtins.str]] = None,
@@ -274,9 +291,10 @@ class _MavenRepositoryState:
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] force_maven_authentication: Forces authentication when fetching from remote repos.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.bool] hide_unauthorized_resources: When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.str] key_pair: The keypair used to sign artifacts
@@ -297,6 +315,8 @@ class _MavenRepositoryState:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if force_maven_authentication is not None:
             pulumi.set(__self__, "force_maven_authentication", force_maven_authentication)
+        if hide_unauthorized_resources is not None:
+            pulumi.set(__self__, "hide_unauthorized_resources", hide_unauthorized_resources)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
         if key is not None:
@@ -358,7 +378,7 @@ class _MavenRepositoryState:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -379,10 +399,22 @@ class _MavenRepositoryState:
         pulumi.set(self, "force_maven_authentication", value)
 
     @_builtins.property
+    @pulumi.getter(name="hideUnauthorizedResources")
+    def hide_unauthorized_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        """
+        return pulumi.get(self, "hide_unauthorized_resources")
+
+    @hide_unauthorized_resources.setter
+    def hide_unauthorized_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "hide_unauthorized_resources", value)
+
+    @_builtins.property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -508,6 +540,7 @@ class MavenRepository(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  force_maven_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hide_unauthorized_resources: pulumi.Input[Optional[_builtins.bool]] = None,
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  key_pair: pulumi.Input[Optional[_builtins.str]] = None,
@@ -564,9 +597,10 @@ class MavenRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] force_maven_authentication: Forces authentication when fetching from remote repos.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.bool] hide_unauthorized_resources: When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.str] key_pair: The keypair used to sign artifacts
@@ -644,6 +678,7 @@ class MavenRepository(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  force_maven_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hide_unauthorized_resources: pulumi.Input[Optional[_builtins.bool]] = None,
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  key_pair: pulumi.Input[Optional[_builtins.str]] = None,
@@ -667,6 +702,7 @@ class MavenRepository(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["excludes_pattern"] = excludes_pattern
             __props__.__dict__["force_maven_authentication"] = force_maven_authentication
+            __props__.__dict__["hide_unauthorized_resources"] = hide_unauthorized_resources
             __props__.__dict__["includes_pattern"] = includes_pattern
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
@@ -694,6 +730,7 @@ class MavenRepository(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
             force_maven_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+            hide_unauthorized_resources: pulumi.Input[Optional[_builtins.bool]] = None,
             includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
             key: pulumi.Input[Optional[_builtins.str]] = None,
             key_pair: pulumi.Input[Optional[_builtins.str]] = None,
@@ -714,9 +751,10 @@ class MavenRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         :param pulumi.Input[_builtins.str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] force_maven_authentication: Forces authentication when fetching from remote repos.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.bool] hide_unauthorized_resources: When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.str] key_pair: The keypair used to sign artifacts
@@ -736,6 +774,7 @@ class MavenRepository(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["excludes_pattern"] = excludes_pattern
         __props__.__dict__["force_maven_authentication"] = force_maven_authentication
+        __props__.__dict__["hide_unauthorized_resources"] = hide_unauthorized_resources
         __props__.__dict__["includes_pattern"] = includes_pattern
         __props__.__dict__["key"] = key
         __props__.__dict__["key_pair"] = key_pair
@@ -776,7 +815,7 @@ class MavenRepository(pulumi.CustomResource):
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -789,10 +828,18 @@ class MavenRepository(pulumi.CustomResource):
         return pulumi.get(self, "force_maven_authentication")
 
     @_builtins.property
+    @pulumi.getter(name="hideUnauthorizedResources")
+    def hide_unauthorized_resources(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        When set to true, returns a 404 Not Found response instead of revealing that an unauthorized resource exists. When false (default), Artifactory keeps its normal behavior: anonymous requests get 401 and unauthorized authenticated users get 403.
+        """
+        return pulumi.get(self, "hide_unauthorized_resources")
+
+    @_builtins.property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 

@@ -26,6 +26,7 @@ export function getVirtualMavenRepository(args: GetVirtualMavenRepositoryArgs, o
         "description": args.description,
         "excludesPattern": args.excludesPattern,
         "forceMavenAuthentication": args.forceMavenAuthentication,
+        "hideUnauthorizedResources": args.hideUnauthorizedResources,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "keyPair": args.keyPair,
@@ -50,6 +51,7 @@ export interface GetVirtualMavenRepositoryArgs {
      * (Optional) Forces authentication when fetching from remote repos.
      */
     forceMavenAuthentication?: boolean;
+    hideUnauthorizedResources?: boolean;
     includesPattern?: string;
     /**
      * the identity key of the repo.
@@ -79,6 +81,7 @@ export interface GetVirtualMavenRepositoryResult {
      * (Optional) Forces authentication when fetching from remote repos.
      */
     readonly forceMavenAuthentication: boolean;
+    readonly hideUnauthorizedResources?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -119,6 +122,7 @@ export function getVirtualMavenRepositoryOutput(args: GetVirtualMavenRepositoryO
         "description": args.description,
         "excludesPattern": args.excludesPattern,
         "forceMavenAuthentication": args.forceMavenAuthentication,
+        "hideUnauthorizedResources": args.hideUnauthorizedResources,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "keyPair": args.keyPair,
@@ -143,6 +147,7 @@ export interface GetVirtualMavenRepositoryOutputArgs {
      * (Optional) Forces authentication when fetching from remote repos.
      */
     forceMavenAuthentication?: pulumi.Input<boolean | undefined>;
+    hideUnauthorizedResources?: pulumi.Input<boolean | undefined>;
     includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.

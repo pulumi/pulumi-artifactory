@@ -89,12 +89,12 @@ class RemoteOciRepositoryArgs:
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[_builtins.bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
-        :param pulumi.Input[_builtins.bool] enable_token_authentication: Enable token (Bearer) based authentication.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.bool] enable_token_authentication: Enable token (Bearer) based authentication. Unlike most remote package types (default `false`), OCI remotes default to `true`.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] external_dependencies_enabled: Also known as 'Foreign Layers Caching' on the UI.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_dependencies_patterns: Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**/github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `[**]` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         :param pulumi.Input[_builtins.bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         :param pulumi.Input[_builtins.str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
         :param pulumi.Input[_builtins.int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
@@ -415,7 +415,7 @@ class RemoteOciRepositoryArgs:
     @pulumi.getter(name="enableTokenAuthentication")
     def enable_token_authentication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Enable token (Bearer) based authentication.
+        Enable token (Bearer) based authentication. Unlike most remote package types (default `false`), OCI remotes default to `true`.
         """
         return pulumi.get(self, "enable_token_authentication")
 
@@ -427,7 +427,7 @@ class RemoteOciRepositoryArgs:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -475,7 +475,7 @@ class RemoteOciRepositoryArgs:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -870,12 +870,12 @@ class _RemoteOciRepositoryState:
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[_builtins.bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
-        :param pulumi.Input[_builtins.bool] enable_token_authentication: Enable token (Bearer) based authentication.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.bool] enable_token_authentication: Enable token (Bearer) based authentication. Unlike most remote package types (default `false`), OCI remotes default to `true`.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] external_dependencies_enabled: Also known as 'Foreign Layers Caching' on the UI.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_dependencies_patterns: Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**/github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `[**]` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         :param pulumi.Input[_builtins.bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[_builtins.bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         :param pulumi.Input[_builtins.str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
@@ -1176,7 +1176,7 @@ class _RemoteOciRepositoryState:
     @pulumi.getter(name="enableTokenAuthentication")
     def enable_token_authentication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Enable token (Bearer) based authentication.
+        Enable token (Bearer) based authentication. Unlike most remote package types (default `false`), OCI remotes default to `true`.
         """
         return pulumi.get(self, "enable_token_authentication")
 
@@ -1188,7 +1188,7 @@ class _RemoteOciRepositoryState:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -1236,7 +1236,7 @@ class _RemoteOciRepositoryState:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -1685,12 +1685,12 @@ class RemoteOciRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[_builtins.bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
-        :param pulumi.Input[_builtins.bool] enable_token_authentication: Enable token (Bearer) based authentication.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.bool] enable_token_authentication: Enable token (Bearer) based authentication. Unlike most remote package types (default `false`), OCI remotes default to `true`.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] external_dependencies_enabled: Also known as 'Foreign Layers Caching' on the UI.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_dependencies_patterns: Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**/github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `[**]` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         :param pulumi.Input[_builtins.bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[_builtins.bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         :param pulumi.Input[_builtins.str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
@@ -1960,12 +1960,12 @@ class RemoteOciRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[_builtins.bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
-        :param pulumi.Input[_builtins.bool] enable_token_authentication: Enable token (Bearer) based authentication.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.bool] enable_token_authentication: Enable token (Bearer) based authentication. Unlike most remote package types (default `false`), OCI remotes default to `true`.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] external_dependencies_enabled: Also known as 'Foreign Layers Caching' on the UI.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_dependencies_patterns: Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**/github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `[**]` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         :param pulumi.Input[_builtins.bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[_builtins.bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         :param pulumi.Input[_builtins.str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
@@ -2163,7 +2163,7 @@ class RemoteOciRepository(pulumi.CustomResource):
     @pulumi.getter(name="enableTokenAuthentication")
     def enable_token_authentication(self) -> pulumi.Output[_builtins.bool]:
         """
-        Enable token (Bearer) based authentication.
+        Enable token (Bearer) based authentication. Unlike most remote package types (default `false`), OCI remotes default to `true`.
         """
         return pulumi.get(self, "enable_token_authentication")
 
@@ -2171,7 +2171,7 @@ class RemoteOciRepository(pulumi.CustomResource):
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[_builtins.str]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -2203,7 +2203,7 @@ class RemoteOciRepository(pulumi.CustomResource):
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[_builtins.str]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 

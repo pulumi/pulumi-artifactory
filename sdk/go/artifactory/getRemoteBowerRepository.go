@@ -56,19 +56,20 @@ type LookupRemoteBowerRepositoryArgs struct {
 	BlackedOut                *bool `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes *bool `pulumi:"blockMismatchingMimeTypes"`
 	// (Optional) Proxy remote Bower repository. Default value is `https://registry.bower.io`.
-	BowerRegistryUrl        *string                                         `pulumi:"bowerRegistryUrl"`
-	BypassHeadRequests      *bool                                           `pulumi:"bypassHeadRequests"`
-	CdnRedirect             *bool                                           `pulumi:"cdnRedirect"`
-	ClientTlsCertificate    *string                                         `pulumi:"clientTlsCertificate"`
-	ContentSynchronisation  *GetRemoteBowerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
-	Description             *string                                         `pulumi:"description"`
-	DisableProxy            *bool                                           `pulumi:"disableProxy"`
-	DisableUrlNormalization *bool                                           `pulumi:"disableUrlNormalization"`
-	DownloadDirect          *bool                                           `pulumi:"downloadDirect"`
-	EnableCookieManagement  *bool                                           `pulumi:"enableCookieManagement"`
-	ExcludesPattern         *string                                         `pulumi:"excludesPattern"`
-	HardFail                *bool                                           `pulumi:"hardFail"`
-	IncludesPattern         *string                                         `pulumi:"includesPattern"`
+	BowerRegistryUrl          *string                                         `pulumi:"bowerRegistryUrl"`
+	BypassHeadRequests        *bool                                           `pulumi:"bypassHeadRequests"`
+	CdnRedirect               *bool                                           `pulumi:"cdnRedirect"`
+	ClientTlsCertificate      *string                                         `pulumi:"clientTlsCertificate"`
+	ContentSynchronisation    *GetRemoteBowerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Description               *string                                         `pulumi:"description"`
+	DisableProxy              *bool                                           `pulumi:"disableProxy"`
+	DisableUrlNormalization   *bool                                           `pulumi:"disableUrlNormalization"`
+	DownloadDirect            *bool                                           `pulumi:"downloadDirect"`
+	EnableCookieManagement    *bool                                           `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication *bool                                           `pulumi:"enableTokenAuthentication"`
+	ExcludesPattern           *string                                         `pulumi:"excludesPattern"`
+	HardFail                  *bool                                           `pulumi:"hardFail"`
+	IncludesPattern           *string                                         `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                               string   `pulumi:"key"`
 	ListRemoteFolderItems             *bool    `pulumi:"listRemoteFolderItems"`
@@ -108,18 +109,19 @@ type LookupRemoteBowerRepositoryResult struct {
 	BlackedOut                *bool `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes *bool `pulumi:"blockMismatchingMimeTypes"`
 	// (Optional) Proxy remote Bower repository. Default value is `https://registry.bower.io`.
-	BowerRegistryUrl        *string                                        `pulumi:"bowerRegistryUrl"`
-	BypassHeadRequests      *bool                                          `pulumi:"bypassHeadRequests"`
-	CdnRedirect             *bool                                          `pulumi:"cdnRedirect"`
-	ClientTlsCertificate    string                                         `pulumi:"clientTlsCertificate"`
-	ContentSynchronisation  GetRemoteBowerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
-	Description             *string                                        `pulumi:"description"`
-	DisableProxy            *bool                                          `pulumi:"disableProxy"`
-	DisableUrlNormalization *bool                                          `pulumi:"disableUrlNormalization"`
-	DownloadDirect          *bool                                          `pulumi:"downloadDirect"`
-	EnableCookieManagement  *bool                                          `pulumi:"enableCookieManagement"`
-	ExcludesPattern         *string                                        `pulumi:"excludesPattern"`
-	HardFail                *bool                                          `pulumi:"hardFail"`
+	BowerRegistryUrl          *string                                        `pulumi:"bowerRegistryUrl"`
+	BypassHeadRequests        *bool                                          `pulumi:"bypassHeadRequests"`
+	CdnRedirect               *bool                                          `pulumi:"cdnRedirect"`
+	ClientTlsCertificate      string                                         `pulumi:"clientTlsCertificate"`
+	ContentSynchronisation    GetRemoteBowerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Description               *string                                        `pulumi:"description"`
+	DisableProxy              *bool                                          `pulumi:"disableProxy"`
+	DisableUrlNormalization   *bool                                          `pulumi:"disableUrlNormalization"`
+	DownloadDirect            *bool                                          `pulumi:"downloadDirect"`
+	EnableCookieManagement    *bool                                          `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication *bool                                          `pulumi:"enableTokenAuthentication"`
+	ExcludesPattern           *string                                        `pulumi:"excludesPattern"`
+	HardFail                  *bool                                          `pulumi:"hardFail"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                                string   `pulumi:"id"`
 	IncludesPattern                   *string  `pulumi:"includesPattern"`
@@ -167,19 +169,20 @@ type LookupRemoteBowerRepositoryOutputArgs struct {
 	BlackedOut                pulumi.BoolPtrInput `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes pulumi.BoolPtrInput `pulumi:"blockMismatchingMimeTypes"`
 	// (Optional) Proxy remote Bower repository. Default value is `https://registry.bower.io`.
-	BowerRegistryUrl        pulumi.StringPtrInput                                  `pulumi:"bowerRegistryUrl"`
-	BypassHeadRequests      pulumi.BoolPtrInput                                    `pulumi:"bypassHeadRequests"`
-	CdnRedirect             pulumi.BoolPtrInput                                    `pulumi:"cdnRedirect"`
-	ClientTlsCertificate    pulumi.StringPtrInput                                  `pulumi:"clientTlsCertificate"`
-	ContentSynchronisation  GetRemoteBowerRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
-	Description             pulumi.StringPtrInput                                  `pulumi:"description"`
-	DisableProxy            pulumi.BoolPtrInput                                    `pulumi:"disableProxy"`
-	DisableUrlNormalization pulumi.BoolPtrInput                                    `pulumi:"disableUrlNormalization"`
-	DownloadDirect          pulumi.BoolPtrInput                                    `pulumi:"downloadDirect"`
-	EnableCookieManagement  pulumi.BoolPtrInput                                    `pulumi:"enableCookieManagement"`
-	ExcludesPattern         pulumi.StringPtrInput                                  `pulumi:"excludesPattern"`
-	HardFail                pulumi.BoolPtrInput                                    `pulumi:"hardFail"`
-	IncludesPattern         pulumi.StringPtrInput                                  `pulumi:"includesPattern"`
+	BowerRegistryUrl          pulumi.StringPtrInput                                  `pulumi:"bowerRegistryUrl"`
+	BypassHeadRequests        pulumi.BoolPtrInput                                    `pulumi:"bypassHeadRequests"`
+	CdnRedirect               pulumi.BoolPtrInput                                    `pulumi:"cdnRedirect"`
+	ClientTlsCertificate      pulumi.StringPtrInput                                  `pulumi:"clientTlsCertificate"`
+	ContentSynchronisation    GetRemoteBowerRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
+	Description               pulumi.StringPtrInput                                  `pulumi:"description"`
+	DisableProxy              pulumi.BoolPtrInput                                    `pulumi:"disableProxy"`
+	DisableUrlNormalization   pulumi.BoolPtrInput                                    `pulumi:"disableUrlNormalization"`
+	DownloadDirect            pulumi.BoolPtrInput                                    `pulumi:"downloadDirect"`
+	EnableCookieManagement    pulumi.BoolPtrInput                                    `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication pulumi.BoolPtrInput                                    `pulumi:"enableTokenAuthentication"`
+	ExcludesPattern           pulumi.StringPtrInput                                  `pulumi:"excludesPattern"`
+	HardFail                  pulumi.BoolPtrInput                                    `pulumi:"hardFail"`
+	IncludesPattern           pulumi.StringPtrInput                                  `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                               pulumi.StringInput      `pulumi:"key"`
 	ListRemoteFolderItems             pulumi.BoolPtrInput     `pulumi:"listRemoteFolderItems"`
@@ -291,6 +294,10 @@ func (o LookupRemoteBowerRepositoryResultOutput) DownloadDirect() pulumi.BoolPtr
 
 func (o LookupRemoteBowerRepositoryResultOutput) EnableCookieManagement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteBowerRepositoryResult) *bool { return v.EnableCookieManagement }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupRemoteBowerRepositoryResultOutput) EnableTokenAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteBowerRepositoryResult) *bool { return v.EnableTokenAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteBowerRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {

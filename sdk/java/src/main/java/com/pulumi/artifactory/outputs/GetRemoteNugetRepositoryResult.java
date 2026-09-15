@@ -36,6 +36,7 @@ public final class GetRemoteNugetRepositoryResult {
     private @Nullable String downloadContextPath;
     private @Nullable Boolean downloadDirect;
     private @Nullable Boolean enableCookieManagement;
+    private @Nullable Boolean enableTokenAuthentication;
     private @Nullable String excludesPattern;
     /**
      * @return (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
@@ -145,6 +146,9 @@ public final class GetRemoteNugetRepositoryResult {
     }
     public Optional<Boolean> enableCookieManagement() {
         return Optional.ofNullable(this.enableCookieManagement);
+    }
+    public Optional<Boolean> enableTokenAuthentication() {
+        return Optional.ofNullable(this.enableTokenAuthentication);
     }
     public Optional<String> excludesPattern() {
         return Optional.ofNullable(this.excludesPattern);
@@ -300,6 +304,7 @@ public final class GetRemoteNugetRepositoryResult {
         private @Nullable String downloadContextPath;
         private @Nullable Boolean downloadDirect;
         private @Nullable Boolean enableCookieManagement;
+        private @Nullable Boolean enableTokenAuthentication;
         private @Nullable String excludesPattern;
         private @Nullable String feedContextPath;
         private @Nullable Boolean forceNugetAuthentication;
@@ -355,6 +360,7 @@ public final class GetRemoteNugetRepositoryResult {
     	      this.downloadContextPath = defaults.downloadContextPath;
     	      this.downloadDirect = defaults.downloadDirect;
     	      this.enableCookieManagement = defaults.enableCookieManagement;
+    	      this.enableTokenAuthentication = defaults.enableTokenAuthentication;
     	      this.excludesPattern = defaults.excludesPattern;
     	      this.feedContextPath = defaults.feedContextPath;
     	      this.forceNugetAuthentication = defaults.forceNugetAuthentication;
@@ -491,6 +497,12 @@ public final class GetRemoteNugetRepositoryResult {
         public Builder enableCookieManagement(@Nullable Boolean enableCookieManagement) {
 
             this.enableCookieManagement = enableCookieManagement;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enableTokenAuthentication(@Nullable Boolean enableTokenAuthentication) {
+
+            this.enableTokenAuthentication = enableTokenAuthentication;
             return this;
         }
         @CustomType.Setter
@@ -743,6 +755,7 @@ public final class GetRemoteNugetRepositoryResult {
             _resultValue.downloadContextPath = downloadContextPath;
             _resultValue.downloadDirect = downloadDirect;
             _resultValue.enableCookieManagement = enableCookieManagement;
+            _resultValue.enableTokenAuthentication = enableTokenAuthentication;
             _resultValue.excludesPattern = excludesPattern;
             _resultValue.feedContextPath = feedContextPath;
             _resultValue.forceNugetAuthentication = forceNugetAuthentication;

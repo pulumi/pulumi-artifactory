@@ -28,7 +28,7 @@ class GetRemoteCargoRepositoryResult:
     """
     A collection of values returned by getRemoteCargoRepository.
     """
-    def __init__(__self__, allow_any_host_auth=None, anonymous_access=None, archive_browsing_enabled=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, description=None, disable_proxy=None, disable_url_normalization=None, download_direct=None, enable_cookie_management=None, enable_sparse_index=None, excludes_pattern=None, git_registry_url=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, xray_index=None):
+    def __init__(__self__, allow_any_host_auth=None, anonymous_access=None, archive_browsing_enabled=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, description=None, disable_proxy=None, disable_url_normalization=None, download_direct=None, enable_cookie_management=None, enable_sparse_index=None, enable_token_authentication=None, excludes_pattern=None, git_registry_url=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, xray_index=None):
         if allow_any_host_auth and not isinstance(allow_any_host_auth, bool):
             raise TypeError("Expected argument 'allow_any_host_auth' to be a bool")
         pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
@@ -77,6 +77,9 @@ class GetRemoteCargoRepositoryResult:
         if enable_sparse_index and not isinstance(enable_sparse_index, bool):
             raise TypeError("Expected argument 'enable_sparse_index' to be a bool")
         pulumi.set(__self__, "enable_sparse_index", enable_sparse_index)
+        if enable_token_authentication and not isinstance(enable_token_authentication, bool):
+            raise TypeError("Expected argument 'enable_token_authentication' to be a bool")
+        pulumi.set(__self__, "enable_token_authentication", enable_token_authentication)
         if excludes_pattern and not isinstance(excludes_pattern, str):
             raise TypeError("Expected argument 'excludes_pattern' to be a str")
         pulumi.set(__self__, "excludes_pattern", excludes_pattern)
@@ -259,6 +262,11 @@ class GetRemoteCargoRepositoryResult:
         (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         """
         return pulumi.get(self, "enable_sparse_index")
+
+    @_builtins.property
+    @pulumi.getter(name="enableTokenAuthentication")
+    def enable_token_authentication(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enable_token_authentication")
 
     @_builtins.property
     @pulumi.getter(name="excludesPattern")
@@ -449,6 +457,7 @@ class AwaitableGetRemoteCargoRepositoryResult(GetRemoteCargoRepositoryResult):
             download_direct=self.download_direct,
             enable_cookie_management=self.enable_cookie_management,
             enable_sparse_index=self.enable_sparse_index,
+            enable_token_authentication=self.enable_token_authentication,
             excludes_pattern=self.excludes_pattern,
             git_registry_url=self.git_registry_url,
             hard_fail=self.hard_fail,
@@ -499,6 +508,7 @@ def get_remote_cargo_repository(allow_any_host_auth: Optional[_builtins.bool] = 
                                 download_direct: Optional[_builtins.bool] = None,
                                 enable_cookie_management: Optional[_builtins.bool] = None,
                                 enable_sparse_index: Optional[_builtins.bool] = None,
+                                enable_token_authentication: Optional[_builtins.bool] = None,
                                 excludes_pattern: Optional[_builtins.str] = None,
                                 git_registry_url: Optional[_builtins.str] = None,
                                 hard_fail: Optional[_builtins.bool] = None,
@@ -565,6 +575,7 @@ def get_remote_cargo_repository(allow_any_host_auth: Optional[_builtins.bool] = 
     __args__['downloadDirect'] = download_direct
     __args__['enableCookieManagement'] = enable_cookie_management
     __args__['enableSparseIndex'] = enable_sparse_index
+    __args__['enableTokenAuthentication'] = enable_token_authentication
     __args__['excludesPattern'] = excludes_pattern
     __args__['gitRegistryUrl'] = git_registry_url
     __args__['hardFail'] = hard_fail
@@ -615,6 +626,7 @@ def get_remote_cargo_repository(allow_any_host_auth: Optional[_builtins.bool] = 
         download_direct=pulumi.get(__ret__, 'download_direct'),
         enable_cookie_management=pulumi.get(__ret__, 'enable_cookie_management'),
         enable_sparse_index=pulumi.get(__ret__, 'enable_sparse_index'),
+        enable_token_authentication=pulumi.get(__ret__, 'enable_token_authentication'),
         excludes_pattern=pulumi.get(__ret__, 'excludes_pattern'),
         git_registry_url=pulumi.get(__ret__, 'git_registry_url'),
         hard_fail=pulumi.get(__ret__, 'hard_fail'),
@@ -663,6 +675,7 @@ def get_remote_cargo_repository_output(allow_any_host_auth: pulumi.Input[Optiona
                                        download_direct: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                        enable_cookie_management: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                        enable_sparse_index: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                       enable_token_authentication: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                        excludes_pattern: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        git_registry_url: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        hard_fail: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
@@ -729,6 +742,7 @@ def get_remote_cargo_repository_output(allow_any_host_auth: pulumi.Input[Optiona
     __args__['downloadDirect'] = download_direct
     __args__['enableCookieManagement'] = enable_cookie_management
     __args__['enableSparseIndex'] = enable_sparse_index
+    __args__['enableTokenAuthentication'] = enable_token_authentication
     __args__['excludesPattern'] = excludes_pattern
     __args__['gitRegistryUrl'] = git_registry_url
     __args__['hardFail'] = hard_fail
@@ -778,6 +792,7 @@ def get_remote_cargo_repository_output(allow_any_host_auth: pulumi.Input[Optiona
         download_direct=pulumi.get(__response__, 'download_direct'),
         enable_cookie_management=pulumi.get(__response__, 'enable_cookie_management'),
         enable_sparse_index=pulumi.get(__response__, 'enable_sparse_index'),
+        enable_token_authentication=pulumi.get(__response__, 'enable_token_authentication'),
         excludes_pattern=pulumi.get(__response__, 'excludes_pattern'),
         git_registry_url=pulumi.get(__response__, 'git_registry_url'),
         hard_fail=pulumi.get(__response__, 'hard_fail'),

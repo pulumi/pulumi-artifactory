@@ -84,7 +84,9 @@ type RemoteHelmRepository struct {
 	DownloadDirect pulumi.BoolOutput `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolOutput `pulumi:"enableCookieManagement"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Enable token (Bearer) based authentication. When set, use an access token as `password` (username may be empty) so Artifactory authenticates to the remote with a Bearer token instead of Basic auth. Default is `false` for most package types; OCI, Helm OCI, and Hugging Face remotes default to `true`.
+	EnableTokenAuthentication pulumi.BoolOutput `pulumi:"enableTokenAuthentication"`
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
 	// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
 	ExternalDependenciesEnabled pulumi.BoolOutput `pulumi:"externalDependenciesEnabled"`
@@ -100,7 +102,7 @@ type RemoteHelmRepository struct {
 	HardFail pulumi.BoolOutput `pulumi:"hardFail"`
 	// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
 	HelmChartsBaseUrl pulumi.StringOutput `pulumi:"helmChartsBaseUrl"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -235,7 +237,9 @@ type remoteHelmRepositoryState struct {
 	DownloadDirect *bool `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Enable token (Bearer) based authentication. When set, use an access token as `password` (username may be empty) so Artifactory authenticates to the remote with a Bearer token instead of Basic auth. Default is `false` for most package types; OCI, Helm OCI, and Hugging Face remotes default to `true`.
+	EnableTokenAuthentication *bool `pulumi:"enableTokenAuthentication"`
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
@@ -251,7 +255,7 @@ type remoteHelmRepositoryState struct {
 	HardFail *bool `pulumi:"hardFail"`
 	// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
 	HelmChartsBaseUrl *string `pulumi:"helmChartsBaseUrl"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -340,7 +344,9 @@ type RemoteHelmRepositoryState struct {
 	DownloadDirect pulumi.BoolPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Enable token (Bearer) based authentication. When set, use an access token as `password` (username may be empty) so Artifactory authenticates to the remote with a Bearer token instead of Basic auth. Default is `false` for most package types; OCI, Helm OCI, and Hugging Face remotes default to `true`.
+	EnableTokenAuthentication pulumi.BoolPtrInput
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
@@ -356,7 +362,7 @@ type RemoteHelmRepositoryState struct {
 	HardFail pulumi.BoolPtrInput
 	// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
 	HelmChartsBaseUrl pulumi.StringPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -449,7 +455,9 @@ type remoteHelmRepositoryArgs struct {
 	DownloadDirect *bool `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Enable token (Bearer) based authentication. When set, use an access token as `password` (username may be empty) so Artifactory authenticates to the remote with a Bearer token instead of Basic auth. Default is `false` for most package types; OCI, Helm OCI, and Hugging Face remotes default to `true`.
+	EnableTokenAuthentication *bool `pulumi:"enableTokenAuthentication"`
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
@@ -465,7 +473,7 @@ type remoteHelmRepositoryArgs struct {
 	HardFail *bool `pulumi:"hardFail"`
 	// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
 	HelmChartsBaseUrl *string `pulumi:"helmChartsBaseUrl"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -555,7 +563,9 @@ type RemoteHelmRepositoryArgs struct {
 	DownloadDirect pulumi.BoolPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+	// Enable token (Bearer) based authentication. When set, use an access token as `password` (username may be empty) so Artifactory authenticates to the remote with a Bearer token instead of Basic auth. Default is `false` for most package types; OCI, Helm OCI, and Hugging Face remotes default to `true`.
+	EnableTokenAuthentication pulumi.BoolPtrInput
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
@@ -571,7 +581,7 @@ type RemoteHelmRepositoryArgs struct {
 	HardFail pulumi.BoolPtrInput
 	// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
 	HelmChartsBaseUrl pulumi.StringPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -790,7 +800,12 @@ func (o RemoteHelmRepositoryOutput) EnableCookieManagement() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.BoolOutput { return v.EnableCookieManagement }).(pulumi.BoolOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+// Enable token (Bearer) based authentication. When set, use an access token as `password` (username may be empty) so Artifactory authenticates to the remote with a Bearer token instead of Basic auth. Default is `false` for most package types; OCI, Helm OCI, and Hugging Face remotes default to `true`.
+func (o RemoteHelmRepositoryOutput) EnableTokenAuthentication() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.BoolOutput { return v.EnableTokenAuthentication }).(pulumi.BoolOutput)
+}
+
+// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 func (o RemoteHelmRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
 }
@@ -821,7 +836,7 @@ func (o RemoteHelmRepositoryOutput) HelmChartsBaseUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.StringOutput { return v.HelmChartsBaseUrl }).(pulumi.StringOutput)
 }
 
-// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 func (o RemoteHelmRepositoryOutput) IncludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }

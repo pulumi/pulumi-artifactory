@@ -65,6 +65,7 @@ type LookupRemoteNpmRepositoryArgs struct {
 	DisableUrlNormalization   *bool                                         `pulumi:"disableUrlNormalization"`
 	DownloadDirect            *bool                                         `pulumi:"downloadDirect"`
 	EnableCookieManagement    *bool                                         `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication *bool                                         `pulumi:"enableTokenAuthentication"`
 	ExcludesPattern           *string                                       `pulumi:"excludesPattern"`
 	HardFail                  *bool                                         `pulumi:"hardFail"`
 	IncludesPattern           *string                                       `pulumi:"includesPattern"`
@@ -115,6 +116,7 @@ type LookupRemoteNpmRepositoryResult struct {
 	DisableUrlNormalization   *bool                                        `pulumi:"disableUrlNormalization"`
 	DownloadDirect            *bool                                        `pulumi:"downloadDirect"`
 	EnableCookieManagement    *bool                                        `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication *bool                                        `pulumi:"enableTokenAuthentication"`
 	ExcludesPattern           *string                                      `pulumi:"excludesPattern"`
 	HardFail                  *bool                                        `pulumi:"hardFail"`
 	// The provider-assigned unique ID for this managed resource.
@@ -172,6 +174,7 @@ type LookupRemoteNpmRepositoryOutputArgs struct {
 	DisableUrlNormalization   pulumi.BoolPtrInput                                  `pulumi:"disableUrlNormalization"`
 	DownloadDirect            pulumi.BoolPtrInput                                  `pulumi:"downloadDirect"`
 	EnableCookieManagement    pulumi.BoolPtrInput                                  `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication pulumi.BoolPtrInput                                  `pulumi:"enableTokenAuthentication"`
 	ExcludesPattern           pulumi.StringPtrInput                                `pulumi:"excludesPattern"`
 	HardFail                  pulumi.BoolPtrInput                                  `pulumi:"hardFail"`
 	IncludesPattern           pulumi.StringPtrInput                                `pulumi:"includesPattern"`
@@ -284,6 +287,10 @@ func (o LookupRemoteNpmRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrOu
 
 func (o LookupRemoteNpmRepositoryResultOutput) EnableCookieManagement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteNpmRepositoryResult) *bool { return v.EnableCookieManagement }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupRemoteNpmRepositoryResultOutput) EnableTokenAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteNpmRepositoryResult) *bool { return v.EnableTokenAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteNpmRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {

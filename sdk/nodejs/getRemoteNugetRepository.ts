@@ -39,6 +39,7 @@ export function getRemoteNugetRepository(args: GetRemoteNugetRepositoryArgs, opt
         "downloadContextPath": args.downloadContextPath,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
+        "enableTokenAuthentication": args.enableTokenAuthentication,
         "excludesPattern": args.excludesPattern,
         "feedContextPath": args.feedContextPath,
         "forceNugetAuthentication": args.forceNugetAuthentication,
@@ -99,6 +100,7 @@ export interface GetRemoteNugetRepositoryArgs {
     downloadContextPath?: string;
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
+    enableTokenAuthentication?: boolean;
     excludesPattern?: string;
     /**
      * (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
@@ -173,6 +175,7 @@ export interface GetRemoteNugetRepositoryResult {
     readonly downloadContextPath?: string;
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
+    readonly enableTokenAuthentication?: boolean;
     readonly excludesPattern?: string;
     /**
      * (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
@@ -258,6 +261,7 @@ export function getRemoteNugetRepositoryOutput(args: GetRemoteNugetRepositoryOut
         "downloadContextPath": args.downloadContextPath,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
+        "enableTokenAuthentication": args.enableTokenAuthentication,
         "excludesPattern": args.excludesPattern,
         "feedContextPath": args.feedContextPath,
         "forceNugetAuthentication": args.forceNugetAuthentication,
@@ -318,6 +322,7 @@ export interface GetRemoteNugetRepositoryOutputArgs {
     downloadContextPath?: pulumi.Input<string | undefined>;
     downloadDirect?: pulumi.Input<boolean | undefined>;
     enableCookieManagement?: pulumi.Input<boolean | undefined>;
+    enableTokenAuthentication?: pulumi.Input<boolean | undefined>;
     excludesPattern?: pulumi.Input<string | undefined>;
     /**
      * (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.

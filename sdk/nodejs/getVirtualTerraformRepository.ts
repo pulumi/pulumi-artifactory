@@ -25,6 +25,7 @@ export function getVirtualTerraformRepository(args: GetVirtualTerraformRepositor
         "defaultDeploymentRepo": args.defaultDeploymentRepo,
         "description": args.description,
         "excludesPattern": args.excludesPattern,
+        "hideUnauthorizedResources": args.hideUnauthorizedResources,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "notes": args.notes,
@@ -43,6 +44,7 @@ export interface GetVirtualTerraformRepositoryArgs {
     defaultDeploymentRepo?: string;
     description?: string;
     excludesPattern?: string;
+    hideUnauthorizedResources?: boolean;
     includesPattern?: string;
     /**
      * the identity key of the repo.
@@ -63,6 +65,7 @@ export interface GetVirtualTerraformRepositoryResult {
     readonly defaultDeploymentRepo?: string;
     readonly description?: string;
     readonly excludesPattern?: string;
+    readonly hideUnauthorizedResources?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -97,6 +100,7 @@ export function getVirtualTerraformRepositoryOutput(args: GetVirtualTerraformRep
         "defaultDeploymentRepo": args.defaultDeploymentRepo,
         "description": args.description,
         "excludesPattern": args.excludesPattern,
+        "hideUnauthorizedResources": args.hideUnauthorizedResources,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "notes": args.notes,
@@ -115,6 +119,7 @@ export interface GetVirtualTerraformRepositoryOutputArgs {
     defaultDeploymentRepo?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
     excludesPattern?: pulumi.Input<string | undefined>;
+    hideUnauthorizedResources?: pulumi.Input<boolean | undefined>;
     includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.

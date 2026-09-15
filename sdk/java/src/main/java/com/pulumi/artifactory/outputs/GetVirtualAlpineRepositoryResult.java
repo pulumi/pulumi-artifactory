@@ -19,6 +19,7 @@ public final class GetVirtualAlpineRepositoryResult {
     private @Nullable String defaultDeploymentRepo;
     private @Nullable String description;
     private @Nullable String excludesPattern;
+    private @Nullable Boolean hideUnauthorizedResources;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -55,6 +56,9 @@ public final class GetVirtualAlpineRepositoryResult {
     }
     public Optional<String> excludesPattern() {
         return Optional.ofNullable(this.excludesPattern);
+    }
+    public Optional<Boolean> hideUnauthorizedResources() {
+        return Optional.ofNullable(this.hideUnauthorizedResources);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -115,6 +119,7 @@ public final class GetVirtualAlpineRepositoryResult {
         private @Nullable String defaultDeploymentRepo;
         private @Nullable String description;
         private @Nullable String excludesPattern;
+        private @Nullable Boolean hideUnauthorizedResources;
         private String id;
         private @Nullable String includesPattern;
         private String key;
@@ -133,6 +138,7 @@ public final class GetVirtualAlpineRepositoryResult {
     	      this.defaultDeploymentRepo = defaults.defaultDeploymentRepo;
     	      this.description = defaults.description;
     	      this.excludesPattern = defaults.excludesPattern;
+    	      this.hideUnauthorizedResources = defaults.hideUnauthorizedResources;
     	      this.id = defaults.id;
     	      this.includesPattern = defaults.includesPattern;
     	      this.key = defaults.key;
@@ -168,6 +174,12 @@ public final class GetVirtualAlpineRepositoryResult {
         public Builder excludesPattern(@Nullable String excludesPattern) {
 
             this.excludesPattern = excludesPattern;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hideUnauthorizedResources(@Nullable Boolean hideUnauthorizedResources) {
+
+            this.hideUnauthorizedResources = hideUnauthorizedResources;
             return this;
         }
         @CustomType.Setter
@@ -256,6 +268,7 @@ public final class GetVirtualAlpineRepositoryResult {
             _resultValue.defaultDeploymentRepo = defaultDeploymentRepo;
             _resultValue.description = description;
             _resultValue.excludesPattern = excludesPattern;
+            _resultValue.hideUnauthorizedResources = hideUnauthorizedResources;
             _resultValue.id = id;
             _resultValue.includesPattern = includesPattern;
             _resultValue.key = key;

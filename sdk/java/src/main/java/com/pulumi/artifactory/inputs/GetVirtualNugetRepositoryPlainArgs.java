@@ -60,6 +60,13 @@ public final class GetVirtualNugetRepositoryPlainArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.forceNugetAuthentication);
     }
 
+    @Import(name="hideUnauthorizedResources")
+    private @Nullable Boolean hideUnauthorizedResources;
+
+    public Optional<Boolean> hideUnauthorizedResources() {
+        return Optional.ofNullable(this.hideUnauthorizedResources);
+    }
+
     @Import(name="includesPattern")
     private @Nullable String includesPattern;
 
@@ -125,6 +132,7 @@ public final class GetVirtualNugetRepositoryPlainArgs extends com.pulumi.resourc
         this.description = $.description;
         this.excludesPattern = $.excludesPattern;
         this.forceNugetAuthentication = $.forceNugetAuthentication;
+        this.hideUnauthorizedResources = $.hideUnauthorizedResources;
         this.includesPattern = $.includesPattern;
         this.key = $.key;
         this.notes = $.notes;
@@ -180,6 +188,11 @@ public final class GetVirtualNugetRepositoryPlainArgs extends com.pulumi.resourc
          */
         public Builder forceNugetAuthentication(@Nullable Boolean forceNugetAuthentication) {
             $.forceNugetAuthentication = forceNugetAuthentication;
+            return this;
+        }
+
+        public Builder hideUnauthorizedResources(@Nullable Boolean hideUnauthorizedResources) {
+            $.hideUnauthorizedResources = hideUnauthorizedResources;
             return this;
         }
 

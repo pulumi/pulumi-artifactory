@@ -29,6 +29,7 @@ public final class GetVirtualGoRepositoryResult {
      * 
      */
     private @Nullable List<String> externalDependenciesPatterns;
+    private @Nullable Boolean hideUnauthorizedResources;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -70,6 +71,9 @@ public final class GetVirtualGoRepositoryResult {
      */
     public List<String> externalDependenciesPatterns() {
         return this.externalDependenciesPatterns == null ? List.of() : this.externalDependenciesPatterns;
+    }
+    public Optional<Boolean> hideUnauthorizedResources() {
+        return Optional.ofNullable(this.hideUnauthorizedResources);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -118,6 +122,7 @@ public final class GetVirtualGoRepositoryResult {
         private @Nullable String excludesPattern;
         private @Nullable Boolean externalDependenciesEnabled;
         private @Nullable List<String> externalDependenciesPatterns;
+        private @Nullable Boolean hideUnauthorizedResources;
         private String id;
         private @Nullable String includesPattern;
         private String key;
@@ -136,6 +141,7 @@ public final class GetVirtualGoRepositoryResult {
     	      this.excludesPattern = defaults.excludesPattern;
     	      this.externalDependenciesEnabled = defaults.externalDependenciesEnabled;
     	      this.externalDependenciesPatterns = defaults.externalDependenciesPatterns;
+    	      this.hideUnauthorizedResources = defaults.hideUnauthorizedResources;
     	      this.id = defaults.id;
     	      this.includesPattern = defaults.includesPattern;
     	      this.key = defaults.key;
@@ -185,6 +191,12 @@ public final class GetVirtualGoRepositoryResult {
         }
         public Builder externalDependenciesPatterns(String... externalDependenciesPatterns) {
             return externalDependenciesPatterns(List.of(externalDependenciesPatterns));
+        }
+        @CustomType.Setter
+        public Builder hideUnauthorizedResources(@Nullable Boolean hideUnauthorizedResources) {
+
+            this.hideUnauthorizedResources = hideUnauthorizedResources;
+            return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -262,6 +274,7 @@ public final class GetVirtualGoRepositoryResult {
             _resultValue.excludesPattern = excludesPattern;
             _resultValue.externalDependenciesEnabled = externalDependenciesEnabled;
             _resultValue.externalDependenciesPatterns = externalDependenciesPatterns;
+            _resultValue.hideUnauthorizedResources = hideUnauthorizedResources;
             _resultValue.id = id;
             _resultValue.includesPattern = includesPattern;
             _resultValue.key = key;

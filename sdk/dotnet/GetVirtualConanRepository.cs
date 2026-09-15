@@ -106,6 +106,9 @@ namespace Pulumi.Artifactory
         [Input("forceConanAuthentication")]
         public bool? ForceConanAuthentication { get; set; }
 
+        [Input("hideUnauthorizedResources")]
+        public bool? HideUnauthorizedResources { get; set; }
+
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
@@ -173,6 +176,9 @@ namespace Pulumi.Artifactory
         [Input("forceConanAuthentication")]
         public Input<bool>? ForceConanAuthentication { get; set; }
 
+        [Input("hideUnauthorizedResources")]
+        public Input<bool>? HideUnauthorizedResources { get; set; }
+
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
@@ -232,6 +238,7 @@ namespace Pulumi.Artifactory
         /// Default is `False`.
         /// </summary>
         public readonly bool? ForceConanAuthentication;
+        public readonly bool? HideUnauthorizedResources;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -261,6 +268,8 @@ namespace Pulumi.Artifactory
 
             bool? forceConanAuthentication,
 
+            bool? hideUnauthorizedResources,
+
             string id,
 
             string? includesPattern,
@@ -286,6 +295,7 @@ namespace Pulumi.Artifactory
             Description = description;
             ExcludesPattern = excludesPattern;
             ForceConanAuthentication = forceConanAuthentication;
+            HideUnauthorizedResources = hideUnauthorizedResources;
             Id = id;
             IncludesPattern = includesPattern;
             Key = key;

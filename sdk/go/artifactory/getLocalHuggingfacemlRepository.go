@@ -35,9 +35,9 @@ type LookupLocalHuggingfacemlRepositoryArgs struct {
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen characters. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
@@ -70,11 +70,11 @@ type LookupLocalHuggingfacemlRepositoryResult struct {
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen characters. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
@@ -113,9 +113,9 @@ type LookupLocalHuggingfacemlRepositoryOutputArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput `pulumi:"downloadDirect"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no artifacts are excluded.
+	// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput `pulumi:"excludesPattern"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput `pulumi:"key"`
@@ -180,7 +180,7 @@ func (o LookupLocalHuggingfacemlRepositoryResultOutput) DownloadDirect() pulumi.
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) *bool { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no artifacts are excluded.
+// Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
 func (o LookupLocalHuggingfacemlRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
@@ -190,7 +190,7 @@ func (o LookupLocalHuggingfacemlRepositoryResultOutput) Id() pulumi.StringOutput
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+// Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 func (o LookupLocalHuggingfacemlRepositoryResultOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) *string { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }

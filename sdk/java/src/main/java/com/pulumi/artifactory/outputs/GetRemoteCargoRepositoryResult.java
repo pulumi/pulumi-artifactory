@@ -40,6 +40,7 @@ public final class GetRemoteCargoRepositoryResult {
      * 
      */
     private @Nullable Boolean enableSparseIndex;
+    private @Nullable Boolean enableTokenAuthentication;
     private @Nullable String excludesPattern;
     /**
      * @return (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
@@ -137,6 +138,9 @@ public final class GetRemoteCargoRepositoryResult {
      */
     public Optional<Boolean> enableSparseIndex() {
         return Optional.ofNullable(this.enableSparseIndex);
+    }
+    public Optional<Boolean> enableTokenAuthentication() {
+        return Optional.ofNullable(this.enableTokenAuthentication);
     }
     public Optional<String> excludesPattern() {
         return Optional.ofNullable(this.excludesPattern);
@@ -268,6 +272,7 @@ public final class GetRemoteCargoRepositoryResult {
         private @Nullable Boolean downloadDirect;
         private @Nullable Boolean enableCookieManagement;
         private @Nullable Boolean enableSparseIndex;
+        private @Nullable Boolean enableTokenAuthentication;
         private @Nullable String excludesPattern;
         private @Nullable String gitRegistryUrl;
         private @Nullable Boolean hardFail;
@@ -319,6 +324,7 @@ public final class GetRemoteCargoRepositoryResult {
     	      this.downloadDirect = defaults.downloadDirect;
     	      this.enableCookieManagement = defaults.enableCookieManagement;
     	      this.enableSparseIndex = defaults.enableSparseIndex;
+    	      this.enableTokenAuthentication = defaults.enableTokenAuthentication;
     	      this.excludesPattern = defaults.excludesPattern;
     	      this.gitRegistryUrl = defaults.gitRegistryUrl;
     	      this.hardFail = defaults.hardFail;
@@ -451,6 +457,12 @@ public final class GetRemoteCargoRepositoryResult {
         public Builder enableSparseIndex(@Nullable Boolean enableSparseIndex) {
 
             this.enableSparseIndex = enableSparseIndex;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enableTokenAuthentication(@Nullable Boolean enableTokenAuthentication) {
+
+            this.enableTokenAuthentication = enableTokenAuthentication;
             return this;
         }
         @CustomType.Setter
@@ -679,6 +691,7 @@ public final class GetRemoteCargoRepositoryResult {
             _resultValue.downloadDirect = downloadDirect;
             _resultValue.enableCookieManagement = enableCookieManagement;
             _resultValue.enableSparseIndex = enableSparseIndex;
+            _resultValue.enableTokenAuthentication = enableTokenAuthentication;
             _resultValue.excludesPattern = excludesPattern;
             _resultValue.gitRegistryUrl = gitRegistryUrl;
             _resultValue.hardFail = hardFail;

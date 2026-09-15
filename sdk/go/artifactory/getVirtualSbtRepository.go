@@ -55,6 +55,7 @@ type LookupVirtualSbtRepositoryArgs struct {
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
 	ForceMavenAuthentication                      *bool   `pulumi:"forceMavenAuthentication"`
+	HideUnauthorizedResources                     *bool   `pulumi:"hideUnauthorizedResources"`
 	IncludesPattern                               *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key string `pulumi:"key"`
@@ -79,6 +80,7 @@ type LookupVirtualSbtRepositoryResult struct {
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
 	ForceMavenAuthentication                      bool    `pulumi:"forceMavenAuthentication"`
+	HideUnauthorizedResources                     *bool   `pulumi:"hideUnauthorizedResources"`
 	// The provider-assigned unique ID for this managed resource.
 	Id              string  `pulumi:"id"`
 	IncludesPattern *string `pulumi:"includesPattern"`
@@ -110,6 +112,7 @@ type LookupVirtualSbtRepositoryOutputArgs struct {
 	Description                                   pulumi.StringPtrInput `pulumi:"description"`
 	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
 	ForceMavenAuthentication                      pulumi.BoolPtrInput   `pulumi:"forceMavenAuthentication"`
+	HideUnauthorizedResources                     pulumi.BoolPtrInput   `pulumi:"hideUnauthorizedResources"`
 	IncludesPattern                               pulumi.StringPtrInput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key pulumi.StringInput `pulumi:"key"`
@@ -164,6 +167,10 @@ func (o LookupVirtualSbtRepositoryResultOutput) ExcludesPattern() pulumi.StringP
 
 func (o LookupVirtualSbtRepositoryResultOutput) ForceMavenAuthentication() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVirtualSbtRepositoryResult) bool { return v.ForceMavenAuthentication }).(pulumi.BoolOutput)
+}
+
+func (o LookupVirtualSbtRepositoryResultOutput) HideUnauthorizedResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualSbtRepositoryResult) *bool { return v.HideUnauthorizedResources }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

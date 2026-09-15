@@ -55,8 +55,9 @@ type LookupVirtualNugetRepositoryArgs struct {
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
 	// (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
-	ForceNugetAuthentication *bool   `pulumi:"forceNugetAuthentication"`
-	IncludesPattern          *string `pulumi:"includesPattern"`
+	ForceNugetAuthentication  *bool   `pulumi:"forceNugetAuthentication"`
+	HideUnauthorizedResources *bool   `pulumi:"hideUnauthorizedResources"`
+	IncludesPattern           *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                 string   `pulumi:"key"`
 	Notes               *string  `pulumi:"notes"`
@@ -73,7 +74,8 @@ type LookupVirtualNugetRepositoryResult struct {
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
 	// (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
-	ForceNugetAuthentication *bool `pulumi:"forceNugetAuthentication"`
+	ForceNugetAuthentication  *bool `pulumi:"forceNugetAuthentication"`
+	HideUnauthorizedResources *bool `pulumi:"hideUnauthorizedResources"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                  string   `pulumi:"id"`
 	IncludesPattern     *string  `pulumi:"includesPattern"`
@@ -98,8 +100,9 @@ type LookupVirtualNugetRepositoryOutputArgs struct {
 	Description                                   pulumi.StringPtrInput `pulumi:"description"`
 	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
 	// (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
-	ForceNugetAuthentication pulumi.BoolPtrInput   `pulumi:"forceNugetAuthentication"`
-	IncludesPattern          pulumi.StringPtrInput `pulumi:"includesPattern"`
+	ForceNugetAuthentication  pulumi.BoolPtrInput   `pulumi:"forceNugetAuthentication"`
+	HideUnauthorizedResources pulumi.BoolPtrInput   `pulumi:"hideUnauthorizedResources"`
+	IncludesPattern           pulumi.StringPtrInput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                 pulumi.StringInput      `pulumi:"key"`
 	Notes               pulumi.StringPtrInput   `pulumi:"notes"`
@@ -149,6 +152,10 @@ func (o LookupVirtualNugetRepositoryResultOutput) ExcludesPattern() pulumi.Strin
 // (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
 func (o LookupVirtualNugetRepositoryResultOutput) ForceNugetAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupVirtualNugetRepositoryResult) *bool { return v.ForceNugetAuthentication }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupVirtualNugetRepositoryResultOutput) HideUnauthorizedResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualNugetRepositoryResult) *bool { return v.HideUnauthorizedResources }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

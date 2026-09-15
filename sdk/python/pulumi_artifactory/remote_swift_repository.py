@@ -37,6 +37,7 @@ class RemoteSwiftRepositoryArgs:
                  disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
                  download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_cookie_management: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_token_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
                  excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  hard_fail: pulumi.Input[Optional[_builtins.bool]] = None,
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
@@ -86,9 +87,10 @@ class RemoteSwiftRepositoryArgs:
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[_builtins.bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.bool] enable_token_authentication: Enable token (Bearer) based authentication. When set, use an access token as `password` (username may be empty) so Artifactory authenticates to the remote with a Bearer token instead of Basic auth. Default is `false` for most package types; OCI, Helm OCI, and Hugging Face remotes default to `true`.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         :param pulumi.Input[_builtins.str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
         :param pulumi.Input[_builtins.int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
@@ -144,6 +146,8 @@ class RemoteSwiftRepositoryArgs:
             pulumi.set(__self__, "download_direct", download_direct)
         if enable_cookie_management is not None:
             pulumi.set(__self__, "enable_cookie_management", enable_cookie_management)
+        if enable_token_authentication is not None:
+            pulumi.set(__self__, "enable_token_authentication", enable_token_authentication)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if hard_fail is not None:
@@ -398,10 +402,22 @@ class RemoteSwiftRepositoryArgs:
         pulumi.set(self, "enable_cookie_management", value)
 
     @_builtins.property
+    @pulumi.getter(name="enableTokenAuthentication")
+    def enable_token_authentication(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enable token (Bearer) based authentication. When set, use an access token as `password` (username may be empty) so Artifactory authenticates to the remote with a Bearer token instead of Basic auth. Default is `false` for most package types; OCI, Helm OCI, and Hugging Face remotes default to `true`.
+        """
+        return pulumi.get(self, "enable_token_authentication")
+
+    @enable_token_authentication.setter
+    def enable_token_authentication(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_token_authentication", value)
+
+    @_builtins.property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -425,7 +441,7 @@ class RemoteSwiftRepositoryArgs:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -756,6 +772,7 @@ class _RemoteSwiftRepositoryState:
                  disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
                  download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_cookie_management: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_token_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
                  excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  hard_fail: pulumi.Input[Optional[_builtins.bool]] = None,
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
@@ -804,9 +821,10 @@ class _RemoteSwiftRepositoryState:
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[_builtins.bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.bool] enable_token_authentication: Enable token (Bearer) based authentication. When set, use an access token as `password` (username may be empty) so Artifactory authenticates to the remote with a Bearer token instead of Basic auth. Default is `false` for most package types; OCI, Helm OCI, and Hugging Face remotes default to `true`.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
@@ -863,6 +881,8 @@ class _RemoteSwiftRepositoryState:
             pulumi.set(__self__, "download_direct", download_direct)
         if enable_cookie_management is not None:
             pulumi.set(__self__, "enable_cookie_management", enable_cookie_management)
+        if enable_token_authentication is not None:
+            pulumi.set(__self__, "enable_token_authentication", enable_token_authentication)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if hard_fail is not None:
@@ -1096,10 +1116,22 @@ class _RemoteSwiftRepositoryState:
         pulumi.set(self, "enable_cookie_management", value)
 
     @_builtins.property
+    @pulumi.getter(name="enableTokenAuthentication")
+    def enable_token_authentication(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enable token (Bearer) based authentication. When set, use an access token as `password` (username may be empty) so Artifactory authenticates to the remote with a Bearer token instead of Basic auth. Default is `false` for most package types; OCI, Helm OCI, and Hugging Face remotes default to `true`.
+        """
+        return pulumi.get(self, "enable_token_authentication")
+
+    @enable_token_authentication.setter
+    def enable_token_authentication(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_token_authentication", value)
+
+    @_builtins.property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -1123,7 +1155,7 @@ class _RemoteSwiftRepositoryState:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -1482,6 +1514,7 @@ class RemoteSwiftRepository(pulumi.CustomResource):
                  disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
                  download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_cookie_management: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_token_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
                  excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  hard_fail: pulumi.Input[Optional[_builtins.bool]] = None,
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1553,9 +1586,10 @@ class RemoteSwiftRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[_builtins.bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.bool] enable_token_authentication: Enable token (Bearer) based authentication. When set, use an access token as `password` (username may be empty) so Artifactory authenticates to the remote with a Bearer token instead of Basic auth. Default is `false` for most package types; OCI, Helm OCI, and Hugging Face remotes default to `true`.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
@@ -1642,6 +1676,7 @@ class RemoteSwiftRepository(pulumi.CustomResource):
                  disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
                  download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_cookie_management: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_token_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
                  excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  hard_fail: pulumi.Input[Optional[_builtins.bool]] = None,
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1696,6 +1731,7 @@ class RemoteSwiftRepository(pulumi.CustomResource):
             __props__.__dict__["disable_url_normalization"] = disable_url_normalization
             __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["enable_cookie_management"] = enable_cookie_management
+            __props__.__dict__["enable_token_authentication"] = enable_token_authentication
             __props__.__dict__["excludes_pattern"] = excludes_pattern
             __props__.__dict__["hard_fail"] = hard_fail
             __props__.__dict__["includes_pattern"] = includes_pattern
@@ -1757,6 +1793,7 @@ class RemoteSwiftRepository(pulumi.CustomResource):
             disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
             download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
             enable_cookie_management: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_token_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
             excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
             hard_fail: pulumi.Input[Optional[_builtins.bool]] = None,
             includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1809,9 +1846,10 @@ class RemoteSwiftRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
         :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[_builtins.bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.bool] enable_token_authentication: Enable token (Bearer) based authentication. When set, use an access token as `password` (username may be empty) so Artifactory authenticates to the remote with a Bearer token instead of Basic auth. Default is `false` for most package types; OCI, Helm OCI, and Hugging Face remotes default to `true`.
+        :param pulumi.Input[_builtins.str] excludes_pattern: Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
@@ -1858,6 +1896,7 @@ class RemoteSwiftRepository(pulumi.CustomResource):
         __props__.__dict__["disable_url_normalization"] = disable_url_normalization
         __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["enable_cookie_management"] = enable_cookie_management
+        __props__.__dict__["enable_token_authentication"] = enable_token_authentication
         __props__.__dict__["excludes_pattern"] = excludes_pattern
         __props__.__dict__["hard_fail"] = hard_fail
         __props__.__dict__["includes_pattern"] = includes_pattern
@@ -2002,10 +2041,18 @@ class RemoteSwiftRepository(pulumi.CustomResource):
         return pulumi.get(self, "enable_cookie_management")
 
     @_builtins.property
+    @pulumi.getter(name="enableTokenAuthentication")
+    def enable_token_authentication(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Enable token (Bearer) based authentication. When set, use an access token as `password` (username may be empty) so Artifactory authenticates to the remote with a Bearer token instead of Basic auth. Default is `false` for most package types; OCI, Helm OCI, and Hugging Face remotes default to `true`.
+        """
+        return pulumi.get(self, "enable_token_authentication")
+
+    @_builtins.property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[_builtins.str]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        Comma-separated list of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -2021,7 +2068,7 @@ class RemoteSwiftRepository(pulumi.CustomResource):
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[_builtins.str]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 

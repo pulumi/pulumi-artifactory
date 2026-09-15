@@ -39,6 +39,7 @@ export function getRemoteCargoRepository(args: GetRemoteCargoRepositoryArgs, opt
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
         "enableSparseIndex": args.enableSparseIndex,
+        "enableTokenAuthentication": args.enableTokenAuthentication,
         "excludesPattern": args.excludesPattern,
         "gitRegistryUrl": args.gitRegistryUrl,
         "hardFail": args.hardFail,
@@ -98,6 +99,7 @@ export interface GetRemoteCargoRepositoryArgs {
      * (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
      */
     enableSparseIndex?: boolean;
+    enableTokenAuthentication?: boolean;
     excludesPattern?: string;
     /**
      * (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
@@ -162,6 +164,7 @@ export interface GetRemoteCargoRepositoryResult {
      * (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
      */
     readonly enableSparseIndex?: boolean;
+    readonly enableTokenAuthentication?: boolean;
     readonly excludesPattern?: string;
     /**
      * (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
@@ -234,6 +237,7 @@ export function getRemoteCargoRepositoryOutput(args: GetRemoteCargoRepositoryOut
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
         "enableSparseIndex": args.enableSparseIndex,
+        "enableTokenAuthentication": args.enableTokenAuthentication,
         "excludesPattern": args.excludesPattern,
         "gitRegistryUrl": args.gitRegistryUrl,
         "hardFail": args.hardFail,
@@ -293,6 +297,7 @@ export interface GetRemoteCargoRepositoryOutputArgs {
      * (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
      */
     enableSparseIndex?: pulumi.Input<boolean | undefined>;
+    enableTokenAuthentication?: pulumi.Input<boolean | undefined>;
     excludesPattern?: pulumi.Input<string | undefined>;
     /**
      * (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
