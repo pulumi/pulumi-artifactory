@@ -27,6 +27,7 @@ export function getVirtualGoRepository(args: GetVirtualGoRepositoryArgs, opts?: 
         "excludesPattern": args.excludesPattern,
         "externalDependenciesEnabled": args.externalDependenciesEnabled,
         "externalDependenciesPatterns": args.externalDependenciesPatterns,
+        "hideUnauthorizedResources": args.hideUnauthorizedResources,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "notes": args.notes,
@@ -54,6 +55,7 @@ export interface GetVirtualGoRepositoryArgs {
      * (Optional) 'go-import' Allow List on the UI.
      */
     externalDependenciesPatterns?: string[];
+    hideUnauthorizedResources?: boolean;
     includesPattern?: string;
     /**
      * the identity key of the repo.
@@ -83,6 +85,7 @@ export interface GetVirtualGoRepositoryResult {
      * (Optional) 'go-import' Allow List on the UI.
      */
     readonly externalDependenciesPatterns?: string[];
+    readonly hideUnauthorizedResources?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -119,6 +122,7 @@ export function getVirtualGoRepositoryOutput(args: GetVirtualGoRepositoryOutputA
         "excludesPattern": args.excludesPattern,
         "externalDependenciesEnabled": args.externalDependenciesEnabled,
         "externalDependenciesPatterns": args.externalDependenciesPatterns,
+        "hideUnauthorizedResources": args.hideUnauthorizedResources,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "notes": args.notes,
@@ -146,6 +150,7 @@ export interface GetVirtualGoRepositoryOutputArgs {
      * (Optional) 'go-import' Allow List on the UI.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    hideUnauthorizedResources?: pulumi.Input<boolean | undefined>;
     includesPattern?: pulumi.Input<string | undefined>;
     /**
      * the identity key of the repo.

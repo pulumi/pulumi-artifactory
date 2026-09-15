@@ -65,6 +65,7 @@ type LookupRemoteConanRepositoryArgs struct {
 	DisableUrlNormalization   *bool                                           `pulumi:"disableUrlNormalization"`
 	DownloadDirect            *bool                                           `pulumi:"downloadDirect"`
 	EnableCookieManagement    *bool                                           `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication *bool                                           `pulumi:"enableTokenAuthentication"`
 	ExcludesPattern           *string                                         `pulumi:"excludesPattern"`
 	// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
 	ForceConanAuthentication *bool   `pulumi:"forceConanAuthentication"`
@@ -117,6 +118,7 @@ type LookupRemoteConanRepositoryResult struct {
 	DisableUrlNormalization   *bool                                          `pulumi:"disableUrlNormalization"`
 	DownloadDirect            *bool                                          `pulumi:"downloadDirect"`
 	EnableCookieManagement    *bool                                          `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication *bool                                          `pulumi:"enableTokenAuthentication"`
 	ExcludesPattern           *string                                        `pulumi:"excludesPattern"`
 	// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
 	ForceConanAuthentication *bool `pulumi:"forceConanAuthentication"`
@@ -176,6 +178,7 @@ type LookupRemoteConanRepositoryOutputArgs struct {
 	DisableUrlNormalization   pulumi.BoolPtrInput                                    `pulumi:"disableUrlNormalization"`
 	DownloadDirect            pulumi.BoolPtrInput                                    `pulumi:"downloadDirect"`
 	EnableCookieManagement    pulumi.BoolPtrInput                                    `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication pulumi.BoolPtrInput                                    `pulumi:"enableTokenAuthentication"`
 	ExcludesPattern           pulumi.StringPtrInput                                  `pulumi:"excludesPattern"`
 	// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
 	ForceConanAuthentication pulumi.BoolPtrInput   `pulumi:"forceConanAuthentication"`
@@ -290,6 +293,10 @@ func (o LookupRemoteConanRepositoryResultOutput) DownloadDirect() pulumi.BoolPtr
 
 func (o LookupRemoteConanRepositoryResultOutput) EnableCookieManagement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteConanRepositoryResult) *bool { return v.EnableCookieManagement }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupRemoteConanRepositoryResultOutput) EnableTokenAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteConanRepositoryResult) *bool { return v.EnableTokenAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteConanRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {

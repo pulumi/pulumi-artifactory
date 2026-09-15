@@ -333,6 +333,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RemoteHuggingfacemlRepository{}
 	case "artifactory:index/remoteIvyRepository:RemoteIvyRepository":
 		r = &RemoteIvyRepository{}
+	case "artifactory:index/remoteJetbrainspluginsRepository:RemoteJetbrainspluginsRepository":
+		r = &RemoteJetbrainspluginsRepository{}
 	case "artifactory:index/remoteMavenRepository:RemoteMavenRepository":
 		r = &RemoteMavenRepository{}
 	case "artifactory:index/remoteNixRepository:RemoteNixRepository":
@@ -1256,6 +1258,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/remoteIvyRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/remoteJetbrainspluginsRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -59,6 +59,7 @@ type GetVirtualGoRepositoryArgs struct {
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
 	// (Optional) 'go-import' Allow List on the UI.
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
+	HideUnauthorizedResources    *bool    `pulumi:"hideUnauthorizedResources"`
 	IncludesPattern              *string  `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                 string   `pulumi:"key"`
@@ -80,6 +81,7 @@ type GetVirtualGoRepositoryResult struct {
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
 	// (Optional) 'go-import' Allow List on the UI.
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
+	HideUnauthorizedResources    *bool    `pulumi:"hideUnauthorizedResources"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                  string   `pulumi:"id"`
 	IncludesPattern     *string  `pulumi:"includesPattern"`
@@ -108,6 +110,7 @@ type GetVirtualGoRepositoryOutputArgs struct {
 	ExternalDependenciesEnabled pulumi.BoolPtrInput `pulumi:"externalDependenciesEnabled"`
 	// (Optional) 'go-import' Allow List on the UI.
 	ExternalDependenciesPatterns pulumi.StringArrayInput `pulumi:"externalDependenciesPatterns"`
+	HideUnauthorizedResources    pulumi.BoolPtrInput     `pulumi:"hideUnauthorizedResources"`
 	IncludesPattern              pulumi.StringPtrInput   `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                 pulumi.StringInput      `pulumi:"key"`
@@ -162,6 +165,10 @@ func (o GetVirtualGoRepositoryResultOutput) ExternalDependenciesEnabled() pulumi
 // (Optional) 'go-import' Allow List on the UI.
 func (o GetVirtualGoRepositoryResultOutput) ExternalDependenciesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVirtualGoRepositoryResult) []string { return v.ExternalDependenciesPatterns }).(pulumi.StringArrayOutput)
+}
+
+func (o GetVirtualGoRepositoryResultOutput) HideUnauthorizedResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetVirtualGoRepositoryResult) *bool { return v.HideUnauthorizedResources }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

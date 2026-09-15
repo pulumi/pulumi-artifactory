@@ -37,6 +37,7 @@ export function getRemoteHelmRepository(args: GetRemoteHelmRepositoryArgs, opts?
         "disableUrlNormalization": args.disableUrlNormalization,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
+        "enableTokenAuthentication": args.enableTokenAuthentication,
         "excludesPattern": args.excludesPattern,
         "externalDependenciesEnabled": args.externalDependenciesEnabled,
         "externalDependenciesPatterns": args.externalDependenciesPatterns,
@@ -90,6 +91,7 @@ export interface GetRemoteHelmRepositoryArgs {
     disableUrlNormalization?: boolean;
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
+    enableTokenAuthentication?: boolean;
     excludesPattern?: string;
     /**
      * (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
@@ -154,6 +156,7 @@ export interface GetRemoteHelmRepositoryResult {
     readonly disableUrlNormalization?: boolean;
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
+    readonly enableTokenAuthentication?: boolean;
     readonly excludesPattern?: string;
     /**
      * (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
@@ -232,6 +235,7 @@ export function getRemoteHelmRepositoryOutput(args: GetRemoteHelmRepositoryOutpu
         "disableUrlNormalization": args.disableUrlNormalization,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
+        "enableTokenAuthentication": args.enableTokenAuthentication,
         "excludesPattern": args.excludesPattern,
         "externalDependenciesEnabled": args.externalDependenciesEnabled,
         "externalDependenciesPatterns": args.externalDependenciesPatterns,
@@ -285,6 +289,7 @@ export interface GetRemoteHelmRepositoryOutputArgs {
     disableUrlNormalization?: pulumi.Input<boolean | undefined>;
     downloadDirect?: pulumi.Input<boolean | undefined>;
     enableCookieManagement?: pulumi.Input<boolean | undefined>;
+    enableTokenAuthentication?: pulumi.Input<boolean | undefined>;
     excludesPattern?: pulumi.Input<string | undefined>;
     /**
      * (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.

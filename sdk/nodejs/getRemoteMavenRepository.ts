@@ -38,6 +38,7 @@ export function getRemoteMavenRepository(args: GetRemoteMavenRepositoryArgs, opt
         "disableUrlNormalization": args.disableUrlNormalization,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
+        "enableTokenAuthentication": args.enableTokenAuthentication,
         "excludesPattern": args.excludesPattern,
         "fetchJarsEagerly": args.fetchJarsEagerly,
         "fetchSourcesEagerly": args.fetchSourcesEagerly,
@@ -98,6 +99,7 @@ export interface GetRemoteMavenRepositoryArgs {
     disableUrlNormalization?: boolean;
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
+    enableTokenAuthentication?: boolean;
     excludesPattern?: string;
     /**
      * (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
@@ -184,6 +186,7 @@ export interface GetRemoteMavenRepositoryResult {
     readonly disableUrlNormalization?: boolean;
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
+    readonly enableTokenAuthentication?: boolean;
     readonly excludesPattern?: string;
     /**
      * (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
@@ -284,6 +287,7 @@ export function getRemoteMavenRepositoryOutput(args: GetRemoteMavenRepositoryOut
         "disableUrlNormalization": args.disableUrlNormalization,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
+        "enableTokenAuthentication": args.enableTokenAuthentication,
         "excludesPattern": args.excludesPattern,
         "fetchJarsEagerly": args.fetchJarsEagerly,
         "fetchSourcesEagerly": args.fetchSourcesEagerly,
@@ -344,6 +348,7 @@ export interface GetRemoteMavenRepositoryOutputArgs {
     disableUrlNormalization?: pulumi.Input<boolean | undefined>;
     downloadDirect?: pulumi.Input<boolean | undefined>;
     enableCookieManagement?: pulumi.Input<boolean | undefined>;
+    enableTokenAuthentication?: pulumi.Input<boolean | undefined>;
     excludesPattern?: pulumi.Input<string | undefined>;
     /**
      * (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.

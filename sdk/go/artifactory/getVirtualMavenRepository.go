@@ -55,8 +55,9 @@ type GetVirtualMavenRepositoryArgs struct {
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
 	// (Optional) Forces authentication when fetching from remote repos.
-	ForceMavenAuthentication *bool   `pulumi:"forceMavenAuthentication"`
-	IncludesPattern          *string `pulumi:"includesPattern"`
+	ForceMavenAuthentication  *bool   `pulumi:"forceMavenAuthentication"`
+	HideUnauthorizedResources *bool   `pulumi:"hideUnauthorizedResources"`
+	IncludesPattern           *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key     string  `pulumi:"key"`
 	KeyPair *string `pulumi:"keyPair"`
@@ -76,7 +77,8 @@ type GetVirtualMavenRepositoryResult struct {
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
 	// (Optional) Forces authentication when fetching from remote repos.
-	ForceMavenAuthentication bool `pulumi:"forceMavenAuthentication"`
+	ForceMavenAuthentication  bool  `pulumi:"forceMavenAuthentication"`
+	HideUnauthorizedResources *bool `pulumi:"hideUnauthorizedResources"`
 	// The provider-assigned unique ID for this managed resource.
 	Id              string  `pulumi:"id"`
 	IncludesPattern *string `pulumi:"includesPattern"`
@@ -104,8 +106,9 @@ type GetVirtualMavenRepositoryOutputArgs struct {
 	Description                                   pulumi.StringPtrInput `pulumi:"description"`
 	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
 	// (Optional) Forces authentication when fetching from remote repos.
-	ForceMavenAuthentication pulumi.BoolPtrInput   `pulumi:"forceMavenAuthentication"`
-	IncludesPattern          pulumi.StringPtrInput `pulumi:"includesPattern"`
+	ForceMavenAuthentication  pulumi.BoolPtrInput   `pulumi:"forceMavenAuthentication"`
+	HideUnauthorizedResources pulumi.BoolPtrInput   `pulumi:"hideUnauthorizedResources"`
+	IncludesPattern           pulumi.StringPtrInput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key     pulumi.StringInput    `pulumi:"key"`
 	KeyPair pulumi.StringPtrInput `pulumi:"keyPair"`
@@ -156,6 +159,10 @@ func (o GetVirtualMavenRepositoryResultOutput) ExcludesPattern() pulumi.StringPt
 // (Optional) Forces authentication when fetching from remote repos.
 func (o GetVirtualMavenRepositoryResultOutput) ForceMavenAuthentication() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetVirtualMavenRepositoryResult) bool { return v.ForceMavenAuthentication }).(pulumi.BoolOutput)
+}
+
+func (o GetVirtualMavenRepositoryResultOutput) HideUnauthorizedResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetVirtualMavenRepositoryResult) *bool { return v.HideUnauthorizedResources }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -38,6 +38,7 @@ export function getRemoteConanRepository(args: GetRemoteConanRepositoryArgs, opt
         "disableUrlNormalization": args.disableUrlNormalization,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
+        "enableTokenAuthentication": args.enableTokenAuthentication,
         "excludesPattern": args.excludesPattern,
         "forceConanAuthentication": args.forceConanAuthentication,
         "hardFail": args.hardFail,
@@ -91,6 +92,7 @@ export interface GetRemoteConanRepositoryArgs {
     disableUrlNormalization?: boolean;
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
+    enableTokenAuthentication?: boolean;
     excludesPattern?: string;
     /**
      * (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
@@ -149,6 +151,7 @@ export interface GetRemoteConanRepositoryResult {
     readonly disableUrlNormalization?: boolean;
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
+    readonly enableTokenAuthentication?: boolean;
     readonly excludesPattern?: string;
     /**
      * (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
@@ -221,6 +224,7 @@ export function getRemoteConanRepositoryOutput(args: GetRemoteConanRepositoryOut
         "disableUrlNormalization": args.disableUrlNormalization,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
+        "enableTokenAuthentication": args.enableTokenAuthentication,
         "excludesPattern": args.excludesPattern,
         "forceConanAuthentication": args.forceConanAuthentication,
         "hardFail": args.hardFail,
@@ -274,6 +278,7 @@ export interface GetRemoteConanRepositoryOutputArgs {
     disableUrlNormalization?: pulumi.Input<boolean | undefined>;
     downloadDirect?: pulumi.Input<boolean | undefined>;
     enableCookieManagement?: pulumi.Input<boolean | undefined>;
+    enableTokenAuthentication?: pulumi.Input<boolean | undefined>;
     excludesPattern?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.

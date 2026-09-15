@@ -54,6 +54,7 @@ type LookupVirtualRpmRepositoryArgs struct {
 	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
+	HideUnauthorizedResources                     *bool   `pulumi:"hideUnauthorizedResources"`
 	IncludesPattern                               *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key   string  `pulumi:"key"`
@@ -75,6 +76,7 @@ type LookupVirtualRpmRepositoryResult struct {
 	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
+	HideUnauthorizedResources                     *bool   `pulumi:"hideUnauthorizedResources"`
 	// The provider-assigned unique ID for this managed resource.
 	Id              string  `pulumi:"id"`
 	IncludesPattern *string `pulumi:"includesPattern"`
@@ -103,6 +105,7 @@ type LookupVirtualRpmRepositoryOutputArgs struct {
 	DefaultDeploymentRepo                         pulumi.StringPtrInput `pulumi:"defaultDeploymentRepo"`
 	Description                                   pulumi.StringPtrInput `pulumi:"description"`
 	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	HideUnauthorizedResources                     pulumi.BoolPtrInput   `pulumi:"hideUnauthorizedResources"`
 	IncludesPattern                               pulumi.StringPtrInput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key   pulumi.StringInput    `pulumi:"key"`
@@ -151,6 +154,10 @@ func (o LookupVirtualRpmRepositoryResultOutput) Description() pulumi.StringPtrOu
 
 func (o LookupVirtualRpmRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVirtualRpmRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupVirtualRpmRepositoryResultOutput) HideUnauthorizedResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualRpmRepositoryResult) *bool { return v.HideUnauthorizedResources }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

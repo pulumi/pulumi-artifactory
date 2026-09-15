@@ -67,8 +67,9 @@ type LookupRemoteCargoRepositoryArgs struct {
 	DownloadDirect            *bool                                           `pulumi:"downloadDirect"`
 	EnableCookieManagement    *bool                                           `pulumi:"enableCookieManagement"`
 	// (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
-	EnableSparseIndex *bool   `pulumi:"enableSparseIndex"`
-	ExcludesPattern   *string `pulumi:"excludesPattern"`
+	EnableSparseIndex         *bool   `pulumi:"enableSparseIndex"`
+	EnableTokenAuthentication *bool   `pulumi:"enableTokenAuthentication"`
+	ExcludesPattern           *string `pulumi:"excludesPattern"`
 	// (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
 	GitRegistryUrl  *string `pulumi:"gitRegistryUrl"`
 	HardFail        *bool   `pulumi:"hardFail"`
@@ -121,8 +122,9 @@ type LookupRemoteCargoRepositoryResult struct {
 	DownloadDirect            *bool                                          `pulumi:"downloadDirect"`
 	EnableCookieManagement    *bool                                          `pulumi:"enableCookieManagement"`
 	// (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
-	EnableSparseIndex *bool   `pulumi:"enableSparseIndex"`
-	ExcludesPattern   *string `pulumi:"excludesPattern"`
+	EnableSparseIndex         *bool   `pulumi:"enableSparseIndex"`
+	EnableTokenAuthentication *bool   `pulumi:"enableTokenAuthentication"`
+	ExcludesPattern           *string `pulumi:"excludesPattern"`
 	// (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
 	GitRegistryUrl *string `pulumi:"gitRegistryUrl"`
 	HardFail       *bool   `pulumi:"hardFail"`
@@ -182,8 +184,9 @@ type LookupRemoteCargoRepositoryOutputArgs struct {
 	DownloadDirect            pulumi.BoolPtrInput                                    `pulumi:"downloadDirect"`
 	EnableCookieManagement    pulumi.BoolPtrInput                                    `pulumi:"enableCookieManagement"`
 	// (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
-	EnableSparseIndex pulumi.BoolPtrInput   `pulumi:"enableSparseIndex"`
-	ExcludesPattern   pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	EnableSparseIndex         pulumi.BoolPtrInput   `pulumi:"enableSparseIndex"`
+	EnableTokenAuthentication pulumi.BoolPtrInput   `pulumi:"enableTokenAuthentication"`
+	ExcludesPattern           pulumi.StringPtrInput `pulumi:"excludesPattern"`
 	// (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
 	GitRegistryUrl  pulumi.StringPtrInput `pulumi:"gitRegistryUrl"`
 	HardFail        pulumi.BoolPtrInput   `pulumi:"hardFail"`
@@ -302,6 +305,10 @@ func (o LookupRemoteCargoRepositoryResultOutput) EnableCookieManagement() pulumi
 // (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 func (o LookupRemoteCargoRepositoryResultOutput) EnableSparseIndex() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteCargoRepositoryResult) *bool { return v.EnableSparseIndex }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupRemoteCargoRepositoryResultOutput) EnableTokenAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteCargoRepositoryResult) *bool { return v.EnableTokenAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteCargoRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {

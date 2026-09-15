@@ -63,6 +63,13 @@ public final class GetVirtualConanRepositoryPlainArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.forceConanAuthentication);
     }
 
+    @Import(name="hideUnauthorizedResources")
+    private @Nullable Boolean hideUnauthorizedResources;
+
+    public Optional<Boolean> hideUnauthorizedResources() {
+        return Optional.ofNullable(this.hideUnauthorizedResources);
+    }
+
     @Import(name="includesPattern")
     private @Nullable String includesPattern;
 
@@ -143,6 +150,7 @@ public final class GetVirtualConanRepositoryPlainArgs extends com.pulumi.resourc
         this.description = $.description;
         this.excludesPattern = $.excludesPattern;
         this.forceConanAuthentication = $.forceConanAuthentication;
+        this.hideUnauthorizedResources = $.hideUnauthorizedResources;
         this.includesPattern = $.includesPattern;
         this.key = $.key;
         this.notes = $.notes;
@@ -200,6 +208,11 @@ public final class GetVirtualConanRepositoryPlainArgs extends com.pulumi.resourc
          */
         public Builder forceConanAuthentication(@Nullable Boolean forceConanAuthentication) {
             $.forceConanAuthentication = forceConanAuthentication;
+            return this;
+        }
+
+        public Builder hideUnauthorizedResources(@Nullable Boolean hideUnauthorizedResources) {
+            $.hideUnauthorizedResources = hideUnauthorizedResources;
             return this;
         }
 

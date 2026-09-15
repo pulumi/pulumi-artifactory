@@ -132,6 +132,9 @@ namespace Pulumi.Artifactory
         [Input("enableCookieManagement")]
         public bool? EnableCookieManagement { get; set; }
 
+        [Input("enableTokenAuthentication")]
+        public bool? EnableTokenAuthentication { get; set; }
+
         [Input("excludesPattern")]
         public string? ExcludesPattern { get; set; }
 
@@ -341,6 +344,9 @@ namespace Pulumi.Artifactory
         [Input("enableCookieManagement")]
         public Input<bool>? EnableCookieManagement { get; set; }
 
+        [Input("enableTokenAuthentication")]
+        public Input<bool>? EnableTokenAuthentication { get; set; }
+
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
@@ -526,6 +532,7 @@ namespace Pulumi.Artifactory
         public readonly bool? DisableUrlNormalization;
         public readonly bool? DownloadDirect;
         public readonly bool? EnableCookieManagement;
+        public readonly bool? EnableTokenAuthentication;
         public readonly string? ExcludesPattern;
         /// <summary>
         /// (Optional, Default: `False`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
@@ -626,6 +633,8 @@ namespace Pulumi.Artifactory
 
             bool? enableCookieManagement,
 
+            bool? enableTokenAuthentication,
+
             string? excludesPattern,
 
             bool? fetchJarsEagerly,
@@ -721,6 +730,7 @@ namespace Pulumi.Artifactory
             DisableUrlNormalization = disableUrlNormalization;
             DownloadDirect = downloadDirect;
             EnableCookieManagement = enableCookieManagement;
+            EnableTokenAuthentication = enableTokenAuthentication;
             ExcludesPattern = excludesPattern;
             FetchJarsEagerly = fetchJarsEagerly;
             FetchSourcesEagerly = fetchSourcesEagerly;
