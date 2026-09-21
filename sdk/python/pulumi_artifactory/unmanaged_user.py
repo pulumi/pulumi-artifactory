@@ -352,7 +352,7 @@ class UnmanagedUser(pulumi.CustomResource):
                  internal_password_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
-                 password_policy: pulumi.Input[Optional[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict']]] = None,
+                 password_policy: pulumi.Input[Optional[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict', 'outputs.UnmanagedUserPasswordPolicy']]] = None,
                  profile_updatable: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -399,7 +399,7 @@ class UnmanagedUser(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] internal_password_disabled: (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
         :param pulumi.Input[_builtins.str] name: Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
         :param pulumi.Input[_builtins.str] password: (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
-        :param pulumi.Input[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict']] password_policy: Password policy to match JFrog Access to provide validation before API request.
+        :param pulumi.Input[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict', 'outputs.UnmanagedUserPasswordPolicy']] password_policy: Password policy to match JFrog Access to provide validation before API request.
                
                ->Due to Terraform limitation with interpolated value, we can only validate interpolated value prior to making API requests. This means `terraform validate` or `terraform plan` will not return error if `password` does not meet `password_policy` criteria.
                
@@ -469,7 +469,7 @@ class UnmanagedUser(pulumi.CustomResource):
                  internal_password_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
-                 password_policy: pulumi.Input[Optional[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict']]] = None,
+                 password_policy: pulumi.Input[Optional[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict', 'outputs.UnmanagedUserPasswordPolicy']]] = None,
                  profile_updatable: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -510,7 +510,7 @@ class UnmanagedUser(pulumi.CustomResource):
             internal_password_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             password: pulumi.Input[Optional[_builtins.str]] = None,
-            password_policy: pulumi.Input[Optional[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict']]] = None,
+            password_policy: pulumi.Input[Optional[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict', 'outputs.UnmanagedUserPasswordPolicy']]] = None,
             profile_updatable: pulumi.Input[Optional[_builtins.bool]] = None) -> 'UnmanagedUser':
         """
         Get an existing UnmanagedUser resource's state with the given name, id, and optional extra
@@ -526,7 +526,7 @@ class UnmanagedUser(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] internal_password_disabled: (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
         :param pulumi.Input[_builtins.str] name: Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
         :param pulumi.Input[_builtins.str] password: (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
-        :param pulumi.Input[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict']] password_policy: Password policy to match JFrog Access to provide validation before API request.
+        :param pulumi.Input[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict', 'outputs.UnmanagedUserPasswordPolicy']] password_policy: Password policy to match JFrog Access to provide validation before API request.
                
                ->Due to Terraform limitation with interpolated value, we can only validate interpolated value prior to making API requests. This means `terraform validate` or `terraform plan` will not return error if `password` does not meet `password_policy` criteria.
                

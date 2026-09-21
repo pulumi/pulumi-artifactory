@@ -138,7 +138,7 @@ class PropertySet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict']]]]] = None,
+                 properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict', 'outputs.PropertySetProperty']]]]] = None,
                  visible: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -208,7 +208,7 @@ class PropertySet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Property set name.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict']]]] properties: A list of properties that will be part of the property set.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict', 'outputs.PropertySetProperty']]]] properties: A list of properties that will be part of the property set.
         :param pulumi.Input[_builtins.bool] visible: Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
         """
         ...
@@ -297,7 +297,7 @@ class PropertySet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict']]]]] = None,
+                 properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict', 'outputs.PropertySetProperty']]]]] = None,
                  visible: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -324,7 +324,7 @@ class PropertySet(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict']]]]] = None,
+            properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict', 'outputs.PropertySetProperty']]]]] = None,
             visible: pulumi.Input[Optional[_builtins.bool]] = None) -> 'PropertySet':
         """
         Get an existing PropertySet resource's state with the given name, id, and optional extra
@@ -334,7 +334,7 @@ class PropertySet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Property set name.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict']]]] properties: A list of properties that will be part of the property set.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict', 'outputs.PropertySetProperty']]]] properties: A list of properties that will be part of the property set.
         :param pulumi.Input[_builtins.bool] visible: Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

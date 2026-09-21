@@ -254,7 +254,7 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  item_type: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
-                 search_criteria: pulumi.Input[Optional[Union['ReleaseBundleV2CleanupPolicySearchCriteriaArgs', 'ReleaseBundleV2CleanupPolicySearchCriteriaArgsDict']]] = None,
+                 search_criteria: pulumi.Input[Optional[Union['ReleaseBundleV2CleanupPolicySearchCriteriaArgs', 'ReleaseBundleV2CleanupPolicySearchCriteriaArgsDict', 'outputs.ReleaseBundleV2CleanupPolicySearchCriteria']]] = None,
                  __props__=None):
         """
         Provides an Artifactory Archive Policy resource. This resource enable system administrators to configure and maintain JFrog cleanup policies for Release Bundles V2. See [Cleanup Policies](https://jfrog.com/help/r/jfrog-rest-apis/cleanup-policies-release-bundles-v2-apis) for more details.
@@ -463,7 +463,7 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  item_type: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
-                 search_criteria: pulumi.Input[Optional[Union['ReleaseBundleV2CleanupPolicySearchCriteriaArgs', 'ReleaseBundleV2CleanupPolicySearchCriteriaArgsDict']]] = None,
+                 search_criteria: pulumi.Input[Optional[Union['ReleaseBundleV2CleanupPolicySearchCriteriaArgs', 'ReleaseBundleV2CleanupPolicySearchCriteriaArgsDict', 'outputs.ReleaseBundleV2CleanupPolicySearchCriteria']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -500,7 +500,7 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             item_type: pulumi.Input[Optional[_builtins.str]] = None,
             key: pulumi.Input[Optional[_builtins.str]] = None,
-            search_criteria: pulumi.Input[Optional[Union['ReleaseBundleV2CleanupPolicySearchCriteriaArgs', 'ReleaseBundleV2CleanupPolicySearchCriteriaArgsDict']]] = None) -> 'ReleaseBundleV2CleanupPolicy':
+            search_criteria: pulumi.Input[Optional[Union['ReleaseBundleV2CleanupPolicySearchCriteriaArgs', 'ReleaseBundleV2CleanupPolicySearchCriteriaArgsDict', 'outputs.ReleaseBundleV2CleanupPolicySearchCriteria']]] = None) -> 'ReleaseBundleV2CleanupPolicy':
         """
         Get an existing ReleaseBundleV2CleanupPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

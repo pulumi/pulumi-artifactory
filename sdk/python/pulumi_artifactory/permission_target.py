@@ -170,10 +170,10 @@ class PermissionTarget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 build: pulumi.Input[Optional[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict']]] = None,
+                 build: pulumi.Input[Optional[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict', 'outputs.PermissionTargetBuild']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 release_bundle: pulumi.Input[Optional[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict']]] = None,
-                 repo: pulumi.Input[Optional[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict']]] = None,
+                 release_bundle: pulumi.Input[Optional[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict', 'outputs.PermissionTargetReleaseBundle']]] = None,
+                 repo: pulumi.Input[Optional[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict', 'outputs.PermissionTargetRepo']]] = None,
                  __props__=None):
         """
         Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
@@ -289,10 +289,10 @@ class PermissionTarget(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict']] build: As for repo but for artifactory-build-info permissions.
+        :param pulumi.Input[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict', 'outputs.PermissionTargetBuild']] build: As for repo but for artifactory-build-info permissions.
         :param pulumi.Input[_builtins.str] name: Name of permission.
-        :param pulumi.Input[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict']] release_bundle: As for repo for for release-bundles permissions.
-        :param pulumi.Input[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict']] repo: Repository permission configuration.
+        :param pulumi.Input[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict', 'outputs.PermissionTargetReleaseBundle']] release_bundle: As for repo for for release-bundles permissions.
+        :param pulumi.Input[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict', 'outputs.PermissionTargetRepo']] repo: Repository permission configuration.
         """
         ...
     @overload
@@ -427,10 +427,10 @@ class PermissionTarget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 build: pulumi.Input[Optional[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict']]] = None,
+                 build: pulumi.Input[Optional[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict', 'outputs.PermissionTargetBuild']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 release_bundle: pulumi.Input[Optional[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict']]] = None,
-                 repo: pulumi.Input[Optional[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict']]] = None,
+                 release_bundle: pulumi.Input[Optional[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict', 'outputs.PermissionTargetReleaseBundle']]] = None,
+                 repo: pulumi.Input[Optional[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict', 'outputs.PermissionTargetRepo']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -454,10 +454,10 @@ class PermissionTarget(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            build: pulumi.Input[Optional[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict']]] = None,
+            build: pulumi.Input[Optional[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict', 'outputs.PermissionTargetBuild']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            release_bundle: pulumi.Input[Optional[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict']]] = None,
-            repo: pulumi.Input[Optional[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict']]] = None) -> 'PermissionTarget':
+            release_bundle: pulumi.Input[Optional[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict', 'outputs.PermissionTargetReleaseBundle']]] = None,
+            repo: pulumi.Input[Optional[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict', 'outputs.PermissionTargetRepo']]] = None) -> 'PermissionTarget':
         """
         Get an existing PermissionTarget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -465,10 +465,10 @@ class PermissionTarget(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict']] build: As for repo but for artifactory-build-info permissions.
+        :param pulumi.Input[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict', 'outputs.PermissionTargetBuild']] build: As for repo but for artifactory-build-info permissions.
         :param pulumi.Input[_builtins.str] name: Name of permission.
-        :param pulumi.Input[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict']] release_bundle: As for repo for for release-bundles permissions.
-        :param pulumi.Input[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict']] repo: Repository permission configuration.
+        :param pulumi.Input[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict', 'outputs.PermissionTargetReleaseBundle']] release_bundle: As for repo for for release-bundles permissions.
+        :param pulumi.Input[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict', 'outputs.PermissionTargetRepo']] repo: Repository permission configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

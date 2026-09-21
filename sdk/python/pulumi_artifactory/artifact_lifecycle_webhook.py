@@ -202,7 +202,7 @@ class ArtifactLifecycleWebhook(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArtifactLifecycleWebhookHandlerArgs', 'ArtifactLifecycleWebhookHandlerArgsDict']]]]] = None,
+                 handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArtifactLifecycleWebhookHandlerArgs', 'ArtifactLifecycleWebhookHandlerArgsDict', 'outputs.ArtifactLifecycleWebhookHandler']]]]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -238,7 +238,7 @@ class ArtifactLifecycleWebhook(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[_builtins.bool] enabled: Status of webhook. Default to `true`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of event triggers for the Webhook. Allow values: `archive`, `restore`
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ArtifactLifecycleWebhookHandlerArgs', 'ArtifactLifecycleWebhookHandlerArgsDict']]]] handlers: At least one is required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ArtifactLifecycleWebhookHandlerArgs', 'ArtifactLifecycleWebhookHandlerArgsDict', 'outputs.ArtifactLifecycleWebhookHandler']]]] handlers: At least one is required.
         :param pulumi.Input[_builtins.str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
         ...
@@ -293,7 +293,7 @@ class ArtifactLifecycleWebhook(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArtifactLifecycleWebhookHandlerArgs', 'ArtifactLifecycleWebhookHandlerArgsDict']]]]] = None,
+                 handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArtifactLifecycleWebhookHandlerArgs', 'ArtifactLifecycleWebhookHandlerArgsDict', 'outputs.ArtifactLifecycleWebhookHandler']]]]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -328,7 +328,7 @@ class ArtifactLifecycleWebhook(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArtifactLifecycleWebhookHandlerArgs', 'ArtifactLifecycleWebhookHandlerArgsDict']]]]] = None,
+            handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArtifactLifecycleWebhookHandlerArgs', 'ArtifactLifecycleWebhookHandlerArgsDict', 'outputs.ArtifactLifecycleWebhookHandler']]]]] = None,
             key: pulumi.Input[Optional[_builtins.str]] = None) -> 'ArtifactLifecycleWebhook':
         """
         Get an existing ArtifactLifecycleWebhook resource's state with the given name, id, and optional extra
@@ -340,7 +340,7 @@ class ArtifactLifecycleWebhook(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[_builtins.bool] enabled: Status of webhook. Default to `true`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of event triggers for the Webhook. Allow values: `archive`, `restore`
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ArtifactLifecycleWebhookHandlerArgs', 'ArtifactLifecycleWebhookHandlerArgsDict']]]] handlers: At least one is required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ArtifactLifecycleWebhookHandlerArgs', 'ArtifactLifecycleWebhookHandlerArgsDict', 'outputs.ArtifactLifecycleWebhookHandler']]]] handlers: At least one is required.
         :param pulumi.Input[_builtins.str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

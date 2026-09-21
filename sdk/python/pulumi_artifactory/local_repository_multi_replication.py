@@ -170,7 +170,7 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_event_replication: pulumi.Input[Optional[_builtins.bool]] = None,
-                 replications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict']]]]] = None,
+                 replications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict', 'outputs.LocalRepositoryMultiReplicationReplication']]]]] = None,
                  repo_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -234,7 +234,7 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         :param pulumi.Input[_builtins.bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict']]]] replications: List of replications minimum 1 element.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict', 'outputs.LocalRepositoryMultiReplicationReplication']]]] replications: List of replications minimum 1 element.
         :param pulumi.Input[_builtins.str] repo_key: Repository name.
         """
         ...
@@ -317,7 +317,7 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_event_replication: pulumi.Input[Optional[_builtins.bool]] = None,
-                 replications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict']]]]] = None,
+                 replications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict', 'outputs.LocalRepositoryMultiReplicationReplication']]]]] = None,
                  repo_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -348,7 +348,7 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
             enable_event_replication: pulumi.Input[Optional[_builtins.bool]] = None,
-            replications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict']]]]] = None,
+            replications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict', 'outputs.LocalRepositoryMultiReplicationReplication']]]]] = None,
             repo_key: pulumi.Input[Optional[_builtins.str]] = None) -> 'LocalRepositoryMultiReplication':
         """
         Get an existing LocalRepositoryMultiReplication resource's state with the given name, id, and optional extra
@@ -359,7 +359,7 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         :param pulumi.Input[_builtins.bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict']]]] replications: List of replications minimum 1 element.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict', 'outputs.LocalRepositoryMultiReplicationReplication']]]] replications: List of replications minimum 1 element.
         :param pulumi.Input[_builtins.str] repo_key: Repository name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

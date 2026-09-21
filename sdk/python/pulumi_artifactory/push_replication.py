@@ -162,7 +162,7 @@ class PushReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_event_replication: pulumi.Input[Optional[_builtins.bool]] = None,
-                 replications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PushReplicationReplicationArgs', 'PushReplicationReplicationArgsDict']]]]] = None,
+                 replications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PushReplicationReplicationArgs', 'PushReplicationReplicationArgsDict', 'outputs.PushReplicationReplication']]]]] = None,
                  repo_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -292,7 +292,7 @@ class PushReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_event_replication: pulumi.Input[Optional[_builtins.bool]] = None,
-                 replications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PushReplicationReplicationArgs', 'PushReplicationReplicationArgsDict']]]]] = None,
+                 replications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PushReplicationReplicationArgs', 'PushReplicationReplicationArgsDict', 'outputs.PushReplicationReplication']]]]] = None,
                  repo_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -323,7 +323,7 @@ class PushReplication(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
             enable_event_replication: pulumi.Input[Optional[_builtins.bool]] = None,
-            replications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PushReplicationReplicationArgs', 'PushReplicationReplicationArgsDict']]]]] = None,
+            replications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PushReplicationReplicationArgs', 'PushReplicationReplicationArgsDict', 'outputs.PushReplicationReplication']]]]] = None,
             repo_key: pulumi.Input[Optional[_builtins.str]] = None) -> 'PushReplication':
         """
         Get an existing PushReplication resource's state with the given name, id, and optional extra

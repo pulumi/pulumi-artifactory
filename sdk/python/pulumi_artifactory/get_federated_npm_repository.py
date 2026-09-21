@@ -253,7 +253,7 @@ def get_federated_npm_repository(archive_browsing_enabled: Optional[_builtins.bo
                                  excludes_pattern: Optional[_builtins.str] = None,
                                  includes_pattern: Optional[_builtins.str] = None,
                                  key: Optional[_builtins.str] = None,
-                                 members: Optional[Sequence[Union['GetFederatedNpmRepositoryMemberArgs', 'GetFederatedNpmRepositoryMemberArgsDict']]] = None,
+                                 members: Optional[Sequence[Union['GetFederatedNpmRepositoryMemberArgs', 'GetFederatedNpmRepositoryMemberArgsDict', 'outputs.GetFederatedNpmRepositoryMemberResult']]] = None,
                                  notes: Optional[_builtins.str] = None,
                                  priority_resolution: Optional[_builtins.bool] = None,
                                  project_environments: Optional[Sequence[_builtins.str]] = None,
@@ -278,7 +278,7 @@ def get_federated_npm_repository(archive_browsing_enabled: Optional[_builtins.bo
 
     :param _builtins.bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
     :param _builtins.str key: the identity key of the repo.
-    :param Sequence[Union['GetFederatedNpmRepositoryMemberArgs', 'GetFederatedNpmRepositoryMemberArgsDict']] members: The list of Federated members and must contain this repository URL (configured base URL
+    :param Sequence[Union['GetFederatedNpmRepositoryMemberArgs', 'GetFederatedNpmRepositoryMemberArgsDict', 'outputs.GetFederatedNpmRepositoryMemberResult']] members: The list of Federated members and must contain this repository URL (configured base URL
            `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
            Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
            to set up Federated repositories correctly.
@@ -339,7 +339,7 @@ def get_federated_npm_repository_output(archive_browsing_enabled: pulumi.Input[O
                                         excludes_pattern: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                         includes_pattern: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                         key: pulumi.Input[Optional[_builtins.str]] = None,
-                                        members: pulumi.Input[Optional[Optional[Sequence[Union['GetFederatedNpmRepositoryMemberArgs', 'GetFederatedNpmRepositoryMemberArgsDict']]]]] = None,
+                                        members: pulumi.Input[Optional[Optional[Sequence[Union['GetFederatedNpmRepositoryMemberArgs', 'GetFederatedNpmRepositoryMemberArgsDict', 'outputs.GetFederatedNpmRepositoryMemberResult']]]]] = None,
                                         notes: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                         priority_resolution: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                         project_environments: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
@@ -364,7 +364,7 @@ def get_federated_npm_repository_output(archive_browsing_enabled: pulumi.Input[O
 
     :param _builtins.bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
     :param _builtins.str key: the identity key of the repo.
-    :param Sequence[Union['GetFederatedNpmRepositoryMemberArgs', 'GetFederatedNpmRepositoryMemberArgsDict']] members: The list of Federated members and must contain this repository URL (configured base URL
+    :param Sequence[Union['GetFederatedNpmRepositoryMemberArgs', 'GetFederatedNpmRepositoryMemberArgsDict', 'outputs.GetFederatedNpmRepositoryMemberResult']] members: The list of Federated members and must contain this repository URL (configured base URL
            `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
            Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
            to set up Federated repositories correctly.

@@ -171,7 +171,7 @@ class OauthSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable: pulumi.Input[Optional[_builtins.bool]] = None,
-                 oauth_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict']]]]] = None,
+                 oauth_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict', 'outputs.OauthSettingsOauthProvider']]]]] = None,
                  persist_users: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -220,7 +220,7 @@ class OauthSettings(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_user_to_access_profile: Allow persisted users to access their profile.  Default value is `false`.
         :param pulumi.Input[_builtins.bool] enable: Enable OAuth SSO.  Default value is `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict']]]] oauth_providers: OAuth provider settings block. Multiple blocks can be defined, at least one is required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict', 'outputs.OauthSettingsOauthProvider']]]] oauth_providers: OAuth provider settings block. Multiple blocks can be defined, at least one is required.
         :param pulumi.Input[_builtins.bool] persist_users: Enable the creation of local Artifactory users.  Default value is `false`.
         """
         ...
@@ -288,7 +288,7 @@ class OauthSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable: pulumi.Input[Optional[_builtins.bool]] = None,
-                 oauth_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict']]]]] = None,
+                 oauth_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict', 'outputs.OauthSettingsOauthProvider']]]]] = None,
                  persist_users: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -317,7 +317,7 @@ class OauthSettings(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
             enable: pulumi.Input[Optional[_builtins.bool]] = None,
-            oauth_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict']]]]] = None,
+            oauth_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict', 'outputs.OauthSettingsOauthProvider']]]]] = None,
             persist_users: pulumi.Input[Optional[_builtins.bool]] = None) -> 'OauthSettings':
         """
         Get an existing OauthSettings resource's state with the given name, id, and optional extra
@@ -328,7 +328,7 @@ class OauthSettings(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_user_to_access_profile: Allow persisted users to access their profile.  Default value is `false`.
         :param pulumi.Input[_builtins.bool] enable: Enable OAuth SSO.  Default value is `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict']]]] oauth_providers: OAuth provider settings block. Multiple blocks can be defined, at least one is required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict', 'outputs.OauthSettingsOauthProvider']]]] oauth_providers: OAuth provider settings block. Multiple blocks can be defined, at least one is required.
         :param pulumi.Input[_builtins.bool] persist_users: Enable the creation of local Artifactory users.  Default value is `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

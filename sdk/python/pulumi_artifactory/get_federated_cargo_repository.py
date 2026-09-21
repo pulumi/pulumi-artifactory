@@ -283,7 +283,7 @@ def get_federated_cargo_repository(anonymous_access: Optional[_builtins.bool] = 
                                    includes_pattern: Optional[_builtins.str] = None,
                                    index_compression_formats: Optional[Sequence[_builtins.str]] = None,
                                    key: Optional[_builtins.str] = None,
-                                   members: Optional[Sequence[Union['GetFederatedCargoRepositoryMemberArgs', 'GetFederatedCargoRepositoryMemberArgsDict']]] = None,
+                                   members: Optional[Sequence[Union['GetFederatedCargoRepositoryMemberArgs', 'GetFederatedCargoRepositoryMemberArgsDict', 'outputs.GetFederatedCargoRepositoryMemberResult']]] = None,
                                    notes: Optional[_builtins.str] = None,
                                    priority_resolution: Optional[_builtins.bool] = None,
                                    project_environments: Optional[Sequence[_builtins.str]] = None,
@@ -308,7 +308,7 @@ def get_federated_cargo_repository(anonymous_access: Optional[_builtins.bool] = 
 
     :param _builtins.bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
     :param _builtins.str key: the identity key of the repo.
-    :param Sequence[Union['GetFederatedCargoRepositoryMemberArgs', 'GetFederatedCargoRepositoryMemberArgsDict']] members: The list of Federated members and must contain this repository URL (configured base URL
+    :param Sequence[Union['GetFederatedCargoRepositoryMemberArgs', 'GetFederatedCargoRepositoryMemberArgsDict', 'outputs.GetFederatedCargoRepositoryMemberResult']] members: The list of Federated members and must contain this repository URL (configured base URL
            `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
            Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
            to set up Federated repositories correctly.
@@ -378,7 +378,7 @@ def get_federated_cargo_repository_output(anonymous_access: pulumi.Input[Optiona
                                           includes_pattern: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                           index_compression_formats: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                                           key: pulumi.Input[Optional[_builtins.str]] = None,
-                                          members: pulumi.Input[Optional[Optional[Sequence[Union['GetFederatedCargoRepositoryMemberArgs', 'GetFederatedCargoRepositoryMemberArgsDict']]]]] = None,
+                                          members: pulumi.Input[Optional[Optional[Sequence[Union['GetFederatedCargoRepositoryMemberArgs', 'GetFederatedCargoRepositoryMemberArgsDict', 'outputs.GetFederatedCargoRepositoryMemberResult']]]]] = None,
                                           notes: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                           priority_resolution: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                           project_environments: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
@@ -403,7 +403,7 @@ def get_federated_cargo_repository_output(anonymous_access: pulumi.Input[Optiona
 
     :param _builtins.bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
     :param _builtins.str key: the identity key of the repo.
-    :param Sequence[Union['GetFederatedCargoRepositoryMemberArgs', 'GetFederatedCargoRepositoryMemberArgsDict']] members: The list of Federated members and must contain this repository URL (configured base URL
+    :param Sequence[Union['GetFederatedCargoRepositoryMemberArgs', 'GetFederatedCargoRepositoryMemberArgsDict', 'outputs.GetFederatedCargoRepositoryMemberResult']] members: The list of Federated members and must contain this repository URL (configured base URL
            `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
            Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
            to set up Federated repositories correctly.

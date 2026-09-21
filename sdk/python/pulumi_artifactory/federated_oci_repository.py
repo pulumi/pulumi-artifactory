@@ -755,7 +755,7 @@ class FederatedOciRepository(pulumi.CustomResource):
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  max_unique_tags: pulumi.Input[Optional[_builtins.int]] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedOciRepositoryMemberArgs', 'FederatedOciRepositoryMemberArgsDict']]]]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedOciRepositoryMemberArgs', 'FederatedOciRepositoryMemberArgsDict', 'outputs.FederatedOciRepositoryMember']]]]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
                  project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -813,7 +813,7 @@ class FederatedOciRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[_builtins.int] max_unique_tags: The maximum number of unique tags of a single OCI image to store in this repository.
                Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedOciRepositoryMemberArgs', 'FederatedOciRepositoryMemberArgsDict']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedOciRepositoryMemberArgs', 'FederatedOciRepositoryMemberArgsDict', 'outputs.FederatedOciRepositoryMember']]]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
@@ -891,7 +891,7 @@ class FederatedOciRepository(pulumi.CustomResource):
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  max_unique_tags: pulumi.Input[Optional[_builtins.int]] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedOciRepositoryMemberArgs', 'FederatedOciRepositoryMemberArgsDict']]]]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedOciRepositoryMemberArgs', 'FederatedOciRepositoryMemberArgsDict', 'outputs.FederatedOciRepositoryMember']]]]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
                  project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -957,7 +957,7 @@ class FederatedOciRepository(pulumi.CustomResource):
             includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
             key: pulumi.Input[Optional[_builtins.str]] = None,
             max_unique_tags: pulumi.Input[Optional[_builtins.int]] = None,
-            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedOciRepositoryMemberArgs', 'FederatedOciRepositoryMemberArgsDict']]]]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedOciRepositoryMemberArgs', 'FederatedOciRepositoryMemberArgsDict', 'outputs.FederatedOciRepositoryMember']]]]] = None,
             notes: pulumi.Input[Optional[_builtins.str]] = None,
             package_type: pulumi.Input[Optional[_builtins.str]] = None,
             priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -988,7 +988,7 @@ class FederatedOciRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[_builtins.int] max_unique_tags: The maximum number of unique tags of a single OCI image to store in this repository.
                Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedOciRepositoryMemberArgs', 'FederatedOciRepositoryMemberArgsDict']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedOciRepositoryMemberArgs', 'FederatedOciRepositoryMemberArgsDict', 'outputs.FederatedOciRepositoryMember']]]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.

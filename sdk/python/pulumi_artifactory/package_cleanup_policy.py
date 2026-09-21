@@ -286,7 +286,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  project_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 search_criteria: pulumi.Input[Optional[Union['PackageCleanupPolicySearchCriteriaArgs', 'PackageCleanupPolicySearchCriteriaArgsDict']]] = None,
+                 search_criteria: pulumi.Input[Optional[Union['PackageCleanupPolicySearchCriteriaArgs', 'PackageCleanupPolicySearchCriteriaArgsDict', 'outputs.PackageCleanupPolicySearchCriteria']]] = None,
                  skip_trashcan: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -789,7 +789,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  project_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 search_criteria: pulumi.Input[Optional[Union['PackageCleanupPolicySearchCriteriaArgs', 'PackageCleanupPolicySearchCriteriaArgsDict']]] = None,
+                 search_criteria: pulumi.Input[Optional[Union['PackageCleanupPolicySearchCriteriaArgs', 'PackageCleanupPolicySearchCriteriaArgsDict', 'outputs.PackageCleanupPolicySearchCriteria']]] = None,
                  skip_trashcan: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -828,7 +828,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             key: pulumi.Input[Optional[_builtins.str]] = None,
             project_key: pulumi.Input[Optional[_builtins.str]] = None,
-            search_criteria: pulumi.Input[Optional[Union['PackageCleanupPolicySearchCriteriaArgs', 'PackageCleanupPolicySearchCriteriaArgsDict']]] = None,
+            search_criteria: pulumi.Input[Optional[Union['PackageCleanupPolicySearchCriteriaArgs', 'PackageCleanupPolicySearchCriteriaArgsDict', 'outputs.PackageCleanupPolicySearchCriteria']]] = None,
             skip_trashcan: pulumi.Input[Optional[_builtins.bool]] = None) -> 'PackageCleanupPolicy':
         """
         Get an existing PackageCleanupPolicy resource's state with the given name, id, and optional extra

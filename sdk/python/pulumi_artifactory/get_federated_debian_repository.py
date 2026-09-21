@@ -291,7 +291,7 @@ def get_federated_debian_repository(archive_browsing_enabled: Optional[_builtins
                                     includes_pattern: Optional[_builtins.str] = None,
                                     index_compression_formats: Optional[Sequence[_builtins.str]] = None,
                                     key: Optional[_builtins.str] = None,
-                                    members: Optional[Sequence[Union['GetFederatedDebianRepositoryMemberArgs', 'GetFederatedDebianRepositoryMemberArgsDict']]] = None,
+                                    members: Optional[Sequence[Union['GetFederatedDebianRepositoryMemberArgs', 'GetFederatedDebianRepositoryMemberArgsDict', 'outputs.GetFederatedDebianRepositoryMemberResult']]] = None,
                                     notes: Optional[_builtins.str] = None,
                                     primary_keypair_ref: Optional[_builtins.str] = None,
                                     priority_resolution: Optional[_builtins.bool] = None,
@@ -319,7 +319,7 @@ def get_federated_debian_repository(archive_browsing_enabled: Optional[_builtins
 
     :param _builtins.bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
     :param _builtins.str key: the identity key of the repo.
-    :param Sequence[Union['GetFederatedDebianRepositoryMemberArgs', 'GetFederatedDebianRepositoryMemberArgsDict']] members: The list of Federated members and must contain this repository URL (configured base URL
+    :param Sequence[Union['GetFederatedDebianRepositoryMemberArgs', 'GetFederatedDebianRepositoryMemberArgsDict', 'outputs.GetFederatedDebianRepositoryMemberResult']] members: The list of Federated members and must contain this repository URL (configured base URL
            `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
            Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
            to set up Federated repositories correctly.
@@ -389,7 +389,7 @@ def get_federated_debian_repository_output(archive_browsing_enabled: pulumi.Inpu
                                            includes_pattern: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                            index_compression_formats: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                                            key: pulumi.Input[Optional[_builtins.str]] = None,
-                                           members: pulumi.Input[Optional[Optional[Sequence[Union['GetFederatedDebianRepositoryMemberArgs', 'GetFederatedDebianRepositoryMemberArgsDict']]]]] = None,
+                                           members: pulumi.Input[Optional[Optional[Sequence[Union['GetFederatedDebianRepositoryMemberArgs', 'GetFederatedDebianRepositoryMemberArgsDict', 'outputs.GetFederatedDebianRepositoryMemberResult']]]]] = None,
                                            notes: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                            primary_keypair_ref: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                            priority_resolution: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
@@ -417,7 +417,7 @@ def get_federated_debian_repository_output(archive_browsing_enabled: pulumi.Inpu
 
     :param _builtins.bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
     :param _builtins.str key: the identity key of the repo.
-    :param Sequence[Union['GetFederatedDebianRepositoryMemberArgs', 'GetFederatedDebianRepositoryMemberArgsDict']] members: The list of Federated members and must contain this repository URL (configured base URL
+    :param Sequence[Union['GetFederatedDebianRepositoryMemberArgs', 'GetFederatedDebianRepositoryMemberArgsDict', 'outputs.GetFederatedDebianRepositoryMemberResult']] members: The list of Federated members and must contain this repository URL (configured base URL
            `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
            Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
            to set up Federated repositories correctly.
