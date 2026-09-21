@@ -719,7 +719,7 @@ class FederatedConanRepository(pulumi.CustomResource):
                  force_conan_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedConanRepositoryMemberArgs', 'FederatedConanRepositoryMemberArgsDict']]]]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedConanRepositoryMemberArgs', 'FederatedConanRepositoryMemberArgsDict', 'outputs.FederatedConanRepositoryMember']]]]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
                  project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -775,7 +775,7 @@ class FederatedConanRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
         :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedConanRepositoryMemberArgs', 'FederatedConanRepositoryMemberArgsDict']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedConanRepositoryMemberArgs', 'FederatedConanRepositoryMemberArgsDict', 'outputs.FederatedConanRepositoryMember']]]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
@@ -852,7 +852,7 @@ class FederatedConanRepository(pulumi.CustomResource):
                  force_conan_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedConanRepositoryMemberArgs', 'FederatedConanRepositoryMemberArgsDict']]]]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedConanRepositoryMemberArgs', 'FederatedConanRepositoryMemberArgsDict', 'outputs.FederatedConanRepositoryMember']]]]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
                  project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -916,7 +916,7 @@ class FederatedConanRepository(pulumi.CustomResource):
             force_conan_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
             includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
             key: pulumi.Input[Optional[_builtins.str]] = None,
-            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedConanRepositoryMemberArgs', 'FederatedConanRepositoryMemberArgsDict']]]]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedConanRepositoryMemberArgs', 'FederatedConanRepositoryMemberArgsDict', 'outputs.FederatedConanRepositoryMember']]]]] = None,
             notes: pulumi.Input[Optional[_builtins.str]] = None,
             package_type: pulumi.Input[Optional[_builtins.str]] = None,
             priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -945,7 +945,7 @@ class FederatedConanRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
         :param pulumi.Input[_builtins.str] includes_pattern: Comma-separated list of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. This is a single string of comma-separated values, not a list of strings. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedConanRepositoryMemberArgs', 'FederatedConanRepositoryMemberArgsDict']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedConanRepositoryMemberArgs', 'FederatedConanRepositoryMemberArgsDict', 'outputs.FederatedConanRepositoryMember']]]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.

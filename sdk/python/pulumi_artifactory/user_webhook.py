@@ -202,7 +202,7 @@ class UserWebhook(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserWebhookHandlerArgs', 'UserWebhookHandlerArgsDict']]]]] = None,
+                 handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserWebhookHandlerArgs', 'UserWebhookHandlerArgsDict', 'outputs.UserWebhookHandler']]]]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -235,7 +235,7 @@ class UserWebhook(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[_builtins.bool] enabled: Status of webhook. Default to `true`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of event triggers for the Webhook. Allow values: `locked`
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserWebhookHandlerArgs', 'UserWebhookHandlerArgsDict']]]] handlers: At least one is required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserWebhookHandlerArgs', 'UserWebhookHandlerArgsDict', 'outputs.UserWebhookHandler']]]] handlers: At least one is required.
         :param pulumi.Input[_builtins.str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
         ...
@@ -287,7 +287,7 @@ class UserWebhook(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserWebhookHandlerArgs', 'UserWebhookHandlerArgsDict']]]]] = None,
+                 handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserWebhookHandlerArgs', 'UserWebhookHandlerArgsDict', 'outputs.UserWebhookHandler']]]]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -322,7 +322,7 @@ class UserWebhook(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserWebhookHandlerArgs', 'UserWebhookHandlerArgsDict']]]]] = None,
+            handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserWebhookHandlerArgs', 'UserWebhookHandlerArgsDict', 'outputs.UserWebhookHandler']]]]] = None,
             key: pulumi.Input[Optional[_builtins.str]] = None) -> 'UserWebhook':
         """
         Get an existing UserWebhook resource's state with the given name, id, and optional extra
@@ -334,7 +334,7 @@ class UserWebhook(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[_builtins.bool] enabled: Status of webhook. Default to `true`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: List of event triggers for the Webhook. Allow values: `locked`
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserWebhookHandlerArgs', 'UserWebhookHandlerArgsDict']]]] handlers: At least one is required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserWebhookHandlerArgs', 'UserWebhookHandlerArgsDict', 'outputs.UserWebhookHandler']]]] handlers: At least one is required.
         :param pulumi.Input[_builtins.str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

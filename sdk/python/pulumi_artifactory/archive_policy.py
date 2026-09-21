@@ -286,7 +286,7 @@ class ArchivePolicy(pulumi.CustomResource):
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  project_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 search_criteria: pulumi.Input[Optional[Union['ArchivePolicySearchCriteriaArgs', 'ArchivePolicySearchCriteriaArgsDict']]] = None,
+                 search_criteria: pulumi.Input[Optional[Union['ArchivePolicySearchCriteriaArgs', 'ArchivePolicySearchCriteriaArgsDict', 'outputs.ArchivePolicySearchCriteria']]] = None,
                  skip_trashcan: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -703,7 +703,7 @@ class ArchivePolicy(pulumi.CustomResource):
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  project_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 search_criteria: pulumi.Input[Optional[Union['ArchivePolicySearchCriteriaArgs', 'ArchivePolicySearchCriteriaArgsDict']]] = None,
+                 search_criteria: pulumi.Input[Optional[Union['ArchivePolicySearchCriteriaArgs', 'ArchivePolicySearchCriteriaArgsDict', 'outputs.ArchivePolicySearchCriteria']]] = None,
                  skip_trashcan: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -742,7 +742,7 @@ class ArchivePolicy(pulumi.CustomResource):
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             key: pulumi.Input[Optional[_builtins.str]] = None,
             project_key: pulumi.Input[Optional[_builtins.str]] = None,
-            search_criteria: pulumi.Input[Optional[Union['ArchivePolicySearchCriteriaArgs', 'ArchivePolicySearchCriteriaArgsDict']]] = None,
+            search_criteria: pulumi.Input[Optional[Union['ArchivePolicySearchCriteriaArgs', 'ArchivePolicySearchCriteriaArgsDict', 'outputs.ArchivePolicySearchCriteria']]] = None,
             skip_trashcan: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ArchivePolicy':
         """
         Get an existing ArchivePolicy resource's state with the given name, id, and optional extra

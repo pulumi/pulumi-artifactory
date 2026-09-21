@@ -1711,9 +1711,9 @@ class RemoteAieditorextensionsRepository(pulumi.CustomResource):
                  block_mismatching_mime_types: pulumi.Input[Optional[_builtins.bool]] = None,
                  cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
-                 content_synchronisation: pulumi.Input[Optional[Union['RemoteAieditorextensionsRepositoryContentSynchronisationArgs', 'RemoteAieditorextensionsRepositoryContentSynchronisationArgsDict']]] = None,
+                 content_synchronisation: pulumi.Input[Optional[Union['RemoteAieditorextensionsRepositoryContentSynchronisationArgs', 'RemoteAieditorextensionsRepositoryContentSynchronisationArgsDict', 'outputs.RemoteAieditorextensionsRepositoryContentSynchronisation']]] = None,
                  curated: pulumi.Input[Optional[_builtins.bool]] = None,
-                 custom_http_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs', 'RemoteAieditorextensionsRepositoryCustomHttpHeaderArgsDict']]]]] = None,
+                 custom_http_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs', 'RemoteAieditorextensionsRepositoryCustomHttpHeaderArgsDict', 'outputs.RemoteAieditorextensionsRepositoryCustomHttpHeader']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1811,7 +1811,7 @@ class RemoteAieditorextensionsRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[_builtins.bool] curated: Enable repository to be protected by the Curation service. Default value is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs', 'RemoteAieditorextensionsRepositoryCustomHttpHeaderArgsDict']]]] custom_http_headers: Up to 5 custom HTTP headers sent on every outbound request to the remote URL. Requires Artifactory 7.146.0 or later. Header values are write-only: they are masked in plan output and never read back from Artifactory, so `pulumi import` cannot recover them. To remove all headers, remove the attribute. Each entry supports:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs', 'RemoteAieditorextensionsRepositoryCustomHttpHeaderArgsDict', 'outputs.RemoteAieditorextensionsRepositoryCustomHttpHeader']]]] custom_http_headers: Up to 5 custom HTTP headers sent on every outbound request to the remote URL. Requires Artifactory 7.146.0 or later. Header values are write-only: they are masked in plan output and never read back from Artifactory, so `pulumi import` cannot recover them. To remove all headers, remove the attribute. Each entry supports:
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
@@ -1924,9 +1924,9 @@ class RemoteAieditorextensionsRepository(pulumi.CustomResource):
                  block_mismatching_mime_types: pulumi.Input[Optional[_builtins.bool]] = None,
                  cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
-                 content_synchronisation: pulumi.Input[Optional[Union['RemoteAieditorextensionsRepositoryContentSynchronisationArgs', 'RemoteAieditorextensionsRepositoryContentSynchronisationArgsDict']]] = None,
+                 content_synchronisation: pulumi.Input[Optional[Union['RemoteAieditorextensionsRepositoryContentSynchronisationArgs', 'RemoteAieditorextensionsRepositoryContentSynchronisationArgsDict', 'outputs.RemoteAieditorextensionsRepositoryContentSynchronisation']]] = None,
                  curated: pulumi.Input[Optional[_builtins.bool]] = None,
-                 custom_http_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs', 'RemoteAieditorextensionsRepositoryCustomHttpHeaderArgsDict']]]]] = None,
+                 custom_http_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs', 'RemoteAieditorextensionsRepositoryCustomHttpHeaderArgsDict', 'outputs.RemoteAieditorextensionsRepositoryCustomHttpHeader']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2055,9 +2055,9 @@ class RemoteAieditorextensionsRepository(pulumi.CustomResource):
             bypass_head_requests: pulumi.Input[Optional[_builtins.bool]] = None,
             cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
             client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
-            content_synchronisation: pulumi.Input[Optional[Union['RemoteAieditorextensionsRepositoryContentSynchronisationArgs', 'RemoteAieditorextensionsRepositoryContentSynchronisationArgsDict']]] = None,
+            content_synchronisation: pulumi.Input[Optional[Union['RemoteAieditorextensionsRepositoryContentSynchronisationArgs', 'RemoteAieditorextensionsRepositoryContentSynchronisationArgsDict', 'outputs.RemoteAieditorextensionsRepositoryContentSynchronisation']]] = None,
             curated: pulumi.Input[Optional[_builtins.bool]] = None,
-            custom_http_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs', 'RemoteAieditorextensionsRepositoryCustomHttpHeaderArgsDict']]]]] = None,
+            custom_http_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs', 'RemoteAieditorextensionsRepositoryCustomHttpHeaderArgsDict', 'outputs.RemoteAieditorextensionsRepositoryCustomHttpHeader']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
             disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2117,7 +2117,7 @@ class RemoteAieditorextensionsRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[_builtins.bool] curated: Enable repository to be protected by the Curation service. Default value is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs', 'RemoteAieditorextensionsRepositoryCustomHttpHeaderArgsDict']]]] custom_http_headers: Up to 5 custom HTTP headers sent on every outbound request to the remote URL. Requires Artifactory 7.146.0 or later. Header values are write-only: they are masked in plan output and never read back from Artifactory, so `pulumi import` cannot recover them. To remove all headers, remove the attribute. Each entry supports:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RemoteAieditorextensionsRepositoryCustomHttpHeaderArgs', 'RemoteAieditorextensionsRepositoryCustomHttpHeaderArgsDict', 'outputs.RemoteAieditorextensionsRepositoryCustomHttpHeader']]]] custom_http_headers: Up to 5 custom HTTP headers sent on every outbound request to the remote URL. Requires Artifactory 7.146.0 or later. Header values are write-only: they are masked in plan output and never read back from Artifactory, so `pulumi import` cannot recover them. To remove all headers, remove the attribute. Each entry supports:
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.

@@ -1604,8 +1604,8 @@ class RemoteGenericRepository(pulumi.CustomResource):
                  bypass_head_requests: pulumi.Input[Optional[_builtins.bool]] = None,
                  cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
-                 content_synchronisation: pulumi.Input[Optional[Union['RemoteGenericRepositoryContentSynchronisationArgs', 'RemoteGenericRepositoryContentSynchronisationArgsDict']]] = None,
-                 custom_http_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RemoteGenericRepositoryCustomHttpHeaderArgs', 'RemoteGenericRepositoryCustomHttpHeaderArgsDict']]]]] = None,
+                 content_synchronisation: pulumi.Input[Optional[Union['RemoteGenericRepositoryContentSynchronisationArgs', 'RemoteGenericRepositoryContentSynchronisationArgsDict', 'outputs.RemoteGenericRepositoryContentSynchronisation']]] = None,
+                 custom_http_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RemoteGenericRepositoryCustomHttpHeaderArgs', 'RemoteGenericRepositoryCustomHttpHeaderArgsDict', 'outputs.RemoteGenericRepositoryCustomHttpHeader']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1722,7 +1722,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RemoteGenericRepositoryCustomHttpHeaderArgs', 'RemoteGenericRepositoryCustomHttpHeaderArgsDict']]]] custom_http_headers: List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RemoteGenericRepositoryCustomHttpHeaderArgs', 'RemoteGenericRepositoryCustomHttpHeaderArgsDict', 'outputs.RemoteGenericRepositoryCustomHttpHeader']]]] custom_http_headers: List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
@@ -1856,8 +1856,8 @@ class RemoteGenericRepository(pulumi.CustomResource):
                  bypass_head_requests: pulumi.Input[Optional[_builtins.bool]] = None,
                  cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
-                 content_synchronisation: pulumi.Input[Optional[Union['RemoteGenericRepositoryContentSynchronisationArgs', 'RemoteGenericRepositoryContentSynchronisationArgsDict']]] = None,
-                 custom_http_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RemoteGenericRepositoryCustomHttpHeaderArgs', 'RemoteGenericRepositoryCustomHttpHeaderArgsDict']]]]] = None,
+                 content_synchronisation: pulumi.Input[Optional[Union['RemoteGenericRepositoryContentSynchronisationArgs', 'RemoteGenericRepositoryContentSynchronisationArgsDict', 'outputs.RemoteGenericRepositoryContentSynchronisation']]] = None,
+                 custom_http_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RemoteGenericRepositoryCustomHttpHeaderArgs', 'RemoteGenericRepositoryCustomHttpHeaderArgsDict', 'outputs.RemoteGenericRepositoryCustomHttpHeader']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1979,8 +1979,8 @@ class RemoteGenericRepository(pulumi.CustomResource):
             bypass_head_requests: pulumi.Input[Optional[_builtins.bool]] = None,
             cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
             client_tls_certificate: pulumi.Input[Optional[_builtins.str]] = None,
-            content_synchronisation: pulumi.Input[Optional[Union['RemoteGenericRepositoryContentSynchronisationArgs', 'RemoteGenericRepositoryContentSynchronisationArgsDict']]] = None,
-            custom_http_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RemoteGenericRepositoryCustomHttpHeaderArgs', 'RemoteGenericRepositoryCustomHttpHeaderArgsDict']]]]] = None,
+            content_synchronisation: pulumi.Input[Optional[Union['RemoteGenericRepositoryContentSynchronisationArgs', 'RemoteGenericRepositoryContentSynchronisationArgsDict', 'outputs.RemoteGenericRepositoryContentSynchronisation']]] = None,
+            custom_http_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RemoteGenericRepositoryCustomHttpHeaderArgs', 'RemoteGenericRepositoryCustomHttpHeaderArgsDict', 'outputs.RemoteGenericRepositoryCustomHttpHeader']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
             disable_url_normalization: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2036,7 +2036,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RemoteGenericRepositoryCustomHttpHeaderArgs', 'RemoteGenericRepositoryCustomHttpHeaderArgsDict']]]] custom_http_headers: List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RemoteGenericRepositoryCustomHttpHeaderArgs', 'RemoteGenericRepositoryCustomHttpHeaderArgsDict', 'outputs.RemoteGenericRepositoryCustomHttpHeader']]]] custom_http_headers: List of up to 5 custom HTTP headers sent on every outbound request to the remote URL. Each entry supports:
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.

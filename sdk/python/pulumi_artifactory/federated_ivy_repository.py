@@ -914,7 +914,7 @@ class FederatedIvyRepository(pulumi.CustomResource):
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  max_unique_snapshots: pulumi.Input[Optional[_builtins.int]] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedIvyRepositoryMemberArgs', 'FederatedIvyRepositoryMemberArgsDict']]]]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedIvyRepositoryMemberArgs', 'FederatedIvyRepositoryMemberArgsDict', 'outputs.FederatedIvyRepositoryMember']]]]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
                  project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -976,7 +976,7 @@ class FederatedIvyRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store.
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedIvyRepositoryMemberArgs', 'FederatedIvyRepositoryMemberArgsDict']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedIvyRepositoryMemberArgs', 'FederatedIvyRepositoryMemberArgsDict', 'outputs.FederatedIvyRepositoryMember']]]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
@@ -1063,7 +1063,7 @@ class FederatedIvyRepository(pulumi.CustomResource):
                  includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  max_unique_snapshots: pulumi.Input[Optional[_builtins.int]] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedIvyRepositoryMemberArgs', 'FederatedIvyRepositoryMemberArgsDict']]]]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedIvyRepositoryMemberArgs', 'FederatedIvyRepositoryMemberArgsDict', 'outputs.FederatedIvyRepositoryMember']]]]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
                  project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1137,7 +1137,7 @@ class FederatedIvyRepository(pulumi.CustomResource):
             includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
             key: pulumi.Input[Optional[_builtins.str]] = None,
             max_unique_snapshots: pulumi.Input[Optional[_builtins.int]] = None,
-            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedIvyRepositoryMemberArgs', 'FederatedIvyRepositoryMemberArgsDict']]]]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedIvyRepositoryMemberArgs', 'FederatedIvyRepositoryMemberArgsDict', 'outputs.FederatedIvyRepositoryMember']]]]] = None,
             notes: pulumi.Input[Optional[_builtins.str]] = None,
             package_type: pulumi.Input[Optional[_builtins.str]] = None,
             priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1173,7 +1173,7 @@ class FederatedIvyRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store.
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedIvyRepositoryMemberArgs', 'FederatedIvyRepositoryMemberArgsDict']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedIvyRepositoryMemberArgs', 'FederatedIvyRepositoryMemberArgsDict', 'outputs.FederatedIvyRepositoryMember']]]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.

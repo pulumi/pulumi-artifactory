@@ -272,7 +272,7 @@ def get_federated_oci_repository(archive_browsing_enabled: Optional[_builtins.bo
                                  includes_pattern: Optional[_builtins.str] = None,
                                  key: Optional[_builtins.str] = None,
                                  max_unique_tags: Optional[_builtins.int] = None,
-                                 members: Optional[Sequence[Union['GetFederatedOciRepositoryMemberArgs', 'GetFederatedOciRepositoryMemberArgsDict']]] = None,
+                                 members: Optional[Sequence[Union['GetFederatedOciRepositoryMemberArgs', 'GetFederatedOciRepositoryMemberArgsDict', 'outputs.GetFederatedOciRepositoryMemberResult']]] = None,
                                  notes: Optional[_builtins.str] = None,
                                  priority_resolution: Optional[_builtins.bool] = None,
                                  project_environments: Optional[Sequence[_builtins.str]] = None,
@@ -298,7 +298,7 @@ def get_federated_oci_repository(archive_browsing_enabled: Optional[_builtins.bo
 
     :param _builtins.bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
     :param _builtins.str key: the identity key of the repo.
-    :param Sequence[Union['GetFederatedOciRepositoryMemberArgs', 'GetFederatedOciRepositoryMemberArgsDict']] members: The list of Federated members and must contain this repository URL (configured base URL
+    :param Sequence[Union['GetFederatedOciRepositoryMemberArgs', 'GetFederatedOciRepositoryMemberArgsDict', 'outputs.GetFederatedOciRepositoryMemberResult']] members: The list of Federated members and must contain this repository URL (configured base URL
            `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
            Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
            to set up Federated repositories correctly.
@@ -364,7 +364,7 @@ def get_federated_oci_repository_output(archive_browsing_enabled: pulumi.Input[O
                                         includes_pattern: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                         key: pulumi.Input[Optional[_builtins.str]] = None,
                                         max_unique_tags: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
-                                        members: pulumi.Input[Optional[Optional[Sequence[Union['GetFederatedOciRepositoryMemberArgs', 'GetFederatedOciRepositoryMemberArgsDict']]]]] = None,
+                                        members: pulumi.Input[Optional[Optional[Sequence[Union['GetFederatedOciRepositoryMemberArgs', 'GetFederatedOciRepositoryMemberArgsDict', 'outputs.GetFederatedOciRepositoryMemberResult']]]]] = None,
                                         notes: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                         priority_resolution: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                         project_environments: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
@@ -390,7 +390,7 @@ def get_federated_oci_repository_output(archive_browsing_enabled: pulumi.Input[O
 
     :param _builtins.bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
     :param _builtins.str key: the identity key of the repo.
-    :param Sequence[Union['GetFederatedOciRepositoryMemberArgs', 'GetFederatedOciRepositoryMemberArgsDict']] members: The list of Federated members and must contain this repository URL (configured base URL
+    :param Sequence[Union['GetFederatedOciRepositoryMemberArgs', 'GetFederatedOciRepositoryMemberArgsDict', 'outputs.GetFederatedOciRepositoryMemberResult']] members: The list of Federated members and must contain this repository URL (configured base URL
            `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
            Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
            to set up Federated repositories correctly.

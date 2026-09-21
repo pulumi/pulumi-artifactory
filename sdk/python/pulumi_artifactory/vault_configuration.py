@@ -97,7 +97,7 @@ class VaultConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: pulumi.Input[Optional[Union['VaultConfigurationConfigArgs', 'VaultConfigurationConfigArgsDict']]] = None,
+                 config: pulumi.Input[Optional[Union['VaultConfigurationConfigArgs', 'VaultConfigurationConfigArgsDict', 'outputs.VaultConfigurationConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -221,7 +221,7 @@ class VaultConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: pulumi.Input[Optional[Union['VaultConfigurationConfigArgs', 'VaultConfigurationConfigArgsDict']]] = None,
+                 config: pulumi.Input[Optional[Union['VaultConfigurationConfigArgs', 'VaultConfigurationConfigArgsDict', 'outputs.VaultConfigurationConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -246,7 +246,7 @@ class VaultConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            config: pulumi.Input[Optional[Union['VaultConfigurationConfigArgs', 'VaultConfigurationConfigArgsDict']]] = None,
+            config: pulumi.Input[Optional[Union['VaultConfigurationConfigArgs', 'VaultConfigurationConfigArgsDict', 'outputs.VaultConfigurationConfig']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None) -> 'VaultConfiguration':
         """
         Get an existing VaultConfiguration resource's state with the given name, id, and optional extra
