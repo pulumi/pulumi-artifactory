@@ -25,7 +25,7 @@ namespace Pulumi.Artifactory
     ///     var foo_cocoapods = new Artifactory.VirtualCocoapodsRepository("foo-cocoapods", new()
     ///     {
     ///         Key = "foo-cocoapods",
-    ///         Repositories = new[] {},
+    ///         Repositories = new() {},
     ///         Description = "A test virtual repo",
     ///         Notes = "Internal description",
     ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",

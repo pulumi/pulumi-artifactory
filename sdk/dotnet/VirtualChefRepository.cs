@@ -26,7 +26,7 @@ namespace Pulumi.Artifactory
     ///     var foo_chef = new Artifactory.VirtualChefRepository("foo-chef", new()
     ///     {
     ///         Key = "foo-chef",
-    ///         Repositories = new[] {},
+    ///         Repositories = new() {},
     ///         Description = "A test virtual repo",
     ///         Notes = "Internal description",
     ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",

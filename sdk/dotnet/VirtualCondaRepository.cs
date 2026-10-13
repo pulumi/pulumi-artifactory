@@ -26,7 +26,7 @@ namespace Pulumi.Artifactory
     ///     var foo_conda = new Artifactory.VirtualCondaRepository("foo-conda", new()
     ///     {
     ///         Key = "foo-conda",
-    ///         Repositories = new[] {},
+    ///         Repositories = new() {},
     ///         Description = "A test virtual repo",
     ///         Notes = "Internal description",
     ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",

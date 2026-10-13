@@ -26,7 +26,7 @@ namespace Pulumi.Artifactory
     ///     var foo_ivy = new Artifactory.VirtualIvyRepository("foo-ivy", new()
     ///     {
     ///         Key = "foo-ivy",
-    ///         Repositories = new[] {},
+    ///         Repositories = new() {},
     ///         Description = "A test virtual repo",
     ///         Notes = "Internal description",
     ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",

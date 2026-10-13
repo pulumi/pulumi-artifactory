@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var some_keypairRSA = new Keypair("some-keypairRSA", KeypairArgs.builder()
- *             .pairName(String.format("some-keypair%s", randid.id()))
+ *             .pairName(String.format("some-keypair%s", randid.get("id")))
  *             .pairType("RSA")
  *             .alias("foo-alias")
  *             .privateKey(StdFunctions.file(FileArgs.builder()

@@ -26,7 +26,7 @@ namespace Pulumi.Artifactory
     ///     var foo_debian = new Artifactory.VirtualDebianRepository("foo-debian", new()
     ///     {
     ///         Key = "foo-debian",
-    ///         Repositories = new[] {},
+    ///         Repositories = new() {},
     ///         Description = "A test virtual repo",
     ///         Notes = "Internal description",
     ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",

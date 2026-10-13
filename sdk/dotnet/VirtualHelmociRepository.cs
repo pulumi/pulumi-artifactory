@@ -27,7 +27,7 @@ namespace Pulumi.Artifactory
     ///     var my_helmoci_virtual = new Artifactory.VirtualHelmociRepository("my-helmoci-virtual", new()
     ///     {
     ///         Key = "my-helmoci-virtual",
-    ///         Repositories = new[] {},
+    ///         Repositories = new() {},
     ///         Description = "A test virtual repo",
     ///         Notes = "Internal description",
     ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",

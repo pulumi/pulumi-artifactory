@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }}{@code
  * 
  *     public static void stack(Context ctx) }{{@code
- *         // Create a new Artifactory user called terraform
+ *         // Create a new Artifactory user called pulumi
  *         var test_user = new UnmanagedUser("test-user", UnmanagedUserArgs.builder()
  *             .name("terraform")
  *             .email("test-user}{@literal @}{@code artifactory-terraform.com")

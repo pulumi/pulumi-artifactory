@@ -95,7 +95,7 @@ namespace Pulumi.Artifactory
     ///         Key = "my-release-bundle-v2-policy-key",
     ///         Description = "Cleanup policy description with variables",
     ///         CronExpression = "0 0 2 * * ?",
-    ///         DurationInMinutes = releaseBundleCleanupDurationInMinutes,
+    ///         DurationInMinutes = (int)releaseBundleCleanupDurationInMinutes,
     ///         Enabled = true,
     ///         SearchCriteria = new Artifactory.Inputs.ReleaseBundleV2CleanupPolicySearchCriteriaArgs
     ///         {
@@ -113,7 +113,7 @@ namespace Pulumi.Artifactory
     ///             {
     ///                 "**",
     ///             },
-    ///             CreatedBeforeInMonths = releaseBundleCleanupCreatedBeforeInMonths,
+    ///             CreatedBeforeInMonths = (int)releaseBundleCleanupCreatedBeforeInMonths,
     ///         },
     ///     });
     /// 

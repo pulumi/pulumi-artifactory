@@ -231,7 +231,7 @@ public class App {
 {{% /choosable %}}
 {{% choosable language hcl %}}
 ```hcl
-pulumi {
+terraform {
   required_providers {
     artifactory = {
       source = "pulumi/artifactory"
@@ -240,7 +240,10 @@ pulumi {
 }
 
 # Create a new repository
-resource "artifactory_localpypirepository" "pypi-libs" {
+resource "artifactory_local_pypi_repository" "pypi-libs" {
+  lifecycle {
+    create_before_destroy = true
+  }
   key             = "pypi-libs"
   repo_layout_ref = "simple-default"
   description     = "A pypi repository for python packages"

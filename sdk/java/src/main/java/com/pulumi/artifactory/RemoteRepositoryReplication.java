@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * 
  *         var providerTestDest = new RemoteMavenRepository("providerTestDest", RemoteMavenRepositoryArgs.builder()
  *             .key("provider_test_dest")
- *             .url(String.format("%s/artifactory/%s", artifactoryUrl,artifactoryLocalMavenRepository.key()))
+ *             .url(String.format("%s/artifactory/%s", artifactoryUrl,artifactoryLocalMavenRepository.get("key")))
  *             .username("foo")
  *             .password("bar")
  *             .build());

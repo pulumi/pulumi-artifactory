@@ -26,7 +26,7 @@ namespace Pulumi.Artifactory
     ///     var foo_gitlfs = new Artifactory.VirtualGitlfsRepository("foo-gitlfs", new()
     ///     {
     ///         Key = "foo-gitlfs",
-    ///         Repositories = new[] {},
+    ///         Repositories = new() {},
     ///         Description = "A test virtual repo",
     ///         Notes = "Internal description",
     ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",

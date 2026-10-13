@@ -26,7 +26,7 @@ namespace Pulumi.Artifactory
     ///     var foo_gradle = new Artifactory.VirtualGradleRepository("foo-gradle", new()
     ///     {
     ///         Key = "foo-gradle",
-    ///         Repositories = new[] {},
+    ///         Repositories = new() {},
     ///         Description = "A test virtual repo",
     ///         Notes = "Internal description",
     ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",

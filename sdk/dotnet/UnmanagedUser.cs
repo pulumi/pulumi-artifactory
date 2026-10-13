@@ -27,7 +27,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // Create a new Artifactory user called terraform
+    ///     // Create a new Artifactory user called pulumi
     ///     var test_user = new Artifactory.UnmanagedUser("test-user", new()
     ///     {
     ///         Name = "terraform",
