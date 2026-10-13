@@ -26,7 +26,7 @@ namespace Pulumi.Artifactory
     ///     var foo_composer = new Artifactory.VirtualComposerRepository("foo-composer", new()
     ///     {
     ///         Key = "foo-composer",
-    ///         Repositories = new[] {},
+    ///         Repositories = new() {},
     ///         Description = "A test virtual repo",
     ///         Notes = "Internal description",
     ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",

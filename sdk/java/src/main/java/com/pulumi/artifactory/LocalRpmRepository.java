@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var some_keypair_gpg_1 = new Keypair("some-keypair-gpg-1", KeypairArgs.builder()
- *             .pairName(String.format("some-keypair%s", randid.id()))
+ *             .pairName(String.format("some-keypair%s", randid.get("id")))
  *             .pairType("GPG")
  *             .alias("foo-alias1")
  *             .privateKey(StdFunctions.file(FileArgs.builder()
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var some_keypair_gpg_2 = new Keypair("some-keypair-gpg-2", KeypairArgs.builder()
- *             .pairName(String.format("some-keypair%s", randid.id()))
+ *             .pairName(String.format("some-keypair%s", randid.get("id")))
  *             .pairType("GPG")
  *             .alias("foo-alias2")
  *             .privateKey(StdFunctions.file(FileArgs.builder()
@@ -79,8 +79,8 @@ import javax.annotation.Nullable;
  *             .calculateYumMetadata(true)
  *             .enableFileListsIndexing(true)
  *             .yumGroupFileNames("file-1.xml,file-2.xml")
- *             .primaryKeypairRef(some_keypairGPG1.pairName())
- *             .secondaryKeypairRef(some_keypairGPG2.pairName())
+ *             .primaryKeypairRef(some_keypairGPG1.get("pairName"))
+ *             .secondaryKeypairRef(some_keypairGPG2.get("pairName"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     some_keypair_gpg_1,

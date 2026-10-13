@@ -26,7 +26,7 @@ namespace Pulumi.Artifactory
     ///     var foo_cran = new Artifactory.VirtualCranRepository("foo-cran", new()
     ///     {
     ///         Key = "foo-cran",
-    ///         Repositories = new[] {},
+    ///         Repositories = new() {},
     ///         Description = "A test virtual repo",
     ///         Notes = "Internal description",
     ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",

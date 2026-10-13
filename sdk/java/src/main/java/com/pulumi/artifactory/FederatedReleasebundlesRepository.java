@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var terraform_federated_test_releasebundles_repo = new FederatedReleasebundlesRepository("terraform-federated-test-releasebundles-repo", FederatedReleasebundlesRepositoryArgs.builder()
  *             .key("terraform-federated-test-releasebundles-repo")
- *             .projectKey(test.key())
+ *             .projectKey(test.get("key"))
  *             .members(            
  *                 FederatedReleasebundlesRepositoryMemberArgs.builder()
  *                     .url("https://tempurl.org/artifactory/project-release-bundles-v2")

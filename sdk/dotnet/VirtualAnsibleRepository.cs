@@ -27,7 +27,7 @@ namespace Pulumi.Artifactory
     ///     var my_ansible_virtual = new Artifactory.VirtualAnsibleRepository("my-ansible-virtual", new()
     ///     {
     ///         Key = "my-ansible-virtual",
-    ///         Repositories = new[] {},
+    ///         Repositories = new() {},
     ///         Description = "A test virtual repo",
     ///         Notes = "Internal description",
     ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",

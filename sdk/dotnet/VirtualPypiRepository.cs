@@ -26,7 +26,7 @@ namespace Pulumi.Artifactory
     ///     var foo_pypi = new Artifactory.VirtualPypiRepository("foo-pypi", new()
     ///     {
     ///         Key = "foo-pypi",
-    ///         Repositories = new[] {},
+    ///         Repositories = new() {},
     ///         Description = "A test virtual repo",
     ///         Notes = "Internal description",
     ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",

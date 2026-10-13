@@ -26,7 +26,7 @@ namespace Pulumi.Artifactory
     ///     var foo_docker = new Artifactory.VirtualDockerRepository("foo-docker", new()
     ///     {
     ///         Key = "foo-docker",
-    ///         Repositories = new[] {},
+    ///         Repositories = new() {},
     ///         Description = "A test virtual repo",
     ///         Notes = "Internal description",
     ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",

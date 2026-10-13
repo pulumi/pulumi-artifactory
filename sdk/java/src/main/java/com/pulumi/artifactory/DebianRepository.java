@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var some_keypairGPG1 = new Keypair("some-keypairGPG1", KeypairArgs.builder()
- *             .pairName(String.format("some-keypair%s", randid.id()))
+ *             .pairName(String.format("some-keypair%s", randid.get("id")))
  *             .pairType("GPG")
  *             .alias("foo-alias1")
  *             .privateKey(StdFunctions.file(FileArgs.builder()
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var some_keypairGPG2 = new Keypair("some-keypairGPG2", KeypairArgs.builder()
- *             .pairName(String.format("some-keypair4%s", randid.id()))
+ *             .pairName(String.format("some-keypair4%s", randid.get("id")))
  *             .pairType("GPG")
  *             .alias("foo-alias2")
  *             .privateKey(StdFunctions.file(FileArgs.builder()

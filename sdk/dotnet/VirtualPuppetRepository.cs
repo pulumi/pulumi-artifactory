@@ -26,7 +26,7 @@ namespace Pulumi.Artifactory
     ///     var foo_puppet = new Artifactory.VirtualPuppetRepository("foo-puppet", new()
     ///     {
     ///         Key = "foo-puppet",
-    ///         Repositories = new[] {},
+    ///         Repositories = new() {},
     ///         Description = "A test virtual repo",
     ///         Notes = "Internal description",
     ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",

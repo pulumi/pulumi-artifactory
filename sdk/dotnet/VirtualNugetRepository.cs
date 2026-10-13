@@ -26,7 +26,7 @@ namespace Pulumi.Artifactory
     ///     var foo_nuget = new Artifactory.VirtualNugetRepository("foo-nuget", new()
     ///     {
     ///         Key = "foo-nuget",
-    ///         Repositories = new[] {},
+    ///         Repositories = new() {},
     ///         Description = "A test virtual repo",
     ///         Notes = "Internal description",
     ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",

@@ -369,7 +369,7 @@ class UnmanagedUser(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        # Create a new Artifactory user called terraform
+        # Create a new Artifactory user called pulumi
         test_user = artifactory.UnmanagedUser("test-user",
             name="terraform",
             email="test-user@artifactory-terraform.com",
@@ -426,7 +426,7 @@ class UnmanagedUser(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        # Create a new Artifactory user called terraform
+        # Create a new Artifactory user called pulumi
         test_user = artifactory.UnmanagedUser("test-user",
             name="terraform",
             email="test-user@artifactory-terraform.com",

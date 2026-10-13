@@ -180,7 +180,7 @@ namespace Pulumi.Artifactory
     ///         Key = "my-cleanup-policy",
     ///         Description = "My cleanup policy with variables",
     ///         CronExpression = "0 0 2 ? * MON-SAT *",
-    ///         DurationInMinutes = cleanupPolicyDurationInMinutes,
+    ///         DurationInMinutes = (int)cleanupPolicyDurationInMinutes,
     ///         Enabled = true,
     ///         SkipTrashcan = false,
     ///         SearchCriteria = new Artifactory.Inputs.PackageCleanupPolicySearchCriteriaArgs
@@ -211,7 +211,7 @@ namespace Pulumi.Artifactory
     ///             {
     ///                 "com/jfrog/latest",
     ///             },
-    ///             LastDownloadedBeforeInDays = cleanupPolicyLastDownloadedBeforeInDays,
+    ///             LastDownloadedBeforeInDays = (int)cleanupPolicyLastDownloadedBeforeInDays,
     ///         },
     ///     });
     /// 

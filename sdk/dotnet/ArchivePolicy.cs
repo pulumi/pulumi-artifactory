@@ -178,7 +178,7 @@ namespace Pulumi.Artifactory
     ///         Key = "my-archive-policy",
     ///         Description = "My archive policy with variables",
     ///         CronExpression = "0 0 2 ? * MON-SAT *",
-    ///         DurationInMinutes = archivePolicyDurationInMinutes,
+    ///         DurationInMinutes = (int)archivePolicyDurationInMinutes,
     ///         Enabled = true,
     ///         SkipTrashcan = false,
     ///         SearchCriteria = new Artifactory.Inputs.ArchivePolicySearchCriteriaArgs
@@ -209,7 +209,7 @@ namespace Pulumi.Artifactory
     ///             {
     ///                 "com/jfrog/latest",
     ///             },
-    ///             LastDownloadedBeforeInDays = archivePolicyLastDownloadedBeforeInDays,
+    ///             LastDownloadedBeforeInDays = (int)archivePolicyLastDownloadedBeforeInDays,
     ///         },
     ///     });
     /// 

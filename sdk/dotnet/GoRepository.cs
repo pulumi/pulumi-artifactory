@@ -27,7 +27,7 @@ namespace Pulumi.Artifactory
     ///     {
     ///         Key = "baz-go",
     ///         RepoLayoutRef = "go-default",
-    ///         Repositories = new[] {},
+    ///         Repositories = new() {},
     ///         Description = "A test virtual repo",
     ///         Notes = "Internal description",
     ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",

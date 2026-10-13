@@ -26,7 +26,7 @@ namespace Pulumi.Artifactory
     ///     var foo_p2 = new Artifactory.VirtualP2Repository("foo-p2", new()
     ///     {
     ///         Key = "foo-p2",
-    ///         Repositories = new[] {},
+    ///         Repositories = new() {},
     ///         Description = "A test virtual repo",
     ///         Notes = "Internal description",
     ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",

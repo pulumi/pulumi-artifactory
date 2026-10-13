@@ -58,7 +58,7 @@ namespace Pulumi.Artifactory
     ///         Key = "my-debian-repo",
     ///         PrimaryKeypairRef = some_keypairGPG1.PairName,
     ///         SecondaryKeypairRef = some_keypairGPG2.PairName,
-    ///         IndexCompressionFormats = new[] {},
+    ///         IndexCompressionFormats = new() {},
     ///         TrivialLayout = true,
     ///     }, new CustomResourceOptions
     ///     {
