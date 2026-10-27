@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-artifactory/provider/v8
 
-go 1.27.0
+go 1.27.3
 
 replace github.com/hashicorp/go-getter v1.5.0 => github.com/hashicorp/go-getter v1.4.0
 
