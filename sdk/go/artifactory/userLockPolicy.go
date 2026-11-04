@@ -115,6 +115,12 @@ func (UserLockPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userLockPolicyState)(nil)).Elem()
 }
 
+// UserLockPolicyExists checks whether an existing UserLockPolicy resource with the given ID exists.
+func UserLockPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserLockPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/userLockPolicy:UserLockPolicy", id, state, "", opts...)
+}
+
 type userLockPolicyArgs struct {
 	// Enable User Lock Policy. Lock user after exceeding max failed login attempts.
 	Enabled bool `pulumi:"enabled"`

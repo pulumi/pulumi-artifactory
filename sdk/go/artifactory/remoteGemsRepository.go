@@ -409,6 +409,12 @@ func (RemoteGemsRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteGemsRepositoryState)(nil)).Elem()
 }
 
+// RemoteGemsRepositoryExists checks whether an existing RemoteGemsRepository resource with the given ID exists.
+func RemoteGemsRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteGemsRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteGemsRepository:RemoteGemsRepository", id, state, "", opts...)
+}
+
 type remoteGemsRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

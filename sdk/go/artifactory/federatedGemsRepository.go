@@ -235,6 +235,12 @@ func (FederatedGemsRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedGemsRepositoryState)(nil)).Elem()
 }
 
+// FederatedGemsRepositoryExists checks whether an existing FederatedGemsRepository resource with the given ID exists.
+func FederatedGemsRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedGemsRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/federatedGemsRepository:FederatedGemsRepository", id, state, "", opts...)
+}
+
 type federatedGemsRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

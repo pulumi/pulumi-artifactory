@@ -247,6 +247,12 @@ func (FederatedDockerV1RepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedDockerV1RepositoryState)(nil)).Elem()
 }
 
+// FederatedDockerV1RepositoryExists checks whether an existing FederatedDockerV1Repository resource with the given ID exists.
+func FederatedDockerV1RepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedDockerV1RepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/federatedDockerV1Repository:FederatedDockerV1Repository", id, state, "", opts...)
+}
+
 type federatedDockerV1RepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

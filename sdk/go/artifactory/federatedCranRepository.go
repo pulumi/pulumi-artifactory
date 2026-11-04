@@ -235,6 +235,12 @@ func (FederatedCranRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedCranRepositoryState)(nil)).Elem()
 }
 
+// FederatedCranRepositoryExists checks whether an existing FederatedCranRepository resource with the given ID exists.
+func FederatedCranRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedCranRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/federatedCranRepository:FederatedCranRepository", id, state, "", opts...)
+}
+
 type federatedCranRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

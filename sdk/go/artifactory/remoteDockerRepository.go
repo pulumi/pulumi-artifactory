@@ -434,6 +434,12 @@ func (RemoteDockerRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteDockerRepositoryState)(nil)).Elem()
 }
 
+// RemoteDockerRepositoryExists checks whether an existing RemoteDockerRepository resource with the given ID exists.
+func RemoteDockerRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteDockerRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteDockerRepository:RemoteDockerRepository", id, state, "", opts...)
+}
+
 type remoteDockerRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

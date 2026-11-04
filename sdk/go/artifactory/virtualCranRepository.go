@@ -184,6 +184,12 @@ func (VirtualCranRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualCranRepositoryState)(nil)).Elem()
 }
 
+// VirtualCranRepositoryExists checks whether an existing VirtualCranRepository resource with the given ID exists.
+func VirtualCranRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualCranRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualCranRepository:VirtualCranRepository", id, state, "", opts...)
+}
+
 type virtualCranRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

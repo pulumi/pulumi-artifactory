@@ -58,11 +58,10 @@ public final class GetFederatedDebianRepositoryResult {
     private @Nullable String repoLayoutRef;
     private @Nullable String secondaryKeypairRef;
     /**
-     * @deprecated
-     * You shouldn&#39;t be using this
+     * @deprecated You shouldn&#39;t be using this
      * 
      */
-    @Deprecated /* You shouldn't be using this */
+    @Deprecated
     private @Nullable Boolean trivialLayout;
     private @Nullable Boolean xrayIndex;
 
@@ -156,11 +155,10 @@ public final class GetFederatedDebianRepositoryResult {
         return Optional.ofNullable(this.secondaryKeypairRef);
     }
     /**
-     * @deprecated
-     * You shouldn&#39;t be using this
+     * @deprecated You shouldn&#39;t be using this
      * 
      */
-    @Deprecated /* You shouldn't be using this */
+    @Deprecated
     public Optional<Boolean> trivialLayout() {
         return Optional.ofNullable(this.trivialLayout);
     }

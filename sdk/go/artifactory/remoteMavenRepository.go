@@ -451,6 +451,12 @@ func (RemoteMavenRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteMavenRepositoryState)(nil)).Elem()
 }
 
+// RemoteMavenRepositoryExists checks whether an existing RemoteMavenRepository resource with the given ID exists.
+func RemoteMavenRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteMavenRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteMavenRepository:RemoteMavenRepository", id, state, "", opts...)
+}
+
 type remoteMavenRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

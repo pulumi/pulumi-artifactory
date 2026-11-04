@@ -184,6 +184,12 @@ func (VirtualChefRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualChefRepositoryState)(nil)).Elem()
 }
 
+// VirtualChefRepositoryExists checks whether an existing VirtualChefRepository resource with the given ID exists.
+func VirtualChefRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualChefRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualChefRepository:VirtualChefRepository", id, state, "", opts...)
+}
+
 type virtualChefRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

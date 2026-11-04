@@ -209,6 +209,12 @@ func (LocalNugetRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localNugetRepositoryState)(nil)).Elem()
 }
 
+// LocalNugetRepositoryExists checks whether an existing LocalNugetRepository resource with the given ID exists.
+func LocalNugetRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalNugetRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localNugetRepository:LocalNugetRepository", id, state, "", opts...)
+}
+
 type localNugetRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

@@ -186,6 +186,12 @@ func (LocalChefRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localChefRepositoryState)(nil)).Elem()
 }
 
+// LocalChefRepositoryExists checks whether an existing LocalChefRepository resource with the given ID exists.
+func LocalChefRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalChefRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localChefRepository:LocalChefRepository", id, state, "", opts...)
+}
+
 type localChefRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

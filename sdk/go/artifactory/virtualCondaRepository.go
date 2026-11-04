@@ -184,6 +184,12 @@ func (VirtualCondaRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualCondaRepositoryState)(nil)).Elem()
 }
 
+// VirtualCondaRepositoryExists checks whether an existing VirtualCondaRepository resource with the given ID exists.
+func VirtualCondaRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualCondaRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualCondaRepository:VirtualCondaRepository", id, state, "", opts...)
+}
+
 type virtualCondaRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

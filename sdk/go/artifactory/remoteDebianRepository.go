@@ -411,6 +411,12 @@ func (RemoteDebianRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteDebianRepositoryState)(nil)).Elem()
 }
 
+// RemoteDebianRepositoryExists checks whether an existing RemoteDebianRepository resource with the given ID exists.
+func RemoteDebianRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteDebianRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteDebianRepository:RemoteDebianRepository", id, state, "", opts...)
+}
+
 type remoteDebianRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

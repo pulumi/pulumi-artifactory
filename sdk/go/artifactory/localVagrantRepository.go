@@ -186,6 +186,12 @@ func (LocalVagrantRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localVagrantRepositoryState)(nil)).Elem()
 }
 
+// LocalVagrantRepositoryExists checks whether an existing LocalVagrantRepository resource with the given ID exists.
+func LocalVagrantRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalVagrantRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localVagrantRepository:LocalVagrantRepository", id, state, "", opts...)
+}
+
 type localVagrantRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

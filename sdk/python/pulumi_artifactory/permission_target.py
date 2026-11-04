@@ -480,6 +480,20 @@ class PermissionTarget(pulumi.CustomResource):
         __props__.__dict__["repo"] = repo
         return PermissionTarget(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            build: pulumi.Input[Optional[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict', 'outputs.PermissionTargetBuild']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            release_bundle: pulumi.Input[Optional[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict', 'outputs.PermissionTargetReleaseBundle']]] = None,
+            repo: pulumi.Input[Optional[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict', 'outputs.PermissionTargetRepo']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["build"] = build
+        __props__["name"] = name
+        __props__["releaseBundle"] = release_bundle
+        __props__["repo"] = repo
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/permissionTarget:PermissionTarget', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def build(self) -> pulumi.Output[Optional['outputs.PermissionTargetBuild']]:

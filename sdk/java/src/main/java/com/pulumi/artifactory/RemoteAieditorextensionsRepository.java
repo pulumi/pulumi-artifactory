@@ -728,11 +728,10 @@ public class RemoteAieditorextensionsRepository extends com.pulumi.resources.Cus
         return this.retrieveSha256FromServer;
     }
     /**
-     * @deprecated
-     * No longer supported
+     * @deprecated No longer supported
      * 
      */
-    @Deprecated /* No longer supported */
+    @Deprecated
     @Export(name="shareConfiguration", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> shareConfiguration;
 

@@ -229,6 +229,12 @@ func (LocalHexRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localHexRepositoryState)(nil)).Elem()
 }
 
+// LocalHexRepositoryExists checks whether an existing LocalHexRepository resource with the given ID exists.
+func LocalHexRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalHexRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localHexRepository:LocalHexRepository", id, state, "", opts...)
+}
+
 type localHexRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

@@ -452,6 +452,12 @@ func (RemoteTerraformRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteTerraformRepositoryState)(nil)).Elem()
 }
 
+// RemoteTerraformRepositoryExists checks whether an existing RemoteTerraformRepository resource with the given ID exists.
+func RemoteTerraformRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteTerraformRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteTerraformRepository:RemoteTerraformRepository", id, state, "", opts...)
+}
+
 type remoteTerraformRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

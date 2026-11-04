@@ -178,6 +178,12 @@ func (VirtualComposerRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualComposerRepositoryState)(nil)).Elem()
 }
 
+// VirtualComposerRepositoryExists checks whether an existing VirtualComposerRepository resource with the given ID exists.
+func VirtualComposerRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualComposerRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualComposerRepository:VirtualComposerRepository", id, state, "", opts...)
+}
+
 type virtualComposerRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

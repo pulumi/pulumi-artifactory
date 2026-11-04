@@ -242,6 +242,12 @@ func (FederatedConanRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedConanRepositoryState)(nil)).Elem()
 }
 
+// FederatedConanRepositoryExists checks whether an existing FederatedConanRepository resource with the given ID exists.
+func FederatedConanRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedConanRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/federatedConanRepository:FederatedConanRepository", id, state, "", opts...)
+}
+
 type federatedConanRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

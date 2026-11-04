@@ -198,6 +198,12 @@ func (DockerV1RepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dockerV1RepositoryState)(nil)).Elem()
 }
 
+// DockerV1RepositoryExists checks whether an existing DockerV1Repository resource with the given ID exists.
+func DockerV1RepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DockerV1RepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/dockerV1Repository:DockerV1Repository", id, state, "", opts...)
+}
+
 type dockerV1RepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

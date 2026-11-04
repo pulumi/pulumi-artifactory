@@ -241,6 +241,12 @@ func (FederatedAnsibleRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedAnsibleRepositoryState)(nil)).Elem()
 }
 
+// FederatedAnsibleRepositoryExists checks whether an existing FederatedAnsibleRepository resource with the given ID exists.
+func FederatedAnsibleRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedAnsibleRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/federatedAnsibleRepository:FederatedAnsibleRepository", id, state, "", opts...)
+}
+
 type federatedAnsibleRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

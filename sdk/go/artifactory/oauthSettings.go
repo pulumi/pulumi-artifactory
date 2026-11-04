@@ -140,6 +140,12 @@ func (OauthSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*oauthSettingsState)(nil)).Elem()
 }
 
+// OauthSettingsExists checks whether an existing OauthSettings resource with the given ID exists.
+func OauthSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OauthSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/oauthSettings:OauthSettings", id, state, "", opts...)
+}
+
 type oauthSettingsArgs struct {
 	// Allow persisted users to access their profile.  Default value is `false`.
 	AllowUserToAccessProfile *bool `pulumi:"allowUserToAccessProfile"`

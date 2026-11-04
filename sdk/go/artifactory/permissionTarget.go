@@ -226,6 +226,12 @@ func (PermissionTargetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*permissionTargetState)(nil)).Elem()
 }
 
+// PermissionTargetExists checks whether an existing PermissionTarget resource with the given ID exists.
+func PermissionTargetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PermissionTargetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/permissionTarget:PermissionTarget", id, state, "", opts...)
+}
+
 type permissionTargetArgs struct {
 	// As for repo but for artifactory-build-info permissions.
 	Build *PermissionTargetBuild `pulumi:"build"`

@@ -407,6 +407,12 @@ func (RemoteHelmociRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteHelmociRepositoryState)(nil)).Elem()
 }
 
+// RemoteHelmociRepositoryExists checks whether an existing RemoteHelmociRepository resource with the given ID exists.
+func RemoteHelmociRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteHelmociRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteHelmociRepository:RemoteHelmociRepository", id, state, "", opts...)
+}
+
 type remoteHelmociRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

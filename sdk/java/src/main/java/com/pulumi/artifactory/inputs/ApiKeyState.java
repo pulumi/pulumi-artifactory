@@ -18,22 +18,20 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
     /**
      * The API key. Deprecated.
      * 
-     * @deprecated
-     * Deprecated in favor of &#34;artifactory.ScopedToken&#34;.
+     * @deprecated Deprecated in favor of &#34;artifactory.ScopedToken&#34;.
      * 
      */
-    @Deprecated /* Deprecated in favor of ""artifactory.ScopedToken"". */
+    @Deprecated
     @Import(name="apiKey")
     private @Nullable Output<String> apiKey;
 
     /**
      * @return The API key. Deprecated.
      * 
-     * @deprecated
-     * Deprecated in favor of &#34;artifactory.ScopedToken&#34;.
+     * @deprecated Deprecated in favor of &#34;artifactory.ScopedToken&#34;.
      * 
      */
-    @Deprecated /* Deprecated in favor of ""artifactory.ScopedToken"". */
+    @Deprecated
     public Optional<Output<String>> apiKey() {
         return Optional.ofNullable(this.apiKey);
     }
@@ -67,11 +65,10 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Deprecated in favor of &#34;artifactory.ScopedToken&#34;.
+         * @deprecated Deprecated in favor of &#34;artifactory.ScopedToken&#34;.
          * 
          */
-        @Deprecated /* Deprecated in favor of ""artifactory.ScopedToken"". */
+        @Deprecated
         public Builder apiKey(@Nullable Output<String> apiKey) {
             $.apiKey = apiKey;
             return this;
@@ -82,11 +79,10 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Deprecated in favor of &#34;artifactory.ScopedToken&#34;.
+         * @deprecated Deprecated in favor of &#34;artifactory.ScopedToken&#34;.
          * 
          */
-        @Deprecated /* Deprecated in favor of ""artifactory.ScopedToken"". */
+        @Deprecated
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
         }

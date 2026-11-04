@@ -244,6 +244,12 @@ func (FederatedAlpineRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedAlpineRepositoryState)(nil)).Elem()
 }
 
+// FederatedAlpineRepositoryExists checks whether an existing FederatedAlpineRepository resource with the given ID exists.
+func FederatedAlpineRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedAlpineRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/federatedAlpineRepository:FederatedAlpineRepository", id, state, "", opts...)
+}
+
 type federatedAlpineRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

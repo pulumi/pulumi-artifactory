@@ -553,6 +553,32 @@ class ReleaseBundleV2(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return ReleaseBundleV2(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            keypair_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            project_key: pulumi.Input[Optional[_builtins.str]] = None,
+            service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_docker_manifest_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+            source: pulumi.Input[Optional[Union['ReleaseBundleV2SourceArgs', 'ReleaseBundleV2SourceArgsDict', 'outputs.ReleaseBundleV2Source']]] = None,
+            source_type: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["created"] = created
+        __props__["createdBy"] = created_by
+        __props__["keypairName"] = keypair_name
+        __props__["name"] = name
+        __props__["projectKey"] = project_key
+        __props__["serviceId"] = service_id
+        __props__["skipDockerManifestResolution"] = skip_docker_manifest_resolution
+        __props__["source"] = source
+        __props__["sourceType"] = source_type
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/releaseBundleV2:ReleaseBundleV2', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def created(self) -> pulumi.Output[_builtins.str]:

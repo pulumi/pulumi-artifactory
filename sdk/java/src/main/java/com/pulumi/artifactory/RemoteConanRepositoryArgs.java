@@ -626,20 +626,18 @@ public final class RemoteConanRepositoryArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * @deprecated
-     * No longer supported
+     * @deprecated No longer supported
      * 
      */
-    @Deprecated /* No longer supported */
+    @Deprecated
     @Import(name="shareConfiguration")
     private @Nullable Output<Boolean> shareConfiguration;
 
     /**
-     * @deprecated
-     * No longer supported
+     * @deprecated No longer supported
      * 
      */
-    @Deprecated /* No longer supported */
+    @Deprecated
     public Optional<Output<Boolean>> shareConfiguration() {
         return Optional.ofNullable(this.shareConfiguration);
     }
@@ -1679,11 +1677,10 @@ public final class RemoteConanRepositoryArgs extends com.pulumi.resources.Resour
         /**
          * @return builder
          * 
-         * @deprecated
-         * No longer supported
+         * @deprecated No longer supported
          * 
          */
-        @Deprecated /* No longer supported */
+        @Deprecated
         public Builder shareConfiguration(@Nullable Output<Boolean> shareConfiguration) {
             $.shareConfiguration = shareConfiguration;
             return this;
@@ -1692,11 +1689,10 @@ public final class RemoteConanRepositoryArgs extends com.pulumi.resources.Resour
         /**
          * @return builder
          * 
-         * @deprecated
-         * No longer supported
+         * @deprecated No longer supported
          * 
          */
-        @Deprecated /* No longer supported */
+        @Deprecated
         public Builder shareConfiguration(Boolean shareConfiguration) {
             return shareConfiguration(Output.of(shareConfiguration));
         }

@@ -235,6 +235,12 @@ func (FederatedTerraformProviderRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedTerraformProviderRepositoryState)(nil)).Elem()
 }
 
+// FederatedTerraformProviderRepositoryExists checks whether an existing FederatedTerraformProviderRepository resource with the given ID exists.
+func FederatedTerraformProviderRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedTerraformProviderRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/federatedTerraformProviderRepository:FederatedTerraformProviderRepository", id, state, "", opts...)
+}
+
 type federatedTerraformProviderRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

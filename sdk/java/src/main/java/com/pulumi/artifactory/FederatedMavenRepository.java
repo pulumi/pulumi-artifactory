@@ -119,14 +119,14 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.cdnRedirect);
     }
     /**
-     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). Options are: &#34;client-checksums&#34;, or &#34;server-generated-checksums&#34;. Default: &#34;client-checksums&#34;\n For more details, please refer to Checksum Policy - https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). Options are: &#34;client-checksums&#34;, or &#34;server-generated-checksums&#34;. Default: &#34;client-checksums&#34;&#92;n For more details, please refer to Checksum Policy - https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
      * 
      */
     @Export(name="checksumPolicyType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> checksumPolicyType;
 
     /**
-     * @return Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). Options are: &#34;client-checksums&#34;, or &#34;server-generated-checksums&#34;. Default: &#34;client-checksums&#34;\n For more details, please refer to Checksum Policy - https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+     * @return Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). Options are: &#34;client-checksums&#34;, or &#34;server-generated-checksums&#34;. Default: &#34;client-checksums&#34;&#92;n For more details, please refer to Checksum Policy - https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
      * 
      */
     public Output<Optional<String>> checksumPolicyType() {

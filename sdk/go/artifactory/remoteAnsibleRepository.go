@@ -384,6 +384,12 @@ func (RemoteAnsibleRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteAnsibleRepositoryState)(nil)).Elem()
 }
 
+// RemoteAnsibleRepositoryExists checks whether an existing RemoteAnsibleRepository resource with the given ID exists.
+func RemoteAnsibleRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteAnsibleRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteAnsibleRepository:RemoteAnsibleRepository", id, state, "", opts...)
+}
+
 type remoteAnsibleRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

@@ -217,6 +217,12 @@ func (MavenRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mavenRepositoryState)(nil)).Elem()
 }
 
+// MavenRepositoryExists checks whether an existing MavenRepository resource with the given ID exists.
+func MavenRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MavenRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/mavenRepository:MavenRepository", id, state, "", opts...)
+}
+
 type mavenRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

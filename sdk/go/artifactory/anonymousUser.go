@@ -97,6 +97,12 @@ func (AnonymousUserState) ElementType() reflect.Type {
 	return reflect.TypeOf((*anonymousUserState)(nil)).Elem()
 }
 
+// AnonymousUserExists checks whether an existing AnonymousUser resource with the given ID exists.
+func AnonymousUserExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AnonymousUserState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/anonymousUser:AnonymousUser", id, state, "", opts...)
+}
+
 type anonymousUserArgs struct {
 	// Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be set or updated in the HCL.
 	Name *string `pulumi:"name"`

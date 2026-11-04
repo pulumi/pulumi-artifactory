@@ -894,6 +894,48 @@ class ScopedToken(pulumi.CustomResource):
         __props__.__dict__["username"] = username
         return ScopedToken(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_token: pulumi.Input[Optional[_builtins.str]] = None,
+            audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            expires_in: pulumi.Input[Optional[_builtins.int]] = None,
+            expiry: pulumi.Input[Optional[_builtins.int]] = None,
+            grant_type: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_missing_token_warning: pulumi.Input[Optional[_builtins.bool]] = None,
+            include_reference_token: pulumi.Input[Optional[_builtins.bool]] = None,
+            issued_at: pulumi.Input[Optional[_builtins.int]] = None,
+            issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            project_key: pulumi.Input[Optional[_builtins.str]] = None,
+            reference_token: pulumi.Input[Optional[_builtins.str]] = None,
+            refresh_token: pulumi.Input[Optional[_builtins.str]] = None,
+            refreshable: pulumi.Input[Optional[_builtins.bool]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            subject: pulumi.Input[Optional[_builtins.str]] = None,
+            token_type: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessToken"] = access_token
+        __props__["audiences"] = audiences
+        __props__["description"] = description
+        __props__["expiresIn"] = expires_in
+        __props__["expiry"] = expiry
+        __props__["grantType"] = grant_type
+        __props__["ignoreMissingTokenWarning"] = ignore_missing_token_warning
+        __props__["includeReferenceToken"] = include_reference_token
+        __props__["issuedAt"] = issued_at
+        __props__["issuer"] = issuer
+        __props__["projectKey"] = project_key
+        __props__["referenceToken"] = reference_token
+        __props__["refreshToken"] = refresh_token
+        __props__["refreshable"] = refreshable
+        __props__["scopes"] = scopes
+        __props__["subject"] = subject
+        __props__["tokenType"] = token_type
+        __props__["username"] = username
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/scopedToken:ScopedToken', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessToken")
     def access_token(self) -> pulumi.Output[_builtins.str]:

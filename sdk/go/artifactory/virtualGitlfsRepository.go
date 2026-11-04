@@ -178,6 +178,12 @@ func (VirtualGitlfsRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualGitlfsRepositoryState)(nil)).Elem()
 }
 
+// VirtualGitlfsRepositoryExists checks whether an existing VirtualGitlfsRepository resource with the given ID exists.
+func VirtualGitlfsRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualGitlfsRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository", id, state, "", opts...)
+}
+
 type virtualGitlfsRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

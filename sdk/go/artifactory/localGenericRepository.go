@@ -189,6 +189,12 @@ func (LocalGenericRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localGenericRepositoryState)(nil)).Elem()
 }
 
+// LocalGenericRepositoryExists checks whether an existing LocalGenericRepository resource with the given ID exists.
+func LocalGenericRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalGenericRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localGenericRepository:LocalGenericRepository", id, state, "", opts...)
+}
+
 type localGenericRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

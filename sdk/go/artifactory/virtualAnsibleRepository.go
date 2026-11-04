@@ -184,6 +184,12 @@ func (VirtualAnsibleRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualAnsibleRepositoryState)(nil)).Elem()
 }
 
+// VirtualAnsibleRepositoryExists checks whether an existing VirtualAnsibleRepository resource with the given ID exists.
+func VirtualAnsibleRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualAnsibleRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualAnsibleRepository:VirtualAnsibleRepository", id, state, "", opts...)
+}
+
 type virtualAnsibleRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

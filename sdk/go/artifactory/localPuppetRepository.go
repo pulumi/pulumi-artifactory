@@ -186,6 +186,12 @@ func (LocalPuppetRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localPuppetRepositoryState)(nil)).Elem()
 }
 
+// LocalPuppetRepositoryExists checks whether an existing LocalPuppetRepository resource with the given ID exists.
+func LocalPuppetRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalPuppetRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localPuppetRepository:LocalPuppetRepository", id, state, "", opts...)
+}
+
 type localPuppetRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

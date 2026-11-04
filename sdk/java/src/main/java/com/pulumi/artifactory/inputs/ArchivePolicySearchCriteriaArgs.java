@@ -42,22 +42,20 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
     /**
      * The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
      * 
-     * @deprecated
-     * Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
+     * @deprecated Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
      * 
      */
-    @Deprecated /* Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2. */
+    @Deprecated
     @Import(name="createdBeforeInMonths")
     private @Nullable Output<Integer> createdBeforeInMonths;
 
     /**
      * @return The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
      * 
-     * @deprecated
-     * Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
+     * @deprecated Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
      * 
      */
-    @Deprecated /* Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2. */
+    @Deprecated
     public Optional<Output<Integer>> createdBeforeInMonths() {
         return Optional.ofNullable(this.createdBeforeInMonths);
     }
@@ -218,22 +216,20 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
     /**
      * The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
      * 
-     * @deprecated
-     * Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
+     * @deprecated Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
      * 
      */
-    @Deprecated /* Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2. */
+    @Deprecated
     @Import(name="lastDownloadedBeforeInMonths")
     private @Nullable Output<Integer> lastDownloadedBeforeInMonths;
 
     /**
      * @return The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
      * 
-     * @deprecated
-     * Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
+     * @deprecated Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
      * 
      */
-    @Deprecated /* Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2. */
+    @Deprecated
     public Optional<Output<Integer>> lastDownloadedBeforeInMonths() {
         return Optional.ofNullable(this.lastDownloadedBeforeInMonths);
     }
@@ -335,11 +331,10 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
+         * @deprecated Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
          * 
          */
-        @Deprecated /* Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2. */
+        @Deprecated
         public Builder createdBeforeInMonths(@Nullable Output<Integer> createdBeforeInMonths) {
             $.createdBeforeInMonths = createdBeforeInMonths;
             return this;
@@ -350,11 +345,10 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
+         * @deprecated Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
          * 
          */
-        @Deprecated /* Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2. */
+        @Deprecated
         public Builder createdBeforeInMonths(Integer createdBeforeInMonths) {
             return createdBeforeInMonths(Output.of(createdBeforeInMonths));
         }
@@ -612,11 +606,10 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
+         * @deprecated Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
          * 
          */
-        @Deprecated /* Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2. */
+        @Deprecated
         public Builder lastDownloadedBeforeInMonths(@Nullable Output<Integer> lastDownloadedBeforeInMonths) {
             $.lastDownloadedBeforeInMonths = lastDownloadedBeforeInMonths;
             return this;
@@ -627,11 +620,10 @@ public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
+         * @deprecated Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
          * 
          */
-        @Deprecated /* Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2. */
+        @Deprecated
         public Builder lastDownloadedBeforeInMonths(Integer lastDownloadedBeforeInMonths) {
             return lastDownloadedBeforeInMonths(Output.of(lastDownloadedBeforeInMonths));
         }

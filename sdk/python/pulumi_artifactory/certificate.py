@@ -372,6 +372,28 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["valid_until"] = valid_until
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            alias: pulumi.Input[Optional[_builtins.str]] = None,
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            file: pulumi.Input[Optional[_builtins.str]] = None,
+            fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+            issued_by: pulumi.Input[Optional[_builtins.str]] = None,
+            issued_on: pulumi.Input[Optional[_builtins.str]] = None,
+            issued_to: pulumi.Input[Optional[_builtins.str]] = None,
+            valid_until: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alias"] = alias
+        __props__["content"] = content
+        __props__["file"] = file
+        __props__["fingerprint"] = fingerprint
+        __props__["issuedBy"] = issued_by
+        __props__["issuedOn"] = issued_on
+        __props__["issuedTo"] = issued_to
+        __props__["validUntil"] = valid_until
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/certificate:Certificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def alias(self) -> pulumi.Output[_builtins.str]:

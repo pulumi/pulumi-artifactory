@@ -177,6 +177,12 @@ func (GeneralSecurityState) ElementType() reflect.Type {
 	return reflect.TypeOf((*generalSecurityState)(nil)).Elem()
 }
 
+// GeneralSecurityExists checks whether an existing GeneralSecurity resource with the given ID exists.
+func GeneralSecurityExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GeneralSecurityState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/generalSecurity:GeneralSecurity", id, state, "", opts...)
+}
+
 type generalSecurityArgs struct {
 	// Enable anonymous access. Default value is `false`.
 	EnableAnonymousAccess *bool `pulumi:"enableAnonymousAccess"`

@@ -385,6 +385,12 @@ func (RemoteGitlfsRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteGitlfsRepositoryState)(nil)).Elem()
 }
 
+// RemoteGitlfsRepositoryExists checks whether an existing RemoteGitlfsRepository resource with the given ID exists.
+func RemoteGitlfsRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteGitlfsRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteGitlfsRepository:RemoteGitlfsRepository", id, state, "", opts...)
+}
+
 type remoteGitlfsRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

@@ -149,6 +149,12 @@ func (VaultConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vaultConfigurationState)(nil)).Elem()
 }
 
+// VaultConfigurationExists checks whether an existing VaultConfiguration resource with the given ID exists.
+func VaultConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VaultConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/vaultConfiguration:VaultConfiguration", id, state, "", opts...)
+}
+
 type vaultConfigurationArgs struct {
 	Config VaultConfigurationConfig `pulumi:"config"`
 	// Name of the Vault configuration

@@ -235,6 +235,12 @@ func (FederatedOpkgRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedOpkgRepositoryState)(nil)).Elem()
 }
 
+// FederatedOpkgRepositoryExists checks whether an existing FederatedOpkgRepository resource with the given ID exists.
+func FederatedOpkgRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedOpkgRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/federatedOpkgRepository:FederatedOpkgRepository", id, state, "", opts...)
+}
+
 type federatedOpkgRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

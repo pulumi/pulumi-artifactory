@@ -186,6 +186,12 @@ func (LocalCocoapodsRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localCocoapodsRepositoryState)(nil)).Elem()
 }
 
+// LocalCocoapodsRepositoryExists checks whether an existing LocalCocoapodsRepository resource with the given ID exists.
+func LocalCocoapodsRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalCocoapodsRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localCocoapodsRepository:LocalCocoapodsRepository", id, state, "", opts...)
+}
+
 type localCocoapodsRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

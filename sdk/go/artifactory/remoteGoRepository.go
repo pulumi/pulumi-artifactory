@@ -417,6 +417,12 @@ func (RemoteGoRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteGoRepositoryState)(nil)).Elem()
 }
 
+// RemoteGoRepositoryExists checks whether an existing RemoteGoRepository resource with the given ID exists.
+func RemoteGoRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteGoRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteGoRepository:RemoteGoRepository", id, state, "", opts...)
+}
+
 type remoteGoRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

@@ -376,11 +376,10 @@ public class FederatedDebianRepository extends com.pulumi.resources.CustomResour
     /**
      * When set, the repository will use the deprecated trivial layout.
      * 
-     * @deprecated
-     * You shouldn&#39;t be using this
+     * @deprecated You shouldn&#39;t be using this
      * 
      */
-    @Deprecated /* You shouldn't be using this */
+    @Deprecated
     @Export(name="trivialLayout", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> trivialLayout;
 

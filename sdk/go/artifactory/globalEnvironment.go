@@ -94,6 +94,12 @@ func (GlobalEnvironmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalEnvironmentState)(nil)).Elem()
 }
 
+// GlobalEnvironmentExists checks whether an existing GlobalEnvironment resource with the given ID exists.
+func GlobalEnvironmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GlobalEnvironmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/globalEnvironment:GlobalEnvironment", id, state, "", opts...)
+}
+
 type globalEnvironmentArgs struct {
 	// Name must start with a letter and contain letters, digits and `-` character. The maximum length is 32 characters
 	Name *string `pulumi:"name"`

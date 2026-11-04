@@ -19,12 +19,12 @@ public final class BuildWebhookCriteria {
      */
     private Boolean anyBuild;
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
      * 
      */
     private @Nullable List<String> excludePatterns;
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
      * 
      */
     private @Nullable List<String> includePatterns;
@@ -43,14 +43,14 @@ public final class BuildWebhookCriteria {
         return this.anyBuild;
     }
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
      * 
      */
     public List<String> excludePatterns() {
         return this.excludePatterns == null ? List.of() : this.excludePatterns;
     }
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`. **Cannot be set if `anyBuild` is set to `true`.**
      * 
      */
     public List<String> includePatterns() {

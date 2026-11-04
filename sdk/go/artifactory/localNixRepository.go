@@ -189,6 +189,12 @@ func (LocalNixRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localNixRepositoryState)(nil)).Elem()
 }
 
+// LocalNixRepositoryExists checks whether an existing LocalNixRepository resource with the given ID exists.
+func LocalNixRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalNixRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localNixRepository:LocalNixRepository", id, state, "", opts...)
+}
+
 type localNixRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

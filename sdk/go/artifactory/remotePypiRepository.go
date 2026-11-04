@@ -411,6 +411,12 @@ func (RemotePypiRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remotePypiRepositoryState)(nil)).Elem()
 }
 
+// RemotePypiRepositoryExists checks whether an existing RemotePypiRepository resource with the given ID exists.
+func RemotePypiRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemotePypiRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remotePypiRepository:RemotePypiRepository", id, state, "", opts...)
+}
+
 type remotePypiRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

@@ -549,6 +549,30 @@ class LdapGroupSetting(pulumi.CustomResource):
         __props__.__dict__["sub_tree"] = sub_tree
         return LdapGroupSetting(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            filter: pulumi.Input[Optional[_builtins.str]] = None,
+            group_base_dn: pulumi.Input[Optional[_builtins.str]] = None,
+            group_member_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            group_name_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            ldap_setting_key: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            sub_tree: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["descriptionAttribute"] = description_attribute
+        __props__["filter"] = filter
+        __props__["groupBaseDn"] = group_base_dn
+        __props__["groupMemberAttribute"] = group_member_attribute
+        __props__["groupNameAttribute"] = group_name_attribute
+        __props__["ldapSettingKey"] = ldap_setting_key
+        __props__["name"] = name
+        __props__["strategy"] = strategy
+        __props__["subTree"] = sub_tree
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/ldapGroupSetting:LdapGroupSetting', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="descriptionAttribute")
     def description_attribute(self) -> pulumi.Output[_builtins.str]:

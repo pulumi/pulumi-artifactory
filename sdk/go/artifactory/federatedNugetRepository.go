@@ -253,6 +253,12 @@ func (FederatedNugetRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedNugetRepositoryState)(nil)).Elem()
 }
 
+// FederatedNugetRepositoryExists checks whether an existing FederatedNugetRepository resource with the given ID exists.
+func FederatedNugetRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedNugetRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/federatedNugetRepository:FederatedNugetRepository", id, state, "", opts...)
+}
+
 type federatedNugetRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

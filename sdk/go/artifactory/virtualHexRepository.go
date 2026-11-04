@@ -238,6 +238,12 @@ func (VirtualHexRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualHexRepositoryState)(nil)).Elem()
 }
 
+// VirtualHexRepositoryExists checks whether an existing VirtualHexRepository resource with the given ID exists.
+func VirtualHexRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualHexRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualHexRepository:VirtualHexRepository", id, state, "", opts...)
+}
+
 type virtualHexRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

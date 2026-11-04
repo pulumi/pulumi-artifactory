@@ -154,6 +154,12 @@ func (PropertySetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*propertySetState)(nil)).Elem()
 }
 
+// PropertySetExists checks whether an existing PropertySet resource with the given ID exists.
+func PropertySetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PropertySetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/propertySet:PropertySet", id, state, "", opts...)
+}
+
 type propertySetArgs struct {
 	// Property set name.
 	Name *string `pulumi:"name"`

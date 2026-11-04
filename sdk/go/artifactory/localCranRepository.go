@@ -186,6 +186,12 @@ func (LocalCranRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localCranRepositoryState)(nil)).Elem()
 }
 
+// LocalCranRepositoryExists checks whether an existing LocalCranRepository resource with the given ID exists.
+func LocalCranRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalCranRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localCranRepository:LocalCranRepository", id, state, "", opts...)
+}
+
 type localCranRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

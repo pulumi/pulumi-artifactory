@@ -203,6 +203,12 @@ func (VirtualGradleRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualGradleRepositoryState)(nil)).Elem()
 }
 
+// VirtualGradleRepositoryExists checks whether an existing VirtualGradleRepository resource with the given ID exists.
+func VirtualGradleRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualGradleRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualGradleRepository:VirtualGradleRepository", id, state, "", opts...)
+}
+
 type virtualGradleRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

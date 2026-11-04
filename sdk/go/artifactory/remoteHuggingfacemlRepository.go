@@ -394,6 +394,12 @@ func (RemoteHuggingfacemlRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteHuggingfacemlRepositoryState)(nil)).Elem()
 }
 
+// RemoteHuggingfacemlRepositoryExists checks whether an existing RemoteHuggingfacemlRepository resource with the given ID exists.
+func RemoteHuggingfacemlRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteHuggingfacemlRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository", id, state, "", opts...)
+}
+
 type remoteHuggingfacemlRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

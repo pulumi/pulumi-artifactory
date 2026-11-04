@@ -191,6 +191,12 @@ func (VirtualConanRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualConanRepositoryState)(nil)).Elem()
 }
 
+// VirtualConanRepositoryExists checks whether an existing VirtualConanRepository resource with the given ID exists.
+func VirtualConanRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualConanRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualConanRepository:VirtualConanRepository", id, state, "", opts...)
+}
+
 type virtualConanRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

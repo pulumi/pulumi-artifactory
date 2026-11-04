@@ -450,6 +450,12 @@ func (RemoteGradleRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteGradleRepositoryState)(nil)).Elem()
 }
 
+// RemoteGradleRepositoryExists checks whether an existing RemoteGradleRepository resource with the given ID exists.
+func RemoteGradleRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteGradleRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteGradleRepository:RemoteGradleRepository", id, state, "", opts...)
+}
+
 type remoteGradleRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

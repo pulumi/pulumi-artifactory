@@ -199,6 +199,12 @@ func (GoRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*goRepositoryState)(nil)).Elem()
 }
 
+// GoRepositoryExists checks whether an existing GoRepository resource with the given ID exists.
+func GoRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GoRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/goRepository:GoRepository", id, state, "", opts...)
+}
+
 type goRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

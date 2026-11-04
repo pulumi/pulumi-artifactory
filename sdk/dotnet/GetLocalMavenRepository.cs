@@ -34,7 +34,7 @@ namespace Pulumi.Artifactory
         /// 
         /// ## * `SnapshotVersionBehavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
         /// 
-        ///   -
+        /// -   
         ///   * `Unique`: Version number is based on a time-stamp (default)
         ///   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
         ///   * `Deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -76,7 +76,7 @@ namespace Pulumi.Artifactory
         /// 
         /// ## * `SnapshotVersionBehavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
         /// 
-        ///   -
+        /// -   
         ///   * `Unique`: Version number is based on a time-stamp (default)
         ///   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
         ///   * `Deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -118,7 +118,7 @@ namespace Pulumi.Artifactory
         /// 
         /// ## * `SnapshotVersionBehavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
         /// 
-        ///   -
+        /// -   
         ///   * `Unique`: Version number is based on a time-stamp (default)
         ///   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
         ///   * `Deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -155,8 +155,8 @@ namespace Pulumi.Artifactory
         /// deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
         /// - `client-checksums`
         /// - `server-generated-checksums`. For more details, please refer
-        /// to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
-        /// .
+        ///   to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+        ///   .
         /// </summary>
         [Input("checksumPolicyType")]
         public string? ChecksumPolicyType { get; set; }
@@ -247,8 +247,8 @@ namespace Pulumi.Artifactory
         /// deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
         /// - `client-checksums`
         /// - `server-generated-checksums`. For more details, please refer
-        /// to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
-        /// .
+        ///   to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+        ///   .
         /// </summary>
         [Input("checksumPolicyType")]
         public Input<string>? ChecksumPolicyType { get; set; }
@@ -335,8 +335,8 @@ namespace Pulumi.Artifactory
         /// deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
         /// - `client-checksums`
         /// - `server-generated-checksums`. For more details, please refer
-        /// to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
-        /// .
+        ///   to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+        ///   .
         /// </summary>
         public readonly string? ChecksumPolicyType;
         public readonly string? Description;

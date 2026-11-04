@@ -412,6 +412,12 @@ func (RemoteVcsRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteVcsRepositoryState)(nil)).Elem()
 }
 
+// RemoteVcsRepositoryExists checks whether an existing RemoteVcsRepository resource with the given ID exists.
+func RemoteVcsRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteVcsRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteVcsRepository:RemoteVcsRepository", id, state, "", opts...)
+}
+
 type remoteVcsRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

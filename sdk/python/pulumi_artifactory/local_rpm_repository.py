@@ -1048,6 +1048,54 @@ class LocalRpmRepository(pulumi.CustomResource):
         __props__.__dict__["yum_root_depth"] = yum_root_depth
         return LocalRpmRepository(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            archive_browsing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            blacked_out: pulumi.Input[Optional[_builtins.bool]] = None,
+            calculate_yum_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+            cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_file_lists_indexing: pulumi.Input[Optional[_builtins.bool]] = None,
+            excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            notes: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+            project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            project_key: pulumi.Input[Optional[_builtins.str]] = None,
+            property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            xray_index: pulumi.Input[Optional[_builtins.bool]] = None,
+            yum_group_file_names: pulumi.Input[Optional[_builtins.str]] = None,
+            yum_root_depth: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["archiveBrowsingEnabled"] = archive_browsing_enabled
+        __props__["blackedOut"] = blacked_out
+        __props__["calculateYumMetadata"] = calculate_yum_metadata
+        __props__["cdnRedirect"] = cdn_redirect
+        __props__["description"] = description
+        __props__["downloadDirect"] = download_direct
+        __props__["enableFileListsIndexing"] = enable_file_lists_indexing
+        __props__["excludesPattern"] = excludes_pattern
+        __props__["includesPattern"] = includes_pattern
+        __props__["key"] = key
+        __props__["notes"] = notes
+        __props__["primaryKeypairRef"] = primary_keypair_ref
+        __props__["priorityResolution"] = priority_resolution
+        __props__["projectEnvironments"] = project_environments
+        __props__["projectKey"] = project_key
+        __props__["propertySets"] = property_sets
+        __props__["repoLayoutRef"] = repo_layout_ref
+        __props__["secondaryKeypairRef"] = secondary_keypair_ref
+        __props__["xrayIndex"] = xray_index
+        __props__["yumGroupFileNames"] = yum_group_file_names
+        __props__["yumRootDepth"] = yum_root_depth
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/localRpmRepository:LocalRpmRepository', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="archiveBrowsingEnabled")
     def archive_browsing_enabled(self) -> pulumi.Output[_builtins.bool]:

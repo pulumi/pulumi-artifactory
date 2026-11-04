@@ -337,22 +337,20 @@ public final class FederatedDebianRepositoryArgs extends com.pulumi.resources.Re
     /**
      * When set, the repository will use the deprecated trivial layout.
      * 
-     * @deprecated
-     * You shouldn&#39;t be using this
+     * @deprecated You shouldn&#39;t be using this
      * 
      */
-    @Deprecated /* You shouldn't be using this */
+    @Deprecated
     @Import(name="trivialLayout")
     private @Nullable Output<Boolean> trivialLayout;
 
     /**
      * @return When set, the repository will use the deprecated trivial layout.
      * 
-     * @deprecated
-     * You shouldn&#39;t be using this
+     * @deprecated You shouldn&#39;t be using this
      * 
      */
-    @Deprecated /* You shouldn't be using this */
+    @Deprecated
     public Optional<Output<Boolean>> trivialLayout() {
         return Optional.ofNullable(this.trivialLayout);
     }
@@ -897,11 +895,10 @@ public final class FederatedDebianRepositoryArgs extends com.pulumi.resources.Re
          * 
          * @return builder
          * 
-         * @deprecated
-         * You shouldn&#39;t be using this
+         * @deprecated You shouldn&#39;t be using this
          * 
          */
-        @Deprecated /* You shouldn't be using this */
+        @Deprecated
         public Builder trivialLayout(@Nullable Output<Boolean> trivialLayout) {
             $.trivialLayout = trivialLayout;
             return this;
@@ -912,11 +909,10 @@ public final class FederatedDebianRepositoryArgs extends com.pulumi.resources.Re
          * 
          * @return builder
          * 
-         * @deprecated
-         * You shouldn&#39;t be using this
+         * @deprecated You shouldn&#39;t be using this
          * 
          */
-        @Deprecated /* You shouldn't be using this */
+        @Deprecated
         public Builder trivialLayout(Boolean trivialLayout) {
             return trivialLayout(Output.of(trivialLayout));
         }

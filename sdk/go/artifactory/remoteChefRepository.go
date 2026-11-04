@@ -385,6 +385,12 @@ func (RemoteChefRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteChefRepositoryState)(nil)).Elem()
 }
 
+// RemoteChefRepositoryExists checks whether an existing RemoteChefRepository resource with the given ID exists.
+func RemoteChefRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteChefRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteChefRepository:RemoteChefRepository", id, state, "", opts...)
+}
+
 type remoteChefRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

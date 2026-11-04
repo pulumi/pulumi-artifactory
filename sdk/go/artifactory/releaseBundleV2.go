@@ -217,6 +217,12 @@ func (ReleaseBundleV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*releaseBundleV2State)(nil)).Elem()
 }
 
+// ReleaseBundleV2Exists checks whether an existing ReleaseBundleV2 resource with the given ID exists.
+func ReleaseBundleV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReleaseBundleV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/releaseBundleV2:ReleaseBundleV2", id, state, "", opts...)
+}
+
 type releaseBundleV2Args struct {
 	// Key-pair name to use for signature creation
 	KeypairName string `pulumi:"keypairName"`

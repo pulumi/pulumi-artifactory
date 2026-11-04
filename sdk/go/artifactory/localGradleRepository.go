@@ -252,6 +252,12 @@ func (LocalGradleRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localGradleRepositoryState)(nil)).Elem()
 }
 
+// LocalGradleRepositoryExists checks whether an existing LocalGradleRepository resource with the given ID exists.
+func LocalGradleRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalGradleRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localGradleRepository:LocalGradleRepository", id, state, "", opts...)
+}
+
 type localGradleRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

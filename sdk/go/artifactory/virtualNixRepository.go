@@ -183,6 +183,12 @@ func (VirtualNixRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNixRepositoryState)(nil)).Elem()
 }
 
+// VirtualNixRepositoryExists checks whether an existing VirtualNixRepository resource with the given ID exists.
+func VirtualNixRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualNixRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualNixRepository:VirtualNixRepository", id, state, "", opts...)
+}
+
 type virtualNixRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

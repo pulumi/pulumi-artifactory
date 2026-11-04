@@ -385,6 +385,12 @@ func (RemoteOpkgRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteOpkgRepositoryState)(nil)).Elem()
 }
 
+// RemoteOpkgRepositoryExists checks whether an existing RemoteOpkgRepository resource with the given ID exists.
+func RemoteOpkgRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteOpkgRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteOpkgRepository:RemoteOpkgRepository", id, state, "", opts...)
+}
+
 type remoteOpkgRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

@@ -175,6 +175,12 @@ func (ManagedUserState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedUserState)(nil)).Elem()
 }
 
+// ManagedUserExists checks whether an existing ManagedUser resource with the given ID exists.
+func ManagedUserExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedUserState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/managedUser:ManagedUser", id, state, "", opts...)
+}
+
 type managedUserArgs struct {
 	// (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
 	Admin *bool `pulumi:"admin"`

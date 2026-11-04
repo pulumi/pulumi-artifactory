@@ -143,6 +143,12 @@ func (RepositoryLayoutState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryLayoutState)(nil)).Elem()
 }
 
+// RepositoryLayoutExists checks whether an existing RepositoryLayout resource with the given ID exists.
+func RepositoryLayoutExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryLayoutState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/repositoryLayout:RepositoryLayout", id, state, "", opts...)
+}
+
 type repositoryLayoutArgs struct {
 	// Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
 	ArtifactPathPattern string `pulumi:"artifactPathPattern"`

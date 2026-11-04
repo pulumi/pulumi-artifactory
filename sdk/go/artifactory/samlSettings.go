@@ -197,6 +197,12 @@ func (SamlSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*samlSettingsState)(nil)).Elem()
 }
 
+// SamlSettingsExists checks whether an existing SamlSettings resource with the given ID exists.
+func SamlSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SamlSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/samlSettings:SamlSettings", id, state, "", opts...)
+}
+
 type samlSettingsArgs struct {
 	// Allow persisted users to access their profile.  Default value is `true`.
 	AllowUserToAccessProfile *bool `pulumi:"allowUserToAccessProfile"`

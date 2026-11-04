@@ -179,6 +179,12 @@ func (VirtualGenericRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualGenericRepositoryState)(nil)).Elem()
 }
 
+// VirtualGenericRepositoryExists checks whether an existing VirtualGenericRepository resource with the given ID exists.
+func VirtualGenericRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualGenericRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualGenericRepository:VirtualGenericRepository", id, state, "", opts...)
+}
+
 type virtualGenericRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

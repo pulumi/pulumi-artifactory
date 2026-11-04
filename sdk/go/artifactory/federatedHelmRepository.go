@@ -235,6 +235,12 @@ func (FederatedHelmRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedHelmRepositoryState)(nil)).Elem()
 }
 
+// FederatedHelmRepositoryExists checks whether an existing FederatedHelmRepository resource with the given ID exists.
+func FederatedHelmRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedHelmRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/federatedHelmRepository:FederatedHelmRepository", id, state, "", opts...)
+}
+
 type federatedHelmRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

@@ -200,6 +200,12 @@ func (LocalHelmRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localHelmRepositoryState)(nil)).Elem()
 }
 
+// LocalHelmRepositoryExists checks whether an existing LocalHelmRepository resource with the given ID exists.
+func LocalHelmRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalHelmRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localHelmRepository:LocalHelmRepository", id, state, "", opts...)
+}
+
 type localHelmRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

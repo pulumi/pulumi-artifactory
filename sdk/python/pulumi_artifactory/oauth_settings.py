@@ -341,6 +341,20 @@ class OauthSettings(pulumi.CustomResource):
         __props__.__dict__["persist_users"] = persist_users
         return OauthSettings(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable: pulumi.Input[Optional[_builtins.bool]] = None,
+            oauth_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict', 'outputs.OauthSettingsOauthProvider']]]]] = None,
+            persist_users: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowUserToAccessProfile"] = allow_user_to_access_profile
+        __props__["enable"] = enable
+        __props__["oauthProviders"] = oauth_providers
+        __props__["persistUsers"] = persist_users
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/oauthSettings:OauthSettings', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowUserToAccessProfile")
     def allow_user_to_access_profile(self) -> pulumi.Output[Optional[_builtins.bool]]:

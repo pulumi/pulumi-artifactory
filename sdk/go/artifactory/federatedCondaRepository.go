@@ -235,6 +235,12 @@ func (FederatedCondaRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedCondaRepositoryState)(nil)).Elem()
 }
 
+// FederatedCondaRepositoryExists checks whether an existing FederatedCondaRepository resource with the given ID exists.
+func FederatedCondaRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedCondaRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/federatedCondaRepository:FederatedCondaRepository", id, state, "", opts...)
+}
+
 type federatedCondaRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

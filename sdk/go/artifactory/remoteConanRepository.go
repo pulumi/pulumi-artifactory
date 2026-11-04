@@ -404,6 +404,12 @@ func (RemoteConanRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteConanRepositoryState)(nil)).Elem()
 }
 
+// RemoteConanRepositoryExists checks whether an existing RemoteConanRepository resource with the given ID exists.
+func RemoteConanRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteConanRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteConanRepository:RemoteConanRepository", id, state, "", opts...)
+}
+
 type remoteConanRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

@@ -437,6 +437,12 @@ func (RemoteNugetRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteNugetRepositoryState)(nil)).Elem()
 }
 
+// RemoteNugetRepositoryExists checks whether an existing RemoteNugetRepository resource with the given ID exists.
+func RemoteNugetRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteNugetRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteNugetRepository:RemoteNugetRepository", id, state, "", opts...)
+}
+
 type remoteNugetRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

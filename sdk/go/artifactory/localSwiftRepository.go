@@ -186,6 +186,12 @@ func (LocalSwiftRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localSwiftRepositoryState)(nil)).Elem()
 }
 
+// LocalSwiftRepositoryExists checks whether an existing LocalSwiftRepository resource with the given ID exists.
+func LocalSwiftRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalSwiftRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localSwiftRepository:LocalSwiftRepository", id, state, "", opts...)
+}
+
 type localSwiftRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

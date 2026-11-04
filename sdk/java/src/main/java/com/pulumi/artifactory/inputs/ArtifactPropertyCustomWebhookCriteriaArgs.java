@@ -64,14 +64,14 @@ public final class ArtifactPropertyCustomWebhookCriteriaArgs extends com.pulumi.
     }
 
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`.
      * 
      */
     @Import(name="excludePatterns")
     private @Nullable Output<List<String>> excludePatterns;
 
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`.
      * 
      */
     public Optional<Output<List<String>>> excludePatterns() {
@@ -79,14 +79,14 @@ public final class ArtifactPropertyCustomWebhookCriteriaArgs extends com.pulumi.
     }
 
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`.
      * 
      */
     @Import(name="includePatterns")
     private @Nullable Output<List<String>> includePatterns;
 
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`.
      * 
      */
     public Optional<Output<List<String>>> includePatterns() {
@@ -201,7 +201,7 @@ public final class ArtifactPropertyCustomWebhookCriteriaArgs extends com.pulumi.
         }
 
         /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class ArtifactPropertyCustomWebhookCriteriaArgs extends com.pulumi.
         }
 
         /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class ArtifactPropertyCustomWebhookCriteriaArgs extends com.pulumi.
         }
 
         /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class ArtifactPropertyCustomWebhookCriteriaArgs extends com.pulumi.
         }
 
         /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class ArtifactPropertyCustomWebhookCriteriaArgs extends com.pulumi.
         }
 
         /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class ArtifactPropertyCustomWebhookCriteriaArgs extends com.pulumi.
         }
 
         /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`.
          * 
          * @return builder
          * 

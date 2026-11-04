@@ -719,6 +719,38 @@ class VirtualHexRepository(pulumi.CustomResource):
         __props__.__dict__["repositories"] = repositories
         return VirtualHexRepository(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            artifactory_requests_can_retrieve_remote_artifacts: pulumi.Input[Optional[_builtins.bool]] = None,
+            default_deployment_repo: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            hex_primary_keypair_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            hide_unauthorized_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+            includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            notes: pulumi.Input[Optional[_builtins.str]] = None,
+            project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            project_key: pulumi.Input[Optional[_builtins.str]] = None,
+            repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["artifactoryRequestsCanRetrieveRemoteArtifacts"] = artifactory_requests_can_retrieve_remote_artifacts
+        __props__["defaultDeploymentRepo"] = default_deployment_repo
+        __props__["description"] = description
+        __props__["excludesPattern"] = excludes_pattern
+        __props__["hexPrimaryKeypairRef"] = hex_primary_keypair_ref
+        __props__["hideUnauthorizedResources"] = hide_unauthorized_resources
+        __props__["includesPattern"] = includes_pattern
+        __props__["key"] = key
+        __props__["notes"] = notes
+        __props__["projectEnvironments"] = project_environments
+        __props__["projectKey"] = project_key
+        __props__["repoLayoutRef"] = repo_layout_ref
+        __props__["repositories"] = repositories
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/virtualHexRepository:VirtualHexRepository', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="artifactoryRequestsCanRetrieveRemoteArtifacts")
     def artifactory_requests_can_retrieve_remote_artifacts(self) -> pulumi.Output[_builtins.bool]:

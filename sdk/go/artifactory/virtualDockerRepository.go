@@ -185,6 +185,12 @@ func (VirtualDockerRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualDockerRepositoryState)(nil)).Elem()
 }
 
+// VirtualDockerRepositoryExists checks whether an existing VirtualDockerRepository resource with the given ID exists.
+func VirtualDockerRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualDockerRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualDockerRepository:VirtualDockerRepository", id, state, "", opts...)
+}
+
 type virtualDockerRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

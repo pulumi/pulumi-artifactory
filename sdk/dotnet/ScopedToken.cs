@@ -220,8 +220,8 @@ namespace Pulumi.Artifactory
         ///       - `metrics|livelogs|identities|permissions` - one of these options can be chosen      - `&lt;actions&gt;` - comma-separated list of action acronyms. The actions allowed are `R`, `W`, `D`, `A`, `M`, `X`, `S`, or any combination of these actions. To allow all actions - use `*`
         ///     - Examples:
         ///       - `["system:livelogs:r", "system:metrics:r,w,d"]`
-        /// -&gt;The scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in total.
-        /// From Artifactory 7.84.3, [project admins](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins) can create access tokens that are tied to the projects in which they hold administrative privileges.
+        ///         -&gt;The scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in total.
+        ///         From Artifactory 7.84.3, [project admins](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins) can create access tokens that are tied to the projects in which they hold administrative privileges.
         /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
@@ -375,8 +375,8 @@ namespace Pulumi.Artifactory
         ///       - `metrics|livelogs|identities|permissions` - one of these options can be chosen      - `&lt;actions&gt;` - comma-separated list of action acronyms. The actions allowed are `R`, `W`, `D`, `A`, `M`, `X`, `S`, or any combination of these actions. To allow all actions - use `*`
         ///     - Examples:
         ///       - `["system:livelogs:r", "system:metrics:r,w,d"]`
-        /// -&gt;The scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in total.
-        /// From Artifactory 7.84.3, [project admins](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins) can create access tokens that are tied to the projects in which they hold administrative privileges.
+        ///         -&gt;The scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in total.
+        ///         From Artifactory 7.84.3, [project admins](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins) can create access tokens that are tied to the projects in which they hold administrative privileges.
         /// </summary>
         public InputList<string> Scopes
         {
@@ -543,8 +543,8 @@ namespace Pulumi.Artifactory
         ///       - `metrics|livelogs|identities|permissions` - one of these options can be chosen      - `&lt;actions&gt;` - comma-separated list of action acronyms. The actions allowed are `R`, `W`, `D`, `A`, `M`, `X`, `S`, or any combination of these actions. To allow all actions - use `*`
         ///     - Examples:
         ///       - `["system:livelogs:r", "system:metrics:r,w,d"]`
-        /// -&gt;The scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in total.
-        /// From Artifactory 7.84.3, [project admins](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins) can create access tokens that are tied to the projects in which they hold administrative privileges.
+        ///         -&gt;The scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in total.
+        ///         From Artifactory 7.84.3, [project admins](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins) can create access tokens that are tied to the projects in which they hold administrative privileges.
         /// </summary>
         public InputList<string> Scopes
         {

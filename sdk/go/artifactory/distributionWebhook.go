@@ -164,6 +164,12 @@ func (DistributionWebhookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*distributionWebhookState)(nil)).Elem()
 }
 
+// DistributionWebhookExists checks whether an existing DistributionWebhook resource with the given ID exists.
+func DistributionWebhookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DistributionWebhookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/distributionWebhook:DistributionWebhook", id, state, "", opts...)
+}
+
 type distributionWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
 	Criteria DistributionWebhookCriteria `pulumi:"criteria"`
