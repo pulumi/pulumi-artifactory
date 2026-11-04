@@ -188,6 +188,12 @@ func (LocalHuggingfacemlRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localHuggingfacemlRepositoryState)(nil)).Elem()
 }
 
+// LocalHuggingfacemlRepositoryExists checks whether an existing LocalHuggingfacemlRepository resource with the given ID exists.
+func LocalHuggingfacemlRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalHuggingfacemlRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository", id, state, "", opts...)
+}
+
 type localHuggingfacemlRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

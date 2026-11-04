@@ -108,6 +108,12 @@ func (TrashcanConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trashcanConfigState)(nil)).Elem()
 }
 
+// TrashcanConfigExists checks whether an existing TrashcanConfig resource with the given ID exists.
+func TrashcanConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrashcanConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/trashcanConfig:TrashcanConfig", id, state, "", opts...)
+}
+
 type trashcanConfigArgs struct {
 	// If set, trash can will be enabled and deleted items will be stored in the trash can for the specified retention period. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`

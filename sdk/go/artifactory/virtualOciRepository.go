@@ -184,6 +184,12 @@ func (VirtualOciRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualOciRepositoryState)(nil)).Elem()
 }
 
+// VirtualOciRepositoryExists checks whether an existing VirtualOciRepository resource with the given ID exists.
+func VirtualOciRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualOciRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualOciRepository:VirtualOciRepository", id, state, "", opts...)
+}
+
 type virtualOciRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

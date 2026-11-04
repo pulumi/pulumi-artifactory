@@ -148,6 +148,12 @@ func (ItemPropertiesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*itemPropertiesState)(nil)).Elem()
 }
 
+// ItemPropertiesExists checks whether an existing ItemProperties resource with the given ID exists.
+func ItemPropertiesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ItemPropertiesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/itemProperties:ItemProperties", id, state, "", opts...)
+}
+
 type itemPropertiesArgs struct {
 	// Add this property to the selected folder and to all of artifacts and folders under this folder. Default to `false`
 	IsRecursive *bool `pulumi:"isRecursive"`

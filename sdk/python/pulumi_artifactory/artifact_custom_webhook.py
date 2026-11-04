@@ -422,6 +422,24 @@ class ArtifactCustomWebhook(pulumi.CustomResource):
         __props__.__dict__["key"] = key
         return ArtifactCustomWebhook(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            criteria: pulumi.Input[Optional[Union['ArtifactCustomWebhookCriteriaArgs', 'ArtifactCustomWebhookCriteriaArgsDict', 'outputs.ArtifactCustomWebhookCriteria']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArtifactCustomWebhookHandlerArgs', 'ArtifactCustomWebhookHandlerArgsDict', 'outputs.ArtifactCustomWebhookHandler']]]]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["criteria"] = criteria
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["eventTypes"] = event_types
+        __props__["handlers"] = handlers
+        __props__["key"] = key
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/artifactCustomWebhook:ArtifactCustomWebhook', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def criteria(self) -> pulumi.Output['outputs.ArtifactCustomWebhookCriteria']:

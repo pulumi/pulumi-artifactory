@@ -476,6 +476,38 @@ class Artifact(pulumi.CustomResource):
         __props__.__dict__["uri"] = uri
         return Artifact(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            checksum_md5: pulumi.Input[Optional[_builtins.str]] = None,
+            checksum_sha1: pulumi.Input[Optional[_builtins.str]] = None,
+            checksum_sha256: pulumi.Input[Optional[_builtins.str]] = None,
+            content_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            download_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            file_path: pulumi.Input[Optional[_builtins.str]] = None,
+            mime_type: pulumi.Input[Optional[_builtins.str]] = None,
+            path: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            size: pulumi.Input[Optional[_builtins.int]] = None,
+            uri: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["checksumMd5"] = checksum_md5
+        __props__["checksumSha1"] = checksum_sha1
+        __props__["checksumSha256"] = checksum_sha256
+        __props__["contentBase64"] = content_base64
+        __props__["created"] = created
+        __props__["createdBy"] = created_by
+        __props__["downloadUri"] = download_uri
+        __props__["filePath"] = file_path
+        __props__["mimeType"] = mime_type
+        __props__["path"] = path
+        __props__["repository"] = repository
+        __props__["size"] = size
+        __props__["uri"] = uri
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/artifact:Artifact', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="checksumMd5")
     def checksum_md5(self) -> pulumi.Output[_builtins.str]:

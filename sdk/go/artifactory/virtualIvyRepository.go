@@ -203,6 +203,12 @@ func (VirtualIvyRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualIvyRepositoryState)(nil)).Elem()
 }
 
+// VirtualIvyRepositoryExists checks whether an existing VirtualIvyRepository resource with the given ID exists.
+func VirtualIvyRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualIvyRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualIvyRepository:VirtualIvyRepository", id, state, "", opts...)
+}
+
 type virtualIvyRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

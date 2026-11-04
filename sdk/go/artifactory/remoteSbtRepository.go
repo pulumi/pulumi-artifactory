@@ -438,6 +438,12 @@ func (RemoteSbtRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteSbtRepositoryState)(nil)).Elem()
 }
 
+// RemoteSbtRepositoryExists checks whether an existing RemoteSbtRepository resource with the given ID exists.
+func RemoteSbtRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteSbtRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteSbtRepository:RemoteSbtRepository", id, state, "", opts...)
+}
+
 type remoteSbtRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

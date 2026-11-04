@@ -571,6 +571,32 @@ class Proxy(pulumi.CustomResource):
         __props__.__dict__["username"] = username
         return Proxy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            host: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            nt_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            nt_host: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            redirect_to_hosts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            services: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["host"] = host
+        __props__["key"] = key
+        __props__["ntDomain"] = nt_domain
+        __props__["ntHost"] = nt_host
+        __props__["password"] = password
+        __props__["platformDefault"] = platform_default
+        __props__["port"] = port
+        __props__["redirectToHosts"] = redirect_to_hosts
+        __props__["services"] = services
+        __props__["username"] = username
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/proxy:Proxy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def host(self) -> pulumi.Output[_builtins.str]:

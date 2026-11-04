@@ -235,6 +235,12 @@ func (FederatedSwiftRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedSwiftRepositoryState)(nil)).Elem()
 }
 
+// FederatedSwiftRepositoryExists checks whether an existing FederatedSwiftRepository resource with the given ID exists.
+func FederatedSwiftRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedSwiftRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/federatedSwiftRepository:FederatedSwiftRepository", id, state, "", opts...)
+}
+
 type federatedSwiftRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

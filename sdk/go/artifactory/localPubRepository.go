@@ -186,6 +186,12 @@ func (LocalPubRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localPubRepositoryState)(nil)).Elem()
 }
 
+// LocalPubRepositoryExists checks whether an existing LocalPubRepository resource with the given ID exists.
+func LocalPubRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalPubRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localPubRepository:LocalPubRepository", id, state, "", opts...)
+}
+
 type localPubRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

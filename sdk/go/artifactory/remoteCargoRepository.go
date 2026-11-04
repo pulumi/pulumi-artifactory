@@ -411,6 +411,12 @@ func (RemoteCargoRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteCargoRepositoryState)(nil)).Elem()
 }
 
+// RemoteCargoRepositoryExists checks whether an existing RemoteCargoRepository resource with the given ID exists.
+func RemoteCargoRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteCargoRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteCargoRepository:RemoteCargoRepository", id, state, "", opts...)
+}
+
 type remoteCargoRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

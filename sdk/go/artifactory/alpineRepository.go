@@ -230,6 +230,12 @@ func (AlpineRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alpineRepositoryState)(nil)).Elem()
 }
 
+// AlpineRepositoryExists checks whether an existing AlpineRepository resource with the given ID exists.
+func AlpineRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlpineRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/alpineRepository:AlpineRepository", id, state, "", opts...)
+}
+
 type alpineRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

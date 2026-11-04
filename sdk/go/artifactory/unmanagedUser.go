@@ -182,6 +182,12 @@ func (UnmanagedUserState) ElementType() reflect.Type {
 	return reflect.TypeOf((*unmanagedUserState)(nil)).Elem()
 }
 
+// UnmanagedUserExists checks whether an existing UnmanagedUser resource with the given ID exists.
+func UnmanagedUserExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UnmanagedUserState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/unmanagedUser:UnmanagedUser", id, state, "", opts...)
+}
+
 type unmanagedUserArgs struct {
 	// (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
 	Admin *bool `pulumi:"admin"`

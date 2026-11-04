@@ -228,6 +228,12 @@ func (LocalAnsibleRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localAnsibleRepositoryState)(nil)).Elem()
 }
 
+// LocalAnsibleRepositoryExists checks whether an existing LocalAnsibleRepository resource with the given ID exists.
+func LocalAnsibleRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalAnsibleRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localAnsibleRepository:LocalAnsibleRepository", id, state, "", opts...)
+}
+
 type localAnsibleRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

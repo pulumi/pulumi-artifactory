@@ -442,6 +442,12 @@ func (RemoteHexRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteHexRepositoryState)(nil)).Elem()
 }
 
+// RemoteHexRepositoryExists checks whether an existing RemoteHexRepository resource with the given ID exists.
+func RemoteHexRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteHexRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteHexRepository:RemoteHexRepository", id, state, "", opts...)
+}
+
 type remoteHexRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

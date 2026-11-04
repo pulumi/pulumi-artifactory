@@ -557,6 +557,32 @@ class MailServer(pulumi.CustomResource):
         __props__.__dict__["username"] = username
         return MailServer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            artifactory_url: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            from_: pulumi.Input[Optional[_builtins.str]] = None,
+            host: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            subject_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            use_ssl: pulumi.Input[Optional[_builtins.bool]] = None,
+            use_tls: pulumi.Input[Optional[_builtins.bool]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["artifactoryUrl"] = artifactory_url
+        __props__["enabled"] = enabled
+        __props__["from"] = from_
+        __props__["host"] = host
+        __props__["password"] = password
+        __props__["port"] = port
+        __props__["subjectPrefix"] = subject_prefix
+        __props__["useSsl"] = use_ssl
+        __props__["useTls"] = use_tls
+        __props__["username"] = username
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/mailServer:MailServer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="artifactoryUrl")
     def artifactory_url(self) -> pulumi.Output[Optional[_builtins.str]]:

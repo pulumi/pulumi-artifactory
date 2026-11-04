@@ -235,6 +235,12 @@ func (FederatedBowerRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedBowerRepositoryState)(nil)).Elem()
 }
 
+// FederatedBowerRepositoryExists checks whether an existing FederatedBowerRepository resource with the given ID exists.
+func FederatedBowerRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedBowerRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/federatedBowerRepository:FederatedBowerRepository", id, state, "", opts...)
+}
+
 type federatedBowerRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

@@ -294,6 +294,12 @@ func (LocalRpmRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localRpmRepositoryState)(nil)).Elem()
 }
 
+// LocalRpmRepositoryExists checks whether an existing LocalRpmRepository resource with the given ID exists.
+func LocalRpmRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalRpmRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localRpmRepository:LocalRpmRepository", id, state, "", opts...)
+}
+
 type localRpmRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

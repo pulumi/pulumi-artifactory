@@ -410,6 +410,24 @@ class ReleaseBundleV2CustomWebhook(pulumi.CustomResource):
         __props__.__dict__["key"] = key
         return ReleaseBundleV2CustomWebhook(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            criteria: pulumi.Input[Optional[Union['ReleaseBundleV2CustomWebhookCriteriaArgs', 'ReleaseBundleV2CustomWebhookCriteriaArgsDict', 'outputs.ReleaseBundleV2CustomWebhookCriteria']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReleaseBundleV2CustomWebhookHandlerArgs', 'ReleaseBundleV2CustomWebhookHandlerArgsDict', 'outputs.ReleaseBundleV2CustomWebhookHandler']]]]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["criteria"] = criteria
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["eventTypes"] = event_types
+        __props__["handlers"] = handlers
+        __props__["key"] = key
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/releaseBundleV2CustomWebhook:ReleaseBundleV2CustomWebhook', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def criteria(self) -> pulumi.Output['outputs.ReleaseBundleV2CustomWebhookCriteria']:

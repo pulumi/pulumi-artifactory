@@ -204,20 +204,18 @@ public final class GetFederatedDebianRepositoryPlainArgs extends com.pulumi.reso
     }
 
     /**
-     * @deprecated
-     * You shouldn&#39;t be using this
+     * @deprecated You shouldn&#39;t be using this
      * 
      */
-    @Deprecated /* You shouldn't be using this */
+    @Deprecated
     @Import(name="trivialLayout")
     private @Nullable Boolean trivialLayout;
 
     /**
-     * @deprecated
-     * You shouldn&#39;t be using this
+     * @deprecated You shouldn&#39;t be using this
      * 
      */
-    @Deprecated /* You shouldn't be using this */
+    @Deprecated
     public Optional<Boolean> trivialLayout() {
         return Optional.ofNullable(this.trivialLayout);
     }
@@ -435,11 +433,10 @@ public final class GetFederatedDebianRepositoryPlainArgs extends com.pulumi.reso
         /**
          * @return builder
          * 
-         * @deprecated
-         * You shouldn&#39;t be using this
+         * @deprecated You shouldn&#39;t be using this
          * 
          */
-        @Deprecated /* You shouldn't be using this */
+        @Deprecated
         public Builder trivialLayout(@Nullable Boolean trivialLayout) {
             $.trivialLayout = trivialLayout;
             return this;

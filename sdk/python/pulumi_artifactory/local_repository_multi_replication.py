@@ -372,6 +372,20 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
         __props__.__dict__["repo_key"] = repo_key
         return LocalRepositoryMultiReplication(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_event_replication: pulumi.Input[Optional[_builtins.bool]] = None,
+            replications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict', 'outputs.LocalRepositoryMultiReplicationReplication']]]]] = None,
+            repo_key: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cronExp"] = cron_exp
+        __props__["enableEventReplication"] = enable_event_replication
+        __props__["replications"] = replications
+        __props__["repoKey"] = repo_key
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> pulumi.Output[_builtins.str]:

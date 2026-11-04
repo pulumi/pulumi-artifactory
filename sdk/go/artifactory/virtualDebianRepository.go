@@ -213,6 +213,12 @@ func (VirtualDebianRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualDebianRepositoryState)(nil)).Elem()
 }
 
+// VirtualDebianRepositoryExists checks whether an existing VirtualDebianRepository resource with the given ID exists.
+func VirtualDebianRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualDebianRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualDebianRepository:VirtualDebianRepository", id, state, "", opts...)
+}
+
 type virtualDebianRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

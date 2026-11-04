@@ -186,6 +186,12 @@ func (ProxyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*proxyState)(nil)).Elem()
 }
 
+// ProxyExists checks whether an existing Proxy resource with the given ID exists.
+func ProxyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProxyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/proxy:Proxy", id, state, "", opts...)
+}
+
 type proxyArgs struct {
 	// The name of the proxy host.
 	Host string `pulumi:"host"`

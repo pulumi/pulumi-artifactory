@@ -141,6 +141,12 @@ func (UserCustomWebhookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userCustomWebhookState)(nil)).Elem()
 }
 
+// UserCustomWebhookExists checks whether an existing UserCustomWebhook resource with the given ID exists.
+func UserCustomWebhookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserCustomWebhookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/userCustomWebhook:UserCustomWebhook", id, state, "", opts...)
+}
+
 type userCustomWebhookArgs struct {
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`

@@ -265,6 +265,16 @@ class VaultConfiguration(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return VaultConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            config: pulumi.Input[Optional[Union['VaultConfigurationConfigArgs', 'VaultConfigurationConfigArgsDict', 'outputs.VaultConfigurationConfig']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["config"] = config
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/vaultConfiguration:VaultConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def config(self) -> pulumi.Output['outputs.VaultConfigurationConfig']:

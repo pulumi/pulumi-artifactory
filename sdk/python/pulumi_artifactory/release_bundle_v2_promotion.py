@@ -450,6 +450,30 @@ class ReleaseBundleV2Promotion(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return ReleaseBundleV2Promotion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            created_millis: pulumi.Input[Optional[_builtins.int]] = None,
+            environment: pulumi.Input[Optional[_builtins.str]] = None,
+            excluded_repository_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            included_repository_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            keypair_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            project_key: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["created"] = created
+        __props__["createdMillis"] = created_millis
+        __props__["environment"] = environment
+        __props__["excludedRepositoryKeys"] = excluded_repository_keys
+        __props__["includedRepositoryKeys"] = included_repository_keys
+        __props__["keypairName"] = keypair_name
+        __props__["name"] = name
+        __props__["projectKey"] = project_key
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/releaseBundleV2Promotion:ReleaseBundleV2Promotion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def created(self) -> pulumi.Output[_builtins.str]:

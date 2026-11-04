@@ -29,12 +29,12 @@ public final class DockerCustomWebhookCriteria {
      */
     private Boolean anyRemote;
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`.
      * 
      */
     private @Nullable List<String> excludePatterns;
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`.
      * 
      */
     private @Nullable List<String> includePatterns;
@@ -67,14 +67,14 @@ public final class DockerCustomWebhookCriteria {
         return this.anyRemote;
     }
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`.
      * 
      */
     public List<String> excludePatterns() {
         return this.excludePatterns == null ? List.of() : this.excludePatterns;
     }
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`.
      * 
      */
     public List<String> includePatterns() {

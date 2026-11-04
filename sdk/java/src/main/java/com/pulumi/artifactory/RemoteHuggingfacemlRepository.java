@@ -617,11 +617,10 @@ public class RemoteHuggingfacemlRepository extends com.pulumi.resources.CustomRe
         return this.retrievalCachePeriodSeconds;
     }
     /**
-     * @deprecated
-     * No longer supported
+     * @deprecated No longer supported
      * 
      */
-    @Deprecated /* No longer supported */
+    @Deprecated
     @Export(name="shareConfiguration", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> shareConfiguration;
 

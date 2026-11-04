@@ -235,6 +235,12 @@ func (FederatedVagrantRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedVagrantRepositoryState)(nil)).Elem()
 }
 
+// FederatedVagrantRepositoryExists checks whether an existing FederatedVagrantRepository resource with the given ID exists.
+func FederatedVagrantRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedVagrantRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/federatedVagrantRepository:FederatedVagrantRepository", id, state, "", opts...)
+}
+
 type federatedVagrantRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

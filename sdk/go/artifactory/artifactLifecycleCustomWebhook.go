@@ -142,6 +142,12 @@ func (ArtifactLifecycleCustomWebhookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*artifactLifecycleCustomWebhookState)(nil)).Elem()
 }
 
+// ArtifactLifecycleCustomWebhookExists checks whether an existing ArtifactLifecycleCustomWebhook resource with the given ID exists.
+func ArtifactLifecycleCustomWebhookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ArtifactLifecycleCustomWebhookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/artifactLifecycleCustomWebhook:ArtifactLifecycleCustomWebhook", id, state, "", opts...)
+}
+
 type artifactLifecycleCustomWebhookArgs struct {
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`

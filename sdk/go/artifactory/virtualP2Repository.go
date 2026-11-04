@@ -178,6 +178,12 @@ func (VirtualP2RepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualP2RepositoryState)(nil)).Elem()
 }
 
+// VirtualP2RepositoryExists checks whether an existing VirtualP2Repository resource with the given ID exists.
+func VirtualP2RepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualP2RepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualP2Repository:VirtualP2Repository", id, state, "", opts...)
+}
+
 type virtualP2RepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

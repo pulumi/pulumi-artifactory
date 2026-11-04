@@ -406,6 +406,12 @@ func (RemoteOciRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteOciRepositoryState)(nil)).Elem()
 }
 
+// RemoteOciRepositoryExists checks whether an existing RemoteOciRepository resource with the given ID exists.
+func RemoteOciRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteOciRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteOciRepository:RemoteOciRepository", id, state, "", opts...)
+}
+
 type remoteOciRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

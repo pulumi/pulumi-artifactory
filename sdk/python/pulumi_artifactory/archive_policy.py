@@ -772,6 +772,28 @@ class ArchivePolicy(pulumi.CustomResource):
         __props__.__dict__["skip_trashcan"] = skip_trashcan
         return ArchivePolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            project_key: pulumi.Input[Optional[_builtins.str]] = None,
+            search_criteria: pulumi.Input[Optional[Union['ArchivePolicySearchCriteriaArgs', 'ArchivePolicySearchCriteriaArgsDict', 'outputs.ArchivePolicySearchCriteria']]] = None,
+            skip_trashcan: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cronExpression"] = cron_expression
+        __props__["description"] = description
+        __props__["durationInMinutes"] = duration_in_minutes
+        __props__["enabled"] = enabled
+        __props__["key"] = key
+        __props__["projectKey"] = project_key
+        __props__["searchCriteria"] = search_criteria
+        __props__["skipTrashcan"] = skip_trashcan
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/archivePolicy:ArchivePolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cronExpression")
     def cron_expression(self) -> pulumi.Output[Optional[_builtins.str]]:

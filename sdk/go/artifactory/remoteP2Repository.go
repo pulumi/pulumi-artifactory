@@ -385,6 +385,12 @@ func (RemoteP2RepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteP2RepositoryState)(nil)).Elem()
 }
 
+// RemoteP2RepositoryExists checks whether an existing RemoteP2Repository resource with the given ID exists.
+func RemoteP2RepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteP2RepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteP2Repository:RemoteP2Repository", id, state, "", opts...)
+}
+
 type remoteP2RepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

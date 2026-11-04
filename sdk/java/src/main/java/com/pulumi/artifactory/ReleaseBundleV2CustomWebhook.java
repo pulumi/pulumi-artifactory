@@ -41,12 +41,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var release_bundle_v2_custom_webhook = new ReleaseBundleV2CustomWebhook("release-bundle-v2-custom-webhook", ReleaseBundleV2CustomWebhookArgs.builder()
  *             .key("release-bundle-v2-custom-webhook")
  *             .eventTypes(            
@@ -68,12 +68,12 @@ import javax.annotation.Nullable;
  *                     Map.entry("headerName1", "value1"),
  *                     Map.entry("headerName2", "value2")
  *                 ))
- *                 .payload("{ \"ref\": \"main\" , \"inputs\": { \"artifact_path\": \"test-repo/repo-path\" } }")
+ *                 .payload("}{{@code  }&#92;{@code "ref}&#92;{@code ": }&#92;{@code "main}&#92;{@code " , }&#92;{@code "inputs}&#92;{@code ": }{{@code  }&#92;{@code "artifact_path}&#92;{@code ": }&#92;{@code "test-repo/repo-path}&#92;{@code " }}{@code  }}{@code ")
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

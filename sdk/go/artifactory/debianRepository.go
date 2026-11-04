@@ -283,6 +283,12 @@ func (DebianRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*debianRepositoryState)(nil)).Elem()
 }
 
+// DebianRepositoryExists checks whether an existing DebianRepository resource with the given ID exists.
+func DebianRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DebianRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/debianRepository:DebianRepository", id, state, "", opts...)
+}
+
 type debianRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

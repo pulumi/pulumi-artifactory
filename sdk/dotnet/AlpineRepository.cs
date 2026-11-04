@@ -123,7 +123,6 @@ namespace Pulumi.Artifactory
         /// 
         /// Artifactory REST API call Get Key Pair doesn't return keys `PrivateKey` and `Passphrase`, but consumes these keys in the POST call.
         /// 
-        /// 
         /// The meta-argument `Lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         /// </summary>
         [Output("primaryKeypairRef")]
@@ -271,7 +270,6 @@ namespace Pulumi.Artifactory
         /// 
         /// Artifactory REST API call Get Key Pair doesn't return keys `PrivateKey` and `Passphrase`, but consumes these keys in the POST call.
         /// 
-        /// 
         /// The meta-argument `Lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         /// </summary>
         [Input("primaryKeypairRef")]
@@ -392,7 +390,6 @@ namespace Pulumi.Artifactory
         /// The RSA key to be used to sign alpine indices.
         /// 
         /// Artifactory REST API call Get Key Pair doesn't return keys `PrivateKey` and `Passphrase`, but consumes these keys in the POST call.
-        /// 
         /// 
         /// The meta-argument `Lifecycle` used here to make Provider ignore the changes for these two keys in the Terraform state.
         /// </summary>

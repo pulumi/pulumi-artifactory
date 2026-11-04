@@ -408,6 +408,12 @@ func (RemoteCocoapodsRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteCocoapodsRepositoryState)(nil)).Elem()
 }
 
+// RemoteCocoapodsRepositoryExists checks whether an existing RemoteCocoapodsRepository resource with the given ID exists.
+func RemoteCocoapodsRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteCocoapodsRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository", id, state, "", opts...)
+}
+
 type remoteCocoapodsRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

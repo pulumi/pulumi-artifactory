@@ -404,6 +404,12 @@ func (RemoteComposerRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteComposerRepositoryState)(nil)).Elem()
 }
 
+// RemoteComposerRepositoryExists checks whether an existing RemoteComposerRepository resource with the given ID exists.
+func RemoteComposerRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteComposerRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteComposerRepository:RemoteComposerRepository", id, state, "", opts...)
+}
+
 type remoteComposerRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

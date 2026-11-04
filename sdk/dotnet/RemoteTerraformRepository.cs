@@ -337,7 +337,7 @@ namespace Pulumi.Artifactory
         public Output<string> TerraformProvidersUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The base URL of the registry API. 
+        /// The base URL of the registry API.
         /// When using Smart Remote Repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey`.
         /// </summary>
         [Output("terraformRegistryUrl")]
@@ -700,7 +700,7 @@ namespace Pulumi.Artifactory
         public Input<string>? TerraformProvidersUrl { get; set; }
 
         /// <summary>
-        /// The base URL of the registry API. 
+        /// The base URL of the registry API.
         /// When using Smart Remote Repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey`.
         /// </summary>
         [Input("terraformRegistryUrl")]
@@ -1020,7 +1020,7 @@ namespace Pulumi.Artifactory
         public Input<string>? TerraformProvidersUrl { get; set; }
 
         /// <summary>
-        /// The base URL of the registry API. 
+        /// The base URL of the registry API.
         /// When using Smart Remote Repositories, set the URL to `&lt;base_Artifactory_URL&gt;/api/terraform/repokey`.
         /// </summary>
         [Input("terraformRegistryUrl")]

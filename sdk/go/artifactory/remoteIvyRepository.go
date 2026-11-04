@@ -438,6 +438,12 @@ func (RemoteIvyRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteIvyRepositoryState)(nil)).Elem()
 }
 
+// RemoteIvyRepositoryExists checks whether an existing RemoteIvyRepository resource with the given ID exists.
+func RemoteIvyRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteIvyRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteIvyRepository:RemoteIvyRepository", id, state, "", opts...)
+}
+
 type remoteIvyRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

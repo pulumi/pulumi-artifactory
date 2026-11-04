@@ -159,6 +159,12 @@ func (BuildWebhookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*buildWebhookState)(nil)).Elem()
 }
 
+// BuildWebhookExists checks whether an existing BuildWebhook resource with the given ID exists.
+func BuildWebhookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BuildWebhookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/buildWebhook:BuildWebhook", id, state, "", opts...)
+}
+
 type buildWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
 	Criteria BuildWebhookCriteria `pulumi:"criteria"`

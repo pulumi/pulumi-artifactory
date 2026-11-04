@@ -411,6 +411,12 @@ func (RemoteCondaRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteCondaRepositoryState)(nil)).Elem()
 }
 
+// RemoteCondaRepositoryExists checks whether an existing RemoteCondaRepository resource with the given ID exists.
+func RemoteCondaRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteCondaRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteCondaRepository:RemoteCondaRepository", id, state, "", opts...)
+}
+
 type remoteCondaRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

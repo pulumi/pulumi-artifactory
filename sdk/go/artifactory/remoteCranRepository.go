@@ -385,6 +385,12 @@ func (RemoteCranRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteCranRepositoryState)(nil)).Elem()
 }
 
+// RemoteCranRepositoryExists checks whether an existing RemoteCranRepository resource with the given ID exists.
+func RemoteCranRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteCranRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteCranRepository:RemoteCranRepository", id, state, "", opts...)
+}
+
 type remoteCranRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

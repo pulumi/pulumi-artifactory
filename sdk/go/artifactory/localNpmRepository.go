@@ -186,6 +186,12 @@ func (LocalNpmRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localNpmRepositoryState)(nil)).Elem()
 }
 
+// LocalNpmRepositoryExists checks whether an existing LocalNpmRepository resource with the given ID exists.
+func LocalNpmRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalNpmRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localNpmRepository:LocalNpmRepository", id, state, "", opts...)
+}
+
 type localNpmRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

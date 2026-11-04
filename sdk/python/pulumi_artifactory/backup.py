@@ -554,6 +554,32 @@ class Backup(pulumi.CustomResource):
         __props__.__dict__["verify_disk_space"] = verify_disk_space
         return Backup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            create_archive: pulumi.Input[Optional[_builtins.bool]] = None,
+            cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            exclude_new_repositories: pulumi.Input[Optional[_builtins.bool]] = None,
+            excluded_repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            export_mission_control: pulumi.Input[Optional[_builtins.bool]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_period_hours: pulumi.Input[Optional[_builtins.int]] = None,
+            send_mail_on_error: pulumi.Input[Optional[_builtins.bool]] = None,
+            verify_disk_space: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createArchive"] = create_archive
+        __props__["cronExp"] = cron_exp
+        __props__["enabled"] = enabled
+        __props__["excludeNewRepositories"] = exclude_new_repositories
+        __props__["excludedRepositories"] = excluded_repositories
+        __props__["exportMissionControl"] = export_mission_control
+        __props__["key"] = key
+        __props__["retentionPeriodHours"] = retention_period_hours
+        __props__["sendMailOnError"] = send_mail_on_error
+        __props__["verifyDiskSpace"] = verify_disk_space
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/backup:Backup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createArchive")
     def create_archive(self) -> pulumi.Output[_builtins.bool]:

@@ -235,6 +235,12 @@ func (FederatedGitltfsRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedGitltfsRepositoryState)(nil)).Elem()
 }
 
+// FederatedGitltfsRepositoryExists checks whether an existing FederatedGitltfsRepository resource with the given ID exists.
+func FederatedGitltfsRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedGitltfsRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/federatedGitltfsRepository:FederatedGitltfsRepository", id, state, "", opts...)
+}
+
 type federatedGitltfsRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

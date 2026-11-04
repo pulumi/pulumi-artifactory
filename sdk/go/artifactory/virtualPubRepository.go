@@ -178,6 +178,12 @@ func (VirtualPubRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualPubRepositoryState)(nil)).Elem()
 }
 
+// VirtualPubRepositoryExists checks whether an existing VirtualPubRepository resource with the given ID exists.
+func VirtualPubRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualPubRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualPubRepository:VirtualPubRepository", id, state, "", opts...)
+}
+
 type virtualPubRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

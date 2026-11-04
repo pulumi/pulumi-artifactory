@@ -303,6 +303,20 @@ class PasswordExpirationPolicy(pulumi.CustomResource):
         __props__.__dict__["password_max_age"] = password_max_age
         return PasswordExpirationPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notify_by_email: pulumi.Input[Optional[_builtins.bool]] = None,
+            password_max_age: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["enabled"] = enabled
+        __props__["name"] = name
+        __props__["notifyByEmail"] = notify_by_email
+        __props__["passwordMaxAge"] = password_max_age
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/passwordExpirationPolicy:PasswordExpirationPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[_builtins.bool]:

@@ -235,6 +235,12 @@ func (FederatedComposerRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedComposerRepositoryState)(nil)).Elem()
 }
 
+// FederatedComposerRepositoryExists checks whether an existing FederatedComposerRepository resource with the given ID exists.
+func FederatedComposerRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedComposerRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/federatedComposerRepository:FederatedComposerRepository", id, state, "", opts...)
+}
+
 type federatedComposerRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

@@ -28,11 +28,10 @@ public final class PackageCleanupPolicySearchCriteria {
      * 
      * ~&gt;JFrog recommends using the `createdBeforeInMonths` condition to ensure that packages currently in use are not deleted.
      * 
-     * @deprecated
-     * Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
+     * @deprecated Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
      * 
      */
-    @Deprecated /* Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2. */
+    @Deprecated
     private @Nullable Integer createdBeforeInMonths;
     /**
      * @return Specify explicit package names that you want excluded from the policy. Only explicit names (and not patterns) are accepted.
@@ -90,11 +89,10 @@ public final class PackageCleanupPolicySearchCriteria {
      * 
      * ~&gt;JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not deleted.
      * 
-     * @deprecated
-     * Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
+     * @deprecated Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
      * 
      */
-    @Deprecated /* Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2. */
+    @Deprecated
     private @Nullable Integer lastDownloadedBeforeInMonths;
     /**
      * @return The package types that are cleaned up by the policy. Support: alpine, ansible, cargo, chef, cocoapods, composer, conan, conda, debian, docker, gems, generic, go, gradle, helm, helmoci, huggingfaceml, machinelearning, maven, npm, nuget, oci, puppet, pypi, sbt, swift, terraform, terraformbackend, yum.
@@ -122,11 +120,10 @@ public final class PackageCleanupPolicySearchCriteria {
      * 
      * ~&gt;JFrog recommends using the `createdBeforeInMonths` condition to ensure that packages currently in use are not deleted.
      * 
-     * @deprecated
-     * Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
+     * @deprecated Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
      * 
      */
-    @Deprecated /* Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2. */
+    @Deprecated
     public Optional<Integer> createdBeforeInMonths() {
         return Optional.ofNullable(this.createdBeforeInMonths);
     }
@@ -204,11 +201,10 @@ public final class PackageCleanupPolicySearchCriteria {
      * 
      * ~&gt;JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not deleted.
      * 
-     * @deprecated
-     * Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
+     * @deprecated Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
      * 
      */
-    @Deprecated /* Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2. */
+    @Deprecated
     public Optional<Integer> lastDownloadedBeforeInMonths() {
         return Optional.ofNullable(this.lastDownloadedBeforeInMonths);
     }

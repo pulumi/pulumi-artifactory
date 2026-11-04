@@ -162,6 +162,12 @@ func (PushReplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pushReplicationState)(nil)).Elem()
 }
 
+// PushReplicationExists checks whether an existing PushReplication resource with the given ID exists.
+func PushReplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PushReplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/pushReplication:PushReplication", id, state, "", opts...)
+}
+
 type pushReplicationArgs struct {
 	// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
 	CronExp string `pulumi:"cronExp"`

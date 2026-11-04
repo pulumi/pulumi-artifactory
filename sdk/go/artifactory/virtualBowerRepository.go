@@ -196,6 +196,12 @@ func (VirtualBowerRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualBowerRepositoryState)(nil)).Elem()
 }
 
+// VirtualBowerRepositoryExists checks whether an existing VirtualBowerRepository resource with the given ID exists.
+func VirtualBowerRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualBowerRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualBowerRepository:VirtualBowerRepository", id, state, "", opts...)
+}
+
 type virtualBowerRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

@@ -152,6 +152,12 @@ func (ReleaseBundleV2PromotionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*releaseBundleV2PromotionState)(nil)).Elem()
 }
 
+// ReleaseBundleV2PromotionExists checks whether an existing ReleaseBundleV2Promotion resource with the given ID exists.
+func ReleaseBundleV2PromotionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReleaseBundleV2PromotionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/releaseBundleV2Promotion:ReleaseBundleV2Promotion", id, state, "", opts...)
+}
+
 type releaseBundleV2PromotionArgs struct {
 	// Target environment
 	Environment string `pulumi:"environment"`

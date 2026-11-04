@@ -250,6 +250,12 @@ func (FederatedCargoRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedCargoRepositoryState)(nil)).Elem()
 }
 
+// FederatedCargoRepositoryExists checks whether an existing FederatedCargoRepository resource with the given ID exists.
+func FederatedCargoRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedCargoRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/federatedCargoRepository:FederatedCargoRepository", id, state, "", opts...)
+}
+
 type federatedCargoRepositoryArgs struct {
 	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
 	AnonymousAccess *bool `pulumi:"anonymousAccess"`

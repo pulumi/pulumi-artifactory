@@ -178,6 +178,12 @@ func (VirtualGemsRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualGemsRepositoryState)(nil)).Elem()
 }
 
+// VirtualGemsRepositoryExists checks whether an existing VirtualGemsRepository resource with the given ID exists.
+func VirtualGemsRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualGemsRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualGemsRepository:VirtualGemsRepository", id, state, "", opts...)
+}
+
 type virtualGemsRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

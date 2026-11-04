@@ -177,6 +177,12 @@ func (ArtifactState) ElementType() reflect.Type {
 	return reflect.TypeOf((*artifactState)(nil)).Elem()
 }
 
+// ArtifactExists checks whether an existing Artifact resource with the given ID exists.
+func ArtifactExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ArtifactState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/artifact:Artifact", id, state, "", opts...)
+}
+
 type artifactArgs struct {
 	// Base64 content of the source file. Conflicts with `filePath`. Either one of these attribute must be set.
 	ContentBase64 *string `pulumi:"contentBase64"`

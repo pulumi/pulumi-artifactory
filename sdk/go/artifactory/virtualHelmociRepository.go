@@ -183,6 +183,12 @@ func (VirtualHelmociRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualHelmociRepositoryState)(nil)).Elem()
 }
 
+// VirtualHelmociRepositoryExists checks whether an existing VirtualHelmociRepository resource with the given ID exists.
+func VirtualHelmociRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualHelmociRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualHelmociRepository:VirtualHelmociRepository", id, state, "", opts...)
+}
+
 type virtualHelmociRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

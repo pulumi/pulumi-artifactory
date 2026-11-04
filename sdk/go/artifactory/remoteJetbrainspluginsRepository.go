@@ -437,6 +437,12 @@ func (RemoteJetbrainspluginsRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteJetbrainspluginsRepositoryState)(nil)).Elem()
 }
 
+// RemoteJetbrainspluginsRepositoryExists checks whether an existing RemoteJetbrainspluginsRepository resource with the given ID exists.
+func RemoteJetbrainspluginsRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteJetbrainspluginsRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteJetbrainspluginsRepository:RemoteJetbrainspluginsRepository", id, state, "", opts...)
+}
+
 type remoteJetbrainspluginsRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

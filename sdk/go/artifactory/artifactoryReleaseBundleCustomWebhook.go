@@ -166,6 +166,12 @@ func (ArtifactoryReleaseBundleCustomWebhookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*artifactoryReleaseBundleCustomWebhookState)(nil)).Elem()
 }
 
+// ArtifactoryReleaseBundleCustomWebhookExists checks whether an existing ArtifactoryReleaseBundleCustomWebhook resource with the given ID exists.
+func ArtifactoryReleaseBundleCustomWebhookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ArtifactoryReleaseBundleCustomWebhookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/artifactoryReleaseBundleCustomWebhook:ArtifactoryReleaseBundleCustomWebhook", id, state, "", opts...)
+}
+
 type artifactoryReleaseBundleCustomWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
 	Criteria ArtifactoryReleaseBundleCustomWebhookCriteria `pulumi:"criteria"`

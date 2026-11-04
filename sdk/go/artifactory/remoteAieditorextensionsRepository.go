@@ -460,6 +460,12 @@ func (RemoteAieditorextensionsRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteAieditorextensionsRepositoryState)(nil)).Elem()
 }
 
+// RemoteAieditorextensionsRepositoryExists checks whether an existing RemoteAieditorextensionsRepository resource with the given ID exists.
+func RemoteAieditorextensionsRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteAieditorextensionsRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteAieditorextensionsRepository:RemoteAieditorextensionsRepository", id, state, "", opts...)
+}
+
 type remoteAieditorextensionsRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

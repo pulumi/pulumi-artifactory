@@ -19,12 +19,12 @@ public final class ArtifactoryReleaseBundleWebhookCriteria {
      */
     private Boolean anyReleaseBundle;
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
      * 
      */
     private @Nullable List<String> excludePatterns;
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
      * 
      */
     private @Nullable List<String> includePatterns;
@@ -43,14 +43,14 @@ public final class ArtifactoryReleaseBundleWebhookCriteria {
         return this.anyReleaseBundle;
     }
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.**
      * 
      */
     public List<String> excludePatterns() {
         return this.excludePatterns == null ? List.of() : this.excludePatterns;
     }
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *&#92;*, ?). For example: `org/apache/**`. **Cannot be set if `anyReleaseBundle` is set to `true`.** Either this or `registeredReleaseBundleNames` must be set when `anyReleaseBundle` is `false`.
      * 
      */
     public List<String> includePatterns() {

@@ -306,6 +306,16 @@ class GeneralSecurity(pulumi.CustomResource):
         __props__.__dict__["encryption_policy"] = encryption_policy
         return GeneralSecurity(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            enable_anonymous_access: pulumi.Input[Optional[_builtins.bool]] = None,
+            encryption_policy: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["enableAnonymousAccess"] = enable_anonymous_access
+        __props__["encryptionPolicy"] = encryption_policy
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/generalSecurity:GeneralSecurity', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="enableAnonymousAccess")
     def enable_anonymous_access(self) -> pulumi.Output[_builtins.bool]:

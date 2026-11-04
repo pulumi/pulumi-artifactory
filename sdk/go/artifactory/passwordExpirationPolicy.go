@@ -125,6 +125,12 @@ func (PasswordExpirationPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*passwordExpirationPolicyState)(nil)).Elem()
 }
 
+// PasswordExpirationPolicyExists checks whether an existing PasswordExpirationPolicy resource with the given ID exists.
+func PasswordExpirationPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PasswordExpirationPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/passwordExpirationPolicy:PasswordExpirationPolicy", id, state, "", opts...)
+}
+
 type passwordExpirationPolicyArgs struct {
 	// Enable Password Expiration Policy. This only applies to internal user passwords.
 	Enabled bool `pulumi:"enabled"`

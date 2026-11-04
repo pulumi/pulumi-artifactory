@@ -404,6 +404,12 @@ func (RemoteBowerRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteBowerRepositoryState)(nil)).Elem()
 }
 
+// RemoteBowerRepositoryExists checks whether an existing RemoteBowerRepository resource with the given ID exists.
+func RemoteBowerRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteBowerRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteBowerRepository:RemoteBowerRepository", id, state, "", opts...)
+}
+
 type remoteBowerRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

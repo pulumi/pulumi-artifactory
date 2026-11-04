@@ -178,6 +178,12 @@ func (KeypairState) ElementType() reflect.Type {
 	return reflect.TypeOf((*keypairState)(nil)).Elem()
 }
 
+// KeypairExists checks whether an existing Keypair resource with the given ID exists.
+func KeypairExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KeypairState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/keypair:Keypair", id, state, "", opts...)
+}
+
 type keypairArgs struct {
 	// Will be used as a filename when retrieving the public key via REST API.
 	Alias string `pulumi:"alias"`

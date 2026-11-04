@@ -186,6 +186,12 @@ func (LocalGemsRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localGemsRepositoryState)(nil)).Elem()
 }
 
+// LocalGemsRepositoryExists checks whether an existing LocalGemsRepository resource with the given ID exists.
+func LocalGemsRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalGemsRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localGemsRepository:LocalGemsRepository", id, state, "", opts...)
+}
+
 type localGemsRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

@@ -415,6 +415,12 @@ func (ArchivePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*archivePolicyState)(nil)).Elem()
 }
 
+// ArchivePolicyExists checks whether an existing ArchivePolicy resource with the given ID exists.
+func ArchivePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ArchivePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/archivePolicy:ArchivePolicy", id, state, "", opts...)
+}
+
 type archivePolicyArgs struct {
 	// The cron expression determines when the policy is run. This parameter is not mandatory, however if left empty the policy will not run automatically and can only be triggered manually.
 	CronExpression *string `pulumi:"cronExpression"`

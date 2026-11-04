@@ -344,6 +344,12 @@ func (ScopedTokenState) ElementType() reflect.Type {
 	return reflect.TypeOf((*scopedTokenState)(nil)).Elem()
 }
 
+// ScopedTokenExists checks whether an existing ScopedToken resource with the given ID exists.
+func ScopedTokenExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ScopedTokenState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/scopedToken:ScopedToken", id, state, "", opts...)
+}
+
 type scopedTokenArgs struct {
 	// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
 	Audiences []string `pulumi:"audiences"`

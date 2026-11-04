@@ -230,6 +230,12 @@ func (ReleaseBundleV2CleanupPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*releaseBundleV2CleanupPolicyState)(nil)).Elem()
 }
 
+// ReleaseBundleV2CleanupPolicyExists checks whether an existing ReleaseBundleV2CleanupPolicy resource with the given ID exists.
+func ReleaseBundleV2CleanupPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReleaseBundleV2CleanupPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/releaseBundleV2CleanupPolicy:ReleaseBundleV2CleanupPolicy", id, state, "", opts...)
+}
+
 type releaseBundleV2CleanupPolicyArgs struct {
 	// The cron expression determines when the policy is run. This parameter is not mandatory, however if left empty the policy will not run automatically and can only be triggered manually.
 	CronExpression *string `pulumi:"cronExpression"`

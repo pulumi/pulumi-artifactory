@@ -161,6 +161,12 @@ func (DestinationWebhookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*destinationWebhookState)(nil)).Elem()
 }
 
+// DestinationWebhookExists checks whether an existing DestinationWebhook resource with the given ID exists.
+func DestinationWebhookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DestinationWebhookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/destinationWebhook:DestinationWebhook", id, state, "", opts...)
+}
+
 type destinationWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
 	Criteria DestinationWebhookCriteria `pulumi:"criteria"`

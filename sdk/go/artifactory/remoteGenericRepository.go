@@ -477,6 +477,12 @@ func (RemoteGenericRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteGenericRepositoryState)(nil)).Elem()
 }
 
+// RemoteGenericRepositoryExists checks whether an existing RemoteGenericRepository resource with the given ID exists.
+func RemoteGenericRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteGenericRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteGenericRepository:RemoteGenericRepository", id, state, "", opts...)
+}
+
 type remoteGenericRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

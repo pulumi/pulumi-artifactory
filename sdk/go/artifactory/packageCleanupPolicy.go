@@ -456,6 +456,12 @@ func (PackageCleanupPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*packageCleanupPolicyState)(nil)).Elem()
 }
 
+// PackageCleanupPolicyExists checks whether an existing PackageCleanupPolicy resource with the given ID exists.
+func PackageCleanupPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PackageCleanupPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/packageCleanupPolicy:PackageCleanupPolicy", id, state, "", opts...)
+}
+
 type packageCleanupPolicyArgs struct {
 	// The cron expression that determines when the policy is run, However if left empty the policy will not run automatically and can only be triggered manually.
 	CronExpression *string `pulumi:"cronExpression"`

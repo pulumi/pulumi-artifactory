@@ -165,6 +165,12 @@ func (DestinationCustomWebhookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*destinationCustomWebhookState)(nil)).Elem()
 }
 
+// DestinationCustomWebhookExists checks whether an existing DestinationCustomWebhook resource with the given ID exists.
+func DestinationCustomWebhookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DestinationCustomWebhookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/destinationCustomWebhook:DestinationCustomWebhook", id, state, "", opts...)
+}
+
 type destinationCustomWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
 	Criteria DestinationCustomWebhookCriteria `pulumi:"criteria"`

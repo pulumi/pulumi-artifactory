@@ -384,6 +384,12 @@ func (RemoteBazelRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteBazelRepositoryState)(nil)).Elem()
 }
 
+// RemoteBazelRepositoryExists checks whether an existing RemoteBazelRepository resource with the given ID exists.
+func RemoteBazelRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteBazelRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteBazelRepository:RemoteBazelRepository", id, state, "", opts...)
+}
+
 type remoteBazelRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

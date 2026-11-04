@@ -147,6 +147,12 @@ func (VirtualSwiftRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualSwiftRepositoryState)(nil)).Elem()
 }
 
+// VirtualSwiftRepositoryExists checks whether an existing VirtualSwiftRepository resource with the given ID exists.
+func VirtualSwiftRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualSwiftRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualSwiftRepository:VirtualSwiftRepository", id, state, "", opts...)
+}
+
 type virtualSwiftRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

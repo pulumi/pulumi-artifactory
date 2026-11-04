@@ -265,6 +265,12 @@ func (FederatedRpmRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedRpmRepositoryState)(nil)).Elem()
 }
 
+// FederatedRpmRepositoryExists checks whether an existing FederatedRpmRepository resource with the given ID exists.
+func FederatedRpmRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedRpmRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/federatedRpmRepository:FederatedRpmRepository", id, state, "", opts...)
+}
+
 type federatedRpmRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

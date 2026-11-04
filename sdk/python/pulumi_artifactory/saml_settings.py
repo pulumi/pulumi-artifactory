@@ -690,6 +690,38 @@ class SamlSettings(pulumi.CustomResource):
         __props__.__dict__["verify_audience_restriction"] = verify_audience_restriction
         return SamlSettings(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+            certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            email_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            enable: pulumi.Input[Optional[_builtins.bool]] = None,
+            group_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            login_url: pulumi.Input[Optional[_builtins.str]] = None,
+            logout_url: pulumi.Input[Optional[_builtins.str]] = None,
+            no_auto_user_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+            service_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sync_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+            use_encrypted_assertion: pulumi.Input[Optional[_builtins.bool]] = None,
+            verify_audience_restriction: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowUserToAccessProfile"] = allow_user_to_access_profile
+        __props__["autoRedirect"] = auto_redirect
+        __props__["certificate"] = certificate
+        __props__["emailAttribute"] = email_attribute
+        __props__["enable"] = enable
+        __props__["groupAttribute"] = group_attribute
+        __props__["loginUrl"] = login_url
+        __props__["logoutUrl"] = logout_url
+        __props__["noAutoUserCreation"] = no_auto_user_creation
+        __props__["serviceProviderName"] = service_provider_name
+        __props__["syncGroups"] = sync_groups
+        __props__["useEncryptedAssertion"] = use_encrypted_assertion
+        __props__["verifyAudienceRestriction"] = verify_audience_restriction
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/samlSettings:SamlSettings', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowUserToAccessProfile")
     def allow_user_to_access_profile(self) -> pulumi.Output[Optional[_builtins.bool]]:

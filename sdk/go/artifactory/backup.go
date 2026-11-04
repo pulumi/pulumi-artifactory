@@ -171,6 +171,12 @@ func (BackupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*backupState)(nil)).Elem()
 }
 
+// BackupExists checks whether an existing Backup resource with the given ID exists.
+func BackupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BackupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/backup:Backup", id, state, "", opts...)
+}
+
 type backupArgs struct {
 	// If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`
 	CreateArchive *bool `pulumi:"createArchive"`

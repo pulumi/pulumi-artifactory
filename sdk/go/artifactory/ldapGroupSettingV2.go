@@ -187,6 +187,12 @@ func (LdapGroupSettingV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*ldapGroupSettingV2State)(nil)).Elem()
 }
 
+// LdapGroupSettingV2Exists checks whether an existing LdapGroupSettingV2 resource with the given ID exists.
+func LdapGroupSettingV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LdapGroupSettingV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/ldapGroupSettingV2:LdapGroupSettingV2", id, state, "", opts...)
+}
+
 type ldapGroupSettingV2Args struct {
 	// An attribute on the group entry which denoting the group description. Used when importing groups.
 	DescriptionAttribute string `pulumi:"descriptionAttribute"`

@@ -752,6 +752,40 @@ class LdapSetting(pulumi.CustomResource):
         __props__.__dict__["user_dn_pattern"] = user_dn_pattern
         return LdapSetting(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_user_to_access_profile: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_create_user: pulumi.Input[Optional[_builtins.bool]] = None,
+            email_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            ldap_poisoning_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            ldap_url: pulumi.Input[Optional[_builtins.str]] = None,
+            manager_dn: pulumi.Input[Optional[_builtins.str]] = None,
+            manager_password: pulumi.Input[Optional[_builtins.str]] = None,
+            paging_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            search_base: pulumi.Input[Optional[_builtins.str]] = None,
+            search_filter: pulumi.Input[Optional[_builtins.str]] = None,
+            search_sub_tree: pulumi.Input[Optional[_builtins.bool]] = None,
+            user_dn_pattern: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowUserToAccessProfile"] = allow_user_to_access_profile
+        __props__["autoCreateUser"] = auto_create_user
+        __props__["emailAttribute"] = email_attribute
+        __props__["enabled"] = enabled
+        __props__["key"] = key
+        __props__["ldapPoisoningProtection"] = ldap_poisoning_protection
+        __props__["ldapUrl"] = ldap_url
+        __props__["managerDn"] = manager_dn
+        __props__["managerPassword"] = manager_password
+        __props__["pagingSupportEnabled"] = paging_support_enabled
+        __props__["searchBase"] = search_base
+        __props__["searchFilter"] = search_filter
+        __props__["searchSubTree"] = search_sub_tree
+        __props__["userDnPattern"] = user_dn_pattern
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/ldapSetting:LdapSetting', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowUserToAccessProfile")
     def allow_user_to_access_profile(self) -> pulumi.Output[Optional[_builtins.bool]]:

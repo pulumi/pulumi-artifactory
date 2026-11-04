@@ -200,6 +200,12 @@ func (LocalOciRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localOciRepositoryState)(nil)).Elem()
 }
 
+// LocalOciRepositoryExists checks whether an existing LocalOciRepository resource with the given ID exists.
+func LocalOciRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalOciRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localOciRepository:LocalOciRepository", id, state, "", opts...)
+}
+
 type localOciRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
 	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).

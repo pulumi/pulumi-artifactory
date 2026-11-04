@@ -218,6 +218,12 @@ func (LdapSettingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ldapSettingState)(nil)).Elem()
 }
 
+// LdapSettingExists checks whether an existing LdapSetting resource with the given ID exists.
+func LdapSettingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LdapSettingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/ldapSetting:LdapSetting", id, state, "", opts...)
+}
+
 type ldapSettingArgs struct {
 	// When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
 	AllowUserToAccessProfile *bool `pulumi:"allowUserToAccessProfile"`

@@ -1226,6 +1226,64 @@ class FederatedMavenRepository(pulumi.CustomResource):
         __props__.__dict__["xray_index"] = xray_index
         return FederatedMavenRepository(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            archive_browsing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            blacked_out: pulumi.Input[Optional[_builtins.bool]] = None,
+            cdn_redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+            checksum_policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+            cleanup_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+            download_direct: pulumi.Input[Optional[_builtins.bool]] = None,
+            excludes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            handle_releases: pulumi.Input[Optional[_builtins.bool]] = None,
+            handle_snapshots: pulumi.Input[Optional[_builtins.bool]] = None,
+            includes_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            max_unique_snapshots: pulumi.Input[Optional[_builtins.int]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FederatedMavenRepositoryMemberArgs', 'FederatedMavenRepositoryMemberArgsDict', 'outputs.FederatedMavenRepositoryMember']]]]] = None,
+            notes: pulumi.Input[Optional[_builtins.str]] = None,
+            package_type: pulumi.Input[Optional[_builtins.str]] = None,
+            priority_resolution: pulumi.Input[Optional[_builtins.bool]] = None,
+            project_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            project_key: pulumi.Input[Optional[_builtins.str]] = None,
+            property_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            proxy: pulumi.Input[Optional[_builtins.str]] = None,
+            repo_layout_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            snapshot_version_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            suppress_pom_consistency_checks: pulumi.Input[Optional[_builtins.bool]] = None,
+            xray_index: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["archiveBrowsingEnabled"] = archive_browsing_enabled
+        __props__["blackedOut"] = blacked_out
+        __props__["cdnRedirect"] = cdn_redirect
+        __props__["checksumPolicyType"] = checksum_policy_type
+        __props__["cleanupOnDelete"] = cleanup_on_delete
+        __props__["description"] = description
+        __props__["disableProxy"] = disable_proxy
+        __props__["downloadDirect"] = download_direct
+        __props__["excludesPattern"] = excludes_pattern
+        __props__["handleReleases"] = handle_releases
+        __props__["handleSnapshots"] = handle_snapshots
+        __props__["includesPattern"] = includes_pattern
+        __props__["key"] = key
+        __props__["maxUniqueSnapshots"] = max_unique_snapshots
+        __props__["members"] = members
+        __props__["notes"] = notes
+        __props__["packageType"] = package_type
+        __props__["priorityResolution"] = priority_resolution
+        __props__["projectEnvironments"] = project_environments
+        __props__["projectKey"] = project_key
+        __props__["propertySets"] = property_sets
+        __props__["proxy"] = proxy
+        __props__["repoLayoutRef"] = repo_layout_ref
+        __props__["snapshotVersionBehavior"] = snapshot_version_behavior
+        __props__["suppressPomConsistencyChecks"] = suppress_pom_consistency_checks
+        __props__["xrayIndex"] = xray_index
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/federatedMavenRepository:FederatedMavenRepository', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="archiveBrowsingEnabled")
     def archive_browsing_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

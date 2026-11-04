@@ -176,6 +176,14 @@ class ApiKey(pulumi.CustomResource):
         __props__.__dict__["api_key"] = api_key
         return ApiKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_key: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiKey"] = api_key
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/apiKey:ApiKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiKey")
     @_utilities.deprecated("""Deprecated in favor of \"ScopedToken\".""")

@@ -43,7 +43,7 @@ namespace Pulumi.Artifactory
     public partial class LocalCargoRepository : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Cargo client does not send credentials when performing download and search for crates. 
+        /// Cargo client does not send credentials when performing download and search for crates.
         /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `False`.
         /// </summary>
         [Output("anonymousAccess")]
@@ -193,7 +193,7 @@ namespace Pulumi.Artifactory
     public sealed class LocalCargoRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Cargo client does not send credentials when performing download and search for crates. 
+        /// Cargo client does not send credentials when performing download and search for crates.
         /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `False`.
         /// </summary>
         [Input("anonymousAccess")]
@@ -317,7 +317,7 @@ namespace Pulumi.Artifactory
     public sealed class LocalCargoRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Cargo client does not send credentials when performing download and search for crates. 
+        /// Cargo client does not send credentials when performing download and search for crates.
         /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `False`.
         /// </summary>
         [Input("anonymousAccess")]

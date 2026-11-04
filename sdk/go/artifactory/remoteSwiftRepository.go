@@ -385,6 +385,12 @@ func (RemoteSwiftRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteSwiftRepositoryState)(nil)).Elem()
 }
 
+// RemoteSwiftRepositoryExists checks whether an existing RemoteSwiftRepository resource with the given ID exists.
+func RemoteSwiftRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteSwiftRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteSwiftRepository:RemoteSwiftRepository", id, state, "", opts...)
+}
+
 type remoteSwiftRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

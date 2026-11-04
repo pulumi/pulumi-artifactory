@@ -178,6 +178,12 @@ func (VirtualTerraformRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualTerraformRepositoryState)(nil)).Elem()
 }
 
+// VirtualTerraformRepositoryExists checks whether an existing VirtualTerraformRepository resource with the given ID exists.
+func VirtualTerraformRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualTerraformRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualTerraformRepository:VirtualTerraformRepository", id, state, "", opts...)
+}
+
 type virtualTerraformRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

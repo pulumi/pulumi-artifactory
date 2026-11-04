@@ -206,6 +206,12 @@ func (LdapSettingV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*ldapSettingV2State)(nil)).Elem()
 }
 
+// LdapSettingV2Exists checks whether an existing LdapSettingV2 resource with the given ID exists.
+func LdapSettingV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LdapSettingV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/ldapSettingV2:LdapSettingV2", id, state, "", opts...)
+}
+
 type ldapSettingV2Args struct {
 	// Auto created users will have access to their profile page and will be able to perform actions such as generating an API key. Default value is `false`.
 	AllowUserToAccessProfile *bool `pulumi:"allowUserToAccessProfile"`

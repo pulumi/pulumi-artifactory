@@ -41,12 +41,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var my_release_bundle_v2_aql = new ReleaseBundleV2("my-release-bundle-v2-aql", ReleaseBundleV2Args.builder()
  *             .name("my-release-bundle-v2-aql")
  *             .version("1.0.0")
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .skipDockerManifestResolution(true)
  *             .sourceType("aql")
  *             .source(ReleaseBundleV2SourceArgs.builder()
- *                 .aql("items.find({\"repo\": {\"$match\": \"my-generic-*\"}})")
+ *                 .aql("items.find(}{&#92;{@code "repo}&#92;{@code ": }{&#92;{@code "$match}&#92;{@code ": }&#92;{@code "my-generic-*}&#92;{@code "}}}{@code )")
  *                 .build())
  *             .build());
  * 
@@ -101,8 +101,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

@@ -342,6 +342,26 @@ class DistributionPublicKey(pulumi.CustomResource):
         __props__.__dict__["valid_until"] = valid_until
         return DistributionPublicKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            alias: pulumi.Input[Optional[_builtins.str]] = None,
+            fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+            issued_by: pulumi.Input[Optional[_builtins.str]] = None,
+            issued_on: pulumi.Input[Optional[_builtins.str]] = None,
+            key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            valid_until: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alias"] = alias
+        __props__["fingerprint"] = fingerprint
+        __props__["issuedBy"] = issued_by
+        __props__["issuedOn"] = issued_on
+        __props__["keyId"] = key_id
+        __props__["publicKey"] = public_key
+        __props__["validUntil"] = valid_until
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/distributionPublicKey:DistributionPublicKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def alias(self) -> pulumi.Output[_builtins.str]:

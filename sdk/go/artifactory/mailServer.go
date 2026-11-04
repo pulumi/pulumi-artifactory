@@ -171,6 +171,12 @@ func (MailServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mailServerState)(nil)).Elem()
 }
 
+// MailServerExists checks whether an existing MailServer resource with the given ID exists.
+func MailServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MailServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/mailServer:MailServer", id, state, "", opts...)
+}
+
 type mailServerArgs struct {
 	// The Artifactory URL to to link to in all outgoing messages.
 	ArtifactoryUrl *string `pulumi:"artifactoryUrl"`

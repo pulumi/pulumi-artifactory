@@ -203,6 +203,12 @@ func (LocalCargoRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localCargoRepositoryState)(nil)).Elem()
 }
 
+// LocalCargoRepositoryExists checks whether an existing LocalCargoRepository resource with the given ID exists.
+func LocalCargoRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalCargoRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localCargoRepository:LocalCargoRepository", id, state, "", opts...)
+}
+
 type localCargoRepositoryArgs struct {
 	// Cargo client does not send credentials when performing download and search for crates.
 	// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.

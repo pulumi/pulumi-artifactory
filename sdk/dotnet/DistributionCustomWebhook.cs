@@ -97,7 +97,7 @@ namespace Pulumi.Artifactory
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `DistributeStarted`, `DistributeCompleted`, `DistributeAborted`, `distribute_failed, `DeleteStarted`, `DeleteCompleted`, `DeleteFailed`
+        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `DistributeStarted`, `DistributeCompleted`, `DistributeAborted`, ` distribute_failed,  `DeleteStarted` ,  `DeleteCompleted` ,  `DeleteFailed`
         /// </summary>
         [Output("eventTypes")]
         public Output<ImmutableArray<string>> EventTypes { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _eventTypes;
 
         /// <summary>
-        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `DistributeStarted`, `DistributeCompleted`, `DistributeAborted`, `distribute_failed, `DeleteStarted`, `DeleteCompleted`, `DeleteFailed`
+        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `DistributeStarted`, `DistributeCompleted`, `DistributeAborted`, ` distribute_failed,  `DeleteStarted` ,  `DeleteCompleted` ,  `DeleteFailed`
         /// </summary>
         public InputList<string> EventTypes
         {
@@ -238,7 +238,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _eventTypes;
 
         /// <summary>
-        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `DistributeStarted`, `DistributeCompleted`, `DistributeAborted`, `distribute_failed, `DeleteStarted`, `DeleteCompleted`, `DeleteFailed`
+        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `DistributeStarted`, `DistributeCompleted`, `DistributeAborted`, ` distribute_failed,  `DeleteStarted` ,  `DeleteCompleted` ,  `DeleteFailed`
         /// </summary>
         public InputList<string> EventTypes
         {

@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
- * Note: `Name` argument has to match to the resource name.\
+ * Note: `Name` argument has to match to the resource name.&#92;
  * Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
  * 
  * ## Import

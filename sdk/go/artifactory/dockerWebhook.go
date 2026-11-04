@@ -170,6 +170,12 @@ func (DockerWebhookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dockerWebhookState)(nil)).Elem()
 }
 
+// DockerWebhookExists checks whether an existing DockerWebhook resource with the given ID exists.
+func DockerWebhookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DockerWebhookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/dockerWebhook:DockerWebhook", id, state, "", opts...)
+}
+
 type dockerWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
 	Criteria DockerWebhookCriteria `pulumi:"criteria"`

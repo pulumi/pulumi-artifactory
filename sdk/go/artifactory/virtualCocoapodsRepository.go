@@ -177,6 +177,12 @@ func (VirtualCocoapodsRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualCocoapodsRepositoryState)(nil)).Elem()
 }
 
+// VirtualCocoapodsRepositoryExists checks whether an existing VirtualCocoapodsRepository resource with the given ID exists.
+func VirtualCocoapodsRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualCocoapodsRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualCocoapodsRepository:VirtualCocoapodsRepository", id, state, "", opts...)
+}
+
 type virtualCocoapodsRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

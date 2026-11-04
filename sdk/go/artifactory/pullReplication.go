@@ -213,6 +213,12 @@ func (PullReplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pullReplicationState)(nil)).Elem()
 }
 
+// PullReplicationExists checks whether an existing PullReplication resource with the given ID exists.
+func PullReplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PullReplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/pullReplication:PullReplication", id, state, "", opts...)
+}
+
 type pullReplicationArgs struct {
 	// When true, enables distributed checksum storage. For more information, see
 	// [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).

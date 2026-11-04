@@ -61,6 +61,17 @@ export class ArtifactWebhook extends pulumi.CustomResource {
         return new ArtifactWebhook(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing ArtifactWebhook resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: ArtifactWebhookState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("artifactory:index/artifactWebhook:ArtifactWebhook", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'artifactory:index/artifactWebhook:ArtifactWebhook';
 

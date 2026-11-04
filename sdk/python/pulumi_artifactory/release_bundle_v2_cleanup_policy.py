@@ -527,6 +527,26 @@ class ReleaseBundleV2CleanupPolicy(pulumi.CustomResource):
         __props__.__dict__["search_criteria"] = search_criteria
         return ReleaseBundleV2CleanupPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            item_type: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            search_criteria: pulumi.Input[Optional[Union['ReleaseBundleV2CleanupPolicySearchCriteriaArgs', 'ReleaseBundleV2CleanupPolicySearchCriteriaArgsDict', 'outputs.ReleaseBundleV2CleanupPolicySearchCriteria']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cronExpression"] = cron_expression
+        __props__["description"] = description
+        __props__["durationInMinutes"] = duration_in_minutes
+        __props__["enabled"] = enabled
+        __props__["itemType"] = item_type
+        __props__["key"] = key
+        __props__["searchCriteria"] = search_criteria
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/releaseBundleV2CleanupPolicy:ReleaseBundleV2CleanupPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cronExpression")
     def cron_expression(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -154,6 +154,12 @@ func (ReleaseBundleV2PromotionWebhookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*releaseBundleV2PromotionWebhookState)(nil)).Elem()
 }
 
+// ReleaseBundleV2PromotionWebhookExists checks whether an existing ReleaseBundleV2PromotionWebhook resource with the given ID exists.
+func ReleaseBundleV2PromotionWebhookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReleaseBundleV2PromotionWebhookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/releaseBundleV2PromotionWebhook:ReleaseBundleV2PromotionWebhook", id, state, "", opts...)
+}
+
 type releaseBundleV2PromotionWebhookArgs struct {
 	// Specifies where the webhook will be applied on which enviroments.
 	Criteria ReleaseBundleV2PromotionWebhookCriteria `pulumi:"criteria"`

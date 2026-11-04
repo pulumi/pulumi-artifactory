@@ -383,6 +383,12 @@ func (RemoteNixRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteNixRepositoryState)(nil)).Elem()
 }
 
+// RemoteNixRepositoryExists checks whether an existing RemoteNixRepository resource with the given ID exists.
+func RemoteNixRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteNixRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteNixRepository:RemoteNixRepository", id, state, "", opts...)
+}
+
 type remoteNixRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`

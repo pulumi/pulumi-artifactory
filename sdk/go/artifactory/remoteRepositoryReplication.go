@@ -185,6 +185,12 @@ func (RemoteRepositoryReplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*remoteRepositoryReplicationState)(nil)).Elem()
 }
 
+// RemoteRepositoryReplicationExists checks whether an existing RemoteRepositoryReplication resource with the given ID exists.
+func RemoteRepositoryReplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RemoteRepositoryReplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication", id, state, "", opts...)
+}
+
 type remoteRepositoryReplicationArgs struct {
 	// Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
 	CheckBinaryExistenceInFilestore *bool `pulumi:"checkBinaryExistenceInFilestore"`

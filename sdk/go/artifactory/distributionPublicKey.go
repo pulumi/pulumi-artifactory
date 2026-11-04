@@ -155,6 +155,12 @@ func (DistributionPublicKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*distributionPublicKeyState)(nil)).Elem()
 }
 
+// DistributionPublicKeyExists checks whether an existing DistributionPublicKey resource with the given ID exists.
+func DistributionPublicKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DistributionPublicKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/distributionPublicKey:DistributionPublicKey", id, state, "", opts...)
+}
+
 type distributionPublicKeyArgs struct {
 	// Will be used as an identifier when uploading/retrieving the public key via REST API.
 	Alias string `pulumi:"alias"`

@@ -53,11 +53,10 @@ public final class GetLocalDebianRepositoryResult {
     /**
      * @return When set, the repository will use the deprecated trivial layout.
      * 
-     * @deprecated
-     * You shouldn&#39;t be using this
+     * @deprecated You shouldn&#39;t be using this
      * 
      */
-    @Deprecated /* You shouldn't be using this */
+    @Deprecated
     private @Nullable Boolean trivialLayout;
     private @Nullable Boolean xrayIndex;
 
@@ -139,11 +138,10 @@ public final class GetLocalDebianRepositoryResult {
     /**
      * @return When set, the repository will use the deprecated trivial layout.
      * 
-     * @deprecated
-     * You shouldn&#39;t be using this
+     * @deprecated You shouldn&#39;t be using this
      * 
      */
-    @Deprecated /* You shouldn't be using this */
+    @Deprecated
     public Optional<Boolean> trivialLayout() {
         return Optional.ofNullable(this.trivialLayout);
     }

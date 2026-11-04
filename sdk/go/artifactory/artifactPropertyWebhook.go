@@ -169,6 +169,12 @@ func (ArtifactPropertyWebhookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*artifactPropertyWebhookState)(nil)).Elem()
 }
 
+// ArtifactPropertyWebhookExists checks whether an existing ArtifactPropertyWebhook resource with the given ID exists.
+func ArtifactPropertyWebhookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ArtifactPropertyWebhookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook", id, state, "", opts...)
+}
+
 type artifactPropertyWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
 	Criteria ArtifactPropertyWebhookCriteria `pulumi:"criteria"`

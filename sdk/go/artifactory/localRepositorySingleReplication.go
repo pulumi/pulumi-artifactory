@@ -255,6 +255,12 @@ func (LocalRepositorySingleReplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*localRepositorySingleReplicationState)(nil)).Elem()
 }
 
+// LocalRepositorySingleReplicationExists checks whether an existing LocalRepositorySingleReplication resource with the given ID exists.
+func LocalRepositorySingleReplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocalRepositorySingleReplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication", id, state, "", opts...)
+}
+
 type localRepositorySingleReplicationArgs struct {
 	// Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
 	CheckBinaryExistenceInFilestore *bool `pulumi:"checkBinaryExistenceInFilestore"`

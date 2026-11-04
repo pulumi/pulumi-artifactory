@@ -203,6 +203,12 @@ func (VirtualSbtRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualSbtRepositoryState)(nil)).Elem()
 }
 
+// VirtualSbtRepositoryExists checks whether an existing VirtualSbtRepository resource with the given ID exists.
+func VirtualSbtRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualSbtRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("artifactory:index/virtualSbtRepository:VirtualSbtRepository", id, state, "", opts...)
+}
+
 type virtualSbtRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`

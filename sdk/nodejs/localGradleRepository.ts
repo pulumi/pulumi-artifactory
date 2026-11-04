@@ -45,6 +45,17 @@ export class LocalGradleRepository extends pulumi.CustomResource {
         return new LocalGradleRepository(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing LocalGradleRepository resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: LocalGradleRepositoryState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("artifactory:index/localGradleRepository:LocalGradleRepository", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'artifactory:index/localGradleRepository:LocalGradleRepository';
 

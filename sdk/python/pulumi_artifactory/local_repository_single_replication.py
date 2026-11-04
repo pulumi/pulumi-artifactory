@@ -848,6 +848,46 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
         __props__.__dict__["username"] = username
         return LocalRepositorySingleReplication(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            check_binary_existence_in_filestore: pulumi.Input[Optional[_builtins.bool]] = None,
+            cron_exp: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_proxy: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_event_replication: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            exclude_path_prefix_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            include_path_prefix_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            proxy: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_key: pulumi.Input[Optional[_builtins.str]] = None,
+            repo_key: pulumi.Input[Optional[_builtins.str]] = None,
+            socket_timeout_millis: pulumi.Input[Optional[_builtins.int]] = None,
+            sync_deletes: pulumi.Input[Optional[_builtins.bool]] = None,
+            sync_properties: pulumi.Input[Optional[_builtins.bool]] = None,
+            sync_statistics: pulumi.Input[Optional[_builtins.bool]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["checkBinaryExistenceInFilestore"] = check_binary_existence_in_filestore
+        __props__["cronExp"] = cron_exp
+        __props__["disableProxy"] = disable_proxy
+        __props__["enableEventReplication"] = enable_event_replication
+        __props__["enabled"] = enabled
+        __props__["excludePathPrefixPattern"] = exclude_path_prefix_pattern
+        __props__["includePathPrefixPattern"] = include_path_prefix_pattern
+        __props__["password"] = password
+        __props__["proxy"] = proxy
+        __props__["replicationKey"] = replication_key
+        __props__["repoKey"] = repo_key
+        __props__["socketTimeoutMillis"] = socket_timeout_millis
+        __props__["syncDeletes"] = sync_deletes
+        __props__["syncProperties"] = sync_properties
+        __props__["syncStatistics"] = sync_statistics
+        __props__["url"] = url
+        __props__["username"] = username
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="checkBinaryExistenceInFilestore")
     def check_binary_existence_in_filestore(self) -> pulumi.Output[_builtins.bool]:

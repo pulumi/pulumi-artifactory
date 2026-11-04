@@ -644,6 +644,36 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["watch_manager"] = watch_manager
         return Group(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            admin_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_join: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            detach_all_users: pulumi.Input[Optional[_builtins.bool]] = None,
+            external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_manager: pulumi.Input[Optional[_builtins.bool]] = None,
+            realm: pulumi.Input[Optional[_builtins.str]] = None,
+            realm_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+            reports_manager: pulumi.Input[Optional[_builtins.bool]] = None,
+            users_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            watch_manager: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["adminPrivileges"] = admin_privileges
+        __props__["autoJoin"] = auto_join
+        __props__["description"] = description
+        __props__["detachAllUsers"] = detach_all_users
+        __props__["externalId"] = external_id
+        __props__["name"] = name
+        __props__["policyManager"] = policy_manager
+        __props__["realm"] = realm
+        __props__["realmAttributes"] = realm_attributes
+        __props__["reportsManager"] = reports_manager
+        __props__["usersNames"] = users_names
+        __props__["watchManager"] = watch_manager
+        return pulumi.runtime.exists_resource(None, 'artifactory:index/group:Group', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="adminPrivileges")
     def admin_privileges(self) -> pulumi.Output[_builtins.bool]:
